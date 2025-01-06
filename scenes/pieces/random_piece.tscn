@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bql308123inii"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_mjy8j"]
+[ext_resource type="Texture2D" uid="uid://xjgbi3gueipw" path="res://assets/32rogues/items.png" id="2_6l3k1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nxes"]
+atlas = ExtResource("2_6l3k1")
+region = Rect2(134.178, 451.158, 20.8724, 24.3481)
+
+[node name="RandomPiece" instance=ExtResource("1_mjy8j")]
+color = "Random"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.369568, 0.381529, 0.675781, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(2.3, 2.3)
+texture = SubResource("AtlasTexture_4nxes")

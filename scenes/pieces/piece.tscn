@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://iyqiu0ynkg46"]
+
+[ext_resource type="Script" path="res://scripts/piece.gd" id="1_vwivf"]
+
+[node name="Piece" type="Node2D"]
+script = ExtResource("1_vwivf")
+
+[node name="Panel" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)

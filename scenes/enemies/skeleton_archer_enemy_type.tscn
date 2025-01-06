@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6cdadi37728b"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_1yg82"]
+[ext_resource type="Texture2D" uid="uid://bycwus6to3uht" path="res://assets/32rogues/enem/skeleton_archer.png" id="2_0e6rh"]
+
+[node name="SkeletonArcherEnemyType" instance=ExtResource("1_1yg82")]
+type = "SkeletonArcher"
+health = 10.0
+health_increase = 2
+max_health = 10.0
+shield = 15.0
+shield_increase = 10
+damage = 8.0
+coin_worth = 5
+hit_multiplier = 1.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0e6rh")

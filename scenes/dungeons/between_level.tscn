@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cufeaw7k74acp"]
+
+[ext_resource type="PackedScene" uid="uid://ctbkvjer2ncd4" path="res://scenes/controllable_player.tscn" id="1_ec7ky"]
+
+[node name="Between_level" type="Node2D"]
+
+[node name="Controllable_player" parent="." instance=ExtResource("1_ec7ky")]

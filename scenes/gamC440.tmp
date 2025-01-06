@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmxfdjf4ton2o"]
+
+[ext_resource type="Texture2D" uid="uid://34lobxrh68ql" path="res://assets/UI/Backgrounds/background 2.png" id="1_6h6i2"]
+[ext_resource type="Texture2D" uid="uid://bvi2jiiwklq15" path="res://assets/UI/Top UI v 2.png" id="2_2yyvh"]
+[ext_resource type="Texture2D" uid="uid://dtf12khg42w7x" path="res://assets/UI/Bottom UI v 2.png" id="3_mei5y"]
+[ext_resource type="Script" path="res://scripts/grid.gd" id="4_pskgn"]
+
+[node name="GameWindow" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6h6i2")
+
+[node name="TopUI" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_2yyvh")
+
+[node name="BottomUI" type="TextureRect" parent="."]
+offset_top = 928.0
+offset_right = 576.0
+offset_bottom = 1020.0
+texture = ExtResource("3_mei5y")
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("4_pskgn")
+width = 8
+height = 10
+x_start = 64
+y_start = 800
+offset = 64
+
+[node name="DestroyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="CollapseTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
+[connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]

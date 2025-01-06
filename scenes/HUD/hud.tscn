@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0tdvbbvipih8"]
+
+[ext_resource type="Texture2D" path="res://assets/32rogues/Shield.png" id="1_or0cw"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_p5vmq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnofe"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut5x6"]
+bg_color = Color(0.679688, 0.0398254, 0.0398254, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_p5vmq")
+
+[node name="PlayerHealth" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -912.0
+offset_top = -496.0
+offset_right = -745.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_mnofe")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ut5x6")
+value = 50.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="PlayerHealth"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -11.5
+offset_right = 14.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="PlayerShield" type="Sprite2D" parent="PlayerHealth"]
+unique_name_in_owner = true
+position = Vector2(178.667, 8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_or0cw")
+
+[node name="PlayerShieldLabel" type="Label" parent="PlayerHealth/PlayerShield"]
+unique_name_in_owner = true
+offset_left = -7.22251
+offset_top = -12.0833
+offset_right = 11.7775
+offset_bottom = 10.9167
+scale = Vector2(0.8, 0.8)
+text = "20"
+horizontal_alignment = 1

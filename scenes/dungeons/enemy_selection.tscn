@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfvovq27b7glp"]
+
+[ext_resource type="Script" path="res://scripts/enemy_selection.gd" id="1_qhfit"]
+[ext_resource type="PackedScene" uid="uid://ctbkvjer2ncd4" path="res://scenes/controllable_player.tscn" id="2_n5fus"]
+
+[node name="Enemy_selection" type="Node2D"]
+script = ExtResource("1_qhfit")
+enemy = "Skeleton"
+
+[node name="Controllable_player" parent="." instance=ExtResource("2_n5fus")]

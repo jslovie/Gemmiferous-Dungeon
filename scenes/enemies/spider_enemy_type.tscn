@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://rcwev37by5y"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_u4wc3"]
+[ext_resource type="Texture2D" uid="uid://dby0kivydo28w" path="res://assets/32rogues/enem/spider.png" id="2_ghmtc"]
+
+[node name="SpiderEnemyType" instance=ExtResource("1_u4wc3")]
+type = "Spider"
+health = 5.0
+max_health = 20.0
+damage = 4.0
+coin_worth = 3
+hit_multiplier = 1.5
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ghmtc")

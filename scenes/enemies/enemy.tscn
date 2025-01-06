@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://n43ef13rao3h"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1qn5t"]
+[ext_resource type="Texture2D" path="res://assets/32rogues/enem/skeleton.png" id="2_qsaom"]
+[ext_resource type="PackedScene" uid="uid://bql308123inii" path="res://scenes/pieces/random_piece.tscn" id="3_055m7"]
+[ext_resource type="PackedScene" uid="uid://b570oxexdcdm3" path="res://scenes/pieces/shield_piece.tscn" id="4_yre0p"]
+[ext_resource type="PackedScene" uid="uid://clwqkm8vxwml7" path="res://scenes/pieces/heal_piece.tscn" id="5_0gyra"]
+[ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="6_xh011"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3vca"]
+radius = 140.036
+
+[sub_resource type="Animation" id="Animation_5sy3q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_20rb6"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gihrh"]
+resource_name = "hit_skeleton"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.449219, 0.449219, 0.449219, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ihqq1"]
+resource_name = "hit_spider"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.524, 3.243, 0.524, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwrcl"]
+_data = {
+"RESET": SubResource("Animation_5sy3q"),
+"hit": SubResource("Animation_20rb6"),
+"hit_skeleton": SubResource("Animation_gihrh"),
+"hit_spider": SubResource("Animation_ihqq1")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_1qn5t")
+
+[node name="EnemyType" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(15, 15)
+texture = ExtResource("2_qsaom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v3vca")
+
+[node name="ActionTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="Actions" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -286)
+
+[node name="RandomPiece" parent="Actions" instance=ExtResource("3_055m7")]
+unique_name_in_owner = true
+scale = Vector2(1.5, 1.5)
+
+[node name="ShieldPiece" parent="Actions" instance=ExtResource("4_yre0p")]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="HealPiece" parent="Actions" instance=ExtResource("5_0gyra")]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="SwordPiece" parent="Actions" instance=ExtResource("6_xh011")]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_dwrcl")
+}
+speed_scale = 4.0
+
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

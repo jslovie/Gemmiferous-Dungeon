@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv0ldcglpasbk"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_iave7"]
+[ext_resource type="Texture2D" uid="uid://xjgbi3gueipw" path="res://assets/32rogues/items.png" id="2_o6mkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dshp8"]
+atlas = ExtResource("2_o6mkw")
+region = Rect2(70.4203, 293.643, 18.02, 17.6518)
+
+[node name="BowPiece" instance=ExtResource("1_iave7")]
+color = "bow"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.188324, 0.472656, 0.232751, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-1, -1)
+scale = Vector2(3.2, 3.2)
+texture = SubResource("AtlasTexture_dshp8")
