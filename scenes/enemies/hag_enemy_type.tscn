@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy124gc4k7j7i"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_nc8hs"]
+[ext_resource type="Texture2D" uid="uid://clt1yk8e0fide" path="res://assets/32rogues/enem/hag.png" id="2_bweyl"]
+
+[node name="HagEnemyType" instance=ExtResource("1_nc8hs")]
+type = "Hag"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_bweyl")

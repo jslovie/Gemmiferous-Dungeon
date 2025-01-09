@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4mnos36j8586"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_6jotw"]
+[ext_resource type="Texture2D" uid="uid://uqoyhlhoi7dq" path="res://assets/32rogues/enem/rat.png" id="2_ykmuq"]
+
+[node name="RatEnemyType" instance=ExtResource("1_6jotw")]
+type = "Rat"
+health = 20.0
+health_increase = 4
+max_health = 20.0
+damage = 3.0
+coin_worth = 3
+hit_multiplier = 2.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ykmuq")
