@@ -1,18 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=18 format=4 uid="uid://c4nj2slp4rwvx"]
 
-[ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
-[ext_resource type="Texture2D" uid="uid://dvug34kul3l13" path="res://assets/Background/Background.png" id="1_m0pxm"]
-[ext_resource type="Texture2D" uid="uid://bvi2jiiwklq15" path="res://assets/UI/Top UI v 2.png" id="2_2yyvh"]
-[ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
-[ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_kiygc"]
-[ext_resource type="Texture2D" uid="uid://dtf12khg42w7x" path="res://assets/UI/Bottom UI v 2.png" id="3_mei5y"]
-[ext_resource type="Script" path="res://scripts/grid.gd" id="4_pskgn"]
-[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
-[ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_gvty1"]
-[ext_resource type="FontFile" uid="uid://bt06rti8mm5ue" path="res://assets/GallaeciaForte.ttf" id="9_jw7cf"]
+[ext_resource type="Script" path="res://scripts/treasure_window.gd" id="1_pd3tb"]
+[ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_d7mb0"]
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="3_m6n48"]
+[ext_resource type="Texture2D" uid="uid://xjgbi3gueipw" path="res://assets/32rogues/items.png" id="4_ha6yl"]
+[ext_resource type="Texture2D" uid="uid://dvug34kul3l13" path="res://assets/Background/Background.png" id="4_yqugh"]
+[ext_resource type="Texture2D" uid="uid://bvi2jiiwklq15" path="res://assets/UI/Top UI v 2.png" id="5_wijta"]
+[ext_resource type="Texture2D" uid="uid://dtf12khg42w7x" path="res://assets/UI/Bottom UI v 2.png" id="6_sns3d"]
+[ext_resource type="Script" path="res://scripts/treasure.gd" id="7_kji6f"]
+[ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_prcep"]
+[ext_resource type="FontFile" uid="uid://bt06rti8mm5ue" path="res://assets/GallaeciaForte.ttf" id="9_47tiw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0xu1"]
-texture = ExtResource("2_kiygc")
+texture = ExtResource("2_d7mb0")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -127,8 +127,16 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_m0xu1")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vwg1"]
+atlas = ExtResource("4_ha6yl")
+region = Rect2(98.8366, 262.459, 26.3505, 21.6209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okmgl"]
+atlas = ExtResource("2_d7mb0")
+region = Rect2(3.03703, 548.055, 25.9177, 22.5543)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dvgcu"]
-atlas = ExtResource("1_m0pxm")
+atlas = ExtResource("4_yqugh")
 region = Rect2(0, 373.953, 928, 419.047)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk2h3"]
@@ -145,8 +153,8 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="GameWindow" type="Node2D"]
-script = ExtResource("1_0rfml")
+[node name="Treasure" type="Node2D"]
+script = ExtResource("1_pd3tb")
 
 [node name="DungeonTiles" type="TileMapLayer" parent="."]
 position = Vector2(12, -28)
@@ -158,13 +166,20 @@ tile_set = SubResource("TileSet_5mgtx")
 tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
 tile_set = SubResource("TileSet_5mgtx")
 
-[node name="Player" parent="." instance=ExtResource("7_2hndj")]
+[node name="Player" parent="." instance=ExtResource("3_m6n48")]
 z_index = 1
 position = Vector2(-282, 735)
 
-[node name="Enemy" parent="." instance=ExtResource("2_04xhg")]
-z_index = 1
-position = Vector2(921, 735)
+[node name="Chest" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(909, 839)
+scale = Vector2(12, 12)
+texture = SubResource("AtlasTexture_7vwg1")
+
+[node name="Chest2" type="Sprite2D" parent="."]
+position = Vector2(909, 839)
+scale = Vector2(13, 13)
+texture = SubResource("AtlasTexture_okmgl")
 
 [node name="Background" type="TextureRect" parent="."]
 visible = false
@@ -183,17 +198,17 @@ offset_bottom = 1024.0
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_2yyvh")
+texture = ExtResource("5_wijta")
 
 [node name="BottomUI" type="TextureRect" parent="."]
 visible = false
 offset_top = 928.0
 offset_right = 576.0
 offset_bottom = 1020.0
-texture = ExtResource("3_mei5y")
+texture = ExtResource("6_sns3d")
 
 [node name="Grid" type="Node2D" parent="."]
-script = ExtResource("4_pskgn")
+script = ExtResource("7_kji6f")
 width = 8
 height = 10
 x_start = 64
@@ -259,7 +274,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 position = Vector2(178.667, 8)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_gvty1")
+texture = ExtResource("8_prcep")
 
 [node name="PlayerShieldLabel" type="Label" parent="PlayerHealth/PlayerShield"]
 unique_name_in_owner = true
@@ -273,6 +288,7 @@ horizontal_alignment = 1
 
 [node name="EnemyHealth" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -311,7 +327,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 position = Vector2(178.667, 8)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_gvty1")
+texture = ExtResource("8_prcep")
 
 [node name="EnemyShieldLabel" type="Label" parent="EnemyHealth/EnemyShield"]
 unique_name_in_owner = true
@@ -346,7 +362,7 @@ offset_right = 37.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jw7cf")
+theme_override_fonts/font = ExtResource("9_47tiw")
 theme_override_font_sizes/font_size = 60
 text = "You Died!"
 
@@ -394,6 +410,18 @@ offset_bottom = 105.0
 theme_override_font_sizes/font_size = 30
 text = "Coins: 0"
 
+[node name="TimesUp" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="TimesUpGrid" type="Timer" parent="TimesUp"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
+[connection signal="timeout" from="TimesUp" to="Grid" method="_on_times_up_timeout"]
+[connection signal="timeout" from="TimesUp/TimesUpGrid" to="." method="_on_times_up_grid_timeout"]

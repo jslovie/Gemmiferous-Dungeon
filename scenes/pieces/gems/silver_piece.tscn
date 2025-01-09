@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr6xy85c8vqhp"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_8x17e"]
+[ext_resource type="Texture2D" uid="uid://cgevr4kqt4g1n" path="res://assets/32rogues/gems/silver.png" id="2_qgafl"]
+
+[node name="SilverPiece" instance=ExtResource("1_8x17e")]
+color = "silver"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.415981, 0.41598, 0.415981, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qgafl")

@@ -3,6 +3,7 @@ extends Node2D
 #State Machine
 enum {wait, move}
 var state
+var timesup = false
 
 #Grid variables
 @export var width: int
@@ -14,12 +15,12 @@ var state
 
 #Possible pieces array
 var possible_pieces = [
-	preload("res://scenes/pieces/sword_piece.tscn"),
-	preload("res://scenes/pieces/bow_piece.tscn"),
-	preload("res://scenes/pieces/magic_piece.tscn"),
-	preload("res://scenes/pieces/shield_piece.tscn"),
-	preload("res://scenes/pieces/xp_piece.tscn"),
-	#preload(),
+	preload("res://scenes/pieces/gems/red_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/green_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/blue_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/gold_piece.tscn"),
+	preload("res://scenes/pieces/gems/silver_piece.tscn"),
 ]
 
 
@@ -46,7 +47,7 @@ func _ready():
 	spawn_pieces()
 
 func _process(delta):
-	if EnemyManager.enemy.status == "dead":
+	if timesup == true:
 		state = wait
 	if state == move:
 		touch_input()
@@ -302,6 +303,8 @@ func after_refill():
 	state = move
 	move_checked = false
 	
+
+
 func _on_destroy_timer_timeout():
 	destroy_matched()
 
@@ -310,3 +313,7 @@ func _on_collapse_timer_timeout():
 
 func _on_refill_timer_timeout():
 	refill_columns()
+
+
+func _on_times_up_timeout():
+	timesup = true

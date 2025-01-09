@@ -382,7 +382,7 @@ offset_left = 107.0
 offset_top = 953.0
 offset_right = 139.0
 offset_bottom = 985.0
-type = "Enemy"
+type = "Treasure"
 level = 1
 
 [node name="LevelSelection2" parent="Control/DungeonF1_1/Panel" instance=ExtResource("1_fovlk")]

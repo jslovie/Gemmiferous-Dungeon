@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ka35p6f2npn"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_h2k7r"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="2_hhcnb"]
+
+[node name="BlueGemPiece" instance=ExtResource("1_h2k7r")]
+color = "blue"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.231373, 0.231373, 0.556863, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -2)
+scale = Vector2(3, 3)
+texture = ExtResource("2_hhcnb")

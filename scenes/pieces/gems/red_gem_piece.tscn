@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ma0x7jmtjrq"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_bht01"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="2_c4lct"]
+
+[node name="RedGemPiece" instance=ExtResource("1_bht01")]
+color = "red"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.34902, 0.231373, 0.231373, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_c4lct")

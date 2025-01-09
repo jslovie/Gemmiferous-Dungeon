@@ -59,6 +59,7 @@ func select_enemy():
 		
 func select_type():
 	LevelManager.show_map = false
+	LevelManager.type = type
 	if type == "Enemy":
 		EnemyManager.enemy_type = enemy_type
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
@@ -66,6 +67,9 @@ func select_type():
 	elif type == "Elite Enemy":
 		EnemyManager.enemy_type = enemy_type
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
+	
+	elif type == "Treasure":
+		get_tree().change_scene_to_file("res://scenes/treasure.tscn")
 	
 	elif type == "Rest":
 		get_tree().change_scene_to_file("res://scenes/dungeons/rest.tscn")

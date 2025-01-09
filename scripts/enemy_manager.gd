@@ -2,6 +2,7 @@ extends Node
 
 const ENEMY = preload("res://scenes/enemies/enemy.tscn")
 
+
 var enemy : Enemy
 
 var type : String

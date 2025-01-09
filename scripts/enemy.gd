@@ -5,7 +5,7 @@ enum {alive, dead}
 var state
 var status = "alive"
 
-#Twice for testing purposes
+
 var type = "spider"
 var health = 20
 var health_increase = 5
@@ -57,25 +57,25 @@ func Type_check():
 
 func random_action():
 	var random = Random.get_rng()
-	
+		
 	if random == "attack":
 		inflict_damage()
 		%SwordPiece.visible = true
 		await get_tree().create_timer(2.0).timeout
 		%SwordPiece.visible = false
-		
+			
 	if random == "shield":
 		shield_up()
 		%ShieldPiece.visible = true
 		await get_tree().create_timer(2.0).timeout
 		%ShieldPiece.visible = false
-		
+			
 	if random == "heal":
 		heal()
 		%HealPiece.visible = true
 		await get_tree().create_timer(2.0).timeout
 		%HealPiece.visible = false
-		
+			
 func inflict_damage():
 	PlayerManager.player.receive_damage(damage)
 
