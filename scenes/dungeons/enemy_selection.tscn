@@ -8,3 +8,10 @@ script = ExtResource("1_qhfit")
 enemy = "Skeleton"
 
 [node name="Controllable_player" parent="." instance=ExtResource("2_n5fus")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -52.0
+offset_right = 64.0
+offset_bottom = -29.0
+text = "Enemy Selection"

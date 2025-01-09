@@ -5,7 +5,6 @@ enum{alive, dead}
 var state
 var status = "alive"
 
-var first_spawn = true
 
 var sword_damage = 3.0
 var magic_damage = 3.0
@@ -13,25 +12,18 @@ var bow_damage = 3.0
 var health = 50
 var max_health = 50
 var shield = 0
-var shield_load = 0
+var shield_load = 3
 var xp = 0
 var coins = 0
 var piece_multiplier = 1
 
+var spawned = false
 
 
 func _ready():
 	state = alive
 	PlayerManager.player = self
-	load_handle()
 
-func load_handle():
-	if first_spawn == true:
-		first_spawn = false
-		SaveManager.autosave()
-	else:
-		SaveManager.load_autosave()
-		
 
 func sword_attack():
 	EnemyManager.enemy.take_damage(sword_damage)
@@ -43,10 +35,12 @@ func bow_attack():
 	EnemyManager.enemy.take_damage(bow_damage)
 
 func shield_up(amount):
-	shield += amount
+	if EnemyManager.enemy.status == "alive":
+		shield += amount
 
 func xp_up():
-	xp += 1
+	if EnemyManager.enemy.status == "alive":
+		xp += 1
 
 func get_coins(amount):
 	coins += amount
@@ -90,4 +84,5 @@ func get_killed():
 	tween_rotate.tween_property($Character, "rotation", deg_to_rad(-90), 0.5)
 	
 	await get_tree().create_timer(3).timeout
-	get_tree().change_scene_to_file("res://scenes/dungeons/test_world.tscn")
+	SaveManager.remove_autosave()
+	get_tree().quit()

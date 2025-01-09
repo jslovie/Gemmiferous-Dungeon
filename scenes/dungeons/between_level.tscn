@@ -5,3 +5,10 @@
 [node name="Between_level" type="Node2D"]
 
 [node name="Controllable_player" parent="." instance=ExtResource("1_ec7ky")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -52.0
+offset_right = 64.0
+offset_bottom = -29.0
+text = "Between Level"

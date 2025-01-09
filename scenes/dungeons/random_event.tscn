@@ -1,0 +1,223 @@
+[gd_scene load_steps=6 format=4 uid="uid://coy5ww7r67sk2"]
+
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="1_lms4r"]
+[ext_resource type="Script" path="res://scripts/random_event.gd" id="1_ss7xc"]
+[ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_trmf0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qx5d"]
+texture = ExtResource("2_trmf0")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mou7w"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_6qx5d")
+
+[node name="Random Event" type="Node2D"]
+script = ExtResource("1_ss7xc")
+
+[node name="Player" parent="." instance=ExtResource("1_lms4r")]
+position = Vector2(974, 483)
+
+[node name="DungeonF1" type="Node2D" parent="."]
+
+[node name="DungeonTiles" type="TileMapLayer" parent="DungeonF1"]
+position = Vector2(800, -10)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wQAAAAAAAYAAAD6/wUAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wcAAAAAAAYAAAD7////AAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAABAAEAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD7/wQAAAACAAcAAAD7/wUAAAAAAAYAAAD7/wcAAAAAAAYAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAEAAAD8/wIAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wQAAAAAAAYAAAD8/wUAAAACAAoAAAD8/wYAAAAAAAYAAAD8/wcAAAAAAAYAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAEAAAD9/wIAAAACAAcAAAD9/wMAAAAAAAYAAAD9/wQAAAAAAAYAAAD9/wUAAAAAAAYAAAD9/wYAAAAAAAYAAAD9/wcAAAAAAAYAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAABAAEAAAD+/wIAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wQAAAAAAAYAAAD+/wUAAAAAAAYAAAD+/wYAAAAAAAYAAAD+/wcAAAAAAAYAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAABAAEAAAD//wIAAAAAAAYAAAD//wMAAAADAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAABAAEAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAACAAkAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAADAAkAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAADAAoAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAABAAEAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAIAAAACAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAADAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_mou7w")
+
+[node name="DungeonTilesDetails" type="TileMapLayer" parent="DungeonF1/DungeonTiles"]
+tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
+tile_set = SubResource("TileSet_mou7w")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 980.0
+offset_top = 491.0
+offset_right = 980.0
+offset_bottom = 491.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -298.0
+offset_right = 296.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -229.0
+offset_right = 200.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "You were caught off guard and attacked by surprise"
+autowrap_mode = 2
+
+[node name="Option1" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -19.0
+offset_right = 117.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Fight back
+Loose 10 HP"
+
+[node name="Option2" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = 102.0
+offset_right = 154.5
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Run
+Loose 3 coins and 3 XP"
+autowrap_mode = 2
+
+[connection signal="pressed" from="Control/Panel/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Control/Panel/Option2" to="." method="_on_option_2_pressed"]

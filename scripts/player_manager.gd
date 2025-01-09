@@ -14,7 +14,9 @@ var shield_load = 0
 var xp = 0
 var coins = 0
 
-var show_map = true
+
+
+
 
 func update_stats():
 	var p : Player = PlayerManager.player
@@ -28,7 +30,7 @@ func update_stats():
 	xp = p.xp
 	coins = p.coins
 
-func set_player_stats(sword_damage, magic_damage, bow_damage, health, max_health, shield, shield_load, xp, coins, first_spawn):
+func set_player_stats(sword_damage, magic_damage, bow_damage, health, max_health, shield, shield_load, xp, coins,):
 	player.sword_damage = sword_damage
 	player.magic_damage = magic_damage
 	player.bow_damage = bow_damage
@@ -38,4 +40,3 @@ func set_player_stats(sword_damage, magic_damage, bow_damage, health, max_health
 	player.shield_load = shield_load
 	player.xp = xp
 	player.coins = coins
-	player.first_spawn = first_spawn

@@ -145,7 +145,7 @@ func get_killed():
 	#Scene change
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
-	PlayerManager.show_map = true
+	LevelManager.show_map = true
 	
 
 func _on_action_timer_timeout():

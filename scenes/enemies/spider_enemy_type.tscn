@@ -5,8 +5,10 @@
 
 [node name="SpiderEnemyType" instance=ExtResource("1_u4wc3")]
 type = "Spider"
-health = 5.0
+health = 20.0
+health_increase = 5
 max_health = 20.0
+shield_increase = 1
 damage = 4.0
 coin_worth = 3
 hit_multiplier = 1.5

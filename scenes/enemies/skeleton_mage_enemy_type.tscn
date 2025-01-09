@@ -9,7 +9,7 @@ health = 30.0
 health_increase = 15
 max_health = 30.0
 shield_increase = 1
-damage = 50.0
+damage = 10.0
 coin_worth = 10
 hit_multiplier = 1.0
 

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_gvty1"]
 [ext_resource type="FontFile" uid="uid://bt06rti8mm5ue" path="res://assets/GallaeciaForte.ttf" id="9_jw7cf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oglnb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_syi1m"]
 texture = ExtResource("2_kiygc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -125,7 +125,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_5mgtx"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_oglnb")
+sources/0 = SubResource("TileSetAtlasSource_syi1m")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dvgcu"]
 atlas = ExtResource("1_m0pxm")

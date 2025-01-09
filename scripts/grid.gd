@@ -54,6 +54,13 @@ func make_2d_array():
 			array[i].append(null)
 	return array
 
+func choose_type():
+	pass
+
+func spawn_pieces_treasure():
+	pass
+
+
 func spawn_pieces():
 	for i in width:
 		for j in height:
@@ -205,13 +212,13 @@ func destroy_matched():
 					all_pieces[i][j] = null
 	#Shield update
 	if shield_load == 3:
-		PlayerManager.player.shield_up(1)
+		PlayerManager.player.shield_up(PlayerManager.player.shield_load)
 		shield_load = 0
 	elif shield_load == 4:
-		PlayerManager.player.shield_up(2)
+		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
 		shield_load = 0
 	elif shield_load >= 5:
-		PlayerManager.player.shield_up(5)
+		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
 	#Sword update
 	if sword_load == 3:
 		PlayerManager.player.piece_multiplier = 1
