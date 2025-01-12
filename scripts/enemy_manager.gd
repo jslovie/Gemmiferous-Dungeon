@@ -13,9 +13,11 @@ var shield : float
 var shield_increase : int
 var damage : float
 var coin_worth : int
-var hit_multiplier : float
+var hit_multiplier : int
+var action_delay : float
+var blood_type : String
 
-var enemy_type : String
+#var enemy_type : String
 
 func print_test():
 	print("inside of Enemy Manager")
@@ -23,3 +25,5 @@ func print_test():
 	print(health_increase)
 	print(max_health)
 	print(shield_increase)
+	print("Action delay is: " + str(action_delay))
+	print(blood_type)

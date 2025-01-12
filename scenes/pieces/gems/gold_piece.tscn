@@ -7,7 +7,7 @@
 color = "gold"
 
 [node name="Panel" parent="." index="0"]
-color = Color(0.503155, 0.50311, 0.0915302, 1)
+color = Color(0.55295, 0.00197259, 0.773503, 1)
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(2, 2)

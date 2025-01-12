@@ -8,7 +8,7 @@ func _ready():
 
 
 func select_enemy():
-	enemy = EnemyManager.enemy_type
+	enemy = EnemyManager.type
 	if enemy == "Spider":
 		var spider = preload("res://scenes/enemies/spider_enemy_type.tscn").instantiate()
 		spider.global_position = $Controllable_player.global_position
@@ -45,3 +45,4 @@ func select_enemy():
 		var skeleton_archer = preload("res://scenes/enemies/skeleton_archer_enemy_type.tscn").instantiate()
 		skeleton_archer.global_position = $Controllable_player.global_position
 		add_child(skeleton_archer)
+	print("Enemy is : " + str(enemy))

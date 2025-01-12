@@ -15,13 +15,16 @@ var shield_increase = 3
 var damage = 5
 var coin_worth = 5
 var hit_multiplier = 1
+var action_delay = 0
+var blood_type
 
 func _ready():
 	stat_check()
 	state = alive
 	EnemyManager.enemy = self
+	change_delay()
 	%ActionTimer.start()
-
+	
 func _process(delta):
 	pass
 
@@ -35,25 +38,31 @@ func stat_check():
 	damage = EnemyManager.damage
 	coin_worth = EnemyManager.coin_worth
 	hit_multiplier = EnemyManager.hit_multiplier
+	action_delay = EnemyManager.action_delay
+	blood_type = EnemyManager.blood_type
 	Type_check()
 	
 func Type_check():
 	if type == "Skeleton":
 		var skeleton_texture = load("res://assets/32rogues/enem/skeleton.png")
 		%EnemyType.texture = skeleton_texture
-		%ActionTimer.wait_time = 4
 	elif type == "Spider":
 		var spider_texture = load("res://assets/32rogues/enem/spider.png")
 		%EnemyType.texture = spider_texture
-		%ActionTimer.wait_time = 3
 	elif type == "SkeletonArcher":
 		var skeleton_archer_texture = load("res://assets/32rogues/enem/skeleton_archer.png")
 		%EnemyType.texture = skeleton_archer_texture
-		%ActionTimer.wait_time = 5
 	elif type == "SkeletonMage":
 		var skeleton_mage_texture = load("res://assets/32rogues/enem/skeleton_mage.png")
 		%EnemyType.texture = skeleton_mage_texture
-		%ActionTimer.wait_time = 3	
+	elif type == "Hag":
+		var hag_texture = load("res://assets/32rogues/enem/hag.png")
+		%EnemyType.texture = hag_texture
+
+
+func change_delay():
+	%ActionTimer.wait_time = action_delay
+	print(%ActionTimer.wait_time)
 
 func random_action():
 	var random = Random.get_rng()
@@ -97,10 +106,12 @@ func take_damage(damage):
 		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
 		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
 		#Visual hit
-		if type == "spider":
-			%AnimationPlayer.play("hit_spider")
-		elif type == "skeleton" or "skeleton_archer" or "skeleton_mage":
-			%AnimationPlayer.play("hit_skeleton")
+		if blood_type == "Green":
+			%AnimationPlayer.play("hit_green")
+		elif blood_type == "White":
+			%AnimationPlayer.play("hit_white")
+		elif blood_type == "Ghost":
+			%AnimationPlayer.play("hit_ghost")
 		#Logic behind getting hit
 		var health_attack = 0
 		for d in range(0, damage):

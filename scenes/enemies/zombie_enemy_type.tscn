@@ -5,6 +5,16 @@
 
 [node name="ZombieEnemyType" instance=ExtResource("1_cio14")]
 type = "Zombie"
+health = 30.0
+health_increase = 5
+max_health = 30.0
+shield = 5.0
+shield_increase = 3
+damage = 5.0
+coin_worth = 6
+hit_multiplier = 1.1
+action_delay = 4.0
+blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_pyade")

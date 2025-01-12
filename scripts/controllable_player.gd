@@ -41,6 +41,8 @@ func get_body_data(body):
 	EnemyManager.damage = body.get("damage")
 	EnemyManager.coin_worth = body.get("coin_worth")
 	EnemyManager.hit_multiplier = body.get("hit_multiplier")
+	EnemyManager.action_delay = body.get("action_delay")
+	EnemyManager.blood_type = body.get("blood_type")
 	EnemyManager.print_test()
 
 func _on_enemy_detection_radius_body_entered(body):

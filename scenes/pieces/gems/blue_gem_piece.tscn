@@ -7,7 +7,7 @@
 color = "blue"
 
 [node name="Panel" parent="." index="0"]
-color = Color(0.231373, 0.231373, 0.556863, 1)
+color = Color(0.959548, 2.69532e-06, 0.575564, 1)
 
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(0, -2)

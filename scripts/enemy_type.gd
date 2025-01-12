@@ -9,3 +9,5 @@ extends CharacterBody2D
 @export var damage : float
 @export var coin_worth : int
 @export var hit_multiplier : float
+@export var action_delay : float
+@export var blood_type : String

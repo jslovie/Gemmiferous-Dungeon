@@ -5,6 +5,15 @@
 
 [node name="GhoulEnemyType" instance=ExtResource("1_unwxo")]
 type = "Ghoul"
+health = 40.0
+health_increase = 8
+max_health = 40.0
+shield_increase = 5
+damage = 8.0
+coin_worth = 8
+hit_multiplier = 1.0
+action_delay = 5.0
+blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_mjs0u")
