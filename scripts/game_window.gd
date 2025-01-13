@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
 	SaveManager.load_autosave()
 
-func _process(delta):
+func _process(_delta):
 	update_healthbars()
 	update_shields()
 	update_collectibles()

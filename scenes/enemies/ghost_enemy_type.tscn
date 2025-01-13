@@ -5,6 +5,14 @@
 
 [node name="GhostEnemyType" instance=ExtResource("1_0j20g")]
 type = "Ghost"
+health = 75.0
+health_increase = 10
+max_health = 75.0
+damage = 23.0
+coin_worth = 25
+hit_multiplier = 1.0
+action_delay = 10.0
+blood_type = "Ghost"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_auy47")

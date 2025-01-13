@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4qr7vk7f5dhl"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_utqao"]
+[ext_resource type="Texture2D" uid="uid://c752hkoy7ng1b" path="res://assets/32rogues/enem/dragon_boss.png" id="2_dj3ut"]
+
+[node name="DragonBossEnemyType" instance=ExtResource("1_utqao")]
+type = "Dragon Boss"
+health = 150.0
+health_increase = 15
+max_health = 150.0
+shield = 15.0
+shield_increase = 10
+damage = 30.0
+coin_worth = 150
+hit_multiplier = 1.0
+action_delay = 30.0
+blood_type = "Green"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_dj3ut")

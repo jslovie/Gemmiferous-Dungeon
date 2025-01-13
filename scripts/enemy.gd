@@ -18,6 +18,8 @@ var hit_multiplier = 1
 var action_delay = 0
 var blood_type
 
+@onready var time = $ActionTimer
+
 func _ready():
 	stat_check()
 	state = alive
@@ -25,9 +27,10 @@ func _ready():
 	change_delay()
 	%ActionTimer.start()
 	
-func _process(delta):
-	pass
+func _process(_delta):
+	%Label.text = str(time.time_left)
 
+	
 func stat_check():
 	type = EnemyManager.type
 	health = EnemyManager.health
@@ -58,7 +61,30 @@ func Type_check():
 	elif type == "Hag":
 		var hag_texture = load("res://assets/32rogues/enem/hag.png")
 		%EnemyType.texture = hag_texture
-
+	elif type == "Rat":
+		var rat_texture = load("res://assets/32rogues/enem/rat.png")
+		%EnemyType.texture = rat_texture
+	elif type == "Zombie":
+		var zombie_texture = load("res://assets/32rogues/enem/zombie.png")
+		%EnemyType.texture = zombie_texture
+	elif type == "Ghost":
+		var ghost_texture = load("res://assets/32rogues/enem/ghost.png")
+		%EnemyType.texture = ghost_texture
+	elif type == "Ghost Warrior":
+		var ghost_warrior_texture = load("res://assets/32rogues/enem/ghost_warrior.png")
+		%EnemyType.texture = ghost_warrior_texture
+	elif type == "Ghoul":
+		var ghoul_texture = load("res://assets/32rogues/enem/ghoul.png")
+		%EnemyType.texture = ghoul_texture
+	elif type == "Demon Boss":
+		var demon_boss_texture = load("res://assets/32rogues/enem/demon_boss.png")
+		%EnemyType.texture = demon_boss_texture
+	elif type == "Devil Boss":
+		var devil_boss_texture = load("res://assets/32rogues/enem/devil_boss.png")
+		%EnemyType.texture = devil_boss_texture
+	elif type == "Dragon Boss":
+		var dragon_boss_texture = load("res://assets/32rogues/enem/dragon_boss.png")
+		%EnemyType.texture = dragon_boss_texture
 
 func change_delay():
 	%ActionTimer.wait_time = action_delay
@@ -112,6 +138,8 @@ func take_damage(damage):
 			%AnimationPlayer.play("hit_white")
 		elif blood_type == "Ghost":
 			%AnimationPlayer.play("hit_ghost")
+		elif blood_type == "Red":
+			%AnimationPlayer.play("hit_red")
 		#Logic behind getting hit
 		var health_attack = 0
 		for d in range(0, damage):
@@ -134,11 +162,16 @@ func get_killed():
 	%ActionTimer.stop()
 	%Actions.visible = false
 	
-	##Visual hit
-	if type == "spider":
-		%AnimationPlayer.play("hit_spider")
-	elif type == "skeleton" or "skeleton_archer" or "skeleton_mage":
-		%AnimationPlayer.play("hit_skeleton")
+	#Visual hit
+	if blood_type == "Green":
+		%AnimationPlayer.play("hit_green")
+	elif blood_type == "White":
+		%AnimationPlayer.play("hit_white")
+	elif blood_type == "Ghost":
+		%AnimationPlayer.play("hit_ghost")
+	elif blood_type == "Red":
+			%AnimationPlayer.play("hit_red")
+			
 	var tween_scale = create_tween()
 	tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
 	tween_scale.tween_property($EnemyType,"scale", Vector2(15,15), 0.1)
@@ -150,8 +183,8 @@ func get_killed():
 	#Autosave
 	SaveManager.autosave()
 	
-	#Update player stats
-	PlayerManager.update_stats()
+	##Update player stats
+	#PlayerManager.update_stats()
 	
 	#Scene change
 	await get_tree().create_timer(3).timeout

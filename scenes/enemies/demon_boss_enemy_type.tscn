@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs5lsgn1fwaix"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_88glt"]
+[ext_resource type="Texture2D" uid="uid://cx1gnx0ln57eb" path="res://assets/32rogues/enem/demon_boss.png" id="2_qldo3"]
+
+[node name="DemonBossEnemyType" instance=ExtResource("1_88glt")]
+type = "Demon Boss"
+health = 120.0
+health_increase = 5
+max_health = 120.0
+shield = 20.0
+shield_increase = 20
+damage = 15.0
+coin_worth = 120
+hit_multiplier = 1.0
+action_delay = 25.0
+blood_type = "Ghost"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qldo3")

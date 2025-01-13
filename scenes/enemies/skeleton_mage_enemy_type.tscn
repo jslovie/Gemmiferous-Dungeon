@@ -9,9 +9,11 @@ health = 30.0
 health_increase = 15
 max_health = 30.0
 shield_increase = 1
-damage = 10.0
+damage = 9.0
 coin_worth = 10
 hit_multiplier = 1.0
+action_delay = 5.0
+blood_type = "White"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_2c8m6")

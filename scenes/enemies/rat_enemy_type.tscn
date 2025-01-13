@@ -11,6 +11,8 @@ max_health = 20.0
 damage = 3.0
 coin_worth = 3
 hit_multiplier = 2.0
+action_delay = 3.0
+blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_ykmuq")

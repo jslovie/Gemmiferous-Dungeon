@@ -45,7 +45,7 @@ func _ready():
 	all_pieces = make_2d_array()
 	spawn_pieces()
 
-func _process(delta):
+func _process(_delta):
 	if EnemyManager.enemy.status == "dead":
 		state = wait
 	if state == move:

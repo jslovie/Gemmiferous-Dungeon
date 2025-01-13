@@ -3,7 +3,7 @@ extends CanvasLayer
 func _ready():
 	LevelManager.show_map = false
 
-func _process(delta):
+func _process(_delta):
 	dungeon_map()
 
 func dungeon_map():

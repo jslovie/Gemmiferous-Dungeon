@@ -19,8 +19,8 @@ var possible_pieces = [
 	preload("res://scenes/pieces/gems/green_gem_piece.tscn"),
 	preload("res://scenes/pieces/gems/blue_gem_piece.tscn"),
 	preload("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
-	preload("res://scenes/pieces/gems/gold_piece.tscn"),
-	preload("res://scenes/pieces/gems/silver_piece.tscn"),
+	#preload("res://scenes/pieces/gems/gold_piece.tscn"),
+	#preload("res://scenes/pieces/gems/silver_piece.tscn"),
 ]
 
 
@@ -46,7 +46,7 @@ func _ready():
 	all_pieces = make_2d_array()
 	spawn_pieces()
 
-func _process(delta):
+func _process(_delta):
 	if timesup == true:
 		state = wait
 	if state == move:

@@ -12,7 +12,7 @@ shield_increase = 1
 damage = 4.0
 coin_worth = 3
 hit_multiplier = 1.5
-action_delay = 1.0
+action_delay = 3.0
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

@@ -15,7 +15,7 @@ func _ready():
 	select_enemy()
 
 
-func _process(delta):
+func _process(_delta):
 	available_level()
 
 func select_icon():
@@ -34,16 +34,23 @@ func select_icon():
 	elif type == "Rest":
 		var texture = load("res://assets/32rogues/Icons/Rest.png")
 		%Icon.texture = texture
-
+	elif type == "Boss":
+		var texture = load("res://assets/32rogues/Icons/Boss.png")
+		%Icon.texture = texture
+		
 func select_enemy():
 	if type == "Enemy":
-		if level == 1:
-			var random = randi_range(1, 2)
+		if level == 1 or 2 or 3 or 4 or 5:
+			var random = randi_range(1, 4)
 			if random == 1:
-				enemy_type = "Skeleton"
+				enemy_type = "Zombie"
 			elif random == 2:
 				enemy_type = "Spider"
-		elif level == 2 or 3:
+			elif random == 3:
+				enemy_type = "Ghoul"
+			elif random == 4:
+				enemy_type = "Rat"
+		elif level == 6 or 7 or 8:
 			var random = randi_range(1, 3)
 			if random == 1:
 				enemy_type = "Skeleton Mage"
@@ -51,11 +58,24 @@ func select_enemy():
 				enemy_type = "Skeleton"
 			elif random == 3:
 				enemy_type = "Skeleton Archer"
-			
-				
+
 	elif type == "Elite Enemy":
-		enemy_type = "Hag"
-		
+		var random = randi_range(1, 3)
+		if random == 1:
+			enemy_type = "Hag"
+		elif random == 2:
+			enemy_type = "Ghost"
+		elif random == 3:
+			enemy_type = "Ghost Warrior"
+			
+	elif type == "Boss":
+		var random = randi_range(1, 3)
+		if random == 1:
+			enemy_type = "Demon Boss"
+		elif random == 2:
+			enemy_type = "Dragon Boss"
+		elif random == 3:
+			enemy_type = "Devil Boss"
 		
 func select_type():
 	LevelManager.show_map = false
@@ -65,6 +85,10 @@ func select_type():
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
 	
 	elif type == "Elite Enemy":
+		EnemyManager.type = enemy_type
+		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
+	
+	elif type == "Boss":
 		EnemyManager.type = enemy_type
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
 	
@@ -92,7 +116,7 @@ func available_level():
 		disabled = true
 		
 func update_available_level():
-	if level == 10:
+	if level == 11:
 		LevelManager.available_level = 1
 	else:
 		LevelManager.available_level = level + 1
