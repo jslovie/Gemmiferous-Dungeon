@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csnwfbdroxwg0"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_ej56g"]
+[ext_resource type="Texture2D" uid="uid://ce8u7paslcjdx" path="res://assets/32rogues/pieces/crate.png" id="2_oxclw"]
+
+[node name="MaterialPiece" instance=ExtResource("1_ej56g")]
+color = "material"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.670327, 0.65142, 0.138802, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_oxclw")

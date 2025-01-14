@@ -45,6 +45,10 @@ func select_enemy():
 		var skeleton_archer = preload("res://scenes/enemies/skeleton_archer_enemy_type.tscn").instantiate()
 		skeleton_archer.global_position = $Controllable_player.global_position
 		add_child(skeleton_archer)
+	elif enemy == "Ghost Warrior":
+		var ghost_warrior = preload("res://scenes/enemies/ghost_warrior_enemy_type.tscn").instantiate()
+		ghost_warrior.global_position = $Controllable_player.global_position
+		add_child(ghost_warrior)
 	elif enemy == "Demon Boss":
 		var demon_boss = preload("res://scenes/enemies/demon_boss_enemy_type.tscn").instantiate()
 		demon_boss.global_position = $Controllable_player.global_position

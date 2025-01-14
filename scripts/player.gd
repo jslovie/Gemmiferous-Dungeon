@@ -1,46 +1,51 @@
 class_name Player
 extends CharacterBody2D
 
+#Status
 enum{alive, dead}
 var state
 var status = "alive"
 
-
-var sword_damage = 3.0
-var magic_damage = 3.0
-var bow_damage = 3.0
+#Stats
+var damage1 = 3.0
+var damage2 = 3.0
+var damage3 = 3.0
 var health = 50
 var max_health = 50
 var shield = 0
 var shield_load = 3
-var xp = 0
 var coins = 0
+var materials = 0
 var piece_multiplier = 1
-
 var spawned = false
+
+#Gems
+var red_gem = 0
+var yellow_gem = 0
+var green_gem = 0
+var blue_gem = 0
 
 
 func _ready():
 	state = alive
 	PlayerManager.player = self
 
+func damage1_attack():
+	EnemyManager.enemy.take_damage(damage1)
 
-func sword_attack():
-	EnemyManager.enemy.take_damage(sword_damage)
+func damage2_attack():
+	EnemyManager.enemy.take_damage(damage2)
 
-func magic_attack():
-	EnemyManager.enemy.take_damage(magic_damage)
-
-func bow_attack():
-	EnemyManager.enemy.take_damage(bow_damage)
+func damage3_attack():
+	EnemyManager.enemy.take_damage(damage3)
 
 func shield_up(amount):
 	if EnemyManager.enemy.status == "alive":
 		shield += amount
-
-func xp_up():
+		
+func material_up():
 	if EnemyManager.enemy.status == "alive":
-		xp += 1
+		materials += 1
 
 func get_coins(amount):
 	coins += amount

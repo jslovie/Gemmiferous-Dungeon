@@ -19,8 +19,8 @@ var possible_pieces = [
 	preload("res://scenes/pieces/gems/green_gem_piece.tscn"),
 	preload("res://scenes/pieces/gems/blue_gem_piece.tscn"),
 	preload("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
-	#preload("res://scenes/pieces/gems/gold_piece.tscn"),
-	#preload("res://scenes/pieces/gems/silver_piece.tscn"),
+	preload("res://scenes/pieces/gems/gold_piece.tscn"),
+	#preload("res://scenes/pieces/material_piece.tscn"),
 ]
 
 

@@ -381,35 +381,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 
-[node name="Counters" type="Node2D" parent="."]
-position = Vector2(873, 14)
-
-[node name="XPCounter" type="Label" parent="Counters"]
-unique_name_in_owner = true
-offset_left = -632.0
-offset_top = 2.0
-offset_right = -542.0
-offset_bottom = 66.0
-theme_override_font_sizes/font_size = 30
-text = "XP: 0"
-
-[node name="CoinsCounter" type="Label" parent="Counters"]
-unique_name_in_owner = true
-offset_left = -632.0
-offset_top = 41.0
-offset_right = -519.0
-offset_bottom = 105.0
-theme_override_font_sizes/font_size = 30
-text = "Coins: 0"
-
 [node name="TimesUp" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="TimesUpGrid" type="Timer" parent="TimesUp"]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 

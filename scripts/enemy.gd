@@ -183,7 +183,7 @@ func get_killed():
 	#Autosave
 	SaveManager.autosave()
 	
-	##Update player stats
+	#Update player stats
 	#PlayerManager.update_stats()
 	
 	#Scene change

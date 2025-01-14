@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy0imt5r8lt3i"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_26jgq"]
+[ext_resource type="Texture2D" uid="uid://du0nweoqrkngw" path="res://assets/32rogues/Pieces/Shuriken.png" id="2_x26tn"]
+
+[node name="ShurikenPiece" instance=ExtResource("1_26jgq")]
+color = "shuriken"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.121569, 0.313726, 0.552941, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_x26tn")

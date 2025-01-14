@@ -5,58 +5,58 @@ const SAVE_PATH = "user://"
 #Autosave
 var autosave_data = {
 	player_data = {
-		sword_damage = 0,
-		magic_damage = 0,
-		bow_damage = 0,
+		damage1 = 0,
+		damage2 = 0,
+		damage3 = 0,
 		health = 0,
 		max_health = 0,
 		shield = 0,
 		shield_load = 0,
-		xp = 0,
 		coins = 0,
+		materials = 0,
 		first_spawn = false},
 }
 
 #Savefile
 var savefile_data = {
 	player_data = {
-		sword_damage = 0,
-		magic_damage = 0,
-		bow_damage = 0,
+		damage1 = 0,
+		damage2 = 0,
+		damage3 = 0,
 		health = 0,
 		max_health = 0,
 		shield = 0,
 		shield_load = 0,
-		xp = 0,
 		coins = 0,
+		materials = 0,
 		first_spawn = false},
 }
 
 #Savefile
 func update_player_data_savefile():
 	var p : Player = PlayerManager.player
-	savefile_data.player_data.sword_damage = p.sword_damage
-	savefile_data.player_data.magic_damage = p.magic_damage
-	savefile_data.player_data.bow_damage = p.bow_damage
+	savefile_data.player_data.damage1 = p.damage1
+	savefile_data.player_data.damage2 = p.damage2
+	savefile_data.player_data.damage3 = p.damage3
 	savefile_data.player_data.health = p.health
 	savefile_data.player_data.max_health = p.max_health
 	savefile_data.player_data.shield = p.shield
 	savefile_data.player_data.shield_load = p.shield_load
-	savefile_data.player_data.xp = p.xp
 	savefile_data.player_data.coins = p.coins
-
+	savefile_data.player_data.materials = p.materials
+	
 #Autosave
 func update_player_data_autosave():
 	var p : Player = PlayerManager.player
-	autosave_data.player_data.sword_damage = p.sword_damage
-	autosave_data.player_data.magic_damage = p.magic_damage
-	autosave_data.player_data.bow_damage = p.bow_damage
+	autosave_data.player_data.damage1 = p.damage1
+	autosave_data.player_data.damage2 = p.damage2
+	autosave_data.player_data.damage3 = p.damage3
 	autosave_data.player_data.health = p.health
 	autosave_data.player_data.max_health = p.max_health
 	autosave_data.player_data.shield = p.shield
 	autosave_data.player_data.shield_load = p.shield_load
-	autosave_data.player_data.xp = p.xp
 	autosave_data.player_data.coins = p.coins
+	autosave_data.player_data.materials = p.materials
 	
 func add_persistent_value(value):
 	if check_persistent_value(value) == false:
@@ -95,7 +95,7 @@ func load_autosave():
 	var save_dict : Dictionary = json.get_data() as Dictionary
 	autosave_data = save_dict
 	
-	PlayerManager.set_player_stats(autosave_data.player_data.sword_damage, autosave_data.player_data.magic_damage,
-	 autosave_data.player_data.bow_damage, autosave_data.player_data.health, autosave_data.player_data.max_health,
-	 autosave_data.player_data.shield, autosave_data.player_data.shield_load, autosave_data.player_data.xp, 
-	 autosave_data.player_data.coins,)
+	PlayerManager.set_player_stats(autosave_data.player_data.damage1, autosave_data.player_data.damage2,
+	 autosave_data.player_data.damage3, autosave_data.player_data.health, autosave_data.player_data.max_health,
+	 autosave_data.player_data.shield, autosave_data.player_data.shield_load, autosave_data.player_data.coins, 
+	 autosave_data.player_data.materials)

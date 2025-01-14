@@ -16,10 +16,9 @@ var state
 var possible_pieces = [
 	preload("res://scenes/pieces/sword_piece.tscn"),
 	preload("res://scenes/pieces/bow_piece.tscn"),
-	preload("res://scenes/pieces/magic_piece.tscn"),
+	preload("res://scenes/pieces/shuriken_piece.tscn"),
 	preload("res://scenes/pieces/shield_piece.tscn"),
-	preload("res://scenes/pieces/xp_piece.tscn"),
-	#preload(),
+	preload("res://scenes/pieces/material_piece.tscn"),
 ]
 
 
@@ -189,6 +188,7 @@ func destroy_matched():
 	var sword_load = 0
 	var magic_load = 0
 	var bow_load = 0
+	var shuriken_load = 0
 	
 	var was_matched = false
 	for i in width:
@@ -196,17 +196,23 @@ func destroy_matched():
 			if all_pieces[i][j] != null:
 				if all_pieces[i][j].matched:
 					was_matched = true
+					#Attacks
 					if all_pieces[i][j].color == "sword":
 						sword_load += 1
-					elif  all_pieces[i][j].color == "magic":
+					elif all_pieces[i][j].color == "magic":
 						magic_load += 1
-					elif  all_pieces[i][j].color == "bow":
+					elif all_pieces[i][j].color == "bow":
 						bow_load += 1
-					elif  all_pieces[i][j].color == "shield":
-						shield_load += 1
-					elif  all_pieces[i][j].color == "xp":
-						PlayerManager.player.xp_up()
+					elif all_pieces[i][j].color == "shuriken":
+						shuriken_load += 1
 						
+					#Extras
+					elif all_pieces[i][j].color == "shield":
+						shield_load += 1
+					elif all_pieces[i][j].color == "material":
+						PlayerManager.player.material_up()
+					
+					
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
 	#Shield update
@@ -221,33 +227,46 @@ func destroy_matched():
 	#Sword update
 	if sword_load == 3:
 		PlayerManager.player.piece_multiplier = 1
-		PlayerManager.player.sword_attack()
+		PlayerManager.player.damage1_attack()
 	elif sword_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
-		PlayerManager.player.sword_attack()
+		PlayerManager.player.damage1_attack()
 	elif sword_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
-		PlayerManager.player.sword_attack()
-	#Magic update
-	if magic_load == 3:
-		PlayerManager.player.piece_multiplier = 1	
-		PlayerManager.player.magic_attack()
-	elif magic_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5	
-		PlayerManager.player.magic_attack()
-	elif magic_load >= 5:
-		PlayerManager.player.piece_multiplier = 2	
-		PlayerManager.player.magic_attack()
+		PlayerManager.player.damage1_attack()
+	
 	#Bow update
 	if bow_load == 3:
 		PlayerManager.player.piece_multiplier = 1	
-		PlayerManager.player.bow_attack()
+		PlayerManager.player.damage2_attack()
 	elif bow_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5	
-		PlayerManager.player.bow_attack()
+		PlayerManager.player.damage2_attack()
 	elif bow_load >= 5:
 		PlayerManager.player.piece_multiplier = 2	
-		PlayerManager.player.bow_attack()
+		PlayerManager.player.damage2_attack()
+	#Shuriken update
+	if shuriken_load == 3:
+		PlayerManager.player.piece_multiplier = 1	
+		PlayerManager.player.damage3_attack()
+	elif shuriken_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5	
+		PlayerManager.player.damage3_attack()
+	elif shuriken_load >= 5:
+		PlayerManager.player.piece_multiplier = 2	
+		PlayerManager.player.damage3_attack()
+	
+	##Magic update
+	#if magic_load == 3:
+		#PlayerManager.player.piece_multiplier = 1	
+		#PlayerManager.player.magic_attack()
+	#elif magic_load == 4:
+		#PlayerManager.player.piece_multiplier = 1.5	
+		#PlayerManager.player.magic_attack()
+	#elif magic_load >= 5:
+		#PlayerManager.player.piece_multiplier = 2	
+		#PlayerManager.player.magic_attack()
+	
 	
 	move_checked = true
 	if was_matched:

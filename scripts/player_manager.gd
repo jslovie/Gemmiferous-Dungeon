@@ -31,13 +31,13 @@ var player : Player
 	#xp = p.xp
 	#coins = p.coins
 
-func set_player_stats(sword_damage, magic_damage, bow_damage, health, max_health, shield, shield_load, xp, coins,):
-	player.sword_damage = sword_damage
-	player.magic_damage = magic_damage
-	player.bow_damage = bow_damage
+func set_player_stats(damage1, damage2, damage3, health, max_health, shield, shield_load, coins, materials):
+	player.damage1 = damage1
+	player.damage2 = damage2
+	player.damage3 = damage3
 	player.health = health
 	player.max_health = max_health
 	player.shield = shield
 	player.shield_load = shield_load
-	player.xp = xp
 	player.coins = coins
+	player.materials = materials

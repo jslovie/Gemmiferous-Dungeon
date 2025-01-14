@@ -7,7 +7,6 @@ func _ready():
 func _process(_delta):
 	update_healthbars()
 	update_shields()
-	update_collectibles()
 	resolution_screen()
 	
 func update_healthbars():
@@ -38,11 +37,6 @@ func update_shields():
 		%EnemyShield.visible = true
 		%EnemyShieldLabel.visible = true
 		%EnemyShieldLabel.text = str(EnemyManager.enemy.shield)
-
-func update_collectibles():
-	%CoinsCounter.text = "Coins: " + str(PlayerManager.player.coins)
-	if EnemyManager.enemy.status == "alive":
-		%XPCounter.text = "XP: " + str(PlayerManager.player.xp)
 
 func resolution_screen():
 	if EnemyManager.enemy.status == "dead":
