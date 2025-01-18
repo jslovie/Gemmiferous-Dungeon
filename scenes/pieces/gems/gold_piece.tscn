@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cimytguusum2p"]
 
 [ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_egiuk"]
-[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/Pieces/coin_1.png" id="2_b7x11"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="2_b7x11"]
 
 [node name="GoldPiece" instance=ExtResource("1_egiuk")]
 color = "gold"

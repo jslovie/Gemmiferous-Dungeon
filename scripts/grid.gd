@@ -14,9 +14,6 @@ var state
 
 #Possible pieces array
 var possible_pieces = [
-	preload("res://scenes/pieces/sword_piece.tscn"),
-	preload("res://scenes/pieces/bow_piece.tscn"),
-	preload("res://scenes/pieces/shuriken_piece.tscn"),
 	preload("res://scenes/pieces/shield_piece.tscn"),
 	preload("res://scenes/pieces/material_piece.tscn"),
 ]
@@ -41,6 +38,7 @@ var controlling = false
 func _ready():
 	state = move
 	randomize()
+	choose_player_type()
 	all_pieces = make_2d_array()
 	spawn_pieces()
 
@@ -49,6 +47,16 @@ func _process(_delta):
 		state = wait
 	if state == move:
 		touch_input()
+
+func choose_player_type():
+	if SaveManager.autosave_data.player_data.type == "Rogue":
+		var rogue_pieces = [
+			preload("res://scenes/pieces/sword_piece.tscn"),
+			preload("res://scenes/pieces/bow_piece.tscn"),
+			preload("res://scenes/pieces/rage_piece.tscn"),	
+		]
+		possible_pieces.append_array(rogue_pieces)
+		
 	
 func make_2d_array():
 	var array = []
@@ -189,6 +197,7 @@ func destroy_matched():
 	var magic_load = 0
 	var bow_load = 0
 	var shuriken_load = 0
+	var rage_load = 0
 	
 	var was_matched = false
 	for i in width:
@@ -197,15 +206,17 @@ func destroy_matched():
 				if all_pieces[i][j].matched:
 					was_matched = true
 					#Attacks
+					#Rogue
 					if all_pieces[i][j].color == "sword":
 						sword_load += 1
-					elif all_pieces[i][j].color == "magic":
-						magic_load += 1
 					elif all_pieces[i][j].color == "bow":
 						bow_load += 1
 					elif all_pieces[i][j].color == "shuriken":
 						shuriken_load += 1
-						
+					#Barbarian
+					elif all_pieces[i][j].color == "rage":
+						rage_load += 1
+					
 					#Extras
 					elif all_pieces[i][j].color == "shield":
 						shield_load += 1
@@ -255,19 +266,14 @@ func destroy_matched():
 	elif shuriken_load >= 5:
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage3_attack()
-	
-	##Magic update
-	#if magic_load == 3:
-		#PlayerManager.player.piece_multiplier = 1	
-		#PlayerManager.player.magic_attack()
-	#elif magic_load == 4:
-		#PlayerManager.player.piece_multiplier = 1.5	
-		#PlayerManager.player.magic_attack()
-	#elif magic_load >= 5:
-		#PlayerManager.player.piece_multiplier = 2	
-		#PlayerManager.player.magic_attack()
-	
-	
+	#Rage update
+	if rage_load == 3:
+		PlayerManager.player.handle_rage(1)
+	elif rage_load == 4:
+		PlayerManager.player.handle_rage(2)
+	elif rage_load >= 5:
+		PlayerManager.player.handle_rage(3)
+		
 	move_checked = true
 	if was_matched:
 		var timer = %CollapseTimer

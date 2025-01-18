@@ -4,6 +4,8 @@ var timesup = false
 
 func _ready():
 	SaveManager.load_autosave()
+	LevelManager.treasure_timesup = false
+	$Chest/ChestClosed.visible = false
 
 func _process(_delta):
 	update_healthbars()
@@ -35,7 +37,10 @@ func resolution_screen():
 
 func _on_times_up_grid_timeout():
 	timesup = true
+	LevelManager.treasure_timesup = true
 	resolution_screen()
+	$Chest/ChestClosed.visible = true
+	SaveManager.autosave()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	LevelManager.show_map = true

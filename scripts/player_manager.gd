@@ -31,7 +31,8 @@ var player : Player
 	#xp = p.xp
 	#coins = p.coins
 
-func set_player_stats(damage1, damage2, damage3, health, max_health, shield, shield_load, coins, materials):
+func set_player_stats(damage1, damage2, damage3, health, max_health, shield, shield_load, 
+					  coins, materials, type, red_gem, green_gem, blue_gem, yellow_gem):
 	player.damage1 = damage1
 	player.damage2 = damage2
 	player.damage3 = damage3
@@ -41,3 +42,13 @@ func set_player_stats(damage1, damage2, damage3, health, max_health, shield, shi
 	player.shield_load = shield_load
 	player.coins = coins
 	player.materials = materials
+	player.type = type
+	player.red_gem = red_gem
+	player.green_gem = green_gem
+	player.blue_gem = blue_gem
+	player.yellow_gem = yellow_gem
+	
+	
+	
+	
+	

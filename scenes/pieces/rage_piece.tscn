@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmw4eeyvxun18"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_id2u6"]
+[ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="2_54flr"]
+
+[node name="RagePiece" instance=ExtResource("1_id2u6")]
+color = "rage"
+
+[node name="Panel" parent="." index="0"]
+color = Color(0.568265, 0.239474, 0.00573257, 1)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_54flr")

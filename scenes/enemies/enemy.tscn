@@ -115,7 +115,7 @@ script = ExtResource("1_1qn5t")
 
 [node name="EnemyType" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(20, 20)
+scale = Vector2(15, 15)
 texture = ExtResource("2_jyuxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -128,7 +128,7 @@ autostart = true
 
 [node name="Actions" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -286)
+position = Vector2(0, -326)
 
 [node name="RandomPiece" parent="Actions" instance=ExtResource("3_055m7")]
 unique_name_in_owner = true

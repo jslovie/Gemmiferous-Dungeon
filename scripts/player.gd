@@ -1,23 +1,27 @@
 class_name Player
 extends CharacterBody2D
 
+signal rage_up
+
 #Status
 enum{alive, dead}
 var state
 var status = "alive"
+var type = "Rogue"
 
 #Stats
 var damage1 = 3.0
 var damage2 = 3.0
 var damage3 = 3.0
-var health = 50
-var max_health = 50
+var health = 25.0
+var max_health = 100.0
 var shield = 0
 var shield_load = 3
 var coins = 0
 var materials = 0
 var piece_multiplier = 1
 var spawned = false
+var rage = 0
 
 #Gems
 var red_gem = 0
@@ -39,6 +43,10 @@ func damage2_attack():
 func damage3_attack():
 	EnemyManager.enemy.take_damage(damage3)
 
+func handle_rage(amount):
+	rage += amount
+	$RageTimer.start()
+	
 func shield_up(amount):
 	if EnemyManager.enemy.status == "alive":
 		shield += amount
@@ -46,6 +54,21 @@ func shield_up(amount):
 func material_up():
 	if EnemyManager.enemy.status == "alive":
 		materials += 1
+
+func red_gem_up():
+	red_gem += 1
+	
+func green_gem_up():
+	green_gem += 1
+		
+func blue_gem_up():
+	blue_gem += 1
+		
+func yellow_gem_up():
+	yellow_gem += 1
+
+func coins_up():
+	coins += 1
 
 func get_coins(amount):
 	coins += amount
@@ -91,3 +114,8 @@ func get_killed():
 	await get_tree().create_timer(3).timeout
 	SaveManager.remove_autosave()
 	get_tree().quit()
+
+
+func _on_rage_timer_timeout():
+	if rage > 0:
+		rage -= 1

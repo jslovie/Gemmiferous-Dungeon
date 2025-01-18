@@ -153,71 +153,108 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Event" type="Panel" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -298.0
-offset_right = 296.0
-offset_bottom = 298.0
+offset_left = -675.0
+offset_top = -413.0
+offset_right = 675.0
+offset_bottom = 413.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/Panel"]
+[node name="EventText" type="Label" parent="Control/Event"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -446.5
 offset_top = -229.0
-offset_right = 200.0
+offset_right = 468.5
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "You were caught off guard and attacked by surprise"
+text = "Here goes text for random item"
+horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Option1" type="Button" parent="Control/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Event"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.5
-offset_top = -19.0
-offset_right = 117.5
-offset_bottom = 108.0
+offset_left = -604.0
+offset_top = 38.0
+offset_right = 604.0
+offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-text = "Fight back
-Loose 10 HP"
+alignment = 1
 
-[node name="Option2" type="Button" parent="Control/Panel"]
+[node name="Button" type="Button" parent="Control/Event/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="Control/Event/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Option 2"
+
+[node name="Button3" type="Button" parent="Control/Event/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Option 3"
+
+[node name="Resolution" type="Panel" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.5
-offset_top = 102.0
-offset_right = 154.5
-offset_bottom = 275.0
+offset_left = -675.0
+offset_top = -413.0
+offset_right = 675.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResolutionText" type="Label" parent="Control/Resolution"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.5
+offset_top = -229.0
+offset_right = 468.5
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Run
-Loose 3 coins and 3 XP"
+text = "Here goes text for random item"
+horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="Control/Panel/Option1" to="." method="_on_option_1_pressed"]
-[connection signal="pressed" from="Control/Panel/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Event/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

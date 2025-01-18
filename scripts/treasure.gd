@@ -197,58 +197,20 @@ func destroy_matched():
 			if all_pieces[i][j] != null:
 				if all_pieces[i][j].matched:
 					was_matched = true
-					if all_pieces[i][j].color == "sword":
-						sword_load += 1
-					elif  all_pieces[i][j].color == "magic":
-						magic_load += 1
-					elif  all_pieces[i][j].color == "bow":
-						bow_load += 1
-					elif  all_pieces[i][j].color == "shield":
-						shield_load += 1
-					elif  all_pieces[i][j].color == "xp":
-						PlayerManager.player.xp_up()
+					if LevelManager.treasure_timesup == false:
+						if all_pieces[i][j].color == "red":
+							PlayerManager.player.red_gem_up()
+						elif all_pieces[i][j].color == "green":
+							PlayerManager.player.green_gem_up()
+						elif all_pieces[i][j].color == "blue":
+							PlayerManager.player.blue_gem_up()
+						elif all_pieces[i][j].color == "yellow":
+							PlayerManager.player.yellow_gem_up()
+						elif all_pieces[i][j].color == "gold":
+							PlayerManager.player.coins_up()
 						
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
-	#Shield update
-	if shield_load == 3:
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load)
-		shield_load = 0
-	elif shield_load == 4:
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
-		shield_load = 0
-	elif shield_load >= 5:
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
-	#Sword update
-	if sword_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		PlayerManager.player.sword_attack()
-	elif sword_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		PlayerManager.player.sword_attack()
-	elif sword_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		PlayerManager.player.sword_attack()
-	#Magic update
-	if magic_load == 3:
-		PlayerManager.player.piece_multiplier = 1	
-		PlayerManager.player.magic_attack()
-	elif magic_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5	
-		PlayerManager.player.magic_attack()
-	elif magic_load >= 5:
-		PlayerManager.player.piece_multiplier = 2	
-		PlayerManager.player.magic_attack()
-	#Bow update
-	if bow_load == 3:
-		PlayerManager.player.piece_multiplier = 1	
-		PlayerManager.player.bow_attack()
-	elif bow_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5	
-		PlayerManager.player.bow_attack()
-	elif bow_load >= 5:
-		PlayerManager.player.piece_multiplier = 2	
-		PlayerManager.player.bow_attack()
 	
 	move_checked = true
 	if was_matched:

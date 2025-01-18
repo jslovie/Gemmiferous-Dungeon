@@ -8,6 +8,7 @@ func _process(_delta):
 	update_healthbars()
 	update_shields()
 	resolution_screen()
+	update_rage()
 	
 func update_healthbars():
 	#Player healthbar
@@ -37,6 +38,9 @@ func update_shields():
 		%EnemyShield.visible = true
 		%EnemyShieldLabel.visible = true
 		%EnemyShieldLabel.text = str(EnemyManager.enemy.shield)
+
+func update_rage():
+	$PlayerRage.value = PlayerManager.player.rage
 
 func resolution_screen():
 	if EnemyManager.enemy.status == "dead":

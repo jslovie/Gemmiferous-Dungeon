@@ -59,3 +59,8 @@ libraries = {
 "": SubResource("AnimationLibrary_qtu5k")
 }
 speed_scale = 4.0
+
+[node name="RageTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="RageTimer" to="." method="_on_rage_timer_timeout"]

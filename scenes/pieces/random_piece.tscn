@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bql308123inii"]
 
 [ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_mjy8j"]
-[ext_resource type="Texture2D" uid="uid://bvdx48ysx7s1n" path="res://assets/32rogues/Pieces/questionmark_new.png" id="2_08tr3"]
+[ext_resource type="Texture2D" uid="uid://bvdx48ysx7s1n" path="res://assets/32rogues/pieces/questionmark_new.png" id="2_08tr3"]
 
 [node name="RandomPiece" instance=ExtResource("1_mjy8j")]
 color = "Random"

@@ -179,6 +179,7 @@ scale = Vector2(12, 12)
 texture = ExtResource("5_4tj8t")
 
 [node name="ChestClosed" type="Sprite2D" parent="Chest"]
+visible = false
 texture = ExtResource("6_od32a")
 
 [node name="GamePanel" type="Panel" parent="."]

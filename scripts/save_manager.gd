@@ -5,6 +5,7 @@ const SAVE_PATH = "user://"
 #Autosave
 var autosave_data = {
 	player_data = {
+		type = 0,
 		damage1 = 0,
 		damage2 = 0,
 		damage3 = 0,
@@ -15,11 +16,18 @@ var autosave_data = {
 		coins = 0,
 		materials = 0,
 		first_spawn = false},
+	gems = {
+		red_gem = 0,
+		green_gem = 0,
+		blue_gem = 0,
+		yellow_gem = 0,
+	}
 }
 
 #Savefile
 var savefile_data = {
 	player_data = {
+		type = 0,
 		damage1 = 0,
 		damage2 = 0,
 		damage3 = 0,
@@ -30,11 +38,18 @@ var savefile_data = {
 		coins = 0,
 		materials = 0,
 		first_spawn = false},
+	gems = {
+		red_gem = 0,
+		green_gem = 0,
+		blue_gem = 0,
+		yellow_gem = 0,
+	}
 }
 
 #Savefile
 func update_player_data_savefile():
 	var p : Player = PlayerManager.player
+	savefile_data.player_data.type = p.type
 	savefile_data.player_data.damage1 = p.damage1
 	savefile_data.player_data.damage2 = p.damage2
 	savefile_data.player_data.damage3 = p.damage3
@@ -44,10 +59,16 @@ func update_player_data_savefile():
 	savefile_data.player_data.shield_load = p.shield_load
 	savefile_data.player_data.coins = p.coins
 	savefile_data.player_data.materials = p.materials
+	savefile_data.gems.red_gem = p.red_gem
+	savefile_data.gems.green_gem = p.green_gem
+	savefile_data.gems.blue_gem = p.blue_gem
+	savefile_data.gems.yellow_gem = p.yellow_gem
+	
 	
 #Autosave
 func update_player_data_autosave():
 	var p : Player = PlayerManager.player
+	autosave_data.player_data.type = p.type
 	autosave_data.player_data.damage1 = p.damage1
 	autosave_data.player_data.damage2 = p.damage2
 	autosave_data.player_data.damage3 = p.damage3
@@ -57,6 +78,11 @@ func update_player_data_autosave():
 	autosave_data.player_data.shield_load = p.shield_load
 	autosave_data.player_data.coins = p.coins
 	autosave_data.player_data.materials = p.materials
+	autosave_data.gems.red_gem = p.red_gem
+	autosave_data.gems.green_gem = p.green_gem
+	autosave_data.gems.blue_gem = p.blue_gem
+	autosave_data.gems.yellow_gem = p.yellow_gem
+	
 	
 func add_persistent_value(value):
 	if check_persistent_value(value) == false:
@@ -98,4 +124,5 @@ func load_autosave():
 	PlayerManager.set_player_stats(autosave_data.player_data.damage1, autosave_data.player_data.damage2,
 	 autosave_data.player_data.damage3, autosave_data.player_data.health, autosave_data.player_data.max_health,
 	 autosave_data.player_data.shield, autosave_data.player_data.shield_load, autosave_data.player_data.coins, 
-	 autosave_data.player_data.materials)
+	 autosave_data.player_data.materials, autosave_data.player_data.type, autosave_data.gems.red_gem, 
+	 autosave_data.gems.green_gem, autosave_data.gems.blue_gem, autosave_data.gems.yellow_gem)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bmk20yax6xshm"]
+[gd_scene load_steps=17 format=4 uid="uid://bmk20yax6xshm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_map.gd" id="1_7n5ek"]
 [ext_resource type="PackedScene" uid="uid://ck1wk0h13dqbh" path="res://scenes/dungeons/level_selection.tscn" id="1_fovlk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="8_mckq2"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="9_vpnme"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="10_kn7bq"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="11_ilkoa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrh2i"]
 texture = ExtResource("5_bqnj5")
@@ -181,15 +182,15 @@ position = Vector2(517, 429)
 scale = Vector2(2, 2.587)
 texture = ExtResource("4_833ju")
 
-[node name="Rogue" type="Sprite2D" parent="Playerback"]
+[node name="PlayerPortret" type="Sprite2D" parent="Playerback"]
 position = Vector2(2.58734, 17.5)
 scale = Vector2(4.09636, 3.16306)
 texture = ExtResource("6_aeub5")
 flip_h = true
 
 [node name="Stats" type="Node2D" parent="."]
-position = Vector2(345, 594)
-scale = Vector2(2, 2)
+position = Vector2(338, 602)
+scale = Vector2(2.2, 2.2)
 
 [node name="StatsNames" type="GridContainer" parent="Stats"]
 offset_right = 145.0
@@ -218,25 +219,19 @@ text = "Shield"
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Sword Damage"
+text = "Damage1"
 
 [node name="Damage2" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Bow Damage"
+text = "Damage2"
 
 [node name="Damage3" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Magic Damage"
-
-[node name="Coins" type="Label" parent="Stats/StatsNames"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Coins"
+text = "Damage3"
 
 [node name="Materials" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
@@ -245,15 +240,15 @@ theme_override_fonts/font = ExtResource("4_ycfev")
 text = "Materials"
 
 [node name="StatsNumbers" type="GridContainer" parent="Stats"]
-offset_left = 154.667
-offset_right = 199.667
+offset_left = 188.636
+offset_right = 246.636
 offset_bottom = 176.0
 
 [node name="HealthNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
-text = "0"
+text = "999.99"
 
 [node name="MaxHealthNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
@@ -285,12 +280,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
 text = "3"
 
-[node name="CoinsNumber" type="Label" parent="Stats/StatsNumbers"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-text = "0"
-
 [node name="MaterialsNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -298,7 +287,7 @@ theme_override_fonts/font = ExtResource("4_ycfev")
 text = "0"
 
 [node name="Gems" type="Node2D" parent="."]
-position = Vector2(306, 355)
+position = Vector2(306, 340)
 scale = Vector2(2, 2)
 
 [node name="GemsNames" type="GridContainer" parent="Gems"]
@@ -322,6 +311,10 @@ texture = ExtResource("9_vpnme")
 position = Vector2(0, 60)
 texture = ExtResource("10_kn7bq")
 
+[node name="Coins" type="Sprite2D" parent="Gems/GemsNames"]
+position = Vector2(0, 81.5)
+texture = ExtResource("11_ilkoa")
+
 [node name="GemsNumbers" type="GridContainer" parent="Gems"]
 offset_left = 219.0
 offset_top = -9.0
@@ -340,13 +333,19 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
 text = "0"
 
+[node name="BlueGemNumber" type="Label" parent="Gems/GemsNumbers"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ycfev")
+text = "0"
+
 [node name="YellowGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
 text = "0"
 
-[node name="BlueGemNumber" type="Label" parent="Gems/GemsNumbers"]
+[node name="CoinNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ycfev")
@@ -374,7 +373,7 @@ tile_set = SubResource("TileSet_p53bj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Dungeons/DungeonF1_1/Background"]
 z_index = -1
-position = Vector2(-563.75, -130)
+position = Vector2(-563.75, -76.25)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAD/////AAAAAAYAAAD//wAAAAAAAAYAAAD//wEAAAAAAAYAAAD//wIAAAAAAAYAAAD//wMAAAAAAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAD//wgAAAAAAAYAAAD//wkAAAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAGAAkAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAABAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAABAP//AAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAACAAcAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAYAAAABAAUAAAABAAYAAAABAAYAAAAAAAYAAAABAAcAAAADAAoAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAACAP//AAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAACAAgAAAABABQAAAACAAkAAAAAAAYAAAADAP//AAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAAEAP//AAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAEAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAFAP//AAAAAAYAAAAFAAAAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAFAAgAAAAAAAYAAAAFAAkAAAAAAAYAAAAGAP//AAAAAAYAAAAGAAAAAAAAAAYAAAAGAAEAAAAAAAYAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAGAAgAAAAFAAkAAAAGAAkAAAAAAAYAAAAHAP//AAAAAAYAAAAHAAAAAAAAAAYAAAAHAAEAAAAAAAYAAAAHAAIAAAAAAAYAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAHAAgAAAAAAAYAAAAHAAkAAAAAAAYAAAAIAP//AAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAAIAAgAAAAAAAYAAAAIAAkAAAAAAAYAAAAJAP//AAAAAAYAAAAJAAAAAAAFABMAAAAJAAEAAAAAAAYAAAAJAAIAAAAAAAYAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAYAAAAJAAUAAAAAAAYAAAAJAAYAAAAAAAYAAAAJAAcAAAAAAAYAAAAJAAgAAAAAAAYAAAAJAAkAAAAAAAYAAAAKAP//AAAAAAYAAAAKAAAAAAAAAAYAAAAKAAEAAAAAAAYAAAAKAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAYAAAAKAAUAAAAAAAYAAAAKAAYAAAAAAAYAAAAKAAcAAAAAAAYAAAAKAAgAAAAAAAYAAAAKAAkAAAAAAAYAAAALAP//AAAAAAYAAAALAAAAAAAAAAYAAAALAAEAAAAAAAYAAAALAAIAAAAAAAYAAAALAAMAAAAAAAYAAAALAAQAAAAAAAYAAAALAAUAAAAAAAYAAAALAAYAAAAAAAYAAAALAAcAAAAAAAYAAAALAAgAAAAAAAYAAAALAAkAAAAAAAYAAAAMAP//AAAAAAYAAAAMAAAAAAAAAAYAAAAMAAEAAAAAAAYAAAAMAAIAAAAAAAYAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAYAAAAMAAUAAAAAAAYAAAAMAAYAAAAAAAYAAAAMAAcAAAAAAAYAAAAMAAgAAAAAAAYAAAAMAAkAAAAAAAYAAAANAP//AAAAAAYAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAACAAcAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAGAAkAAAANAAYAAAAAAAYAAAANAAcAAAAAAAYAAAANAAgAAAAAAAYAAAANAAkAAAAAAAYAAAAOAP//AAAAAAYAAAAOAAAAAAAAABQAAAAOAAEAAAACAAcAAAAOAAIAAAAAAAYAAAAOAAMAAAAAAAYAAAAOAAQAAAAAAAYAAAAOAAUAAAAAAAYAAAAOAAYAAAAAAAYAAAAOAAcAAAACAAcAAAAOAAgAAAAAAAYAAAAOAAkAAAAAAAYAAAAPAP//AAAAAAYAAAAPAAAAAAAAAAYAAAAPAAEAAAAAAAYAAAAPAAIAAAAAAAYAAAAPAAMAAAAAAAYAAAAPAAQAAAAAAAYAAAAPAAUAAAAAAAYAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAYAAAAPAAgAAAAAAAYAAAAPAAkAAAAAAAYAAAAQAP//AAAAAAYAAAAQAAAAAAAAAAYAAAAQAAEAAAAAAAYAAAAQAAIAAAAAAAYAAAAQAAMAAAAAAAYAAAAQAAQAAAAAAAYAAAAQAAUAAAAAAAYAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAYAAAAQAAgAAAAAAAYAAAAQAAkAAAAAAAYAAAA=")
 tile_set = SubResource("TileSet_p53bj")
@@ -587,7 +586,7 @@ offset_left = 1227.0
 offset_top = 804.0
 offset_right = 1259.0
 offset_bottom = 836.0
-type = "Enemy"
+type = "Random Event"
 level = 2
 
 [node name="LevelSelection6" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
@@ -755,7 +754,7 @@ offset_left = 1176.0
 offset_top = 928.0
 offset_right = 1208.0
 offset_bottom = 960.0
-type = "Enemy"
+type = "Treasure"
 level = 1
 
 [node name="LevelSelection25" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
@@ -763,7 +762,7 @@ offset_left = 1057.5
 offset_top = 925.0
 offset_right = 1089.5
 offset_bottom = 957.0
-type = "Boss"
+type = "Random Event"
 level = 1
 enemy_type = "Test"
 
