@@ -19,8 +19,8 @@ func _ready():
 	$Control/Resolution.visible = false
 	
 func choose_random_room():
-	room = randi_range(1, 3)
-
+	room = randi_range(1, 4)
+	room = 4
 func lost_items(amount):
 	coins_lost = round(PlayerManager.player.coins * amount)
 	red_gems_lost = round(PlayerManager.player.red_gem * amount)
@@ -87,6 +87,12 @@ func update_text():
 		%Button.text = "Open book on random page and read it"
 		%Button2.text = "Leave the book alone"
 		%Button3.visible = false
+	elif room == 4:
+		%EventText.text = "You entered a room and see treasure chest on the floor"
+		%Button.text = "Open the chest"
+		%Button2.text = "Leave the chest alone"
+		%Button3.visible = false
+		
 		
 func resolution_screen():
 	$Control/Event.visible = false
@@ -133,8 +139,26 @@ func handle_button():
 				resolution_screen()
 				%ResolutionText.text = "You quickly realized that it was not a good idea.
 										You leave the room quite shaken but unharmed"
-
-			
+			elif random_resolution == 2:
+				resolution_screen()
+				%ResolutionText.text = "You found some useful knowledge on the book" #Need to add some knowledge here
+	elif room == 4:
+		if %Button.text == "Open the chest":
+			var random_resolution = randi_range(1,2)
+			if random_resolution == 1:
+				resolution_screen()
+				%ResolutionText.text = "As you were trying to open the chest you triggered a hiddin mechanism which drove sharp spikes into your hand
+										Your hand got hurt badly and you lost 15HP"
+				lost_health_amount(15)
+				if PlayerManager.player.health <= 0:
+					handle_game_over()
+				else :
+					LevelManager.switch_to_dungeon_map()
+			elif random_resolution == 2:
+				resolution_screen()
+				%ResolutionText.text = "You successfully opened the chest"
+				await get_tree().create_timer(3).timeout
+				get_tree().change_scene_to_file("res://scenes/treasure.tscn")
 			
 func handle_button2():
 	if room == 1:
@@ -157,7 +181,15 @@ func handle_button2():
 		resolution_screen()
 		%ResolutionText.text = "You decided to not drink the mysterious liquid and left the room hoping it was a good decision"
 		LevelManager.switch_to_dungeon_map()
-		
+	elif room == 3:
+		resolution_screen()
+		%ResolutionText.text = "Such book won't bring anything good, you left the room glad that you did't touch it"
+		LevelManager.switch_to_dungeon_map()	
+	elif room == 4:
+		resolution_screen()
+		%ResolutionText.text = "You decided that you don't trust the chest and left the room"
+		LevelManager.switch_to_dungeon_map()
+	
 func handle_button3():
 	pass
 

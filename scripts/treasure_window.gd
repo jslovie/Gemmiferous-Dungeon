@@ -4,9 +4,12 @@ var timesup = false
 
 func _ready():
 	SaveManager.load_autosave()
+	PlayerManager.player.update_player_texture()
+	%Timer.timer_start()
 	LevelManager.treasure_timesup = false
 	$Chest/ChestClosed.visible = false
-
+	get_tree().paused = true
+	
 func _process(_delta):
 	update_healthbars()
 	update_shields()
@@ -44,3 +47,8 @@ func _on_times_up_grid_timeout():
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	LevelManager.show_map = true
+
+
+func _on_wait_time_timer_timeout():
+	get_tree().paused = false
+	$WaitTime.visible = false

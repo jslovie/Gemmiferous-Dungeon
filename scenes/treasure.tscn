@@ -1,16 +1,17 @@
-[gd_scene load_steps=17 format=4 uid="uid://c4nj2slp4rwvx"]
+[gd_scene load_steps=18 format=4 uid="uid://c4nj2slp4rwvx"]
 
 [ext_resource type="Script" path="res://scripts/treasure_window.gd" id="1_pd3tb"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_d7mb0"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="3_m6n48"]
 [ext_resource type="Texture2D" uid="uid://dvug34kul3l13" path="res://assets/Background/Background.png" id="4_yqugh"]
 [ext_resource type="Texture2D" uid="uid://ceov6qhg5e7pc" path="res://assets/32rogues/gems/chest_opened.png" id="5_4tj8t"]
-[ext_resource type="Texture2D" uid="uid://bvi2jiiwklq15" path="res://assets/UI/Top UI v 2.png" id="5_wijta"]
 [ext_resource type="Texture2D" uid="uid://beh4dker3ieaj" path="res://assets/32rogues/gems/chest_closed.png" id="6_od32a"]
-[ext_resource type="Texture2D" uid="uid://dtf12khg42w7x" path="res://assets/UI/Bottom UI v 2.png" id="6_sns3d"]
 [ext_resource type="Script" path="res://scripts/treasure.gd" id="7_kji6f"]
+[ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="8_5bwak"]
 [ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_prcep"]
-[ext_resource type="FontFile" uid="uid://bt06rti8mm5ue" path="res://assets/GallaeciaForte.ttf" id="9_47tiw"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="11_2xb0m"]
+[ext_resource type="Texture2D" uid="uid://clf4000op6wyh" path="res://assets/32rogues/borders/border6.png" id="12_bpwwk"]
+[ext_resource type="Script" path="res://scripts/wait_time.gd" id="12_ynx2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0xu1"]
 texture = ExtResource("2_d7mb0")
@@ -184,21 +185,38 @@ texture = ExtResource("6_od32a")
 
 [node name="GamePanel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 0.905882)
+offset_top = 42.0
 offset_right = 576.0
-offset_bottom = 1024.0
+offset_bottom = 900.0
 
-[node name="TopUI" type="TextureRect" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_wijta")
+[node name="EnemyTypeLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 190.0
+offset_top = 62.0
+offset_right = 386.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_2xb0m")
+theme_override_font_sizes/font_size = 64
+text = "Treasure"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BottomUI" type="TextureRect" parent="."]
-visible = false
-offset_top = 928.0
-offset_right = 576.0
-offset_bottom = 1020.0
-texture = ExtResource("6_sns3d")
+[node name="Timer" parent="EnemyTypeLabel" instance=ExtResource("8_5bwak")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 60.5
+offset_bottom = 60.5
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("7_kji6f")
@@ -229,6 +247,7 @@ position = Vector2(288, 512)
 
 [node name="PlayerHealth" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -355,8 +374,8 @@ offset_right = 37.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_47tiw")
-theme_override_font_sizes/font_size = 60
+theme_override_fonts/font = ExtResource("11_2xb0m")
+theme_override_font_sizes/font_size = 64
 text = "You Died!"
 
 [node name="Inventory" type="Node2D" parent="."]
@@ -397,16 +416,73 @@ autostart = true
 unique_name_in_owner = true
 offset_left = 875.0
 offset_top = 621.0
-offset_right = 907.0
+offset_right = 911.0
 offset_bottom = 644.0
 scale = Vector2(2, 2)
-text = "10.0000000"
+theme_override_fonts/font = ExtResource("11_2xb0m")
+theme_override_font_sizes/font_size = 16
+text = "15.000000"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
+
+[node name="WaitTime" type="Control" parent="."]
+process_mode = 2
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_ynx2c")
+
+[node name="WaitTimePanel" type="Panel" parent="WaitTime"]
+layout_mode = 0
+offset_left = -941.0
+offset_top = -186.0
+offset_right = 1466.0
+offset_bottom = 1242.0
+
+[node name="WaitTimeLabel" type="Label" parent="WaitTime/WaitTimePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -134.0
+offset_right = 110.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_2xb0m")
+theme_override_font_sizes/font_size = 256
+text = "0	"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="WaitTimeTimer" type="Timer" parent="WaitTime"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.505344, 0.505344, 0.505344, 1)
+offset_left = -18.0
+offset_top = 28.0
+offset_right = 594.0
+offset_bottom = 914.0
+texture = ExtResource("12_bpwwk")
 
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
 [connection signal="timeout" from="TimesUp" to="Grid" method="_on_times_up_timeout"]
 [connection signal="timeout" from="TimesUp/TimesUpGrid" to="." method="_on_times_up_grid_timeout"]
+[connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]

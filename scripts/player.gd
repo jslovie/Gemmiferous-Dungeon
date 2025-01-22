@@ -7,15 +7,25 @@ signal rage_up
 enum{alive, dead}
 var state
 var status = "alive"
-var type = "Rogue"
+@export var type : String
 
 #Stats
-var damage1 = 3.0
-var damage2 = 3.0
-var damage3 = 3.0
-var health = 25.0
-var max_health = 100.0
-var shield = 0
+@export var type_action1 : float
+@export var type_action2 : float
+@export var type_action3 : float
+@export var upgraded_action1 : float
+@export var upgraded_action2 : float
+@export var upgraded_action3 : float
+var base_action1 : float
+var base_action2 : float
+var base_action3 : float
+var action1 = 0
+var action2 = 0
+var action3 = 0
+
+@export var health : float
+@export var max_health : float
+@export var shield : int
 var shield_load = 3
 var coins = 0
 var materials = 0
@@ -29,23 +39,54 @@ var yellow_gem = 0
 var green_gem = 0
 var blue_gem = 0
 
+#func print_test():
+	#print("Player Health is: " + str(health))
+	#print("Player Action1 is: " + str(base_action1))
+	#print(type)
 
 func _ready():
 	state = alive
 	PlayerManager.player = self
+	update_player_texture()
 
+func _process(delta):
+	#print_test()
+	update_base_actions()
+	
+func update_player_texture():
+	if type == "Rogue":
+		$Character.texture = load("res://assets/32rogues/chars/rogue.png")
+	elif type == "Barbarian":
+		$Character.texture = load("res://assets/32rogues/chars/barbarian.png")
+
+func update_base_actions():
+	base_action1 = type_action1 + upgraded_action1
+	base_action2 = type_action2 + upgraded_action2
+	base_action3 = type_action3 + upgraded_action3
+	
 func damage1_attack():
-	EnemyManager.enemy.take_damage(damage1)
-
+	if rage > 0:
+		action1 = (base_action1 + (base_action1 * rage)) * piece_multiplier
+		EnemyManager.enemy.take_damage(action1)
+		print("damage is: " + str(action1))
+	else:
+		action1 = (base_action1 * piece_multiplier)
+		EnemyManager.enemy.take_damage(action1)
+		
 func damage2_attack():
-	EnemyManager.enemy.take_damage(damage2)
+	action2 = action2 + (base_action2 * piece_multiplier)
+	EnemyManager.enemy.take_damage(action2)
 
 func damage3_attack():
-	EnemyManager.enemy.take_damage(damage3)
+	action3 = action3 + (base_action3 * piece_multiplier)
+	EnemyManager.enemy.take_damage(action3)
 
 func handle_rage(amount):
 	rage += amount
+	if rage > 2:
+		rage = 2
 	$RageTimer.start()
+	print("rage is: " + str(rage))
 	
 func shield_up(amount):
 	if EnemyManager.enemy.status == "alive":
@@ -118,4 +159,4 @@ func get_killed():
 
 func _on_rage_timer_timeout():
 	if rage > 0:
-		rage -= 1
+		rage -= 0.2

@@ -3,7 +3,15 @@ extends Node2D
 
 func _ready():
 	SaveManager.load_autosave()
-
+	PlayerManager.player.update_player_texture()
+	$EnemyTypeLabel.text = EnemyManager.enemy.type
+	update_healthbars()
+	update_shields()
+	update_rage()
+	$EnemyTypeLabel/Timer.timer_start()
+	get_tree().paused = true
+	$Hud.visible = false
+	
 func _process(_delta):
 	update_healthbars()
 	update_shields()
@@ -40,8 +48,11 @@ func update_shields():
 		%EnemyShieldLabel.text = str(EnemyManager.enemy.shield)
 
 func update_rage():
-	$PlayerRage.value = PlayerManager.player.rage
-
+	%PlayerRage.value = PlayerManager.player.rage
+	$Hud.visible = true
+	if PlayerManager.player.type != "Barbarian":
+		%PlayerRage.visible = false
+	
 func resolution_screen():
 	if EnemyManager.enemy.status == "dead":
 		%Resolution.visible = true
@@ -51,3 +62,9 @@ func resolution_screen():
 		%Resolution.visible = true
 		%ResolutionText.text = "You died!"
 		%PlayerHealth.visible = false
+
+
+func _on_wait_time_timer_timeout():
+	get_tree().paused = false
+	$WaitTime.visible = false
+	

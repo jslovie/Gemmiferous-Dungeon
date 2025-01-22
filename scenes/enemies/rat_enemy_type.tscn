@@ -8,6 +8,7 @@ type = "Rat"
 health = 20.0
 health_increase = 4
 max_health = 20.0
+shield_increase = 1
 damage = 3.0
 coin_worth = 3
 hit_multiplier = 2.0

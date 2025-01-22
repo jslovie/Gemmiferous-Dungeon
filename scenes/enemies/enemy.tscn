@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://n43ef13rao3h"]
+[gd_scene load_steps=16 format=3 uid="uid://n43ef13rao3h"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1qn5t"]
 [ext_resource type="Texture2D" uid="uid://clldop74dvmc6" path="res://assets/32rogues/enem/devil_boss.png" id="2_jyuxk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b570oxexdcdm3" path="res://scenes/pieces/shield_piece.tscn" id="4_yre0p"]
 [ext_resource type="PackedScene" uid="uid://clwqkm8vxwml7" path="res://scenes/pieces/heal_piece.tscn" id="5_0gyra"]
 [ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="6_xh011"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="7_yoeou"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3vca"]
 radius = 140.036
@@ -164,6 +165,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("7_yoeou")
+theme_override_font_sizes/font_size = 16
 text = "2.33"
 horizontal_alignment = 1
 vertical_alignment = 1

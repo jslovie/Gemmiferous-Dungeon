@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btpnn0ekuqcc7" path="res://assets/32rogues/enem/ghost_warrior.png" id="2_n7joq"]
 
 [node name="GhostWarriorEnemyType" instance=ExtResource("1_nw0pm")]
-type = "Ghost Warriror"
+type = "Ghost Warrior"
 health = 80.0
 health_increase = 5
 max_health = 80.0

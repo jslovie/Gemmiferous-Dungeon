@@ -60,13 +60,13 @@ func select_enemy():
 				enemy_type = "Skeleton Archer"
 
 	elif type == "Elite Enemy":
-		var random = randi_range(1, 3)
-		if random == 1:
-			enemy_type = "Hag"
-		elif random == 2:
-			enemy_type = "Ghost"
-		elif random == 3:
-			enemy_type = "Ghost Warrior"
+		#var random = randi_range(1, 3)
+		#if random == 1:
+			#enemy_type = "Hag"
+		#elif random == 2:
+			#enemy_type = "Ghost"
+		#elif random == 3:
+		enemy_type = "Ghost Warrior"
 			
 	elif type == "Boss":
 		var random = randi_range(1, 3)

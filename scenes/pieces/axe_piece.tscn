@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://v7xutm1d7nmt"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_njfew"]
+[ext_resource type="Texture2D" uid="uid://crvak0hdau1im" path="res://assets/32rogues/pieces/axe.png" id="2_mj4b4"]
+
+[node name="AxePiece" instance=ExtResource("1_njfew")]
+color = "axe"
+
+[node name="Panel" parent="." index="1"]
+color = Color(0.353216, 0.0403576, 0.401509, 1)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(1, 1)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_mj4b4")

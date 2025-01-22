@@ -4,6 +4,7 @@ const PLAYER = preload("res://scenes/player.tscn")
 
 var player : Player
 
+
 #var sword_damage = 3.0
 #var magic_damage = 3.0
 #var bow_damage = 3.0
@@ -31,11 +32,11 @@ var player : Player
 	#xp = p.xp
 	#coins = p.coins
 
-func set_player_stats(damage1, damage2, damage3, health, max_health, shield, shield_load, 
+func set_player_stats(type_action1, type_action2, type_action3, health, max_health, shield, shield_load, 
 					  coins, materials, type, red_gem, green_gem, blue_gem, yellow_gem):
-	player.damage1 = damage1
-	player.damage2 = damage2
-	player.damage3 = damage3
+	player.type_action1 = type_action1
+	player.type_action2 = type_action2
+	player.type_action3 = type_action3
 	player.health = health
 	player.max_health = max_health
 	player.shield = shield

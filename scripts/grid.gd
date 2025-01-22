@@ -53,11 +53,15 @@ func choose_player_type():
 		var rogue_pieces = [
 			preload("res://scenes/pieces/sword_piece.tscn"),
 			preload("res://scenes/pieces/bow_piece.tscn"),
-			preload("res://scenes/pieces/rage_piece.tscn"),	
-		]
+			preload("res://scenes/pieces/shuriken_piece.tscn"),]
 		possible_pieces.append_array(rogue_pieces)
+	elif SaveManager.autosave_data.player_data.type == "Barbarian":
+		var barbarian_pieces = [
+			preload("res://scenes/pieces/axe_piece.tscn"),
+			preload("res://scenes/pieces/mace_piece.tscn"),
+			preload("res://scenes/pieces/rage_piece.tscn"),]
+		possible_pieces.append_array(barbarian_pieces)
 		
-	
 func make_2d_array():
 	var array = []
 	for i in width:
@@ -197,6 +201,8 @@ func destroy_matched():
 	var magic_load = 0
 	var bow_load = 0
 	var shuriken_load = 0
+	var axe_load = 0
+	var mace_load = 0
 	var rage_load = 0
 	
 	var was_matched = false
@@ -214,6 +220,10 @@ func destroy_matched():
 					elif all_pieces[i][j].color == "shuriken":
 						shuriken_load += 1
 					#Barbarian
+					elif all_pieces[i][j].color == "axe":
+						axe_load += 1
+					elif all_pieces[i][j].color == "mace":
+						mace_load += 1
 					elif all_pieces[i][j].color == "rage":
 						rage_load += 1
 					
@@ -235,6 +245,9 @@ func destroy_matched():
 		shield_load = 0
 	elif shield_load >= 5:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
+		
+	######################################################################
+	#Rogue
 	#Sword update
 	if sword_load == 3:
 		PlayerManager.player.piece_multiplier = 1
@@ -245,7 +258,6 @@ func destroy_matched():
 	elif sword_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		PlayerManager.player.damage1_attack()
-	
 	#Bow update
 	if bow_load == 3:
 		PlayerManager.player.piece_multiplier = 1	
@@ -266,13 +278,35 @@ func destroy_matched():
 	elif shuriken_load >= 5:
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage3_attack()
+	######################################################################
+	#Barbarian
+	#Axe update
+	if axe_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		PlayerManager.player.damage1_attack()
+	elif axe_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		PlayerManager.player.damage1_attack()
+	elif axe_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		PlayerManager.player.damage1_attack()
+	#Mace update
+	if mace_load == 3:
+		PlayerManager.player.piece_multiplier = 1	
+		PlayerManager.player.damage2_attack()
+	elif mace_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5	
+		PlayerManager.player.damage2_attack()
+	elif mace_load >= 5:
+		PlayerManager.player.piece_multiplier = 2	
+		PlayerManager.player.damage2_attack()
 	#Rage update
 	if rage_load == 3:
-		PlayerManager.player.handle_rage(1)
+		PlayerManager.player.handle_rage(0.2)
 	elif rage_load == 4:
-		PlayerManager.player.handle_rage(2)
+		PlayerManager.player.handle_rage(0.4)
 	elif rage_load >= 5:
-		PlayerManager.player.handle_rage(3)
+		PlayerManager.player.handle_rage(0.6)
 		
 	move_checked = true
 	if was_matched:

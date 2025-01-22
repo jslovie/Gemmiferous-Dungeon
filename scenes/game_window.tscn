@@ -1,17 +1,18 @@
-[gd_scene load_steps=17 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=18 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
-[ext_resource type="Texture2D" uid="uid://bvi2jiiwklq15" path="res://assets/UI/Top UI v 2.png" id="2_2yyvh"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_kiygc"]
-[ext_resource type="Texture2D" uid="uid://dtf12khg42w7x" path="res://assets/UI/Bottom UI v 2.png" id="3_mei5y"]
 [ext_resource type="Script" path="res://scripts/grid.gd" id="4_pskgn"]
+[ext_resource type="Texture2D" uid="uid://clf4000op6wyh" path="res://assets/32rogues/borders/border6.png" id="5_kt8tm"]
+[ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="5_lkr4m"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_pg7vj"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
 [ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_gvty1"]
-[ext_resource type="FontFile" uid="uid://bt06rti8mm5ue" path="res://assets/GallaeciaForte.ttf" id="9_jw7cf"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
+[ext_resource type="Script" path="res://scripts/wait_time.gd" id="11_ih4n0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0xu1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2u48"]
 texture = ExtResource("2_kiygc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -125,7 +126,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_5mgtx"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_m0xu1")
+sources/0 = SubResource("TileSetAtlasSource_v2u48")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk2h3"]
 bg_color = Color(0, 0, 0, 1)
@@ -180,21 +181,46 @@ position = Vector2(921, 735)
 
 [node name="GamePanel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 0.905882)
+offset_top = 42.0
 offset_right = 576.0
-offset_bottom = 1024.0
+offset_bottom = 900.0
 
-[node name="TopUI" type="TextureRect" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_2yyvh")
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.505344, 0.505344, 0.505344, 1)
+offset_left = -18.0
+offset_top = 28.0
+offset_right = 594.0
+offset_bottom = 914.0
+texture = ExtResource("5_kt8tm")
 
-[node name="BottomUI" type="TextureRect" parent="."]
-visible = false
-offset_top = 928.0
-offset_right = 576.0
-offset_bottom = 1020.0
-texture = ExtResource("3_mei5y")
+[node name="EnemyTypeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 206.5
+offset_top = 62.0
+offset_right = 369.5
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_font_sizes/font_size = 64
+text = "Enemy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" parent="EnemyTypeLabel" instance=ExtResource("5_lkr4m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 60.5
+offset_bottom = 60.5
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("4_pskgn")
@@ -223,129 +249,6 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 512)
 
-[node name="PlayerHealth" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -450.0
-offset_top = 990.0
-offset_right = -283.0
-offset_bottom = 1007.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
-value = 50.0
-show_percentage = false
-
-[node name="PlayerHealthLabel" type="Label" parent="PlayerHealth"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.5
-offset_top = -11.5
-offset_right = 14.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "100"
-horizontal_alignment = 1
-
-[node name="PlayerShield" type="Sprite2D" parent="PlayerHealth"]
-unique_name_in_owner = true
-position = Vector2(178.667, 8)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_gvty1")
-
-[node name="PlayerShieldLabel" type="Label" parent="PlayerHealth/PlayerShield"]
-unique_name_in_owner = true
-offset_left = -7.22251
-offset_top = -12.0833
-offset_right = 11.7775
-offset_bottom = 10.9167
-scale = Vector2(0.8, 0.8)
-text = "20"
-horizontal_alignment = 1
-
-[node name="PlayerRage" type="ProgressBar" parent="."]
-offset_left = -544.0
-offset_top = 954.0
-offset_right = -377.0
-offset_bottom = 971.0
-rotation = -1.5708
-scale = Vector2(2, 2)
-theme_override_styles/background = SubResource("StyleBoxFlat_ljvo6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_4xy5q")
-max_value = 15.0
-value = 10.0
-show_percentage = false
-
-[node name="RageVer1" type="Sprite2D" parent="PlayerRage"]
-position = Vector2(-16, 9)
-rotation = 1.5708
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("9_k5q0v")
-
-[node name="EnemyHealth" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 750.0
-offset_top = 990.0
-offset_right = 917.0
-offset_bottom = 1007.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
-value = 50.0
-show_percentage = false
-
-[node name="EnemyHealthLabel" type="Label" parent="EnemyHealth"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.5
-offset_top = -11.5
-offset_right = 14.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "100"
-horizontal_alignment = 1
-
-[node name="EnemyShield" type="Sprite2D" parent="EnemyHealth"]
-unique_name_in_owner = true
-position = Vector2(178.667, 8)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_gvty1")
-
-[node name="EnemyShieldLabel" type="Label" parent="EnemyHealth/EnemyShield"]
-unique_name_in_owner = true
-offset_left = -7.22251
-offset_top = -12.0833
-offset_right = 11.7775
-offset_bottom = 10.9167
-scale = Vector2(0.8, 0.8)
-text = "20"
-horizontal_alignment = 1
-
 [node name="Resolution" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -369,8 +272,8 @@ offset_right = 37.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jw7cf")
-theme_override_font_sizes/font_size = 60
+theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_font_sizes/font_size = 64
 text = "You Died!"
 
 [node name="Inventory" type="Node2D" parent="."]
@@ -396,6 +299,190 @@ layout_mode = 2
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 
+[node name="WaitTime" type="Control" parent="."]
+process_mode = 2
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_ih4n0")
+
+[node name="WaitTimePanel" type="Panel" parent="WaitTime"]
+layout_mode = 0
+offset_left = -941.0
+offset_top = -186.0
+offset_right = 1466.0
+offset_bottom = 1242.0
+
+[node name="WaitTimeLabel" type="Label" parent="WaitTime/WaitTimePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -100.0
+offset_right = 110.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_font_sizes/font_size = 256
+text = "0	"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="WaitTimeTimer" type="Timer" parent="WaitTime"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Hud" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHealth" type="ProgressBar" parent="Hud"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = 970.0
+offset_right = -303.0
+offset_bottom = 987.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
+value = 50.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="Hud/PlayerHealth"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -6.5
+offset_right = 14.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = "100"
+horizontal_alignment = 1
+
+[node name="PlayerShield" type="Sprite2D" parent="Hud/PlayerHealth"]
+unique_name_in_owner = true
+position = Vector2(178.667, 8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_gvty1")
+
+[node name="PlayerShieldLabel" type="Label" parent="Hud/PlayerHealth/PlayerShield"]
+unique_name_in_owner = true
+offset_left = -7.22251
+offset_top = -7.08333
+offset_right = 11.7775
+offset_bottom = 15.9167
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = "20"
+horizontal_alignment = 1
+
+[node name="PlayerRage" type="ProgressBar" parent="Hud"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -544.0
+offset_top = 954.0
+offset_right = -377.0
+offset_bottom = 971.0
+rotation = -1.5708
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_ljvo6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4xy5q")
+max_value = 2.0
+step = 0.2
+show_percentage = false
+
+[node name="RageVer1" type="Sprite2D" parent="Hud/PlayerRage"]
+position = Vector2(-16, 9)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_k5q0v")
+
+[node name="EnemyHealth" type="ProgressBar" parent="Hud"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 730.0
+offset_top = 970.0
+offset_right = 897.0
+offset_bottom = 987.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
+value = 50.0
+show_percentage = false
+
+[node name="EnemyHealthLabel" type="Label" parent="Hud/EnemyHealth"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -6.5
+offset_right = 14.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = "100"
+horizontal_alignment = 1
+
+[node name="EnemyShield" type="Sprite2D" parent="Hud/EnemyHealth"]
+unique_name_in_owner = true
+position = Vector2(178.667, 8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_gvty1")
+
+[node name="EnemyShieldLabel" type="Label" parent="Hud/EnemyHealth/EnemyShield"]
+unique_name_in_owner = true
+offset_left = -7.22251
+offset_top = -7.08333
+offset_right = 11.7775
+offset_bottom = 15.9167
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = "20"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
+[connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]

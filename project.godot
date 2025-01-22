@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Bejeweled Dungeons"
+config/name="Gemmiferous Dungeon"
 run/main_scene="res://scenes/dungeons/start_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://Icon.jpg"
+config/icon="res://assets/32rogues/Icons/openart-image_c2lxRADd_1737564175566_raw.jpg"
 
 [autoload]
 
@@ -30,7 +30,8 @@ QuitGame="*res://scenes/GUI/quit_game.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [input]

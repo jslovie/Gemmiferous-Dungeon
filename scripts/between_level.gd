@@ -1,5 +1,5 @@
 extends Node2D
 
+
 func _ready():
-	SaveManager.autosave()
-	
+	SaveManager.load_autosave()

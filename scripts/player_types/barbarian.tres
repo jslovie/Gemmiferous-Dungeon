@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerType" load_steps=2 format=3 uid="uid://cf4esjnq887h4"]
+
+[ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_mkclj"]
+
+[resource]
+script = ExtResource("1_mkclj")
+type = "Barbarian"
+health = 60.0
+max_health = 60.0
+shield = 0
+type_action1 = 3.0
+type_action2 = 2.0
+type_action3 = 0.0

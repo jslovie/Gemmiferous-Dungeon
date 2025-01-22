@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ck1wk0h13dqbh" path="res://scenes/dungeons/level_selection.tscn" id="1_fovlk"]
 [ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/Paper UI/Paper/Menu3.png" id="2_1eqxt"]
 [ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/Paper UI/Paper/Header3.png" id="3_amlki"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_5rtj8"]
 [ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/Paper UI/Paper/Menu1.png" id="4_833ju"]
-[ext_resource type="FontFile" uid="uid://bt06rti8mm5ue" path="res://assets/GallaeciaForte.ttf" id="4_ycfev"]
 [ext_resource type="Texture2D" uid="uid://cqo4kjdeqixtk" path="res://assets/Paper UI/Paper/Menu4.png" id="5_0aie6"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="5_bqnj5"]
 [ext_resource type="Texture2D" uid="uid://dewggu6clh6nu" path="res://assets/32rogues/portrets/rogue.png" id="6_aeub5"]
@@ -170,8 +170,8 @@ offset_bottom = -871.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-theme_override_font_sizes/font_size = 55
+theme_override_fonts/font = ExtResource("4_5rtj8")
+theme_override_font_sizes/font_size = 64
 text = "Hero"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -190,7 +190,7 @@ flip_h = true
 
 [node name="Stats" type="Node2D" parent="."]
 position = Vector2(338, 602)
-scale = Vector2(2.2, 2.2)
+scale = Vector2(2.8, 2.8)
 
 [node name="StatsNames" type="GridContainer" parent="Stats"]
 offset_right = 145.0
@@ -199,96 +199,96 @@ offset_bottom = 181.0
 [node name="Health" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 theme_override_font_sizes/font_size = 0
 text = "Health"
 
 [node name="MaxHealth" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "Max Health"
 
 [node name="Shield" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "Shield"
 
-[node name="Damage1" type="Label" parent="Stats/StatsNames"]
+[node name="BaseAction1" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Damage1"
+theme_override_fonts/font = ExtResource("4_5rtj8")
+text = "Base Action1"
 
-[node name="Damage2" type="Label" parent="Stats/StatsNames"]
+[node name="BaseAction2" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Damage2"
+theme_override_fonts/font = ExtResource("4_5rtj8")
+text = "Base Action2"
 
-[node name="Damage3" type="Label" parent="Stats/StatsNames"]
+[node name="BaseAction3" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-text = "Damage3"
+theme_override_fonts/font = ExtResource("4_5rtj8")
+text = "Base Action3"
 
 [node name="Materials" type="Label" parent="Stats/StatsNames"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "Materials"
 
 [node name="StatsNumbers" type="GridContainer" parent="Stats"]
-offset_left = 188.636
-offset_right = 246.636
+offset_left = 139.13
+offset_right = 197.13
 offset_bottom = 176.0
 
 [node name="HealthNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "999.99"
 
 [node name="MaxHealthNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="ShieldNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "5"
 
 [node name="Damage1Number" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "3"
 
 [node name="Damage2Number" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "3"
 
 [node name="Damage3Number" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "3"
 
 [node name="MaterialsNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="Gems" type="Node2D" parent="."]
-position = Vector2(306, 340)
-scale = Vector2(2, 2)
+position = Vector2(207, 319)
+scale = Vector2(2.5, 2.5)
 
 [node name="GemsNames" type="GridContainer" parent="Gems"]
 offset_left = 195.333
@@ -316,39 +316,40 @@ position = Vector2(0, 81.5)
 texture = ExtResource("11_ilkoa")
 
 [node name="GemsNumbers" type="GridContainer" parent="Gems"]
-offset_left = 219.0
-offset_top = -9.0
-offset_right = 264.0
-offset_bottom = 75.0
+offset_left = 217.0
+offset_top = -7.5
+offset_right = 262.0
+offset_bottom = 83.5
+scale = Vector2(1.1, 1.1)
 
 [node name="RedGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="GreenGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="BlueGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="YellowGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="CoinNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
+theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "0"
 
 [node name="Dungeons" type="Control" parent="."]
@@ -392,13 +393,13 @@ grow_vertical = 2
 texture = ExtResource("5_0aie6")
 
 [node name="Floor" type="Label" parent="Dungeons/DungeonF1_1"]
-offset_left = 1163.75
+offset_left = 1137.5
 offset_top = 27.5
-offset_right = 1348.75
-offset_bottom = 67.5
+offset_right = 1333.5
+offset_bottom = 87.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ycfev")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("4_5rtj8")
+theme_override_font_sizes/font_size = 64
 text = "Floor 1"
 
 [node name="Lines" type="Node2D" parent="Dungeons/DungeonF1_1"]
@@ -762,7 +763,7 @@ offset_left = 1057.5
 offset_top = 925.0
 offset_right = 1089.5
 offset_bottom = 957.0
-type = "Random Event"
+type = "Elite Enemy"
 level = 1
 enemy_type = "Test"
 

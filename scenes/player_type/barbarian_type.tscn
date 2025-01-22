@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyhrrq4evgdil"]
+
+[ext_resource type="PackedScene" uid="uid://bcob5klmphwwu" path="res://scenes/player_type/player_type.tscn" id="1_0lwvy"]
+[ext_resource type="Texture2D" uid="uid://bqgx672ar5w1n" path="res://assets/32rogues/chars/barbarian.png" id="2_267eb"]
+[ext_resource type="Resource" uid="uid://cf4esjnq887h4" path="res://scripts/player_types/barbarian.tres" id="3_wu7pr"]
+
+[node name="BarbarianType" instance=ExtResource("1_0lwvy")]
+texture_normal = ExtResource("2_267eb")
+type = ExtResource("3_wu7pr")

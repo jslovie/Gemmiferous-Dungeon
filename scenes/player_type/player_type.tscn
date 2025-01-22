@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcob5klmphwwu"]
+
+[ext_resource type="Script" path="res://scripts/player_types/player_choose_type.gd" id="2_a1pvv"]
+
+[node name="PlayerType" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+flip_h = true
+script = ExtResource("2_a1pvv")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

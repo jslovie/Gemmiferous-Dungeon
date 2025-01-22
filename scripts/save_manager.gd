@@ -6,9 +6,9 @@ const SAVE_PATH = "user://"
 var autosave_data = {
 	player_data = {
 		type = 0,
-		damage1 = 0,
-		damage2 = 0,
-		damage3 = 0,
+		type_action1 = 0,
+		type_action2 = 0,
+		type_action3 = 0,
 		health = 0,
 		max_health = 0,
 		shield = 0,
@@ -28,9 +28,9 @@ var autosave_data = {
 var savefile_data = {
 	player_data = {
 		type = 0,
-		damage1 = 0,
-		damage2 = 0,
-		damage3 = 0,
+		type_action1 = 0,
+		type_action2 = 0,
+		type_action3 = 0,
 		health = 0,
 		max_health = 0,
 		shield = 0,
@@ -50,9 +50,9 @@ var savefile_data = {
 func update_player_data_savefile():
 	var p : Player = PlayerManager.player
 	savefile_data.player_data.type = p.type
-	savefile_data.player_data.damage1 = p.damage1
-	savefile_data.player_data.damage2 = p.damage2
-	savefile_data.player_data.damage3 = p.damage3
+	savefile_data.player_data.type_action1 = p.type_action1
+	savefile_data.player_data.type_action2 = p.type_action2
+	savefile_data.player_data.type_action3 = p.type_action3
 	savefile_data.player_data.health = p.health
 	savefile_data.player_data.max_health = p.max_health
 	savefile_data.player_data.shield = p.shield
@@ -69,9 +69,9 @@ func update_player_data_savefile():
 func update_player_data_autosave():
 	var p : Player = PlayerManager.player
 	autosave_data.player_data.type = p.type
-	autosave_data.player_data.damage1 = p.damage1
-	autosave_data.player_data.damage2 = p.damage2
-	autosave_data.player_data.damage3 = p.damage3
+	autosave_data.player_data.type_action1 = p.type_action1
+	autosave_data.player_data.type_action2 = p.type_action2
+	autosave_data.player_data.type_action3 = p.type_action3
 	autosave_data.player_data.health = p.health
 	autosave_data.player_data.max_health = p.max_health
 	autosave_data.player_data.shield = p.shield
@@ -121,8 +121,8 @@ func load_autosave():
 	var save_dict : Dictionary = json.get_data() as Dictionary
 	autosave_data = save_dict
 	
-	PlayerManager.set_player_stats(autosave_data.player_data.damage1, autosave_data.player_data.damage2,
-	 autosave_data.player_data.damage3, autosave_data.player_data.health, autosave_data.player_data.max_health,
+	PlayerManager.set_player_stats(autosave_data.player_data.type_action1, autosave_data.player_data.type_action2,
+	 autosave_data.player_data.type_action3, autosave_data.player_data.health, autosave_data.player_data.max_health,
 	 autosave_data.player_data.shield, autosave_data.player_data.shield_load, autosave_data.player_data.coins, 
 	 autosave_data.player_data.materials, autosave_data.player_data.type, autosave_data.gems.red_gem, 
 	 autosave_data.gems.green_gem, autosave_data.gems.blue_gem, autosave_data.gems.yellow_gem)

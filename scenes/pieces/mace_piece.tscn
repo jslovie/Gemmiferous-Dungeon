@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfyb02eqj3ipv"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_2ijqt"]
+[ext_resource type="Texture2D" uid="uid://cbgi4d6g7ytcw" path="res://assets/32rogues/pieces/mace.png" id="2_4boua"]
+
+[node name="MacePiece" instance=ExtResource("1_2ijqt")]
+color = "mace"
+
+[node name="Panel" parent="." index="1"]
+color = Color(0.0253888, 0.252205, 0.29042, 1)
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_4boua")
