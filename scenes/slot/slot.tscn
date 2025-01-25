@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://do7jlr31r2f3d"]
+
+[ext_resource type="Texture2D" uid="uid://t564tte0sfm7" path="res://assets/slot/white.png" id="1_loth1"]
+[ext_resource type="Texture2D" uid="uid://nxfrukmyupgp" path="res://assets/slot/row2.png" id="2_1d6xp"]
+[ext_resource type="Script" path="res://scripts/slot.gd" id="2_i0hm2"]
+[ext_resource type="Texture2D" uid="uid://cm70lyqtpng0t" path="res://assets/slot/slot_gradient.png" id="3_h8tqu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ckekw"]
+light_mode = 2
+
+[node name="Slot" type="TextureRect"]
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+texture = ExtResource("1_loth1")
+expand_mode = 1
+script = ExtResource("2_i0hm2")
+
+[node name="Row" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_ckekw")
+layout_mode = 1
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_1d6xp")
+
+[node name="SlotGradient" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("3_h8tqu")
+expand_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(0.999999, 1)
+blend_mode = 2
+texture = ExtResource("1_loth1")

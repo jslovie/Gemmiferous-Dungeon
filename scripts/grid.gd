@@ -292,12 +292,18 @@ func destroy_matched():
 		PlayerManager.player.damage1_attack()
 	#Mace update
 	if mace_load == 3:
+		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
+		PlayerManager.player.has_mace = true
 		PlayerManager.player.piece_multiplier = 1	
 		PlayerManager.player.damage2_attack()
 	elif mace_load == 4:
+		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 10
+		PlayerManager.player.has_mace = true
 		PlayerManager.player.piece_multiplier = 1.5	
 		PlayerManager.player.damage2_attack()
 	elif mace_load >= 5:
+		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
+		PlayerManager.player.has_mace = true
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage2_attack()
 	#Rage update

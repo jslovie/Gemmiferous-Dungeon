@@ -183,13 +183,14 @@ func get_killed():
 	#Autosave
 	SaveManager.autosave()
 	
-	#Update player stats
-	#PlayerManager.update_stats()
+	#Update player spins
+	PlayerManager.player.spins_left += 99
 	
-	#Scene change
-	await get_tree().create_timer(3).timeout
-	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
-	LevelManager.show_map = true
+	
+	##Scene change
+	#await get_tree().create_timer(3).timeout
+	#get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
+	#LevelManager.show_map = true
 	
 
 func _on_action_timer_timeout():

@@ -54,11 +54,17 @@ func visual_update_stats():
 	$Stats/StatsNumbers/HealthNumber.text = str(health)
 	$Stats/StatsNumbers/MaxHealthNumber.text = str(max_health)
 	$Stats/StatsNumbers/ShieldNumber.text = str(shield)
-	$Stats/StatsNumbers/Damage1Number.text = str(base_action1)
-	$Stats/StatsNumbers/Damage2Number.text = str(base_action2)
-	$Stats/StatsNumbers/Damage3Number.text = str(base_action3)
+	$Stats/StatsNumbers/BaseAction1Number.text = str(base_action1)
+	$Stats/StatsNumbers/BaseAction2Number.text = str(base_action2)
+	$Stats/StatsNumbers/BaseAction3Number.text = str(base_action3)
 	$Stats/StatsNumbers/MaterialsNumber.text = str(materials)
 	if SaveManager.autosave_data.player_data.type == "Rogue":
 		$Stats/StatsNames/BaseAction1.text = "Sword Damage"
 		$Stats/StatsNames/BaseAction2.text = "Bow Damage"
 		$Stats/StatsNames/BaseAction3.text = "Shuriken Damage"
+	elif SaveManager.autosave_data.player_data.type == "Barbarian":
+		$Stats/StatsNames/BaseAction1.text = "Axe Damage"
+		$Stats/StatsNames/BaseAction2.text = "Mace Damage"
+		$Stats/StatsNames/BaseAction3.visible = false
+		$Stats/StatsNumbers/BaseAction3Number. visible = false
+		

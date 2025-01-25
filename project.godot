@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Gemmiferous Dungeon"
+config/name="Gemmiferous"
 run/main_scene="res://scenes/dungeons/start_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/32rogues/Icons/openart-image_c2lxRADd_1737564175566_raw.jpg"

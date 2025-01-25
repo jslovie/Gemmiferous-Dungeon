@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=19 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_gvty1"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
 [ext_resource type="Script" path="res://scripts/wait_time.gd" id="11_ih4n0"]
+[ext_resource type="PackedScene" uid="uid://covxy0k6qglqu" path="res://scenes/slot/slot_machine.tscn" id="12_8bcan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2u48"]
 texture = ExtResource("2_kiygc")
@@ -260,20 +261,21 @@ offset_bottom = 1143.0
 
 [node name="ResolutionText" type="Label" parent="Resolution"]
 unique_name_in_owner = true
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -11.5
-offset_right = 37.0
-offset_bottom = 11.5
+offset_left = -280.0
+offset_top = -277.0
+offset_right = 280.0
+offset_bottom = -157.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_pg7vj")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 128
 text = "You Died!"
 
 [node name="Inventory" type="Node2D" parent="."]
@@ -481,6 +483,24 @@ scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("5_pg7vj")
 text = "20"
 horizontal_alignment = 1
+
+[node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
+visible = false
+offset_left = 287.0
+offset_top = 2084.0
+offset_right = 287.0
+offset_bottom = 2084.0
+scale = Vector2(4, 4)
+
+[node name="Continue" type="Button" parent="."]
+visible = false
+offset_left = 159.0
+offset_top = 948.0
+offset_right = 431.0
+offset_bottom = 1016.0
+theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_font_sizes/font_size = 64
+text = "Continue"
 
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]

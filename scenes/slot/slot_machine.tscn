@@ -1,0 +1,375 @@
+[gd_scene load_steps=18 format=3 uid="uid://covxy0k6qglqu"]
+
+[ext_resource type="Script" path="res://scripts/slot_machine.gd" id="1_1w153"]
+[ext_resource type="Texture2D" uid="uid://dx6f516r153ep" path="res://assets/slot/chestnew2.png" id="1_23pap"]
+[ext_resource type="PackedScene" uid="uid://do7jlr31r2f3d" path="res://scenes/slot/slot.tscn" id="2_v6ymm"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_i21mj"]
+[ext_resource type="Texture2D" uid="uid://bgaac3f15fy2e" path="res://assets/slot/key.png" id="4_grcp6"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="6_v54os"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1srs"]
+atlas = ExtResource("1_23pap")
+region = Rect2(0, 0, 115, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g717"]
+atlas = ExtResource("1_23pap")
+region = Rect2(115, 0, 115, 105)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqgsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1srs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g717")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cjlo"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5sxv"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap16i"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p0h5"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi4e4"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t48qs"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kjly"]
+atlas = ExtResource("4_grcp6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldyfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cjlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5sxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap16i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p0h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi4e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t48qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kjly")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="SlotMachine" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1w153")
+
+[node name="Confetti" type="Node2D" parent="."]
+z_index = 15
+position = Vector2(64, -47)
+rotation = 0.610865
+scale = Vector2(2, 2)
+
+[node name="Green" type="CPUParticles2D" parent="Confetti"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.142445, 0.575978, 0.00511803, 1)
+
+[node name="Red" type="CPUParticles2D" parent="Confetti"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.61522, 0, 0.109952, 1)
+
+[node name="Blue" type="CPUParticles2D" parent="Confetti"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.195051, 0.338344, 1, 1)
+
+[node name="Yellow" type="CPUParticles2D" parent="Confetti"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.65098, 0.643137, 0.0117647, 1)
+
+[node name="Confetti2" type="Node2D" parent="."]
+z_index = 15
+position = Vector2(-63, -47)
+rotation = -0.610865
+scale = Vector2(2, 2)
+
+[node name="Green" type="CPUParticles2D" parent="Confetti2"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.142445, 0.575978, 0.00511803, 1)
+
+[node name="Red" type="CPUParticles2D" parent="Confetti2"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.61522, 0, 0.109952, 1)
+
+[node name="Blue" type="CPUParticles2D" parent="Confetti2"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.195051, 0.338344, 1, 1)
+
+[node name="Yellow" type="CPUParticles2D" parent="Confetti2"]
+amount = 16
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_max = 2.0
+color = Color(0.650961, 0.643091, 0.0112068, 1)
+
+[node name="Chest" type="AnimatedSprite2D" parent="."]
+z_index = 15
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_nqgsh")
+autoplay = "default"
+
+[node name="Tutotial" type="Label" parent="Chest"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.833
+offset_right = 89.1667
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_i21mj")
+theme_override_font_sizes/font_size = 16
+text = "Use key to spin the chest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinsLeft" type="Label" parent="Chest"]
+unique_name_in_owner = true
+offset_left = 15.0
+offset_top = -55.8333
+offset_right = 98.0
+offset_bottom = -32.8333
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_i21mj")
+text = "3 spins left"
+
+[node name="Slot" parent="." instance=ExtResource("2_v6ymm")]
+unique_name_in_owner = true
+z_index = 15
+layout_mode = 1
+offset_left = -53.0
+offset_top = -37.0
+offset_right = -21.0
+offset_bottom = -5.0
+
+[node name="Slot2" parent="." instance=ExtResource("2_v6ymm")]
+unique_name_in_owner = true
+z_index = 15
+layout_mode = 1
+offset_left = -16.0
+offset_top = -37.0
+offset_right = 16.0
+offset_bottom = -5.0
+
+[node name="Slot3" parent="." instance=ExtResource("2_v6ymm")]
+unique_name_in_owner = true
+z_index = 15
+layout_mode = 1
+offset_left = 21.0
+offset_top = -37.0
+offset_right = 53.0
+offset_bottom = -5.0
+
+[node name="Key" type="AnimatedSprite2D" parent="."]
+z_index = 15
+position = Vector2(15, 8)
+sprite_frames = SubResource("SpriteFrames_ldyfm")
+animation = &"open"
+
+[node name="KeyButton" type="TextureButton" parent="."]
+z_index = 15
+layout_mode = 0
+offset_left = -9.0
+offset_top = 2.0
+offset_right = 30.0
+offset_bottom = 15.0
+
+[node name="Results" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 15
+position = Vector2(182, -63)
+scale = Vector2(0.8, 0.8)
+
+[node name="SlotResult" type="Label" parent="Results"]
+unique_name_in_owner = true
+offset_left = 9.0
+offset_top = -19.0
+offset_right = 28.0
+offset_bottom = 4.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+text = "+ 1"
+
+[node name="SlotResultSprite" type="Sprite2D" parent="Results/SlotResult"]
+unique_name_in_owner = true
+position = Vector2(-11, 7.5)
+texture = ExtResource("6_v54os")
+
+[node name="Slot2Result" type="Label" parent="Results"]
+unique_name_in_owner = true
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 28.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+text = "+ 1"
+
+[node name="Slot2ResultSprite" type="Sprite2D" parent="Results/Slot2Result"]
+unique_name_in_owner = true
+position = Vector2(-11, 7.5)
+texture = ExtResource("6_v54os")
+
+[node name="Slot3Result" type="Label" parent="Results"]
+unique_name_in_owner = true
+offset_left = 9.0
+offset_top = 17.0
+offset_right = 28.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+text = "+ 1"
+
+[node name="Slot3ResultSprite" type="Sprite2D" parent="Results/Slot3Result"]
+unique_name_in_owner = true
+position = Vector2(-11, 7.5)
+texture = ExtResource("6_v54os")
+
+[node name="Continue" type="Button" parent="."]
+z_index = 15
+layout_mode = 0
+offset_left = 73.0
+offset_top = -13.0
+offset_right = 160.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+theme_override_font_sizes/font_size = 16
+text = "Continue"
+
+[connection signal="pressed" from="KeyButton" to="." method="_on_key_button_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

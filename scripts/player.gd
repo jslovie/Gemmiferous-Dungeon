@@ -10,6 +10,7 @@ var status = "alive"
 @export var type : String
 
 #Stats
+@export var test_stats : Vector2
 @export var type_action1 : float
 @export var type_action2 : float
 @export var type_action3 : float
@@ -31,6 +32,11 @@ var coins = 0
 var materials = 0
 var piece_multiplier = 1
 var spawned = false
+var spins_left = 0
+
+#Weapon Statuses
+var has_mace = false
+var mace_stunt_chance = 10
 var rage = 0
 
 #Gems
@@ -38,6 +44,13 @@ var red_gem = 0
 var yellow_gem = 0
 var green_gem = 0
 var blue_gem = 0
+
+var rng = RandomNumberGenerator.new()
+
+var mace_stunt_rarities = {
+	"nothing" : 100,
+	"stunt" : mace_stunt_chance,
+}
 
 #func print_test():
 	#print("Player Health is: " + str(health))
@@ -76,10 +89,31 @@ func damage1_attack():
 func damage2_attack():
 	action2 = action2 + (base_action2 * piece_multiplier)
 	EnemyManager.enemy.take_damage(action2)
-
+	if has_mace == true:
+		var mace_action = get_mace_stunt_rng()
+		print(mace_action)
+	
 func damage3_attack():
 	action3 = action3 + (base_action3 * piece_multiplier)
 	EnemyManager.enemy.take_damage(action3)
+
+func get_mace_stunt_rng():
+	rng.randomize()
+	
+	print(mace_stunt_rarities["stunt"])
+	
+	var weigted_sum = 0
+	
+	for n in mace_stunt_rarities:
+		weigted_sum += mace_stunt_rarities[n]
+	
+	var item = rng.randi_range(0, weigted_sum)
+
+	for n in mace_stunt_rarities:
+		if item <= mace_stunt_rarities[n]:
+			return n
+		item -= mace_stunt_rarities[n]
+
 
 func handle_rage(amount):
 	rage += amount
@@ -96,17 +130,17 @@ func material_up():
 	if EnemyManager.enemy.status == "alive":
 		materials += 1
 
-func red_gem_up():
-	red_gem += 1
+func red_gem_up(amount):
+	red_gem += amount
 	
-func green_gem_up():
-	green_gem += 1
+func green_gem_up(amount):
+	green_gem += amount
 		
-func blue_gem_up():
-	blue_gem += 1
+func blue_gem_up(amount):
+	blue_gem += amount
 		
-func yellow_gem_up():
-	yellow_gem += 1
+func yellow_gem_up(amount):
+	yellow_gem += amount
 
 func coins_up():
 	coins += 1

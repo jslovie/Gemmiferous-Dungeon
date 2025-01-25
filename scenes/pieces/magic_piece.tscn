@@ -10,9 +10,9 @@ region = Rect2(3.75724, 323.717, 25.5535, 26.582)
 [node name="MagicPiece" instance=ExtResource("1_xtb7i")]
 color = "magic"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.123505, 0.312147, 0.554688, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_dj0fy")

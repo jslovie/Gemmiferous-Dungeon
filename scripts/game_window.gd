@@ -11,6 +11,7 @@ func _ready():
 	$EnemyTypeLabel/Timer.timer_start()
 	get_tree().paused = true
 	$Hud.visible = false
+	$SlotMachine.visible = false
 	
 func _process(_delta):
 	update_healthbars()
@@ -58,11 +59,13 @@ func resolution_screen():
 		%Resolution.visible = true
 		%ResolutionText.text = "foe vanquished!"
 		%EnemyHealth.visible = false
+		$SlotMachine.visible = true
+		var tween = create_tween()
+		tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
 	elif PlayerManager.player.status == "dead":
 		%Resolution.visible = true
 		%ResolutionText.text = "You died!"
 		%PlayerHealth.visible = false
-
 
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false

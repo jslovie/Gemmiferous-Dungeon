@@ -6,10 +6,10 @@
 [node name="RandomPiece" instance=ExtResource("1_mjy8j")]
 color = "Random"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.369568, 0.381529, 0.675781, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(-1, 0)
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("2_08tr3")

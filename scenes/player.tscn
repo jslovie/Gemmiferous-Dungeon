@@ -44,6 +44,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_iep3p")
+test_stats = Vector2(1, 5)
 
 [node name="Character" type="Sprite2D" parent="."]
 scale = Vector2(15, 15)

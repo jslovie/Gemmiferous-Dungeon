@@ -199,13 +199,13 @@ func destroy_matched():
 					was_matched = true
 					if LevelManager.treasure_timesup == false:
 						if all_pieces[i][j].color == "red":
-							PlayerManager.player.red_gem_up()
+							PlayerManager.player.red_gem_up(1)
 						elif all_pieces[i][j].color == "green":
-							PlayerManager.player.green_gem_up()
+							PlayerManager.player.green_gem_up(1)
 						elif all_pieces[i][j].color == "blue":
-							PlayerManager.player.blue_gem_up()
+							PlayerManager.player.blue_gem_up(1)
 						elif all_pieces[i][j].color == "yellow":
-							PlayerManager.player.yellow_gem_up()
+							PlayerManager.player.yellow_gem_up(1)
 						elif all_pieces[i][j].color == "gold":
 							PlayerManager.player.coins_up()
 						
