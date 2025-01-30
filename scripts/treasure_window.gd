@@ -43,6 +43,7 @@ func _on_times_up_grid_timeout():
 	LevelManager.treasure_timesup = true
 	resolution_screen()
 	$Chest/ChestClosed.visible = true
+	LevelManager.level_done += 1
 	SaveManager.autosave()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")

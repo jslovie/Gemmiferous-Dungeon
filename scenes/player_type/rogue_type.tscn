@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck1auwqa8cl0c"]
+[gd_scene load_steps=5 format=3 uid="uid://ck1auwqa8cl0c"]
 
 [ext_resource type="PackedScene" uid="uid://bcob5klmphwwu" path="res://scenes/player_type/player_type.tscn" id="1_0bdcu"]
 [ext_resource type="Texture2D" uid="uid://lcin0arro3vm" path="res://assets/32rogues/chars/rogue.png" id="1_hqagf"]
+[ext_resource type="Texture2D" uid="uid://bs0it1vbkf7e7" path="res://assets/32rogues/chars/rogue_highlighted.png" id="3_hcjc1"]
 [ext_resource type="Resource" uid="uid://0y1ua5vfelro" path="res://scripts/player_types/rogue.tres" id="3_hehdk"]
 
 [node name="RogueType" instance=ExtResource("1_0bdcu")]
 texture_normal = ExtResource("1_hqagf")
+texture_hover = ExtResource("3_hcjc1")
 type = ExtResource("3_hehdk")

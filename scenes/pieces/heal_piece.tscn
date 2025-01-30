@@ -10,9 +10,12 @@ region = Rect2(40.5256, 617.146, 14.146, 17.3138)
 [node name="HealPiece" instance=ExtResource("1_8wse1")]
 color = "Heal"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.337634, 0.101624, 0.433594, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.337255, 0.101961, 0.435294, 1)
+
+[node name="Sprite2D" parent="." index="3"]
 scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_7ydej")

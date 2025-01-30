@@ -1,12 +1,18 @@
 extends Node
 
+
+
 var show_map = true
 
 var available_level = 1
+var level_done = 0
 
 var type : String
 
 var treasure_timesup = false
+
+var handle_winning = false
+
 
 func switch_to_dungeon_map():
 	SaveManager.autosave()

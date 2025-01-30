@@ -6,9 +6,12 @@
 [node name="RedGemPiece" instance=ExtResource("1_bht01")]
 color = "red"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0, 0.466667, 0.541176, 1)
 
-[node name="Sprite2D" parent="." index="1"]
-scale = Vector2(3, 3)
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0, 0.466667, 0.541176, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2.8, 2.8)
 texture = ExtResource("2_c4lct")

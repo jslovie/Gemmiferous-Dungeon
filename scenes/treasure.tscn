@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="8_5bwak"]
 [ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_prcep"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="11_2xb0m"]
-[ext_resource type="Texture2D" uid="uid://clf4000op6wyh" path="res://assets/32rogues/borders/border6.png" id="12_bpwwk"]
+[ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="12_7mxm3"]
 [ext_resource type="Script" path="res://scripts/wait_time.gd" id="12_ynx2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0xu1"]
@@ -472,13 +472,13 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.505344, 0.505344, 0.505344, 1)
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.674815, 0.674815, 0.674814, 1)
 offset_left = -18.0
 offset_top = 28.0
 offset_right = 594.0
 offset_bottom = 914.0
-texture = ExtResource("12_bpwwk")
+texture = ExtResource("12_7mxm3")
 
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]

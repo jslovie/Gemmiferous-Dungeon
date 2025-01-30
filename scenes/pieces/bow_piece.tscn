@@ -10,10 +10,13 @@ region = Rect2(70.4203, 293.643, 18.02, 17.6518)
 [node name="BowPiece" instance=ExtResource("1_iave7")]
 color = "bow"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.188324, 0.472656, 0.232751, 1)
 
-[node name="Sprite2D" parent="." index="1"]
-position = Vector2(-1, -1)
-scale = Vector2(3.2, 3.2)
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.188235, 0.47451, 0.231373, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(-1, 0)
+scale = Vector2(2.8, 2.8)
 texture = SubResource("AtlasTexture_dshp8")

@@ -133,8 +133,8 @@ func handle_result():
 		%Slot2Result.visible = false
 		%Slot3Result.visible = false
 	tween_results_up()
-	await get_tree().create_timer(1.6).timeout
-	%Results.position = Vector2(182,-63)
+	await get_tree().create_timer(2).timeout
+	%Results.position = Vector2(182,-60)
 	%Slot2Result.visible = true
 	%Slot3Result.visible = true
 	%Results.visible = false
@@ -142,9 +142,26 @@ func handle_result():
 	
 func tween_results_up():
 	var tween = create_tween()
-	tween.tween_property(%Results, "position", Vector2(182,-300),1.5)
+	tween.tween_property(%Results, "position", Vector2(182,-150),1.5)
 
 
 
 func _on_continue_pressed():
-	LevelManager.switch_to_dungeon_map_timeless()
+	if PlayerManager.player.spins_left > 0:
+		$SpinsLeft.visible = true
+	else:
+		if PlayerManager.player.player_won == true:
+			LevelManager.handle_winning = true
+		else:
+			LevelManager.switch_to_dungeon_map_timeless()
+		
+
+func _on_yes_pressed():
+	if PlayerManager.player.player_won == true:
+		LevelManager.handle_winning = true
+	else:
+		LevelManager.switch_to_dungeon_map_timeless()
+
+
+func _on_no_pressed():
+	$SpinsLeft.visible = false

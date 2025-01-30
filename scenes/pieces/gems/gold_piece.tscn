@@ -6,10 +6,13 @@
 [node name="GoldPiece" instance=ExtResource("1_egiuk")]
 color = "gold"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.55295, 0.00197259, 0.773503, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.552941, 0.00392157, 0.772549, 1)
+
+[node name="Sprite2D" parent="." index="3"]
 position = Vector2(0, -2)
-scale = Vector2(2, 2)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_b7x11")

@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3rdm3t28dylk"]
+
+[ext_resource type="Script" path="res://scripts/card_game.gd" id="1_m8tym"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_vmm01"]
+[ext_resource type="Texture2D" uid="uid://d067xevn41isn" path="res://assets/Cards/Cards Collection 1-2_tile_2.png" id="2_ynapj"]
+
+[node name="CardGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8tym")
+
+[node name="Panel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1.92523e-07, 0.223513, 0.141187, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = 244.5
+offset_right = -9.0
+offset_bottom = 282.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+theme_override_font_sizes/font_size = 32
+text = "pick card"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 244.5
+offset_right = 130.0
+offset_bottom = 282.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+theme_override_font_sizes/font_size = 32
+text = "shuffle"
+
+[node name="Card1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 540.0
+offset_right = 974.0
+offset_bottom = 706.0
+texture = ExtResource("2_ynapj")
+
+[node name="Card2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 540.0
+offset_right = 1034.0
+offset_bottom = 706.0
+texture = ExtResource("2_ynapj")
+
+[node name="Card3" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 917.0
+offset_top = 540.0
+offset_right = 1031.0
+offset_bottom = 706.0
+texture = ExtResource("2_ynapj")
+
+[node name="Card4" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 977.0
+offset_top = 540.0
+offset_right = 1091.0
+offset_bottom = 706.0
+texture = ExtResource("2_ynapj")
+
+[node name="BackToVillage" type="Button" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 982.0
+offset_right = 474.0
+offset_bottom = 1050.0
+theme_override_fonts/font = ExtResource("1_vmm01")
+theme_override_font_sizes/font_size = 64
+text = "Back to village"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BackToVillage" to="." method="_on_back_to_village_pressed"]

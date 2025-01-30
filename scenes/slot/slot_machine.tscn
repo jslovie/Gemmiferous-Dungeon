@@ -315,7 +315,7 @@ offset_bottom = 15.0
 unique_name_in_owner = true
 visible = false
 z_index = 15
-position = Vector2(182, -63)
+position = Vector2(182, -60)
 scale = Vector2(0.8, 0.8)
 
 [node name="SlotResult" type="Label" parent="Results"]
@@ -371,5 +371,49 @@ theme_override_fonts/font = ExtResource("3_i21mj")
 theme_override_font_sizes/font_size = 16
 text = "Continue"
 
+[node name="SpinsLeft" type="ColorRect" parent="."]
+visible = false
+z_index = 21
+layout_mode = 0
+offset_left = -98.0
+offset_top = -58.0
+offset_right = 101.0
+offset_bottom = 69.0
+color = Color(0.160784, 0.160784, 0.160784, 0.901961)
+
+[node name="Label" type="Label" parent="SpinsLeft"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 199.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+theme_override_font_sizes/font_size = 16
+text = "You have unused spins
+Are you sure you want to continue ?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Yes" type="Button" parent="SpinsLeft"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 82.0
+offset_right = 60.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+theme_override_font_sizes/font_size = 16
+text = "Yes"
+
+[node name="No" type="Button" parent="SpinsLeft"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 82.0
+offset_right = 144.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("3_i21mj")
+theme_override_font_sizes/font_size = 16
+text = "No"
+
 [connection signal="pressed" from="KeyButton" to="." method="_on_key_button_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="SpinsLeft/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="SpinsLeft/No" to="." method="_on_no_pressed"]

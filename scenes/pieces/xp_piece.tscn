@@ -10,9 +10,9 @@ region = Rect2(6.36619, 678.458, 17.3913, 18.1541)
 [node name="XPPiece" instance=ExtResource("1_mge3x")]
 color = "xp"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.74568, 0.78, 0.0936, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="3"]
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_mjixg")

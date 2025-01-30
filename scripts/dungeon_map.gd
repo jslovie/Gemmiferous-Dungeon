@@ -7,7 +7,6 @@ var health
 var max_health 
 var shield 
 var xp 
-var materials
 
 
 func _ready():
@@ -15,7 +14,7 @@ func _ready():
 
 func _process(_delta):
 	dungeon_map()
-	visual_update_stats()
+	
 	
 func dungeon_map():
 	if LevelManager.show_map == false:
@@ -25,6 +24,8 @@ func dungeon_map():
 		update_stats()
 		update_type()
 		update_gems()
+		update_materials()
+		visual_update_stats()
 		
 func update_stats():
 	health = SaveManager.autosave_data.player_data.health
@@ -33,15 +34,19 @@ func update_stats():
 	base_action1 = PlayerManager.player.base_action1
 	base_action2 = PlayerManager.player.base_action2
 	base_action3 = PlayerManager.player.base_action3
-	materials = SaveManager.autosave_data.player_data.materials
 
 func update_gems():
-	$Gems/GemsNumbers/RedGemNumber.text = str(SaveManager.autosave_data.gems.red_gem)
-	$Gems/GemsNumbers/GreenGemNumber.text = str(SaveManager.autosave_data.gems.green_gem)
-	$Gems/GemsNumbers/BlueGemNumber.text = str(SaveManager.autosave_data.gems.blue_gem)
-	$Gems/GemsNumbers/YellowGemNumber.text = str(SaveManager.autosave_data.gems.yellow_gem)
-	$Gems/GemsNumbers/CoinNumber.text = str(SaveManager.autosave_data.player_data.coins)
-	
+	$Gems/GemsNumbers/RedGemNumber.text = ": " + str(SaveManager.autosave_data.gems.red_gem)
+	$Gems/GemsNumbers/GreenGemNumber.text = ": " + str(SaveManager.autosave_data.gems.green_gem)
+	$Gems/GemsNumbers/BlueGemNumber.text = ": " + str(SaveManager.autosave_data.gems.blue_gem)
+	$Gems/GemsNumbers/YellowGemNumber.text = ": " + str(SaveManager.autosave_data.gems.yellow_gem)
+	$Gems/GemsNumbers/CoinNumber.text = ": " + str(SaveManager.autosave_data.player_data.coins)
+
+func update_materials():
+	$Material/WoodLabel.text = ": " + str(SaveManager.autosave_data.materials.wood)
+	$Material/StoneLabel.text = ": " + str(SaveManager.autosave_data.materials.stone)
+	$Material/IronLabel.text = ": " + str(SaveManager.autosave_data.materials.iron)
+
 func update_type():
 	if SaveManager.autosave_data.player_data.type == "Rogue":
 		$Playerback/PlayerPortret.texture = load("res://assets/32rogues/portrets/rogue.png")
@@ -54,10 +59,9 @@ func visual_update_stats():
 	$Stats/StatsNumbers/HealthNumber.text = str(health)
 	$Stats/StatsNumbers/MaxHealthNumber.text = str(max_health)
 	$Stats/StatsNumbers/ShieldNumber.text = str(shield)
-	$Stats/StatsNumbers/BaseAction1Number.text = str(base_action1)
-	$Stats/StatsNumbers/BaseAction2Number.text = str(base_action2)
-	$Stats/StatsNumbers/BaseAction3Number.text = str(base_action3)
-	$Stats/StatsNumbers/MaterialsNumber.text = str(materials)
+	$Stats/StatsNumbers/BaseAction1Number.text = str(base_action1.x) + " - " + str(base_action1.y)
+	$Stats/StatsNumbers/BaseAction2Number.text = str(base_action2.x) + " - " + str(base_action2.y)
+	$Stats/StatsNumbers/BaseAction3Number.text = str(base_action3.x) + " - " + str(base_action3.y)
 	if SaveManager.autosave_data.player_data.type == "Rogue":
 		$Stats/StatsNames/BaseAction1.text = "Sword Damage"
 		$Stats/StatsNames/BaseAction2.text = "Bow Damage"

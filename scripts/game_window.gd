@@ -1,8 +1,10 @@
 extends Node2D
 
 
+
 func _ready():
 	SaveManager.load_autosave()
+	SaveManager.load_savefile()
 	PlayerManager.player.update_player_texture()
 	$EnemyTypeLabel.text = EnemyManager.enemy.type
 	update_healthbars()
@@ -12,12 +14,15 @@ func _ready():
 	get_tree().paused = true
 	$Hud.visible = false
 	$SlotMachine.visible = false
+	$PlayerDied.visible = false
+	$Player_win.visible = false
 	
 func _process(_delta):
 	update_healthbars()
 	update_shields()
 	resolution_screen()
 	update_rage()
+	handle_win()
 	
 func update_healthbars():
 	#Player healthbar
@@ -64,8 +69,17 @@ func resolution_screen():
 		tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
 	elif PlayerManager.player.status == "dead":
 		%Resolution.visible = true
-		%ResolutionText.text = "You died!"
+		%ResolutionText.text = ""
 		%PlayerHealth.visible = false
+		var tween = create_tween()
+		$PlayerDied.visible = true
+		tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
+
+func handle_win():
+	if LevelManager.handle_winning == true:
+		%Resolution.visible = false
+		$SlotMachine.visible = false
+		$Player_win.visible = true
 
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false

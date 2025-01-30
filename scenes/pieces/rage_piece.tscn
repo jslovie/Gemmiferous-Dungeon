@@ -6,10 +6,13 @@
 [node name="RagePiece" instance=ExtResource("1_id2u6")]
 color = "rage"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0.568265, 0.239474, 0.00573257, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.568627, 0.239216, 0.00392157, 1)
+
+[node name="Sprite2D" parent="." index="3"]
 position = Vector2(1, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_54flr")

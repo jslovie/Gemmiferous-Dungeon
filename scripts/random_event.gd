@@ -13,6 +13,8 @@ var health_lost
 var health_gained
 
 func _ready():
+	LevelManager.level_done += 1
+	EnemyManager.enemy.type = "Trap"
 	SaveManager.load_autosave()
 	choose_random_room()
 	update_text()
@@ -20,7 +22,7 @@ func _ready():
 	
 func choose_random_room():
 	room = randi_range(1, 4)
-	room = 4
+	
 func lost_items(amount):
 	coins_lost = round(PlayerManager.player.coins * amount)
 	red_gems_lost = round(PlayerManager.player.red_gem * amount)
@@ -54,10 +56,12 @@ func gained_health(amount):
 func handle_game_over():
 	await get_tree().create_timer(3).timeout
 	PlayerManager.player.status = "dead"
-	%ResolutionText.text = "You Died"
-	await get_tree().create_timer(3).timeout
+	$Control/Resolution.visible = false
+	$PlayerDied.visible = true
+	EnemyManager.enemy.type = "Trap"
+	PlayerManager.player.set_treasure()
+	SaveManager.savefilesave()
 	SaveManager.remove_autosave()
-	get_tree().quit()
 
 func template_to_copy(): #just a template, should be removed later
 	var random_resolution = randi_range(1,2)
@@ -139,9 +143,11 @@ func handle_button():
 				resolution_screen()
 				%ResolutionText.text = "You quickly realized that it was not a good idea.
 										You leave the room quite shaken but unharmed"
+				LevelManager.switch_to_dungeon_map()
 			elif random_resolution == 2:
 				resolution_screen()
 				%ResolutionText.text = "You found some useful knowledge on the book" #Need to add some knowledge here
+				LevelManager.switch_to_dungeon_map()
 	elif room == 4:
 		if %Button.text == "Open the chest":
 			var random_resolution = randi_range(1,2)

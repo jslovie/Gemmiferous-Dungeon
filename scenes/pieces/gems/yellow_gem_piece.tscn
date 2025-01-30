@@ -6,10 +6,13 @@
 [node name="YellowGemPiece" instance=ExtResource("1_gjpj5")]
 color = "yellow"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0, 0.408994, 0.941378, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0, 0.407843, 0.941176, 1)
+
+[node name="Sprite2D" parent="." index="3"]
 position = Vector2(0, -3)
-scale = Vector2(3, 3)
+scale = Vector2(2.8, 2.8)
 texture = ExtResource("2_apj3t")

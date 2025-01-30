@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bmk20yax6xshm"]
+[gd_scene load_steps=20 format=4 uid="uid://bmk20yax6xshm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_map.gd" id="1_7n5ek"]
 [ext_resource type="PackedScene" uid="uid://ck1wk0h13dqbh" path="res://scenes/dungeons/level_selection.tscn" id="1_fovlk"]
@@ -9,9 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://cqo4kjdeqixtk" path="res://assets/Paper UI/Paper/Menu4.png" id="5_0aie6"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="5_bqnj5"]
 [ext_resource type="Texture2D" uid="uid://dewggu6clh6nu" path="res://assets/32rogues/portrets/rogue.png" id="6_aeub5"]
+[ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="7_q8kqm"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="7_rtvoq"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="8_mckq2"]
+[ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="8_tkxfq"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="9_vpnme"]
+[ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="9_x6sp5"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="10_kn7bq"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="11_ilkoa"]
 
@@ -155,7 +158,7 @@ texture = ExtResource("2_1eqxt")
 
 [node name="Header" type="Sprite2D" parent="."]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
-position = Vector2(612, 201)
+position = Vector2(612, 158.5)
 scale = Vector2(7.5625, 7.55)
 texture = ExtResource("3_amlki")
 
@@ -164,9 +167,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 524.0
-offset_top = 153.0
+offset_top = 108.5
 offset_right = -1217.0
-offset_bottom = -871.0
+offset_bottom = -911.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -178,7 +181,7 @@ vertical_alignment = 1
 
 [node name="Playerback" type="Sprite2D" parent="."]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
-position = Vector2(517, 429)
+position = Vector2(517, 392.753)
 scale = Vector2(2, 2.587)
 texture = ExtResource("4_833ju")
 
@@ -189,8 +192,8 @@ texture = ExtResource("6_aeub5")
 flip_h = true
 
 [node name="Stats" type="Node2D" parent="."]
-position = Vector2(338, 602)
-scale = Vector2(2.8, 2.8)
+position = Vector2(348, 655)
+scale = Vector2(2.6, 2.6)
 
 [node name="StatsNames" type="GridContainer" parent="Stats"]
 offset_right = 145.0
@@ -233,16 +236,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
 text = "Base Action3"
 
-[node name="Materials" type="Label" parent="Stats/StatsNames"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "Materials"
-
 [node name="StatsNumbers" type="GridContainer" parent="Stats"]
-offset_left = 139.13
-offset_right = 197.13
-offset_bottom = 176.0
+offset_left = 140.714
+offset_top = 1.42857
+offset_right = 211.714
+offset_bottom = 177.429
 
 [node name="HealthNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
@@ -254,40 +252,82 @@ text = "999.99"
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = "999.99"
 
 [node name="ShieldNumber" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "5"
+text = "999"
 
 [node name="BaseAction1Number" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "3"
+text = "99 - 99"
 
 [node name="BaseAction2Number" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "3"
+text = "99 - 99"
 
 [node name="BaseAction3Number" type="Label" parent="Stats/StatsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "3"
+text = "99 - 99"
 
-[node name="MaterialsNumber" type="Label" parent="Stats/StatsNumbers"]
-layout_mode = 2
+[node name="Material" type="Node2D" parent="."]
+position = Vector2(396, 347)
+scale = Vector2(1.8, 1.8)
+
+[node name="Wood" type="Sprite2D" parent="Material"]
+position = Vector2(-14.9091, 134)
+texture = ExtResource("7_q8kqm")
+
+[node name="WoodLabel" type="Label" parent="Material"]
+offset_left = -2.09092
+offset_top = 123.0
+offset_right = 42.9091
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = ": 9999"
+
+[node name="Stone" type="Sprite2D" parent="Material"]
+position = Vector2(85.0909, 131.818)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_tkxfq")
+
+[node name="StoneLabel" type="Label" parent="Material"]
+offset_left = 97.9092
+offset_top = 123.0
+offset_right = 142.909
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5rtj8")
+text = ": 9999"
+
+[node name="Iron" type="Sprite2D" parent="Material"]
+position = Vector2(185.091, 134)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("9_x6sp5")
+
+[node name="IronLabel" type="Label" parent="Material"]
+offset_left = 197.909
+offset_top = 123.0
+offset_right = 242.909
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5rtj8")
+text = ": 9999"
 
 [node name="Gems" type="Node2D" parent="."]
-position = Vector2(207, 319)
+position = Vector2(207, 282.753)
 scale = Vector2(2.5, 2.5)
 
 [node name="GemsNames" type="GridContainer" parent="Gems"]
@@ -316,9 +356,9 @@ position = Vector2(0, 81.5)
 texture = ExtResource("11_ilkoa")
 
 [node name="GemsNumbers" type="GridContainer" parent="Gems"]
-offset_left = 217.0
+offset_left = 209.2
 offset_top = -7.5
-offset_right = 262.0
+offset_right = 254.2
 offset_bottom = 83.5
 scale = Vector2(1.1, 1.1)
 
@@ -326,31 +366,31 @@ scale = Vector2(1.1, 1.1)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = ": 9999"
 
 [node name="GreenGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = ": 9999"
 
 [node name="BlueGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = ": 9999"
 
 [node name="YellowGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = ": 9999"
 
 [node name="CoinNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_5rtj8")
-text = "0"
+text = ": 9999"
 
 [node name="Dungeons" type="Control" parent="."]
 layout_mode = 3

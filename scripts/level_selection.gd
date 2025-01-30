@@ -6,7 +6,6 @@ extends TextureButton
 @export var level_complete : bool
 
 
-var level_done = false
 
 
 
@@ -17,6 +16,7 @@ func _ready():
 
 func _process(_delta):
 	available_level()
+	check_level_done()
 
 func select_icon():
 	if type == "Enemy":
@@ -102,7 +102,7 @@ func select_type():
 		get_tree().change_scene_to_file("res://scenes/dungeons/random_event.tscn")
 		
 func check_level_done():
-	if level_done == true:
+	if LevelManager.level_done >= level:
 		$LevelDone.visible = true
 		disabled = true
 	else:
@@ -116,16 +116,12 @@ func available_level():
 		disabled = true
 		
 func update_available_level():
-	if level == 11:
-		LevelManager.available_level = 1
-	else:
-		LevelManager.available_level = level + 1
+	LevelManager.available_level = level + 1
 	
 		
 		
 		
 func _on_pressed():
-	level_done = true
 	check_level_done()
 	update_available_level()
 	select_type()

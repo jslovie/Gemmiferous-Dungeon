@@ -9,7 +9,10 @@ color = "axe"
 [node name="Panel" parent="." index="1"]
 color = Color(0.353216, 0.0403576, 0.401509, 1)
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.352941, 0.0392157, 0.4, 1)
+
+[node name="Sprite2D" parent="." index="3"]
 position = Vector2(1, 1)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("2_mj4b4")

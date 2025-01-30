@@ -1,0 +1,280 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpqr57jvspow8"]
+
+[ext_resource type="Texture2D" uid="uid://c0m8b8uluaoah" path="res://assets/Paper UI/Paper/Menu2.png" id="1_fgp5p"]
+[ext_resource type="Script" path="res://scripts/player_died.gd" id="1_q87re"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="2_yo3n3"]
+[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/Paper UI/Paper/Menu1.png" id="3_kubn2"]
+[ext_resource type="Texture2D" uid="uid://uqoyhlhoi7dq" path="res://assets/32rogues/enem/rat.png" id="4_6cs4r"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="5_j87wu"]
+[ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="6_ljo7f"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="6_pgecp"]
+[ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="7_j3ter"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="7_tdmu6"]
+[ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="8_385ip"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="8_y5eqg"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="9_hwfp5"]
+[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="11_y3e40"]
+[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="12_lgbod"]
+
+[node name="PlayerDied" type="Control"]
+z_index = 20
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q87re")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -339.0
+offset_top = -394.0
+offset_right = -269.0
+offset_bottom = -311.0
+grow_horizontal = 2
+scale = Vector2(10, 10)
+texture = ExtResource("1_fgp5p")
+
+[node name="YouWon" type="Label" parent="."]
+layout_mode = 0
+offset_left = -136.0
+offset_top = -288.0
+offset_right = 136.0
+offset_bottom = -228.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 64
+text = "You won!
+"
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = -180.0
+offset_top = -221.0
+offset_right = 255.0
+offset_bottom = -158.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "Well not really but every death is a step to victory
+"
+autowrap_mode = 2
+
+[node name="Who" type="Label" parent="."]
+layout_mode = 0
+offset_left = -275.0
+offset_top = -123.0
+offset_right = 160.0
+offset_bottom = -60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "Who killed you ?
+"
+autowrap_mode = 2
+
+[node name="Treasure" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = -119.0
+offset_right = 474.0
+offset_bottom = -56.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "Treasure found:
+"
+autowrap_mode = 2
+
+[node name="MaterialLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 87.0
+offset_right = 474.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "Material found:
+"
+autowrap_mode = 2
+
+[node name="Enemy" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -277.0
+offset_top = -92.0
+offset_right = -164.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_kubn2")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-159, 24)
+scale = Vector2(6, 6)
+texture = ExtResource("4_6cs4r")
+
+[node name="Trap" type="Label" parent="."]
+layout_mode = 0
+offset_left = -257.0
+offset_right = -68.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "No one, It was a Trap!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Material" type="Node2D" parent="."]
+position = Vector2(13, -5)
+scale = Vector2(1.1, 1.1)
+
+[node name="Wood" type="Sprite2D" parent="Material"]
+position = Vector2(-14.9091, 134)
+texture = ExtResource("6_ljo7f")
+
+[node name="WoodLabel" type="Label" parent="Material"]
+offset_left = -2.09092
+offset_top = 123.0
+offset_right = 42.9091
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="Stone" type="Sprite2D" parent="Material"]
+position = Vector2(85.0909, 131.818)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_j3ter")
+
+[node name="StoneLabel" type="Label" parent="Material"]
+offset_left = 97.9092
+offset_top = 123.0
+offset_right = 142.909
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="Iron" type="Sprite2D" parent="Material"]
+position = Vector2(185.091, 134)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("8_385ip")
+
+[node name="IronLabel" type="Label" parent="Material"]
+offset_left = 197.909
+offset_top = 123.0
+offset_right = 242.909
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="Gems" type="Node2D" parent="."]
+position = Vector2(-214, -64)
+scale = Vector2(1.5, 1.5)
+
+[node name="GemsNames" type="GridContainer" parent="Gems"]
+offset_left = 195.333
+offset_right = 310.333
+offset_bottom = 176.0
+
+[node name="RedGem" type="Sprite2D" parent="Gems/GemsNames"]
+position = Vector2(0, 1)
+texture = ExtResource("5_j87wu")
+
+[node name="GreenGem" type="Sprite2D" parent="Gems/GemsNames"]
+position = Vector2(0.166992, 18.5)
+texture = ExtResource("6_pgecp")
+
+[node name="BlueGem" type="Sprite2D" parent="Gems/GemsNames"]
+position = Vector2(0, 40)
+texture = ExtResource("7_tdmu6")
+
+[node name="YellowGem" type="Sprite2D" parent="Gems/GemsNames"]
+position = Vector2(0, 60)
+texture = ExtResource("8_y5eqg")
+
+[node name="Coins" type="Sprite2D" parent="Gems/GemsNames"]
+position = Vector2(0, 81.5)
+texture = ExtResource("9_hwfp5")
+
+[node name="GemsNumbers" type="GridContainer" parent="Gems"]
+offset_left = 207.333
+offset_top = -9.33333
+offset_right = 252.333
+offset_bottom = 81.6667
+scale = Vector2(1.1, 1.1)
+
+[node name="RedGemNumber" type="Label" parent="Gems/GemsNumbers"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="GreenGemNumber" type="Label" parent="Gems/GemsNumbers"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="BlueGemNumber" type="Label" parent="Gems/GemsNumbers"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="YellowGemNumber" type="Label" parent="Gems/GemsNumbers"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="CoinNumber" type="Label" parent="Gems/GemsNumbers"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+text = ": 9999"
+
+[node name="Exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -186.0
+offset_top = 212.0
+offset_right = -113.0
+offset_bottom = 230.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("11_y3e40")
+texture_hover = ExtResource("12_lgbod")
+
+[node name="ExitLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -154.0
+offset_top = 242.0
+offset_right = 150.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "More luck next time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitLabel2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -154.0
+offset_top = 242.0
+offset_right = 150.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "More luck next time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

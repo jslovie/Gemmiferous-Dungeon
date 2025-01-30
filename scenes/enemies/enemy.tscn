@@ -167,7 +167,6 @@ scale = Vector2(2, 2)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("7_yoeou")
 theme_override_font_sizes/font_size = 16
-text = "2.33"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
@@ -178,5 +177,22 @@ libraries = {
 "": SubResource("AnimationLibrary_dwrcl")
 }
 speed_scale = 4.0
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnemyHitLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 116.0
+offset_top = -194.0
+offset_right = 224.0
+offset_bottom = -134.0
+theme_override_fonts/font = ExtResource("7_yoeou")
+theme_override_font_sizes/font_size = 64
+text = "999	"
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

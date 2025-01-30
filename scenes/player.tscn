@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://coxtxpj8ay5h5"]
+[gd_scene load_steps=8 format=3 uid="uid://coxtxpj8ay5h5"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_iep3p"]
 [ext_resource type="Texture2D" uid="uid://lcin0arro3vm" path="res://assets/32rogues/chars/rogue.png" id="2_3osq1"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_rbv4a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e4iqf"]
 radius = 134.733
@@ -44,7 +45,6 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_iep3p")
-test_stats = Vector2(1, 5)
 
 [node name="Character" type="Sprite2D" parent="."]
 scale = Vector2(15, 15)
@@ -63,5 +63,22 @@ speed_scale = 4.0
 
 [node name="RageTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHitLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -116.0
+offset_top = -194.0
+offset_right = -8.0
+offset_bottom = -134.0
+theme_override_fonts/font = ExtResource("3_rbv4a")
+theme_override_font_sizes/font_size = 64
+text = "999	"
 
 [connection signal="timeout" from="RageTimer" to="." method="_on_rage_timer_timeout"]

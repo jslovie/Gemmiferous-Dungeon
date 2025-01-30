@@ -18,6 +18,7 @@ var hit_multiplier = 1
 var action_delay = 0
 var blood_type
 
+
 @onready var time = $ActionTimer
 
 func _ready():
@@ -26,6 +27,7 @@ func _ready():
 	EnemyManager.enemy = self
 	change_delay()
 	%ActionTimer.start()
+	%EnemyHitLabel.visible = false
 	
 func _process(_delta):
 	%Label.text = str(time.time_left)
@@ -85,7 +87,7 @@ func Type_check():
 	elif type == "Dragon Boss":
 		var dragon_boss_texture = load("res://assets/32rogues/enem/dragon_boss.png")
 		%EnemyType.texture = dragon_boss_texture
-
+		
 func change_delay():
 	%ActionTimer.wait_time = action_delay
 	print(%ActionTimer.wait_time)
@@ -140,6 +142,7 @@ func take_damage(damage):
 			%AnimationPlayer.play("hit_ghost")
 		elif blood_type == "Red":
 			%AnimationPlayer.play("hit_red")
+			
 		#Logic behind getting hit
 		var health_attack = 0
 		for d in range(0, damage):
@@ -153,8 +156,25 @@ func take_damage(damage):
 		if health <= 0:
 			health = 0
 			get_killed()
+		
+		#Visual hit number
+		%EnemyHitLabel.visible = true
+		var tween_hit_number = create_tween()
+		%EnemyHitLabel.text = str(damage)
+		tween_hit_number.tween_property(%EnemyHitLabel, "position", Vector2(116,-364),0.5)
+		await get_tree().create_timer(1).timeout
+		%EnemyHitLabel.position = Vector2(116,-194)
+		%EnemyHitLabel.visible = false
+			
+			
+
 
 func get_killed():
+	LevelManager.level_done += 1
+	print("available level is: " + str(LevelManager.available_level))
+	if LevelManager.available_level == 11:
+		PlayerManager.player.player_won = true
+		print("player won")
 	#Status change and stop for actions
 	state = dead
 	status = "dead"
@@ -184,7 +204,8 @@ func get_killed():
 	SaveManager.autosave()
 	
 	#Update player spins
-	PlayerManager.player.spins_left += 99
+	PlayerManager.player.spins_left += 2
+	
 	
 	
 	##Scene change

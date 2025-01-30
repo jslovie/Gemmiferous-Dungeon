@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://d0cv2g3t5lba5"]
+[gd_scene load_steps=7 format=4 uid="uid://d0cv2g3t5lba5"]
 
 [ext_resource type="Script" path="res://scripts/rest.gd" id="1_7uvpb"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_2gcf1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_21q7v"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_l0rkg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyc5c"]
 texture = ExtResource("2_21q7v")
@@ -180,8 +181,9 @@ offset_right = 117.5
 offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 64
 text = "Rest
-Heal 25 HP"
+Heal 15 HP"
 
 [connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]

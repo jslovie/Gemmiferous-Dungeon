@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://coy5ww7r67sk2"]
+[gd_scene load_steps=9 format=4 uid="uid://coy5ww7r67sk2"]
 
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="1_lms4r"]
 [ext_resource type="Script" path="res://scripts/random_event.gd" id="1_ss7xc"]
+[ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_3dkm2"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_trmf0"]
+[ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="4_ahxs1"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_nvkye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qx5d"]
 texture = ExtResource("2_trmf0")
@@ -123,6 +126,9 @@ sources/0 = SubResource("TileSetAtlasSource_6qx5d")
 [node name="Random Event" type="Node2D"]
 script = ExtResource("1_ss7xc")
 
+[node name="Enemy" parent="." instance=ExtResource("2_3dkm2")]
+position = Vector2(3099, 565)
+
 [node name="Player" parent="." instance=ExtResource("1_lms4r")]
 position = Vector2(974, 483)
 
@@ -181,7 +187,8 @@ offset_right = 468.5
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("5_nvkye")
+theme_override_font_sizes/font_size = 32
 text = "Here goes text for random item"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -205,21 +212,24 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("5_nvkye")
+theme_override_font_sizes/font_size = 32
 text = "Option 1"
 
 [node name="Button2" type="Button" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("5_nvkye")
+theme_override_font_sizes/font_size = 32
 text = "Option 2"
 
 [node name="Button3" type="Button" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("5_nvkye")
+theme_override_font_sizes/font_size = 32
 text = "Option 3"
 
 [node name="Resolution" type="Panel" parent="Control"]
@@ -250,10 +260,25 @@ offset_right = 468.5
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("5_nvkye")
+theme_override_font_sizes/font_size = 32
 text = "Here goes text for random item"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="PlayerDied" parent="." instance=ExtResource("4_ahxs1")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 985.0
+offset_top = 469.0
+offset_right = 985.0
+offset_bottom = 469.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

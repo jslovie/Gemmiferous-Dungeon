@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://bce7meeanu3ie"]
+
+[ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/Paper UI/Paper/Menu3.png" id="1_5ir33"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_fpweg"]
+[ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/Paper UI/Paper/Header3.png" id="2_4ja56"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_xr2d8"]
+[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="5_gahx4"]
+[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="6_vdv2l"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_fpweg")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1918.0
+offset_bottom = 1082.0
+
+[node name="Book" type="Sprite2D" parent="."]
+position = Vector2(937, 492)
+scale = Vector2(5, 5)
+texture = ExtResource("1_5ir33")
+
+[node name="ShopName" type="Sprite2D" parent="."]
+position = Vector2(778, 283)
+scale = Vector2(4, 4)
+texture = ExtResource("2_4ja56")
+
+[node name="ShopNameLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 705.0
+offset_top = 259.0
+offset_right = 867.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xr2d8")
+theme_override_font_sizes/font_size = 32
+text = "Shop Name"
+
+[node name="ExitShop" type="TextureButton" parent="."]
+layout_direction = 1
+offset_left = 990.0
+offset_top = 673.0
+offset_right = 1063.0
+offset_bottom = 690.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_gahx4")
+texture_hover = ExtResource("6_vdv2l")
+
+[node name="ExitShopLabel" type="Label" parent="."]
+layout_direction = 1
+offset_left = 1035.0
+offset_top = 691.0
+offset_right = 1235.0
+offset_bottom = 721.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xr2d8")
+theme_override_font_sizes/font_size = 32
+text = "Exit the shop"
+
+[node name="Level" type="Label" parent="."]
+offset_left = 1180.0
+offset_top = 199.0
+offset_right = 1284.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xr2d8")
+theme_override_font_sizes/font_size = 32
+text = "Level: 1"
+
+[connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]

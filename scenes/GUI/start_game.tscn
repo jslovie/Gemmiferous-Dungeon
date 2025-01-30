@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=8 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_uksad"]
+[ext_resource type="PackedScene" uid="uid://cddv16lwy000e" path="res://scenes/shop/shop_items/shop_item.tscn" id="4_q16up"]
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l2mt"]
 texture = ExtResource("2_nvocq")
@@ -143,37 +145,101 @@ position = Vector2(-920, -506.5)
 tile_map_data = PackedByteArray("AAAJABEAAAACAAcAAAAVAAoAAAACAAcAAAAqAAoAAAACAAcAAAAhABgAAAADAAoAAAAUAB0AAAADAAoAAAAGABoAAAABABQAAAAEABsAAAABABQAAAAGABwAAAAAABQAAAA5AB0AAAAEABMAAAA2ABsAAAADABMAAAA3AB8AAAAJABMAAAA3AB0AAAADABMAAAA0AAcAAAAAABEAAAA3ABIAAAAAABEAAAA4ABQAAAAHABAAAAA5ABAAAAACABEAAAAgAB4AAAAAABQAAAAeABwAAAAAABQAAAAhABwAAAABABQAAAAlABkAAAABABUAAAAlABcAAAAAABYAAAAxABMAAAADAAkAAAAtABMAAAADAAkAAAAvABUAAAACAAkAAAAxABcAAAABAAkAAAApABIAAAADAAYAAAAlABEAAAADAAYAAAArAB0AAAACAAkAAAAuABsAAAABAAkAAAAmAB4AAAACABMAAAAfABEAAAAOABMAAAA5ABsAAAAKABMAAAA=")
 tile_set = SubResource("TileSet_a6b2h")
 
-[node name="Button" type="Button" parent="."]
+[node name="Testing" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 520.0
+offset_top = -358.0
+offset_right = 892.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_uksad")
+theme_override_font_sizes/font_size = 64
+text = "For testing"
+
+[node name="Remove" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 520.0
+offset_top = -186.0
+offset_right = 892.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_uksad")
+theme_override_font_sizes/font_size = 64
+text = "Remove filesave"
+
+[node name="StartGame" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -186.0
-offset_top = -72.0
+offset_top = -143.0
 offset_right = 186.0
-offset_bottom = 72.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 64
-text = "Start Game"
+text = "New Game	"
 
-[node name="Label" type="Label" parent="."]
+[node name="Options" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = 27.0
+offset_right = 186.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_uksad")
+theme_override_font_sizes/font_size = 64
+text = "Option"
+
+[node name="QuitGame" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = 199.0
+offset_right = 186.0
+offset_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_uksad")
+theme_override_font_sizes/font_size = 64
+text = "Quit Game"
+
+[node name="GameTitle" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -668.0
-offset_top = -336.0
+offset_top = -354.0
 offset_right = 668.0
-offset_bottom = -216.0
+offset_bottom = -234.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 128
-text = "Gemmiferous Dungeon"
+text = "Gemmiferous"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -185,4 +251,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="TestSection" type="Node2D" parent="."]
+
+[node name="ShopItem" parent="TestSection" instance=ExtResource("4_q16up")]
+offset_left = 478.0
+offset_top = 541.0
+offset_right = 591.0
+offset_bottom = 656.0
+
+[node name="Player" parent="." instance=ExtResource("5_oe4jf")]
+position = Vector2(-1260, 974)
+
+[connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]
