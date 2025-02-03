@@ -8,7 +8,7 @@ func _ready():
 	else:
 		print("No")
 
-func _process(delta):
+func _process(_delta):
 	if SaveManager.save_file == true:
 		$StartGame.text = "Continue"
 	else:
@@ -48,3 +48,5 @@ func _on_start_game_pressed():
 func _on_remove_pressed():
 	SaveManager.save_file = false
 	SaveManager.remove_savefile()
+	SaveManager.reset_savefile()
+	VillageManager.reset_village_stats()

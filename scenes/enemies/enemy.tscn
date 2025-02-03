@@ -152,6 +152,7 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Label" type="Label" parent="Actions"]
 unique_name_in_owner = true
+visible = false
 z_index = 5
 anchors_preset = 8
 anchor_left = 0.5

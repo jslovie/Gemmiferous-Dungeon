@@ -198,7 +198,6 @@ func find_matches():
 func destroy_matched():
 	var shield_load = 0
 	var sword_load = 0
-	var magic_load = 0
 	var bow_load = 0
 	var shuriken_load = 0
 	var axe_load = 0

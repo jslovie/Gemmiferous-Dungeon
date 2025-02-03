@@ -161,10 +161,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -298.0
-offset_right = 296.0
-offset_bottom = 298.0
+offset_left = -389.5
+offset_top = -373.0
+offset_right = 389.5
+offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -175,10 +175,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.5
-offset_top = -63.5
-offset_right = 117.5
-offset_bottom = 63.5
+offset_left = -346.0
+offset_top = -64.0
+offset_right = -46.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_l0rkg")
@@ -186,4 +186,24 @@ theme_override_font_sizes/font_size = 64
 text = "Rest
 Heal 15 HP"
 
+[node name="Button2" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.5
+offset_top = -64.0
+offset_right = 347.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 64
+text = "Leave with
+all loot"
+text_overrun_behavior = 2
+
 [connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Panel/Button2" to="." method="_on_button_2_pressed"]

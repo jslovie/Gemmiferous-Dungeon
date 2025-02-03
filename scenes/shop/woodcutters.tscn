@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://wh11drexpik7"]
+
+[ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_rgxuo"]
+[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/Paper UI/Paper/Menu1.png" id="2_bpr5w"]
+[ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="3_480hc"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_bvqrq"]
+
+[sub_resource type="GDScript" id="GDScript_d43l2"]
+script/source = "extends Node2D
+
+
+@export var shop_name : String
+
+var minutes
+var seconds
+
+func _ready():
+	$ShopNameLabel.text = shop_name
+	
+func _process(delta):
+	minutes = int($Timer.time_left / 60)
+	seconds = int($Timer.time_left) - minutes * 60
+	var time = \"%02d:%02d\" % [minutes, seconds]
+	$TimerLabel.text = time
+	$Wood/WoodCount.text = str(VillageManager.wood_collected) + \" wood\"
+	print(seconds)
+
+
+func _on_exit_shop_pressed():
+	visible = false
+
+
+func _on_card_game_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/card_game/card_game.tscn\")
+
+
+func _on_upgrade_pressed():
+	pass
+
+
+func _on_timer_timeout():
+	VillageManager.wood_collected += 1
+
+
+func _on_wood_pressed():
+	PlayerManager.player.total_wood += VillageManager.wood_collected
+	VillageManager.wood_collected = 0
+	SaveManager.savefilesave()
+"
+
+[node name="Woodcutters" instance=ExtResource("1_rgxuo")]
+script = SubResource("GDScript_d43l2")
+shop_name = "Woodcutters"
+
+[node name="ShopNameLabel" parent="." index="3"]
+text = "Woodcutters"
+
+[node name="ExitShopLabel" parent="." index="5"]
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wood" type="TextureButton" parent="." index="9"]
+offset_left = 690.0
+offset_top = 464.0
+offset_right = 803.0
+offset_bottom = 579.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_bpr5w")
+
+[node name="WoodSprite" type="Sprite2D" parent="Wood" index="0"]
+position = Vector2(58, 57)
+scale = Vector2(3, 3)
+texture = ExtResource("3_480hc")
+
+[node name="Collect" type="Label" parent="Wood" index="1"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 135.0
+offset_right = 115.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_bvqrq")
+theme_override_font_sizes/font_size = 16
+text = "Click to collect"
+
+[node name="WoodCount" type="Label" parent="Wood" index="2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 118.0
+offset_right = 115.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_bvqrq")
+theme_override_font_sizes/font_size = 16
+text = "999 wood"
+horizontal_alignment = 1
+
+[node name="TimerLabeldesc" type="Label" parent="." index="10"]
+offset_left = 590.0
+offset_top = 408.0
+offset_right = 1044.0
+offset_bottom = 471.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_bvqrq")
+theme_override_font_sizes/font_size = 32
+text = "till more wood
+collected"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="." index="11"]
+offset_left = 756.0
+offset_top = 376.0
+offset_right = 897.0
+offset_bottom = 406.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_bvqrq")
+theme_override_font_sizes/font_size = 32
+text = "999
+"
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Timer" type="Timer" parent="." index="12"]
+wait_time = 60.0
+autostart = true
+
+[connection signal="pressed" from="Wood" to="." method="_on_wood_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

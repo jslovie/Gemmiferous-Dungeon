@@ -13,12 +13,13 @@ config_version=5
 config/name="Gemmiferous"
 run/main_scene="res://scenes/dungeons/start_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://assets/32rogues/Icons/openart-image_c2lxRADd_1737564175566_raw.jpg"
+config/icon="res://IconG.png"
 
 [autoload]
 
 PlayerManager="*res://scripts/player_manager.gd"
 EnemyManager="*res://scripts/enemy_manager.gd"
+VillageManager="*res://scripts/village_manager.gd"
 SaveManager="*res://scripts/save_manager.gd"
 LevelManager="*res://scripts/level_manager.gd"
 Random="*res://scripts/random.gd"
@@ -30,9 +31,8 @@ QuitGame="*res://scenes/GUI/quit_game.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/initial_position_type=0
-window/size/window_width_override=960
-window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [input]

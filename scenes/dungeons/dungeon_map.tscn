@@ -627,7 +627,7 @@ offset_left = 1227.0
 offset_top = 804.0
 offset_right = 1259.0
 offset_bottom = 836.0
-type = "Random Event"
+type = "Enemy"
 level = 2
 
 [node name="LevelSelection6" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
@@ -795,10 +795,11 @@ offset_left = 1176.0
 offset_top = 928.0
 offset_right = 1208.0
 offset_bottom = 960.0
-type = "Treasure"
+type = "Enemy"
 level = 1
 
 [node name="LevelSelection25" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
+visible = false
 offset_left = 1057.5
 offset_top = 925.0
 offset_right = 1089.5

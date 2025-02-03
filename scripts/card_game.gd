@@ -61,6 +61,7 @@ var cards_pack = {
 func _ready():
 	$Card1.visible = false
 	$Card2.visible = false
+
 	
 func shufle_pack():
 	cards_pack = {
@@ -116,7 +117,7 @@ func shufle_pack():
 	fifty = "Jack of Diamonds",
 	fiftyone = "Queen of Diamonds",
 	fiftytwo = "King of Diamonds",
-}
+	}
 
 func get_card():
 	if cards_pack.size() > 0 :
@@ -128,15 +129,46 @@ func get_card():
 		print(cards_pack)
 		return selected_card
 
+func update_score():
+	$Score.text = "score is: " + str(score)
 
+func reset_score():
+	$Score.text = "score is: 0" 
+	score = 0
 
+func reset_cards():
+	$Card1.texture = null
+	$Card2.texture = null
+	%Card3.texture = null
+	%Card4.texture = null
+	
+func check_result():
+	if score > 21:
+		$Result.visible = true
+		$Result.text = "You Lost!"
+	if score <= 21:
+		$Result.visible = true
+		$Result.text = "You Won!"
+	
+
+	
 func _on_button_pressed():
 	pick_card1()
 	$Card1.visible = true
+	update_score()
 	await get_tree().create_timer(1).timeout
 	pick_card2()
 	$Card2.visible = true
-
+	update_score()
+	
+	check_result()
+	
+	await get_tree().create_timer(2).timeout
+	$Result.visible = false
+	reset_score()
+	reset_cards()
+	shufle_pack()
+	
 func pick_card1():
 	var selected_card = get_card()
 	if selected_card == "Ace of Spades":

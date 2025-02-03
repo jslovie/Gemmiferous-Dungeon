@@ -8,7 +8,7 @@ const TURN = -120
 var spinning = false
 var result = null
 
-var time_interval = 0.015
+var time_interval = 0.010
 var rng = RandomNumberGenerator.new()
 var random_value = 0
 

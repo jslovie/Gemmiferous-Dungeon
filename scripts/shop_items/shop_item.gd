@@ -15,7 +15,11 @@ func item_level_UP():
 	if lvl == 1:
 		lvl += 1
 		
-		
+
+func effect():
+	var tween = create_tween()
+	tween.tween_property($".", "size", Vector2(150,150), 0.1)
+	tween.tween_property($".", "size", Vector2(113,115), 0.1)
 
 func _on_mouse_entered():
 	$Price.visible = true
@@ -28,4 +32,5 @@ func _on_mouse_exited():
 	$ItemNameLvl.text = str(item) + " Lvl " + str(lvl)
 
 func _on_pressed():
+	effect()
 	item_level_UP()

@@ -57,7 +57,6 @@ position = Vector2(56, 56)
 scale = Vector2(3, 3)
 
 [node name="Price" type="Node2D" parent="."]
-visible = false
 
 [node name="Coins" type="Sprite2D" parent="Price"]
 position = Vector2(9.75, 166.25)
@@ -86,6 +85,32 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_h61ly")
 theme_override_font_sizes/font_size = 16
 text = ": 999"
+
+[node name="LowLevel" type="Node2D" parent="."]
+
+[node name="LowLevelLabel" type="Label" parent="LowLevel"]
+visible = false
+offset_left = -70.0
+offset_top = 45.0
+offset_right = 204.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.65098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h61ly")
+theme_override_font_sizes/font_size = 32
+text = "Shop level too low!"
+
+[node name="NotEnough" type="Node2D" parent="."]
+
+[node name="NotEnoughLabel" type="Label" parent="NotEnough"]
+visible = false
+offset_left = -70.0
+offset_top = 45.0
+offset_right = 204.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.65098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h61ly")
+theme_override_font_sizes/font_size = 32
+text = "Not enough money!"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

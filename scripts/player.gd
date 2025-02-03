@@ -121,7 +121,7 @@ func damage2_attack():
 		pass
 	else:
 		var random_base_action2 = randi_range(base_action2.x, base_action2.y)
-		action2 = action2 + (random_base_action2 * piece_multiplier)
+		action2 = (random_base_action2 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action2)
 		print("damage is: " + str(action2))
 		if has_mace == true:
@@ -133,7 +133,7 @@ func damage3_attack():
 		pass
 	else:
 		var random_base_action3 = randi_range(base_action3.x, base_action3.y)
-		action3 = action3 + (random_base_action3 * piece_multiplier)
+		action3 = (random_base_action3 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action3)
 		print("damage is: " + str(action3))
 	
@@ -258,7 +258,6 @@ func get_killed():
 	tween_rotate.tween_property($Character, "rotation", deg_to_rad(-90), 0.5)
 	
 	await get_tree().create_timer(3).timeout
-	set_treasure()
 	
 	SaveManager.remove_autosave()
 	SaveManager.savefilesave()

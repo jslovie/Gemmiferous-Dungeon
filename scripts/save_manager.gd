@@ -55,11 +55,18 @@ var savefile_data = {
 		total_stone = 0,
 		total_iron = 0,
 	},
+	village = {
+		tavern_lvl = 0,
+		weaponsmith_lvl = 0,
+		armourer_lvl = 0,
+		axe_item_lvl = 0,
+	},
 }
 
 #Savefile
 func update_player_data_savefile():
 	var p : Player = PlayerManager.player
+	var v = VillageManager
 	savefile_data.player_data.save_file = save_file
 	savefile_data.player_data.total_coins = p.total_coins
 	savefile_data.gems.total_red_gem = p.total_red_gem
@@ -71,7 +78,40 @@ func update_player_data_savefile():
 	savefile_data.materials.total_iron = p.total_iron
 	savefile_data.player_data.upgraded_axe_damage_x = p.upgraded_axe_damage.x
 	savefile_data.player_data.upgraded_axe_damage_y = p.upgraded_axe_damage.y
+	savefile_data.village.tavern_lvl = v.tavern_lvl
+	savefile_data.village.weaponsmith_lvl = v.weaponsmith_lvl
+	savefile_data.village.armourer_lvl = v.armourer_lvl
+	savefile_data.village.axe_item_lvl = v.axe_item_lvl
 	
+func reset_savefile():
+	savefile_data = {
+	player_data = {
+		save_file = false,
+		total_coins = 0,
+		upgraded_axe_damage_x = 0,
+		upgraded_axe_damage_y = 0,
+	},
+	gems = {
+		total_red_gem = 0,
+		total_green_gem = 0,
+		total_blue_gem = 0,
+		total_yellow_gem = 0,
+	},
+	materials = {
+		total_wood = 0,
+		total_stone = 0,
+		total_iron = 0,
+	},
+	village = {
+		tavern_lvl = 0,
+		weaponsmith_lvl = 0,
+		armourer_lvl = 0,
+		axe_item_lvl = 0,
+	},
+}
+
+
+
 #Autosave
 func update_player_data_autosave():
 	var p : Player = PlayerManager.player
@@ -156,3 +196,6 @@ func load_savefile():
 	savefile_data.gems.total_red_gem, savefile_data.gems.total_blue_gem, savefile_data.gems.total_yellow_gem, 
 	savefile_data.materials.total_wood, savefile_data.materials.total_stone, savefile_data.materials.total_iron, 
 	savefile_data.player_data.upgraded_axe_damage_x, savefile_data.player_data.upgraded_axe_damage_y)
+	
+	VillageManager.set_village_stats(savefile_data.village.weaponsmith_lvl, savefile_data.village.tavern_lvl,
+	savefile_data.village.armourer_lvl, savefile_data.village.axe_item_lvl)

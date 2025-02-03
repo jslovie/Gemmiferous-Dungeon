@@ -6,7 +6,7 @@ var green_gem = load("res://assets/32rogues/gems/green.png")
 var red_gem = load("res://assets/32rogues/gems/red.png")
 var jackpot = false
 
-func _process(delta):
+func _process(_delta):
 	update_spins()
 
 func pull():

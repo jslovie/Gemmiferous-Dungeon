@@ -1,6 +1,6 @@
 extends Control
 
-func _process(delta):
+func _process(_delta):
 	update_treasures()
 	update_materials()
 	

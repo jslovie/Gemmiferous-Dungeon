@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=7 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_uksad"]
-[ext_resource type="PackedScene" uid="uid://cddv16lwy000e" path="res://scenes/shop/shop_items/shop_item.tscn" id="4_q16up"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l2mt"]
@@ -252,12 +251,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TestSection" type="Node2D" parent="."]
-
-[node name="ShopItem" parent="TestSection" instance=ExtResource("4_q16up")]
-offset_left = 478.0
-offset_top = 541.0
-offset_right = 591.0
-offset_bottom = 656.0
 
 [node name="Player" parent="." instance=ExtResource("5_oe4jf")]
 position = Vector2(-1260, 974)

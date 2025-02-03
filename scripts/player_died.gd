@@ -4,7 +4,7 @@ func _ready():
 	$EnemySprite.visible = true
 	$Trap.visible = false
 	
-func _process(delta):
+func _process(_delta):
 	update_treasures()
 	update_materials()
 	update_enemy_sprite()

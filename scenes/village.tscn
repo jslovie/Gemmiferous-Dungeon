@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=81 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://c4p8ubk6g55sx" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_7.png" id="9_fudty"]
 [ext_resource type="Texture2D" uid="uid://vay5kaj0e72v" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_2.png" id="10_4y20t"]
 [ext_resource type="Texture2D" uid="uid://bnufjwkr2uy77" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_5.png" id="11_ficdw"]
+[ext_resource type="Texture2D" uid="uid://btglyhftmwen2" path="res://assets/village/Castles/castle 06.png" id="11_njgcb"]
 [ext_resource type="Texture2D" uid="uid://dhj5wx61bqjbo" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_4.png" id="12_1jgtf"]
+[ext_resource type="Texture2D" uid="uid://bbjgpqkvpchf8" path="res://assets/village/Castles/castle 06-highlight.png" id="12_eju6b"]
 [ext_resource type="Texture2D" uid="uid://bkp4ajbff1qdv" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_9.png" id="13_pppub"]
 [ext_resource type="Texture2D" uid="uid://xcka68qk7gdq" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_3.png" id="14_0uk1y"]
 [ext_resource type="Texture2D" uid="uid://bk8wt0ta8f7sl" path="res://assets/village/Prefabs/Prefabs_tile_0.png" id="15_nic15"]
@@ -47,18 +49,19 @@
 [ext_resource type="Texture2D" uid="uid://3334jd21i2vt" path="res://assets/village/Houses and Farms/Houses and Farms_tile_1.png" id="37_8jqsf"]
 [ext_resource type="Texture2D" uid="uid://bd4yi6jj5txbb" path="res://assets/village/Prefabs/Prefabs_tile_2.png" id="38_ia188"]
 [ext_resource type="Texture2D" uid="uid://dci4muisibspd" path="res://assets/village/Hills - Mountains/Hills_tile_19.png" id="42_2v2ta"]
+[ext_resource type="Texture2D" uid="uid://cshxo1fqxxitc" path="res://assets/village/Hills - Mountains/Hills_tile_13 - highlighted.png" id="42_rb3g7"]
 [ext_resource type="Texture2D" uid="uid://dptdwfuihhkt" path="res://assets/village/Lights/Lights_tile_4.png" id="43_oradi"]
 [ext_resource type="Texture2D" uid="uid://1m741t2wax1n" path="res://assets/village/Lights/Lights_tile_13.png" id="44_vn4qc"]
-[ext_resource type="Texture2D" uid="uid://dm0q7cx5c5pil" path="res://assets/village/Hills - Mountains/Big Hills_tile_1.png" id="45_oob12"]
 [ext_resource type="Texture2D" uid="uid://1lhs65xi76ry" path="res://assets/village/Hills - Mountains/Hills_tile_8.png" id="46_o1sdo"]
 [ext_resource type="Texture2D" uid="uid://b2yxrgyin7yt4" path="res://assets/village/Lights/Lights_tile_6.png" id="47_cspaa"]
 [ext_resource type="Texture2D" uid="uid://wwyns4rgvrgo" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_34.png" id="48_p7j73"]
 [ext_resource type="Texture2D" uid="uid://byjuvgdbjvhq0" path="res://assets/village/Castles/castles 1_tile_3.png" id="49_aj6rs"]
 [ext_resource type="Texture2D" uid="uid://cql3h76afprhw" path="res://assets/village/Castles/castles 1_tile_2.png" id="50_8x73o"]
-[ext_resource type="Texture2D" uid="uid://cjm8v7tubvn0b" path="res://assets/village/Castles/castle 01.png" id="51_xew4e"]
+[ext_resource type="Texture2D" uid="uid://d1l0ib3mvjg8k" path="res://assets/village/Prefabs/Prefabs_tile_2 - highlighted.png" id="50_ixu2a"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="53_l6ruk"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="54_nxenr"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="55_jb7sb"]
+[ext_resource type="Texture2D" uid="uid://wpc5vd84kmlg" path="res://assets/village/Hills - Mountains/Hills_tile_8 - highlighted.png" id="55_ojeti"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="56_lqvkx"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="57_amqmd"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="58_odxrx"]
@@ -67,6 +70,14 @@
 [ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="61_1lc5e"]
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="62_h74ps"]
 [ext_resource type="PackedScene" uid="uid://c6ekgijmd1fss" path="res://scenes/shop/weaponsmith_shop.tscn" id="67_hl5fj"]
+[ext_resource type="PackedScene" uid="uid://djjvuxftam6qd" path="res://scenes/shop/armourer_shop.tscn" id="68_rr3hs"]
+[ext_resource type="PackedScene" uid="uid://crsmlojxar5u7" path="res://scenes/shop/tavern_shop.tscn" id="69_j85mg"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="70_n63o2"]
+[ext_resource type="Texture2D" uid="uid://dregiaqa3hbws" path="res://assets/32rogues/material/wood outline W.png" id="71_chpnx"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="72_bwmem"]
+[ext_resource type="Texture2D" uid="uid://cuw7kiexgkbbt" path="res://assets/32rogues/material/stone outline W.png" id="73_y8ahp"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="74_kehnc"]
+[ext_resource type="Texture2D" uid="uid://bh2avrkrq5akc" path="res://assets/32rogues/material/iron2 outline W.png" id="75_aih4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe0hp"]
 texture = ExtResource("1_qulya")
@@ -779,69 +790,87 @@ position = Vector2(1, 3)
 tile_map_data = PackedByteArray("AAAqABUAAAACAAQAAAAqABQAAAACAAQAAAArABQAAAACAAQAAAArABUAAAACAAQAAAAsABQAAAACAAQAAAAsABUAAAACAAQAAAAtABUAAAACAAQAAAAtABQAAAACAAQAAAAuABUAAAACAAQAAAAuABQAAAACAAQAAAAvABQAAAACAAQAAAAvABUAAAACAAQAAAAwABQAAAACAAQAAAAwABUAAAACAAQAAAAxABQAAAACAAQAAAAxABUAAAACAAQAAAAyABUAAAACAAQAAAAyABQAAAACAAQAAAAzABQAAAACAAQAAAAzABUAAAACAAQAAAA0ABQAAAACAAQAAAA0ABUAAAACAAQAAAA1ABUAAAACAAQAAAA1ABQAAAACAAQAAAA2ABUAAAACAAQAAAA2ABQAAAACAAQAAAA3ABQAAAACAAQAAAA3ABUAAAACAAQAAAA4ABQAAAACAAQAAAA4ABUAAAACAAQAAAA5ABUAAAACAAQAAAA5ABQAAAACAAQAAAA6ABQAAAACAAQAAAA6ABUAAAACAAQAAAAsABYAAAACAAQAAAAuABYAAAACAAQAAAAwABYAAAACAAQAAAAxABYAAAACAAQAAAAyABYAAAACAAQAAAAzABYAAAACAAQAAAA0ABYAAAACAAQAAAA1ABYAAAACAAQAAAArABYAAAACAAQAAAAqABYAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_fjemq")
 
-[node name="Mountain13" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain" type="Node2D" parent="VillageTiles"]
+
+[node name="Mountain13" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(895, 348)
 texture = ExtResource("3_vf32n")
 
-[node name="Mountain12" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain12" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(883, 356)
 texture = ExtResource("3_vf32n")
 
-[node name="Mountain10" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain10" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(867, 357)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain11" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain11" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(759, 354)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain14" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain14" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(836, 354)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain3" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain3" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(801, 357)
 texture = ExtResource("2_a8l7d")
 
-[node name="BigHillsTile4" type="Sprite2D" parent="VillageTiles"]
+[node name="BigHillsTile4" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(915, 351)
 texture = ExtResource("4_0to4q")
 
-[node name="BigHillsTile3" type="Sprite2D" parent="VillageTiles"]
+[node name="BigHillsTile3" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(935, 352)
 texture = ExtResource("5_xwxxy")
 
-[node name="Mountain1" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain1" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(822, 363)
 texture = ExtResource("3_vf32n")
 
-[node name="Mountain2" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain2" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(844, 363)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain4" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain4" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(779, 360)
 texture = ExtResource("3_vf32n")
 
-[node name="Mountain5" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain5" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(760, 365)
 texture = ExtResource("3_vf32n")
 
-[node name="Mountain7" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain7" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(700, 360)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain9" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain9" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(729, 359)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain8" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain8" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(717, 371)
 texture = ExtResource("2_a8l7d")
 
-[node name="Mountain6" type="Sprite2D" parent="VillageTiles"]
+[node name="Mountain6" type="Sprite2D" parent="VillageTiles/Mountain"]
 position = Vector2(744, 370)
 texture = ExtResource("2_a8l7d")
+
+[node name="Mountain15" type="Sprite2D" parent="VillageTiles/Mountain"]
+position = Vector2(682, 365)
+texture = ExtResource("3_vf32n")
+
+[node name="BigHillsTile7" type="Sprite2D" parent="VillageTiles/Mountain"]
+position = Vector2(932, 451)
+texture = ExtResource("4_0to4q")
+
+[node name="BigHillsTile5" type="Sprite2D" parent="VillageTiles/Mountain"]
+position = Vector2(927, 459)
+texture = ExtResource("4_0to4q")
+
+[node name="BigHillsTile6" type="Sprite2D" parent="VillageTiles/Mountain"]
+position = Vector2(914, 452)
+texture = ExtResource("5_xwxxy")
 
 [node name="Road" type="TileMapLayer" parent="VillageTiles"]
 position = Vector2(-9, -15)
@@ -864,59 +893,139 @@ offset_bottom = 407.0
 texture_normal = ExtResource("6_33kwu")
 texture_hover = ExtResource("9_34gab")
 
-[node name="TreesTile26" type="Sprite2D" parent="VillageTiles"]
+[node name="Sorcerer" type="TextureButton" parent="VillageTiles"]
+offset_left = 686.0
+offset_top = 385.0
+offset_right = 718.0
+offset_bottom = 417.0
+texture_normal = ExtResource("11_njgcb")
+texture_hover = ExtResource("12_eju6b")
+
+[node name="Trees" type="Node2D" parent="VillageTiles"]
+
+[node name="TreesTile26" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(801, 430)
 texture = ExtResource("7_ryel4")
 
-[node name="TreesTile8" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile8" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(813, 402)
 texture = ExtResource("8_l82vw")
 
-[node name="TreesTile9" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile9" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(822, 398)
 texture = ExtResource("8_l82vw")
 
-[node name="TreesTile7" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile7" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(821, 408)
 texture = ExtResource("9_fudty")
 
-[node name="TreesTile2" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile2" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(802, 400)
 texture = ExtResource("10_4y20t")
 
-[node name="TreesTile5" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile5" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(809, 410)
 texture = ExtResource("11_ficdw")
 
-[node name="TreesTile4" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile4" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(828, 404)
 texture = ExtResource("12_1jgtf")
 
-[node name="TreesTile6" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile6" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(817, 416)
 texture = ExtResource("12_1jgtf")
 
-[node name="TreesTile10" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile10" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(807, 417)
 texture = ExtResource("8_l82vw")
 
-[node name="TreesTile11" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile11" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(828, 416)
 texture = ExtResource("13_pppub")
 
-[node name="TreesTile3" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile3" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(835, 411)
 texture = ExtResource("14_0uk1y")
 
-[node name="TreesTile12" type="Sprite2D" parent="VillageTiles"]
+[node name="TreesTile12" type="Sprite2D" parent="VillageTiles/Trees"]
 position = Vector2(822, 421)
 texture = ExtResource("8_l82vw")
 
-[node name="PrefabsTile0" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(782, 463)
-texture = ExtResource("15_nic15")
+[node name="PrefabsTile7" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(741, 391)
+texture = ExtResource("4_06vh4")
 
-[node name="Church" type="TextureButton" parent="VillageTiles"]
+[node name="PrefabsTile4" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(715, 423)
+texture = ExtResource("18_finv8")
+
+[node name="PrefabsTile5" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(741, 451)
+texture = ExtResource("23_y68wf")
+
+[node name="PrefabsTile8" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(726, 436)
+texture = ExtResource("23_y68wf")
+
+[node name="PrefabsTile9" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(733, 418)
+texture = ExtResource("23_y68wf")
+
+[node name="PrefabsTile10" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(745, 406)
+texture = ExtResource("23_y68wf")
+
+[node name="PrefabsTile11" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(766, 398)
+texture = ExtResource("23_y68wf")
+
+[node name="PrefabsTile12" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(876, 374)
+texture = ExtResource("18_finv8")
+
+[node name="PrefabsTile13" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(895, 376)
+texture = ExtResource("18_finv8")
+
+[node name="PrefabsTile14" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(918, 380)
+texture = ExtResource("18_finv8")
+
+[node name="PrefabsTile15" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(934, 392)
+texture = ExtResource("18_finv8")
+
+[node name="TreesTile34" type="Sprite2D" parent="VillageTiles/Trees"]
+position = Vector2(838, 400)
+texture = ExtResource("48_p7j73")
+
+[node name="Mystery" type="Sprite2D" parent="VillageTiles"]
+position = Vector2(924, 360)
+texture = ExtResource("42_2v2ta")
+
+[node name="Camp" type="Sprite2D" parent="VillageTiles"]
+position = Vector2(716, 393)
+texture = ExtResource("43_oradi")
+
+[node name="Bonfire" type="Sprite2D" parent="VillageTiles"]
+position = Vector2(859, 416)
+texture = ExtResource("47_cspaa")
+
+[node name="Cemetery" type="Sprite2D" parent="VillageTiles"]
+position = Vector2(763, 431)
+texture = ExtResource("19_f5rev")
+
+[node name="Cemetery2" type="Sprite2D" parent="VillageTiles"]
+position = Vector2(763, 443)
+texture = ExtResource("31_na1ib")
+
+[node name="Cross" type="Sprite2D" parent="VillageTiles"]
+position = Vector2(860, 398)
+texture = ExtResource("33_mqttp")
+
+[node name="Shops" type="Node2D" parent="VillageTiles"]
+
+[node name="Church" type="TextureButton" parent="VillageTiles/Shops"]
 offset_left = 752.0
 offset_top = 410.0
 offset_right = 768.0
@@ -924,7 +1033,7 @@ offset_bottom = 426.0
 texture_normal = ExtResource("16_hal37")
 texture_hover = ExtResource("21_bjeen")
 
-[node name="Taverm" type="TextureButton" parent="VillageTiles"]
+[node name="Taverm" type="TextureButton" parent="VillageTiles/Shops"]
 offset_left = 832.0
 offset_top = 424.0
 offset_right = 848.0
@@ -932,19 +1041,7 @@ offset_bottom = 440.0
 texture_normal = ExtResource("17_7tiep")
 texture_hover = ExtResource("23_3wj2e")
 
-[node name="PrefabsTile7" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(741, 391)
-texture = ExtResource("4_06vh4")
-
-[node name="BigHillsTile2" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(763, 431)
-texture = ExtResource("19_f5rev")
-
-[node name="PrefabsTile1" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(822, 462)
-texture = ExtResource("20_0k57a")
-
-[node name="Weaponsmith" type="TextureButton" parent="VillageTiles"]
+[node name="Weaponsmith" type="TextureButton" parent="VillageTiles/Shops"]
 offset_left = 844.0
 offset_top = 449.0
 offset_right = 876.0
@@ -952,11 +1049,7 @@ offset_bottom = 465.0
 texture_normal = ExtResource("21_kbdmv")
 texture_hover = ExtResource("25_du52e")
 
-[node name="PrefabsTile4" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(715, 423)
-texture = ExtResource("18_finv8")
-
-[node name="Armorer" type="TextureButton" parent="VillageTiles"]
+[node name="Armourer" type="TextureButton" parent="VillageTiles/Shops"]
 offset_left = 850.0
 offset_top = 469.0
 offset_right = 866.0
@@ -964,173 +1057,124 @@ offset_bottom = 485.0
 texture_normal = ExtResource("22_1rtox")
 texture_hover = ExtResource("28_7qkp6")
 
-[node name="PrefabsTile5" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(741, 451)
-texture = ExtResource("23_y68wf")
+[node name="IronMine" type="TextureButton" parent="VillageTiles/Shops"]
+offset_left = 836.0
+offset_top = 365.0
+offset_right = 852.0
+offset_bottom = 381.0
+disabled = true
+texture_normal = ExtResource("32_8cxn2")
+texture_hover = ExtResource("42_rb3g7")
 
-[node name="PrefabsTile8" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(726, 436)
-texture = ExtResource("23_y68wf")
+[node name="Woodcutters" type="TextureButton" parent="VillageTiles/Shops"]
+offset_left = 687.0
+offset_top = 445.0
+offset_right = 719.0
+offset_bottom = 477.0
+disabled = true
+texture_normal = ExtResource("38_ia188")
+texture_hover = ExtResource("50_ixu2a")
 
-[node name="PrefabsTile9" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(733, 418)
-texture = ExtResource("23_y68wf")
+[node name="StoneMine" type="TextureButton" parent="VillageTiles/Shops"]
+offset_left = 917.0
+offset_top = 455.0
+offset_right = 933.0
+offset_bottom = 471.0
+disabled = true
+texture_normal = ExtResource("46_o1sdo")
+texture_hover = ExtResource("55_ojeti")
 
-[node name="HousesAndFarmsTile2" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(864, 434)
-texture = ExtResource("24_67biy")
+[node name="Houses" type="Node2D" parent="VillageTiles"]
 
-[node name="HousesAndFarmsTile3" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(872, 466)
-texture = ExtResource("24_67biy")
-
-[node name="HousesAndFarmsTile4" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(879, 446)
-texture = ExtResource("24_67biy")
-
-[node name="HousesAndFarmsTile5" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(883, 480)
-texture = ExtResource("24_67biy")
-
-[node name="HousesAndFarmsTile6" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(890, 461)
-texture = ExtResource("25_qmtis")
-
-[node name="HousesAndFarmsTile9" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(903, 415)
-texture = ExtResource("27_s76oi")
-
-[node name="HousesAndFarmsTile12" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(906, 434)
-texture = ExtResource("28_nu4vf")
-
-[node name="HousesAndFarmsTile13" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(904, 404)
-texture = ExtResource("29_80h1i")
-
-[node name="HousesAndFarmsTile10" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(918, 419)
-texture = ExtResource("30_e4qso")
-
-[node name="HillsTile16" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(763, 443)
-texture = ExtResource("31_na1ib")
-
-[node name="HillsTile13" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(844, 373)
-texture = ExtResource("32_8cxn2")
-
-[node name="HillsTile18" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(860, 398)
-texture = ExtResource("33_mqttp")
-
-[node name="Prefabs1" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(882, 398)
-texture = ExtResource("33_4uuv5")
-
-[node name="Prefabs2" type="Sprite2D" parent="VillageTiles"]
+[node name="Prefabs2" type="Sprite2D" parent="VillageTiles/Houses"]
 position = Vector2(757, 471)
 texture = ExtResource("34_65p6h")
 
-[node name="HousesAndFarmsTile8" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(883, 416)
-texture = ExtResource("35_172s6")
-
-[node name="HousesAndFarmsTile7" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(802, 482)
-texture = ExtResource("36_gcsog")
-
-[node name="HousesAndFarmsTile1" type="Sprite2D" parent="VillageTiles"]
+[node name="HousesAndFarmsTile1" type="Sprite2D" parent="VillageTiles/Houses"]
 position = Vector2(767, 481)
 texture = ExtResource("37_8jqsf")
 
-[node name="PrefabsTile10" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(745, 406)
-texture = ExtResource("23_y68wf")
+[node name="PrefabsTile0" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(782, 463)
+texture = ExtResource("15_nic15")
 
-[node name="PrefabsTile11" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(766, 398)
-texture = ExtResource("23_y68wf")
+[node name="HousesAndFarmsTile7" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(802, 482)
+texture = ExtResource("36_gcsog")
 
-[node name="PrefabsTile2" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(703, 461)
-texture = ExtResource("38_ia188")
+[node name="PrefabsTile1" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(822, 462)
+texture = ExtResource("20_0k57a")
 
-[node name="HillsTile19" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(924, 360)
-texture = ExtResource("42_2v2ta")
+[node name="HousesAndFarmsTile3" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(872, 466)
+texture = ExtResource("24_67biy")
 
-[node name="BigHillsTile7" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(932, 451)
-texture = ExtResource("4_0to4q")
+[node name="HousesAndFarmsTile5" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(883, 480)
+texture = ExtResource("24_67biy")
 
-[node name="BigHillsTile5" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(927, 459)
-texture = ExtResource("4_0to4q")
+[node name="HousesAndFarmsTile6" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(890, 461)
+texture = ExtResource("25_qmtis")
 
-[node name="BigHillsTile6" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(914, 452)
-texture = ExtResource("5_xwxxy")
+[node name="HousesAndFarmsTile4" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(879, 446)
+texture = ExtResource("24_67biy")
 
-[node name="LightsTile4" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(716, 393)
-texture = ExtResource("43_oradi")
+[node name="HousesAndFarmsTile2" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(864, 434)
+texture = ExtResource("24_67biy")
 
-[node name="LightsTile13" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(885, 437)
-texture = ExtResource("44_vn4qc")
+[node name="Prefabs1" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(882, 398)
+texture = ExtResource("33_4uuv5")
 
-[node name="PrefabsTile12" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(876, 374)
-texture = ExtResource("18_finv8")
+[node name="Farm" type="Node2D" parent="VillageTiles"]
 
-[node name="PrefabsTile13" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(895, 376)
-texture = ExtResource("18_finv8")
+[node name="HousesAndFarmsTile13" type="Sprite2D" parent="VillageTiles/Farm"]
+position = Vector2(904, 404)
+texture = ExtResource("29_80h1i")
 
-[node name="PrefabsTile14" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(918, 380)
-texture = ExtResource("18_finv8")
+[node name="HousesAndFarmsTile8" type="Sprite2D" parent="VillageTiles/Farm"]
+position = Vector2(883, 416)
+texture = ExtResource("35_172s6")
 
-[node name="PrefabsTile15" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(934, 392)
-texture = ExtResource("18_finv8")
+[node name="HousesAndFarmsTile9" type="Sprite2D" parent="VillageTiles/Farm"]
+position = Vector2(903, 415)
+texture = ExtResource("27_s76oi")
 
-[node name="BigHillsTile1" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(699, 400)
-texture = ExtResource("45_oob12")
+[node name="HousesAndFarmsTile10" type="Sprite2D" parent="VillageTiles/Farm"]
+position = Vector2(918, 419)
+texture = ExtResource("30_e4qso")
 
-[node name="HillsTile8" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(925, 463)
-texture = ExtResource("46_o1sdo")
+[node name="HousesAndFarmsTile12" type="Sprite2D" parent="VillageTiles/Farm"]
+position = Vector2(906, 434)
+texture = ExtResource("28_nu4vf")
 
-[node name="LightsTile6" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(859, 416)
-texture = ExtResource("47_cspaa")
+[node name="GuardTowers" type="Node2D" parent="VillageTiles"]
 
-[node name="LightsTile14" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(786, 436)
-texture = ExtResource("44_vn4qc")
-
-[node name="LightsTile15" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(852, 446)
-texture = ExtResource("44_vn4qc")
-
-[node name="TreesTile34" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(838, 400)
-texture = ExtResource("48_p7j73")
-
-[node name="Castles1Tile3" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(903, 476)
-texture = ExtResource("49_aj6rs")
-
-[node name="Castles1Tile2" type="Sprite2D" parent="VillageTiles"]
+[node name="Castles1Tile2" type="Sprite2D" parent="VillageTiles/GuardTowers"]
 position = Vector2(738, 476)
 texture = ExtResource("50_8x73o")
 
-[node name="Castle01" type="Sprite2D" parent="VillageTiles"]
-position = Vector2(699, 394)
-texture = ExtResource("51_xew4e")
+[node name="Castles1Tile3" type="Sprite2D" parent="VillageTiles/GuardTowers"]
+position = Vector2(903, 476)
+texture = ExtResource("49_aj6rs")
+
+[node name="Lamps" type="Node2D" parent="VillageTiles"]
+
+[node name="LightsTile14" type="Sprite2D" parent="VillageTiles/Lamps"]
+position = Vector2(786, 436)
+texture = ExtResource("44_vn4qc")
+
+[node name="LightsTile15" type="Sprite2D" parent="VillageTiles/Lamps"]
+position = Vector2(852, 446)
+texture = ExtResource("44_vn4qc")
+
+[node name="LightsTile13" type="Sprite2D" parent="VillageTiles/Lamps"]
+position = Vector2(885, 437)
+texture = ExtResource("44_vn4qc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(812, 414)
@@ -1139,12 +1183,7 @@ zoom = Vector2(7.2, 7.2)
 [node name="Player" parent="." instance=ExtResource("53_l6ruk")]
 position = Vector2(173, 623)
 
-[node name="Mountain1" type="Sprite2D" parent="."]
-position = Vector2(682, 365)
-texture = ExtResource("3_vf32n")
-
 [node name="Panel" type="Panel" parent="."]
-visible = false
 offset_left = 678.0
 offset_top = 339.0
 offset_right = 2740.0
@@ -1296,11 +1335,97 @@ scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("59_xh1n5")
 text = ": 9999"
 
+[node name="FacilityTimers" type="Node2D" parent="."]
+
+[node name="WoodTimer" type="Timer" parent="FacilityTimers"]
+unique_name_in_owner = true
+wait_time = 160.0
+autostart = true
+
+[node name="WoodLabel" type="Label" parent="FacilityTimers/WoodTimer"]
+unique_name_in_owner = true
+offset_left = 697.0
+offset_top = 472.0
+offset_right = 733.0
+offset_bottom = 487.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("59_xh1n5")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+
+[node name="WoodButton" type="TextureButton" parent="FacilityTimers/WoodTimer"]
+offset_left = 694.0
+offset_top = 448.0
+offset_right = 726.0
+offset_bottom = 480.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("70_n63o2")
+texture_hover = ExtResource("71_chpnx")
+
+[node name="StoneTimer" type="Timer" parent="FacilityTimers"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="StoneLabel" type="Label" parent="FacilityTimers/StoneTimer"]
+offset_left = 920.0
+offset_top = 469.0
+offset_right = 956.0
+offset_bottom = 484.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("59_xh1n5")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+
+[node name="StoneButton" type="TextureButton" parent="FacilityTimers/StoneTimer"]
+offset_left = 917.0
+offset_top = 451.0
+offset_right = 949.0
+offset_bottom = 483.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("72_bwmem")
+texture_hover = ExtResource("73_y8ahp")
+
+[node name="IronTimer" type="Timer" parent="FacilityTimers"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="IronButton" type="Label" parent="FacilityTimers/IronTimer"]
+offset_left = 839.0
+offset_top = 379.0
+offset_right = 875.0
+offset_bottom = 394.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("59_xh1n5")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+
+[node name="IronSprite2D" type="TextureButton" parent="FacilityTimers/IronTimer"]
+offset_left = 835.0
+offset_top = 360.0
+offset_right = 867.0
+offset_bottom = 392.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("74_kehnc")
+texture_hover = ExtResource("75_aih4a")
+
 [node name="WeaponsmithShop" parent="." instance=ExtResource("67_hl5fj")]
 visible = false
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)
 
+[node name="ArmourerShop" parent="." instance=ExtResource("68_rr3hs")]
+visible = false
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
+
+[node name="TavernShop" parent="." instance=ExtResource("69_j85mg")]
+visible = false
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
+
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
-[connection signal="pressed" from="VillageTiles/Taverm" to="." method="_on_taverm_pressed"]
-[connection signal="pressed" from="VillageTiles/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
+[connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]
+[connection signal="pressed" from="VillageTiles/Shops/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
+[connection signal="pressed" from="VillageTiles/Shops/Armourer" to="." method="_on_armourer_pressed"]
+[connection signal="timeout" from="FacilityTimers/WoodTimer" to="." method="_on_wood_timer_timeout"]
+[connection signal="pressed" from="FacilityTimers/WoodTimer/WoodButton" to="." method="_on_wood_button_pressed"]
