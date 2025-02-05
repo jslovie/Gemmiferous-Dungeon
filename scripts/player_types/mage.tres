@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerType" load_steps=2 format=3 uid="uid://rxjs4w5e2dau"]
+
+[ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_76y2u"]
+
+[resource]
+script = ExtResource("1_76y2u")
+type = "Mage"
+health = 30.0
+max_health = 30.0
+shield = 0
+type_action1 = Vector2(1, 4)
+type_action2 = Vector2(2, 3)
+type_action3 = Vector2(1, 1)

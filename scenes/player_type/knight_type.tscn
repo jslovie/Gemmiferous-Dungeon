@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjqus2w8mosb0"]
+
+[ext_resource type="PackedScene" uid="uid://bcob5klmphwwu" path="res://scenes/player_type/player_type.tscn" id="1_p7mbd"]
+[ext_resource type="Texture2D" uid="uid://cf41r232djasf" path="res://assets/32rogues/chars/knight.png" id="2_f8abt"]
+[ext_resource type="Texture2D" uid="uid://7hu3y5124g0y" path="res://assets/32rogues/chars/knight_highlighted.png" id="3_2d5vr"]
+[ext_resource type="Resource" uid="uid://ijreb8f3e8xb" path="res://scripts/player_types/knight.tres" id="4_gxp1f"]
+
+[node name="KnightType" instance=ExtResource("1_p7mbd")]
+texture_normal = ExtResource("2_f8abt")
+texture_hover = ExtResource("3_2d5vr")
+type = ExtResource("4_gxp1f")

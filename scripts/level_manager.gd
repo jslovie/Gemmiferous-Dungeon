@@ -6,11 +6,9 @@ var show_map = true
 
 var available_level = 1
 var level_done = 0
-
 var type : String
-
+var chosen_path = "ABC"
 var treasure_timesup = false
-
 var handle_winning = false
 
 

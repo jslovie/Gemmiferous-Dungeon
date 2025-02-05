@@ -1364,9 +1364,11 @@ texture_hover = ExtResource("71_chpnx")
 
 [node name="StoneTimer" type="Timer" parent="FacilityTimers"]
 unique_name_in_owner = true
+wait_time = 160.0
 autostart = true
 
 [node name="StoneLabel" type="Label" parent="FacilityTimers/StoneTimer"]
+unique_name_in_owner = true
 offset_left = 920.0
 offset_top = 469.0
 offset_right = 956.0
@@ -1387,9 +1389,11 @@ texture_hover = ExtResource("73_y8ahp")
 
 [node name="IronTimer" type="Timer" parent="FacilityTimers"]
 unique_name_in_owner = true
+wait_time = 160.0
 autostart = true
 
-[node name="IronButton" type="Label" parent="FacilityTimers/IronTimer"]
+[node name="IronLabel" type="Label" parent="FacilityTimers/IronTimer"]
+unique_name_in_owner = true
 offset_left = 839.0
 offset_top = 379.0
 offset_right = 875.0
@@ -1399,7 +1403,7 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="IronSprite2D" type="TextureButton" parent="FacilityTimers/IronTimer"]
+[node name="IronButton" type="TextureButton" parent="FacilityTimers/IronTimer"]
 offset_left = 835.0
 offset_top = 360.0
 offset_right = 867.0
@@ -1429,3 +1433,7 @@ scale = Vector2(0.2, 0.2)
 [connection signal="pressed" from="VillageTiles/Shops/Armourer" to="." method="_on_armourer_pressed"]
 [connection signal="timeout" from="FacilityTimers/WoodTimer" to="." method="_on_wood_timer_timeout"]
 [connection signal="pressed" from="FacilityTimers/WoodTimer/WoodButton" to="." method="_on_wood_button_pressed"]
+[connection signal="timeout" from="FacilityTimers/StoneTimer" to="." method="_on_stone_timer_timeout"]
+[connection signal="pressed" from="FacilityTimers/StoneTimer/StoneButton" to="." method="_on_stone_button_pressed"]
+[connection signal="timeout" from="FacilityTimers/IronTimer" to="." method="_on_iron_timer_timeout"]
+[connection signal="pressed" from="FacilityTimers/IronTimer/IronButton" to="." method="_on_iron_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://mfmhytite3rx"]
+[gd_scene load_steps=19 format=4 uid="uid://mfmhytite3rx"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_1j2bm"]
 [ext_resource type="PackedScene" uid="uid://ck1auwqa8cl0c" path="res://scenes/player_type/rogue_type.tscn" id="1_3au3l"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_ojtev"]
 [ext_resource type="PackedScene" uid="uid://cyhrrq4evgdil" path="res://scenes/player_type/barbarian_type.tscn" id="3_in3f3"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="6_f0kvo"]
+[ext_resource type="PackedScene" uid="uid://cxqx7mqyk6krt" path="res://scenes/player_type/mage_type.tscn" id="6_jnjga"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="7_1oj0d"]
+[ext_resource type="PackedScene" uid="uid://bjqus2w8mosb0" path="res://scenes/player_type/knight_type.tscn" id="7_7gxew"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="8_f5bhh"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="9_50p6t"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="10_d0rf8"]
@@ -153,15 +155,30 @@ position = Vector2(-510, 503)
 [node name="RogueType" parent="." instance=ExtResource("1_3au3l")]
 offset_left = 236.0
 offset_top = 487.0
-offset_right = 276.0
-offset_bottom = 527.0
+offset_right = 268.0
+offset_bottom = 519.0
 scale = Vector2(10, 10)
 
 [node name="BarbarianType" parent="." instance=ExtResource("3_in3f3")]
-offset_left = 1267.0
-offset_top = 492.0
-offset_right = 1307.0
-offset_bottom = 532.0
+offset_left = 1083.0
+offset_top = 362.0
+offset_right = 1115.0
+offset_bottom = 394.0
+scale = Vector2(10, 10)
+flip_h = false
+
+[node name="MageType" parent="." instance=ExtResource("6_jnjga")]
+offset_left = 512.0
+offset_top = 367.0
+offset_right = 544.0
+offset_bottom = 399.0
+scale = Vector2(10, 10)
+
+[node name="KnightType" parent="." instance=ExtResource("7_7gxew")]
+offset_left = 1424.0
+offset_top = 510.0
+offset_right = 1456.0
+offset_bottom = 542.0
 scale = Vector2(10, 10)
 flip_h = false
 

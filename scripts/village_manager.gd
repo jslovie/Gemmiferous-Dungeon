@@ -6,8 +6,10 @@ var wood_s
 var wood_time_left = 30
 var stone_m
 var stone_s
+var stone_time_left = 30
 var iron_m
 var iron_s
+var iron_time_left = 30
 
 
 #Village workers

@@ -554,6 +554,12 @@ points = PackedVector2Array(-29, -361, 16, -447)
 width = 5.0
 default_color = Color(0.647473, 0.68, 0.4012, 1)
 
+[node name="Line2D31" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-29, -361, 174, -408.75)
+width = 5.0
+default_color = Color(0.647473, 0.68, 0.4012, 1)
+
 [node name="Line2D2" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
 position = Vector2(1016, 944)
 points = PackedVector2Array(-117, 111, -35, 8)
@@ -563,12 +569,6 @@ default_color = Color(0.647059, 0.678431, 0.4, 1)
 [node name="Line2D3" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
 position = Vector2(1118, 827)
 points = PackedVector2Array(89, 181, 140, 62)
-width = 5.0
-default_color = Color(0.647059, 0.678431, 0.4, 1)
-
-[node name="Line2D19" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
-position = Vector2(1118, 827)
-points = PackedVector2Array(106, -42, 140, 62)
 width = 5.0
 default_color = Color(0.647059, 0.678431, 0.4, 1)
 
@@ -584,21 +584,33 @@ points = PackedVector2Array(-6, -39, 16, -199)
 width = 5.0
 default_color = Color(0.647059, 0.678431, 0.4, 1)
 
+[node name="Line2D32" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
+position = Vector2(1118, 827)
+points = PackedVector2Array(84.5, -80.5, 16, -199)
+width = 5.0
+default_color = Color(0.647059, 0.678431, 0.4, 1)
+
 [node name="Line2D21" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
 position = Vector2(1118, 827)
 points = PackedVector2Array(165, -109, 140, 62)
 width = 5.0
 default_color = Color(0.647059, 0.678431, 0.4, 1)
 
-[node name="Line2D5" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
-position = Vector2(1016, 698)
-points = PackedVector2Array(205, 83, 120, -72)
+[node name="Line2D33" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
+position = Vector2(1118, 827)
+points = PackedVector2Array(82, -80.5, 140, 62)
 width = 5.0
 default_color = Color(0.647059, 0.678431, 0.4, 1)
 
 [node name="Line2D6" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
 position = Vector2(1016, 698)
 points = PackedVector2Array(267, 18, 220, -74)
+width = 5.0
+default_color = Color(0.647059, 0.678431, 0.4, 1)
+
+[node name="Line2D19" type="Line2D" parent="Dungeons/DungeonF1_1/Lines"]
+position = Vector2(1016, 698)
+points = PackedVector2Array(186.5, 46, 220, -74)
 width = 5.0
 default_color = Color(0.647059, 0.678431, 0.4, 1)
 
@@ -629,6 +641,7 @@ offset_right = 1259.0
 offset_bottom = 836.0
 type = "Enemy"
 level = 2
+path = "ABC"
 
 [node name="LevelSelection6" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 947.0
@@ -637,6 +650,7 @@ offset_right = 979.0
 offset_bottom = 896.0
 type = "Enemy"
 level = 2
+path = "B"
 
 [node name="LevelSelection10" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 941.0
@@ -645,6 +659,7 @@ offset_right = 973.0
 offset_bottom = 760.0
 type = "Treasure"
 level = 3
+path = "B"
 
 [node name="LevelSelection12" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 913.0
@@ -653,6 +668,7 @@ offset_right = 945.0
 offset_bottom = 643.0
 type = "Elite Enemy"
 level = 4
+path = "B"
 
 [node name="LevelSelection15" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 847.0
@@ -661,6 +677,7 @@ offset_right = 879.0
 offset_bottom = 536.0
 type = "Enemy"
 level = 4
+path = "A"
 
 [node name="LevelSelection16" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 955.0
@@ -669,6 +686,7 @@ offset_right = 987.0
 offset_bottom = 527.0
 type = "Rest"
 level = 5
+path = "ABC"
 
 [node name="LevelSelection24" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1000.0
@@ -677,6 +695,7 @@ offset_right = 1032.0
 offset_bottom = 442.0
 type = "Elite Enemy"
 level = 6
+path = "ABC"
 
 [node name="LevelSelection17" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 862.0
@@ -685,6 +704,7 @@ offset_right = 894.0
 offset_bottom = 353.0
 type = "Random Event"
 level = 7
+path = "A"
 
 [node name="LevelSelection18" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 996.0
@@ -693,6 +713,7 @@ offset_right = 1028.0
 offset_bottom = 346.0
 type = "Enemy"
 level = 7
+path = "ABC"
 
 [node name="LevelSelection19" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1134.0
@@ -701,6 +722,7 @@ offset_right = 1166.0
 offset_bottom = 338.0
 type = "Treasure"
 level = 7
+path = "B"
 
 [node name="LevelSelection20" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1060.0
@@ -709,6 +731,7 @@ offset_right = 1092.0
 offset_bottom = 242.0
 type = "Elite Enemy"
 level = 8
+path = "B"
 
 [node name="LevelSelection21" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 924.0
@@ -717,6 +740,7 @@ offset_right = 956.0
 offset_bottom = 238.0
 type = "Random Event"
 level = 8
+path = "A"
 
 [node name="LevelSelection22" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 995.0
@@ -725,6 +749,7 @@ offset_right = 1027.0
 offset_bottom = 152.0
 type = "Rest"
 level = 9
+path = "ABC"
 
 [node name="LevelSelection23" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 994.0
@@ -733,6 +758,7 @@ offset_right = 1026.0
 offset_bottom = 71.0
 type = "Boss"
 level = 10
+path = "ABC"
 
 [node name="LevelSelection11" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 805.0
@@ -741,6 +767,7 @@ offset_right = 837.0
 offset_bottom = 706.0
 type = "Enemy"
 level = 3
+path = "A"
 
 [node name="LevelSelection7" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1250.0
@@ -749,6 +776,16 @@ offset_right = 1282.0
 offset_bottom = 661.0
 type = "Treasure"
 level = 3
+path = "D"
+
+[node name="LevelSelection26" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1170.0
+offset_top = 657.5
+offset_right = 1202.0
+offset_bottom = 689.5
+type = "Treasure"
+level = 3
+path = "ABC"
 
 [node name="LevelSelection9" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1104.0
@@ -757,6 +794,7 @@ offset_right = 1136.0
 offset_bottom = 570.0
 type = "Enemy"
 level = 4
+path = "C"
 
 [node name="LevelSelection13" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1203.0
@@ -765,6 +803,7 @@ offset_right = 1235.0
 offset_bottom = 569.0
 type = "Enemy"
 level = 4
+path = "D"
 
 [node name="LevelSelection14" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1159.0
@@ -773,6 +812,7 @@ offset_right = 1191.0
 offset_bottom = 477.0
 type = "Rest"
 level = 5
+path = "ABC"
 
 [node name="LevelSelection8" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 866.0
@@ -781,6 +821,7 @@ offset_right = 898.0
 offset_bottom = 1005.0
 type = "Enemy"
 level = 1
+path = "ABC"
 
 [node name="LevelSelection2" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 826.0
@@ -789,6 +830,7 @@ offset_right = 858.0
 offset_bottom = 886.0
 type = "Random Event"
 level = 2
+path = "A"
 
 [node name="LevelSelection3" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 1176.0
@@ -797,6 +839,7 @@ offset_right = 1208.0
 offset_bottom = 960.0
 type = "Enemy"
 level = 1
+path = "ABC"
 
 [node name="LevelSelection25" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 visible = false
@@ -815,11 +858,4 @@ offset_right = 1111.0
 offset_bottom = 731.0
 type = "Elite Enemy"
 level = 3
-
-[node name="LevelSelection5" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
-offset_left = 1187.0
-offset_top = 694.0
-offset_right = 1219.0
-offset_bottom = 726.0
-type = "Random Event"
-level = 3
+path = "C"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerType" load_steps=2 format=3 uid="uid://ijreb8f3e8xb"]
+
+[ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_cl4k7"]
+
+[resource]
+script = ExtResource("1_cl4k7")
+type = "Knight"
+health = 40.0
+max_health = 40.0
+shield = 5
+type_action1 = Vector2(3, 4)
+type_action2 = Vector2(2, 4)
+type_action3 = Vector2(1, 1)
