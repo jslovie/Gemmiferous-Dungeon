@@ -6,7 +6,7 @@ func _ready():
 	SaveManager.load_savefile()
 	update_treasures()
 	update_materials()
-	
+	repair_estate()
 
 	
 func _process(_delta):
@@ -16,7 +16,45 @@ func _process(_delta):
 	check_woodcutters_icon()
 	check_stone_mine_icon()
 	check_iron_mine_icon()
-	
+
+func repair_estate():
+	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")
+	$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor_highlighted.png")
+	$VillageTiles/Sorcerer.texture_normal = load("res://assets/village/Gemmiferous_estate/sorcerer.png")
+	$VillageTiles/Sorcerer.texture_hover = load("res://assets/village/Gemmiferous_estate/sorcerer_highlight.png")
+	$VillageTiles/Shops/IronMine.visible = true
+	$VillageTiles/Shops/Woodcutters.visible = true
+	$VillageTiles/Shops/StoneMine.visible = true
+	$VillageTiles/Camp.visible = true
+	$VillageTiles/Bonfire.visible = true
+	$VillageTiles/Houses/Hauses.texture = load("res://assets/village/Gemmiferous_estate/houses.png")
+	$VillageTiles/Houses/Square.texture = load("res://assets/village/Gemmiferous_estate/Square.png")
+	$VillageTiles/Houses/DoubleHouses.visible = true
+	$VillageTiles/Houses/House.visible = true
+	$VillageTiles/Houses/BigHouse.visible = true
+	$VillageTiles/Houses/House2.visible = true
+	$VillageTiles/Houses/House3.visible = true
+	$VillageTiles/Houses/House4.visible = true
+	$VillageTiles/Houses/House5.visible = true
+	$VillageTiles/Houses/House6.visible = true
+	$VillageTiles/Houses/DoubleHouses2.visible = true
+	$VillageTiles/Farm/Mill.texture = load("res://assets/village/Gemmiferous_estate/mill.png")
+	$VillageTiles/Farm/Warehouse.texture = load("res://assets/village/Gemmiferous_estate/warehouse.png")
+	$VillageTiles/GuardTowers/Watchtower1.texture = load("res://assets/village/Gemmiferous_estate/watchtower_1.png")
+	$VillageTiles/GuardTowers/Watchtower2.texture = load("res://assets/village/Gemmiferous_estate/watchtower_2.png")
+	$VillageTiles/Farm/Field1.visible = true
+	$VillageTiles/Farm/Field2.visible = true
+	$VillageTiles/Farm/Field3.visible = true
+	$VillageTiles/Lamps.visible = true
+	$VillageTiles/Shops/Church.texture_normal = load("res://assets/village/Gemmiferous_estate/church 2.png")
+	$VillageTiles/Shops/Church.texture_hover = load("res://assets/village/Gemmiferous_estate/church 2=highlighted.png")
+	$VillageTiles/Shops/Taverm.texture_normal = load("res://assets/village/Gemmiferous_estate/tavern.png")
+	$VillageTiles/Shops/Taverm.texture_hover = load("res://assets/village/Gemmiferous_estate/tavern_highlighted.png")
+	$VillageTiles/Shops/Weaponsmith.texture_normal = load("res://assets/village/Gemmiferous_estate/weaponsmith.png")
+	$VillageTiles/Shops/Weaponsmith.texture_hover = load("res://assets/village/Gemmiferous_estate/weaponsmith_highlighted.png")
+	$VillageTiles/Shops/Armourer.texture_normal = load("res://assets/village/Gemmiferous_estate/armourer.png")
+	$VillageTiles/Shops/Armourer.texture_hover = load("res://assets/village/Gemmiferous_estate/armourer_highlighted.png")
+
 func update_facility_timers():
 	%WoodLabel.text = '%02d:%02d' % [VillageManager.wood_m, VillageManager.wood_s]
 	%StoneLabel.text = '%02d:%02d' % [VillageManager.stone_m, VillageManager.stone_s]

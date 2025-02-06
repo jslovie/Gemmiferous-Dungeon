@@ -30,8 +30,7 @@ var stone_mine_timer = Timer.new()
 var iron_mine_timer = Timer.new()
 
 func _ready():
-	#timers()
-	pass
+	timers()
 
 func timers():
 	add_child(woodcutter_timer)
@@ -50,7 +49,7 @@ func timers():
 	iron_mine_timer.one_shot = false
 	iron_mine_timer.connect("timeout", _on_iron_miner_timeout)
 	
-func _process(delta):
+func _process(_delta):
 	woodcutters_timer()
 	stone_miners_timer()
 	iron_miners_timer()

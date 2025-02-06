@@ -86,7 +86,7 @@ func _ready():
 	update_player_texture()
 	%PlayerHitLabel.visible = false
 	
-func _process(delta):
+func _process(_delta):
 	#print_test()
 	update_base_actions()
 	
@@ -106,12 +106,12 @@ func damage1_attack():
 		pass
 	else:
 		if rage > 0:
-			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
+			var random_base_action1 = randf_range(base_action1.x, base_action1.y)
 			action1 = (random_base_action1 + (random_base_action1 * rage)) * piece_multiplier
 			EnemyManager.enemy.take_damage(action1)
 			print("damage is: " + str(action1))
 		else:
-			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
+			var random_base_action1 = randf_range(base_action1.x, base_action1.y)
 			action1 = (random_base_action1 * piece_multiplier)
 			EnemyManager.enemy.take_damage(action1)
 			print("damage is: " + str(action1))
@@ -120,7 +120,7 @@ func damage2_attack():
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
-		var random_base_action2 = randi_range(base_action2.x, base_action2.y)
+		var random_base_action2 = randf_range(base_action2.x, base_action2.y)
 		action2 = (random_base_action2 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action2)
 		print("damage is: " + str(action2))
@@ -132,7 +132,7 @@ func damage3_attack():
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
-		var random_base_action3 = randi_range(base_action3.x, base_action3.y)
+		var random_base_action3 = randf_range(base_action3.x, base_action3.y)
 		action3 = (random_base_action3 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action3)
 		print("damage is: " + str(action3))

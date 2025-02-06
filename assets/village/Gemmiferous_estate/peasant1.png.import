@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5muak33skhym"
-path="res://.godot/imported/sorcerer.png-af3831bb681476a1b22c700a1269d516.ctex"
+uid="uid://dnrk4j60hflec"
+path="res://.godot/imported/peasant1.png-8125dcb3396d31bb47ba0ab42403f975.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/village/Gemmiferous_estate/sorcerer.png"
-dest_files=["res://.godot/imported/sorcerer.png-af3831bb681476a1b22c700a1269d516.ctex"]
+source_file="res://assets/village/Gemmiferous_estate/peasant1.png"
+dest_files=["res://.godot/imported/peasant1.png-8125dcb3396d31bb47ba0ab42403f975.ctex"]
 
 [params]
 
