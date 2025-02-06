@@ -73,4 +73,5 @@ func update_materials():
 
 func _on_exit_pressed():
 	SaveManager.savefilesave()
+	LevelManager.reset_map()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

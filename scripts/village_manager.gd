@@ -25,6 +25,58 @@ var armourer_lvl = 1
 #Item levels
 var axe_item_lvl = 1
 
+var woodcutter_timer = Timer.new()
+var stone_mine_timer = Timer.new()
+var iron_mine_timer = Timer.new()
+
+func _ready():
+	#timers()
+	pass
+
+func timers():
+	add_child(woodcutter_timer)
+	woodcutter_timer.start(10)
+	woodcutter_timer.autostart = true
+	woodcutter_timer.one_shot = false
+	woodcutter_timer.connect("timeout", _on_woodcutters_timeout)
+	add_child(stone_mine_timer)
+	stone_mine_timer.start(15)
+	stone_mine_timer.autostart = true
+	stone_mine_timer.one_shot = false
+	stone_mine_timer.connect("timeout", _on_stone_miner_timeout)
+	add_child(iron_mine_timer)
+	iron_mine_timer.start(20)
+	iron_mine_timer.autostart = true
+	iron_mine_timer.one_shot = false
+	iron_mine_timer.connect("timeout", _on_iron_miner_timeout)
+	
+func _process(delta):
+	woodcutters_timer()
+	stone_miners_timer()
+	iron_miners_timer()
+
+func woodcutters_timer():
+	wood_m = int(woodcutter_timer.time_left / 60)
+	wood_s = int(woodcutter_timer.time_left) - wood_m * 60
+
+func stone_miners_timer():
+	stone_m = int(stone_mine_timer.time_left / 60)
+	stone_s = int(stone_mine_timer.time_left) - stone_m * 60
+
+func iron_miners_timer():
+	iron_m = int(iron_mine_timer.time_left / 60)
+	iron_s = int(iron_mine_timer.time_left) - iron_m * 60
+
+func _on_woodcutters_timeout():
+	wood_collected += 1
+	
+func _on_stone_miner_timeout():
+	stone_collected += 1
+
+func _on_iron_miner_timeout():
+	iron_collected += 1
+	
+	
 
 func set_village_stats(tavern_lvl_data, weaponsmith_lvl_data, armourer_lvl_data, axe_item_lvl_data):
 	tavern_lvl = tavern_lvl_data

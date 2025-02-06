@@ -19,4 +19,5 @@ func update_materials():
 func _on_exit_pressed():
 	PlayerManager.player.set_treasure()
 	SaveManager.savefilesave()
+	LevelManager.reset_map()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

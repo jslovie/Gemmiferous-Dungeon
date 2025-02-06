@@ -8,37 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://ebg5mrfynhqj" path="res://assets/village/Trees - Bushes -Rocks/Prefabs_tile_6.png" id="4_06vh4"]
 [ext_resource type="Texture2D" uid="uid://csegeaw6234jg" path="res://assets/village/Prefabs/Prefabs 10.png" id="5_drv1a"]
 [ext_resource type="Texture2D" uid="uid://bvoexsqmx8psm" path="res://assets/village/Hills - Mountains/Big Hills_tile_3.png" id="5_xwxxy"]
-[ext_resource type="Texture2D" uid="uid://nc50pinsx1cw" path="res://assets/village/Castles/castle 07.png" id="6_33kwu"]
 [ext_resource type="Texture2D" uid="uid://bskq4vyfqt56o" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_26.png" id="7_ryel4"]
 [ext_resource type="Texture2D" uid="uid://bou4j0s7ea3db" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_8.png" id="8_l82vw"]
-[ext_resource type="Texture2D" uid="uid://ij4n5idu2wqt" path="res://assets/village/Castles/castle 07 - highlighted.png" id="9_34gab"]
+[ext_resource type="Texture2D" uid="uid://cd1nan4hea4en" path="res://assets/village/Gemmiferous_estate/manor_ruin.png" id="9_30hpk"]
 [ext_resource type="Texture2D" uid="uid://c4p8ubk6g55sx" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_7.png" id="9_fudty"]
 [ext_resource type="Texture2D" uid="uid://vay5kaj0e72v" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_2.png" id="10_4y20t"]
+[ext_resource type="Texture2D" uid="uid://gxlue6nnsxsw" path="res://assets/village/Gemmiferous_estate/manor_ruin_highlighted.png" id="10_gc2fp"]
 [ext_resource type="Texture2D" uid="uid://bnufjwkr2uy77" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_5.png" id="11_ficdw"]
 [ext_resource type="Texture2D" uid="uid://btglyhftmwen2" path="res://assets/village/Castles/castle 06.png" id="11_njgcb"]
 [ext_resource type="Texture2D" uid="uid://dhj5wx61bqjbo" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_4.png" id="12_1jgtf"]
 [ext_resource type="Texture2D" uid="uid://bbjgpqkvpchf8" path="res://assets/village/Castles/castle 06-highlight.png" id="12_eju6b"]
 [ext_resource type="Texture2D" uid="uid://bkp4ajbff1qdv" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_9.png" id="13_pppub"]
 [ext_resource type="Texture2D" uid="uid://xcka68qk7gdq" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_3.png" id="14_0uk1y"]
-[ext_resource type="Texture2D" uid="uid://bk8wt0ta8f7sl" path="res://assets/village/Prefabs/Prefabs_tile_0.png" id="15_nic15"]
-[ext_resource type="Texture2D" uid="uid://b8y03rljk0u1r" path="res://assets/village/Houses and Farms/church 2.png" id="16_hal37"]
 [ext_resource type="Texture2D" uid="uid://dcl51dthmxuir" path="res://assets/village/Houses and Farms/Inn 5.png" id="17_7tiep"]
 [ext_resource type="Texture2D" uid="uid://26je6e4pmn8n" path="res://assets/village/Prefabs/Prefabs_tile_4.png" id="18_finv8"]
 [ext_resource type="Texture2D" uid="uid://bdje66tfe1c8v" path="res://assets/village/Hills - Mountains/Big Hills_tile_2.png" id="19_f5rev"]
-[ext_resource type="Texture2D" uid="uid://bebvmrng2t2kc" path="res://assets/village/Prefabs/Prefabs_tile_1.png" id="20_0k57a"]
-[ext_resource type="Texture2D" uid="uid://dxjec2k56d2fs" path="res://assets/village/Houses and Farms/church 2=highlighted.png" id="21_bjeen"]
 [ext_resource type="Texture2D" uid="uid://cnfrntu24hj3j" path="res://assets/village/Houses and Farms/Inn 6.png" id="21_kbdmv"]
-[ext_resource type="Texture2D" uid="uid://gariq4x74tve" path="res://assets/village/Houses and Farms/Inn 4.png" id="22_1rtox"]
 [ext_resource type="Texture2D" uid="uid://vhxdk0l4souo" path="res://assets/village/Houses and Farms/Inn 5-highlighted.png" id="23_3wj2e"]
 [ext_resource type="Texture2D" uid="uid://dctjmhmba65o8" path="res://assets/village/Prefabs/Prefabs_tile_5.png" id="23_y68wf"]
 [ext_resource type="Texture2D" uid="uid://drv24702atoop" path="res://assets/village/Houses and Farms/Houses and Farms_tile_2.png" id="24_67biy"]
 [ext_resource type="Texture2D" uid="uid://c304t5mofjl0o" path="res://assets/village/Houses and Farms/Inn 6-highlighted.png" id="25_du52e"]
 [ext_resource type="Texture2D" uid="uid://b8fat72tiwobg" path="res://assets/village/Houses and Farms/Houses and Farms_tile_3.png" id="25_qmtis"]
 [ext_resource type="Texture2D" uid="uid://bkfu0myw75hln" path="res://assets/village/Houses and Farms/Houses and Farms_tile_9.png" id="27_s76oi"]
-[ext_resource type="Texture2D" uid="uid://diggf2uuk5e5v" path="res://assets/village/Houses and Farms/Inn 4 -highlighted.png" id="28_7qkp6"]
 [ext_resource type="Texture2D" uid="uid://c4vc51odwhbd" path="res://assets/village/Houses and Farms/Houses and Farms_tile_12.png" id="28_nu4vf"]
 [ext_resource type="Texture2D" uid="uid://cvoh8lxgfw1f8" path="res://assets/village/Houses and Farms/Houses and Farms_tile_13.png" id="29_80h1i"]
 [ext_resource type="Texture2D" uid="uid://csb12fhx5upa3" path="res://assets/village/Houses and Farms/Houses and Farms_tile_10.png" id="30_e4qso"]
+[ext_resource type="Texture2D" uid="uid://dgpor7mxy45ub" path="res://assets/village/Gemmiferous_estate/church 2 - ruin.png" id="30_lo7uv"]
+[ext_resource type="Texture2D" uid="uid://cuo160owppgr7" path="res://assets/village/Gemmiferous_estate/church 2 - ruin - highlighted.png" id="31_86h02"]
 [ext_resource type="Texture2D" uid="uid://d1xqjayb4xsdv" path="res://assets/village/Hills - Mountains/Hills_tile_16.png" id="31_na1ib"]
 [ext_resource type="Texture2D" uid="uid://dphh2olb4vtrg" path="res://assets/village/Hills - Mountains/Hills_tile_13.png" id="32_8cxn2"]
 [ext_resource type="Texture2D" uid="uid://c55pnoa3hfn3v" path="res://assets/village/Prefabs/Prefabs 1.png" id="33_4uuv5"]
@@ -46,24 +42,28 @@
 [ext_resource type="Texture2D" uid="uid://cuchgmrc3es6k" path="res://assets/village/Prefabs/Prefabs 2.png" id="34_65p6h"]
 [ext_resource type="Texture2D" uid="uid://bkxmqwfnyg7dw" path="res://assets/village/Houses and Farms/Houses and Farms_tile_8.png" id="35_172s6"]
 [ext_resource type="Texture2D" uid="uid://og6ih4evdsf3" path="res://assets/village/Houses and Farms/Houses and Farms_tile_5.png" id="36_gcsog"]
+[ext_resource type="Texture2D" uid="uid://by8egaas6y27o" path="res://assets/village/Gemmiferous_estate/armourer_ruin.png" id="36_lvjal"]
 [ext_resource type="Texture2D" uid="uid://3334jd21i2vt" path="res://assets/village/Houses and Farms/Houses and Farms_tile_1.png" id="37_8jqsf"]
+[ext_resource type="Texture2D" uid="uid://dxyfy5ywfde1u" path="res://assets/village/Gemmiferous_estate/armourer_ruin_highlighted.png" id="37_37ryo"]
 [ext_resource type="Texture2D" uid="uid://bd4yi6jj5txbb" path="res://assets/village/Prefabs/Prefabs_tile_2.png" id="38_ia188"]
 [ext_resource type="Texture2D" uid="uid://dci4muisibspd" path="res://assets/village/Hills - Mountains/Hills_tile_19.png" id="42_2v2ta"]
 [ext_resource type="Texture2D" uid="uid://cshxo1fqxxitc" path="res://assets/village/Hills - Mountains/Hills_tile_13 - highlighted.png" id="42_rb3g7"]
 [ext_resource type="Texture2D" uid="uid://dptdwfuihhkt" path="res://assets/village/Lights/Lights_tile_4.png" id="43_oradi"]
 [ext_resource type="Texture2D" uid="uid://1m741t2wax1n" path="res://assets/village/Lights/Lights_tile_13.png" id="44_vn4qc"]
+[ext_resource type="Texture2D" uid="uid://cafrbussmc2i6" path="res://assets/village/Gemmiferous_estate/hauses_ruin.png" id="46_3wia4"]
 [ext_resource type="Texture2D" uid="uid://1lhs65xi76ry" path="res://assets/village/Hills - Mountains/Hills_tile_8.png" id="46_o1sdo"]
 [ext_resource type="Texture2D" uid="uid://b2yxrgyin7yt4" path="res://assets/village/Lights/Lights_tile_6.png" id="47_cspaa"]
+[ext_resource type="Texture2D" uid="uid://n5k1cjghbk87" path="res://assets/village/Gemmiferous_estate/Square_ruin.png" id="48_advfl"]
 [ext_resource type="Texture2D" uid="uid://wwyns4rgvrgo" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_34.png" id="48_p7j73"]
-[ext_resource type="Texture2D" uid="uid://byjuvgdbjvhq0" path="res://assets/village/Castles/castles 1_tile_3.png" id="49_aj6rs"]
-[ext_resource type="Texture2D" uid="uid://cql3h76afprhw" path="res://assets/village/Castles/castles 1_tile_2.png" id="50_8x73o"]
 [ext_resource type="Texture2D" uid="uid://d1l0ib3mvjg8k" path="res://assets/village/Prefabs/Prefabs_tile_2 - highlighted.png" id="50_ixu2a"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="53_l6ruk"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="54_nxenr"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="55_jb7sb"]
 [ext_resource type="Texture2D" uid="uid://wpc5vd84kmlg" path="res://assets/village/Hills - Mountains/Hills_tile_8 - highlighted.png" id="55_ojeti"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="56_lqvkx"]
+[ext_resource type="Texture2D" uid="uid://bgneukmq6bl1x" path="res://assets/village/Gemmiferous_estate/watchtower_1_ruin.png" id="57_88hr1"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="57_amqmd"]
+[ext_resource type="Texture2D" uid="uid://bsmjslq0bbo1j" path="res://assets/village/Gemmiferous_estate/watchtower_2_ruin.png" id="58_2kywu"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="58_odxrx"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="59_xh1n5"]
 [ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="60_smnsv"]
@@ -782,6 +782,7 @@ script = ExtResource("1_4s24t")
 tile_set = SubResource("TileSet_fjemq")
 
 [node name="Grass" type="TileMapLayer" parent="VillageTiles"]
+position = Vector2(-3, 0)
 tile_map_data = PackedByteArray("AAAiABIAAAAKACMAAAAiABMAAAAKACMAAAAiABQAAAAKACMAAAAiABUAAAAKACMAAAAiABYAAAAKACMAAAAiABcAAAAKACMAAAAiABgAAAAKACMAAAAiABkAAAAKACMAAAAiABoAAAAKACMAAAAiABsAAAAKACMAAAAiABwAAAAKACMAAAAiAB0AAAAKACMAAAAiAB4AAAAKACMAAAAiAB8AAAAKACMAAAAiACAAAAAKACMAAAAiACEAAAAKACMAAAAiACIAAAAKACMAAAAiACMAAAAKACMAAAAiACQAAAAKACMAAAAiACUAAAAKACMAAAAjABIAAAAKACMAAAAjABMAAAAKACMAAAAjABQAAAAKACMAAAAjABUAAAAKACMAAAAjABYAAAAKACMAAAAjABcAAAAKACMAAAAjABgAAAAKACMAAAAjABkAAAAKACMAAAAjABoAAAAKACMAAAAjABsAAAAKACMAAAAjABwAAAAKACMAAAAjAB0AAAAKACMAAAAjAB4AAAAKACMAAAAjAB8AAAAKACMAAAAjACAAAAAKACMAAAAjACEAAAAKACMAAAAjACIAAAAKACMAAAAjACMAAAAKACMAAAAjACQAAAAKACMAAAAjACUAAAAKACMAAAAkABIAAAAKACMAAAAkABMAAAAKACMAAAAkABQAAAAKACMAAAAkABUAAAAKACMAAAAkABYAAAAKACMAAAAkABcAAAAKACMAAAAkABgAAAAKACMAAAAkABkAAAAKACMAAAAkABoAAAAKACMAAAAkABsAAAAKACMAAAAkABwAAAAKACMAAAAkAB0AAAAKACMAAAAkAB4AAAAKACMAAAAkAB8AAAAKACMAAAAkACAAAAAKACMAAAAkACEAAAAKACMAAAAkACIAAAAKACMAAAAkACMAAAAKACMAAAAkACQAAAAKACMAAAAkACUAAAAKACMAAAAlABIAAAAKACMAAAAlABMAAAAKACMAAAAlABQAAAAKACMAAAAlABUAAAAKACMAAAAlABYAAAAKACMAAAAlABcAAAAKACMAAAAlABgAAAAKACMAAAAlABkAAAAKACMAAAAlABoAAAAKACMAAAAlABsAAAAKACMAAAAlABwAAAAKACMAAAAlAB0AAAAKACMAAAAlAB4AAAAKACMAAAAlAB8AAAAKACMAAAAlACAAAAAKACMAAAAlACEAAAAKACMAAAAlACIAAAAKACMAAAAlACMAAAAKACMAAAAlACQAAAAKACMAAAAlACUAAAAKACMAAAAmABIAAAAKACMAAAAmABMAAAAKACMAAAAmABQAAAAKACMAAAAmABUAAAAKACMAAAAmABYAAAAKACMAAAAmABcAAAAKACMAAAAmABgAAAAKACMAAAAmABkAAAAKACMAAAAmABoAAAAKACMAAAAmABsAAAAKACMAAAAmABwAAAAKACMAAAAmAB0AAAAKACMAAAAmAB4AAAAKACMAAAAmAB8AAAAKACMAAAAmACAAAAAKACMAAAAmACEAAAAKACMAAAAmACIAAAAKACMAAAAmACMAAAAKACMAAAAmACQAAAAKACMAAAAmACUAAAAKACMAAAAnABIAAAAKACMAAAAnABMAAAAKACMAAAAnABQAAAAKACMAAAAnABUAAAAKACMAAAAnABYAAAAKACMAAAAnABcAAAAKACMAAAAnABgAAAAKACMAAAAnABkAAAAKACMAAAAnABoAAAAKACMAAAAnABsAAAAKACMAAAAnABwAAAAKACMAAAAnAB0AAAAKACMAAAAnAB4AAAAKACMAAAAnAB8AAAAKACMAAAAnACAAAAAKACMAAAAnACEAAAAKACMAAAAnACIAAAAKACMAAAAnACMAAAAKACMAAAAnACQAAAAKACMAAAAnACUAAAAKACMAAAAoABIAAAAKACMAAAAoABMAAAAKACMAAAAoABQAAAAKACMAAAAoABUAAAAKACMAAAAoABYAAAAKACMAAAAoABcAAAAKACMAAAAoABgAAAAKACMAAAAoABkAAAAKACMAAAAoABoAAAAKACMAAAAoABsAAAAKACMAAAAoABwAAAAKACMAAAAoAB0AAAAKACMAAAAoAB4AAAAKACMAAAAoAB8AAAAKACMAAAAoACAAAAAKACMAAAAoACEAAAAKACMAAAAoACIAAAAKACMAAAAoACMAAAAKACMAAAAoACQAAAAKACMAAAAoACUAAAAKACMAAAApABIAAAAKACMAAAApABMAAAAKACMAAAApABQAAAAKACMAAAApABUAAAAKACMAAAApABYAAAAKACMAAAApABcAAAAKACMAAAApABgAAAAKACMAAAApABkAAAAKACMAAAApABoAAAAKACMAAAApABsAAAAKACMAAAApABwAAAAKACMAAAApAB0AAAAKACMAAAApAB4AAAAKACMAAAApAB8AAAAKACMAAAApACAAAAAKACMAAAApACEAAAAKACMAAAApACIAAAAKACMAAAApACMAAAAKACMAAAApACQAAAAKACMAAAApACUAAAAKACMAAAAqABIAAAAKACMAAAAqABMAAAAKACMAAAAqABQAAAAKACMAAAAqABUAAAAKACMAAAAqABYAAAAKACMAAAAqABcAAAAKACMAAAAqABgAAAAKACMAAAAqABkAAAAKACMAAAAqABoAAAAKACMAAAAqABsAAAAKACMAAAAqABwAAAAKACMAAAAqAB0AAAAKACMAAAAqAB4AAAAKACMAAAAqAB8AAAAKACMAAAAqACAAAAAKACMAAAAqACEAAAAKACMAAAAqACIAAAAKACMAAAAqACMAAAAKACMAAAAqACQAAAAKACMAAAAqACUAAAAKACMAAAArABIAAAAKACMAAAArABMAAAAKACMAAAArABQAAAAKACMAAAArABUAAAAKACMAAAArABYAAAAKACMAAAArABcAAAAKACMAAAArABgAAAAKACMAAAArABkAAAAKACMAAAArABoAAAAKACMAAAArABsAAAAKACMAAAArABwAAAAKACMAAAArAB0AAAAKACMAAAArAB4AAAAKACMAAAArAB8AAAAKACMAAAArACAAAAAKACMAAAArACEAAAAKACMAAAArACIAAAAKACMAAAArACMAAAAKACMAAAArACQAAAAKACMAAAArACUAAAAKACMAAAAsABIAAAAKACMAAAAsABMAAAAKACMAAAAsABQAAAAKACMAAAAsABUAAAAKACMAAAAsABYAAAAKACMAAAAsABcAAAAKACMAAAAsABgAAAAKACMAAAAsABkAAAAKACMAAAAsABoAAAAKACMAAAAsABsAAAAKACMAAAAsABwAAAAKACMAAAAsAB0AAAAKACMAAAAsAB4AAAAKACMAAAAsAB8AAAAKACMAAAAsACAAAAAKACMAAAAsACEAAAAKACMAAAAsACIAAAAKACMAAAAsACMAAAAKACMAAAAsACQAAAAKACMAAAAsACUAAAAKACMAAAAtABIAAAAKACMAAAAtABMAAAAKACMAAAAtABQAAAAKACMAAAAtABUAAAAKACMAAAAtABYAAAAKACMAAAAtABcAAAAKACMAAAAtABgAAAAKACMAAAAtABkAAAAKACMAAAAtABoAAAAKACMAAAAtABsAAAAKACMAAAAtABwAAAAKACMAAAAtAB0AAAAKACMAAAAtAB4AAAAKACMAAAAtAB8AAAAKACMAAAAtACAAAAAKACMAAAAtACEAAAAKACMAAAAtACIAAAAKACMAAAAtACMAAAAKACMAAAAtACQAAAAKACMAAAAtACUAAAAKACMAAAAuABIAAAAKACMAAAAuABMAAAAKACMAAAAuABQAAAAKACMAAAAuABUAAAAKACMAAAAuABYAAAAKACMAAAAuABcAAAAKACMAAAAuABgAAAAKACMAAAAuABkAAAAKACMAAAAuABoAAAAKACMAAAAuABsAAAAKACMAAAAuABwAAAAKACMAAAAuAB0AAAAKACMAAAAuAB4AAAAKACMAAAAuAB8AAAAKACMAAAAuACAAAAAKACMAAAAuACEAAAAKACMAAAAuACIAAAAKACMAAAAuACMAAAAKACMAAAAuACQAAAAKACMAAAAuACUAAAAKACMAAAAvABIAAAAKACMAAAAvABMAAAAKACMAAAAvABQAAAAKACMAAAAvABUAAAAKACMAAAAvABYAAAAKACMAAAAvABcAAAAKACMAAAAvABgAAAAKACMAAAAvABkAAAAKACMAAAAvABoAAAAKACMAAAAvABsAAAAKACMAAAAvABwAAAAKACMAAAAvAB0AAAAKACMAAAAvAB4AAAAKACMAAAAvAB8AAAAKACMAAAAvACAAAAAKACMAAAAvACEAAAAKACMAAAAvACIAAAAKACMAAAAvACMAAAAKACMAAAAvACQAAAAKACMAAAAvACUAAAAKACMAAAAwABIAAAAKACMAAAAwABMAAAAKACMAAAAwABQAAAAKACMAAAAwABUAAAAKACMAAAAwABYAAAAKACMAAAAwABcAAAAKACMAAAAwABgAAAAKACMAAAAwABkAAAAKACMAAAAwABoAAAAKACMAAAAwABsAAAAKACMAAAAwABwAAAAKACMAAAAwAB0AAAAKACMAAAAwAB4AAAAKACMAAAAwAB8AAAAKACMAAAAwACAAAAAKACMAAAAwACEAAAAKACMAAAAwACIAAAAKACMAAAAwACMAAAAKACMAAAAwACQAAAAKACMAAAAwACUAAAAKACMAAAAxABIAAAAKACMAAAAxABMAAAAKACMAAAAxABQAAAAKACMAAAAxABUAAAAKACMAAAAxABYAAAAKACMAAAAxABcAAAAKACMAAAAxABgAAAAKACMAAAAxABkAAAAKACMAAAAxABoAAAAKACMAAAAxABsAAAAKACMAAAAxABwAAAAKACMAAAAxAB0AAAAKACMAAAAxAB4AAAAKACMAAAAxAB8AAAAKACMAAAAxACAAAAAKACMAAAAxACEAAAAKACMAAAAxACIAAAAKACMAAAAxACMAAAAKACMAAAAxACQAAAAKACMAAAAxACUAAAAKACMAAAAyABIAAAAKACMAAAAyABMAAAAKACMAAAAyABQAAAAKACMAAAAyABUAAAAKACMAAAAyABYAAAAKACMAAAAyABcAAAAKACMAAAAyABgAAAAKACMAAAAyABkAAAAKACMAAAAyABoAAAAKACMAAAAyABsAAAAKACMAAAAyABwAAAAKACMAAAAyAB0AAAAKACMAAAAyAB4AAAAKACMAAAAyAB8AAAAKACMAAAAyACAAAAAKACMAAAAyACEAAAAKACMAAAAyACIAAAAKACMAAAAyACMAAAAKACMAAAAyACQAAAAKACMAAAAyACUAAAAKACMAAAAzABIAAAAKACMAAAAzABMAAAAKACMAAAAzABQAAAAKACMAAAAzABUAAAAKACMAAAAzABYAAAAKACMAAAAzABcAAAAKACMAAAAzABgAAAAKACMAAAAzABkAAAAKACMAAAAzABoAAAAKACMAAAAzABsAAAAKACMAAAAzABwAAAAKACMAAAAzAB0AAAAKACMAAAAzAB4AAAAKACMAAAAzAB8AAAAKACMAAAAzACAAAAAKACMAAAAzACEAAAAKACMAAAAzACIAAAAKACMAAAAzACMAAAAKACMAAAAzACQAAAAKACMAAAAzACUAAAAKACMAAAA0ABIAAAAKACMAAAA0ABMAAAAKACMAAAA0ABQAAAAKACMAAAA0ABUAAAAKACMAAAA0ABYAAAAKACMAAAA0ABcAAAAKACMAAAA0ABgAAAAKACMAAAA0ABkAAAAKACMAAAA0ABoAAAAKACMAAAA0ABsAAAAKACMAAAA0ABwAAAAKACMAAAA0AB0AAAAKACMAAAA0AB4AAAAKACMAAAA0AB8AAAAKACMAAAA0ACAAAAAKACMAAAA0ACEAAAAKACMAAAA0ACIAAAAKACMAAAA0ACMAAAAKACMAAAA0ACQAAAAKACMAAAA0ACUAAAAKACMAAAA1ABIAAAAKACMAAAA1ABMAAAAKACMAAAA1ABQAAAAKACMAAAA1ABUAAAAKACMAAAA1ABYAAAAKACMAAAA1ABcAAAAKACMAAAA1ABgAAAAKACMAAAA1ABkAAAAKACMAAAA1ABoAAAAKACMAAAA1ABsAAAAKACMAAAA1ABwAAAAKACMAAAA1AB0AAAAKACMAAAA1AB4AAAAKACMAAAA1AB8AAAAKACMAAAA1ACAAAAAKACMAAAA1ACEAAAAKACMAAAA1ACIAAAAKACMAAAA1ACMAAAAKACMAAAA1ACQAAAAKACMAAAA1ACUAAAAKACMAAAA2ABIAAAAKACMAAAA2ABMAAAAKACMAAAA2ABQAAAAKACMAAAA2ABUAAAAKACMAAAA2ABYAAAAKACMAAAA2ABcAAAAKACMAAAA2ABgAAAAKACMAAAA2ABkAAAAKACMAAAA2ABoAAAAKACMAAAA2ABsAAAAKACMAAAA2ABwAAAAKACMAAAA2AB0AAAAKACMAAAA2AB4AAAAKACMAAAA2AB8AAAAKACMAAAA2ACAAAAAKACMAAAA2ACEAAAAKACMAAAA2ACIAAAAKACMAAAA2ACMAAAAKACMAAAA2ACQAAAAKACMAAAA2ACUAAAAKACMAAAA3ABIAAAAKACMAAAA3ABMAAAAKACMAAAA3ABQAAAAKACMAAAA3ABUAAAAKACMAAAA3ABYAAAAKACMAAAA3ABcAAAAKACMAAAA3ABgAAAAKACMAAAA3ABkAAAAKACMAAAA3ABoAAAAKACMAAAA3ABsAAAAKACMAAAA3ABwAAAAKACMAAAA3AB0AAAAKACMAAAA3AB4AAAAKACMAAAA3AB8AAAAKACMAAAA3ACAAAAAKACMAAAA3ACEAAAAKACMAAAA3ACIAAAAKACMAAAA3ACMAAAAKACMAAAA3ACQAAAAKACMAAAA3ACUAAAAKACMAAAA4ABIAAAAKACMAAAA4ABMAAAAKACMAAAA4ABQAAAAKACMAAAA4ABUAAAAKACMAAAA4ABYAAAAKACMAAAA4ABcAAAAKACMAAAA4ABgAAAAKACMAAAA4ABkAAAAKACMAAAA4ABoAAAAKACMAAAA4ABsAAAAKACMAAAA4AB0AAAAKACMAAAA4AB4AAAAKACMAAAA4AB8AAAAKACMAAAA4ACAAAAAKACMAAAA4ACEAAAAKACMAAAA4ACIAAAAKACMAAAA4ACMAAAAKACMAAAA4ACQAAAAKACMAAAA4ACUAAAAKACMAAAA5ABIAAAAKACMAAAA5ABMAAAAKACMAAAA5ABQAAAAKACMAAAA5ABUAAAAKACMAAAA5ABYAAAAKACMAAAA5ABcAAAAKACMAAAA5ABgAAAAKACMAAAA5ABkAAAAKACMAAAA5ABoAAAAKACMAAAA5ABsAAAAKACMAAAA5ABwAAAAKACMAAAA5AB0AAAAKACMAAAA5AB4AAAAKACMAAAA5AB8AAAAKACMAAAA5ACAAAAAKACMAAAA5ACEAAAAKACMAAAA5ACIAAAAKACMAAAA5ACMAAAAKACMAAAA5ACQAAAAKACMAAAA5ACUAAAAKACMAAAA6ABIAAAAKACMAAAA6ABMAAAAKACMAAAA6ABQAAAAKACMAAAA6ABUAAAAKACMAAAA6ABYAAAAKACMAAAA6ABcAAAAKACMAAAA6ABgAAAAKACMAAAA6ABkAAAAKACMAAAA6ABoAAAAKACMAAAA6ABsAAAAKACMAAAA6AB0AAAAKACMAAAA6AB4AAAAKACMAAAA6AB8AAAAKACMAAAA6ACAAAAAKACMAAAA6ACEAAAAKACMAAAA6ACIAAAAKACMAAAA6ACMAAAAKACMAAAA6ACQAAAAKACMAAAA6ACUAAAAKACMAAAA7ABIAAAAKACMAAAA7ABMAAAAKACMAAAA7ABQAAAAKACMAAAA7ABUAAAAKACMAAAA7ABYAAAAKACMAAAA7ABcAAAAKACMAAAA7ABgAAAAKACMAAAA7ABkAAAAKACMAAAA7ABoAAAAKACMAAAA7ABsAAAAKACMAAAA7ABwAAAAKACMAAAA7AB0AAAAKACMAAAA7AB4AAAAKACMAAAA7AB8AAAAKACMAAAA7ACAAAAAKACMAAAA7ACEAAAAKACMAAAA7ACIAAAAKACMAAAA7ACMAAAAKACMAAAA7ACQAAAAKACMAAAA7ACUAAAAKACMAAAA8ABIAAAAKACMAAAA8ABMAAAAKACMAAAA8ABQAAAAKACMAAAA8ABUAAAAKACMAAAA8ABYAAAAKACMAAAA8ABcAAAAKACMAAAA8ABgAAAAKACMAAAA8ABkAAAAKACMAAAA8ABoAAAAKACMAAAA8ABsAAAAKACMAAAA8ABwAAAAKACMAAAA8AB0AAAAKACMAAAA8AB4AAAAKACMAAAA8AB8AAAAKACMAAAA8ACAAAAAKACMAAAA8ACEAAAAKACMAAAA8ACIAAAAKACMAAAA8ACMAAAAKACMAAAA8ACQAAAAKACMAAAA8ACUAAAAKACMAAAA9ABIAAAAKACMAAAA9ABMAAAAKACMAAAA9ABQAAAAKACMAAAA9ABUAAAAKACMAAAA9ABYAAAAKACMAAAA9ABcAAAAKACMAAAA9ABgAAAAKACMAAAA9ABkAAAAKACMAAAA9ABoAAAAKACMAAAA9ABsAAAAKACMAAAA9ABwAAAAKACMAAAA9AB0AAAAKACMAAAA9AB4AAAAKACMAAAA9AB8AAAAKACMAAAA9ACAAAAAKACMAAAA9ACEAAAAKACMAAAA9ACIAAAAKACMAAAA9ACMAAAAKACMAAAA9ACQAAAAKACMAAAA9ACUAAAAKACMAAAA+ABIAAAAKACMAAAA+ABMAAAAKACMAAAA+ABQAAAAKACMAAAA+ABUAAAAKACMAAAA+ABYAAAAKACMAAAA+ABcAAAAKACMAAAA+ABgAAAAKACMAAAA+ABkAAAAKACMAAAA+ABoAAAAKACMAAAA+ABsAAAAKACMAAAA+ABwAAAAKACMAAAA+AB0AAAAKACMAAAA+AB4AAAAKACMAAAA+AB8AAAAKACMAAAA+ACAAAAAKACMAAAA+ACEAAAAKACMAAAA+ACIAAAAKACMAAAA+ACMAAAAKACMAAAA+ACQAAAAKACMAAAA+ACUAAAAKACMAAAA/ABIAAAAKACMAAAA/ABMAAAAKACMAAAA/ABQAAAAKACMAAAA/ABUAAAAKACMAAAA/ABYAAAAKACMAAAA/ABcAAAAKACMAAAA/ABgAAAAKACMAAAA/ABkAAAAKACMAAAA/ABoAAAAKACMAAAA/ABsAAAAKACMAAAA/ABwAAAAKACMAAAA/AB0AAAAKACMAAAA/AB4AAAAKACMAAAA/AB8AAAAKACMAAAA/ACAAAAAKACMAAAA/ACEAAAAKACMAAAA/ACIAAAAKACMAAAA/ACMAAAAKACMAAAA/ACQAAAAKACMAAAA/ACUAAAAKACMAAABAABIAAAAKACMAAABAABMAAAAKACMAAABAABQAAAAKACMAAABAABUAAAAKACMAAABAABYAAAAKACMAAABAABcAAAAKACMAAABAABgAAAAKACMAAABAABkAAAAKACMAAABAABoAAAAKACMAAABAABsAAAAKACMAAABAABwAAAAKACMAAABAAB0AAAAKACMAAABAAB4AAAAKACMAAABAAB8AAAAKACMAAABAACAAAAAKACMAAABAACEAAAAKACMAAABAACIAAAAKACMAAABAACMAAAAKACMAAABAACQAAAAKACMAAABAACUAAAAKACMAAABBABIAAAAKACMAAABBABMAAAAKACMAAABBABQAAAAKACMAAABBABUAAAAKACMAAABBABYAAAAKACMAAABBABcAAAAKACMAAABBABgAAAAKACMAAABBABkAAAAKACMAAABBABoAAAAKACMAAABBABsAAAAKACMAAABBABwAAAAKACMAAABBAB0AAAAKACMAAABBAB4AAAAKACMAAABBAB8AAAAKACMAAABBACAAAAAKACMAAABBACEAAAAKACMAAABBACIAAAAKACMAAABBACMAAAAKACMAAABBACQAAAAKACMAAABBACUAAAAKACMAAAA6ABwAAAAKACMAAAA4ABwAAAAKACMAAAA=")
 tile_set = SubResource("TileSet_fjemq")
 
@@ -874,7 +875,7 @@ texture = ExtResource("5_xwxxy")
 
 [node name="Road" type="TileMapLayer" parent="VillageTiles"]
 position = Vector2(-9, -15)
-tile_map_data = PackedByteArray("AAAxABoAAAACAA0AAAAxABsAAAACAAwAAAAxABwAAAAKAA4AAAAyABwAAAAGAA8AAAAzABwAAAAHAA8AAAA0ABwAAAAFAA4AAAA1ABwAAAALAAwAAAA1AB0AAAABAA0AAAA1AB4AAAACAA0AAAA2ABwAAAAGAA8AAAA3ABwAAAAMAA4AAAA3ABsAAAAKAAwAAAA4ABsAAAAJAA4AAAA1AB8AAAACABAAAAA=")
+tile_map_data = PackedByteArray("AAAxABoAAAACAA0AAAAxABsAAAACAAwAAAAxABwAAAAKAA4AAAAyABwAAAALAAwAAAAzABwAAAAGAA8AAAA0ABwAAAAHAA8AAAA1ABwAAAALAAwAAAA1AB0AAAABAA0AAAA1AB4AAAACAA0AAAA2ABwAAAAGAA8AAAA3ABwAAAAMAA4AAAA3ABsAAAAKAAwAAAA4ABsAAAAJAA4AAAA1AB8AAAACABAAAAAyAB0AAAABAA4AAAAyAB4AAAABAA8AAAA=")
 tile_set = SubResource("TileSet_fjemq")
 
 [node name="PrefabsTile6" type="Sprite2D" parent="VillageTiles"]
@@ -890,8 +891,8 @@ offset_left = 773.0
 offset_top = 359.0
 offset_right = 821.0
 offset_bottom = 407.0
-texture_normal = ExtResource("6_33kwu")
-texture_hover = ExtResource("9_34gab")
+texture_normal = ExtResource("9_30hpk")
+texture_hover = ExtResource("10_gc2fp")
 
 [node name="Sorcerer" type="TextureButton" parent="VillageTiles"]
 offset_left = 686.0
@@ -1004,10 +1005,12 @@ position = Vector2(924, 360)
 texture = ExtResource("42_2v2ta")
 
 [node name="Camp" type="Sprite2D" parent="VillageTiles"]
+visible = false
 position = Vector2(716, 393)
 texture = ExtResource("43_oradi")
 
 [node name="Bonfire" type="Sprite2D" parent="VillageTiles"]
+visible = false
 position = Vector2(859, 416)
 texture = ExtResource("47_cspaa")
 
@@ -1030,8 +1033,8 @@ offset_left = 752.0
 offset_top = 410.0
 offset_right = 768.0
 offset_bottom = 426.0
-texture_normal = ExtResource("16_hal37")
-texture_hover = ExtResource("21_bjeen")
+texture_normal = ExtResource("30_lo7uv")
+texture_hover = ExtResource("31_86h02")
 
 [node name="Taverm" type="TextureButton" parent="VillageTiles/Shops"]
 offset_left = 832.0
@@ -1054,10 +1057,11 @@ offset_left = 850.0
 offset_top = 469.0
 offset_right = 866.0
 offset_bottom = 485.0
-texture_normal = ExtResource("22_1rtox")
-texture_hover = ExtResource("28_7qkp6")
+texture_normal = ExtResource("36_lvjal")
+texture_hover = ExtResource("37_37ryo")
 
 [node name="IronMine" type="TextureButton" parent="VillageTiles/Shops"]
+visible = false
 offset_left = 836.0
 offset_top = 365.0
 offset_right = 852.0
@@ -1067,6 +1071,7 @@ texture_normal = ExtResource("32_8cxn2")
 texture_hover = ExtResource("42_rb3g7")
 
 [node name="Woodcutters" type="TextureButton" parent="VillageTiles/Shops"]
+visible = false
 offset_left = 687.0
 offset_top = 445.0
 offset_right = 719.0
@@ -1076,6 +1081,7 @@ texture_normal = ExtResource("38_ia188")
 texture_hover = ExtResource("50_ixu2a")
 
 [node name="StoneMine" type="TextureButton" parent="VillageTiles/Shops"]
+visible = false
 offset_left = 917.0
 offset_top = 455.0
 offset_right = 933.0
@@ -1087,46 +1093,55 @@ texture_hover = ExtResource("55_ojeti")
 [node name="Houses" type="Node2D" parent="VillageTiles"]
 
 [node name="Prefabs2" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(757, 471)
 texture = ExtResource("34_65p6h")
 
 [node name="HousesAndFarmsTile1" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(767, 481)
 texture = ExtResource("37_8jqsf")
 
-[node name="PrefabsTile0" type="Sprite2D" parent="VillageTiles/Houses"]
-position = Vector2(782, 463)
-texture = ExtResource("15_nic15")
+[node name="Hauses" type="Sprite2D" parent="VillageTiles/Houses"]
+position = Vector2(779, 468)
+texture = ExtResource("46_3wia4")
 
 [node name="HousesAndFarmsTile7" type="Sprite2D" parent="VillageTiles/Houses"]
-position = Vector2(802, 482)
+visible = false
+position = Vector2(807, 482)
 texture = ExtResource("36_gcsog")
 
-[node name="PrefabsTile1" type="Sprite2D" parent="VillageTiles/Houses"]
+[node name="Square" type="Sprite2D" parent="VillageTiles/Houses"]
 position = Vector2(822, 462)
-texture = ExtResource("20_0k57a")
+texture = ExtResource("48_advfl")
 
 [node name="HousesAndFarmsTile3" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(872, 466)
 texture = ExtResource("24_67biy")
 
 [node name="HousesAndFarmsTile5" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(883, 480)
 texture = ExtResource("24_67biy")
 
 [node name="HousesAndFarmsTile6" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(890, 461)
 texture = ExtResource("25_qmtis")
 
 [node name="HousesAndFarmsTile4" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(879, 446)
 texture = ExtResource("24_67biy")
 
 [node name="HousesAndFarmsTile2" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(864, 434)
 texture = ExtResource("24_67biy")
 
 [node name="Prefabs1" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(882, 398)
 texture = ExtResource("33_4uuv5")
 
@@ -1156,13 +1171,14 @@ texture = ExtResource("28_nu4vf")
 
 [node name="Castles1Tile2" type="Sprite2D" parent="VillageTiles/GuardTowers"]
 position = Vector2(738, 476)
-texture = ExtResource("50_8x73o")
+texture = ExtResource("57_88hr1")
 
 [node name="Castles1Tile3" type="Sprite2D" parent="VillageTiles/GuardTowers"]
 position = Vector2(903, 476)
-texture = ExtResource("49_aj6rs")
+texture = ExtResource("58_2kywu")
 
 [node name="Lamps" type="Node2D" parent="VillageTiles"]
+visible = false
 
 [node name="LightsTile14" type="Sprite2D" parent="VillageTiles/Lamps"]
 position = Vector2(786, 436)
@@ -1177,7 +1193,7 @@ position = Vector2(885, 437)
 texture = ExtResource("44_vn4qc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(812, 414)
+position = Vector2(812, 411)
 zoom = Vector2(7.2, 7.2)
 
 [node name="Player" parent="." instance=ExtResource("53_l6ruk")]
@@ -1185,9 +1201,9 @@ position = Vector2(173, 623)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 678.0
-offset_top = 339.0
+offset_top = 336.0
 offset_right = 2740.0
-offset_bottom = 402.0
+offset_bottom = 399.0
 scale = Vector2(0.13, 0.13)
 
 [node name="GemStats" type="Control" parent="."]
@@ -1195,9 +1211,9 @@ z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 576.0
-offset_top = 339.0
+offset_top = 336.0
 offset_right = 616.0
-offset_bottom = 379.0
+offset_bottom = 376.0
 scale = Vector2(0.13, 0.13)
 
 [node name="Images" type="Control" parent="GemStats"]
@@ -1291,7 +1307,7 @@ text = ": 9999"
 
 [node name="Material" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(894, 319)
+position = Vector2(894, 316)
 scale = Vector2(0.18, 0.18)
 
 [node name="Wood" type="Sprite2D" parent="Material"]
@@ -1335,14 +1351,10 @@ scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("59_xh1n5")
 text = ": 9999"
 
-[node name="FacilityTimers" type="Node2D" parent="."]
+[node name="Facilities" type="Node2D" parent="."]
+visible = false
 
-[node name="WoodTimer" type="Timer" parent="FacilityTimers"]
-unique_name_in_owner = true
-wait_time = 160.0
-autostart = true
-
-[node name="WoodLabel" type="Label" parent="FacilityTimers/WoodTimer"]
+[node name="WoodLabel" type="Label" parent="Facilities"]
 unique_name_in_owner = true
 offset_left = 697.0
 offset_top = 472.0
@@ -1353,7 +1365,7 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="WoodButton" type="TextureButton" parent="FacilityTimers/WoodTimer"]
+[node name="WoodButton" type="TextureButton" parent="Facilities"]
 offset_left = 694.0
 offset_top = 448.0
 offset_right = 726.0
@@ -1362,12 +1374,7 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("70_n63o2")
 texture_hover = ExtResource("71_chpnx")
 
-[node name="StoneTimer" type="Timer" parent="FacilityTimers"]
-unique_name_in_owner = true
-wait_time = 160.0
-autostart = true
-
-[node name="StoneLabel" type="Label" parent="FacilityTimers/StoneTimer"]
+[node name="StoneLabel" type="Label" parent="Facilities"]
 unique_name_in_owner = true
 offset_left = 920.0
 offset_top = 469.0
@@ -1378,7 +1385,7 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="StoneButton" type="TextureButton" parent="FacilityTimers/StoneTimer"]
+[node name="StoneButton" type="TextureButton" parent="Facilities"]
 offset_left = 917.0
 offset_top = 451.0
 offset_right = 949.0
@@ -1387,12 +1394,7 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("72_bwmem")
 texture_hover = ExtResource("73_y8ahp")
 
-[node name="IronTimer" type="Timer" parent="FacilityTimers"]
-unique_name_in_owner = true
-wait_time = 160.0
-autostart = true
-
-[node name="IronLabel" type="Label" parent="FacilityTimers/IronTimer"]
+[node name="IronLabel" type="Label" parent="Facilities"]
 unique_name_in_owner = true
 offset_left = 839.0
 offset_top = 379.0
@@ -1403,7 +1405,7 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="IronButton" type="TextureButton" parent="FacilityTimers/IronTimer"]
+[node name="IronButton" type="TextureButton" parent="Facilities"]
 offset_left = 835.0
 offset_top = 360.0
 offset_right = 867.0
@@ -1431,9 +1433,6 @@ scale = Vector2(0.2, 0.2)
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Armourer" to="." method="_on_armourer_pressed"]
-[connection signal="timeout" from="FacilityTimers/WoodTimer" to="." method="_on_wood_timer_timeout"]
-[connection signal="pressed" from="FacilityTimers/WoodTimer/WoodButton" to="." method="_on_wood_button_pressed"]
-[connection signal="timeout" from="FacilityTimers/StoneTimer" to="." method="_on_stone_timer_timeout"]
-[connection signal="pressed" from="FacilityTimers/StoneTimer/StoneButton" to="." method="_on_stone_button_pressed"]
-[connection signal="timeout" from="FacilityTimers/IronTimer" to="." method="_on_iron_timer_timeout"]
-[connection signal="pressed" from="FacilityTimers/IronTimer/IronButton" to="." method="_on_iron_button_pressed"]
+[connection signal="pressed" from="Facilities/WoodButton" to="." method="_on_wood_button_pressed"]
+[connection signal="pressed" from="Facilities/StoneButton" to="." method="_on_stone_button_pressed"]
+[connection signal="pressed" from="Facilities/IronButton" to="." method="_on_iron_button_pressed"]

@@ -12,6 +12,11 @@ var treasure_timesup = false
 var handle_winning = false
 
 
+func reset_map():
+	level_done = 0
+	available_level = 1
+	chosen_path = "ABC"
+
 func switch_to_dungeon_map():
 	SaveManager.autosave()
 	await get_tree().create_timer(3).timeout

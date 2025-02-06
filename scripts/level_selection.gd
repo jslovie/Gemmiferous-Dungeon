@@ -152,10 +152,11 @@ func select_type():
 	elif type == "Random Event":
 		get_tree().change_scene_to_file("res://scenes/dungeons/random_event.tscn")
 
-func choose_path():
-	if LevelManager.chosen_path == "ABC":
-		LevelManager.chosen_path = path
 
+func chose_path():
+	LevelManager.chosen_path = path
+	print(LevelManager.chosen_path)
+	
 func check_level_done():
 	if LevelManager.level_done >= level:
 		$LevelDone.visible = true
@@ -165,7 +166,25 @@ func check_level_done():
 		disabled = false
 
 func available_level():
-	if LevelManager.available_level == level and path == "ABC" or LevelManager.available_level == level and LevelManager.chosen_path == path or LevelManager.available_level == level and LevelManager.chosen_path == "ABC":
+	if LevelManager.available_level == level and path == "ABC":
+		disabled = false
+		select_hover_icon()
+	elif LevelManager.available_level == level and LevelManager.chosen_path == "ABC":
+		disabled = false
+		select_hover_icon()
+	elif LevelManager.available_level == level and LevelManager.chosen_path == "A" and path == "ABCA" or LevelManager.available_level == level and LevelManager.chosen_path == "B" and path == "ABCA":
+		disabled = false
+		select_hover_icon()
+	elif LevelManager.available_level == level and LevelManager.chosen_path == "ABCA" and path == "A" or LevelManager.available_level == level and LevelManager.chosen_path == "ABCA" and path == "B":
+		disabled = false
+		select_hover_icon()
+	elif LevelManager.available_level == level and LevelManager.chosen_path == "C" and path == "ABCB" or LevelManager.available_level == level and LevelManager.chosen_path == "D" and path == "ABCB":
+		disabled = false
+		select_hover_icon()
+	elif LevelManager.available_level == level and LevelManager.chosen_path == "ABCB" and path == "C" or LevelManager.available_level == level and LevelManager.chosen_path == "ABCB" and path == "D":
+		disabled = false
+		select_hover_icon()
+	elif LevelManager.available_level == level and LevelManager.chosen_path == path:
 		disabled = false
 		select_hover_icon()
 	else:
@@ -179,7 +198,7 @@ func update_available_level():
 		
 		
 func _on_pressed():
-	choose_path()
+	chose_path()
 	check_level_done()
 	update_available_level()
 	select_type()
