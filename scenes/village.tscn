@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=99 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -80,6 +80,9 @@
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="74_kehnc"]
 [ext_resource type="Texture2D" uid="uid://bh2avrkrq5akc" path="res://assets/32rogues/material/iron2 outline W.png" id="75_aih4a"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
+[ext_resource type="Texture2D" uid="uid://kn1ih8sqyhoy" path="res://assets/village/Gemmiferous_estate/peasant4.png" id="81_26d8d"]
+[ext_resource type="Texture2D" uid="uid://ogyunm3leva0" path="res://assets/village/Gemmiferous_estate/peasant3.png" id="82_mv2i7"]
+[ext_resource type="Texture2D" uid="uid://do3sv482q1r2p" path="res://assets/village/Gemmiferous_estate/peasant2.png" id="83_7fjwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe0hp"]
 texture = ExtResource("1_qulya")
@@ -831,9 +834,9 @@ point_count = 29
 
 [sub_resource type="Curve2D" id="Curve2D_34gqg"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 756, 423, 0, 0, 0, 0, 759, 424, 0, 0, 0, 0, 765, 425, 0, 0, 0, 0, 770, 425, 0, 0, 0, 0, 777, 425, 0, 0, 0, 0, 782, 427, 0, 0, 0, 0, 785, 431, 0, 0, 0, 0, 783, 436, 0, 0, 0, 0, 783, 437, 0, 0, 0, 0, 786, 441, 0, 0, 0, 0, 790, 442, 0, 0, 0, 0, 796, 442, 0, 0, 0, 0, 797, 447, 0, 0, 0, 0, 797, 452, 0, 0, 0, 0, 797, 459, 0, 0, 0, 0, 798, 465, 0, 0, 0, 0, 799, 467, 0, 0, 0, 0, 793, 468, 0, 0, 0, 0, 789, 469, 0, 0, 0, 0, 783, 468, 0, 0, 0, 0, 778, 469, 0, 0, 0, 0, 774, 467)
+"points": PackedVector2Array(0, 0, 0, 0, 756, 423, 0, 0, 0, 0, 759, 424, 0, 0, 0, 0, 765, 425, 0, 0, 0, 0, 770, 425, 0, 0, 0, 0, 777, 425, 0, 0, 0, 0, 782, 427, 0, 0, 0, 0, 785, 431, 0, 0, 0, 0, 783, 436, 0, 0, 0, 0, 783, 437, 0, 0, 0, 0, 786, 441, 0, 0, 0, 0, 790, 442, 0, 0, 0, 0, 796, 442, 0, 0, 0, 0, 797, 447, 0, 0, 0, 0, 797, 452, 0, 0, 0, 0, 797, 459, 0, 0, 0, 0, 798, 465, 0, 0, 0, 0, 799, 467, 0, 0, 0, 0, 799, 474, 0, 0, 0, 0, 798, 478, 0, 0, 0, 0, 797, 481, 0, 0, 0, 0, 796, 483, 0, 0, 0, 0, 793, 485, 0, 0, 0, 0, 788, 485, 0, 0, 0, 0, 784, 485, 0, 0, 0, 0, 784, 484)
 }
-point_count = 22
+point_count = 25
 
 [sub_resource type="Curve2D" id="Curve2D_5jjvp"]
 _data = {
@@ -1265,6 +1268,7 @@ zoom = Vector2(7.2, 7.2)
 position = Vector2(173, 623)
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = 678.0
 offset_top = 336.0
 offset_right = 2740.0
@@ -1272,6 +1276,7 @@ offset_bottom = 399.0
 scale = Vector2(0.13, 0.13)
 
 [node name="GemStats" type="Control" parent="."]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -1371,6 +1376,7 @@ theme_override_font_sizes/font_size = 32
 text = ": 9999"
 
 [node name="Material" type="Node2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(894, 316)
 scale = Vector2(0.18, 0.18)
@@ -1417,6 +1423,7 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 text = ": 9999"
 
 [node name="Facilities" type="Node2D" parent="."]
+visible = false
 
 [node name="WoodLabel" type="Label" parent="Facilities"]
 unique_name_in_owner = true
@@ -1535,7 +1542,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D3/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("82_mv2i7")
 
 [node name="Path2D4" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_5lo48")
@@ -1549,7 +1556,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D4/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("82_mv2i7")
 
 [node name="Path2D5" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_5trkd")
@@ -1563,7 +1570,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D5/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("82_mv2i7")
 
 [node name="Path2D6" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_qplpx")
@@ -1577,7 +1584,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D6/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("83_7fjwl")
 
 [node name="Path2D7" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_uprtu")
@@ -1591,7 +1598,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D7/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("83_7fjwl")
 
 [node name="Path2D8" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_0ralb")
@@ -1605,7 +1612,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D8/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("81_26d8d")
 
 [node name="Path2D9" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_c7jrt")
@@ -1619,7 +1626,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D9/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("81_26d8d")
 
 [node name="Path2D10" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_34gqg")
@@ -1661,7 +1668,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D12/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("81_26d8d")
 
 [node name="Path2D13" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_8utem")
@@ -1675,7 +1682,7 @@ script = ExtResource("79_ngvu0")
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/Path2D13/PathFollow2D"]
 rotation = -0.674741
-texture = ExtResource("60_odose")
+texture = ExtResource("81_26d8d")
 
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]

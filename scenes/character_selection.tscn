@@ -329,10 +329,11 @@ theme_override_fonts/font = ExtResource("11_4xv2l")
 text = ": 9999"
 
 [node name="BackToVillage" type="Button" parent="."]
-offset_left = 34.0
-offset_top = 982.0
-offset_right = 474.0
-offset_bottom = 1050.0
+offset_left = 23.0
+offset_top = 1002.0
+offset_right = 463.0
+offset_bottom = 1070.0
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("11_4xv2l")
 theme_override_font_sizes/font_size = 64
 text = "Back to village"

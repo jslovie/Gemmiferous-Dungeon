@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b553xwarmcltx"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_8ul3k"]
+[ext_resource type="Texture2D" uid="uid://baolmtmlkkoya" path="res://assets/32rogues/enem/crone.png" id="2_cydyi"]
+
+[node name="CroneEnemyType" instance=ExtResource("1_8ul3k")]
+type = "Crone"
+health = 60.0
+health_increase = 15
+max_health = 60.0
+shield_increase = 1
+damage = Vector2(8, 10)
+coin_worth = 12
+action_delay = Vector2(4, 6)
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_cydyi")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=24 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -9,7 +9,10 @@
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_pg7vj"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
 [ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_gvty1"]
+[ext_resource type="Texture2D" uid="uid://m3vjmbmur66h" path="res://assets/32rogues/pieces/health_potion.png" id="9_d7cj6"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
+[ext_resource type="Texture2D" uid="uid://u775rcwdc28k" path="res://assets/32rogues/pieces/antivenom_potion.png" id="10_x7hk7"]
+[ext_resource type="Texture2D" uid="uid://bxfk20l7rw1x2" path="res://assets/32rogues/pieces/strenght_potion.png" id="11_7i0tj"]
 [ext_resource type="Script" path="res://scripts/wait_time.gd" id="11_ih4n0"]
 [ext_resource type="PackedScene" uid="uid://covxy0k6qglqu" path="res://scenes/slot/slot_machine.tscn" id="12_8bcan"]
 [ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="13_wcutr"]
@@ -165,7 +168,6 @@ script = ExtResource("1_0rfml")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="F1" type="Node2D" parent="Background"]
-visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
 position = Vector2(12, -28)
@@ -178,6 +180,7 @@ tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABE
 tile_set = SubResource("TileSet_5mgtx")
 
 [node name="F2" type="Node2D" parent="Background"]
+visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F2"]
 position = Vector2(12, -28)
@@ -336,16 +339,32 @@ alignment = 1
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/InventoryGrid/Button"]
+position = Vector2(45, 36)
+scale = Vector2(4, 4)
+texture = ExtResource("9_d7cj6")
+
 [node name="Button2" type="Button" parent="Inventory/InventoryGrid"]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Inventory/InventoryGrid/Button2"]
+position = Vector2(43, 36)
+scale = Vector2(4, 4)
+texture = ExtResource("10_x7hk7")
 
 [node name="Button3" type="Button" parent="Inventory/InventoryGrid"]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 
+[node name="Sprite2D2" type="Sprite2D" parent="Inventory/InventoryGrid/Button3"]
+position = Vector2(43, 39)
+scale = Vector2(4, 4)
+texture = ExtResource("11_7i0tj")
+
 [node name="WaitTime" type="Control" parent="."]
 process_mode = 2
+visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -388,7 +407,6 @@ text_overrun_behavior = 1
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="Hud" type="Control" parent="."]
 layout_mode = 3
@@ -564,4 +582,5 @@ scale = Vector2(1.2, 1.2)
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
+[connection signal="pressed" from="Inventory/InventoryGrid/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]

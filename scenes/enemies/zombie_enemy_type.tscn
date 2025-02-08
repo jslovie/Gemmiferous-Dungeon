@@ -5,15 +5,14 @@
 
 [node name="ZombieEnemyType" instance=ExtResource("1_cio14")]
 type = "Zombie"
-health = 30.0
-health_increase = 5
-max_health = 30.0
+health = 60.0
+health_increase = 8
+max_health = 60.0
 shield = 5.0
-shield_increase = 3
-damage = 5.0
-coin_worth = 6
-hit_multiplier = 1.1
-action_delay = 4.0
+shield_increase = 5
+damage = Vector2(5, 10)
+coin_worth = 10
+action_delay = Vector2(2, 6)
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp8q46on483ec"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_2ikhm"]
+[ext_resource type="Texture2D" uid="uid://dktndrsmbti6l" path="res://assets/32rogues/enem/Minotaur.png" id="2_3nj8i"]
+
+[node name="MinotaurEnemyType" instance=ExtResource("1_2ikhm")]
+type = "Minotaur"
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3nj8i")

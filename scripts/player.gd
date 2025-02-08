@@ -106,12 +106,12 @@ func damage1_attack():
 		pass
 	else:
 		if rage > 0:
-			var random_base_action1 = randf_range(base_action1.x, base_action1.y)
+			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
 			action1 = (random_base_action1 + (random_base_action1 * rage)) * piece_multiplier
 			EnemyManager.enemy.take_damage(action1)
 			print("damage is: " + str(action1))
 		else:
-			var random_base_action1 = randf_range(base_action1.x, base_action1.y)
+			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
 			action1 = (random_base_action1 * piece_multiplier)
 			EnemyManager.enemy.take_damage(action1)
 			print("damage is: " + str(action1))
@@ -120,7 +120,7 @@ func damage2_attack():
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
-		var random_base_action2 = randf_range(base_action2.x, base_action2.y)
+		var random_base_action2 = randi_range(base_action2.x, base_action2.y)
 		action2 = (random_base_action2 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action2)
 		print("damage is: " + str(action2))
@@ -132,7 +132,7 @@ func damage3_attack():
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
-		var random_base_action3 = randf_range(base_action3.x, base_action3.y)
+		var random_base_action3 = randi_range(base_action3.x, base_action3.y)
 		action3 = (random_base_action3 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action3)
 		print("damage is: " + str(action3))
@@ -204,6 +204,11 @@ func set_treasure():
 	total_stone += stone
 	total_iron += iron
 
+func heal(amount):
+	health += amount
+	if health > max_health:
+		health = max_health
+
 func receive_damage(damage):
 	if state == alive:
 		#Visual knockback
@@ -223,7 +228,7 @@ func receive_damage(damage):
 				shield -= 1
 			else:
 				health_attack += 1
-		var total_attack = health_attack * EnemyManager.enemy.hit_multiplier
+		var total_attack = health_attack
 		health -= total_attack
 		
 		if health <= 0:

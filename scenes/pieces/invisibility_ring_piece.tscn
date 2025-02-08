@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://qoryo24dni6g"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_7se08"]
+[ext_resource type="Texture2D" uid="uid://3tr6acr8mcel" path="res://assets/32rogues/pieces/invisibility_ringv2.png" id="2_r3alu"]
+
+[node name="InvisibilityRingPiece" instance=ExtResource("1_7se08")]
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.121569, 0.313726, 0.552941, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_r3alu")

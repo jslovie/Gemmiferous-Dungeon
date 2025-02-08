@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bekr2ta15dxei"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_m20u1"]
+[ext_resource type="Texture2D" uid="uid://blp5g8mumsetg" path="res://assets/32rogues/enem/warewolf.png" id="2_hjpc2"]
+
+[node name="WarewolfEnemyType" instance=ExtResource("1_m20u1")]
+type = "Warewolf"
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hjpc2")

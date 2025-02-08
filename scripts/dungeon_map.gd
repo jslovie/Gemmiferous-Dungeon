@@ -11,11 +11,21 @@ var xp
 
 func _ready():
 	LevelManager.show_map = false
+	
+	if LevelManager.floor == 2:
+		$Dungeons/DungeonF2_1.visible = true
+		
 
 func _process(_delta):
 	dungeon_map()
-	
-	
+	choose_map()
+
+func choose_map():
+	if LevelManager.floor == 1:
+		$Dungeons/DungeonF1_1.visible = true
+	elif LevelManager.floor == 2:
+		$Dungeons/DungeonF2_1.visible = true
+		
 func dungeon_map():
 	if LevelManager.show_map == false:
 		visible = false

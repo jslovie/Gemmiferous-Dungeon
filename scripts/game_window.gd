@@ -11,7 +11,7 @@ func _ready():
 	update_shields()
 	update_rage()
 	$EnemyTypeLabel/Timer.timer_start()
-	get_tree().paused = true
+	wait_time()
 	$Hud.visible = false
 	$SlotMachine.visible = false
 	$PlayerDied.visible = false
@@ -23,6 +23,11 @@ func _process(_delta):
 	resolution_screen()
 	update_rage()
 	handle_win()
+
+func wait_time():
+	$WaitTime.visible = true
+	%WaitTimeTimer.start(5)
+	get_tree().paused = true
 	
 func update_healthbars():
 	#Player healthbar
@@ -85,3 +90,7 @@ func _on_wait_time_timer_timeout():
 	get_tree().paused = false
 	$WaitTime.visible = false
 	
+
+
+func _on_button_pressed():
+	PlayerManager.player.heal(15)

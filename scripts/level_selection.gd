@@ -90,47 +90,68 @@ func select_hover_icon():
 		$".".texture_disabled = texture
 
 func select_enemy():
-	if type == "Enemy":
-		if level == 1 or 2 or 3 or 4 or 5:
-			var random = randi_range(1, 4)
-			if random == 1:
-				enemy_type = "Zombie"
-			elif random == 2:
-				enemy_type = "Spider"
-			elif random == 3:
-				enemy_type = "Ghoul"
-			elif random == 4:
-				enemy_type = "Rat"
-		elif level == 6 or 7 or 8:
+	if LevelManager.floor == 1:
+		if type == "Enemy":
+			if level == 1 or 2 or 3:
+				var random = randi_range(1, 3)
+				if random == 1:
+					enemy_type = "Spider"
+				elif random == 2:
+					enemy_type = "Rat"
+				elif random == 3:
+					enemy_type = "Wolf"
+			elif level == 4 or 5:
+				var random = randi_range(1, 7)
+				if random == 1:
+					enemy_type = "Spider"
+				elif random == 2:
+					enemy_type = "Rat"
+				elif random == 3:
+					enemy_type = "Wolf"
+				elif random == 4:
+					enemy_type = "Zombie"
+				elif random == 5:
+					enemy_type = "Ghoul"
+				elif random == 6:
+					enemy_type = "Lamprey"
+				elif random == 7:
+					enemy_type = "Crone"
+			elif level == 6 or 7 or 8 or 9:
+				var random = randi_range(1, 4)
+				if random == 1:
+					enemy_type = "Zombie"
+				elif random == 2:
+					enemy_type = "Ghoul"
+				elif random == 3:
+					enemy_type = "Lamprey"
+				elif random == 4:
+					enemy_type = "Crone"
+		elif type == "Elite Enemy":
 			var random = randi_range(1, 3)
 			if random == 1:
-				enemy_type = "Skeleton Mage"
+				enemy_type = "Hag"
 			elif random == 2:
-				enemy_type = "Skeleton"
+				enemy_type = "Ghost"
 			elif random == 3:
-				enemy_type = "Skeleton Archer"
-
-	elif type == "Elite Enemy":
-		var random = randi_range(1, 3)
-		if random == 1:
-			enemy_type = "Hag"
-		elif random == 2:
-			enemy_type = "Ghost"
-		elif random == 3:
-			enemy_type = "Ghost Warrior"
-			
-	elif type == "Boss":
-		var random = randi_range(1, 3)
-		if random == 1:
+				enemy_type = "Ghost Warrior"
+		elif type == "Boss":
 			enemy_type = "Demon Boss"
-		elif random == 2:
-			enemy_type = "Dragon Boss"
-		elif random == 3:
-			enemy_type = "Devil Boss"
-		
+	elif LevelManager.floor == 2:
+		if type == "Enemy":
+			if level == 11 or 12 or 13:
+				var random = randi_range(1, 3)
+				if random == 1:
+					enemy_type = "Ratten"
+				elif random == 2:
+					enemy_type = "Rattena"
+				elif random == 3:
+					enemy_type = "Shroom"
+
+	print(enemy_type)
 func select_type():
 	LevelManager.show_map = false
 	LevelManager.type = type
+	Loading.loading_1s()
 	if type == "Enemy":
 		EnemyManager.type = enemy_type
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")

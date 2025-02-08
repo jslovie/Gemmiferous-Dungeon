@@ -7,7 +7,7 @@ func _ready():
 	LevelManager.level_done += 1
 	
 func handle_option():
-	PlayerManager.player.health += 15
+	PlayerManager.player.heal(15)
 	SaveManager.autosave()
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	LevelManager.show_map = true

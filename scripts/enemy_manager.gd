@@ -11,10 +11,9 @@ var health_increase : float
 var max_health : float
 var shield : float
 var shield_increase : int
-var damage : float
+var damage : Vector2
 var coin_worth : int
-var hit_multiplier : int
-var action_delay : float
+var action_delay : Vector2
 var blood_type : String
 
 #var enemy_type : String

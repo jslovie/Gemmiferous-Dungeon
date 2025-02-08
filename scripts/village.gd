@@ -17,6 +17,7 @@ func _process(_delta):
 	check_stone_mine_icon()
 	check_iron_mine_icon()
 
+
 func repair_estate():
 	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")
 	$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor_highlighted.png")

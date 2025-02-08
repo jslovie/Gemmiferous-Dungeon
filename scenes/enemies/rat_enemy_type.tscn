@@ -5,14 +5,13 @@
 
 [node name="RatEnemyType" instance=ExtResource("1_6jotw")]
 type = "Rat"
-health = 20.0
-health_increase = 4
-max_health = 20.0
+health = 30.0
+health_increase = 6
+max_health = 30.0
 shield_increase = 1
-damage = 3.0
-coin_worth = 3
-hit_multiplier = 2.0
-action_delay = 3.0
+damage = Vector2(2, 7)
+coin_worth = 4
+action_delay = Vector2(2, 4)
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]

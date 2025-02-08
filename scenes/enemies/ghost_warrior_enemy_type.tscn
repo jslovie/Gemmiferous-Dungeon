@@ -8,12 +8,11 @@ type = "Ghost Warrior"
 health = 80.0
 health_increase = 5
 max_health = 80.0
-shield = 20.0
-shield_increase = 10
-damage = 20.0
-coin_worth = 33
-hit_multiplier = 1.0
-action_delay = 10.0
+shield = 15.0
+shield_increase = 8
+damage = Vector2(12, 16)
+coin_worth = 20
+action_delay = Vector2(5, 8)
 blood_type = "Ghost"
 
 [node name="Sprite2D" parent="." index="0"]

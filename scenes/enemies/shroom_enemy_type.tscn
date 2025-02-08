@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4viiho43f4pf"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_eri7j"]
+[ext_resource type="Texture2D" uid="uid://cj6phojysv6ve" path="res://assets/32rogues/enem/shroom.png" id="2_syfyw"]
+
+[node name="ShroomEnemyType" instance=ExtResource("1_eri7j")]
+type = "Shroom"
+blood_type = "Green"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_syfyw")

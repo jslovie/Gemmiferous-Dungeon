@@ -14,7 +14,8 @@ var state
 
 #Possible pieces array
 var possible_pieces = [
-	preload("res://scenes/pieces/shield_piece.tscn"),
+	#preload("res://scenes/pieces/shield_piece.tscn"),
+	#preload("res://scenes/pieces/barb_shield_piece.tscn"),
 	preload("res://scenes/pieces/material_piece.tscn"),
 ]
 
@@ -53,13 +54,16 @@ func choose_player_type():
 		var rogue_pieces = [
 			preload("res://scenes/pieces/sword_piece.tscn"),
 			preload("res://scenes/pieces/bow_piece.tscn"),
-			preload("res://scenes/pieces/shuriken_piece.tscn"),]
+			preload("res://scenes/pieces/invisibility_ring_piece.tscn"),
+			preload("res://scenes/pieces/shield_piece.tscn"),]
 		possible_pieces.append_array(rogue_pieces)
 	elif SaveManager.autosave_data.player_data.type == "Barbarian":
 		var barbarian_pieces = [
 			preload("res://scenes/pieces/axe_piece.tscn"),
 			preload("res://scenes/pieces/mace_piece.tscn"),
-			preload("res://scenes/pieces/rage_piece.tscn"),]
+			preload("res://scenes/pieces/rage_piece.tscn"),
+			preload("res://scenes/pieces/barb_shield_piece.tscn"),
+			]
 		possible_pieces.append_array(barbarian_pieces)
 		
 func make_2d_array():

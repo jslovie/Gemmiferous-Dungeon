@@ -12,10 +12,9 @@ var health_increase = 5
 var max_health = 20
 var shield = 5
 var shield_increase = 3
-var damage = 5
+var damage : Vector2
 var coin_worth = 5
-var hit_multiplier = 1
-var action_delay = 0
+var action_delay : Vector2
 var blood_type
 
 
@@ -42,7 +41,6 @@ func stat_check():
 	shield_increase = EnemyManager.shield_increase
 	damage = EnemyManager.damage
 	coin_worth = EnemyManager.coin_worth
-	hit_multiplier = EnemyManager.hit_multiplier
 	action_delay = EnemyManager.action_delay
 	blood_type = EnemyManager.blood_type
 	Type_check()
@@ -87,11 +85,48 @@ func Type_check():
 	elif type == "Dragon Boss":
 		var dragon_boss_texture = load("res://assets/32rogues/enem/dragon_boss.png")
 		%EnemyType.texture = dragon_boss_texture
+	elif type == "Wolf":
+		var wolf_texture = load("res://assets/32rogues/enem/wolf.png")
+		%EnemyType.texture = wolf_texture
+	elif type == "Lamprey":
+		var lamprey_texture = load("res://assets/32rogues/enem/lamprey.png")
+		%EnemyType.texture = lamprey_texture
+	elif type == "Crone":
+		var crone_texture = load("res://assets/32rogues/enem/crone.png")
+		%EnemyType.texture = crone_texture
+	elif type == "Ratten":
+		var ratten_texture = load("res://assets/32rogues/enem/ratten.png")
+		%EnemyType.texture = ratten_texture
+	elif type == "Rattena":
+		var rattena_texture = load("res://assets/32rogues/enem/rattena.png")
+		%EnemyType.texture = rattena_texture
+	elif type == "Shroom":
+		var shroom_texture = load("res://assets/32rogues/enem/shroom.png")
+		%EnemyType.texture = shroom_texture
+	elif type == "Gnome":
+		var gnome_texture = load("res://assets/32rogues/enem/gnome.png")
+		%EnemyType.texture = gnome_texture
+	elif type == "Warewolf":
+		var warewolf_texture = load("res://assets/32rogues/enem/warewolf.png")
+		%EnemyType.texture = warewolf_texture
+	elif type == "Gator":
+		var gator_texture = load("res://assets/32rogues/enem/gator.png")
+		%EnemyType.texture = gator_texture
+	elif type == "Medusa":
+		var medusa_texture = load("res://assets/32rogues/enem/medusa.png")
+		%EnemyType.texture = medusa_texture
+	elif type == "Minotaur":
+		var minotaur_texture = load("res://assets/32rogues/enem/minotaur.png")
+		%EnemyType.texture = minotaur_texture
+	elif type == "Leshen":
+		var leshen_texture = load("res://assets/32rogues/enem/leshen.png")
+		%EnemyType.texture = leshen_texture
 		
 func change_delay():
-	%ActionTimer.wait_time = action_delay
-	print(%ActionTimer.wait_time)
-
+	var random_delay = randi_range(action_delay.x, action_delay.y)
+	%ActionTimer.wait_time = random_delay
+	print("Action delay is: " + str(random_delay))
+	
 func random_action():
 	var random = Random.get_rng()
 		
@@ -112,9 +147,12 @@ func random_action():
 		%HealPiece.visible = true
 		await get_tree().create_timer(2.0).timeout
 		%HealPiece.visible = false
-			
+	
+	change_delay()
+	
 func inflict_damage():
-	PlayerManager.player.receive_damage(damage)
+	var random_damage = randi_range(damage.x,damage.y)
+	PlayerManager.player.receive_damage(random_damage)
 
 func shield_up():
 	shield += shield_increase
@@ -173,6 +211,8 @@ func get_killed():
 	LevelManager.level_done += 1
 	print("available level is: " + str(LevelManager.available_level))
 	if LevelManager.available_level == 11:
+		LevelManager.floor += 1
+	if LevelManager.available_level == 22:
 		PlayerManager.player.player_won = true
 		print("player won")
 	#Status change and stop for actions
@@ -204,7 +244,7 @@ func get_killed():
 	SaveManager.autosave()
 	
 	#Update player spins
-	PlayerManager.player.spins_left += 2
+	PlayerManager.player.spins_left += 1
 	
 	
 	

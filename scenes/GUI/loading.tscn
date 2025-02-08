@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrrn61ks42eu"]
+
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_4cnnu"]
+[ext_resource type="Script" path="res://scripts/loading.gd" id="1_ws8wl"]
+
+[node name="Loading" type="CanvasLayer"]
+script = ExtResource("1_ws8wl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1613.0
+offset_top = 987.0
+offset_right = 1889.0
+offset_bottom = 1047.0
+theme_override_fonts/font = ExtResource("1_4cnnu")
+theme_override_font_sizes/font_size = 64
+text = "Loading..."

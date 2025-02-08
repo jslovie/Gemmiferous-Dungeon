@@ -6,8 +6,7 @@ extends CharacterBody2D
 @export var max_health : float
 @export var shield : float
 @export var shield_increase : int
-@export var damage : float
+@export var damage : Vector2
 @export var coin_worth : int
-@export var hit_multiplier : float
-@export var action_delay : float
+@export var action_delay : Vector2
 @export var blood_type : String

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddujxl1dho7rl"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_nhj2l"]
+[ext_resource type="Texture2D" uid="uid://cylbxbuhidpca" path="res://assets/32rogues/enem/medusa.png" id="2_vgcq3"]
+
+[node name="MedusaEnemyType" instance=ExtResource("1_nhj2l")]
+type = "Medusa"
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_vgcq3")

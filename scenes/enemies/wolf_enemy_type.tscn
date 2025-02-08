@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://byll3cjtlo0ea"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_lu64g"]
+[ext_resource type="Texture2D" uid="uid://cqo7e6wy4j3p3" path="res://assets/32rogues/enem/wolf.png" id="2_oktir"]
+
+[node name="WolfEnemyType" instance=ExtResource("1_lu64g")]
+type = "Wolf"
+health = 45.0
+health_increase = 4
+max_health = 45.0
+shield = 5.0
+shield_increase = 1
+damage = Vector2(1, 10)
+coin_worth = 6
+action_delay = Vector2(2, 4)
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_oktir")

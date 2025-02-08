@@ -60,7 +60,54 @@ func select_enemy():
 	elif enemy == "Dragon Boss":
 		var dragon_boss = preload("res://scenes/enemies/dragon_boss_enemy_type.tscn").instantiate()
 		dragon_boss.global_position = $Controllable_player.global_position
-		add_child(dragon_boss)	
-		
-		
+		add_child(dragon_boss)
+	elif enemy == "Wolf":
+		var wolf = preload("res://scenes/enemies/wolf_enemy_type.tscn").instantiate()
+		wolf.global_position = $Controllable_player.global_position
+		add_child(wolf)
+	elif enemy == "Lamprey":
+		var lamprey = preload("res://scenes/enemies/lamprey_enemy_type.tscn").instantiate()
+		lamprey.global_position = $Controllable_player.global_position
+		add_child(lamprey)
+	elif enemy == "Crone":
+		var crone = preload("res://scenes/enemies/crone_enemy_type.tscn").instantiate()
+		crone.global_position = $Controllable_player.global_position
+		add_child(crone)
+	elif enemy == "Ratten":
+		var ratten = preload("res://scenes/enemies/ratten_enemy_type.tscn").instantiate()
+		ratten.global_position = $Controllable_player.global_position
+		add_child(ratten)
+	elif enemy == "Rattena":
+		var rattena = preload("res://scenes/enemies/rattena_enemy_type.tscn").instantiate()
+		rattena.global_position = $Controllable_player.global_position
+		add_child(rattena)
+	elif enemy == "Shroom":
+		var shroom = preload("res://scenes/enemies/shroom_enemy_type.tscn").instantiate()
+		shroom.global_position = $Controllable_player.global_position
+		add_child(shroom)
+	elif enemy == "Gnome":
+		var gnome = preload("res://scenes/enemies/gnome_enemy_type.tscn").instantiate()
+		gnome.global_position = $Controllable_player.global_position
+		add_child(gnome)
+	elif enemy == "Warewolf":
+		var warewolf = preload("res://scenes/enemies/warewolf_enemy_type.tscn").instantiate()
+		warewolf.global_position = $Controllable_player.global_position
+		add_child(warewolf)
+	elif enemy == "Gator":
+		var gator = preload("res://scenes/enemies/gator_enemy_type.tscn").instantiate()
+		gator.global_position = $Controllable_player.global_position
+		add_child(gator)
+	elif enemy == "Medusa":
+		var medusa = preload("res://scenes/enemies/medusa_enemy_type.tscn").instantiate()
+		medusa.global_position = $Controllable_player.global_position
+		add_child(medusa)
+	elif enemy == "Minotaur":
+		var minotaur = preload("res://scenes/enemies/minotaur_enemy_type.tscn").instantiate()
+		minotaur.global_position = $Controllable_player.global_position
+		add_child(minotaur)
+	elif enemy == "Leshen":
+		var leshen = preload("res://scenes/enemies/leshen_enemy_type.tscn").instantiate()
+		leshen.global_position = $Controllable_player.global_position
+		add_child(leshen)
+
 	print("Enemy is : " + str(enemy))

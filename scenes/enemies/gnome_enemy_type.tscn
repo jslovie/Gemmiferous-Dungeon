@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://duknr6xqvv2vx"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_k244x"]
+[ext_resource type="Texture2D" uid="uid://lt2r0ce6blbq" path="res://assets/32rogues/enem/gnome.png" id="2_ermrw"]
+
+[node name="GnomeEnemyType" instance=ExtResource("1_k244x")]
+type = "Gnome"
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ermrw")

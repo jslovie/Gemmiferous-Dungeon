@@ -18,15 +18,18 @@ func handle_new_game():
 	SaveManager.save_file = true
 	SaveManager.savefilesave()
 	visible = false
+	Loading.loading_1s()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 	
 func handle_continue_game():
 	SaveManager.load_savefile()
 	visible = false
+	Loading.loading_1s()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 func _on_button_pressed():
 	visible = false
+	Loading.loading_1s()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 

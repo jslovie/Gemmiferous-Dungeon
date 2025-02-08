@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd41x6emi8fqg"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_m7nxt"]
+[ext_resource type="Texture2D" uid="uid://cbq5falf46w8h" path="res://assets/32rogues/enem/ratten.png" id="2_qh7mp"]
+
+[node name="RattenEnemyType" instance=ExtResource("1_m7nxt")]
+type = "Ratten"
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qh7mp")

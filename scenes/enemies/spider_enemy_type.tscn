@@ -5,14 +5,13 @@
 
 [node name="SpiderEnemyType" instance=ExtResource("1_u4wc3")]
 type = "Spider"
-health = 20.0
+health = 25.0
 health_increase = 5
-max_health = 20.0
+max_health = 26.0
 shield_increase = 1
-damage = 4.0
+damage = Vector2(3, 6)
 coin_worth = 3
-hit_multiplier = 1.5
-action_delay = 3.0
+action_delay = Vector2(2, 4)
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

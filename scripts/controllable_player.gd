@@ -40,7 +40,6 @@ func get_body_data(body):
 	EnemyManager.shield_increase = body.get("shield_increase")
 	EnemyManager.damage = body.get("damage")
 	EnemyManager.coin_worth = body.get("coin_worth")
-	EnemyManager.hit_multiplier = body.get("hit_multiplier")
 	EnemyManager.action_delay = body.get("action_delay")
 	EnemyManager.blood_type = body.get("blood_type")
 	EnemyManager.print_test()

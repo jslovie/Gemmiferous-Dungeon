@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsebm1kd48wof"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_yooic"]
+[ext_resource type="Texture2D" uid="uid://btg1eu7566b10" path="res://assets/32rogues/pieces/barbarian_shield.png" id="2_jr4qk"]
+
+[node name="BarbShieldPiece" instance=ExtResource("1_yooic")]
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(-1, -1)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("2_jr4qk")
