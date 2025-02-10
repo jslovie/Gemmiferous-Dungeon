@@ -1268,7 +1268,6 @@ zoom = Vector2(7.2, 7.2)
 position = Vector2(173, 623)
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 offset_left = 678.0
 offset_top = 336.0
 offset_right = 2740.0
@@ -1276,7 +1275,6 @@ offset_bottom = 399.0
 scale = Vector2(0.13, 0.13)
 
 [node name="GemStats" type="Control" parent="."]
-visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -1376,7 +1374,6 @@ theme_override_font_sizes/font_size = 32
 text = ": 9999"
 
 [node name="Material" type="Node2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(894, 316)
 scale = Vector2(0.18, 0.18)
@@ -1423,7 +1420,6 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 text = ": 9999"
 
 [node name="Facilities" type="Node2D" parent="."]
-visible = false
 
 [node name="WoodLabel" type="Label" parent="Facilities"]
 unique_name_in_owner = true

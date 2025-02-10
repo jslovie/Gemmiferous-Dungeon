@@ -5,6 +5,19 @@ func _ready():
 	SaveManager.load_savefile()
 	SaveManager.load_autosave()
 	LevelManager.level_done += 1
+
+func _process(_delta):
+	change_background()
+	
+func change_background():
+	if LevelManager.floor == 1:
+		$Background/F1.visible = true
+	elif LevelManager.floor == 2:
+		$Background/F2.visible = true
+	elif LevelManager.floor == 3:
+		$Background/F3.visible = true
+	elif LevelManager.floor == 4:
+		$Background/F4.visible = true	
 	
 func handle_option():
 	PlayerManager.player.heal(15)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8dr2dvu80k"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_b3k0o"]
+[ext_resource type="Texture2D" uid="uid://dg6i3rpl5eumt" path="res://assets/32rogues/enem/mystic.png" id="2_db566"]
+
+[node name="MysticEnemyType" instance=ExtResource("1_b3k0o")]
+type = "Mystic"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_db566")

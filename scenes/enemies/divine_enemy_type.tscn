@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0rss80hn8q6x"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_neixs"]
+[ext_resource type="Texture2D" uid="uid://1fe8jlfa5voh" path="res://assets/32rogues/enem/divine.png" id="2_u3y46"]
+
+[node name="DivineEnemyType" instance=ExtResource("1_neixs")]
+type = "Divine"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_u3y46")

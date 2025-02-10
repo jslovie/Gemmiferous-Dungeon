@@ -11,10 +11,6 @@ var xp
 
 func _ready():
 	LevelManager.show_map = false
-	
-	if LevelManager.floor == 2:
-		$Dungeons/DungeonF2_1.visible = true
-		
 
 func _process(_delta):
 	dungeon_map()
@@ -25,6 +21,10 @@ func choose_map():
 		$Dungeons/DungeonF1_1.visible = true
 	elif LevelManager.floor == 2:
 		$Dungeons/DungeonF2_1.visible = true
+	elif LevelManager.floor == 3:
+		$Dungeons/DungeonF3_1.visible = true
+	elif LevelManager.floor == 4:
+		$Dungeons/DungeonF4_1.visible = true
 		
 func dungeon_map():
 	if LevelManager.show_map == false:

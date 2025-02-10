@@ -146,8 +146,131 @@ func select_enemy():
 					enemy_type = "Rattena"
 				elif random == 3:
 					enemy_type = "Shroom"
-
+			elif level == 14 or 15:
+				var random = randi_range(1, 7)
+				if random == 1:
+					enemy_type = "Ratten"
+				elif random == 2:
+					enemy_type = "Rattena"
+				elif random == 3:
+					enemy_type = "Shroom"
+				elif random == 4:
+					enemy_type = "Gnome"
+				elif random == 5:
+					enemy_type = "Ghoul"
+				elif random == 6:
+					enemy_type = "Warewolf"
+				elif random == 7:
+					enemy_type = "Gator"
+			elif level == 16 or 17 or 18 or 19 or 20 or 21 or 22 or 23:
+				var random = randi_range(1, 4)
+				if random == 1:
+					enemy_type = "Gotten"
+				elif random == 2:
+					enemy_type = "Ghoul"
+				elif random == 3:
+					enemy_type = "Warewolf"
+				elif random == 4:
+					enemy_type = "Gator"
+		elif type == "Elite Enemy":
+			var random = randi_range(1, 3)
+			if random == 1:
+				enemy_type = "Medusa"
+			elif random == 2:
+				enemy_type = "Minotaur"
+			elif random == 3:
+				enemy_type = "Leshen"
+		elif type == "Boss":
+			enemy_type = "Dragon Boss"
+	elif LevelManager.floor == 3:
+		if type == "Enemy":
+			if level == 24 or 25 or 26 or 27:
+				var random = randi_range(1, 3)
+				if random == 1:
+					enemy_type = "Skeleton"
+				elif random == 2:
+					enemy_type = "Skeleton Archer"
+				elif random == 3:
+					enemy_type = "Skeleton Mage"
+			elif level == 28 or 29 or 30:
+				var random = randi_range(1, 7)
+				if random == 1:
+					enemy_type = "Skeleton"
+				elif random == 2:
+					enemy_type = "Skeleton Archer"
+				elif random == 3:
+					enemy_type = "Skeleton Mage"
+				elif random == 4:
+					enemy_type = "Mystic"
+				elif random == 5:
+					enemy_type = "Ghost Warrior"
+				elif random == 6:
+					enemy_type = "Ghost Warrior"
+				elif random == 7:
+					enemy_type = "Hag"
+			elif level == 31 or 32 or 33 or 34 or 35 or 36 or 37 or 38 or 39:
+				var random = randi_range(1, 4)
+				if random == 1:
+					enemy_type = "Priest"
+				elif random == 2:
+					enemy_type = "Mystic"
+				elif random == 3:
+					enemy_type = "Ghost Warrior"
+				elif random == 4:
+					enemy_type = "Hag"
+		elif type == "Elite Enemy":
+			var random = randi_range(1, 3)
+			if random == 1:
+				enemy_type = "Sly"
+			elif random == 2:
+				enemy_type = "Mystery"
+			elif random == 3:
+				enemy_type = "Wraith"
+		elif type == "Boss":
+			enemy_type = "Basilisk"
+	elif LevelManager.floor == 4:
+		if type == "Enemy":
+			if level == 40 or 41 or 42:
+				var random = randi_range(1, 2)
+				if random == 1:
+					enemy_type = "Formicidae"
+				elif random == 2:
+					enemy_type = "Divine"
+			elif level == 43 or 44 or 45:
+				var random = randi_range(1, 5)
+				if random == 1:
+					enemy_type = "Formicidae"
+				elif random == 2:
+					enemy_type = "Divine"
+				elif random == 3:
+					enemy_type = "Centipeda"
+				elif random == 4:
+					enemy_type = "Nemean"
+				elif random == 5:
+					enemy_type = "Torment"
+			elif level == 46 or 47 or 48 or 49 or 50:
+				var random = randi_range(1, 3)
+				if random == 1:
+					enemy_type = "Centipeda"
+				elif random == 2:
+					enemy_type = "Nemean"
+				elif random == 3:
+					enemy_type = "Torment"
+		elif type == "Elite Enemy":
+			var random = randi_range(1, 4)
+			if random == 1:
+				enemy_type = "Haidomyrmecinae"
+			elif random == 2:
+				enemy_type = "Angel"
+			elif random == 3:
+				enemy_type = "Microchaetus"
+			elif random == 4:
+				enemy_type = "Torment Us"
+		elif type == "Boss":
+			enemy_type = "Devil Boss"
+			
 	print(enemy_type)
+	
 func select_type():
 	LevelManager.show_map = false
 	LevelManager.type = type

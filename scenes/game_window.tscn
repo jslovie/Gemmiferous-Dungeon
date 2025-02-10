@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="13_wcutr"]
 [ext_resource type="PackedScene" uid="uid://bjjktcnjegl47" path="res://scenes/GUI/player_win.tscn" id="14_w782t"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2u48"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -132,7 +132,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_5mgtx"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_v2u48")
+sources/0 = SubResource("TileSetAtlasSource_jqs4y")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk2h3"]
 bg_color = Color(0, 0, 0, 1)
@@ -168,6 +168,7 @@ script = ExtResource("1_0rfml")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="F1" type="Node2D" parent="Background"]
+visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
 position = Vector2(12, -28)

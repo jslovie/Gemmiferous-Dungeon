@@ -13,7 +13,19 @@ func _ready():
 func _process(_delta):
 	update_healthbars()
 	update_shields()
+	change_background()
 	%Countdown.text = str(%TimesUp.time_left)
+
+func change_background():
+	if LevelManager.floor == 1:
+		$Background/F1.visible = true
+	elif LevelManager.floor == 2:
+		$Background/F2.visible = true
+	elif LevelManager.floor == 3:
+		$Background/F3.visible = true
+	elif LevelManager.floor == 4:
+		$Background/F4.visible = true
+
 	
 func update_healthbars():
 	%PlayerHealth.value = PlayerManager.player.health

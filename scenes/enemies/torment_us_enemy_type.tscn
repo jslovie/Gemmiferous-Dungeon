@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbp0xew2uio3m"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_l0mid"]
+[ext_resource type="Texture2D" uid="uid://bbay2xnx4b6xp" path="res://assets/32rogues/enem/torment_us.png" id="2_bhbfd"]
+
+[node name="TormentUsEnemyType" instance=ExtResource("1_l0mid")]
+type = "Torment Us"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_bhbfd")

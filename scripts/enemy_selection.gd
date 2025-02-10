@@ -105,9 +105,66 @@ func select_enemy():
 		var minotaur = preload("res://scenes/enemies/minotaur_enemy_type.tscn").instantiate()
 		minotaur.global_position = $Controllable_player.global_position
 		add_child(minotaur)
-	elif enemy == "Leshen":
-		var leshen = preload("res://scenes/enemies/leshen_enemy_type.tscn").instantiate()
-		leshen.global_position = $Controllable_player.global_position
-		add_child(leshen)
+	elif enemy == "Priest":
+		var priest = preload("res://scenes/enemies/priest_enemy_type.tscn").instantiate()
+		priest.global_position = $Controllable_player.global_position
+		add_child(priest)
+	elif enemy == "Mystic":
+		var mystic = preload("res://scenes/enemies/mystic_enemy_type.tscn").instantiate()
+		mystic.global_position = $Controllable_player.global_position
+		add_child(mystic)
+	elif enemy == "Sly":
+		var sly = preload("res://scenes/enemies/sly_enemy_type.tscn").instantiate()
+		sly.global_position = $Controllable_player.global_position
+		add_child(sly)
+	elif enemy == "Mystery":
+		var mystery = preload("res://scenes/enemies/mystery_enemy_type.tscn").instantiate()
+		mystery.global_position = $Controllable_player.global_position
+		add_child(mystery)
+	elif enemy == "Wraith":
+		var wraith = preload("res://scenes/enemies/wraith_enemy_type.tscn").instantiate()
+		wraith.global_position = $Controllable_player.global_position
+		add_child(wraith)
+	elif enemy == "Basilisk":
+		var basilisk = preload("res://scenes/enemies/basilisk_enemy_type.tscn").instantiate()
+		basilisk.global_position = $Controllable_player.global_position
+		add_child(basilisk)
+	elif enemy == "Formicidae":
+		var formicidae = preload("res://scenes/enemies/formicidae_enemy_type.tscn").instantiate()
+		formicidae.global_position = $Controllable_player.global_position
+		add_child(formicidae)
+	elif enemy == "Divine":
+		var divine = preload("res://scenes/enemies/divine_enemy_type.tscn").instantiate()
+		divine.global_position = $Controllable_player.global_position
+		add_child(divine)
+	elif enemy == "Centipeda":
+		var centipeda = preload("res://scenes/enemies/centipeda_enemy_type.tscn").instantiate()
+		centipeda.global_position = $Controllable_player.global_position
+		add_child(centipeda)
+	elif enemy == "Nemean":
+		var nemean = preload("res://scenes/enemies/nemean_enemy_type.tscn").instantiate()
+		nemean.global_position = $Controllable_player.global_position
+		add_child(nemean)
+	elif enemy == "Torment":
+		var torment = preload("res://scenes/enemies/torment_enemy_type.tscn").instantiate()
+		torment.global_position = $Controllable_player.global_position
+		add_child(torment)
+	elif enemy == "Haidomyrmecinae":
+		var haidomyrmecinae = preload("res://scenes/enemies/haidomyrmecinae_enemy_type.tscn").instantiate()
+		haidomyrmecinae.global_position = $Controllable_player.global_position
+		add_child(haidomyrmecinae)
+	elif enemy == "Angel":
+		var angel = preload("res://scenes/enemies/angel_enemy_type.tscn").instantiate()
+		angel.global_position = $Controllable_player.global_position
+		add_child(angel)
+	elif enemy == "Microchaetus":
+		var microchaetus = preload("res://scenes/enemies/microchaetus_enemy_type.tscn").instantiate()
+		microchaetus.global_position = $Controllable_player.global_position
+		add_child(microchaetus)
+	elif enemy == "Torment Us":
+		var torment_us = preload("res://scenes/enemies/torment_us_enemy_type.tscn").instantiate()
+		torment_us.global_position = $Controllable_player.global_position
+		add_child(torment_us)
+
 
 	print("Enemy is : " + str(enemy))

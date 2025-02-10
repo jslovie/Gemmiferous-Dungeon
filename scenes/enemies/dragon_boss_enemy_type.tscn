@@ -10,10 +10,7 @@ health_increase = 15
 max_health = 150.0
 shield = 15.0
 shield_increase = 10
-damage = 30.0
 coin_worth = 150
-hit_multiplier = 1.0
-action_delay = 30.0
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

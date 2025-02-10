@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyt8d2ij5mrwt"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_72xx3"]
+[ext_resource type="Texture2D" uid="uid://bfi6a1ss54q5p" path="res://assets/32rogues/enem/priest.png" id="2_cx5fx"]
+
+[node name="PriestEnemyType" instance=ExtResource("1_72xx3")]
+type = "Priest"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_cx5fx")

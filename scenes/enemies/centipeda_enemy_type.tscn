@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6wscq4melax"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_fxklm"]
+[ext_resource type="Texture2D" uid="uid://btjsa75m6q1qy" path="res://assets/32rogues/enem/centipeda.png" id="2_p2hwj"]
+
+[node name="CentipedaEnemyType" instance=ExtResource("1_fxklm")]
+type = "Centipeda"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_p2hwj")

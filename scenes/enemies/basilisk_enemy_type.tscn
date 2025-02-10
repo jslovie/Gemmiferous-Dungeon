@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://hial0al3dfdy"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_og7vu"]
+[ext_resource type="Texture2D" uid="uid://q6wvg2gs7uas" path="res://assets/32rogues/enem/basilisk.png" id="2_3rljt"]
+
+[node name="BasiliskEnemyType" instance=ExtResource("1_og7vu")]
+type = "Basilisk"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3rljt")

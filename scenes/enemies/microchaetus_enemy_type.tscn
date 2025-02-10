@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://0pvs2yekja68"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_5y1qc"]
+[ext_resource type="Texture2D" uid="uid://ddxcjby1ary1x" path="res://assets/32rogues/enem/microchaetus.png" id="2_l3vsk"]
+
+[node name="MicrochaetusEnemyType" instance=ExtResource("1_5y1qc")]
+type = "Microchaetus"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_l3vsk")

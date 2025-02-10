@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwhwytrppo8vv"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_eqo6m"]
+[ext_resource type="Texture2D" uid="uid://7shqed5x3k23" path="res://assets/32rogues/enem/formicidae.png" id="2_qyi67"]
+
+[node name="FormicidaeEnemyType" instance=ExtResource("1_eqo6m")]
+type = "Formicidae"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qyi67")

@@ -4,16 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bycwus6to3uht" path="res://assets/32rogues/enem/skeleton_archer.png" id="2_0e6rh"]
 
 [node name="SkeletonArcherEnemyType" instance=ExtResource("1_1yg82")]
-type = "SkeletonArcher"
+type = "Skeleton Archer"
 health = 10.0
 health_increase = 2
 max_health = 10.0
 shield = 15.0
 shield_increase = 10
-damage = 8.0
 coin_worth = 5
-hit_multiplier = 1.0
-action_delay = 4.0
 blood_type = "White"
 
 [node name="Sprite2D" parent="." index="0"]

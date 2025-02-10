@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://s8mhfmqyt3sf"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_indls"]
+[ext_resource type="Texture2D" uid="uid://qrukwxenp1j3" path="res://assets/32rogues/enem/nemean.png" id="2_on131"]
+
+[node name="NemeanEnemyType" instance=ExtResource("1_indls")]
+type = "Nemean"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_on131")

@@ -6,6 +6,7 @@ func _ready():
 	SaveManager.load_autosave()
 	SaveManager.load_savefile()
 	PlayerManager.player.update_player_texture()
+	change_background()
 	$EnemyTypeLabel.text = EnemyManager.enemy.type
 	update_healthbars()
 	update_shields()
@@ -24,6 +25,16 @@ func _process(_delta):
 	update_rage()
 	handle_win()
 
+func change_background():
+	if LevelManager.floor == 1:
+		$Background/F1.visible = true
+	elif LevelManager.floor == 2:
+		$Background/F2.visible = true
+	elif LevelManager.floor == 3:
+		$Background/F3.visible = true
+	elif LevelManager.floor == 4:
+		$Background/F4.visible = true
+		
 func wait_time():
 	$WaitTime.visible = true
 	%WaitTimeTimer.start(5)

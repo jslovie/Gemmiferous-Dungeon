@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1vt17fkbqsyj"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_l7a05"]
+[ext_resource type="Texture2D" uid="uid://bly5at238qlfc" path="res://assets/32rogues/enem/mystery.png" id="2_6etdq"]
+
+[node name="MysteryEnemyType" instance=ExtResource("1_l7a05")]
+type = "Mystery"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_6etdq")

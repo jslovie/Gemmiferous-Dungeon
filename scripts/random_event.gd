@@ -19,7 +19,20 @@ func _ready():
 	choose_random_room()
 	update_text()
 	$Control/Resolution.visible = false
-	
+
+func _process(_delta):
+	change_background()
+
+func change_background():
+	if LevelManager.floor == 1:
+		$Background/F1.visible = true
+	elif LevelManager.floor == 2:
+		$Background/F2.visible = true
+	elif LevelManager.floor == 3:
+		$Background/F3.visible = true
+	elif LevelManager.floor == 4:
+		$Background/F4.visible = true
+
 func choose_random_room():
 	room = randi_range(1, 4)
 	

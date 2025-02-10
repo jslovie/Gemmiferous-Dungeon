@@ -4,15 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dgp4qnvrxh3ic" path="res://assets/32rogues/enem/skeleton_mage.png" id="2_2c8m6"]
 
 [node name="SkeletonMageEnemyType" instance=ExtResource("1_1karo")]
-type = "SkeletonMage"
+type = "Skeleton Mage"
 health = 30.0
 health_increase = 15
 max_health = 30.0
 shield_increase = 1
-damage = 9.0
 coin_worth = 10
-hit_multiplier = 1.0
-action_delay = 5.0
 blood_type = "White"
 
 [node name="Sprite2D" parent="." index="0"]

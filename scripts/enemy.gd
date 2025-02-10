@@ -121,8 +121,54 @@ func Type_check():
 	elif type == "Leshen":
 		var leshen_texture = load("res://assets/32rogues/enem/leshen.png")
 		%EnemyType.texture = leshen_texture
+	elif type == "Priest":
+		var priest_texture = load("res://assets/32rogues/enem/priest.png")
+		%EnemyType.texture = priest_texture
+	elif type == "Mystic":
+		var mystic_texture = load("res://assets/32rogues/enem/mystic.png")
+		%EnemyType.texture = mystic_texture
+	elif type == "Sly":
+		var sly_texture = load("res://assets/32rogues/enem/sly.png")
+		%EnemyType.texture = sly_texture
+	elif type == "Mystery":
+		var mystery_texture = load("res://assets/32rogues/enem/mystery.png")
+		%EnemyType.texture = mystery_texture
+	elif type == "Wraith":
+		var wraith_texture = load("res://assets/32rogues/enem/wraith.png")
+		%EnemyType.texture = wraith_texture
+	elif type == "Basilisk":
+		var basilisk_texture = load("res://assets/32rogues/enem/basilisk.png")
+		%EnemyType.texture = basilisk_texture
+	elif type == "Formicidae":
+		var formicidae_texture = load("res://assets/32rogues/enem/formicidae.png")
+		%EnemyType.texture = formicidae_texture
+	elif type == "Divine":
+		var divine_texture = load("res://assets/32rogues/enem/divine.png")
+		%EnemyType.texture = divine_texture
+	elif type == "Centipeda":
+		var centipeda_texture = load("res://assets/32rogues/enem/centipeda.png")
+		%EnemyType.texture = centipeda_texture
+	elif type == "Nemean":
+		var nemean_texture = load("res://assets/32rogues/enem/nemean.png")
+		%EnemyType.texture = nemean_texture
+	elif type == "Torment":
+		var torment_texture = load("res://assets/32rogues/enem/torment.png")
+		%EnemyType.texture = torment_texture
+	elif type == "Haidomyrmecinae":
+		var haidomyrmecinae_texture = load("res://assets/32rogues/enem/haidomyrmecinae.png")
+		%EnemyType.texture = haidomyrmecinae_texture
+	elif type == "Angel":
+		var angel_texture = load("res://assets/32rogues/enem/angel.png")
+		%EnemyType.texture = angel_texture
+	elif type == "Microchaetus":
+		var microchaetus_texture = load("res://assets/32rogues/enem/microchaetus.png")
+		%EnemyType.texture = microchaetus_texture
+	elif type == "Torment Us":
+		var torment_us_texture = load("res://assets/32rogues/enem/torment_us.png")
+		%EnemyType.texture = torment_us_texture
 		
 func change_delay():
+	@warning_ignore("narrowing_conversion")
 	var random_delay = randi_range(action_delay.x, action_delay.y)
 	%ActionTimer.wait_time = random_delay
 	print("Action delay is: " + str(random_delay))
@@ -151,6 +197,7 @@ func random_action():
 	change_delay()
 	
 func inflict_damage():
+	@warning_ignore("narrowing_conversion")
 	var random_damage = randi_range(damage.x,damage.y)
 	PlayerManager.player.receive_damage(random_damage)
 
@@ -162,6 +209,7 @@ func heal():
 	if health >= max_health:
 		health = max_health
 
+@warning_ignore("shadowed_variable")
 func take_damage(damage):
 	if state == alive:
 		#Visual knockback

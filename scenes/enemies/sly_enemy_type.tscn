@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw0fkicyupuml"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_naosq"]
+[ext_resource type="Texture2D" uid="uid://xgjs8wlaith2" path="res://assets/32rogues/enem/sly.png" id="2_30syg"]
+
+[node name="SlyEnemyType" instance=ExtResource("1_naosq")]
+type = "Sly"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_30syg")

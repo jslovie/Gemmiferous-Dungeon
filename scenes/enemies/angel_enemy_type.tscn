@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://3v1gtcq6wpkb"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_v2cii"]
+[ext_resource type="Texture2D" uid="uid://delct83gvur82" path="res://assets/32rogues/enem/angel.png" id="2_nrs67"]
+
+[node name="AngelEnemyType" instance=ExtResource("1_v2cii")]
+type = "Angel"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_nrs67")
