@@ -109,7 +109,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_kubn2")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-159, 24)
 scale = Vector2(6, 6)
 texture = ExtResource("4_6cs4r")

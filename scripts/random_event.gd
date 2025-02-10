@@ -127,6 +127,7 @@ func handle_button():
 				%ResolutionText.text = "One of the monsters caught you"
 				await get_tree().create_timer(3).timeout
 				EnemyManager.type = "Zombie"
+				LevelManager.level_done -= 1
 				get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
 			elif random_resolution == 2:
 				resolution_screen()

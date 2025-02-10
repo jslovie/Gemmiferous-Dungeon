@@ -195,4 +195,17 @@ theme_override_fonts/font = ExtResource("7_yoeou")
 theme_override_font_sizes/font_size = 64
 text = "999	"
 
+[node name="Stunted" type="Label" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -137.0
+offset_top = -283.0
+offset_right = 151.0
+offset_bottom = -223.0
+theme_override_colors/font_color = Color(0.897719, 0.46062, 0.129164, 1)
+theme_override_fonts/font = ExtResource("7_yoeou")
+theme_override_font_sizes/font_size = 64
+text = "*Stunted*"
+
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

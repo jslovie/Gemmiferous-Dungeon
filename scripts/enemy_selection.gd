@@ -97,6 +97,10 @@ func select_enemy():
 		var gator = preload("res://scenes/enemies/gator_enemy_type.tscn").instantiate()
 		gator.global_position = $Controllable_player.global_position
 		add_child(gator)
+	elif enemy == "Leshen":
+		var leshen = preload("res://scenes/enemies/leshen_enemy_type.tscn").instantiate()
+		leshen.global_position = $Controllable_player.global_position
+		add_child(leshen)
 	elif enemy == "Medusa":
 		var medusa = preload("res://scenes/enemies/medusa_enemy_type.tscn").instantiate()
 		medusa.global_position = $Controllable_player.global_position

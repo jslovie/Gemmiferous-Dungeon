@@ -54,6 +54,87 @@ func type_check():
 	elif EnemyManager.enemy.type == "Dragon Boss":
 		var dragon_boss_texture = load("res://assets/32rogues/enem/dragon_boss.png")
 		$EnemySprite.texture = dragon_boss_texture
+	elif EnemyManager.enemy.type == "Wolf":
+		var wolf_texture = load("res://assets/32rogues/enem/wolf.png")
+		$EnemySprite.texture = wolf_texture
+	elif EnemyManager.enemy.type == "Lamprey":
+		var lamprey_texture = load("res://assets/32rogues/enem/lamprey.png")
+		$EnemySprite.texture = lamprey_texture
+	elif EnemyManager.enemy.type == "Crone":
+		var crone_texture = load("res://assets/32rogues/enem/crone.png")
+		$EnemySprite.texture = crone_texture
+	elif EnemyManager.enemy.type == "Ratten":
+		var ratten_texture = load("res://assets/32rogues/enem/ratten.png")
+		$EnemySprite.texture = ratten_texture
+	elif EnemyManager.enemy.type == "Rattena":
+		var rattena_texture = load("res://assets/32rogues/enem/rattena.png")
+		$EnemySprite.texture = rattena_texture
+	elif EnemyManager.enemy.type == "Shroom":
+		var shroom_texture = load("res://assets/32rogues/enem/shroom.png")
+		$EnemySprite.texture = shroom_texture
+	elif EnemyManager.enemy.type == "Gnome":
+		var gnome_texture = load("res://assets/32rogues/enem/gnome.png")
+		$EnemySprite.texture = gnome_texture
+	elif EnemyManager.enemy.type == "Warewolf":
+		var warewolf_texture = load("res://assets/32rogues/enem/warewolf.png")
+		$EnemySprite.texture = warewolf_texture
+	elif EnemyManager.enemy.type == "Gator":
+		var gator_texture = load("res://assets/32rogues/enem/gator.png")
+		$EnemySprite.texture = gator_texture
+	elif EnemyManager.enemy.type == "Medusa":
+		var medusa_texture = load("res://assets/32rogues/enem/medusa.png")
+		$EnemySprite.texture = medusa_texture
+	elif EnemyManager.enemy.type == "Minotaur":
+		var minotaur_texture = load("res://assets/32rogues/enem/minotaur.png")
+		$EnemySprite.texture = minotaur_texture
+	elif EnemyManager.enemy.type == "Leshen":
+		var leshen_texture = load("res://assets/32rogues/enem/leshen.png")
+		$EnemySprite.texture = leshen_texture
+	elif EnemyManager.enemy.type == "Priest":
+		var priest_texture = load("res://assets/32rogues/enem/priest.png")
+		$EnemySprite.texture = priest_texture
+	elif EnemyManager.enemy.type == "Mystic":
+		var mystic_texture = load("res://assets/32rogues/enem/mystic.png")
+		$EnemySprite.texture = mystic_texture
+	elif EnemyManager.enemy.type == "Sly":
+		var sly_texture = load("res://assets/32rogues/enem/sly.png")
+		$EnemySprite.texture = sly_texture
+	elif EnemyManager.enemy.type == "Mystery":
+		var mystery_texture = load("res://assets/32rogues/enem/mystery.png")
+		$EnemySprite.texture = mystery_texture
+	elif EnemyManager.enemy.type == "Wraith":
+		var wraith_texture = load("res://assets/32rogues/enem/wraith.png")
+		$EnemySprite.texture = wraith_texture
+	elif EnemyManager.enemy.type == "Basilisk":
+		var basilisk_texture = load("res://assets/32rogues/enem/basilisk.png")
+		$EnemySprite.texture = basilisk_texture
+	elif EnemyManager.enemy.type == "Formicidae":
+		var formicidae_texture = load("res://assets/32rogues/enem/formicidae.png")
+		$EnemySprite.texture = formicidae_texture
+	elif EnemyManager.enemy.type == "Divine":
+		var divine_texture = load("res://assets/32rogues/enem/divine.png")
+		$EnemySprite.texture = divine_texture
+	elif EnemyManager.enemy.type == "Centipeda":
+		var centipeda_texture = load("res://assets/32rogues/enem/centipeda.png")
+		$EnemySprite.texture = centipeda_texture
+	elif EnemyManager.enemy.type == "Nemean":
+		var nemean_texture = load("res://assets/32rogues/enem/nemean.png")
+		$EnemySprite.texture = nemean_texture
+	elif EnemyManager.enemy.type == "Torment":
+		var torment_texture = load("res://assets/32rogues/enem/torment.png")
+		$EnemySprite.texture = torment_texture
+	elif EnemyManager.enemy.type == "Haidomyrmecinae":
+		var haidomyrmecinae_texture = load("res://assets/32rogues/enem/haidomyrmecinae.png")
+		$EnemySprite.texture = haidomyrmecinae_texture
+	elif EnemyManager.enemy.type == "Angel":
+		var angel_texture = load("res://assets/32rogues/enem/angel.png")
+		$EnemySprite.texture = angel_texture
+	elif EnemyManager.enemy.type == "Microchaetus":
+		var microchaetus_texture = load("res://assets/32rogues/enem/microchaetus.png")
+		$EnemySprite.texture = microchaetus_texture
+	elif EnemyManager.enemy.type == "Torment Us":
+		var torment_us_texture = load("res://assets/32rogues/enem/torment_us.png")
+		$EnemySprite.texture = torment_us_texture
 	elif EnemyManager.enemy.type == "Trap":
 		$EnemySprite.visible = false
 		$Trap.visible = true

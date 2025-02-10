@@ -6,7 +6,7 @@ var state
 var status = "alive"
 
 
-var type = "spider"
+var type = "Spider"
 var health = 20
 var health_increase = 5
 var max_health = 20
@@ -30,6 +30,8 @@ func _ready():
 	
 func _process(_delta):
 	%Label.text = str(time.time_left)
+	if status == "dead":
+		%ActionTimer.stop()
 
 	
 func stat_check():
@@ -260,9 +262,13 @@ func get_killed():
 	print("available level is: " + str(LevelManager.available_level))
 	if LevelManager.available_level == 11:
 		LevelManager.floor += 1
-	if LevelManager.available_level == 22:
+		print("floor is " + str(LevelManager.floor))
+	if LevelManager.available_level == 51:
 		PlayerManager.player.player_won = true
 		print("player won")
+	#Shield Cap
+	if PlayerManager.player.shield >  PlayerManager.player.shield_max:
+		PlayerManager.player.shield =  PlayerManager.player.shield_max
 	#Status change and stop for actions
 	state = dead
 	status = "dead"
@@ -300,7 +306,19 @@ func get_killed():
 	#await get_tree().create_timer(3).timeout
 	#get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	#LevelManager.show_map = true
+
+func stunt(amount):
+	var stunt_time = %ActionTimer.time_left + amount
+	%ActionTimer.start(stunt_time)
+	%Stunted.visible = true
+	await  get_tree().create_timer(amount).timeout
+	%Stunted.visible = false
 	
+func stop_action():
+	%ActionTimer.stop()
+
+func start_action():
+	%ActionTimer.start()
 
 func _on_action_timer_timeout():
 	random_action()

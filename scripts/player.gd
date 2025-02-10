@@ -27,6 +27,7 @@ var action3 = 0
 @export var health : float
 @export var max_health : float
 @export var shield : int
+var shield_max = 10
 var shield_load = 3
 var piece_multiplier = 1
 var spawned = false
@@ -43,6 +44,12 @@ var mace_stunt_rarities = {
 	"stunt" : mace_stunt_chance,
 }
 var rage = 0
+var has_invisibility = false
+var invisibility_chance = 20
+var invisibility_rarities = {
+	"nothing" : 100,
+	"invisibility" : invisibility_chance,
+}
 
 #Gems and Coins
 var coins = 0
@@ -127,6 +134,8 @@ func damage2_attack():
 		if has_mace == true:
 			var mace_action = get_mace_stunt_rng()
 			print(mace_action)
+			if mace_action == "stunt":
+				EnemyManager.enemy.stunt(10)
 	
 func damage3_attack():
 	if EnemyManager.enemy.status == "dead":
@@ -139,21 +148,41 @@ func damage3_attack():
 	
 func get_mace_stunt_rng():
 	rng.randomize()
-	
-	print(mace_stunt_rarities["stunt"])
-	
 	var weigted_sum = 0
-	
 	for n in mace_stunt_rarities:
 		weigted_sum += mace_stunt_rarities[n]
-	
-	var item = rng.randi_range(0, weigted_sum)
-
+	var chance = rng.randi_range(0, weigted_sum)
 	for n in mace_stunt_rarities:
-		if item <= mace_stunt_rarities[n]:
+		if chance <= mace_stunt_rarities[n]:
 			return n
-		item -= mace_stunt_rarities[n]
+		chance -= mace_stunt_rarities[n]
 
+func get_invisibility_rng():
+	rng.randomize()
+	var weigted_sum = 0
+	for n in invisibility_rarities:
+		weigted_sum += invisibility_rarities[n]
+	var chance = rng.randi_range(0, weigted_sum)
+	for n in invisibility_rarities:
+		if chance <= invisibility_rarities[n]:
+			return n
+		chance -= invisibility_rarities[n]		
+
+func handle_invisibility(amount):
+	invisibility_chance += amount
+	if has_invisibility == true:
+		var invisibility_action = get_invisibility_rng()
+		print(invisibility_action)
+		invisibility_chance -= amount
+		if invisibility_action == "invisibility":
+			print("worked")
+			var tween_invisibility = create_tween()
+			tween_invisibility.tween_property($Character, "modulate:a", 0.10, 0.5)
+			EnemyManager.enemy.stop_action()
+			await get_tree().create_timer(4).timeout
+			var tween_invisibility_back = create_tween()
+			tween_invisibility_back.tween_property($Character, "modulate:a", 1.0, 0.5)
+			EnemyManager.enemy.start_action()
 
 func handle_rage(amount):
 	rage += amount

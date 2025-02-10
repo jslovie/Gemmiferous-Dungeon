@@ -19,11 +19,23 @@ func _process(_delta):
 func choose_map():
 	if LevelManager.floor == 1:
 		$Dungeons/DungeonF1_1.visible = true
+		$Dungeons/DungeonF2_1.visible = false
+		$Dungeons/DungeonF3_1.visible = false
+		$Dungeons/DungeonF4_1.visible = false
 	elif LevelManager.floor == 2:
+		$Dungeons/DungeonF1_1.visible = false
 		$Dungeons/DungeonF2_1.visible = true
+		$Dungeons/DungeonF3_1.visible = false
+		$Dungeons/DungeonF4_1.visible = false
 	elif LevelManager.floor == 3:
+		$Dungeons/DungeonF1_1.visible = false
+		$Dungeons/DungeonF2_1.visible = false
 		$Dungeons/DungeonF3_1.visible = true
+		$Dungeons/DungeonF4_1.visible = false
 	elif LevelManager.floor == 4:
+		$Dungeons/DungeonF1_1.visible = false
+		$Dungeons/DungeonF2_1.visible = false
+		$Dungeons/DungeonF3_1.visible = false
 		$Dungeons/DungeonF4_1.visible = true
 		
 func dungeon_map():

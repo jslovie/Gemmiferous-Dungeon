@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="5_lkr4m"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_pg7vj"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
-[ext_resource type="Texture2D" uid="uid://c654t6di4xnp5" path="res://assets/32rogues/Shield.png" id="8_gvty1"]
 [ext_resource type="Texture2D" uid="uid://m3vjmbmur66h" path="res://assets/32rogues/pieces/health_potion.png" id="9_d7cj6"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
 [ext_resource type="Texture2D" uid="uid://u775rcwdc28k" path="res://assets/32rogues/pieces/antivenom_potion.png" id="10_x7hk7"]
 [ext_resource type="Texture2D" uid="uid://bxfk20l7rw1x2" path="res://assets/32rogues/pieces/strenght_potion.png" id="11_7i0tj"]
 [ext_resource type="Script" path="res://scripts/wait_time.gd" id="11_ih4n0"]
 [ext_resource type="PackedScene" uid="uid://covxy0k6qglqu" path="res://scenes/slot/slot_machine.tscn" id="12_8bcan"]
+[ext_resource type="Texture2D" uid="uid://dmdome0cw4agd" path="res://assets/32rogues/pieces/shield.png" id="13_4f4qt"]
 [ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="13_wcutr"]
 [ext_resource type="PackedScene" uid="uid://bjjktcnjegl47" path="res://scenes/GUI/player_win.tscn" id="14_w782t"]
 
@@ -455,16 +455,16 @@ horizontal_alignment = 1
 
 [node name="PlayerShield" type="Sprite2D" parent="Hud/PlayerHealth"]
 unique_name_in_owner = true
-position = Vector2(178.667, 8)
+position = Vector2(178.667, 6.5)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_gvty1")
+texture = ExtResource("13_4f4qt")
 
 [node name="PlayerShieldLabel" type="Label" parent="Hud/PlayerHealth/PlayerShield"]
 unique_name_in_owner = true
 offset_left = -7.22251
-offset_top = -7.08333
+offset_top = -5.83333
 offset_right = 11.7775
-offset_bottom = 15.9167
+offset_bottom = 17.1667
 scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("5_pg7vj")
 text = "20"
@@ -531,16 +531,16 @@ horizontal_alignment = 1
 
 [node name="EnemyShield" type="Sprite2D" parent="Hud/EnemyHealth"]
 unique_name_in_owner = true
-position = Vector2(178.667, 8)
+position = Vector2(178.667, 6.5)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("8_gvty1")
+texture = ExtResource("13_4f4qt")
 
 [node name="EnemyShieldLabel" type="Label" parent="Hud/EnemyHealth/EnemyShield"]
 unique_name_in_owner = true
 offset_left = -7.22251
-offset_top = -7.08333
+offset_top = -5.83333
 offset_right = 11.7775
-offset_bottom = 15.9167
+offset_bottom = 17.1667
 scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("5_pg7vj")
 text = "20"

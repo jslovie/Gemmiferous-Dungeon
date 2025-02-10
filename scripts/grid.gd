@@ -203,10 +203,10 @@ func destroy_matched():
 	var shield_load = 0
 	var sword_load = 0
 	var bow_load = 0
-	var shuriken_load = 0
 	var axe_load = 0
 	var mace_load = 0
 	var rage_load = 0
+	var invisibility_load = 0
 	
 	var was_matched = false
 	for i in width:
@@ -220,8 +220,8 @@ func destroy_matched():
 						sword_load += 1
 					elif all_pieces[i][j].color == "bow":
 						bow_load += 1
-					elif all_pieces[i][j].color == "shuriken":
-						shuriken_load += 1
+					elif all_pieces[i][j].color == "invisibility":
+						invisibility_load += 1
 					#Barbarian
 					elif all_pieces[i][j].color == "axe":
 						axe_load += 1
@@ -230,7 +230,10 @@ func destroy_matched():
 					elif all_pieces[i][j].color == "rage":
 						rage_load += 1
 					
+					
 					#Extras
+					elif all_pieces[i][j].color == "barbarian shield":
+						shield_load += 1
 					elif all_pieces[i][j].color == "shield":
 						shield_load += 1
 					elif all_pieces[i][j].color == "material":
@@ -239,17 +242,15 @@ func destroy_matched():
 					
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
-	#Shield update
+	
+	######################################################################
+	#Shield load
 	if shield_load == 3:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load)
-		shield_load = 0
 	elif shield_load == 4:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
-		shield_load = 0
 	elif shield_load >= 5:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
-		
-	######################################################################
 	#Rogue
 	#Sword update
 	if sword_load == 3:
@@ -271,16 +272,17 @@ func destroy_matched():
 	elif bow_load >= 5:
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage2_attack()
-	#Shuriken update
-	if shuriken_load == 3:
-		PlayerManager.player.piece_multiplier = 1	
-		PlayerManager.player.damage3_attack()
-	elif shuriken_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5	
-		PlayerManager.player.damage3_attack()
-	elif shuriken_load >= 5:
-		PlayerManager.player.piece_multiplier = 2	
-		PlayerManager.player.damage3_attack()
+	#Invisibility update
+	if invisibility_load == 3:
+		PlayerManager.player.has_invisibility = true
+		PlayerManager.player.handle_invisibility(0)
+	elif invisibility_load == 4:
+		PlayerManager.player.has_invisibility = true
+		PlayerManager.player.handle_invisibility(10)
+	elif invisibility_load >= 5:
+		PlayerManager.player.has_invisibility = true
+		PlayerManager.player.handle_invisibility(25)
+
 	######################################################################
 	#Barbarian
 	#Axe update

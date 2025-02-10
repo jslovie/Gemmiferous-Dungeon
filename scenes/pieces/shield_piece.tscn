@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b570oxexdcdm3"]
 
 [ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_jax0n"]
-[ext_resource type="Texture2D" uid="uid://cqphi0wv8iw06" path="res://assets/32rogues/pieces/shieldv2.png" id="2_jxqjn"]
+[ext_resource type="Texture2D" uid="uid://dmdome0cw4agd" path="res://assets/32rogues/pieces/shield.png" id="2_2yaec"]
 
 [node name="ShieldPiece" instance=ExtResource("1_jax0n")]
 color = "shield"
@@ -15,4 +15,4 @@ modulate = Color(0.235294, 0.235294, 0.235294, 1)
 [node name="Sprite2D" parent="." index="3"]
 position = Vector2(0, -2)
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("2_jxqjn")
+texture = ExtResource("2_2yaec")

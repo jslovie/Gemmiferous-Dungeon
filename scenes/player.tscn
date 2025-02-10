@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://coxtxpj8ay5h5"]
+[gd_scene load_steps=9 format=3 uid="uid://coxtxpj8ay5h5"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_iep3p"]
 [ext_resource type="Texture2D" uid="uid://lcin0arro3vm" path="res://assets/32rogues/chars/rogue.png" id="2_3osq1"]
@@ -37,10 +37,14 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(100, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_gibbi"]
+resource_name = "invisibility"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtu5k"]
 _data = {
 "RESET": SubResource("Animation_mpqpp"),
-"hit": SubResource("Animation_ffdua")
+"hit": SubResource("Animation_ffdua"),
+"invisibility": SubResource("Animation_gibbi")
 }
 
 [node name="Player" type="CharacterBody2D"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3tr6acr8mcel" path="res://assets/32rogues/pieces/invisibility_ringv2.png" id="2_r3alu"]
 
 [node name="InvisibilityRingPiece" instance=ExtResource("1_7se08")]
+color = "invisibility"
 
 [node name="TextureRect" parent="." index="2"]
 modulate = Color(0.121569, 0.313726, 0.552941, 1)
