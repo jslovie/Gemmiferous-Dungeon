@@ -34,7 +34,8 @@ var spawned = false
 var spins_left = 0
 
 #Weapon upgrades
-var upgraded_axe_damage = Vector2(10,10)
+var upgraded_axe_damage = Vector2(0,0)
+var upgraded_sword_damage = Vector2(0,0)
 
 #Weapon Statuses
 var has_mace = false
@@ -102,7 +103,8 @@ func update_player_texture():
 		$Character.texture = load("res://assets/32rogues/chars/rogue.png")
 	elif type == "Barbarian":
 		$Character.texture = load("res://assets/32rogues/chars/barbarian.png")
-
+	elif type == "Spellblade":
+		$Character.texture = load("res://assets/32rogues/chars/Spellblade.png")
 func update_base_actions():
 	base_action1 = type_action1 + upgraded_action1
 	base_action2 = type_action2 + upgraded_action2
@@ -233,6 +235,16 @@ func set_treasure():
 	total_stone += stone
 	total_iron += iron
 
+func reset_current_treasure():
+	coins -= coins
+	red_gem -= red_gem
+	yellow_gem -= yellow_gem
+	green_gem -= green_gem
+	blue_gem -= blue_gem
+	wood -= wood
+	stone -= stone
+	iron -= iron
+
 func heal(amount):
 	health += amount
 	if health > max_health:
@@ -277,8 +289,8 @@ func receive_damage(damage):
 
 func get_killed():
 	set_treasure()
-	LevelManager.level_done = 0
-	LevelManager.available_level = 1
+	LevelManager.reset_map()
+	EnemyManager.enemy.player_died()
 	state = dead
 	status = "dead"
 	

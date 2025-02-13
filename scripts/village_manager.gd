@@ -24,6 +24,7 @@ var armourer_lvl = 1
 
 #Item levels
 var axe_item_lvl = 1
+var sword_item_lvl = 1
 
 var woodcutter_timer = Timer.new()
 var stone_mine_timer = Timer.new()

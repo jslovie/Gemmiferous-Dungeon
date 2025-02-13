@@ -55,7 +55,7 @@ func choose_player_type():
 			preload("res://scenes/pieces/sword_piece.tscn"),
 			preload("res://scenes/pieces/bow_piece.tscn"),
 			preload("res://scenes/pieces/invisibility_ring_piece.tscn"),
-			preload("res://scenes/pieces/shield_piece.tscn"),]
+			preload("res://scenes/pieces/rogue_shield_piece.tscn"),]
 		possible_pieces.append_array(rogue_pieces)
 	elif SaveManager.autosave_data.player_data.type == "Barbarian":
 		var barbarian_pieces = [
@@ -233,6 +233,8 @@ func destroy_matched():
 					
 					#Extras
 					elif all_pieces[i][j].color == "barbarian shield":
+						shield_load += 1
+					elif all_pieces[i][j].color == "rogue shield":
 						shield_load += 1
 					elif all_pieces[i][j].color == "shield":
 						shield_load += 1

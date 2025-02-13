@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjjktcnjegl47"]
+[gd_scene load_steps=14 format=3 uid="uid://bjjktcnjegl47"]
 
 [ext_resource type="Script" path="res://scripts/player_win.gd" id="1_1xn6l"]
 [ext_resource type="Texture2D" uid="uid://c0m8b8uluaoah" path="res://assets/Paper UI/Paper/Menu2.png" id="1_p4cls"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="2_vkjl0"]
-[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/Paper UI/Paper/Menu1.png" id="3_mcakw"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="4_v7073"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="5_rdwol"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="6_ni65l"]
@@ -42,43 +41,46 @@ offset_bottom = -228.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 64
-text = "You won!
-"
+text = "Report"
+horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 0
-offset_left = -217.0
-offset_top = -221.0
-offset_right = 218.0
-offset_bottom = -158.0
+offset_left = -279.0
+offset_top = -217.0
+offset_right = 273.0
+offset_bottom = -154.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
-text = "For real this time
+text = "Barbarian managed to return from the dungeon alive
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Who" type="Label" parent="."]
+[node name="Description2" type="Label" parent="."]
 layout_mode = 0
-offset_left = -275.0
-offset_top = -123.0
-offset_right = 160.0
-offset_bottom = -60.0
+offset_left = -299.0
+offset_top = 64.0
+offset_right = 304.0
+offset_bottom = 273.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
-text = "Who killed you ?
+text = "Some people say he kept some of the treasures for himself and spend few weeks drinking and whoring. Eventually he died of plague.
+The alegations of stealing were never confirmed.
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Treasure" type="Label" parent="."]
 layout_mode = 0
-offset_left = 57.9999
-offset_top = -121.0
-offset_right = 493.0
-offset_bottom = -58.0
+offset_left = -277.0
+offset_top = -146.0
+offset_right = 158.0
+offset_bottom = -83.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
@@ -86,17 +88,8 @@ text = "Treasure found:
 "
 autowrap_mode = 2
 
-[node name="Enemy" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -277.0
-offset_top = -92.0
-offset_right = -164.0
-offset_bottom = 23.0
-scale = Vector2(2, 2)
-texture = ExtResource("3_mcakw")
-
 [node name="Gems" type="Node2D" parent="."]
-position = Vector2(-195, -66)
+position = Vector2(-530, -91)
 scale = Vector2(1.5, 1.5)
 
 [node name="GemsNames" type="GridContainer" parent="Gems"]
@@ -164,9 +157,9 @@ text = "9999"
 [node name="Exit" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = -186.0
-offset_top = 212.0
+offset_top = 289.0
 offset_right = -113.0
-offset_bottom = 230.0
+offset_bottom = 307.0
 scale = Vector2(5, 5)
 texture_normal = ExtResource("9_0w02h")
 texture_hover = ExtResource("10_m3301")
@@ -174,35 +167,22 @@ texture_hover = ExtResource("10_m3301")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = -178.0
-offset_top = 238.0
+offset_top = 315.0
 offset_right = 176.0
-offset_bottom = 268.0
+offset_bottom = 345.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
-text = "To new adventure"
+text = "Pray for their soul"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Noone" type="Label" parent="."]
-layout_mode = 0
-offset_left = -257.0
-offset_right = -68.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_vkjl0")
-theme_override_font_sizes/font_size = 32
-text = "No one, you did great"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="MaterialLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 87.0
-offset_right = 474.0
-offset_bottom = 150.0
+offset_left = 37.0
+offset_top = -141.0
+offset_right = 472.0
+offset_bottom = -78.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
@@ -211,7 +191,7 @@ text = "Material found:
 autowrap_mode = 2
 
 [node name="Material" type="Node2D" parent="."]
-position = Vector2(13, -5)
+position = Vector2(84, -233)
 scale = Vector2(1.1, 1.1)
 
 [node name="Wood" type="Sprite2D" parent="Material"]
@@ -229,30 +209,30 @@ theme_override_fonts/font = ExtResource("2_vkjl0")
 text = ": 9999"
 
 [node name="Stone" type="Sprite2D" parent="Material"]
-position = Vector2(85.0909, 131.818)
+position = Vector2(-16.2545, 171.927)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("13_6acky")
 
 [node name="StoneLabel" type="Label" parent="Material"]
-offset_left = 97.9092
-offset_top = 123.0
-offset_right = 142.909
-offset_bottom = 146.0
+offset_left = -3.43624
+offset_top = 163.109
+offset_right = 41.5636
+offset_bottom = 186.109
 scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 text = ": 9999"
 
 [node name="Iron" type="Sprite2D" parent="Material"]
-position = Vector2(185.091, 134)
+position = Vector2(-15.7818, 213.309)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("14_fivss")
 
 [node name="IronLabel" type="Label" parent="Material"]
-offset_left = 197.909
-offset_top = 123.0
-offset_right = 242.909
-offset_bottom = 146.0
+offset_left = -2.96382
+offset_top = 202.309
+offset_right = 42.0362
+offset_bottom = 225.309
 scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")

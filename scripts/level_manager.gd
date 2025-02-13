@@ -11,13 +11,16 @@ var type : String
 var chosen_path = "ABC"
 var treasure_timesup = false
 var handle_winning = false
-
+var reset_complete_level = false
 
 func reset_map():
 	level_done = 0
 	available_level = 1
 	chosen_path = "ABC"
 	floor = 1
+	reset_complete_level = true
+	await get_tree().create_timer(1).timeout
+	reset_complete_level = false
 	
 func switch_to_dungeon_map():
 	SaveManager.autosave()

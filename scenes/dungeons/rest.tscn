@@ -1,9 +1,30 @@
-[gd_scene load_steps=7 format=4 uid="uid://d0cv2g3t5lba5"]
+[gd_scene load_steps=41 format=4 uid="uid://d0cv2g3t5lba5"]
 
 [ext_resource type="Script" path="res://scripts/rest.gd" id="1_7uvpb"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_2gcf1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_21q7v"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_l0rkg"]
+[ext_resource type="PackedScene" uid="uid://bjjktcnjegl47" path="res://scenes/GUI/player_win.tscn" id="5_a2khy"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="6_pc7y6"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="7_lgr3j"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="8_tnojl"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="9_id4we"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="10_3avfu"]
+[ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="11_kf30m"]
+[ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="12_r2hs0"]
+[ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="13_v3laq"]
+[ext_resource type="Texture2D" uid="uid://dhwvivhd1lu88" path="res://assets/32rogues/fireplace/F500-1.PNG" id="14_egtmx"]
+[ext_resource type="Texture2D" uid="uid://y6ktfhtfm0iy" path="res://assets/32rogues/fireplace/F500-2.PNG" id="15_uogcs"]
+[ext_resource type="Texture2D" uid="uid://ciwepiwapogla" path="res://assets/32rogues/fireplace/F500-3.PNG" id="16_hwagm"]
+[ext_resource type="Texture2D" uid="uid://n3nqe0q1pelw" path="res://assets/32rogues/fireplace/F500-4.PNG" id="17_kr6ee"]
+[ext_resource type="Texture2D" uid="uid://beupliridgco2" path="res://assets/32rogues/fireplace/F500-5.PNG" id="18_4svb0"]
+[ext_resource type="Texture2D" uid="uid://bbol8lsqbvtg" path="res://assets/32rogues/fireplace/F500-6.PNG" id="19_is0rh"]
+[ext_resource type="Texture2D" uid="uid://bnsnbbywqbup" path="res://assets/32rogues/fireplace/F500-7.PNG" id="20_sj677"]
+[ext_resource type="Texture2D" uid="uid://dbt6p08u7rh4w" path="res://assets/32rogues/fireplace/F500-8.PNG" id="21_048e4"]
+[ext_resource type="Texture2D" uid="uid://duwj8ijq4aprg" path="res://assets/32rogues/fireplace/F500-9.PNG" id="22_bx6ds"]
+[ext_resource type="Texture2D" uid="uid://dcwv5gxcymj2r" path="res://assets/32rogues/fireplace/F500-10.PNG" id="23_gxujy"]
+[ext_resource type="Texture2D" uid="uid://di36khm4jd8du" path="res://assets/32rogues/fireplace/F500-11.PNG" id="24_6ig1n"]
+[ext_resource type="Texture2D" uid="uid://cqlebbmnif6v2" path="res://assets/32rogues/fireplace/F500-12.PNG" id="25_80pa3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8bcmg"]
 texture = ExtResource("2_21q7v")
@@ -121,17 +142,108 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_8bcmg")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x7ak"]
+atlas = ExtResource("14_egtmx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw5bj"]
+atlas = ExtResource("15_uogcs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlk6k"]
+atlas = ExtResource("16_hwagm")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyl5d"]
+atlas = ExtResource("17_kr6ee")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gruul"]
+atlas = ExtResource("18_4svb0")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxbce"]
+atlas = ExtResource("19_is0rh")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be6g2"]
+atlas = ExtResource("20_sj677")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lkls"]
+atlas = ExtResource("21_048e4")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gah6"]
+atlas = ExtResource("22_bx6ds")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho3tj"]
+atlas = ExtResource("23_gxujy")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byom7"]
+atlas = ExtResource("24_6ig1n")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo3le"]
+atlas = ExtResource("25_80pa3")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvtdq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x7ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw5bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlk6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyl5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gruul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxbce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be6g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lkls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gah6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho3tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byom7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo3le")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="Rest" type="Node2D"]
 script = ExtResource("1_7uvpb")
 
 [node name="Player" parent="." instance=ExtResource("2_2gcf1")]
-position = Vector2(974, 483)
+position = Vector2(-1124, 483)
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(763, 35)
 
 [node name="F1" type="Node2D" parent="Background"]
-visible = false
 position = Vector2(29, -4)
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
@@ -191,9 +303,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 980.0
-offset_top = 491.0
+offset_top = 573.0
 offset_right = 980.0
-offset_bottom = 491.0
+offset_bottom = 573.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -212,42 +324,234 @@ offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -346.0
-offset_top = -64.0
-offset_right = -46.0
-offset_bottom = 64.0
+offset_left = -211.5
+offset_top = 90.0
+offset_right = 211.5
+offset_bottom = 351.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_l0rkg")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Rest
 Heal 15 HP"
 
-[node name="Button2" type="Button" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 20.5
-offset_top = -64.0
-offset_right = 347.5
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Button2" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_l0rkg")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
+text = "Send all loot
+ to manor"
+text_overrun_behavior = 2
+
+[node name="Button3" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
 text = "Leave with
 all loot"
 text_overrun_behavior = 2
 
-[connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/Panel/Button2" to="." method="_on_button_2_pressed"]
+[node name="Label" type="Label" parent="."]
+offset_left = 648.0
+offset_top = 208.0
+offset_right = 1329.0
+offset_bottom = 481.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 64
+text = "You arrived into room where you feel like you could take a rest"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 648.0
+offset_top = 433.0
+offset_right = 1329.0
+offset_bottom = 706.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
+text = "You see campfire and stairs that probably leeds directly up to manor.
+
+You have to decide if you want to rest, take all loot to manor and come back or leave this place forever with all you loot"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Player_win" parent="." instance=ExtResource("5_a2khy")]
+visible = false
+offset_left = 981.0
+offset_top = 533.0
+offset_right = 981.0
+offset_bottom = 533.0
+scale = Vector2(1.2, 1.2)
+
+[node name="TopBanner" type="Node2D" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="TopBanner"]
+offset_left = -31.0
+offset_top = 2.0
+offset_right = 1934.0
+offset_bottom = 65.0
+
+[node name="GemStats" type="Control" parent="TopBanner"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -799.0
+offset_top = 2.0
+offset_right = -759.0
+offset_bottom = 42.0
+
+[node name="Images" type="Control" parent="TopBanner/GemStats"]
+anchors_preset = 0
+offset_left = 130.0
+offset_top = -4.0
+offset_right = 170.0
+offset_bottom = 36.0
+
+[node name="Red" type="Sprite2D" parent="TopBanner/GemStats/Images"]
+position = Vector2(697, 34)
+scale = Vector2(2, 2)
+texture = ExtResource("6_pc7y6")
+
+[node name="Blue" type="Sprite2D" parent="TopBanner/GemStats/Images"]
+position = Vector2(847, 34)
+scale = Vector2(2, 2)
+texture = ExtResource("7_lgr3j")
+
+[node name="Green" type="Sprite2D" parent="TopBanner/GemStats/Images"]
+position = Vector2(997, 34)
+scale = Vector2(2, 2)
+texture = ExtResource("8_tnojl")
+
+[node name="Yellow" type="Sprite2D" parent="TopBanner/GemStats/Images"]
+position = Vector2(1147, 34)
+scale = Vector2(2, 2)
+texture = ExtResource("9_id4we")
+
+[node name="Coin1" type="Sprite2D" parent="TopBanner/GemStats/Images"]
+position = Vector2(1297, 34)
+scale = Vector2(2, 2)
+texture = ExtResource("10_3avfu")
+
+[node name="Control" type="Control" parent="TopBanner/GemStats"]
+anchors_preset = 0
+offset_left = 130.0
+offset_top = -4.0
+offset_right = 170.0
+offset_bottom = 36.0
+
+[node name="RedLabel" type="Label" parent="TopBanner/GemStats/Control"]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 21.0
+offset_right = 761.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
+text = ": 9999"
+
+[node name="BlueLabel" type="Label" parent="TopBanner/GemStats/Control"]
+layout_mode = 0
+offset_left = 871.0
+offset_top = 21.0
+offset_right = 961.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
+text = ": 9999"
+
+[node name="GreenLabel" type="Label" parent="TopBanner/GemStats/Control"]
+layout_mode = 0
+offset_left = 1021.0
+offset_top = 21.0
+offset_right = 1111.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
+text = ": 9999"
+
+[node name="YellowLabel" type="Label" parent="TopBanner/GemStats/Control"]
+layout_mode = 0
+offset_left = 1171.0
+offset_top = 21.0
+offset_right = 1261.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
+text = ": 9999"
+
+[node name="CoinsLabel" type="Label" parent="TopBanner/GemStats/Control"]
+layout_mode = 0
+offset_left = 1321.0
+offset_top = 21.0
+offset_right = 1411.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("4_l0rkg")
+theme_override_font_sizes/font_size = 32
+text = ": 9999"
+
+[node name="Material" type="Node2D" parent="TopBanner"]
+position = Vector2(1533, -140)
+scale = Vector2(1.3, 1.3)
+
+[node name="Wood" type="Sprite2D" parent="TopBanner/Material"]
+position = Vector2(-14.9091, 134)
+texture = ExtResource("11_kf30m")
+
+[node name="WoodLabel" type="Label" parent="TopBanner/Material"]
+offset_left = -2.09092
+offset_top = 123.0
+offset_right = 42.9091
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 9999"
+
+[node name="Stone" type="Sprite2D" parent="TopBanner/Material"]
+position = Vector2(85.0909, 131.818)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_r2hs0")
+
+[node name="StoneLabel" type="Label" parent="TopBanner/Material"]
+offset_left = 97.9092
+offset_top = 123.0
+offset_right = 142.909
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 9999"
+
+[node name="Iron" type="Sprite2D" parent="TopBanner/Material"]
+position = Vector2(185.091, 134)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("13_v3laq")
+
+[node name="IronLabel" type="Label" parent="TopBanner/Material"]
+offset_left = 197.909
+offset_top = 123.0
+offset_right = 242.909
+offset_bottom = 146.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 9999"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1633, 745)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_bvtdq")
+autoplay = "default"
+frame_progress = 0.282019
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

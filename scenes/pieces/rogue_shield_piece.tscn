@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://caa8r8tto8tvc"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_sb7uk"]
+[ext_resource type="Texture2D" uid="uid://cqphi0wv8iw06" path="res://assets/32rogues/pieces/shieldv2.png" id="2_4i0s8"]
+
+[node name="RogueShieldPiece" instance=ExtResource("1_sb7uk")]
+color = "rogue shield"
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(0, -2)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("2_4i0s8")

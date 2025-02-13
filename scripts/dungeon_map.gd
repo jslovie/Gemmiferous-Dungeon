@@ -87,7 +87,8 @@ func visual_update_stats():
 	if SaveManager.autosave_data.player_data.type == "Rogue":
 		$Stats/StatsNames/BaseAction1.text = "Sword Damage"
 		$Stats/StatsNames/BaseAction2.text = "Bow Damage"
-		$Stats/StatsNames/BaseAction3.text = "Shuriken Damage"
+		$Stats/StatsNames/BaseAction3.visible = false
+		$Stats/StatsNumbers/BaseAction3Number. visible = false
 	elif SaveManager.autosave_data.player_data.type == "Barbarian":
 		$Stats/StatsNames/BaseAction1.text = "Axe Damage"
 		$Stats/StatsNames/BaseAction2.text = "Mace Damage"

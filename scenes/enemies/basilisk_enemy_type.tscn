@@ -5,6 +5,7 @@
 
 [node name="BasiliskEnemyType" instance=ExtResource("1_og7vu")]
 type = "Basilisk"
+damage = Vector2(80, 80)
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_3rljt")

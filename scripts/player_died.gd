@@ -15,6 +15,8 @@ func update_enemy_sprite():
 
 
 func type_check():
+	$Who.visible = true
+	$Who.text = EnemyManager.enemy.type
 	if EnemyManager.enemy.type == "Skeleton":
 		var skeleton_texture = load("res://assets/32rogues/enem/skeleton.png")
 		$EnemySprite.texture = skeleton_texture
@@ -136,6 +138,7 @@ func type_check():
 		var torment_us_texture = load("res://assets/32rogues/enem/torment_us.png")
 		$EnemySprite.texture = torment_us_texture
 	elif EnemyManager.enemy.type == "Trap":
+		$Who.visible = false
 		$EnemySprite.visible = false
 		$Trap.visible = true
 		

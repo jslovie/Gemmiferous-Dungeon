@@ -57,6 +57,7 @@ position = Vector2(56, 56)
 scale = Vector2(3, 3)
 
 [node name="Price" type="Node2D" parent="."]
+visible = false
 
 [node name="Coins" type="Sprite2D" parent="Price"]
 position = Vector2(9.75, 166.25)

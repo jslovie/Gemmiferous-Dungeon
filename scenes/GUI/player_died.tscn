@@ -35,81 +35,100 @@ grow_horizontal = 2
 scale = Vector2(10, 10)
 texture = ExtResource("1_fgp5p")
 
-[node name="YouWon" type="Label" parent="."]
+[node name="Report" type="Label" parent="."]
 layout_mode = 0
 offset_left = -136.0
-offset_top = -288.0
+offset_top = -295.0
 offset_right = 136.0
-offset_bottom = -228.0
+offset_bottom = -235.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yo3n3")
 theme_override_font_sizes/font_size = 64
-text = "You won!
+text = "Report
 "
+horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 0
-offset_left = -180.0
+offset_left = -282.0
 offset_top = -221.0
-offset_right = 255.0
-offset_bottom = -158.0
+offset_right = 316.0
+offset_bottom = -125.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yo3n3")
 theme_override_font_sizes/font_size = 32
-text = "Well not really but every death is a step to victory
+text = "We found corpse in the dungeons.
+From the wounds on the mangled body we suspect it was killed by the:
 "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -288.0
+offset_top = 220.0
+offset_right = 310.0
+offset_bottom = 316.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yo3n3")
+theme_override_font_sizes/font_size = 32
+text = "Treasure and the remains will be transferred back to surface"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Who" type="Label" parent="."]
 layout_mode = 0
 offset_left = -275.0
-offset_top = -123.0
-offset_right = 160.0
-offset_bottom = -60.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_top = -107.0
+offset_right = -58.0
+offset_bottom = -77.0
+theme_override_colors/font_color = Color(0.763914, 0.123637, 9.62615e-08, 1)
 theme_override_fonts/font = ExtResource("2_yo3n3")
 theme_override_font_sizes/font_size = 32
-text = "Who killed you ?
+text = "Rat
 "
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Treasure" type="Label" parent="."]
 layout_mode = 0
-offset_left = 39.0
-offset_top = -119.0
-offset_right = 474.0
-offset_bottom = -56.0
+offset_left = -38.0
+offset_top = -65.0
+offset_right = 313.0
+offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yo3n3")
 theme_override_font_sizes/font_size = 32
-text = "Treasure found:
+text = "With the corpse we found some treasure:
 "
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="MaterialLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 87.0
-offset_right = 474.0
-offset_bottom = 150.0
+offset_left = -282.0
+offset_top = 165.0
+offset_right = -21.0
+offset_bottom = 228.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yo3n3")
 theme_override_font_sizes/font_size = 32
 text = "Material found:
 "
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Enemy" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -277.0
-offset_top = -92.0
+offset_top = -76.0
 offset_right = -164.0
-offset_bottom = 23.0
+offset_bottom = 39.0
 scale = Vector2(2, 2)
 texture = ExtResource("3_kubn2")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
-position = Vector2(-159, 24)
+position = Vector2(-159, 40)
 scale = Vector2(6, 6)
 texture = ExtResource("4_6cs4r")
 
@@ -127,7 +146,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Material" type="Node2D" parent="."]
-position = Vector2(13, -5)
+position = Vector2(13, 31)
 scale = Vector2(1.1, 1.1)
 
 [node name="Wood" type="Sprite2D" parent="Material"]
@@ -175,7 +194,7 @@ theme_override_fonts/font = ExtResource("2_yo3n3")
 text = ": 9999"
 
 [node name="Gems" type="Node2D" parent="."]
-position = Vector2(-214, -64)
+position = Vector2(-214, 16)
 scale = Vector2(1.5, 1.5)
 
 [node name="GemsNames" type="GridContainer" parent="Gems"]
@@ -243,9 +262,9 @@ text = ": 9999"
 [node name="Exit" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = -186.0
-offset_top = 212.0
+offset_top = 286.0
 offset_right = -113.0
-offset_bottom = 230.0
+offset_bottom = 304.0
 scale = Vector2(5, 5)
 texture_normal = ExtResource("11_y3e40")
 texture_hover = ExtResource("12_lgbod")
@@ -253,26 +272,13 @@ texture_hover = ExtResource("12_lgbod")
 [node name="ExitLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = -154.0
-offset_top = 242.0
+offset_top = 316.0
 offset_right = 150.0
-offset_bottom = 272.0
+offset_bottom = 346.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yo3n3")
 theme_override_font_sizes/font_size = 32
-text = "More luck next time"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ExitLabel2" type="Label" parent="."]
-layout_mode = 0
-offset_left = -154.0
-offset_top = 242.0
-offset_right = 150.0
-offset_bottom = 272.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_yo3n3")
-theme_override_font_sizes/font_size = 32
-text = "More luck next time"
+text = "Pray for their soul"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2rkstw6hj5tn"]
+
+[ext_resource type="PackedScene" uid="uid://cddv16lwy000e" path="res://scenes/shop/shop_items/shop_item.tscn" id="1_odou0"]
+[ext_resource type="Texture2D" uid="uid://ng21u5vlq81s" path="res://assets/32rogues/pieces/longsword.png" id="2_5g1mt"]
+[ext_resource type="Script" path="res://scripts/shop_items/longsword.gd" id="2_ki24k"]
+
+[node name="LongswordShopItem" instance=ExtResource("1_odou0")]
+script = ExtResource("2_ki24k")
+
+[node name="ItemPicture" parent="." index="2"]
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("2_5g1mt")

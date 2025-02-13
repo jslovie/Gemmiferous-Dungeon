@@ -5,6 +5,14 @@
 
 [node name="ShroomEnemyType" instance=ExtResource("1_eri7j")]
 type = "Shroom"
+health = 65.0
+health_increase = 5
+max_health = 65.0
+shield = 3.0
+shield_increase = 2
+damage = Vector2(5, 10)
+coin_worth = 12
+action_delay = Vector2(4, 6)
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

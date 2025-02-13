@@ -5,6 +5,9 @@
 
 [node name="HaidomyrmecinaeEnemyType" instance=ExtResource("1_5y087")]
 type = "Haidomyrmecinae"
+health = 100.0
+max_health = 100.0
+shield = 10.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_6mqgl")

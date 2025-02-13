@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=100 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -66,7 +66,6 @@
 [ext_resource type="Texture2D" uid="uid://bsmjslq0bbo1j" path="res://assets/village/Gemmiferous_estate/watchtower_2_ruin.png" id="58_2kywu"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="58_odxrx"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="59_xh1n5"]
-[ext_resource type="Texture2D" uid="uid://dnrk4j60hflec" path="res://assets/village/Gemmiferous_estate/peasant1.png" id="60_odose"]
 [ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="60_smnsv"]
 [ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="61_1lc5e"]
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="62_h74ps"]
@@ -75,14 +74,16 @@
 [ext_resource type="PackedScene" uid="uid://crsmlojxar5u7" path="res://scenes/shop/tavern_shop.tscn" id="69_j85mg"]
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="70_n63o2"]
 [ext_resource type="Texture2D" uid="uid://dregiaqa3hbws" path="res://assets/32rogues/material/wood outline W.png" id="71_chpnx"]
+[ext_resource type="Texture2D" uid="uid://bn6f3o2uwghac" path="res://assets/village/Gemmiferous_estate/peasant2_ver2.png" id="71_ouilf"]
 [ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="72_bwmem"]
+[ext_resource type="Texture2D" uid="uid://diucqydwvfge2" path="res://assets/village/Gemmiferous_estate/peasant3_ver2.png" id="72_i6l1n"]
+[ext_resource type="Texture2D" uid="uid://dcj5t56vqgyxe" path="res://assets/village/Gemmiferous_estate/peasant1_ver2.png" id="73_pn60b"]
 [ext_resource type="Texture2D" uid="uid://cuw7kiexgkbbt" path="res://assets/32rogues/material/stone outline W.png" id="73_y8ahp"]
+[ext_resource type="Texture2D" uid="uid://ce7q7n3golxdt" path="res://assets/village/Gemmiferous_estate/peasant4_ver2.png" id="74_1lufa"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="74_kehnc"]
 [ext_resource type="Texture2D" uid="uid://bh2avrkrq5akc" path="res://assets/32rogues/material/iron2 outline W.png" id="75_aih4a"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
-[ext_resource type="Texture2D" uid="uid://kn1ih8sqyhoy" path="res://assets/village/Gemmiferous_estate/peasant4.png" id="81_26d8d"]
-[ext_resource type="Texture2D" uid="uid://ogyunm3leva0" path="res://assets/village/Gemmiferous_estate/peasant3.png" id="82_mv2i7"]
-[ext_resource type="Texture2D" uid="uid://do3sv482q1r2p" path="res://assets/village/Gemmiferous_estate/peasant2.png" id="83_7fjwl"]
+[ext_resource type="PackedScene" uid="uid://s4kevfnd41pt" path="res://scenes/shop/manor_shop.tscn" id="84_7qajh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe0hp"]
 texture = ExtResource("1_qulya")
@@ -1088,10 +1089,12 @@ position = Vector2(924, 360)
 texture = ExtResource("42_2v2ta")
 
 [node name="Camp" type="Sprite2D" parent="VillageTiles"]
+visible = false
 position = Vector2(716, 393)
 texture = ExtResource("43_oradi")
 
 [node name="Bonfire" type="Sprite2D" parent="VillageTiles"]
+visible = false
 position = Vector2(859, 416)
 texture = ExtResource("47_cspaa")
 
@@ -1142,6 +1145,7 @@ texture_normal = ExtResource("36_lvjal")
 texture_hover = ExtResource("37_37ryo")
 
 [node name="IronMine" type="TextureButton" parent="VillageTiles/Shops"]
+visible = false
 offset_left = 836.0
 offset_top = 365.0
 offset_right = 852.0
@@ -1151,6 +1155,7 @@ texture_normal = ExtResource("32_8cxn2")
 texture_hover = ExtResource("42_rb3g7")
 
 [node name="Woodcutters" type="TextureButton" parent="VillageTiles/Shops"]
+visible = false
 offset_left = 686.0
 offset_top = 434.0
 offset_right = 718.0
@@ -1160,6 +1165,7 @@ texture_normal = ExtResource("38_ia188")
 texture_hover = ExtResource("50_ixu2a")
 
 [node name="StoneMine" type="TextureButton" parent="VillageTiles/Shops"]
+visible = false
 offset_left = 917.0
 offset_top = 455.0
 offset_right = 933.0
@@ -1171,10 +1177,12 @@ texture_hover = ExtResource("55_ojeti")
 [node name="Houses" type="Node2D" parent="VillageTiles"]
 
 [node name="DoubleHouses" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(757, 471)
 texture = ExtResource("34_65p6h")
 
 [node name="House" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(757, 478)
 texture = ExtResource("37_8jqsf")
 
@@ -1183,6 +1191,7 @@ position = Vector2(779, 468)
 texture = ExtResource("46_3wia4")
 
 [node name="BigHouse" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(816, 435)
 texture = ExtResource("36_gcsog")
 
@@ -1191,26 +1200,32 @@ position = Vector2(822, 462)
 texture = ExtResource("48_advfl")
 
 [node name="House2" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(872, 468)
 texture = ExtResource("24_67biy")
 
 [node name="House3" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(883, 477)
 texture = ExtResource("24_67biy")
 
 [node name="House4" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(890, 461)
 texture = ExtResource("25_qmtis")
 
 [node name="House5" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(879, 446)
 texture = ExtResource("24_67biy")
 
 [node name="House6" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(864, 434)
 texture = ExtResource("24_67biy")
 
 [node name="DoubleHouses2" type="Sprite2D" parent="VillageTiles/Houses"]
+visible = false
 position = Vector2(882, 398)
 texture = ExtResource("33_4uuv5")
 
@@ -1225,14 +1240,17 @@ position = Vector2(903, 415)
 texture = ExtResource("27_s76oi")
 
 [node name="Field1" type="Sprite2D" parent="VillageTiles/Farm"]
+visible = false
 position = Vector2(904, 404)
 texture = ExtResource("29_80h1i")
 
 [node name="Field2" type="Sprite2D" parent="VillageTiles/Farm"]
+visible = false
 position = Vector2(918, 419)
 texture = ExtResource("30_e4qso")
 
 [node name="Field3" type="Sprite2D" parent="VillageTiles/Farm"]
+visible = false
 position = Vector2(906, 434)
 texture = ExtResource("28_nu4vf")
 
@@ -1247,6 +1265,7 @@ position = Vector2(903, 476)
 texture = ExtResource("58_2kywu")
 
 [node name="Lamps" type="Node2D" parent="VillageTiles"]
+visible = false
 
 [node name="LightsTile14" type="Sprite2D" parent="VillageTiles/Lamps"]
 position = Vector2(786, 436)
@@ -1419,6 +1438,203 @@ scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("59_xh1n5")
 text = ": 9999"
 
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_wsxe6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
+position = Vector2(790.449, 392.257)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("71_ouilf")
+
+[node name="Path2D2" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_hmnc5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2"]
+position = Vector2(813.344, 459.017)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D2/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("72_i6l1n")
+
+[node name="Path2D3" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_qxjdt")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D3"]
+position = Vector2(712.552, 456.296)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D3/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("73_pn60b")
+
+[node name="Path2D4" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_5lo48")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D4"]
+position = Vector2(865.745, 445.45)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D4/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("74_1lufa")
+
+[node name="Path2D5" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_5trkd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D5"]
+position = Vector2(908.883, 400.439)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D5/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("72_i6l1n")
+
+[node name="Path2D6" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_qplpx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D6"]
+position = Vector2(884.429, 483.387)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D6/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("71_ouilf")
+
+[node name="Path2D7" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_uprtu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D7"]
+position = Vector2(749.252, 485.319)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D7/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("71_ouilf")
+
+[node name="Path2D8" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_0ralb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D8"]
+position = Vector2(911.952, 468.197)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D8/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("74_1lufa")
+
+[node name="Path2D9" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_c7jrt")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D9"]
+position = Vector2(846.659, 471.163)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D9/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("74_1lufa")
+
+[node name="Path2D10" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_34gqg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D10"]
+position = Vector2(769.398, 425.004)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D10/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("73_pn60b")
+
+[node name="Path2D11" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_5jjvp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D11"]
+position = Vector2(856.476, 471.751)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D11/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("73_pn60b")
+
+[node name="Path2D12" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_23eg3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D12"]
+position = Vector2(845.594, 390.053)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D12/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("74_1lufa")
+
+[node name="Path2D13" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_8utem")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D13"]
+position = Vector2(797.541, 472.015)
+rotation = 0.674741
+progress = 13.584
+rotates = false
+script = ExtResource("79_ngvu0")
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D13/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("74_1lufa")
+
 [node name="Facilities" type="Node2D" parent="."]
 
 [node name="WoodLabel" type="Label" parent="Facilities"]
@@ -1496,189 +1712,10 @@ visible = false
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)
 
-[node name="Paths" type="Node2D" parent="."]
-
-[node name="Path2D" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_wsxe6")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
-position = Vector2(790.449, 392.257)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("60_odose")
-
-[node name="Path2D2" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_hmnc5")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2"]
-position = Vector2(813.344, 459.017)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D2/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("60_odose")
-
-[node name="Path2D3" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_qxjdt")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D3"]
-position = Vector2(712.552, 456.296)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D3/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("82_mv2i7")
-
-[node name="Path2D4" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_5lo48")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D4"]
-position = Vector2(865.745, 445.45)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D4/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("82_mv2i7")
-
-[node name="Path2D5" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_5trkd")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D5"]
-position = Vector2(908.883, 400.439)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D5/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("82_mv2i7")
-
-[node name="Path2D6" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_qplpx")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D6"]
-position = Vector2(884.429, 483.387)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D6/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("83_7fjwl")
-
-[node name="Path2D7" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_uprtu")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D7"]
-position = Vector2(749.252, 485.319)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D7/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("83_7fjwl")
-
-[node name="Path2D8" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_0ralb")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D8"]
-position = Vector2(911.952, 468.197)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D8/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("81_26d8d")
-
-[node name="Path2D9" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_c7jrt")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D9"]
-position = Vector2(846.659, 471.163)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D9/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("81_26d8d")
-
-[node name="Path2D10" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_34gqg")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D10"]
-position = Vector2(769.398, 425.004)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D10/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("60_odose")
-
-[node name="Path2D11" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_5jjvp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D11"]
-position = Vector2(856.476, 471.751)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D11/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("60_odose")
-
-[node name="Path2D12" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_23eg3")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D12"]
-position = Vector2(845.594, 390.053)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D12/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("81_26d8d")
-
-[node name="Path2D13" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_8utem")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D13"]
-position = Vector2(797.541, 472.015)
-rotation = 0.674741
-progress = 13.584
-rotates = false
-script = ExtResource("79_ngvu0")
-
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D13/PathFollow2D"]
-rotation = -0.674741
-texture = ExtResource("81_26d8d")
+[node name="ManorShop" parent="." instance=ExtResource("84_7qajh")]
+visible = false
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]

@@ -4,8 +4,7 @@ const PLAYER = preload("res://scenes/player.tscn")
 
 var player : Player
 
-
-
+var status
 
 
 

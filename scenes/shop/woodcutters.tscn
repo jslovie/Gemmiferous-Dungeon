@@ -60,7 +60,7 @@ text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Wood" type="TextureButton" parent="." index="9"]
+[node name="Wood" type="TextureButton" parent="." index="7"]
 offset_left = 690.0
 offset_top = 464.0
 offset_right = 803.0
@@ -96,7 +96,7 @@ theme_override_font_sizes/font_size = 16
 text = "999 wood"
 horizontal_alignment = 1
 
-[node name="TimerLabeldesc" type="Label" parent="." index="10"]
+[node name="TimerLabeldesc" type="Label" parent="." index="8"]
 offset_left = 590.0
 offset_top = 408.0
 offset_right = 1044.0
@@ -109,7 +109,7 @@ text = "till more wood
 collected"
 horizontal_alignment = 1
 
-[node name="TimerLabel" type="Label" parent="." index="11"]
+[node name="TimerLabel" type="Label" parent="." index="9"]
 offset_left = 756.0
 offset_top = 376.0
 offset_right = 897.0
@@ -123,7 +123,7 @@ text = "999
 vertical_alignment = 1
 text_overrun_behavior = 1
 
-[node name="Timer" type="Timer" parent="." index="12"]
+[node name="Timer" type="Timer" parent="." index="10"]
 wait_time = 60.0
 autostart = true
 

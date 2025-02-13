@@ -1,0 +1,205 @@
+[gd_scene load_steps=5 format=3 uid="uid://s4kevfnd41pt"]
+
+[ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_m06tb"]
+[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="2_84s5l"]
+[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="3_mxuur"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_3k1wb"]
+
+[node name="ManorShop" instance=ExtResource("1_m06tb")]
+shop_name = "Manor"
+
+[node name="ExitShop2" type="TextureButton" parent="." index="5"]
+layout_direction = 1
+offset_left = 622.0
+offset_top = 391.0
+offset_right = 695.0
+offset_bottom = 408.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop2" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 173.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Repair Manor"
+horizontal_alignment = 1
+
+[node name="ExitShop6" type="TextureButton" parent="." index="6"]
+layout_direction = 1
+offset_left = 994.0
+offset_top = 255.0
+offset_right = 1067.0
+offset_bottom = 272.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop6" index="0"]
+layout_mode = 0
+offset_left = 3.5
+offset_top = 5.0
+offset_right = 166.5
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Upgrade weaponsmith"
+horizontal_alignment = 1
+
+[node name="ExitShop7" type="TextureButton" parent="." index="7"]
+layout_direction = 1
+offset_left = 994.0
+offset_top = 330.0
+offset_right = 1067.0
+offset_bottom = 347.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop7" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 168.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Upgrade Armourer"
+horizontal_alignment = 1
+
+[node name="ExitShop8" type="TextureButton" parent="." index="8"]
+layout_direction = 1
+offset_left = 994.0
+offset_top = 410.0
+offset_right = 1067.0
+offset_bottom = 427.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop8" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 168.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Upgrade Sorcerer"
+horizontal_alignment = 1
+
+[node name="ExitShop9" type="TextureButton" parent="." index="9"]
+layout_direction = 1
+offset_left = 994.0
+offset_top = 487.0
+offset_right = 1067.0
+offset_bottom = 504.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop9" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 168.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Upgrade Tavern"
+horizontal_alignment = 1
+
+[node name="ExitShop3" type="TextureButton" parent="." index="10"]
+layout_direction = 1
+offset_left = 622.0
+offset_top = 471.0
+offset_right = 695.0
+offset_bottom = 488.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop3" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 170.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Repair Village"
+horizontal_alignment = 1
+
+[node name="ExitShop4" type="TextureButton" parent="." index="11"]
+layout_direction = 1
+offset_left = 622.0
+offset_top = 552.0
+offset_right = 695.0
+offset_bottom = 569.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop4" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 169.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Build houses"
+horizontal_alignment = 1
+
+[node name="ExitShop5" type="TextureButton" parent="." index="12"]
+layout_direction = 1
+offset_left = 622.0
+offset_top = 636.0
+offset_right = 695.0
+offset_bottom = 653.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop5" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 170.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Decorate Village"
+horizontal_alignment = 1
+
+[node name="ExitShopLabel" parent="." index="13"]
+text = "God be with us"
+
+[connection signal="pressed" from="ExitShop2" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop6" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop7" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop8" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop9" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop3" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop4" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop5" to="." method="_on_exit_shop_pressed"]

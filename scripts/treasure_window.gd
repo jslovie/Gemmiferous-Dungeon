@@ -3,6 +3,7 @@ extends Node2D
 var timesup = false
 
 func _ready():
+	change_background()
 	SaveManager.load_autosave()
 	PlayerManager.player.update_player_texture()
 	%Timer.timer_start()

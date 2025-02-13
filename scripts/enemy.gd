@@ -310,9 +310,9 @@ func get_killed():
 func stunt(amount):
 	var stunt_time = %ActionTimer.time_left + amount
 	%ActionTimer.start(stunt_time)
-	%Stunted.visible = true
+	%Stunned.visible = true
 	await  get_tree().create_timer(amount).timeout
-	%Stunted.visible = false
+	%Stunned.visible = false
 	
 func stop_action():
 	%ActionTimer.stop()
@@ -320,5 +320,10 @@ func stop_action():
 func start_action():
 	%ActionTimer.start()
 
+func player_died():
+	stop_action()
+	%Actions.visible = false
+	%Stunned.visible = false
+	
 func _on_action_timer_timeout():
 	random_action()

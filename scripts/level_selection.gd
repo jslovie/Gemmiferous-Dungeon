@@ -15,6 +15,11 @@ func _ready():
 func _process(_delta):
 	available_level()
 	check_level_done()
+	reset_level_complete()
+	
+func reset_level_complete():
+	if LevelManager.reset_complete_level == true:
+		level_complete = false
 
 func select_icon():
 	if type == "Enemy":

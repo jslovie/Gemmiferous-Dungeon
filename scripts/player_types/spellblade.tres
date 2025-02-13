@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerType" load_steps=2 format=3 uid="uid://c12u3sst776bc"]
+
+[ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_2wnmb"]
+
+[resource]
+script = ExtResource("1_2wnmb")
+type = "Spellblade"
+health = 45.0
+max_health = 45.0
+shield = 5
+type_action1 = Vector2(0, 0)
+type_action2 = Vector2(0, 0)
+type_action3 = Vector2(0, 0)

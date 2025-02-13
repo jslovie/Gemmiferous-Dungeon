@@ -839,6 +839,16 @@ floor_set = 1
 level = 1
 path = "ABC"
 
+[node name="LevelSelection25" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1047.5
+offset_top = 967.5
+offset_right = 1079.5
+offset_bottom = 999.5
+type = "Enemy"
+floor_set = 1
+level = 1
+path = "ABC"
+
 [node name="LevelSelection2" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 826.0
 offset_top = 854.0
@@ -1277,7 +1287,6 @@ level = 13
 path = "A"
 
 [node name="DungeonF3_1" type="Node2D" parent="Dungeons"]
-visible = false
 position = Vector2(451, 104)
 scale = Vector2(0.8, 0.8)
 

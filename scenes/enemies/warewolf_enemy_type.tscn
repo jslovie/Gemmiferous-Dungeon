@@ -5,6 +5,14 @@
 
 [node name="WarewolfEnemyType" instance=ExtResource("1_m20u1")]
 type = "Warewolf"
+health = 80.0
+health_increase = 7
+max_health = 80.0
+shield = 3.0
+shield_increase = 3
+damage = Vector2(7, 12)
+coin_worth = 15
+action_delay = Vector2(5, 7)
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
