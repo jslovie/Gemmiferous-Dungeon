@@ -1,5 +1,16 @@
 extends TextureButton
 
+@export var price_coin_lvl_1 : int
+@export var price_coin_lvl_2 : int
+@export var price_coin_lvl_3 : int
+@export var price_coin_lvl_4 : int
+@export var price_coin_lvl_5 : int
+
+@export var price_gem_lvl_1 : int
+@export var price_gem_lvl_2 : int
+@export var price_gem_lvl_3 : int
+@export var price_gem_lvl_4 : int
+@export var price_gem_lvl_5 : int
 
 var description = "Damage: 1-4"
 var item = "Dagger"

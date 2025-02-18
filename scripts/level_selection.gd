@@ -186,6 +186,7 @@ func select_enemy_new():
 				enemy_type = "Nemean"
 			elif random == 5:
 				enemy_type = "Torment"
+			enemy_type = "Nemean"
 		elif type == "Elite Enemy":
 			var random = randi_range(1, 4)
 			if random == 1:

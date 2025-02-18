@@ -399,7 +399,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DungeonF1_1" type="Node2D" parent="Dungeons"]
-visible = false
 position = Vector2(450, 103)
 scale = Vector2(0.8, 0.8)
 
@@ -849,6 +848,16 @@ floor_set = 1
 level = 1
 path = "ABC"
 
+[node name="LevelSelection27" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1193.75
+offset_top = 947.5
+offset_right = 1225.75
+offset_bottom = 979.5
+type = "Elite Enemy"
+floor_set = 1
+level = 1
+path = "ABC"
+
 [node name="LevelSelection2" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 826.0
 offset_top = 854.0
@@ -1287,6 +1296,7 @@ level = 13
 path = "A"
 
 [node name="DungeonF3_1" type="Node2D" parent="Dungeons"]
+visible = false
 position = Vector2(451, 104)
 scale = Vector2(0.8, 0.8)
 
@@ -1600,6 +1610,16 @@ offset_top = 972.5
 offset_right = 1075.75
 offset_bottom = 1004.5
 type = "Enemy"
+floor_set = 3
+level = 24
+path = "ABC"
+
+[node name="LevelSelection2" parent="Dungeons/DungeonF3_1/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1195.0
+offset_top = 963.75
+offset_right = 1227.0
+offset_bottom = 995.75
+type = "Treasure"
 floor_set = 3
 level = 24
 path = "ABC"

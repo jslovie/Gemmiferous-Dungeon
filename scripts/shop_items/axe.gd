@@ -1,7 +1,10 @@
 extends TextureButton
 
-var description = "Damage: 2-4"
-var item = "Axe"
+@export var prices : ShopPrices
+
+var description = "Damage: "
+
+
 
 func _ready():
 	item_set()
@@ -17,8 +20,13 @@ func not_enough():
 	$NotEnough/NotEnoughLabel.visible = false
 
 func item_set():
-	$ItemDescription.text = description
-	$ItemNameLvl.text = str(item) + " Lvl " + str(VillageManager.axe_item_lvl)
+	if VillageManager.axe_item_lvl == 1:
+		PlayerManager.player.upgraded_axe_damage = Vector2(0,0)
+	if VillageManager.axe_item_lvl == 1:
+		$ItemDescription.text = str(description) + str(prices.damage_0.x) + "-" + str(prices.damage_0.y)
+	else:
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + PlayerManager.player.upgraded_axe_damage.x) + "-" + str(prices.damage_0.y + PlayerManager.player.upgraded_axe_damage.y)
+	$ItemNameLvl.text = str(prices.item) + " Lvl " + str(VillageManager.axe_item_lvl)
 
 func item_data_save():
 	VillageManager.axe_item_lvl += 1
@@ -27,85 +35,84 @@ func item_data_save():
 
 func item_level_UP():
 	if VillageManager.axe_item_lvl == 1 and VillageManager.weaponsmith_lvl >= 1:
-		if PlayerManager.player.total_coins < 25 or PlayerManager.player.total_red_gem < 10:
+		if PlayerManager.player.total_coins < prices.price_coin_lvl_1 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_1:
 			not_enough()
 		else:
-			PlayerManager.player.upgraded_axe_damage = PlayerManager.player.upgraded_axe_damage + Vector2(1,0)
-			PlayerManager.player.total_coins -= 25
-			PlayerManager.player.total_red_gem -= 10
+			PlayerManager.player.upgraded_axe_damage += prices.damage_1
+			PlayerManager.player.total_coins -= prices.price_coin_lvl_1
+			PlayerManager.player.total_red_gem -= prices.price_gem_lvl_1
 			item_data_save()
 	elif VillageManager.axe_item_lvl == 2 and VillageManager.weaponsmith_lvl >= 1:
-		if PlayerManager.player.total_coins < 50 or PlayerManager.player.total_red_gem < 15:
+		if PlayerManager.player.total_coins < prices.price_coin_lvl_2 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_2:
 			not_enough()
 		else:
-			PlayerManager.player.upgraded_axe_damage = PlayerManager.player.upgraded_axe_damage + Vector2(1,2)
-			PlayerManager.player.total_coins -= 50
-			PlayerManager.player.total_blue_gem -= 15
+			PlayerManager.player.upgraded_axe_damage += prices.damage_2
+			PlayerManager.player.total_coins -= prices.price_coin_lvl_2
+			PlayerManager.player.total_blue_gem -= prices.price_gem_lvl_2
 			item_data_save()
 	elif VillageManager.axe_item_lvl == 3 and VillageManager.weaponsmith_lvl >= 2:
-		if PlayerManager.player.total_coins < 75 or PlayerManager.player.total_red_gem < 30:
+		if PlayerManager.player.total_coins < prices.price_coin_lvl_3 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_3:
 			not_enough()
 		else:
-			PlayerManager.player.upgraded_axe_damage = PlayerManager.player.upgraded_axe_damage + Vector2(1,1)
-			PlayerManager.player.total_coins -= 75
-			PlayerManager.player.total_green_gem -= 30
+			PlayerManager.player.upgraded_axe_damage += prices.damage_3
+			PlayerManager.player.total_coins -= prices.price_coin_lvl_3
+			PlayerManager.player.total_green_gem -= prices.price_gem_lvl_3
 			item_data_save()
 	elif VillageManager.axe_item_lvl == 4 and VillageManager.weaponsmith_lvl >= 2:
-		if PlayerManager.player.total_coins < 95 or PlayerManager.player.total_red_gem < 50:
+		if PlayerManager.player.total_coins < prices.price_coin_lvl_4 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_4:
 			not_enough()
 		else:
-			PlayerManager.player.upgraded_axe_damage = PlayerManager.player.upgraded_axe_damage + Vector2(0,2)
-			PlayerManager.player.total_coins -= 95
-			PlayerManager.player.total_yellow_gem -= 50
+			PlayerManager.player.upgraded_axe_damage += prices.damage_4
+			PlayerManager.player.total_coins -= prices.price_coin_lvl_4
+			PlayerManager.player.total_yellow_gem -= prices.price_gem_lvl_4
 			item_data_save()
 	elif VillageManager.axe_item_lvl == 5 and VillageManager.weaponsmith_lvl >= 3:
-		if PlayerManager.player.total_coins < 150 or PlayerManager.player.total_red_gem < 75:
+		if PlayerManager.player.total_coins < prices.price_coin_lvl_5 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_5:
 			not_enough()
 		else:
-			PlayerManager.player.upgraded_axe_damage = PlayerManager.player.upgraded_axe_damage + Vector2(2,0)
-			PlayerManager.player.total_coins -= 150
-			PlayerManager.player.total_red_gem -= 75
+			PlayerManager.player.upgraded_axe_damage += prices.damage_5
+			PlayerManager.player.total_coins -= prices.price_coin_lvl_5
+			PlayerManager.player.total_red_gem -= prices.price_gem_lvl_5
 			item_data_save()
 	else:
 		$LowLevel/LowLevelLabel.visible = true
 		await get_tree().create_timer(1).timeout
 		$LowLevel/LowLevelLabel.visible = false
-
+	print("Upgraded Axe damage: " + str(PlayerManager.player.upgraded_axe_damage))
 func _on_mouse_entered():
 	$Price.visible = true
 	if VillageManager.axe_item_lvl == 1:
-		$ItemDescription.text = "Damage: 3-4"
-		$Price/CoinsLabel.text = ": 25"
-		$Price/Gems.texture = load("res://assets/32rogues/gems/red.png")
-		$Price/GemsLabel.text = ": 10"
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + prices.damage_1.x + PlayerManager.player.upgraded_axe_damage.x) + "-" + str(prices.damage_0.y + prices.damage_1.y + PlayerManager.player.upgraded_axe_damage.y)
+		$Price/CoinsLabel.text = ": " + str(prices.price_coin_lvl_1)
+		$Price/Gems.texture = prices.gem_color_lvl_1
+		$Price/GemsLabel.text = ": " + str(prices.price_gem_lvl_1)
 	elif VillageManager.axe_item_lvl == 2:
-		$ItemDescription.text = "Damage: 4-6"
-		$Price/CoinsLabel.text = ": 50"
-		$Price/Gems.texture = load("res://assets/32rogues/gems/blue.png")
-		$Price/GemsLabel.text = ": 15"
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + prices.damage_2.x + PlayerManager.player.upgraded_axe_damage.x) + "-" + str(prices.damage_0.y + prices.damage_2.y + PlayerManager.player.upgraded_axe_damage.y)
+		$Price/CoinsLabel.text = ": " + str(prices.price_coin_lvl_2)
+		$Price/Gems.texture = prices.gem_color_lvl_2
+		$Price/GemsLabel.text = ": " + str(prices.price_gem_lvl_2)
 	elif VillageManager.axe_item_lvl == 3:
-		$ItemDescription.text = "Damage: 5-7"
-		$Price/CoinsLabel.text = ": 75"
-		$Price/Gems.texture = load("res://assets/32rogues/gems/green.png")
-		$Price/GemsLabel.text = ": 30"
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + prices.damage_3.x + PlayerManager.player.upgraded_axe_damage.x) + "-" + str(prices.damage_0.y + prices.damage_3.y + PlayerManager.player.upgraded_axe_damage.y)
+		$Price/CoinsLabel.text = ": " + str(prices.price_coin_lvl_3)
+		$Price/Gems.texture = prices.gem_color_lvl_3
+		$Price/GemsLabel.text = ": " + str(prices.price_gem_lvl_3)
 	elif VillageManager.axe_item_lvl == 4:
-		$ItemDescription.text = "Damage: 5-9"
-		$Price/CoinsLabel.text = ": 95"
-		$Price/Gems.texture = load("res://assets/32rogues/gems/yellow.png")
-		$Price/GemsLabel.text = ": 50"
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + prices.damage_4.x + PlayerManager.player.upgraded_axe_damage.x) + "-" + str(prices.damage_0.y + prices.damage_4.y + PlayerManager.player.upgraded_axe_damage.y)
+		$Price/CoinsLabel.text = ": " + str(prices.price_coin_lvl_4)
+		$Price/Gems.texture = prices.gem_color_lvl_4
+		$Price/GemsLabel.text = ": " + str(prices.price_gem_lvl_4)
 	elif VillageManager.axe_item_lvl == 5:
-		$ItemDescription.text = "Damage: 7-9"
-		$Price/CoinsLabel.text = ": 150"
-		$Price/Gems.texture = load("res://assets/32rogues/gems/red.png")
-		$Price/GemsLabel.text = ": 75"
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + prices.damage_5.x + PlayerManager.player.upgraded_axe_damage.x) + "-" + str(prices.damage_0.y + prices.damage_5.y + PlayerManager.player.upgraded_axe_damage.y)
+		$Price/CoinsLabel.text = ": " + str(prices.price_coin_lvl_5)
+		$Price/Gems.texture = prices.gem_color_lvl_5
+		$Price/GemsLabel.text = ": " + str(prices.price_gem_lvl_5)
 		
-	$ItemNameLvl.text = str(item) + " Lvl " + str(VillageManager.axe_item_lvl + 1)
+	$ItemNameLvl.text = str(prices.item) + " Lvl " + str(VillageManager.axe_item_lvl + 1)
 
 func _on_mouse_exited():
 	$Price.visible = false
-	$ItemDescription.text = description
-	$ItemNameLvl.text = str(item) + " Lvl " + str(VillageManager.axe_item_lvl)
-
+	item_set()
+	
 func _on_pressed():
 	effect()
 	item_level_UP()

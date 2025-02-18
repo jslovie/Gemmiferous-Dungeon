@@ -5,6 +5,8 @@
 
 [node name="MedusaEnemyType" instance=ExtResource("1_nhj2l")]
 type = "Medusa"
+health = 100.0
+max_health = 100.0
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]

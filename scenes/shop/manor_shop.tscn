@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://s4kevfnd41pt"]
+[gd_scene load_steps=5 format=3 uid="uid://d4dg56ydcymvx"]
 
 [ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_m06tb"]
 [ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="2_84s5l"]
@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_3k1wb"]
 
 [node name="ManorShop" instance=ExtResource("1_m06tb")]
-shop_name = "Manor"
+script = null
 
 [node name="ExitShop2" type="TextureButton" parent="." index="5"]
 layout_direction = 1
@@ -123,7 +123,30 @@ theme_override_font_sizes/font_size = 16
 text = "Upgrade Tavern"
 horizontal_alignment = 1
 
-[node name="ExitShop3" type="TextureButton" parent="." index="10"]
+[node name="ExitShop10" type="TextureButton" parent="." index="10"]
+layout_direction = 1
+offset_left = 994.0
+offset_top = 583.0
+offset_right = 1067.0
+offset_bottom = 600.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_84s5l")
+texture_hover = ExtResource("3_mxuur")
+
+[node name="Label" type="Label" parent="ExitShop10" index="0"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 168.0
+offset_bottom = 28.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3k1wb")
+theme_override_font_sizes/font_size = 16
+text = "Go to dungeons"
+horizontal_alignment = 1
+
+[node name="ExitShop3" type="TextureButton" parent="." index="11"]
 layout_direction = 1
 offset_left = 622.0
 offset_top = 471.0
@@ -146,7 +169,7 @@ theme_override_font_sizes/font_size = 16
 text = "Repair Village"
 horizontal_alignment = 1
 
-[node name="ExitShop4" type="TextureButton" parent="." index="11"]
+[node name="ExitShop4" type="TextureButton" parent="." index="12"]
 layout_direction = 1
 offset_left = 622.0
 offset_top = 552.0
@@ -169,7 +192,7 @@ theme_override_font_sizes/font_size = 16
 text = "Build houses"
 horizontal_alignment = 1
 
-[node name="ExitShop5" type="TextureButton" parent="." index="12"]
+[node name="ExitShop5" type="TextureButton" parent="." index="13"]
 layout_direction = 1
 offset_left = 622.0
 offset_top = 636.0
@@ -192,14 +215,15 @@ theme_override_font_sizes/font_size = 16
 text = "Decorate Village"
 horizontal_alignment = 1
 
-[node name="ExitShopLabel" parent="." index="13"]
+[node name="ExitShopLabel" parent="." index="14"]
 text = "God be with us"
 
 [connection signal="pressed" from="ExitShop2" to="." method="_on_exit_shop_pressed"]
-[connection signal="pressed" from="ExitShop6" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop6" to="." method="_on_exit_shop_6_pressed"]
 [connection signal="pressed" from="ExitShop7" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="ExitShop8" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="ExitShop9" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ExitShop10" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="ExitShop3" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="ExitShop4" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="ExitShop5" to="." method="_on_exit_shop_pressed"]

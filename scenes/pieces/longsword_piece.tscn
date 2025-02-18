@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dialgagrvk5wx"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_qyxk7"]
+[ext_resource type="Texture2D" uid="uid://ng21u5vlq81s" path="res://assets/32rogues/pieces/longsword.png" id="2_jbk4y"]
+
+[node name="LongswordPiece" instance=ExtResource("1_qyxk7")]
+color = "longsword"
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.410456, 0.0409149, 0.211828, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_jbk4y")

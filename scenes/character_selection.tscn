@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_ojtev"]
 [ext_resource type="PackedScene" uid="uid://cyhrrq4evgdil" path="res://scenes/player_type/barbarian_type.tscn" id="3_in3f3"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="6_f0kvo"]
-[ext_resource type="PackedScene" uid="uid://cxqx7mqyk6krt" path="res://scenes/player_type/mage_type.tscn" id="6_jnjga"]
+[ext_resource type="PackedScene" uid="uid://cxqx7mqyk6krt" path="res://scenes/player_type/holy_type.tscn" id="6_jnjga"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="7_1oj0d"]
 [ext_resource type="PackedScene" uid="uid://bjqus2w8mosb0" path="res://scenes/player_type/knight_type.tscn" id="7_7gxew"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="8_f5bhh"]

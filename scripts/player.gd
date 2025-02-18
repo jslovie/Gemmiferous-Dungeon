@@ -105,6 +105,9 @@ func update_player_texture():
 		$Character.texture = load("res://assets/32rogues/chars/barbarian.png")
 	elif type == "Spellblade":
 		$Character.texture = load("res://assets/32rogues/chars/Spellblade.png")
+	elif type == "Holy":
+		$Character.texture = load("res://assets/32rogues/chars/holy.png")
+		
 func update_base_actions():
 	base_action1 = type_action1 + upgraded_action1
 	base_action2 = type_action2 + upgraded_action2

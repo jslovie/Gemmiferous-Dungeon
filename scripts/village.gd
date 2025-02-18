@@ -6,7 +6,7 @@ func _ready():
 	SaveManager.load_savefile()
 	update_treasures()
 	update_materials()
-	repair_estate()
+	#repair_estate()
 
 	
 func _process(_delta):
@@ -16,7 +16,12 @@ func _process(_delta):
 	check_woodcutters_icon()
 	check_stone_mine_icon()
 	check_iron_mine_icon()
+	check_buildings_state()
 
+func check_buildings_state():
+	if VillageManager.church_repaired == true:
+		$VillageTiles/Shops/Church.texture_normal = load("res://assets/village/Gemmiferous_estate/church 2.png")
+		$VillageTiles/Shops/Church.texture_hover = load("res://assets/village/Gemmiferous_estate/church 2=highlighted.png")
 
 func repair_estate():
 	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")
@@ -108,8 +113,8 @@ func update_materials():
 	$Material/IronLabel.text = ": " + str(PlayerManager.player.total_iron)
 
 func _on_manor_pressed():
-	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
-
+	SaveManager.load_savefile()
+	$Manor.visible = true
 
 func _on_taverm_pressed():
 	SaveManager.load_savefile()

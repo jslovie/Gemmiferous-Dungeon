@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_76y2u")
-type = "Mage"
+type = "Holy"
 health = 30.0
 max_health = 30.0
 shield = 0

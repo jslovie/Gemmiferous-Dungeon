@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgbljk6pvuwt"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_ikymh"]
+[ext_resource type="Texture2D" uid="uid://cxejhvcabip6w" path="res://assets/32rogues/pieces/holy_stuff.png" id="2_rpxug"]
+
+[node name="HolyStaffPiece" instance=ExtResource("1_ikymh")]
+color = "holy staff"
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(1, 0.9535, 0.69, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_rpxug")

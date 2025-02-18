@@ -83,7 +83,7 @@
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="74_kehnc"]
 [ext_resource type="Texture2D" uid="uid://bh2avrkrq5akc" path="res://assets/32rogues/material/iron2 outline W.png" id="75_aih4a"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
-[ext_resource type="PackedScene" uid="uid://s4kevfnd41pt" path="res://scenes/shop/manor_shop.tscn" id="84_7qajh"]
+[ext_resource type="PackedScene" uid="uid://dte5nmep4gg4w" path="res://scenes/manor.tscn" id="84_m554g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe0hp"]
 texture = ExtResource("1_qulya")
@@ -1439,6 +1439,7 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 text = ": 9999"
 
 [node name="Paths" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_wsxe6")
@@ -1712,7 +1713,7 @@ visible = false
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)
 
-[node name="ManorShop" parent="." instance=ExtResource("84_7qajh")]
+[node name="Manor" parent="." instance=ExtResource("84_m554g")]
 visible = false
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)

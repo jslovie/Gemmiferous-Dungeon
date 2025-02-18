@@ -22,9 +22,22 @@ var tavern_lvl = 1
 var weaponsmith_lvl = 1
 var armourer_lvl = 1
 
+#Buildings state
+var church_repaired = false
+
 #Item levels
 var axe_item_lvl = 1
+var mace_item_lvl = 1
 var sword_item_lvl = 1
+var bow_item_lvl = 1
+var longsword_lvl = 1
+var dagger_item_lvl = 1
+var spell_spear_lvl = 1
+var holy_stuff_lvl = 1
+var holy_amulet_lvl = 1
+var invisibility_ring_lvl = 1
+var rage_ring_lvl = 1
+
 
 var woodcutter_timer = Timer.new()
 var stone_mine_timer = Timer.new()

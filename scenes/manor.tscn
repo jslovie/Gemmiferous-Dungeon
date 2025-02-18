@@ -1,0 +1,890 @@
+[gd_scene load_steps=13 format=3 uid="uid://dte5nmep4gg4w"]
+
+[ext_resource type="Script" path="res://scripts/manor.gd" id="1_cgbrd"]
+[ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/Paper UI/Paper/Menu3.png" id="2_jb623"]
+[ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/Paper UI/Paper/Header3.png" id="3_607d0"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_we4rk"]
+[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="5_jsq5c"]
+[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="6_bulpw"]
+[ext_resource type="Texture2D" uid="uid://bxdu3pg6duhi5" path="res://assets/Paper UI/Paper/checkbox.png" id="7_7f7t3"]
+[ext_resource type="Texture2D" uid="uid://dfod8ic64xc6x" path="res://assets/Paper UI/Paper/checkbox_checked.png" id="8_v17bp"]
+[ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="9_djmxj"]
+[ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/Paper UI/Sprite-0001.png" id="9_nvdpm"]
+[ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="10_ap8kd"]
+[ext_resource type="Texture2D" uid="uid://cqgv2hy0tkplb" path="res://assets/32rogues/material/iron.png" id="11_e5fm4"]
+
+[node name="Manor" type="Node2D"]
+script = ExtResource("1_cgbrd")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1918.0
+offset_bottom = 1082.0
+
+[node name="Book" type="Sprite2D" parent="."]
+position = Vector2(937, 492)
+scale = Vector2(5, 5)
+texture = ExtResource("2_jb623")
+
+[node name="ShopName" type="Sprite2D" parent="."]
+position = Vector2(778, 283)
+scale = Vector2(4, 4)
+texture = ExtResource("3_607d0")
+
+[node name="ShopNameLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 672.0
+offset_top = 255.0
+offset_right = 834.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Manor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitShop" type="TextureButton" parent="."]
+layout_direction = 1
+offset_left = 990.0
+offset_top = 673.0
+offset_right = 1063.0
+offset_bottom = 690.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_jsq5c")
+texture_hover = ExtResource("6_bulpw")
+
+[node name="ExitShopLabel" type="Label" parent="."]
+layout_direction = 1
+offset_left = 1004.0
+offset_top = 687.0
+offset_right = 1268.0
+offset_bottom = 727.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Exit the shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnterTheDungeon" type="TextureButton" parent="."]
+layout_direction = 1
+offset_left = 989.0
+offset_top = 245.0
+offset_right = 1062.0
+offset_bottom = 262.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_jsq5c")
+texture_hover = ExtResource("6_bulpw")
+
+[node name="EnterTheDungeonLabel" type="Label" parent="."]
+layout_direction = 1
+offset_left = 1003.0
+offset_top = 259.0
+offset_right = 1267.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Enter Dungeon "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TownRepair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 629.0
+offset_top = 340.0
+offset_right = 669.0
+offset_bottom = 380.0
+
+[node name="TownRepairHeader" type="Label" parent="TownRepair"]
+layout_mode = 1
+offset_right = 208.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Town Repairs:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TownRepair"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 36.0
+offset_right = 281.0
+offset_bottom = 305.0
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 0
+
+[node name="Manor" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Manor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Manor lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Manor"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Manor"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="Church" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Church"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Church"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Church"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Church"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="Tavern" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Tavern"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Tavern"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Tavern"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Tavern"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="Weaponsmith" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Weaponsmith"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Weaponsmith"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Weaponsmith"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Weaponsmith"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton4" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Armourer"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton4"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton4"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton5" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Sorcerer"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton5"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton5"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton6" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Town square"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton6"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton6"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton11" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Farm"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton11"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton11"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton7" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Houses"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton7"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton7"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton8" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Left Watchtower"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton8"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton8"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton9" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Repair Right Watchtower"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton9"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton9"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton12" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Build Woodcutters camp"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton12"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton12"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton13" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Build Stone mine"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton13"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton13"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownRepairButton14" type="TextureButton" parent="TownRepair/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Build Iron Mine"
+
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton14"]
+position = Vector2(-10.1455, 6.3091)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton14"]
+visible = false
+position = Vector2(-10, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgrades" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1001.0
+offset_top = 339.0
+offset_right = 1041.0
+offset_bottom = 379.0
+
+[node name="TownUpgradesHeader" type="Label" parent="TownUpgrades"]
+layout_mode = 1
+offset_right = 208.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Town Upgrades:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TownUpgrades"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 36.0
+offset_right = 281.0
+offset_bottom = 305.0
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 0
+
+[node name="TownUpgradesButton19" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton19"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Tavern lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton19"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton19"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="WeaponsmithUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/WeaponsmithUpgrade"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Weaponsmith lvl 2"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/WeaponsmithUpgrade"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/WeaponsmithUpgrade"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton11" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Armourer lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton11"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton11"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton12" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Sorcerer lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton12"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton12"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton13" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Woodcutters lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton13"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton13"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton14" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Stone mine lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton14"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton14"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton15" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton15"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Iron mine lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton15"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton15"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton16" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton16"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Rathause lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton16"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton16"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton20" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton20"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Upgrade Farm lvl 1"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton20"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton20"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton17" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton17"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Build Lamps"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton17"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton17"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="TownUpgradesButton18" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton18"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Build Campfire"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton18"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton18"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="Cost" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 25.0
+
+[node name="CostLabel" type="Label" parent="Cost"]
+layout_mode = 1
+offset_left = 642.0
+offset_top = 668.0
+offset_right = 710.0
+offset_bottom = 698.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Cost:"
+
+[node name="Description" type="Label" parent="Cost"]
+layout_mode = 1
+offset_left = 611.0
+offset_top = 731.0
+offset_right = 920.0
+offset_bottom = 764.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 16
+text = "Description of the upgrade goes here if it is needed"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cost"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 697.0
+offset_right = 914.0
+offset_bottom = 737.0
+theme_override_constants/separation = 34
+
+[node name="Wood" type="Label" parent="Cost/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="WoodSprite2D" type="Sprite2D" parent="Cost/HBoxContainer/Wood"]
+position = Vector2(68, 11)
+texture = ExtResource("9_djmxj")
+
+[node name="Stone" type="Label" parent="Cost/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "0	"
+horizontal_alignment = 2
+
+[node name="StoneSprite2D" type="Sprite2D" parent="Cost/HBoxContainer/Stone"]
+position = Vector2(68, 11)
+texture = ExtResource("10_ap8kd")
+
+[node name="Iron" type="Label" parent="Cost/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
+[node name="IronSprite2D" type="Sprite2D" parent="Cost/HBoxContainer/Iron"]
+position = Vector2(69, 16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_e5fm4")
+
+[connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="EnterTheDungeon" to="." method="_on_enter_the_dungeon_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Church" to="." method="_on_church_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Church" to="." method="_on_church_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Church" to="." method="_on_church_pressed"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/WeaponsmithUpgrade" to="." method="_on_weaponsmith_upgrade_pressed"]

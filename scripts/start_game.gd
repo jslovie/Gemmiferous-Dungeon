@@ -13,6 +13,21 @@ func _process(_delta):
 		$StartGame.text = "Continue"
 	else:
 		$StartGame.text = "New Game"
+
+func create_test_game():
+	SaveManager.save_file = true
+	SaveManager.remove_savefile()
+	SaveManager.reset_savefile()
+	VillageManager.reset_village_stats()
+	PlayerManager.player.total_red_gem = 1000
+	PlayerManager.player.total_green_gem = 1000
+	PlayerManager.player.total_blue_gem = 1000
+	PlayerManager.player.total_yellow_gem = 1000
+	PlayerManager.player.total_coins = 1000
+	PlayerManager.player.total_wood = 1000
+	PlayerManager.player.total_stone = 1000
+	PlayerManager.player.total_iron = 1000
+	SaveManager.savefilesave()
 	
 func handle_new_game():
 	SaveManager.save_file = true
@@ -30,6 +45,7 @@ func handle_continue_game():
 func _on_button_pressed():
 	visible = false
 	Loading.loading_1s()
+	create_test_game()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 

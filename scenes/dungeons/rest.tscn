@@ -545,7 +545,7 @@ scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("4_l0rkg")
 text = ": 9999"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Campfire" type="AnimatedSprite2D" parent="."]
 position = Vector2(1633, 745)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bvtdq")

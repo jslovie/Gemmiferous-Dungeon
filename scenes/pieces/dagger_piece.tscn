@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo3eap0fny0jc"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_2aywu"]
+[ext_resource type="Texture2D" uid="uid://con2lvido3r7h" path="res://assets/32rogues/pieces/dagger.png" id="2_ybd0i"]
+
+[node name="DaggerPiece" instance=ExtResource("1_2aywu")]
+color = "dagger"
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.262321, 0.178979, 0.339431, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(-3, -4)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("2_ybd0i")

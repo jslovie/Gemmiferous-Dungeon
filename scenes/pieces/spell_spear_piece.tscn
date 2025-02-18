@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnt75rjxukqd1"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_lqam7"]
+[ext_resource type="Texture2D" uid="uid://c0yd0u8canbh7" path="res://assets/32rogues/pieces/spellblade.png" id="2_2qxti"]
+
+[node name="SpellSpearPiece" instance=ExtResource("1_lqam7")]
+color = "spell spear"
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.239861, 0.206092, 0.286544, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(-2, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_2qxti")
