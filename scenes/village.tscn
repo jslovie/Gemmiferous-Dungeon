@@ -1637,6 +1637,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
 [node name="Facilities" type="Node2D" parent="."]
+visible = false
 
 [node name="WoodLabel" type="Label" parent="Facilities"]
 unique_name_in_owner = true

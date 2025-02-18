@@ -24,6 +24,11 @@ var armourer_lvl = 1
 
 #Buildings state
 var church_repaired = false
+var tavern_repaired = false
+var weaponsmith_repaired = false
+var armourer_repaired = false
+var sorcerer_repaired = false
+var town_square_repaired = false
 
 #Item levels
 var axe_item_lvl = 1

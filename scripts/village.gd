@@ -10,6 +10,7 @@ func _ready():
 
 	
 func _process(_delta):
+	total_material_check()
 	update_facility_timers()
 	update_treasures()
 	update_materials()
@@ -17,6 +18,20 @@ func _process(_delta):
 	check_stone_mine_icon()
 	check_iron_mine_icon()
 	check_buildings_state()
+
+func total_material_check():
+	if PlayerManager.player.total_wood >= 999:
+		$Material/WoodLabel.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Material/WoodLabel.add_theme_color_override("font_color",Color.WHITE)
+	if PlayerManager.player.total_stone >= 999:
+		$Material/StoneLabel.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Material/StoneLabel.add_theme_color_override("font_color",Color.WHITE)
+	if PlayerManager.player.total_iron >= 999:
+		$Material/IronLabel.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Material/IronLabel.add_theme_color_override("font_color",Color.WHITE)
 
 func check_buildings_state():
 	if VillageManager.church_repaired == true:

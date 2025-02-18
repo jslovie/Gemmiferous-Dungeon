@@ -97,6 +97,7 @@ func _ready():
 func _process(_delta):
 	#print_test()
 	update_base_actions()
+	total_material()
 	
 func update_player_texture():
 	if type == "Rogue":
@@ -227,6 +228,14 @@ func coins_up():
 
 func get_coins(amount):
 	coins += amount
+
+func total_material():
+	if total_wood > 999:
+		total_wood = 999
+	if total_stone > 999:
+		total_stone = 999
+	if total_iron > 999:
+		total_iron = 999
 
 func set_treasure():
 	total_coins += coins
