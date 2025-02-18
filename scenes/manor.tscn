@@ -210,7 +210,7 @@ texture = ExtResource("7_7f7t3")
 
 [node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Tavern"]
 visible = false
-position = Vector2(-10, -1)
+position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
@@ -240,11 +240,11 @@ position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton4" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="Armourer" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton4"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Armourer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -255,22 +255,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Armourer"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton4"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Armourer"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton4"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Armourer"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton5" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="Sorcerer" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton5"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Sorcerer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -281,22 +281,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Sorcerer"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton5"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Sorcerer"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton5"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Sorcerer"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton6" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="TownSquare" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton6"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownSquare"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -307,22 +307,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Town square"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton6"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownSquare"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton6"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownSquare"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton11" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="Farm" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton11"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Farm"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -333,22 +333,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Farm"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton11"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Farm"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton11"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Farm"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton7" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="Houses" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton7"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/Houses"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,22 +359,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Houses"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton7"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/Houses"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton7"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/Houses"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton8" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="LeftWatchtower" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton8"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/LeftWatchtower"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -385,22 +385,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Left Watchtower"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton8"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/LeftWatchtower"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton8"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/LeftWatchtower"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton9" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="RightWatchtower" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton9"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/RightWatchtower"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -411,22 +411,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Repair Right Watchtower"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton9"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/RightWatchtower"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton9"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/RightWatchtower"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton12" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="WoodcuttersCamp" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton12"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/WoodcuttersCamp"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -437,22 +437,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Build Woodcutters camp"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton12"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/WoodcuttersCamp"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton12"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/WoodcuttersCamp"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton13" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="StoneMine" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton13"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/StoneMine"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -463,22 +463,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Build Stone mine"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton13"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/StoneMine"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton13"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/StoneMine"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownRepairButton14" type="TextureButton" parent="TownRepair/VBoxContainer"]
+[node name="IronMine" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownRepair/VBoxContainer/TownRepairButton14"]
+[node name="Label" type="Label" parent="TownRepair/VBoxContainer/IronMine"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -489,12 +489,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Build Iron Mine"
 
-[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton14"]
+[node name="Checkbox" type="Sprite2D" parent="TownRepair/VBoxContainer/IronMine"]
 position = Vector2(-10.1455, 6.3091)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/TownRepairButton14"]
+[node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/IronMine"]
 visible = false
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
@@ -915,4 +915,13 @@ texture = ExtResource("11_e5fm4")
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/Tavern" to="." method="_on_tavern_mouse_entered"]
 [connection signal="mouse_exited" from="TownRepair/VBoxContainer/Tavern" to="." method="_on_tavern_mouse_exited"]
 [connection signal="pressed" from="TownRepair/VBoxContainer/Tavern" to="." method="_on_tavern_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Weaponsmith" to="." method="_on_weaponsmith_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Weaponsmith" to="." method="_on_weaponsmith_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Armourer" to="." method="_on_armourer_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Armourer" to="." method="_on_armourer_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Armourer" to="." method="_on_armourer_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Sorcerer" to="." method="_on_sorcerer_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Sorcerer" to="." method="_on_sorcerer_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Sorcerer" to="." method="_on_sorcerer_pressed"]
 [connection signal="pressed" from="TownUpgrades/VBoxContainer/WeaponsmithUpgrade" to="." method="_on_weaponsmith_upgrade_pressed"]

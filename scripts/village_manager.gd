@@ -29,6 +29,13 @@ var weaponsmith_repaired = false
 var armourer_repaired = false
 var sorcerer_repaired = false
 var town_square_repaired = false
+var farm_repaired = false
+var houses_repaired = false
+var left_watchtower_repaired = false
+var right_watchtower_repaired = false
+var woodcutters_camp_repaired = false
+var stone_mine_repaired = false
+var iron_mine_repaired = false
 
 #Item levels
 var axe_item_lvl = 1
