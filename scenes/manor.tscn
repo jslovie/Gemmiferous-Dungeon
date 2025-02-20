@@ -16,6 +16,10 @@
 [node name="Manor" type="Node2D"]
 z_index = 10
 script = ExtResource("1_cgbrd")
+manor1_repair_price = Vector3(10, 10, 10)
+manor2_repair_price = Vector3(10, 10, 10)
+manor3_repair_price = Vector3(10, 10, 10)
+manor_repair_description = "Gemmiferous Manor, repair you family legacy"
 church_repair_price = Vector3(50, 45, 10)
 church_repair_description = "Get your people some place to pray"
 tavern_repair_price = Vector3(1, 1, 1)
@@ -151,7 +155,6 @@ theme_override_constants/separation = 0
 
 [node name="Manor" type="TextureButton" parent="TownRepair/VBoxContainer"]
 layout_mode = 2
-disabled = true
 texture_normal = ExtResource("9_nvdpm")
 
 [node name="Label" type="Label" parent="TownRepair/VBoxContainer/Manor"]
@@ -177,6 +180,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Church" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -203,6 +207,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Tavern" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -229,6 +234,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Weaponsmith" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -255,6 +261,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Armourer" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -281,6 +288,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Sorcerer" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -307,6 +315,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="TownSquare" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -333,6 +342,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Farm" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -359,6 +369,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="Houses" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -385,6 +396,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="LeftWatchtower" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -411,6 +423,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="RightWatchtower" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -437,6 +450,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="WoodcuttersCamp" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -463,6 +477,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="StoneMine" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -489,6 +504,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="IronMine" type="TextureButton" parent="TownRepair/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -541,11 +557,12 @@ offset_bottom = 305.0
 scale = Vector2(1.2, 1.2)
 theme_override_constants/separation = 0
 
-[node name="TownUpgradesButton19" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="TavernUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton19"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TavernUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -556,18 +573,19 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Tavern lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton19"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TavernUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton19"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TavernUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
 [node name="WeaponsmithUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
@@ -593,11 +611,12 @@ position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton11" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="ArmourerUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton11"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/ArmourerUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -608,22 +627,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Armourer lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton11"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/ArmourerUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton11"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/ArmourerUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton12" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="SorcererUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton12"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/SorcererUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -634,22 +654,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Sorcerer lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton12"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/SorcererUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton12"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/SorcererUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton13" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="WoodcuttersUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton13"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/WoodcuttersUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -660,22 +681,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Woodcutters lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton13"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/WoodcuttersUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton13"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/WoodcuttersUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton14" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="StoneMineUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton14"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/StoneMineUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -686,22 +708,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Stone mine lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton14"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/StoneMineUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton14"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/StoneMineUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton15" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="IronMineUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton15"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/IronMineUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -712,22 +735,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Iron mine lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton15"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/IronMineUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton15"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/IronMineUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton16" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="RathausUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton16"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/RathausUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -736,24 +760,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
-text = "Upgrade Rathause lvl 1"
+text = "Upgrade Rathaus lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton16"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/RathausUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton16"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/RathausUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton20" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="FarmUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton20"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/FarmUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -764,22 +789,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Upgrade Farm lvl 1"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton20"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/FarmUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton20"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/FarmUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton17" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="LampsUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton17"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/LampsUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -790,22 +816,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Build Lamps"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton17"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/LampsUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton17"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/LampsUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
 
-[node name="TownUpgradesButton18" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+[node name="CampfireUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("9_nvdpm")
 
-[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/TownUpgradesButton18"]
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/CampfireUpgrade"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -816,12 +843,39 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_we4rk")
 text = "Build Campfire"
 
-[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton18"]
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/CampfireUpgrade"]
 position = Vector2(-10, 5.76364)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_7f7t3")
 
-[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/TownUpgradesButton18"]
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/CampfireUpgrade"]
+visible = false
+position = Vector2(-10, 5.764)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_v17bp")
+
+[node name="HousesUpgrade" type="TextureButton" parent="TownUpgrades/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("9_nvdpm")
+
+[node name="Label" type="Label" parent="TownUpgrades/VBoxContainer/HousesUpgrade"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+text = "Build Houses"
+
+[node name="Checkbox" type="Sprite2D" parent="TownUpgrades/VBoxContainer/HousesUpgrade"]
+position = Vector2(-10, 5.76364)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_7f7t3")
+
+[node name="Checked" type="Sprite2D" parent="TownUpgrades/VBoxContainer/HousesUpgrade"]
 visible = false
 position = Vector2(-10, 5.764)
 scale = Vector2(0.4, 0.4)
@@ -966,4 +1020,39 @@ texture = ExtResource("11_e5fm4")
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/IronMine" to="." method="_on_iron_mine_mouse_entered"]
 [connection signal="mouse_exited" from="TownRepair/VBoxContainer/IronMine" to="." method="_on_iron_mine_mouse_exited"]
 [connection signal="pressed" from="TownRepair/VBoxContainer/IronMine" to="." method="_on_iron_mine_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/TavernUpgrade" to="." method="_on_tavern_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/TavernUpgrade" to="." method="_on_tavern_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/TavernUpgrade" to="." method="_on_tavern_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/WeaponsmithUpgrade" to="." method="_on_weaponsmith_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/WeaponsmithUpgrade" to="." method="_on_weaponsmith_upgrade_mouse_exited"]
 [connection signal="pressed" from="TownUpgrades/VBoxContainer/WeaponsmithUpgrade" to="." method="_on_weaponsmith_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/ArmourerUpgrade" to="." method="_on_armourer_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/ArmourerUpgrade" to="." method="_on_armourer_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/ArmourerUpgrade" to="." method="_on_armourer_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/SorcererUpgrade" to="." method="_on_sorcerer_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/SorcererUpgrade" to="." method="_on_sorcerer_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/SorcererUpgrade" to="." method="_on_sorcerer_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/WoodcuttersUpgrade" to="." method="_on_woodcutters_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/WoodcuttersUpgrade" to="." method="_on_woodcutters_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/WoodcuttersUpgrade" to="." method="_on_woodcutters_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/StoneMineUpgrade" to="." method="_on_stone_mine_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/StoneMineUpgrade" to="." method="_on_stone_mine_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/StoneMineUpgrade" to="." method="_on_stone_mine_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/IronMineUpgrade" to="." method="_on_iron_mine_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/IronMineUpgrade" to="." method="_on_iron_mine_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/IronMineUpgrade" to="." method="_on_iron_mine_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/RathausUpgrade" to="." method="_on_rathaus_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/RathausUpgrade" to="." method="_on_rathaus_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/RathausUpgrade" to="." method="_on_rathaus_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/FarmUpgrade" to="." method="_on_farm_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/FarmUpgrade" to="." method="_on_farm_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/FarmUpgrade" to="." method="_on_farm_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/LampsUpgrade" to="." method="_on_lamps_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/LampsUpgrade" to="." method="_on_lamps_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/LampsUpgrade" to="." method="_on_lamps_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/CampfireUpgrade" to="." method="_on_campfire_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/CampfireUpgrade" to="." method="_on_campfire_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/CampfireUpgrade" to="." method="_on_campfire_upgrade_pressed"]
+[connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_mouse_exited"]
+[connection signal="pressed" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_pressed"]

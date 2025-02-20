@@ -34,21 +34,35 @@ func total_material_check():
 		$Material/IronLabel.add_theme_color_override("font_color",Color.WHITE)
 
 func check_buildings_state():
+	if VillageManager.manor_lvl == 1:
+		$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor1.png")
+		$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor1_highlighted.png")
+	elif VillageManager.manor_lvl == 2:
+		$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor2.png")
+		$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor2_highlighted.png")
+	elif VillageManager.manor_lvl == 3:
+		$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor3.png")
+		$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor3_highlighted.png")
 	if VillageManager.church_repaired == true:
 		$VillageTiles/Shops/Church.texture_normal = load("res://assets/village/Gemmiferous_estate/church 2.png")
 		$VillageTiles/Shops/Church.texture_hover = load("res://assets/village/Gemmiferous_estate/church 2=highlighted.png")
+		$VillageTiles/Shops/Church.disabled = false
 	if VillageManager.tavern_repaired == true:
 		$VillageTiles/Shops/Taverm.texture_normal = load("res://assets/village/Gemmiferous_estate/tavern.png")
 		$VillageTiles/Shops/Taverm.texture_hover = load("res://assets/village/Gemmiferous_estate/tavern_highlighted.png")
+		$VillageTiles/Shops/Taverm.disabled = false
 	if VillageManager.weaponsmith_repaired == true:
 		$VillageTiles/Shops/Weaponsmith.texture_normal = load("res://assets/village/Gemmiferous_estate/weaponsmith.png")
 		$VillageTiles/Shops/Weaponsmith.texture_hover = load("res://assets/village/Gemmiferous_estate/weaponsmith_highlighted.png")
+		$VillageTiles/Shops/Weaponsmith.disabled = false
 	if VillageManager.armourer_repaired == true:
 		$VillageTiles/Shops/Armourer.texture_normal = load("res://assets/village/Gemmiferous_estate/armourer.png")
 		$VillageTiles/Shops/Armourer.texture_hover = load("res://assets/village/Gemmiferous_estate/armourer_highlighted.png")
+		$VillageTiles/Shops/Armourer.disabled = false
 	if VillageManager.sorcerer_repaired == true:
-		$VillageTiles/Sorcerer.texture_normal = load("res://assets/village/Gemmiferous_estate/sorcerer.png")
-		$VillageTiles/Sorcerer.texture_hover = load("res://assets/village/Gemmiferous_estate/sorcerer_highlight.png")
+		$VillageTiles/Shops/Sorcerer.texture_normal = load("res://assets/village/Gemmiferous_estate/sorcerer.png")
+		$VillageTiles/Shops/Sorcerer.texture_hover = load("res://assets/village/Gemmiferous_estate/sorcerer_highlight.png")
+		$VillageTiles/Shops/Sorcerer.disabled = false
 	if VillageManager.town_square_repaired == true:
 		$VillageTiles/Houses/Square.texture = load("res://assets/village/Gemmiferous_estate/Square.png")
 	if VillageManager.farm_repaired == true:

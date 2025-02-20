@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bvoexsqmx8psm" path="res://assets/village/Hills - Mountains/Big Hills_tile_3.png" id="5_xwxxy"]
 [ext_resource type="Texture2D" uid="uid://bskq4vyfqt56o" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_26.png" id="7_ryel4"]
 [ext_resource type="Texture2D" uid="uid://bou4j0s7ea3db" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_8.png" id="8_l82vw"]
-[ext_resource type="Texture2D" uid="uid://cd1nan4hea4en" path="res://assets/village/Gemmiferous_estate/manor_ruin.png" id="9_30hpk"]
 [ext_resource type="Texture2D" uid="uid://c4p8ubk6g55sx" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_7.png" id="9_fudty"]
+[ext_resource type="Texture2D" uid="uid://bwdqol5epvybo" path="res://assets/village/Gemmiferous_estate/manor3.png" id="9_p35dr"]
+[ext_resource type="Texture2D" uid="uid://c4884cgyligqh" path="res://assets/village/Gemmiferous_estate/manor0_highlighted.png" id="10_0vamv"]
 [ext_resource type="Texture2D" uid="uid://vay5kaj0e72v" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_2.png" id="10_4y20t"]
-[ext_resource type="Texture2D" uid="uid://gxlue6nnsxsw" path="res://assets/village/Gemmiferous_estate/manor_ruin_highlighted.png" id="10_gc2fp"]
 [ext_resource type="Texture2D" uid="uid://bnufjwkr2uy77" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_5.png" id="11_ficdw"]
 [ext_resource type="Texture2D" uid="uid://bhfpv1htcxcjq" path="res://assets/village/Gemmiferous_estate/sorcerer_ruin.png" id="11_is0ae"]
 [ext_resource type="Texture2D" uid="uid://dhj5wx61bqjbo" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_4.png" id="12_1jgtf"]
@@ -85,7 +85,7 @@
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
 [ext_resource type="PackedScene" uid="uid://dte5nmep4gg4w" path="res://scenes/manor.tscn" id="84_m554g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe0hp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0prv"]
 texture = ExtResource("1_qulya")
 0:0/0 = 0
 1:0/0 = 0
@@ -777,7 +777,7 @@ texture = ExtResource("1_qulya")
 15:42/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fjemq"]
-sources/0 = SubResource("TileSetAtlasSource_pe0hp")
+sources/0 = SubResource("TileSetAtlasSource_l0prv")
 
 [sub_resource type="Curve2D" id="Curve2D_wsxe6"]
 _data = {
@@ -975,16 +975,8 @@ offset_left = 773.0
 offset_top = 359.0
 offset_right = 821.0
 offset_bottom = 407.0
-texture_normal = ExtResource("9_30hpk")
-texture_hover = ExtResource("10_gc2fp")
-
-[node name="Sorcerer" type="TextureButton" parent="VillageTiles"]
-offset_left = 686.0
-offset_top = 385.0
-offset_right = 718.0
-offset_bottom = 417.0
-texture_normal = ExtResource("11_is0ae")
-texture_hover = ExtResource("12_xndy3")
+texture_normal = ExtResource("9_p35dr")
+texture_hover = ExtResource("10_0vamv")
 
 [node name="Trees" type="Node2D" parent="VillageTiles"]
 
@@ -1041,6 +1033,7 @@ position = Vector2(741, 391)
 texture = ExtResource("4_06vh4")
 
 [node name="PrefabsTile4" type="Sprite2D" parent="VillageTiles/Trees"]
+z_index = 1
 position = Vector2(715, 423)
 texture = ExtResource("18_finv8")
 
@@ -1049,10 +1042,12 @@ position = Vector2(741, 451)
 texture = ExtResource("23_y68wf")
 
 [node name="PrefabsTile8" type="Sprite2D" parent="VillageTiles/Trees"]
+z_index = 1
 position = Vector2(726, 436)
 texture = ExtResource("23_y68wf")
 
 [node name="PrefabsTile9" type="Sprite2D" parent="VillageTiles/Trees"]
+z_index = 1
 position = Vector2(733, 418)
 texture = ExtResource("23_y68wf")
 
@@ -1117,6 +1112,7 @@ offset_left = 752.0
 offset_top = 410.0
 offset_right = 768.0
 offset_bottom = 426.0
+disabled = true
 texture_normal = ExtResource("30_lo7uv")
 texture_hover = ExtResource("31_86h02")
 
@@ -1125,6 +1121,7 @@ offset_left = 832.0
 offset_top = 424.0
 offset_right = 848.0
 offset_bottom = 440.0
+disabled = true
 texture_normal = ExtResource("32_3e2md")
 texture_hover = ExtResource("33_06nkt")
 
@@ -1133,6 +1130,7 @@ offset_left = 844.0
 offset_top = 449.0
 offset_right = 876.0
 offset_bottom = 465.0
+disabled = true
 texture_normal = ExtResource("34_7oug2")
 texture_hover = ExtResource("35_n3368")
 
@@ -1141,8 +1139,18 @@ offset_left = 850.0
 offset_top = 469.0
 offset_right = 866.0
 offset_bottom = 485.0
+disabled = true
 texture_normal = ExtResource("36_lvjal")
 texture_hover = ExtResource("37_37ryo")
+
+[node name="Sorcerer" type="TextureButton" parent="VillageTiles/Shops"]
+offset_left = 686.0
+offset_top = 385.0
+offset_right = 718.0
+offset_bottom = 419.0
+disabled = true
+texture_normal = ExtResource("11_is0ae")
+texture_hover = ExtResource("12_xndy3")
 
 [node name="IronMine" type="TextureButton" parent="VillageTiles/Shops"]
 visible = false
