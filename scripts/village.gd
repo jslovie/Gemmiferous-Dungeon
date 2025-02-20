@@ -37,6 +37,46 @@ func check_buildings_state():
 	if VillageManager.church_repaired == true:
 		$VillageTiles/Shops/Church.texture_normal = load("res://assets/village/Gemmiferous_estate/church 2.png")
 		$VillageTiles/Shops/Church.texture_hover = load("res://assets/village/Gemmiferous_estate/church 2=highlighted.png")
+	if VillageManager.tavern_repaired == true:
+		$VillageTiles/Shops/Taverm.texture_normal = load("res://assets/village/Gemmiferous_estate/tavern.png")
+		$VillageTiles/Shops/Taverm.texture_hover = load("res://assets/village/Gemmiferous_estate/tavern_highlighted.png")
+	if VillageManager.weaponsmith_repaired == true:
+		$VillageTiles/Shops/Weaponsmith.texture_normal = load("res://assets/village/Gemmiferous_estate/weaponsmith.png")
+		$VillageTiles/Shops/Weaponsmith.texture_hover = load("res://assets/village/Gemmiferous_estate/weaponsmith_highlighted.png")
+	if VillageManager.armourer_repaired == true:
+		$VillageTiles/Shops/Armourer.texture_normal = load("res://assets/village/Gemmiferous_estate/armourer.png")
+		$VillageTiles/Shops/Armourer.texture_hover = load("res://assets/village/Gemmiferous_estate/armourer_highlighted.png")
+	if VillageManager.sorcerer_repaired == true:
+		$VillageTiles/Sorcerer.texture_normal = load("res://assets/village/Gemmiferous_estate/sorcerer.png")
+		$VillageTiles/Sorcerer.texture_hover = load("res://assets/village/Gemmiferous_estate/sorcerer_highlight.png")
+	if VillageManager.town_square_repaired == true:
+		$VillageTiles/Houses/Square.texture = load("res://assets/village/Gemmiferous_estate/Square.png")
+	if VillageManager.farm_repaired == true:
+		$VillageTiles/Farm/Mill.texture = load("res://assets/village/Gemmiferous_estate/mill.png")
+		$VillageTiles/Farm/Warehouse.texture = load("res://assets/village/Gemmiferous_estate/warehouse.png")
+		$VillageTiles/Farm/Field1.visible = true
+		if VillageManager.farm_lvl == 2:
+			$VillageTiles/Farm/Field1.visible = true
+			$VillageTiles/Farm/Field2.visible = true
+		elif VillageManager.farm_lvl == 3:
+			$VillageTiles/Farm/Field1.visible = true
+			$VillageTiles/Farm/Field2.visible = true
+			$VillageTiles/Farm/Field3.visible = true
+	if VillageManager.houses_repaired == true:
+		$VillageTiles/Houses/Hauses.texture = load("res://assets/village/Gemmiferous_estate/houses.png")
+	if VillageManager.left_watchtower_repaired == true:
+		$VillageTiles/GuardTowers/Watchtower1.texture = load("res://assets/village/Gemmiferous_estate/watchtower_1.png")
+	if VillageManager.right_watchtower_repaired == true:
+		$VillageTiles/GuardTowers/Watchtower2.texture = load("res://assets/village/Gemmiferous_estate/watchtower_2.png")
+	if VillageManager.woodcutters_camp_repaired == true:
+		$VillageTiles/Shops/Woodcutters.visible = true
+		$Wood.visible = true
+	if VillageManager.stone_mine_repaired == true:
+		$VillageTiles/Shops/StoneMine.visible = true
+		$Stone.visible = true
+	if VillageManager.iron_mine_repaired == true:
+		$VillageTiles/Shops/IronMine.visible = true
+		$Iron.visible = true
 
 func repair_estate():
 	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")
@@ -83,9 +123,9 @@ func update_facility_timers():
 	
 func check_woodcutters_icon():
 	if VillageManager.wood_collected > 0:
-		$Facilities/WoodButton.visible = true
+		%WoodButton.visible = true
 	else:
-		$Facilities/WoodButton.visible = false
+		%WoodButton.visible = false
 
 func collect_wood():
 	PlayerManager.player.total_wood += VillageManager.wood_collected
@@ -94,9 +134,9 @@ func collect_wood():
 
 func check_stone_mine_icon():
 	if VillageManager.stone_collected > 0:
-		$Facilities/StoneButton.visible = true
+		%StoneButton.visible = true
 	else:
-		$Facilities/StoneButton.visible = false
+		%StoneButton.visible = false
 
 func collect_stone():
 	PlayerManager.player.total_stone += VillageManager.stone_collected
@@ -105,9 +145,9 @@ func collect_stone():
 
 func check_iron_mine_icon():
 	if VillageManager.iron_collected > 0:
-		$Facilities/IronButton.visible = true
+		%IronButton.visible = true
 	else:
-		$Facilities/IronButton.visible = false
+		%IronButton.visible = false
 
 func collect_iron():
 	PlayerManager.player.total_iron += VillageManager.iron_collected

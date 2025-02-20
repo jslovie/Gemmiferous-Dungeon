@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="6_vdv2l"]
 
 [node name="Shop" type="Node2D"]
+z_index = 10
 script = ExtResource("1_fpweg")
 
 [node name="Panel" type="Panel" parent="."]

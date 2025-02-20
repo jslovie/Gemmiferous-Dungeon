@@ -14,20 +14,34 @@
 [ext_resource type="Texture2D" uid="uid://cqgv2hy0tkplb" path="res://assets/32rogues/material/iron.png" id="11_e5fm4"]
 
 [node name="Manor" type="Node2D"]
+z_index = 10
 script = ExtResource("1_cgbrd")
 church_repair_price = Vector3(50, 45, 10)
-tavern_repair_price = Vector3(100, 100, 100)
-weaponsmith_repair_price = Vector3(100, 100, 100)
-armourer_repair_price = Vector3(100, 100, 100)
-sorcerer_repair_price = Vector3(100, 100, 100)
-town_square_repair_price = Vector3(100, 100, 100)
-farm_repair_price = Vector3(100, 100, 100)
-houses_repair_price = Vector3(100, 100, 100)
-left_watchtower_repair_price = Vector3(100, 100, 100)
-right_watchtower_repair_price = Vector3(100, 100, 100)
-woodcutters_camp_repair_price = Vector3(100, 100, 100)
-stone_mine_repair_price = Vector3(100, 100, 100)
-iron_mine_repair_price = Vector3(100, 100, 100)
+church_repair_description = "Get your people some place to pray"
+tavern_repair_price = Vector3(1, 1, 1)
+tavern_repair_description = "Great place for drinking, playing and whoring"
+weaponsmith_repair_price = Vector3(1, 1, 1)
+weaponsmith_repair_description = "Repair the shop to access weapon upgrades"
+armourer_repair_price = Vector3(1, 1, 1)
+armourer_repair_description = "Repair the shop to access shield upgrades"
+sorcerer_repair_price = Vector3(1, 1, 1)
+sorcererh_repair_description = "Repair the shop to access magic upgrades"
+town_square_repair_price = Vector3(1, 1, 1)
+town_square_repair_description = "Repair town square to unlock Rathaus"
+farm_repair_price = Vector3(1, 1, 1)
+farm_repair_description = "Farm will provide food for your villagers"
+houses_repair_price = Vector3(1, 1, 1)
+houses_repair_description = "Improve living conditions for your villagers"
+left_watchtower_repair_price = Vector3(1, 1, 1)
+left_watchtower_repair_description = "Villagers will feel more protected"
+right_watchtower_repair_price = Vector3(1, 1, 1)
+right_watchtower_repair_description = "Villagers will feel more protected"
+woodcutters_camp_repair_price = Vector3(1, 1, 1)
+woodcutters_camp_repair_description = "Woodcutters will cut and process the trees in the surrounding woods"
+stone_mine_repair_price = Vector3(1, 1, 1)
+stone_mine_repair_description = "Villagers will mine and process stone in nearby hills"
+iron_mine_repair_price = Vector3(1, 1, 1)
+iron_mine_repair_description = "Villagers will mine and process iron in nearby mountains"
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1918.0
@@ -496,6 +510,7 @@ texture = ExtResource("7_7f7t3")
 
 [node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/IronMine"]
 visible = false
+z_index = 1
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
@@ -909,6 +924,9 @@ texture = ExtResource("11_e5fm4")
 
 [connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="EnterTheDungeon" to="." method="_on_enter_the_dungeon_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_pressed"]
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/Church" to="." method="_on_church_mouse_entered"]
 [connection signal="mouse_exited" from="TownRepair/VBoxContainer/Church" to="." method="_on_church_mouse_exited"]
 [connection signal="pressed" from="TownRepair/VBoxContainer/Church" to="." method="_on_church_pressed"]
@@ -924,4 +942,28 @@ texture = ExtResource("11_e5fm4")
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/Sorcerer" to="." method="_on_sorcerer_mouse_entered"]
 [connection signal="mouse_exited" from="TownRepair/VBoxContainer/Sorcerer" to="." method="_on_sorcerer_mouse_exited"]
 [connection signal="pressed" from="TownRepair/VBoxContainer/Sorcerer" to="." method="_on_sorcerer_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/TownSquare" to="." method="_on_town_square_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/TownSquare" to="." method="_on_town_square_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/TownSquare" to="." method="_on_town_square_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Farm" to="." method="_on_farm_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Farm" to="." method="_on_farm_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Farm" to="." method="_on_farm_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/Houses" to="." method="_on_houses_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/Houses" to="." method="_on_houses_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/Houses" to="." method="_on_houses_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/LeftWatchtower" to="." method="_on_left_watchtower_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/LeftWatchtower" to="." method="_on_left_watchtower_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/LeftWatchtower" to="." method="_on_left_watchtower_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/RightWatchtower" to="." method="_on_right_watchtower_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/RightWatchtower" to="." method="_on_right_watchtower_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/RightWatchtower" to="." method="_on_right_watchtower_pressed"]
+[connection signal="focus_exited" from="TownRepair/VBoxContainer/WoodcuttersCamp" to="." method="_on_woodcutters_camp_focus_exited"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/WoodcuttersCamp" to="." method="_on_woodcutters_camp_mouse_entered"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/WoodcuttersCamp" to="." method="_on_woodcutters_camp_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/StoneMine" to="." method="_on_stone_mine_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/StoneMine" to="." method="_on_stone_mine_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/StoneMine" to="." method="_on_stone_mine_pressed"]
+[connection signal="mouse_entered" from="TownRepair/VBoxContainer/IronMine" to="." method="_on_iron_mine_mouse_entered"]
+[connection signal="mouse_exited" from="TownRepair/VBoxContainer/IronMine" to="." method="_on_iron_mine_mouse_exited"]
+[connection signal="pressed" from="TownRepair/VBoxContainer/IronMine" to="." method="_on_iron_mine_pressed"]
 [connection signal="pressed" from="TownUpgrades/VBoxContainer/WeaponsmithUpgrade" to="." method="_on_weaponsmith_upgrade_pressed"]

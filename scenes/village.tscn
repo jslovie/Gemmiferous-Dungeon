@@ -1636,10 +1636,33 @@ rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
-[node name="Facilities" type="Node2D" parent="."]
+[node name="WeaponsmithShop" parent="." instance=ExtResource("67_hl5fj")]
+visible = false
+z_index = 0
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
+
+[node name="ArmourerShop" parent="." instance=ExtResource("68_rr3hs")]
+visible = false
+z_index = 0
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
+
+[node name="TavernShop" parent="." instance=ExtResource("69_j85mg")]
+visible = false
+z_index = 0
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
+
+[node name="Manor" parent="." instance=ExtResource("84_m554g")]
+visible = false
+position = Vector2(620, 315)
+scale = Vector2(0.2, 0.2)
+
+[node name="Wood" type="Node2D" parent="."]
 visible = false
 
-[node name="WoodLabel" type="Label" parent="Facilities"]
+[node name="WoodLabel" type="Label" parent="Wood"]
 unique_name_in_owner = true
 offset_left = 697.0
 offset_top = 459.0
@@ -1650,7 +1673,8 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="WoodButton" type="TextureButton" parent="Facilities"]
+[node name="WoodButton" type="TextureButton" parent="Wood"]
+unique_name_in_owner = true
 offset_left = 694.0
 offset_top = 440.0
 offset_right = 726.0
@@ -1659,7 +1683,10 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("70_n63o2")
 texture_hover = ExtResource("71_chpnx")
 
-[node name="StoneLabel" type="Label" parent="Facilities"]
+[node name="Stone" type="Node2D" parent="."]
+visible = false
+
+[node name="StoneLabel" type="Label" parent="Stone"]
 unique_name_in_owner = true
 offset_left = 920.0
 offset_top = 469.0
@@ -1670,7 +1697,8 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="StoneButton" type="TextureButton" parent="Facilities"]
+[node name="StoneButton" type="TextureButton" parent="Stone"]
+unique_name_in_owner = true
 offset_left = 917.0
 offset_top = 451.0
 offset_right = 949.0
@@ -1679,7 +1707,10 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("72_bwmem")
 texture_hover = ExtResource("73_y8ahp")
 
-[node name="IronLabel" type="Label" parent="Facilities"]
+[node name="Iron" type="Node2D" parent="."]
+visible = false
+
+[node name="IronLabel" type="Label" parent="Iron"]
 unique_name_in_owner = true
 offset_left = 839.0
 offset_top = 379.0
@@ -1690,7 +1721,8 @@ theme_override_fonts/font = ExtResource("59_xh1n5")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 
-[node name="IronButton" type="TextureButton" parent="Facilities"]
+[node name="IronButton" type="TextureButton" parent="Iron"]
+unique_name_in_owner = true
 offset_left = 835.0
 offset_top = 360.0
 offset_right = 867.0
@@ -1699,30 +1731,10 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("74_kehnc")
 texture_hover = ExtResource("75_aih4a")
 
-[node name="WeaponsmithShop" parent="." instance=ExtResource("67_hl5fj")]
-visible = false
-position = Vector2(620, 315)
-scale = Vector2(0.2, 0.2)
-
-[node name="ArmourerShop" parent="." instance=ExtResource("68_rr3hs")]
-visible = false
-position = Vector2(620, 315)
-scale = Vector2(0.2, 0.2)
-
-[node name="TavernShop" parent="." instance=ExtResource("69_j85mg")]
-visible = false
-position = Vector2(620, 315)
-scale = Vector2(0.2, 0.2)
-
-[node name="Manor" parent="." instance=ExtResource("84_m554g")]
-visible = false
-position = Vector2(620, 315)
-scale = Vector2(0.2, 0.2)
-
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Armourer" to="." method="_on_armourer_pressed"]
-[connection signal="pressed" from="Facilities/WoodButton" to="." method="_on_wood_button_pressed"]
-[connection signal="pressed" from="Facilities/StoneButton" to="." method="_on_stone_button_pressed"]
-[connection signal="pressed" from="Facilities/IronButton" to="." method="_on_iron_button_pressed"]
+[connection signal="pressed" from="Wood/WoodButton" to="." method="_on_wood_button_pressed"]
+[connection signal="pressed" from="Stone/StoneButton" to="." method="_on_stone_button_pressed"]
+[connection signal="pressed" from="Iron/IronButton" to="." method="_on_iron_button_pressed"]
