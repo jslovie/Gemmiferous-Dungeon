@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bskq4vyfqt56o" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_26.png" id="7_ryel4"]
 [ext_resource type="Texture2D" uid="uid://bou4j0s7ea3db" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_8.png" id="8_l82vw"]
 [ext_resource type="Texture2D" uid="uid://c4p8ubk6g55sx" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_7.png" id="9_fudty"]
-[ext_resource type="Texture2D" uid="uid://bwdqol5epvybo" path="res://assets/village/Gemmiferous_estate/manor3.png" id="9_p35dr"]
+[ext_resource type="Texture2D" uid="uid://f02cd0i26st4" path="res://assets/village/Gemmiferous_estate/manor0.png" id="9_qu75b"]
 [ext_resource type="Texture2D" uid="uid://c4884cgyligqh" path="res://assets/village/Gemmiferous_estate/manor0_highlighted.png" id="10_0vamv"]
 [ext_resource type="Texture2D" uid="uid://vay5kaj0e72v" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_2.png" id="10_4y20t"]
 [ext_resource type="Texture2D" uid="uid://bnufjwkr2uy77" path="res://assets/village/Trees - Bushes -Rocks/Trees_tile_5.png" id="11_ficdw"]
@@ -975,7 +975,7 @@ offset_left = 773.0
 offset_top = 359.0
 offset_right = 821.0
 offset_bottom = 407.0
-texture_normal = ExtResource("9_p35dr")
+texture_normal = ExtResource("9_qu75b")
 texture_hover = ExtResource("10_0vamv")
 
 [node name="Trees" type="Node2D" parent="VillageTiles"]

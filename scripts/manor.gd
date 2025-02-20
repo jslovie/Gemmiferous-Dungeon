@@ -75,42 +75,42 @@ func _process(delta):
 
 func update_checked():
 	if VillageManager.manor_lvl == 3 and VillageManager.houses_repaired == true:
-		$TownUpgrades/VBoxContainer/Houses.visible = true
+		$TownUpgrades/VBoxContainer/HousesUpgrade.visible = true
 	if VillageManager.manor_lvl == 3:
 		$TownRepair/VBoxContainer/Manor/Checked.visible = true
 		$TownRepair/VBoxContainer/Manor.disabled = true
-		$TownUpgrades/VBoxContainer/Lamps.visible = true
-		$TownUpgrades/VBoxContainer/Campfire.visible = true
+		$TownUpgrades/VBoxContainer/CampfireUpgrade.visible = true
+		$TownUpgrades/VBoxContainer/LampsUpgrade.visible = true
 	if VillageManager.church_repaired == true:
 		$TownRepair/VBoxContainer/Church/Checked.visible = true
 		$TownRepair/VBoxContainer/Church.disabled = true
 	if VillageManager.tavern_repaired == true:
 		$TownRepair/VBoxContainer/Tavern/Checked.visible = true
 		$TownRepair/VBoxContainer/Tavern.disabled = true
-		$TownUpgrades/VBoxContainer/Tavern.visible = true
+		$TownUpgrades/VBoxContainer/TavernUpgrade.visible = true
 	if VillageManager.weaponsmith_repaired == true:
 		$TownRepair/VBoxContainer/Weaponsmith/Checked.visible = true
 		$TownRepair/VBoxContainer/Weaponsmith.disabled = true
-		$TownUpgrades/VBoxContainer/Weaponsmith.visible = true
+		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade.visible = true
 	if VillageManager.armourer_repaired == true:
 		$TownRepair/VBoxContainer/Armourer/Checked.visible = true
 		$TownRepair/VBoxContainer/Armourer.disabled = true
-		$TownUpgrades/VBoxContainer/Armourer.visible = true
+		$TownUpgrades/VBoxContainer/ArmourerUpgrade.visible = true
 	if VillageManager.sorcerer_repaired == true:
 		$TownRepair/VBoxContainer/Sorcerer/Checked.visible = true
 		$TownRepair/VBoxContainer/Sorcerer.disabled = true
-		$TownUpgrades/VBoxContainer/Sorcerer.visible = true
+		$TownUpgrades/VBoxContainer/SorcererUpgrade.visible = true
 	if VillageManager.town_square_repaired == true:
 		$TownRepair/VBoxContainer/TownSquare/Checked.visible = true
 		$TownRepair/VBoxContainer/TownSquare.disabled = true
-		$TownUpgrades/VBoxContainer/Rathaus.visible = true
+		$TownUpgrades/VBoxContainer/RathausUpgrade.visible = true
 	if VillageManager.farm_repaired == true:
 		$TownRepair/VBoxContainer/Farm/Checked.visible = true
 		$TownRepair/VBoxContainer/Farm.disabled = true
-		$TownUpgrades/VBoxContainer/Farm.visible = true
+		$TownUpgrades/VBoxContainer/FarmUpgrade.visible = true
 	if VillageManager.houses_repaired == true:
 		$TownRepair/VBoxContainer/Houses/Checked.visible = true
-		$TownRepair/VBoxContainer/Houses.disabled = true
+		$TownUpgrades/VBoxContainer/HousesUpgrade.disabled = true
 	if VillageManager.left_watchtower_repaired == true:
 		$TownRepair/VBoxContainer/LeftWatchtower/Checked.visible = true
 		$TownRepair/VBoxContainer/LeftWatchtower.disabled = true
@@ -120,15 +120,15 @@ func update_checked():
 	if VillageManager.woodcutters_camp_repaired == true:
 		$TownRepair/VBoxContainer/WoodcuttersCamp/Checked.visible = true
 		$TownRepair/VBoxContainer/WoodcuttersCamp.disabled = true
-		$TownUpgrades/VBoxContainer/Woodcutters.visible = true
+		$TownUpgrades/VBoxContainer/WoodcuttersUpgrade.visible = true
 	if VillageManager.stone_mine_repaired == true:
 		$TownRepair/VBoxContainer/StoneMine/Checked.visible = true
 		$TownRepair/VBoxContainer/StoneMine.disabled = true
-		$TownUpgrades/VBoxContainer/StoneMine.visible = true
+		$TownUpgrades/VBoxContainer/StoneMineUpgrade.visible = true
 	if VillageManager.iron_mine_repaired == true:
 		$TownRepair/VBoxContainer/IronMine/Checked.visible = true
 		$TownRepair/VBoxContainer/IronMine.disabled = true
-		$TownUpgrades/VBoxContainer/IronMine.visible = true
+		$TownUpgrades/VBoxContainer/IronMineUpgrade.visible = true
 
 
 
@@ -498,9 +498,9 @@ func _on_iron_mine_mouse_exited():
 	$Cost.visible = false
 
 func update_text():
-	$TownUpgrades/VBoxContainer/Weaponsmith/Label.text = "Upgrade Weaponsmith lvl " + str(VillageManager.weaponsmith_lvl)
+	$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.text = "Upgrade Weaponsmith lvl " + str(VillageManager.weaponsmith_lvl)
 	if VillageManager.weaponsmith_lvl > 3:
-		$TownUpgrades/VBoxContainer/Weaponsmith/Label.text = "Upgrade Weaponsmith"
+		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.text = "Upgrade Weaponsmith"
 
 
 #############################################################################################################################

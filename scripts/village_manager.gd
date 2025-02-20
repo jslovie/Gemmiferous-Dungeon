@@ -22,8 +22,13 @@ var manor_lvl = 0
 var tavern_lvl = 1
 var weaponsmith_lvl = 1
 var armourer_lvl = 1
-
+var sorcerer_lvl = 1
+var woodcutters_lvl = 1
+var stone_mine_lvl = 1
+var iron_mine_lvl = 1
+var rathaus_lvl = 1
 var farm_lvl = 1
+var houses_lvl = 1
 
 #Buildings state
 var church_repaired = false
@@ -39,6 +44,9 @@ var right_watchtower_repaired = false
 var woodcutters_camp_repaired = false
 var stone_mine_repaired = false
 var iron_mine_repaired = false
+var lamps_built = false
+var campfire_built = false
+
 
 #Item levels
 var axe_item_lvl = 1
