@@ -24,36 +24,42 @@ offset_right = 1238.0
 offset_bottom = 727.0
 
 [node name="AxeShopItem" parent="." index="7" instance=ExtResource("2_p8ga0")]
+z_index = 0
 offset_left = 650.0
 offset_top = 530.0
 offset_right = 763.0
 offset_bottom = 645.0
 
 [node name="SwordShopItem" parent="." index="8" instance=ExtResource("3_l6v7w")]
+z_index = 0
 offset_left = 650.0
 offset_top = 350.0
 offset_right = 763.0
 offset_bottom = 465.0
 
 [node name="BowShopItem" parent="." index="9" instance=ExtResource("4_4ws4j")]
+z_index = 0
 offset_left = 800.0
 offset_top = 350.0
 offset_right = 913.0
 offset_bottom = 465.0
 
 [node name="MaceShopItem" parent="." index="10" instance=ExtResource("5_te0mp")]
+z_index = 0
 offset_left = 800.0
 offset_top = 530.0
 offset_right = 913.0
 offset_bottom = 645.0
 
 [node name="LongswordShopItem" parent="." index="11" instance=ExtResource("6_k5f0f")]
+z_index = 0
 offset_left = 1019.0
 offset_top = 350.0
 offset_right = 1132.0
 offset_bottom = 465.0
 
 [node name="DaggerShopItem" parent="." index="12" instance=ExtResource("7_5hpwb")]
+z_index = 0
 offset_left = 1165.0
 offset_top = 350.0
 offset_right = 1278.0

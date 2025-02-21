@@ -28,7 +28,7 @@ var stone_mine_lvl = 1
 var iron_mine_lvl = 1
 var rathaus_lvl = 1
 var farm_lvl = 1
-var houses_lvl = 1
+var build_houses = 0
 
 #Buildings state
 var church_repaired = false

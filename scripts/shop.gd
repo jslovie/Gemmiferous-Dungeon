@@ -7,7 +7,8 @@ extends Node2D
 func _ready():
 	$ShopNameLabel.text = shop_name
 	
-
+func _process(delta):
+	update_level()
 
 func _on_exit_shop_pressed():
 	visible = false
@@ -19,3 +20,7 @@ func _on_card_game_pressed():
 
 func _on_upgrade_pressed():
 	pass
+
+func update_level():
+	if shop_name == "Weaponsmith":
+		$Level.text = "Level: " + str(VillageManager.weaponsmith_lvl)

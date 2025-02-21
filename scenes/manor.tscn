@@ -46,6 +46,8 @@ stone_mine_repair_price = Vector3(1, 1, 1)
 stone_mine_repair_description = "Villagers will mine and process stone in nearby hills"
 iron_mine_repair_price = Vector3(1, 1, 1)
 iron_mine_repair_description = "Villagers will mine and process iron in nearby mountains"
+weaponsmith1_upgrade_price = Vector3(10, 10, 10)
+weaponsmith2_upgrade_price = Vector3(20, 20, 20)
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1918.0
@@ -534,9 +536,9 @@ texture = ExtResource("8_v17bp")
 [node name="TownUpgrades" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1001.0
+offset_left = 993.0
 offset_top = 339.0
-offset_right = 1041.0
+offset_right = 1033.0
 offset_bottom = 379.0
 
 [node name="TownUpgradesHeader" type="Label" parent="TownUpgrades"]

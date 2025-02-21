@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="5_vxtrs"]
 
 [node name="ShopItem" type="TextureButton"]
+z_index = 10
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.8, 0.8)
@@ -89,6 +90,7 @@ text = ": 999"
 
 [node name="LowLevelLabel" type="Label" parent="LowLevel"]
 visible = false
+z_index = 2
 offset_left = -70.0
 offset_top = 45.0
 offset_right = 204.0
@@ -102,6 +104,7 @@ text = "Shop level too low!"
 
 [node name="NotEnoughLabel" type="Label" parent="NotEnough"]
 visible = false
+z_index = 2
 offset_left = -70.0
 offset_top = 45.0
 offset_right = 204.0

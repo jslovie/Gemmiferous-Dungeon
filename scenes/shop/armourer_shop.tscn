@@ -12,18 +12,21 @@ shop_name = "Armourer"
 text = "Armourer"
 
 [node name="ShieldInitShopItem" parent="." index="7" instance=ExtResource("2_3v78t")]
+z_index = 0
 offset_left = 733.0
 offset_top = 363.0
 offset_right = 846.0
 offset_bottom = 478.0
 
 [node name="ShieldLoadShopItem" parent="." index="8" instance=ExtResource("3_w0ghx")]
+z_index = 0
 offset_left = 733.0
 offset_top = 536.0
 offset_right = 846.0
 offset_bottom = 651.0
 
 [node name="ShieldMaxShopItem" parent="." index="9" instance=ExtResource("4_062sn")]
+z_index = 0
 offset_left = 1091.0
 offset_top = 363.0
 offset_right = 1204.0

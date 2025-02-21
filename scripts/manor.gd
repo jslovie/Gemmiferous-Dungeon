@@ -35,16 +35,12 @@ extends Node2D
 #Upgrades
 @export var tavern1_upgrade_price : Vector3
 @export var tavern2_upgrade_price : Vector3
-@export var tavern3_upgrade_price : Vector3
 @export var weaponsmith1_upgrade_price : Vector3
 @export var weaponsmith2_upgrade_price : Vector3
-@export var weaponsmith3_upgrade_price : Vector3
 @export var armourer1_upgrade_price : Vector3
 @export var armourer2_upgrade_price : Vector3
-@export var armourer3_upgrade_price : Vector3
 @export var sorcerer1_upgrade_price : Vector3
 @export var sorcerer2_upgrade_price : Vector3
-@export var sorcerer3_upgrade_price : Vector3
 @export var woodcutters_camp1_upgrade_price : Vector3
 @export var woodcutters_camp2_upgrade_price : Vector3
 @export var woodcutters_camp3_upgrade_price : Vector3
@@ -68,7 +64,7 @@ extends Node2D
 @export var houses4_upgrade_price : Vector3
 
 func _process(delta):
-	update_text()
+	update_upgrade_text()
 	update_checked()
 	check_manor_level()
 	manor_button()
@@ -110,7 +106,7 @@ func update_checked():
 		$TownUpgrades/VBoxContainer/FarmUpgrade.visible = true
 	if VillageManager.houses_repaired == true:
 		$TownRepair/VBoxContainer/Houses/Checked.visible = true
-		$TownUpgrades/VBoxContainer/HousesUpgrade.disabled = true
+		$TownRepair/VBoxContainer/Houses.disabled = true
 	if VillageManager.left_watchtower_repaired == true:
 		$TownRepair/VBoxContainer/LeftWatchtower/Checked.visible = true
 		$TownRepair/VBoxContainer/LeftWatchtower.disabled = true
@@ -129,9 +125,20 @@ func update_checked():
 		$TownRepair/VBoxContainer/IronMine/Checked.visible = true
 		$TownRepair/VBoxContainer/IronMine.disabled = true
 		$TownUpgrades/VBoxContainer/IronMineUpgrade.visible = true
-
-
-
+	if VillageManager.weaponsmith_lvl == 3:
+		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Checked.visible = true
+		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade.disabled = true
+	if VillageManager.campfire_built == true:
+		$TownUpgrades/VBoxContainer/CampfireUpgrade/Checked.visible = true
+		$TownUpgrades/VBoxContainer/CampfireUpgrade.disabled = true
+	if VillageManager.lamps_built == true:
+		$TownUpgrades/VBoxContainer/LampsUpgrade/Checked.visible = true
+		$TownUpgrades/VBoxContainer/LampsUpgrade.disabled = true
+	if VillageManager.build_houses == 4:
+		$TownUpgrades/VBoxContainer/HousesUpgrade/Checked.visible = true
+		$TownUpgrades/VBoxContainer/HousesUpgrade.disabled = true
+		
+		
 func check_enough_material(wood,stone,iron):
 	if PlayerManager.player.total_wood >= wood and PlayerManager.player.total_stone >= stone and PlayerManager.player.total_iron >= iron:
 		return true
@@ -157,7 +164,7 @@ func _on_enter_the_dungeon_pressed():
 
 func _on_exit_shop_pressed():
 	visible = false
-
+	
 
 func manor_button():
 	if VillageManager.manor_lvl == 0:
@@ -185,7 +192,7 @@ func check_manor_level():
 		$TownRepair/VBoxContainer/Houses.visible = true
 		$TownRepair/VBoxContainer/LeftWatchtower.visible = true
 		$TownRepair/VBoxContainer/RightWatchtower.visible = true
-	elif VillageManager.manor_lvl == 2:
+	elif VillageManager.manor_lvl == 3:
 		$TownRepair/VBoxContainer/Church.visible = true
 		$TownRepair/VBoxContainer/Tavern.visible = true
 		$TownRepair/VBoxContainer/Weaponsmith.visible = true
@@ -497,46 +504,165 @@ func _on_iron_mine_mouse_entered():
 func _on_iron_mine_mouse_exited():
 	$Cost.visible = false
 
-func update_text():
-	$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.text = "Upgrade Weaponsmith lvl " + str(VillageManager.weaponsmith_lvl)
-	if VillageManager.weaponsmith_lvl > 3:
-		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.text = "Upgrade Weaponsmith"
-
 
 #############################################################################################################################
 ##Upgrades##
 
+
+func update_upgrade_text():
+	$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.text = "Upgrade Weaponsmith to lvl " + str(VillageManager.weaponsmith_lvl + 1)
+	if VillageManager.weaponsmith_lvl == 3:
+		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.text = "Upgrade Weaponsmith"
+	$TownUpgrades/VBoxContainer/TavernUpgrade/Label.text = "Upgrade Tavern to lvl " + str(VillageManager.tavern_lvl + 1)
+	if VillageManager.tavern_lvl == 3:
+		$TownUpgrades/VBoxContainer/TavernUpgrade/Label.text = "Upgrade Tavern"
+	$TownUpgrades/VBoxContainer/HousesUpgrade/Label.text = "Build new houses lvl " + str(VillageManager.build_houses)
+	if VillageManager.build_houses == 4:
+		$TownUpgrades/VBoxContainer/HousesUpgrade/Label.text = "Build new houses"
+	
 #Tavern upgrade
 func _on_tavern_upgrade_pressed():
-	pass # Replace with function body.
+	if VillageManager.tavern_lvl == 1:
+		if check_enough_material(tavern1_upgrade_price.x,tavern1_upgrade_price.y,tavern1_upgrade_price.z):
+			process_cost(tavern1_upgrade_price.x,tavern1_upgrade_price.y,tavern1_upgrade_price.z)
+			VillageManager.tavern_lvl = 2
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
+	if VillageManager.tavern_lvl == 2:
+		if check_enough_material(tavern2_upgrade_price.x,tavern2_upgrade_price.y,tavern2_upgrade_price.z):
+			process_cost(tavern2_upgrade_price.x,tavern2_upgrade_price.y,tavern2_upgrade_price.z)
+			VillageManager.tavern_lvl = 3
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
 func _on_tavern_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.tavern_lvl == 3:
+		$Cost.visible = false
+	elif VillageManager.tavern_lvl == 1:
+		$Cost.visible = true
+		%Wood.text = str(tavern1_upgrade_price.x)
+		%Stone.text = str(tavern1_upgrade_price.y)
+		%Iron.text = str(tavern1_upgrade_price.z)
+		$Cost/Description.text = "Upgrade tavern to level 2 and access new upgrades"
+	elif VillageManager.tavern_lvl == 2:
+		$Cost.visible = true
+		%Wood.text = str(tavern2_upgrade_price.x)
+		%Stone.text = str(tavern2_upgrade_price.y)
+		%Iron.text = str(tavern2_upgrade_price.z)
+		$Cost/Description.text = "Upgrade tavern to level 3 and access new upgrades"
 func _on_tavern_upgrade_mouse_exited():
-	pass # Replace with function body.
+	$Cost.visible = false
 
 #Weaponsmith upgrade
 func _on_weaponsmith_upgrade_pressed():
-	pass # Replace with function body.
+	if VillageManager.weaponsmith_lvl == 1:
+		if check_enough_material(weaponsmith1_upgrade_price.x,weaponsmith1_upgrade_price.y,weaponsmith1_upgrade_price.z):
+			process_cost(weaponsmith1_upgrade_price.x,weaponsmith1_upgrade_price.y,weaponsmith1_upgrade_price.z)
+			VillageManager.weaponsmith_lvl = 2
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
+	if VillageManager.weaponsmith_lvl == 2:
+		if check_enough_material(weaponsmith2_upgrade_price.x,weaponsmith2_upgrade_price.y,weaponsmith2_upgrade_price.z):
+			process_cost(weaponsmith2_upgrade_price.x,weaponsmith2_upgrade_price.y,weaponsmith2_upgrade_price.z)
+			VillageManager.weaponsmith_lvl = 3
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
 func _on_weaponsmith_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.weaponsmith_lvl == 3:
+		$Cost.visible = false
+	elif VillageManager.weaponsmith_lvl == 1:
+		$Cost.visible = true
+		%Wood.text = str(weaponsmith1_upgrade_price.x)
+		%Stone.text = str(weaponsmith1_upgrade_price.y)
+		%Iron.text = str(weaponsmith1_upgrade_price.z)
+		$Cost/Description.text = "Upgrade weaponsmith shop to level 2 and access new upgrades"
+	elif VillageManager.weaponsmith_lvl == 2:
+		$Cost.visible = true
+		%Wood.text = str(weaponsmith2_upgrade_price.x)
+		%Stone.text = str(weaponsmith2_upgrade_price.y)
+		%Iron.text = str(weaponsmith2_upgrade_price.z)
+		$Cost/Description.text = "Upgrade weaponsmith shop to level 3 and access new upgrades"
 func _on_weaponsmith_upgrade_mouse_exited():
-	pass # Replace with function body.
+	$Cost.visible = false
 
 #Armourer upgrade
 func _on_armourer_upgrade_pressed():
-	pass # Replace with function body.
+	if VillageManager.armourer_lvl == 1:
+		if check_enough_material(armourer1_upgrade_price.x,armourer1_upgrade_price.y,armourer1_upgrade_price.z):
+			process_cost(armourer1_upgrade_price.x,armourer1_upgrade_price.y,armourer1_upgrade_price.z)
+			VillageManager.armourer_lvl = 2
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
+	if VillageManager.armourer_lvl == 2:
+		if check_enough_material(armourer2_upgrade_price.x,armourer2_upgrade_price.y,armourer2_upgrade_price.z):
+			process_cost(armourer2_upgrade_price.x,armourer2_upgrade_price.y,armourer2_upgrade_price.z)
+			VillageManager.armourer_lvl = 3
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
 func _on_armourer_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.armourer_lvl == 3:
+		$Cost.visible = false
+	elif VillageManager.armourer_lvl == 1:
+		$Cost.visible = true
+		%Wood.text = str(armourer1_upgrade_price.x)
+		%Stone.text = str(armourer1_upgrade_price.y)
+		%Iron.text = str(armourer1_upgrade_price.z)
+		$Cost/Description.text = "Upgrade armourer shop to level 2 and access new upgrades"
+	elif VillageManager.armourer_lvl == 2:
+		$Cost.visible = true
+		%Wood.text = str(armourer2_upgrade_price.x)
+		%Stone.text = str(armourer2_upgrade_price.y)
+		%Iron.text = str(armourer2_upgrade_price.z)
+		$Cost/Description.text = "Upgrade armourer shop to level 3 and access new upgrades"
 func _on_armourer_upgrade_mouse_exited():
-	pass # Replace with function body.
+	$Cost.visible = false
 
 #Sorcere upgrade
 func _on_sorcerer_upgrade_pressed():
-	pass # Replace with function body.
+	if VillageManager.sorcerer_lvl == 1:
+		if check_enough_material(sorcerer1_upgrade_price.x,sorcerer1_upgrade_price.y,sorcerer1_upgrade_price.z):
+			process_cost(sorcerer1_upgrade_price.x,sorcerer1_upgrade_price.y,sorcerer1_upgrade_price.z)
+			VillageManager.sorcerer_lvl = 2
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
+	if VillageManager.sorcerer_lvl == 2:
+		if check_enough_material(sorcerer2_upgrade_price.x,sorcerer2_upgrade_price.y,sorcerer2_upgrade_price.z):
+			process_cost(sorcerer2_upgrade_price.x,sorcerer2_upgrade_price.y,sorcerer2_upgrade_price.z)
+			VillageManager.sorcerer_lvl = 3
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
 func _on_sorcerer_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.sorcerer_lvl == 3:
+		$Cost.visible = false
+	elif VillageManager.sorcerer_lvl == 1:
+		$Cost.visible = true
+		%Wood.text = str(sorcerer1_upgrade_price.x)
+		%Stone.text = str(sorcerer1_upgrade_price.y)
+		%Iron.text = str(sorcerer1_upgrade_price.z)
+		$Cost/Description.text = "Upgrade sorcerer shop to level 2 and access new upgrades"
+	elif VillageManager.sorcerer_lvl == 2:
+		$Cost.visible = true
+		%Wood.text = str(sorcerer2_upgrade_price.x)
+		%Stone.text = str(sorcerer2_upgrade_price.y)
+		%Iron.text = str(sorcerer2_upgrade_price.z)
+		$Cost/Description.text = "Upgrade sorcerer shop to level 3 and access new upgrades"
 func _on_sorcerer_upgrade_mouse_exited():
-	pass # Replace with function body.
+	$Cost.visible = false
 
 #Woodcutters upgrade
 func _on_woodcutters_upgrade_pressed():
@@ -580,24 +706,104 @@ func _on_farm_upgrade_mouse_exited():
 
 #Lamp upgrade
 func _on_lamps_upgrade_pressed():
-	pass # Replace with function body.
+	if check_enough_material(lamp_upgrade_price.x,lamp_upgrade_price.y,lamp_upgrade_price.z):
+		process_cost(lamp_upgrade_price.x,lamp_upgrade_price.y,lamp_upgrade_price.z)
+		VillageManager.lamps_built = true
+	else:
+		not_enough()
 func _on_lamps_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.lamps_built == true:
+		$Cost.visible = false
+	else:
+		$Cost.visible = true
+		%Wood.text = str(lamp_upgrade_price.x)
+		%Stone.text = str(lamp_upgrade_price.y)
+		%Iron.text = str(lamp_upgrade_price.z)
+		$Cost/Description.text = "Bring more light and happiness to your village"
 func _on_lamps_upgrade_mouse_exited():
-	pass # Replace with function body.
+	$Cost.visible = false
 
 #Campfire upgrade
 func _on_campfire_upgrade_pressed():
-	pass # Replace with function body.
+	if check_enough_material(campfire_upgrade_price.x,campfire_upgrade_price.y,campfire_upgrade_price.z):
+		process_cost(campfire_upgrade_price.x,campfire_upgrade_price.y,campfire_upgrade_price.z)
+		VillageManager.campfire_built = true
+	else:
+		not_enough()
 func _on_campfire_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.campfire_built == true:
+		$Cost.visible = false
+	else:
+		$Cost.visible = true
+		%Wood.text = str(campfire_upgrade_price.x)
+		%Stone.text = str(campfire_upgrade_price.y)
+		%Iron.text = str(campfire_upgrade_price.z)
+		$Cost/Description.text = "Build campfire for your villagers to gather around"
 func _on_campfire_upgrade_mouse_exited():
-	pass # Replace with function body.
-
+	$Cost.visible = false
+	
 #Houses upgrade
 func _on_houses_upgrade_pressed():
-	pass # Replace with function body.
+	print("click")
+	if VillageManager.build_houses == 0:
+		if check_enough_material(houses1_upgrade_price.x,houses1_upgrade_price.y,houses1_upgrade_price.z):
+			process_cost(houses1_upgrade_price.x,houses1_upgrade_price.y,houses1_upgrade_price.z)
+			VillageManager.build_houses = 1
+			SaveManager.savefilesave()
+			print("level 1")
+			return
+		else:
+			not_enough()
+	if VillageManager.build_houses == 1:
+		if check_enough_material(houses2_upgrade_price.x,houses2_upgrade_price.y,houses2_upgrade_price.z):
+			process_cost(houses2_upgrade_price.x,houses2_upgrade_price.y,houses2_upgrade_price.z)
+			VillageManager.build_houses = 2
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
+	if VillageManager.build_houses == 2:
+		if check_enough_material(houses3_upgrade_price.x,houses3_upgrade_price.y,houses3_upgrade_price.z):
+			process_cost(houses3_upgrade_price.x,houses3_upgrade_price.y,houses3_upgrade_price.z)
+			VillageManager.build_houses = 3
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
+	if VillageManager.build_houses == 3:
+		if check_enough_material(houses4_upgrade_price.x,houses4_upgrade_price.y,houses4_upgrade_price.z):
+			process_cost(houses4_upgrade_price.x,houses4_upgrade_price.y,houses4_upgrade_price.z)
+			VillageManager.build_houses = 4
+			SaveManager.savefilesave()
+			return
+		else:
+			not_enough()
 func _on_houses_upgrade_mouse_entered():
-	pass # Replace with function body.
+	if VillageManager.build_houses == 4:
+		$Cost.visible = false
+	elif VillageManager.build_houses == 0:
+		$Cost.visible = true
+		%Wood.text = str(houses1_upgrade_price.x)
+		%Stone.text = str(houses1_upgrade_price.y)
+		%Iron.text = str(houses1_upgrade_price.z)
+		$Cost/Description.text = "Build new houses for your villagers"
+	elif VillageManager.build_houses == 1:
+		$Cost.visible = true
+		%Wood.text = str(houses2_upgrade_price.x)
+		%Stone.text = str(houses2_upgrade_price.y)
+		%Iron.text = str(houses2_upgrade_price.z)
+		$Cost/Description.text = "Build new houses for your villagers"	
+	elif VillageManager.build_houses == 2:
+		$Cost.visible = true
+		%Wood.text = str(houses3_upgrade_price.x)
+		%Stone.text = str(houses3_upgrade_price.y)
+		%Iron.text = str(houses3_upgrade_price.z)
+		$Cost/Description.text = "Build new houses for your villagers"	
+	elif VillageManager.build_houses == 3:
+		$Cost.visible = true
+		%Wood.text = str(houses4_upgrade_price.x)
+		%Stone.text = str(houses4_upgrade_price.y)
+		%Iron.text = str(houses4_upgrade_price.z)
+		$Cost/Description.text = "Build new houses for your villagers"	
 func _on_houses_upgrade_mouse_exited():
-	pass # Replace with function body.
+	$Cost.visible = false

@@ -1646,19 +1646,19 @@ texture = ExtResource("74_1lufa")
 
 [node name="WeaponsmithShop" parent="." instance=ExtResource("67_hl5fj")]
 visible = false
-z_index = 0
+z_index = 2
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)
 
 [node name="ArmourerShop" parent="." instance=ExtResource("68_rr3hs")]
 visible = false
-z_index = 0
+z_index = 2
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)
 
 [node name="TavernShop" parent="." instance=ExtResource("69_j85mg")]
 visible = false
-z_index = 0
+z_index = 2
 position = Vector2(620, 315)
 scale = Vector2(0.2, 0.2)
 

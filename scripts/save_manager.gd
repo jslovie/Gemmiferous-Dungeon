@@ -197,5 +197,5 @@ func load_savefile():
 	savefile_data.materials.total_wood, savefile_data.materials.total_stone, savefile_data.materials.total_iron, 
 	savefile_data.player_data.upgraded_axe_damage_x, savefile_data.player_data.upgraded_axe_damage_y)
 	
-	VillageManager.set_village_stats(savefile_data.village.weaponsmith_lvl, savefile_data.village.tavern_lvl,
+	VillageManager.set_village_stats(savefile_data.village.tavern_lvl, savefile_data.village.weaponsmith_lvl,
 	savefile_data.village.armourer_lvl, savefile_data.village.axe_item_lvl)

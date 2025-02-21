@@ -91,7 +91,37 @@ func check_buildings_state():
 	if VillageManager.iron_mine_repaired == true:
 		$VillageTiles/Shops/IronMine.visible = true
 		$Iron.visible = true
-
+	if VillageManager.campfire_built == true:
+		$VillageTiles/Bonfire.visible = true
+	if VillageManager.lamps_built == true:
+		$VillageTiles/Lamps.visible = true
+	if VillageManager.build_houses == 1:
+		$VillageTiles/Houses/DoubleHouses.visible = true
+		$VillageTiles/Houses/House.visible = true
+	elif VillageManager.build_houses == 2:
+		$VillageTiles/Houses/DoubleHouses.visible = true
+		$VillageTiles/Houses/House.visible = true
+		$VillageTiles/Houses/BigHouse.visible = true
+		$VillageTiles/Houses/House2.visible = true
+	elif VillageManager.build_houses == 3:
+		$VillageTiles/Houses/DoubleHouses.visible = true
+		$VillageTiles/Houses/House.visible = true
+		$VillageTiles/Houses/BigHouse.visible = true
+		$VillageTiles/Houses/House2.visible = true
+		$VillageTiles/Houses/House3.visible = true
+		$VillageTiles/Houses/House4.visible = true
+	elif VillageManager.build_houses == 4:
+		$VillageTiles/Houses/DoubleHouses.visible = true
+		$VillageTiles/Houses/House.visible = true
+		$VillageTiles/Houses/BigHouse.visible = true
+		$VillageTiles/Houses/House2.visible = true
+		$VillageTiles/Houses/House3.visible = true
+		$VillageTiles/Houses/House4.visible = true
+		$VillageTiles/Houses/House5.visible = true
+		$VillageTiles/Houses/House6.visible = true
+		$VillageTiles/Houses/DoubleHouses2.visible = true
+		
+		
 func repair_estate():
 	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")
 	$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor_highlighted.png")
