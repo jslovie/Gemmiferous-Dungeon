@@ -13,6 +13,6 @@ color = "magic"
 [node name="Panel" parent="." index="1"]
 color = Color(0.123505, 0.312147, 0.554688, 1)
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="3"]
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_dj0fy")

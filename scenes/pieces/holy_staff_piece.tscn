@@ -5,6 +5,7 @@
 
 [node name="HolyStaffPiece" instance=ExtResource("1_ikymh")]
 color = "holy staff"
+background_color = Vector3(1, 0.953, 0.69)
 
 [node name="TextureRect" parent="." index="2"]
 modulate = Color(1, 0.9535, 0.69, 1)

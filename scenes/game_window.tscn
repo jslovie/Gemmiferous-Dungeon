@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=27 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_pg7vj"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
 [ext_resource type="Texture2D" uid="uid://m3vjmbmur66h" path="res://assets/32rogues/pieces/health_potion.png" id="9_d7cj6"]
+[ext_resource type="PackedScene" uid="uid://cbcqd1f6tddcc" path="res://scenes/camera_2d.tscn" id="9_gkok3"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
 [ext_resource type="Texture2D" uid="uid://u775rcwdc28k" path="res://assets/32rogues/pieces/antivenom_potion.png" id="10_x7hk7"]
 [ext_resource type="Texture2D" uid="uid://bxfk20l7rw1x2" path="res://assets/32rogues/pieces/strenght_potion.png" id="11_7i0tj"]
@@ -17,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dmdome0cw4agd" path="res://assets/32rogues/pieces/shield.png" id="13_4f4qt"]
 [ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="13_wcutr"]
 [ext_resource type="PackedScene" uid="uid://bjjktcnjegl47" path="res://scenes/GUI/player_win.tscn" id="14_w782t"]
+[ext_resource type="Texture2D" uid="uid://x1b6fvtydon6" path="res://assets/32rogues/pieces/bleed.png" id="16_tkke6"]
+[ext_resource type="Texture2D" uid="uid://dy7r7mo4dhe5s" path="res://assets/32rogues/pieces/poison.png" id="17_dst1s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
@@ -294,8 +297,7 @@ unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 512)
+[node name="Camera2D" parent="." instance=ExtResource("9_gkok3")]
 
 [node name="Resolution" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -546,6 +548,30 @@ theme_override_fonts/font = ExtResource("5_pg7vj")
 text = "20"
 horizontal_alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud/EnemyHealth"]
+layout_mode = 0
+offset_left = -73.5
+offset_top = 7.0
+offset_right = -33.5
+offset_bottom = 47.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Bleed" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Bleed"]
+texture = ExtResource("16_tkke6")
+
+[node name="Poison" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Poison"]
+texture = ExtResource("17_dst1s")
+
 [node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
 visible = false
 offset_left = 287.0
@@ -580,6 +606,7 @@ offset_right = 285.0
 offset_bottom = 514.0
 scale = Vector2(1.2, 1.2)
 
+[connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_grid_camera_effect"]
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]

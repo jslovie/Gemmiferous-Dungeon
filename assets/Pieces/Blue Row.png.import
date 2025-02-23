@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c64g4komaglqp"
-path="res://.godot/imported/Blue Row.png-4c38268c57f7f9007c21acedcbf0c9ee.ctex"
+path="res://.godot/imported/Blue Row.png-a9e40216f77f1285a07140d527c5dc7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Blue Row.png"
-dest_files=["res://.godot/imported/Blue Row.png-4c38268c57f7f9007c21acedcbf0c9ee.ctex"]
+source_file="res://assets/pieces/Blue Row.png"
+dest_files=["res://.godot/imported/Blue Row.png-a9e40216f77f1285a07140d527c5dc7b.ctex"]
 
 [params]
 

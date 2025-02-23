@@ -68,6 +68,11 @@ speed_scale = 4.0
 [node name="RageTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="EnemyDebuffTimer" type="Timer" parent="."]
+
+[node name="EnemyDebuffTimerEnd" type="Timer" parent="."]
+one_shot = true
+
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -86,3 +91,5 @@ theme_override_font_sizes/font_size = 64
 text = "999	"
 
 [connection signal="timeout" from="RageTimer" to="." method="_on_rage_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimer" to="." method="_on_enemy_debuff_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimerEnd" to="." method="_on_enemy_debuff_timer_end_timeout"]

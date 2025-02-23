@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tgp54hxdtbxu"
-path="res://.godot/imported/Front.png-41c002302f716ff98e7390dd4014a4c9.ctex"
+path="res://.godot/imported/Front.png-2e5f11748f3f4e66447170c60ddc417b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Paper UI/Bars & Buttons/Bar2/Front.png"
-dest_files=["res://.godot/imported/Front.png-41c002302f716ff98e7390dd4014a4c9.ctex"]
+source_file="res://assets/paper UI/Bars & Buttons/Bar2/Front.png"
+dest_files=["res://.godot/imported/Front.png-2e5f11748f3f4e66447170c60ddc417b.ctex"]
 
 [params]
 

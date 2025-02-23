@@ -3,6 +3,7 @@ extends CanvasLayer
 const SAVE_PATH = "user://"
 
 func _ready():
+	$GameTitle.add_theme_color_override("font_color", Color.DARK_ORANGE)
 	if FileAccess.file_exists(SAVE_PATH + "savefile.sav"):
 		SaveManager.load_savefile()
 	else:
@@ -11,8 +12,10 @@ func _ready():
 func _process(_delta):
 	if SaveManager.save_file == true:
 		$StartGame.text = "Continue"
+		$Buttons/StartGameNew/Label.text = "Continue"
 	else:
 		$StartGame.text = "New Game"
+		$Buttons/StartGameNew/Label.text = "New Game"
 
 func create_test_game():
 	SaveManager.save_file = true
@@ -69,3 +72,33 @@ func _on_remove_pressed():
 	SaveManager.remove_savefile()
 	SaveManager.reset_savefile()
 	VillageManager.reset_village_stats()
+
+
+func _on_start_game_new_pressed():
+	if SaveManager.save_file == false:
+		handle_new_game()
+	else:
+		handle_continue_game()
+
+
+func _on_options_new_pressed():
+	pass # Replace with function body.
+
+
+func _on_quit_game_new_pressed():
+	SaveManager.remove_autosave()
+	get_tree().quit()
+
+
+func _on_start_game_new_mouse_entered():
+	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+func _on_start_game_new_mouse_exited():
+	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_options_new_mouse_entered():
+	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+func _on_options_new_mouse_exited():
+	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_quit_game_new_mouse_entered():
+	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+func _on_quit_game_new_mouse_exited():
+	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.WHITE)

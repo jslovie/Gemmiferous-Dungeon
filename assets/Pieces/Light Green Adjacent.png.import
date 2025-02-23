@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca1pmdbwn8w6x"
-path="res://.godot/imported/Light Green Adjacent.png-b9f98e030ad9ec9b55b85fef1500ea5c.ctex"
+path="res://.godot/imported/Light Green Adjacent.png-eb1518e917de10bc1e2e536120b5f58c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Light Green Adjacent.png"
-dest_files=["res://.godot/imported/Light Green Adjacent.png-b9f98e030ad9ec9b55b85fef1500ea5c.ctex"]
+source_file="res://assets/pieces/Light Green Adjacent.png"
+dest_files=["res://.godot/imported/Light Green Adjacent.png-eb1518e917de10bc1e2e536120b5f58c.ctex"]
 
 [params]
 

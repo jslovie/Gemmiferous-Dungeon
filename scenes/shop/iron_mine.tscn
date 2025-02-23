@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2kdfvxvmuiu6"]
 
 [ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_omnnk"]
-[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/Paper UI/Paper/Menu1.png" id="2_imvu5"]
+[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/paper UI/Paper/Menu1.png" id="2_imvu5"]
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="3_uqkka"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_wrivb"]
 

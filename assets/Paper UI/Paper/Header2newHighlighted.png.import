@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dloj8xps4ekve"
-path="res://.godot/imported/Header2newHighlighted.png-15affd6484a3808b0989a6838135ab93.ctex"
+path="res://.godot/imported/Header2newHighlighted.png-b59fdd424740943da46a77ce5fd61cc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Paper UI/Paper/Header2newHighlighted.png"
-dest_files=["res://.godot/imported/Header2newHighlighted.png-15affd6484a3808b0989a6838135ab93.ctex"]
+source_file="res://assets/paper UI/Paper/Header2newHighlighted.png"
+dest_files=["res://.godot/imported/Header2newHighlighted.png-b59fdd424740943da46a77ce5fd61cc1.ctex"]
 
 [params]
 

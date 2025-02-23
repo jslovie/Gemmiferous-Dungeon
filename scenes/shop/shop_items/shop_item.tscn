@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cddv16lwy000e"]
 
-[ext_resource type="Texture2D" uid="uid://cqo4kjdeqixtk" path="res://assets/Paper UI/Paper/Menu4.png" id="1_uawhw"]
+[ext_resource type="Texture2D" uid="uid://cqo4kjdeqixtk" path="res://assets/paper UI/Paper/Menu4.png" id="1_uawhw"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_h61ly"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="4_0lkpt"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="5_vxtrs"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2mnpbtiit4ii"
-path="res://.godot/imported/Light Green Column.png-914db56255fbc0035287204f26039551.ctex"
+path="res://.godot/imported/Light Green Column.png-a209a3f584eaa30e9ed60d05cb8e2553.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Light Green Column.png"
-dest_files=["res://.godot/imported/Light Green Column.png-914db56255fbc0035287204f26039551.ctex"]
+source_file="res://assets/pieces/Light Green Column.png"
+dest_files=["res://.godot/imported/Light Green Column.png-a209a3f584eaa30e9ed60d05cb8e2553.ctex"]
 
 [params]
 

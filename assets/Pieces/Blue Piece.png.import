@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7077tbur2yro"
-path="res://.godot/imported/Blue Piece.png-4f73b3fbbbdef20e1a0b0e8bedb3f9b1.ctex"
+path="res://.godot/imported/Blue Piece.png-9c3574ab9d8af82da34407646aa6f0a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Blue Piece.png"
-dest_files=["res://.godot/imported/Blue Piece.png-4f73b3fbbbdef20e1a0b0e8bedb3f9b1.ctex"]
+source_file="res://assets/pieces/Blue Piece.png"
+dest_files=["res://.godot/imported/Blue Piece.png-9c3574ab9d8af82da34407646aa6f0a5.ctex"]
 
 [params]
 

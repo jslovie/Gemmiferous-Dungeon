@@ -1,5 +1,7 @@
 extends Node2D
 
+signal camera_effect
+
 #State Machine
 enum {wait, move}
 var state
@@ -11,6 +13,12 @@ var state
 @export var y_start: int
 @export var offset: int
 @export var y_offset: int
+
+var low_camera_shake = 0.98
+var high_camara_shake = 0.95
+
+#Effects
+var particle_effect = preload("res://scenes/pieces/particle.tscn")
 
 #Possible pieces array
 var possible_pieces = [
@@ -199,8 +207,15 @@ func find_matches():
 	var timer = %DestroyTimer
 	timer.start()
 
+func make_effect(effect, column, row, color):
+	var current = effect.instantiate()
+	current.position = grid_to_pixel(column,row)
+	add_child(current)
+	current.color = Color(color.x, color.y, color.z)
+	
 func destroy_matched():
 	var shield_load = 0
+	var material_load = 0
 	var sword_load = 0
 	var bow_load = 0
 	var axe_load = 0
@@ -239,20 +254,31 @@ func destroy_matched():
 					elif all_pieces[i][j].color == "shield":
 						shield_load += 1
 					elif all_pieces[i][j].color == "material":
+						material_load += 1
 						PlayerManager.player.material_up()
+						
 					
-					
+					var color = all_pieces[i][j].background_color
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
-	
+					make_effect(particle_effect, i, j, color)
 	######################################################################
 	#Shield load
 	if shield_load == 3:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load)
 	elif shield_load == 4:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
+		emit_signal("camera_effect", 10)
 	elif shield_load >= 5:
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
+		emit_signal("camera_effect", 20)
+	#Material load	
+	if material_load == 4:
+		emit_signal("camera_effect", 10)
+	elif material_load >= 5:
+		emit_signal("camera_effect", 20)
+		
+		
 	#Rogue
 	#Sword update
 	if sword_load == 3:
@@ -261,29 +287,41 @@ func destroy_matched():
 	elif sword_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		PlayerManager.player.damage1_attack()
+		emit_signal("camera_effect", 10)
 	elif sword_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		PlayerManager.player.damage1_attack()
+		emit_signal("camera_effect", 20)
 	#Bow update
 	if bow_load == 3:
+		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
+		PlayerManager.player.has_bow_poison = true
 		PlayerManager.player.piece_multiplier = 1	
 		PlayerManager.player.damage2_attack()
 	elif bow_load == 4:
+		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 25
+		PlayerManager.player.has_bow_poison = true
 		PlayerManager.player.piece_multiplier = 1.5	
 		PlayerManager.player.damage2_attack()
+		emit_signal("camera_effect", 10)
 	elif bow_load >= 5:
+		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 100
+		PlayerManager.player.has_bow_poison = true
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage2_attack()
+		emit_signal("camera_effect", 20)
 	#Invisibility update
 	if invisibility_load == 3:
 		PlayerManager.player.has_invisibility = true
 		PlayerManager.player.handle_invisibility(0)
 	elif invisibility_load == 4:
 		PlayerManager.player.has_invisibility = true
-		PlayerManager.player.handle_invisibility(10)
+		PlayerManager.player.handle_invisibility(25)
+		emit_signal("camera_effect", 10)
 	elif invisibility_load >= 5:
 		PlayerManager.player.has_invisibility = true
-		PlayerManager.player.handle_invisibility(25)
+		PlayerManager.player.handle_invisibility(100)
+		emit_signal("camera_effect", 20)
 
 	######################################################################
 	#Barbarian
@@ -294,9 +332,11 @@ func destroy_matched():
 	elif axe_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		PlayerManager.player.damage1_attack()
+		emit_signal("camera_effect", 10)
 	elif axe_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		PlayerManager.player.damage1_attack()
+		emit_signal("camera_effect", 20)
 	#Mace update
 	if mace_load == 3:
 		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
@@ -304,22 +344,26 @@ func destroy_matched():
 		PlayerManager.player.piece_multiplier = 1	
 		PlayerManager.player.damage2_attack()
 	elif mace_load == 4:
-		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 10
+		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
 		PlayerManager.player.has_mace = true
 		PlayerManager.player.piece_multiplier = 1.5	
 		PlayerManager.player.damage2_attack()
+		emit_signal("camera_effect", 10)
 	elif mace_load >= 5:
-		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
+		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 100
 		PlayerManager.player.has_mace = true
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage2_attack()
+		emit_signal("camera_effect", 20)
 	#Rage update
 	if rage_load == 3:
 		PlayerManager.player.handle_rage(0.2)
 	elif rage_load == 4:
 		PlayerManager.player.handle_rage(0.4)
+		emit_signal("camera_effect", 10)
 	elif rage_load >= 5:
 		PlayerManager.player.handle_rage(0.6)
+		emit_signal("camera_effect", 20)
 		
 	move_checked = true
 	if was_matched:

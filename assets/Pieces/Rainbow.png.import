@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp8x6k3g53efc"
-path="res://.godot/imported/Rainbow.png-b4abb7d564c2f27216b08188bac07029.ctex"
+path="res://.godot/imported/Rainbow.png-ff68af06739511c09602914e6ab7b46b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Rainbow.png"
-dest_files=["res://.godot/imported/Rainbow.png-b4abb7d564c2f27216b08188bac07029.ctex"]
+source_file="res://assets/pieces/Rainbow.png"
+dest_files=["res://.godot/imported/Rainbow.png-ff68af06739511c09602914e6ab7b46b.ctex"]
 
 [params]
 

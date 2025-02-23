@@ -24,6 +24,7 @@ func _process(_delta):
 	resolution_screen()
 	update_rage()
 	handle_win()
+	check_enemy_debuff()
 
 func change_background():
 	if LevelManager.floor == 1:
@@ -96,6 +97,12 @@ func handle_win():
 		%Resolution.visible = false
 		$SlotMachine.visible = false
 		$Player_win.visible = true
+
+func check_enemy_debuff():
+	if PlayerManager.player.poison_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Poison.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Poison.visible = false
 
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false

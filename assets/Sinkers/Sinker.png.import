@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsjx3o3nmcsj5"
-path="res://.godot/imported/Sinker.png-2cda95b8726544136da38c80e7da4b61.ctex"
+path="res://.godot/imported/Sinker.png-531f709769a30011cf79a95d29575aa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sinkers/Sinker.png"
-dest_files=["res://.godot/imported/Sinker.png-2cda95b8726544136da38c80e7da4b61.ctex"]
+source_file="res://assets/sinkers/Sinker.png"
+dest_files=["res://.godot/imported/Sinker.png-531f709769a30011cf79a95d29575aa6.ctex"]
 
 [params]
 

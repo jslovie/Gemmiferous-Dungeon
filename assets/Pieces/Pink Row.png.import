@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw40rjls4et5p"
-path="res://.godot/imported/Pink Row.png-0f99a0f2decbf2fba04e8cba2cf355b5.ctex"
+path="res://.godot/imported/Pink Row.png-d2b9af8909b66e4fed15eb1874e6848c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Pink Row.png"
-dest_files=["res://.godot/imported/Pink Row.png-0f99a0f2decbf2fba04e8cba2cf355b5.ctex"]
+source_file="res://assets/pieces/Pink Row.png"
+dest_files=["res://.godot/imported/Pink Row.png-d2b9af8909b66e4fed15eb1874e6848c.ctex"]
 
 [params]
 

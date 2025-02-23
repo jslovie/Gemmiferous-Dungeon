@@ -5,6 +5,7 @@
 
 [node name="SpellSpearPiece" instance=ExtResource("1_lqam7")]
 color = "spell spear"
+background_color = Vector3(0.24, 0.206, 0.287)
 
 [node name="TextureRect" parent="." index="2"]
 modulate = Color(0.239861, 0.206092, 0.286544, 1)

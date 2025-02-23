@@ -8,6 +8,6 @@ type = "Rogue"
 health = 80.0
 max_health = 80.0
 shield = 6
-type_action1 = Vector2(10, 15)
+type_action1 = Vector2(2, 4)
 type_action2 = Vector2(2, 5)
 type_action3 = Vector2(3, 4)

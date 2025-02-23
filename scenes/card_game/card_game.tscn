@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/card_game.gd" id="1_m8tym"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_vmm01"]
-[ext_resource type="Texture2D" uid="uid://d067xevn41isn" path="res://assets/Cards/Cards Collection 1-2_tile_2.png" id="2_ynapj"]
+[ext_resource type="Texture2D" uid="uid://d067xevn41isn" path="res://assets/cards/Cards Collection 1-2_tile_2.png" id="2_ynapj"]
 
 [node name="CardGame" type="Control"]
 layout_mode = 3

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7217pvhxu552"
-path="res://.godot/imported/Light Green Piece.png-c86f84220a92c10bcaa1c94ad3a4a0a2.ctex"
+path="res://.godot/imported/Light Green Piece.png-b6901ad3cb9e28f83c5b5ba705e4164d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Light Green Piece.png"
-dest_files=["res://.godot/imported/Light Green Piece.png-c86f84220a92c10bcaa1c94ad3a4a0a2.ctex"]
+source_file="res://assets/pieces/Light Green Piece.png"
+dest_files=["res://.godot/imported/Light Green Piece.png-b6901ad3cb9e28f83c5b5ba705e4164d.ctex"]
 
 [params]
 

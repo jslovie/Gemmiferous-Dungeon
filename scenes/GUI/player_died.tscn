@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://cpqr57jvspow8"]
 
-[ext_resource type="Texture2D" uid="uid://c0m8b8uluaoah" path="res://assets/Paper UI/Paper/Menu2.png" id="1_fgp5p"]
+[ext_resource type="Texture2D" uid="uid://c0m8b8uluaoah" path="res://assets/paper UI/Paper/Menu2.png" id="1_fgp5p"]
 [ext_resource type="Script" path="res://scripts/player_died.gd" id="1_q87re"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="2_yo3n3"]
-[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/Paper UI/Paper/Menu1.png" id="3_kubn2"]
+[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/paper UI/Paper/Menu1.png" id="3_kubn2"]
 [ext_resource type="Texture2D" uid="uid://uqoyhlhoi7dq" path="res://assets/32rogues/enem/rat.png" id="4_6cs4r"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="5_j87wu"]
 [ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="6_ljo7f"]
@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="8_385ip"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="8_y5eqg"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="9_hwfp5"]
-[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="11_y3e40"]
-[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="12_lgbod"]
+[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/paper UI/Paper/Header2new.png" id="11_y3e40"]
+[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/paper UI/Paper/Header2newHighlighted.png" id="12_lgbod"]
 
 [node name="PlayerDied" type="Control"]
 z_index = 20

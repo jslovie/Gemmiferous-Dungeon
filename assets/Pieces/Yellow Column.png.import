@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://q8ojytrysh84"
-path="res://.godot/imported/Yellow Column.png-04f09afdc89925af29a24f208b0e326b.ctex"
+path="res://.godot/imported/Yellow Column.png-55805a4e29eb9b4423b9f80d3b01b9c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Yellow Column.png"
-dest_files=["res://.godot/imported/Yellow Column.png-04f09afdc89925af29a24f208b0e326b.ctex"]
+source_file="res://assets/pieces/Yellow Column.png"
+dest_files=["res://.godot/imported/Yellow Column.png-55805a4e29eb9b4423b9f80d3b01b9c3.ctex"]
 
 [params]
 

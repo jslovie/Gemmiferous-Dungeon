@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://do8oub3lgqwwt"
-path="res://.godot/imported/Slime.png-3f0045e4f8cc9e45805732151ff3890d.ctex"
+path="res://.godot/imported/Slime.png-8d96b0e7dc65657cf7566d5694f9e6cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Obstacles/Slime.png"
-dest_files=["res://.godot/imported/Slime.png-3f0045e4f8cc9e45805732151ff3890d.ctex"]
+source_file="res://assets/obstacles/Slime.png"
+dest_files=["res://.godot/imported/Slime.png-8d96b0e7dc65657cf7566d5694f9e6cd.ctex"]
 
 [params]
 

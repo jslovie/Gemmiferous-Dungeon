@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var color: String
+@export var background_color: Vector3
 
 var matched = false
 

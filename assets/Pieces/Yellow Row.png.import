@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgbwmovdxuyxm"
-path="res://.godot/imported/Yellow Row.png-4b1d009c72f0ce0af858e8bd07ba87a9.ctex"
+path="res://.godot/imported/Yellow Row.png-c123de5840a8f969e166b20a5ddb170c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Yellow Row.png"
-dest_files=["res://.godot/imported/Yellow Row.png-4b1d009c72f0ce0af858e8bd07ba87a9.ctex"]
+source_file="res://assets/pieces/Yellow Row.png"
+dest_files=["res://.godot/imported/Yellow Row.png-c123de5840a8f969e166b20a5ddb170c.ctex"]
 
 [params]
 

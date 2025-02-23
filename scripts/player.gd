@@ -38,18 +38,32 @@ var upgraded_axe_damage = Vector2(0,0)
 var upgraded_sword_damage = Vector2(0,0)
 
 #Weapon Statuses
+var rage = 0
+
 var has_mace = false
 var mace_stunt_chance = 10
+var stun_time = 10
 var mace_stunt_rarities = {
 	"nothing" : 100,
 	"stunt" : mace_stunt_chance,
 }
-var rage = 0
+
 var has_invisibility = false
 var invisibility_chance = 20
 var invisibility_rarities = {
 	"nothing" : 100,
 	"invisibility" : invisibility_chance,
+}
+
+var has_bow_poison = false
+var poison_damage = 1
+var poison_active = false
+var poison_chance = 100
+var poison_duration = 6
+var poison_repetition = 2
+var poison_rarities = {
+	"nothing" : 100,
+	"poison" : poison_chance,
 }
 
 #Gems and Coins
@@ -141,7 +155,14 @@ func damage2_attack():
 			var mace_action = get_mace_stunt_rng()
 			print(mace_action)
 			if mace_action == "stunt":
-				EnemyManager.enemy.stunt(10)
+				EnemyManager.enemy.stunt(stun_time)
+		if has_bow_poison == true:
+			var bow_action = get_poison_rng()
+			print(bow_action)
+			if bow_action == "poison":
+				poison_active = true
+				$EnemyDebuffTimerEnd.start(poison_duration)
+				$EnemyDebuffTimer.start(poison_repetition)
 	
 func damage3_attack():
 	if EnemyManager.enemy.status == "dead":
@@ -173,6 +194,18 @@ func get_invisibility_rng():
 		if chance <= invisibility_rarities[n]:
 			return n
 		chance -= invisibility_rarities[n]		
+
+func get_poison_rng():
+	rng.randomize()
+	var weigted_sum = 0
+	for n in poison_rarities:
+		weigted_sum += poison_rarities[n]
+	var chance = rng.randi_range(0, weigted_sum)
+	for n in poison_rarities:
+		if chance <= poison_rarities[n]:
+			return n
+		chance -= poison_rarities[n]
+
 
 func handle_invisibility(amount):
 	invisibility_chance += amount
@@ -323,3 +356,12 @@ func get_killed():
 func _on_rage_timer_timeout():
 	if rage > 0:
 		rage -= 0.2
+
+
+func _on_enemy_debuff_timer_timeout():
+	EnemyManager.enemy.take_poison_damage(poison_damage)
+
+
+func _on_enemy_debuff_timer_end_timeout():
+	$EnemyDebuffTimer.stop()
+	poison_active = false

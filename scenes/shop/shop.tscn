@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bce7meeanu3ie"]
 
-[ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/Paper UI/Paper/Menu3.png" id="1_5ir33"]
+[ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/paper UI/Paper/Menu3.png" id="1_5ir33"]
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_fpweg"]
-[ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/Paper UI/Paper/Header3.png" id="2_4ja56"]
+[ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/paper UI/Paper/Header3.png" id="2_4ja56"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_xr2d8"]
-[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/Paper UI/Paper/Header2new.png" id="5_gahx4"]
-[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/Paper UI/Paper/Header2newHighlighted.png" id="6_vdv2l"]
+[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/paper UI/Paper/Header2new.png" id="5_gahx4"]
+[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/paper UI/Paper/Header2newHighlighted.png" id="6_vdv2l"]
 
 [node name="Shop" type="Node2D"]
 z_index = 10

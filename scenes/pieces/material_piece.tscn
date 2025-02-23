@@ -5,6 +5,7 @@
 
 [node name="MaterialPiece" instance=ExtResource("1_ej56g")]
 color = "material"
+background_color = Vector3(0.757, 0.757, 0)
 
 [node name="Panel" parent="." index="1"]
 color = Color(0.670327, 0.65142, 0.138802, 1)

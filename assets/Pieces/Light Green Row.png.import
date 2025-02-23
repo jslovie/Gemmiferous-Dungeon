@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bu5nqoap0m5h7"
-path="res://.godot/imported/Light Green Row.png-f76c1a84021816dc9198206d30ab4084.ctex"
+path="res://.godot/imported/Light Green Row.png-fec4c1823f0637f567bf71c5d9fe0684.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pieces/Light Green Row.png"
-dest_files=["res://.godot/imported/Light Green Row.png-f76c1a84021816dc9198206d30ab4084.ctex"]
+source_file="res://assets/pieces/Light Green Row.png"
+dest_files=["res://.godot/imported/Light Green Row.png-fec4c1823f0637f567bf71c5d9fe0684.ctex"]
 
 [params]
 

@@ -168,6 +168,7 @@ offset_bottom = 361.0
 scale = Vector2(10, 10)
 
 [node name="MageType" parent="." instance=ExtResource("6_jnjga")]
+modulate = Color(0.205117, 0.205117, 0.205117, 1)
 offset_left = 856.0
 offset_top = 223.0
 offset_right = 888.0
@@ -175,6 +176,7 @@ offset_bottom = 255.0
 scale = Vector2(10, 10)
 
 [node name="KnightType" parent="." instance=ExtResource("7_7gxew")]
+modulate = Color(0.203922, 0.203922, 0.203922, 1)
 offset_left = 1443.0
 offset_top = 571.0
 offset_right = 1475.0
@@ -183,6 +185,7 @@ scale = Vector2(10, 10)
 flip_h = false
 
 [node name="SpellbladeType" parent="." instance=ExtResource("8_wt4uk")]
+modulate = Color(0.203922, 0.203922, 0.203922, 1)
 offset_left = 1174.0
 offset_top = 349.0
 offset_right = 1206.0

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brio1nxrqqgte"
-path="res://.godot/imported/Behind.png-502b877cb886b34944082c859daf1218.ctex"
+path="res://.godot/imported/Behind.png-0b0cc2ee8a8cd2628495457e88632669.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Paper UI/Bars & Buttons/Bar1/Behind.png"
-dest_files=["res://.godot/imported/Behind.png-502b877cb886b34944082c859daf1218.ctex"]
+source_file="res://assets/paper UI/Bars & Buttons/Bar1/Behind.png"
+dest_files=["res://.godot/imported/Behind.png-0b0cc2ee8a8cd2628495457e88632669.ctex"]
 
 [params]
 

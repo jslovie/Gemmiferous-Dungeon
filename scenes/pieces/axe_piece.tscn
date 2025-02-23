@@ -5,6 +5,7 @@
 
 [node name="AxePiece" instance=ExtResource("1_njfew")]
 color = "axe"
+background_color = Vector3(0.353, 0.04, 0.402)
 
 [node name="Panel" parent="." index="1"]
 color = Color(0.353216, 0.0403576, 0.401509, 1)

@@ -257,6 +257,8 @@ func take_damage(damage):
 			
 
 
+
+
 func get_killed():
 	LevelManager.level_done += 1
 	print("available level is: " + str(LevelManager.available_level))
@@ -275,6 +277,7 @@ func get_killed():
 	PlayerManager.player.get_coins(coin_worth)
 	%ActionTimer.stop()
 	%Actions.visible = false
+	%Stunned.visible = false
 	
 	#Visual hit
 	if blood_type == "Green":
@@ -327,3 +330,39 @@ func player_died():
 	
 func _on_action_timer_timeout():
 	random_action()
+
+
+func take_poison_damage(damage):
+	if state == alive:
+		#Visual knockback
+		var tween_scale = create_tween()
+		tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
+		tween_scale.tween_property($EnemyType,"scale", Vector2(15,15), 0.1)
+		var tween_move = create_tween()
+		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
+		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
+		#Visual hit
+		%AnimationPlayer.play("hit_poison")
+			
+		#Logic behind getting hit
+		var health_attack = 0
+		for d in range(0, damage):
+			if shield > 0:
+				shield -= 1
+			else:
+				health_attack += 1
+		var total_attack = health_attack
+		health -= total_attack
+		
+		if health <= 0:
+			health = 0
+			get_killed()
+		
+		#Visual hit number
+		%EnemyHitLabel.visible = true
+		var tween_hit_number = create_tween()
+		%EnemyHitLabel.text = str(damage)
+		tween_hit_number.tween_property(%EnemyHitLabel, "position", Vector2(116,-364),0.5)
+		await get_tree().create_timer(1).timeout
+		%EnemyHitLabel.position = Vector2(116,-194)
+		%EnemyHitLabel.visible = false
