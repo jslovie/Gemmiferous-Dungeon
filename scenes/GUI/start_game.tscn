@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
-[ext_resource type="Texture2D" uid="uid://cu0o341ah4ncx" path="res://assets/background/finish 1-for jslovie-7D5C2-V1.png" id="3_jauco"]
+[ext_resource type="Texture2D" uid="uid://d1etsx0xtt51x" path="res://assets/background/finish 1-for jslovie-7D5C2-V2.png" id="3_bjdqv"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_uksad"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="6_caqhg"]
@@ -150,7 +150,7 @@ tile_set = SubResource("TileSet_a6b2h")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 scale = Vector2(6, 6)
-texture = ExtResource("3_jauco")
+texture = ExtResource("3_bjdqv")
 
 [node name="Testing" type="Button" parent="."]
 anchors_preset = 8

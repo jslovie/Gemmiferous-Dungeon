@@ -7,6 +7,7 @@ func _ready():
 	SaveManager.load_savefile()
 	PlayerManager.player.update_player_texture()
 	change_background()
+	update_material_bar()
 	$EnemyTypeLabel.text = EnemyManager.enemy.type
 	update_healthbars()
 	update_shields()
@@ -25,6 +26,7 @@ func _process(_delta):
 	update_rage()
 	handle_win()
 	check_enemy_debuff()
+	update_material_bar()
 
 func change_background():
 	if LevelManager.floor == 1:
@@ -35,7 +37,12 @@ func change_background():
 		$Background/F3.visible = true
 	elif LevelManager.floor == 4:
 		$Background/F4.visible = true
-		
+
+func update_material_bar():
+	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
+	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.stone)
+	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.iron)
+	
 func wait_time():
 	$WaitTime.visible = true
 	%WaitTimeTimer.start(5)
@@ -112,3 +119,20 @@ func _on_wait_time_timer_timeout():
 
 func _on_button_pressed():
 	PlayerManager.player.heal(15)
+
+
+func _on_wood_area_2d_area_entered(area):
+	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
+
+func _on_stone_area_2d_area_entered(area):
+	$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
+
+
+func _on_iron_area_2d_area_entered(area):
+	$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)

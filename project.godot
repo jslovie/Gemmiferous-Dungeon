@@ -32,13 +32,17 @@ Loading="*res://scenes/GUI/loading.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/window_width_override=960
-window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [editor]
 
 movie_writer/movie_file="C:/Users/eriks/Game Dev/Gemmiferous Dungeon/gemmiferousdungeon/ss.avi"
+
+[global_group]
+
+Effect=""
 
 [input]
 

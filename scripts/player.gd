@@ -234,15 +234,6 @@ func shield_up(amount):
 	if EnemyManager.enemy.status == "alive":
 		shield += amount
 		
-func material_up():
-	if EnemyManager.enemy.status == "alive":
-		var random_material = randi_range(1,3)
-		if random_material == 1:
-			wood += 1
-		elif random_material == 2:
-			stone += 1
-		elif random_material == 3:
-			iron += 1
 
 func red_gem_up(amount):
 	red_gem += amount

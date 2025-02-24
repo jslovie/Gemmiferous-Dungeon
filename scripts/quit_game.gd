@@ -24,5 +24,6 @@ func _on_button_pressed():
 	SaveManager.remove_autosave()
 	hide_quit()
 	LevelManager.reset_map()
+	LevelManager.show_map = false
 	get_tree().change_scene_to_file("res://scenes/GUI/start_game.tscn")
 	

@@ -71,6 +71,21 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.524, 3.243, 0.524, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_rm3at"]
+resource_name = "hit_poison"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.621108, 1, 0.19946, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_yl8wt"]
 resource_name = "hit_red"
 tracks/0/type = "value"
@@ -99,21 +114,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_rm3at"]
-resource_name = "hit_poison"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyType:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.621108, 1, 0.19946, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dwrcl"]

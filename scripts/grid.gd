@@ -14,11 +14,13 @@ var state
 @export var offset: int
 @export var y_offset: int
 
-var low_camera_shake = 0.98
-var high_camara_shake = 0.95
 
 #Effects
 var particle_effect = preload("res://scenes/pieces/particle.tscn")
+var wood_effect = preload("res://scenes/GUI/wood_effect.tscn")
+var stone_effect = preload("res://scenes/GUI/stone_effect.tscn")
+var iron_effect = preload("res://scenes/GUI/iron_effect.tscn")
+var shield_effect = preload("res://scenes/GUI/shield_effect.tscn")
 
 #Possible pieces array
 var possible_pieces = [
@@ -212,6 +214,12 @@ func make_effect(effect, column, row, color):
 	current.position = grid_to_pixel(column,row)
 	add_child(current)
 	current.color = Color(color.x, color.y, color.z)
+
+func material_effect(effect,column, row):
+	var current = effect.instantiate()
+	current.position = grid_to_pixel(column,row)
+	add_child(current)
+
 	
 func destroy_matched():
 	var shield_load = 0
@@ -255,9 +263,17 @@ func destroy_matched():
 						shield_load += 1
 					elif all_pieces[i][j].color == "material":
 						material_load += 1
-						PlayerManager.player.material_up()
-						
+						if EnemyManager.enemy.status == "alive":
+							var random_material = randi_range(1,3)
+							if random_material == 1:
+								material_effect(wood_effect, i, j)
+							elif random_material == 2:
+								material_effect(stone_effect, i, j)
+							elif random_material == 3:
+								material_effect(iron_effect, i, j)
 					
+					if shield_load > 0:
+						material_effect(shield_effect, i, j)
 					var color = all_pieces[i][j].background_color
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
@@ -265,13 +281,18 @@ func destroy_matched():
 	######################################################################
 	#Shield load
 	if shield_load == 3:
+		await get_tree().create_timer(0.5).timeout
 		PlayerManager.player.shield_up(PlayerManager.player.shield_load)
 	elif shield_load == 4:
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
 		emit_signal("camera_effect", 10)
+		await get_tree().create_timer(0.5).timeout
+		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
+		
 	elif shield_load >= 5:
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
 		emit_signal("camera_effect", 20)
+		await get_tree().create_timer(0.5).timeout
+		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
+		
 	#Material load	
 	if material_load == 4:
 		emit_signal("camera_effect", 10)
