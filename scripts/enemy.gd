@@ -17,7 +17,9 @@ var coin_worth = 5
 var action_delay : Vector2
 var blood_type
 
-
+var coin_effect_position = Vector2(921,737)
+@onready var coin_effect = load("res://scenes/GUI/coin_effect.tscn")
+@onready var damage_numbers_origin = $DamageNumberOrigin
 @onready var time = $ActionTimer
 
 func _ready():
@@ -26,7 +28,6 @@ func _ready():
 	EnemyManager.enemy = self
 	change_delay()
 	%ActionTimer.start()
-	%EnemyHitLabel.visible = false
 	
 func _process(_delta):
 	%Label.text = str(time.time_left)
@@ -212,7 +213,7 @@ func heal():
 		health = max_health
 
 @warning_ignore("shadowed_variable")
-func take_damage(damage):
+func take_damage(damage, random_base_action):
 	if state == alive:
 		#Visual knockback
 		var tween_scale = create_tween()
@@ -230,7 +231,14 @@ func take_damage(damage):
 			%AnimationPlayer.play("hit_ghost")
 		elif blood_type == "Red":
 			%AnimationPlayer.play("hit_red")
-			
+		
+		#Visual hit number test
+		var is_critical = false
+		if random_base_action == PlayerManager.player.base_action1.y or random_base_action == PlayerManager.player.base_action2.y or random_base_action == PlayerManager.player.base_action3.y:
+			is_critical = true
+		var is_poison = false
+		DamageNumbers.display_number(damage, damage_numbers_origin.global_position, is_critical, is_poison)
+		
 		#Logic behind getting hit
 		var health_attack = 0
 		for d in range(0, damage):
@@ -244,20 +252,6 @@ func take_damage(damage):
 		if health <= 0:
 			health = 0
 			get_killed()
-		
-		#Visual hit number
-		%EnemyHitLabel.visible = true
-		var tween_hit_number = create_tween()
-		%EnemyHitLabel.text = str(damage)
-		tween_hit_number.tween_property(%EnemyHitLabel, "position", Vector2(116,-364),0.5)
-		await get_tree().create_timer(1).timeout
-		%EnemyHitLabel.position = Vector2(116,-194)
-		%EnemyHitLabel.visible = false
-			
-			
-
-
-
 
 func get_killed():
 	LevelManager.level_done += 1
@@ -274,7 +268,6 @@ func get_killed():
 	#Status change and stop for actions
 	state = dead
 	status = "dead"
-	PlayerManager.player.get_coins(coin_worth)
 	%ActionTimer.stop()
 	%Actions.visible = false
 	%Stunned.visible = false
@@ -287,7 +280,7 @@ func get_killed():
 	elif blood_type == "Ghost":
 		%AnimationPlayer.play("hit_ghost")
 	elif blood_type == "Red":
-			%AnimationPlayer.play("hit_red")
+		%AnimationPlayer.play("hit_red")
 			
 	var tween_scale = create_tween()
 	tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
@@ -297,18 +290,19 @@ func get_killed():
 	var tween_rotate = create_tween()
 	tween_rotate.tween_property($EnemyType, "rotation", deg_to_rad(90), 0.5)
 	
-	#Autosave
-	SaveManager.autosave()
+
 	
 	#Update player spins
 	PlayerManager.player.spins_left += 1
 	
+	#Get coins
+	EffectLoad.material_effect(coin_effect, coin_effect_position)
+	await get_tree().create_timer(1).timeout
+	PlayerManager.player.get_coins(coin_worth)
 	
+	#Autosave
+	SaveManager.autosave()
 	
-	##Scene change
-	#await get_tree().create_timer(3).timeout
-	#get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
-	#LevelManager.show_map = true
 
 func stunt(amount):
 	var stunt_time = %ActionTimer.time_left + amount
@@ -343,7 +337,10 @@ func take_poison_damage(damage):
 		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
 		#Visual hit
 		%AnimationPlayer.play("hit_poison")
-			
+		var is_critical = false
+		var is_poison = true
+		DamageNumbers.display_number(damage, damage_numbers_origin.global_position, is_critical, is_poison)
+		
 		#Logic behind getting hit
 		var health_attack = 0
 		for d in range(0, damage):
@@ -357,12 +354,3 @@ func take_poison_damage(damage):
 		if health <= 0:
 			health = 0
 			get_killed()
-		
-		#Visual hit number
-		%EnemyHitLabel.visible = true
-		var tween_hit_number = create_tween()
-		%EnemyHitLabel.text = str(damage)
-		tween_hit_number.tween_property(%EnemyHitLabel, "position", Vector2(116,-364),0.5)
-		await get_tree().create_timer(1).timeout
-		%EnemyHitLabel.position = Vector2(116,-194)
-		%EnemyHitLabel.visible = false

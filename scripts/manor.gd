@@ -66,7 +66,7 @@ extends Node2D
 @export var houses3_upgrade_price : Vector3
 @export var houses4_upgrade_price : Vector3
 
-func _process(delta):
+func _process(_delta):
 	update_upgrade_text()
 	update_checked()
 	check_manor_level()

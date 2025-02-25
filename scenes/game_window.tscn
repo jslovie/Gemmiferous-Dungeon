@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=39 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
+[ext_resource type="Script" path="res://scripts/effect_load.gd" id="2_d5ljo"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_kiygc"]
 [ext_resource type="Script" path="res://scripts/grid.gd" id="4_pskgn"]
 [ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="5_bfbau"]
@@ -23,6 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="21_spqid"]
 [ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="22_s46mu"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="23_pwx4o"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="25_cgkb1"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="26_qkeal"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="27_yq476"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="28_o85x2"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="29_4qh4o"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="29_ktb7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
@@ -175,6 +182,10 @@ corner_radius_bottom_left = 8
 [node name="GameWindow" type="Node2D"]
 script = ExtResource("1_0rfml")
 
+[node name="EffectLoad" type="Node2D" parent="."]
+position = Vector2(435, 583)
+script = ExtResource("2_d5ljo")
+
 [node name="Background" type="Node2D" parent="."]
 
 [node name="F1" type="Node2D" parent="Background"]
@@ -239,16 +250,16 @@ position = Vector2(921, 735)
 
 [node name="GamePanel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 0.905882)
-offset_top = 42.0
+offset_top = 54.0
 offset_right = 576.0
-offset_bottom = 900.0
+offset_bottom = 912.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.674815, 0.674815, 0.674814, 1)
 offset_left = -18.0
-offset_top = 28.0
+offset_top = 40.0
 offset_right = 594.0
-offset_bottom = 914.0
+offset_bottom = 926.0
 texture = ExtResource("5_bfbau")
 
 [node name="EnemyTypeLabel" type="Label" parent="."]
@@ -335,6 +346,7 @@ theme_override_font_sizes/font_size = 128
 text = "You Died!"
 
 [node name="Inventory" type="Node2D" parent="."]
+visible = false
 position = Vector2(-337, 9)
 
 [node name="InventoryGrid" type="HBoxContainer" parent="Inventory"]
@@ -624,9 +636,9 @@ scale = Vector2(2, 2)
 
 [node name="Panel" type="Panel" parent="Material"]
 layout_mode = 0
-offset_left = -34.0
+offset_left = -761.0
 offset_top = 3.0
-offset_right = 205.0
+offset_right = 208.0
 offset_bottom = 36.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Material"]
@@ -686,11 +698,119 @@ position = Vector2(-16, 6.5)
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_gg1ri")
 
+[node name="Gems" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -596.0
+offset_top = -34.0
+offset_right = -556.0
+offset_bottom = 6.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("25_cgkb1")
+
+[node name="RedGemArea2D" type="Area2D" parent="Gems/HBoxContainer/RedGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_gg1ri")
+
+[node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("26_qkeal")
+
+[node name="BlueGemArea2D" type="Area2D" parent="Gems/HBoxContainer/BlueGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_gg1ri")
+
+[node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("27_yq476")
+
+[node name="GreemGemArea2D" type="Area2D" parent="Gems/HBoxContainer/GreenGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_gg1ri")
+
+[node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("28_o85x2")
+
+[node name="YellowGemArea2D" type="Area2D" parent="Gems/HBoxContainer/YellowGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_gg1ri")
+
+[node name="Coin" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("29_4qh4o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("29_ktb7s")
+
+[node name="CoinArea2D" type="Area2D" parent="Gems/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_gg1ri")
+
 [node name="Shield" type="Area2D" parent="." groups=["Effect"]]
 position = Vector2(-92, 1002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield"]
 shape = SubResource("CircleShape2D_cf6hg")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(921, 737)
 
 [connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_grid_camera_effect"]
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
@@ -701,3 +821,8 @@ shape = SubResource("CircleShape2D_cf6hg")
 [connection signal="area_entered" from="Material/HBoxContainer/Wood/WoodArea2D" to="." method="_on_wood_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Stone/StoneArea2D" to="." method="_on_stone_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Iron/IronArea2D" to="." method="_on_iron_area_2d_area_entered"]
+[connection signal="area_entered" from="Gems/HBoxContainer/RedGem/RedGemArea2D" to="." method="_on_red_gem_area_2d_area_entered"]
+[connection signal="area_entered" from="Gems/HBoxContainer/BlueGem/BlueGemArea2D" to="." method="_on_blue_gem_area_2d_area_entered"]
+[connection signal="area_entered" from="Gems/HBoxContainer/GreenGem/GreemGemArea2D" to="." method="_on_greem_gem_area_2d_area_entered"]
+[connection signal="area_entered" from="Gems/HBoxContainer/YellowGem/YellowGemArea2D" to="." method="_on_yellow_gem_area_2d_area_entered"]
+[connection signal="area_entered" from="Gems/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]

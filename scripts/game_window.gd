@@ -42,6 +42,12 @@ func update_material_bar():
 	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
 	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.stone)
 	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.iron)
+	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.red_gem)
+	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
+	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
+	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
+	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
+	
 	
 func wait_time():
 	$WaitTime.visible = true
@@ -121,18 +127,35 @@ func _on_button_pressed():
 	PlayerManager.player.heal(15)
 
 
-func _on_wood_area_2d_area_entered(area):
+func _on_wood_area_2d_area_entered(_area):
 	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
 	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
-
-func _on_stone_area_2d_area_entered(area):
+func _on_stone_area_2d_area_entered(_area):
 	$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
 	$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
-
-
-func _on_iron_area_2d_area_entered(area):
+func _on_iron_area_2d_area_entered(_area):
 	$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
 	$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
+func _on_red_gem_area_2d_area_entered(_area):
+	$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_blue_gem_area_2d_area_entered(_area):
+	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_greem_gem_area_2d_area_entered(_area):
+	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_yellow_gem_area_2d_area_entered(_area):
+	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_coin_area_2d_area_entered(_area):
+	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)

@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://covxy0k6qglqu"]
+[gd_scene load_steps=17 format=3 uid="uid://covxy0k6qglqu"]
 
 [ext_resource type="Script" path="res://scripts/slot_machine.gd" id="1_1w153"]
 [ext_resource type="Texture2D" uid="uid://dx6f516r153ep" path="res://assets/slot/chestnew2.png" id="1_23pap"]
 [ext_resource type="PackedScene" uid="uid://do7jlr31r2f3d" path="res://scenes/slot/slot.tscn" id="2_v6ymm"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_i21mj"]
 [ext_resource type="Texture2D" uid="uid://bgaac3f15fy2e" path="res://assets/slot/key.png" id="4_grcp6"]
-[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="6_v54os"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1srs"]
 atlas = ExtResource("1_23pap")
@@ -311,54 +310,14 @@ offset_top = 2.0
 offset_right = 30.0
 offset_bottom = 15.0
 
-[node name="Results" type="Node2D" parent="."]
-unique_name_in_owner = true
-visible = false
-z_index = 15
-position = Vector2(182, -60)
-scale = Vector2(0.8, 0.8)
+[node name="Result1" type="Node2D" parent="."]
+position = Vector2(-37, -20)
 
-[node name="SlotResult" type="Label" parent="Results"]
-unique_name_in_owner = true
-offset_left = 9.0
-offset_top = -19.0
-offset_right = 28.0
-offset_bottom = 4.0
-theme_override_fonts/font = ExtResource("3_i21mj")
-text = "+ 1"
+[node name="Result2" type="Node2D" parent="."]
+position = Vector2(0, -20)
 
-[node name="SlotResultSprite" type="Sprite2D" parent="Results/SlotResult"]
-unique_name_in_owner = true
-position = Vector2(-11, 7.5)
-texture = ExtResource("6_v54os")
-
-[node name="Slot2Result" type="Label" parent="Results"]
-unique_name_in_owner = true
-offset_left = 9.0
-offset_top = -1.0
-offset_right = 28.0
-offset_bottom = 22.0
-theme_override_fonts/font = ExtResource("3_i21mj")
-text = "+ 1"
-
-[node name="Slot2ResultSprite" type="Sprite2D" parent="Results/Slot2Result"]
-unique_name_in_owner = true
-position = Vector2(-11, 7.5)
-texture = ExtResource("6_v54os")
-
-[node name="Slot3Result" type="Label" parent="Results"]
-unique_name_in_owner = true
-offset_left = 9.0
-offset_top = 17.0
-offset_right = 28.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("3_i21mj")
-text = "+ 1"
-
-[node name="Slot3ResultSprite" type="Sprite2D" parent="Results/Slot3Result"]
-unique_name_in_owner = true
-position = Vector2(-11, 7.5)
-texture = ExtResource("6_v54os")
+[node name="Result3" type="Node2D" parent="."]
+position = Vector2(37, -20)
 
 [node name="Continue" type="Button" parent="."]
 z_index = 15

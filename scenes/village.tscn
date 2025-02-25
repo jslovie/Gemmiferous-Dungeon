@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=97 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -57,18 +57,15 @@
 [ext_resource type="Texture2D" uid="uid://d1l0ib3mvjg8k" path="res://assets/village/Prefabs/Prefabs_tile_2 - highlighted.png" id="50_ixu2a"]
 [ext_resource type="Texture2D" uid="uid://dgpuc0r06h7ml" path="res://assets/village/Gemmiferous_estate/mill_ruin.png" id="52_j2vq7"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="53_l6ruk"]
-[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="54_nxenr"]
-[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="55_jb7sb"]
 [ext_resource type="Texture2D" uid="uid://wpc5vd84kmlg" path="res://assets/village/Hills - Mountains/Hills_tile_8 - highlighted.png" id="55_ojeti"]
-[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="56_lqvkx"]
 [ext_resource type="Texture2D" uid="uid://bgneukmq6bl1x" path="res://assets/village/Gemmiferous_estate/watchtower_1_ruin.png" id="57_88hr1"]
-[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="57_amqmd"]
 [ext_resource type="Texture2D" uid="uid://bsmjslq0bbo1j" path="res://assets/village/Gemmiferous_estate/watchtower_2_ruin.png" id="58_2kywu"]
-[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="58_odxrx"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="59_xh1n5"]
-[ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="60_smnsv"]
-[ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="61_1lc5e"]
-[ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="62_h74ps"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="61_41km2"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="62_rnoug"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="63_bynja"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="64_usmbd"]
+[ext_resource type="Texture2D" uid="uid://bk8e78jpmce43" path="res://assets/32rogues/gems/coin_outline.png" id="65_k3ccm"]
 [ext_resource type="PackedScene" uid="uid://c6ekgijmd1fss" path="res://scenes/shop/weaponsmith_shop.tscn" id="67_hl5fj"]
 [ext_resource type="PackedScene" uid="uid://djjvuxftam6qd" path="res://scenes/shop/armourer_shop.tscn" id="68_rr3hs"]
 [ext_resource type="PackedScene" uid="uid://crsmlojxar5u7" path="res://scenes/shop/tavern_shop.tscn" id="69_j85mg"]
@@ -1321,27 +1318,27 @@ offset_bottom = 36.0
 [node name="Red" type="Sprite2D" parent="GemStats/Images"]
 position = Vector2(697, 34)
 scale = Vector2(2, 2)
-texture = ExtResource("54_nxenr")
+texture = ExtResource("61_41km2")
 
 [node name="Blue" type="Sprite2D" parent="GemStats/Images"]
 position = Vector2(847, 34)
 scale = Vector2(2, 2)
-texture = ExtResource("55_jb7sb")
+texture = ExtResource("62_rnoug")
 
 [node name="Green" type="Sprite2D" parent="GemStats/Images"]
 position = Vector2(997, 34)
 scale = Vector2(2, 2)
-texture = ExtResource("56_lqvkx")
+texture = ExtResource("63_bynja")
 
 [node name="Yellow" type="Sprite2D" parent="GemStats/Images"]
 position = Vector2(1147, 34)
 scale = Vector2(2, 2)
-texture = ExtResource("57_amqmd")
+texture = ExtResource("64_usmbd")
 
 [node name="Coin1" type="Sprite2D" parent="GemStats/Images"]
 position = Vector2(1297, 34)
 scale = Vector2(2, 2)
-texture = ExtResource("58_odxrx")
+texture = ExtResource("65_k3ccm")
 
 [node name="Control" type="Control" parent="GemStats"]
 anchors_preset = 0
@@ -1407,7 +1404,7 @@ scale = Vector2(0.18, 0.18)
 
 [node name="Wood" type="Sprite2D" parent="Material"]
 position = Vector2(-14.9091, 134)
-texture = ExtResource("60_smnsv")
+texture = ExtResource("70_n63o2")
 
 [node name="WoodLabel" type="Label" parent="Material"]
 offset_left = -2.09092
@@ -1421,7 +1418,7 @@ text = ": 9999"
 [node name="Stone" type="Sprite2D" parent="Material"]
 position = Vector2(85.0909, 131.818)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("61_1lc5e")
+texture = ExtResource("72_bwmem")
 
 [node name="StoneLabel" type="Label" parent="Material"]
 offset_left = 97.9092
@@ -1435,7 +1432,7 @@ text = ": 9999"
 [node name="Iron" type="Sprite2D" parent="Material"]
 position = Vector2(185.091, 134)
 scale = Vector2(1.4, 1.4)
-texture = ExtResource("62_h74ps")
+texture = ExtResource("74_kehnc")
 
 [node name="IronLabel" type="Label" parent="Material"]
 offset_left = 197.909

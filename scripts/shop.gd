@@ -7,7 +7,7 @@ extends Node2D
 func _ready():
 	$ShopNameLabel.text = shop_name
 	
-func _process(delta):
+func _process(_delta):
 	update_level()
 
 func _on_exit_shop_pressed():

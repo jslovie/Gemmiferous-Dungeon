@@ -6,6 +6,16 @@ var green_gem = load("res://assets/32rogues/gems/green.png")
 var red_gem = load("res://assets/32rogues/gems/red.png")
 var jackpot = false
 
+var result1 = Vector2(139,583)
+var result2 = Vector2(287,583)
+var result3 = Vector2(435,583)
+
+var red_gem_effect = load("res://scenes/GUI/red_gem.tscn")
+var blue_gem_effect = load("res://scenes/GUI/blue_gem.tscn")
+var green_gem_effect = load("res://scenes/GUI/green_gem.tscn")
+var yellow_gem_effect = load("res://scenes/GUI/yellow_gem.tscn")
+
+
 func _process(_delta):
 	update_spins()
 
@@ -58,94 +68,72 @@ func load_result():
 		%Slot.result = null
 		%Slot2.result = null
 		%Slot3.result = null
-		
+
+func material_effect(effect, position):
+	var current = effect.instantiate()
+	current.position = position
+	add_child(current)
+
 func handle_result():
 	#Jackpots
 	if %Slot.result == "blue" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
+		EffectLoad.material_effect(blue_gem_effect, result1)
+		EffectLoad.material_effect(blue_gem_effect, result2)
+		EffectLoad.material_effect(blue_gem_effect, result3)
+		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.blue_gem_up(25)
-		print("blue jackpot")
 		jackpot = true
-		%SlotResultSprite.texture = blue_gem
-		%SlotResult.text = "+ 25"
 	elif %Slot.result == "red" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
+		EffectLoad.material_effect(red_gem_effect, result1)
+		EffectLoad.material_effect(red_gem_effect, result2)
+		EffectLoad.material_effect(red_gem_effect, result3)
+		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.red_gem_up(25)
-		print("red jackpot")
 		jackpot = true
-		%SlotResultSprite.texture = red_gem
-		%SlotResult.text = "+ 25"
 	elif %Slot.result == "green" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
+		EffectLoad.material_effect(green_gem_effect, result1)
+		EffectLoad.material_effect(green_gem_effect, result2)
+		EffectLoad.material_effect(green_gem_effect, result3)
+		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.green_gem_up(25)
-		print("green jackpot")
 		jackpot = true
-		%SlotResultSprite.texture = green_gem
-		%SlotResult.text = "+ 25"
 	elif %Slot.result == "yellow" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
+		EffectLoad.material_effect(yellow_gem_effect, result1)
+		EffectLoad.material_effect(yellow_gem_effect, result2)
+		EffectLoad.material_effect(yellow_gem_effect, result3)
+		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.yellow_gem_up(25)
-		print("yellow jackpot")
 		jackpot = true
-		%SlotResultSprite.texture = yellow_gem
-		%SlotResult.text = "+ 25"
 	else:
-		%SlotResult.text = "+ 1"
-		%Slot2Result.text = "+ 1"
-		%Slot3Result.text = "+ 1"
 		if %Slot.result == "blue":
-			PlayerManager.player.blue_gem_up(1)
-			%SlotResultSprite.texture = blue_gem
+			EffectLoad.material_effect(blue_gem_effect, result1)
 		elif %Slot.result == "red":
-			PlayerManager.player.red_gem_up(1)
-			%SlotResultSprite.texture = red_gem
+			EffectLoad.material_effect(red_gem_effect, result1)
 		elif %Slot.result == "green":
-			PlayerManager.player.green_gem_up(1)
-			%SlotResultSprite.texture = green_gem
+			EffectLoad.material_effect(green_gem_effect, result1)
 		elif %Slot.result == "yellow":
-			PlayerManager.player.yellow_gem_up(1)
-			%SlotResultSprite.texture = yellow_gem
+			EffectLoad.material_effect(yellow_gem_effect, result1)
 			
 		if %Slot2.result == "blue":
-			PlayerManager.player.blue_gem_up(1)
-			%Slot2ResultSprite.texture = blue_gem
+			EffectLoad.material_effect(blue_gem_effect, result2)
 		elif %Slot2.result == "red":
-			PlayerManager.player.red_gem_up(1)
-			%Slot2ResultSprite.texture = red_gem
+			EffectLoad.material_effect(red_gem_effect, result2)
 		elif %Slot2.result == "green":
-			PlayerManager.player.green_gem_up(1)
-			%Slot2ResultSprite.texture = green_gem
+			EffectLoad.material_effect(green_gem_effect, result2)
 		elif %Slot2.result == "yellow":
-			PlayerManager.player.yellow_gem_up(1)
-			%Slot2ResultSprite.texture = yellow_gem
+			EffectLoad.material_effect(yellow_gem_effect, result2)
 		
 		if %Slot3.result == "blue":
-			PlayerManager.player.blue_gem_up(1)
-			%Slot3ResultSprite.texture = blue_gem
+			EffectLoad.material_effect(blue_gem_effect, result3)
 		elif %Slot3.result == "red":
-			PlayerManager.player.red_gem_up(1)
-			%Slot3ResultSprite.texture = red_gem
+			EffectLoad.material_effect(red_gem_effect, result3)
 		elif %Slot3.result == "green":
-			PlayerManager.player.green_gem_up(1)
-			%Slot3ResultSprite.texture = green_gem
+			EffectLoad.material_effect(green_gem_effect, result3)
 		elif %Slot3.result == "yellow":
-			PlayerManager.player.yellow_gem_up(1)
-			%Slot3ResultSprite.texture = yellow_gem
+			EffectLoad.material_effect(yellow_gem_effect, result3)
 			
-	%Results.visible = true
-	if jackpot == true:
-		%Slot2Result.visible = false
-		%Slot3Result.visible = false
-	tween_results_up()
-	await get_tree().create_timer(2).timeout
-	%Results.position = Vector2(182,-60)
-	%Slot2Result.visible = true
-	%Slot3Result.visible = true
-	%Results.visible = false
 	jackpot = false
 	
-func tween_results_up():
-	var tween = create_tween()
-	tween.tween_property(%Results, "position", Vector2(182,-150),1.5)
-
-
-
 func _on_continue_pressed():
 	if PlayerManager.player.spins_left > 0:
 		$SpinsLeft.visible = true

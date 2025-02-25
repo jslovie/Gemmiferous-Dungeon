@@ -201,17 +201,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="EnemyHitLabel" type="Label" parent="HUD"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 116.0
-offset_top = -194.0
-offset_right = 224.0
-offset_bottom = -134.0
-theme_override_fonts/font = ExtResource("7_yoeou")
-theme_override_font_sizes/font_size = 64
-text = "999	"
-
 [node name="Stunned" type="Label" parent="HUD"]
 unique_name_in_owner = true
 visible = false
@@ -224,5 +213,8 @@ theme_override_colors/font_color = Color(0.897719, 0.46062, 0.129164, 1)
 theme_override_fonts/font = ExtResource("7_yoeou")
 theme_override_font_sizes/font_size = 64
 text = "*Stunned*"
+
+[node name="DamageNumberOrigin" type="Node2D" parent="."]
+position = Vector2(145, -164)
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

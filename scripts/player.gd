@@ -135,12 +135,12 @@ func damage1_attack():
 		if rage > 0:
 			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
 			action1 = (random_base_action1 + (random_base_action1 * rage)) * piece_multiplier
-			EnemyManager.enemy.take_damage(action1)
+			EnemyManager.enemy.take_damage(action1, random_base_action1)
 			print("damage is: " + str(action1))
 		else:
 			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
 			action1 = (random_base_action1 * piece_multiplier)
-			EnemyManager.enemy.take_damage(action1)
+			EnemyManager.enemy.take_damage(action1, random_base_action1)
 			print("damage is: " + str(action1))
 		
 func damage2_attack():
@@ -149,7 +149,7 @@ func damage2_attack():
 	else:
 		var random_base_action2 = randi_range(base_action2.x, base_action2.y)
 		action2 = (random_base_action2 * piece_multiplier)
-		EnemyManager.enemy.take_damage(action2)
+		EnemyManager.enemy.take_damage(action2, random_base_action2)
 		print("damage is: " + str(action2))
 		if has_mace == true:
 			var mace_action = get_mace_stunt_rng()
@@ -170,7 +170,7 @@ func damage3_attack():
 	else:
 		var random_base_action3 = randi_range(base_action3.x, base_action3.y)
 		action3 = (random_base_action3 * piece_multiplier)
-		EnemyManager.enemy.take_damage(action3)
+		EnemyManager.enemy.take_damage(action3, random_base_action3)
 		print("damage is: " + str(action3))
 	
 func get_mace_stunt_rng():
