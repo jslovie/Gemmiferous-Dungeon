@@ -1,5 +1,7 @@
 extends Node2D
 
+signal camera_effect
+
 #State Machine
 enum {wait, move}
 var state
@@ -23,7 +25,13 @@ var possible_pieces = [
 	#preload("res://scenes/pieces/material_piece.tscn"),
 ]
 
-
+#Effects
+var particle_effect = preload("res://scenes/pieces/particle.tscn")
+var red_gem_effect = preload("res://scenes/GUI/red_gem_treasure.tscn")
+var blue_gem_effect = preload("res://scenes/GUI/blue_gem_treasure.tscn")
+var green_gem_effect = preload("res://scenes/GUI/green_gem_treasure.tscn")
+var yellow_gem_effect = preload("res://scenes/GUI/yellow_gem_treasure.tscn")
+var coin_effect = preload("res://scenes/GUI/coin_treasure.tscn")
 
 #Current pieces in scene
 var all_pieces = []
@@ -185,11 +193,23 @@ func find_matches():
 	var timer = %DestroyTimer
 	timer.start()
 
+func make_effect(effect, column, row, color):
+	var current = effect.instantiate()
+	current.position = grid_to_pixel(column,row)
+	add_child(current)
+	current.color = Color(color.x, color.y, color.z)
+
+func material_effect(effect,column, row):
+	var current = effect.instantiate()
+	current.position = grid_to_pixel(column,row)
+	add_child(current)
+
 func destroy_matched():
-	var shield_load = 0
-	var sword_load = 0
-	var magic_load = 0
-	var bow_load = 0
+	var red_gem_load = 0
+	var blue_gem_load = 0
+	var green_gem_load = 0
+	var yellow_gem_load = 0
+	var gold_load = 0
 	
 	var was_matched = false
 	for i in width:
@@ -199,19 +219,46 @@ func destroy_matched():
 					was_matched = true
 					if LevelManager.treasure_timesup == false:
 						if all_pieces[i][j].color == "red":
-							PlayerManager.player.red_gem_up(1)
+							red_gem_load += 1
+							material_effect(red_gem_effect,i,j)
 						elif all_pieces[i][j].color == "green":
-							PlayerManager.player.green_gem_up(1)
+							green_gem_load += 1
+							material_effect(green_gem_effect,i,j)
 						elif all_pieces[i][j].color == "blue":
-							PlayerManager.player.blue_gem_up(1)
+							blue_gem_load += 1
+							material_effect(blue_gem_effect,i,j)
 						elif all_pieces[i][j].color == "yellow":
-							PlayerManager.player.yellow_gem_up(1)
+							yellow_gem_load += 1
+							material_effect(yellow_gem_effect,i,j)
 						elif all_pieces[i][j].color == "gold":
-							PlayerManager.player.coins_up()
-						
+							gold_load += 1
+							material_effect(coin_effect,i,j)
+					
+					var color = all_pieces[i][j].background_color
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
-	
+					make_effect(particle_effect, i, j, color)
+	if red_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif red_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if blue_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif blue_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if green_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif green_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if yellow_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif yellow_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if gold_load == 4:
+		emit_signal("camera_effect", 10)
+	elif gold_load >= 5:
+		emit_signal("camera_effect", 20)
+			
 	move_checked = true
 	if was_matched:
 		var timer = %CollapseTimer

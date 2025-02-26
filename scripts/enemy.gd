@@ -171,7 +171,6 @@ func Type_check():
 		%EnemyType.texture = torment_us_texture
 		
 func change_delay():
-	@warning_ignore("narrowing_conversion")
 	var random_delay = randi_range(action_delay.x, action_delay.y)
 	%ActionTimer.wait_time = random_delay
 	print("Action delay is: " + str(random_delay))
@@ -200,7 +199,6 @@ func random_action():
 	change_delay()
 	
 func inflict_damage():
-	@warning_ignore("narrowing_conversion")
 	var random_damage = randi_range(damage.x,damage.y)
 	PlayerManager.player.receive_damage(random_damage)
 
@@ -212,7 +210,6 @@ func heal():
 	if health >= max_health:
 		health = max_health
 
-@warning_ignore("shadowed_variable")
 func take_damage(damage, random_base_action):
 	if state == alive:
 		#Visual knockback
@@ -237,7 +234,7 @@ func take_damage(damage, random_base_action):
 		if random_base_action == PlayerManager.player.base_action1.y or random_base_action == PlayerManager.player.base_action2.y or random_base_action == PlayerManager.player.base_action3.y:
 			is_critical = true
 		var is_poison = false
-		DamageNumbers.display_number(damage, damage_numbers_origin.global_position, is_critical, is_poison)
+		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_critical, is_poison)
 		
 		#Logic behind getting hit
 		var health_attack = 0
@@ -339,7 +336,7 @@ func take_poison_damage(damage):
 		%AnimationPlayer.play("hit_poison")
 		var is_critical = false
 		var is_poison = true
-		DamageNumbers.display_number(damage, damage_numbers_origin.global_position, is_critical, is_poison)
+		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_critical, is_poison)
 		
 		#Logic behind getting hit
 		var health_attack = 0

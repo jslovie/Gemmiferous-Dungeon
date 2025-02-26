@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cddv16lwy000e" path="res://scenes/shop/shop_items/shop_item.tscn" id="1_odou0"]
 [ext_resource type="Texture2D" uid="uid://ng21u5vlq81s" path="res://assets/32rogues/pieces/longsword.png" id="2_5g1mt"]
-[ext_resource type="Script" path="res://scripts/shop_items/longsword.gd" id="2_ki24k"]
+[ext_resource type="Script" path="res://scripts/shop_items/shop_item.gd" id="2_wcq6i"]
 
 [node name="LongswordShopItem" instance=ExtResource("1_odou0")]
-script = ExtResource("2_ki24k")
+script = ExtResource("2_wcq6i")
 
 [node name="ItemPicture" parent="." index="2"]
 scale = Vector2(3.2, 3.2)

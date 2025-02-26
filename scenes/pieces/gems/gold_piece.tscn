@@ -5,6 +5,7 @@
 
 [node name="GoldPiece" instance=ExtResource("1_egiuk")]
 color = "gold"
+background_color = Vector3(0.553, 0.004, 0.773)
 
 [node name="Panel" parent="." index="1"]
 color = Color(0.55295, 0.00197259, 0.773503, 1)

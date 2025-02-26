@@ -5,6 +5,7 @@
 
 [node name="GreenGemPiece" instance=ExtResource("1_7b8mm")]
 color = "green"
+background_color = Vector3(0.818, 0.283, 0)
 
 [node name="Panel" parent="." index="1"]
 color = Color(0.818191, 0.282951, 0, 1)

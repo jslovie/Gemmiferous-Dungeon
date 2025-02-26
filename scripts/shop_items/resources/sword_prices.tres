@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="ShopPrices" load_steps=2 format=3 uid="uid://0ukoidyn7wko"]
+[gd_resource type="Resource" script_class="ShopPrices" load_steps=2 format=3 uid="uid://chimlx7fyx4px"]
 
-[ext_resource type="Script" path="res://scripts/shop_items/prices.gd" id="1_moe2v"]
+[ext_resource type="Script" path="res://scripts/shop_items/prices.gd" id="1_g8jlp"]
 
 [resource]
-script = ExtResource("1_moe2v")
-item = "Bow"
+script = ExtResource("1_g8jlp")
+item = "Sword"
 damage_0 = Vector2(0, 0)
 damage_1 = Vector2(0, 0)
 damage_2 = Vector2(0, 0)
 damage_3 = Vector2(0, 0)
 damage_4 = Vector2(0, 0)
 damage_5 = Vector2(0, 0)
-price_coin_lvl_1 = 10
+price_coin_lvl_1 = 0
 price_coin_lvl_2 = 0
 price_coin_lvl_3 = 0
 price_coin_lvl_4 = 0

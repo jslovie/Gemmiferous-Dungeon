@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cykm7ica5dysh"]
+
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="1_lio3k"]
+[ext_resource type="Script" path="res://scripts/material_effect.gd" id="2_h6t8a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ef13"]
+radius = 8.40952
+
+[node name="RedGemTreasure" type="Sprite2D" groups=["Effect"]]
+z_index = 50
+position = Vector2(289, 93)
+scale = Vector2(4, 4)
+texture = ExtResource("1_lio3k")
+script = ExtResource("2_h6t8a")
+type = "Red Gem T"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+amount = 50
+spread = 180.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angular_velocity_min = 5.0
+angular_velocity_max = 5.0
+scale_amount_max = 15.0
+color = Color(0, 0.466667, 0.541176, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3ef13")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

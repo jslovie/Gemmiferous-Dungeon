@@ -9,7 +9,7 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	if type == "Shield" or "Red Gem" or "Blue Gem" or "Green Gem" or "Yellow Gem" or "Coin":
+	if type == "Shield" or "Red Gem" or "Blue Gem" or "Green Gem" or "Yellow Gem" or "Coin" or "Red Gem T" or "Blue Gem T" or "Green Gem T" or "Yellow Gem T" or "Coin T":
 		rotation += -8 * delta
 	else:
 		rotation += 8 * delta
@@ -50,7 +50,21 @@ func tween_material():
 	elif type == "Coin":
 		var move_tween = create_tween()
 		move_tween.tween_property(self, "position", Vector2(19,4), 1)
-
+	elif type == "Red Gem T":
+		var move_tween = create_tween()
+		move_tween.tween_property(self, "position", Vector2(-630,4), 0.8)
+	elif type == "Blue Gem T":
+		var move_tween = create_tween()
+		move_tween.tween_property(self, "position", Vector2(-467,4), 0.8)
+	elif type == "Green Gem T":
+		var move_tween = create_tween()
+		move_tween.tween_property(self, "position", Vector2(-306,4), 0.8)
+	elif type == "Yellow Gem T":
+		var move_tween = create_tween()
+		move_tween.tween_property(self, "position", Vector2(-143,4), 0.8)
+	elif type == "Coin T":
+		var move_tween = create_tween()
+		move_tween.tween_property(self, "position", Vector2(19,4), 0.8)
 	
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Effect"):

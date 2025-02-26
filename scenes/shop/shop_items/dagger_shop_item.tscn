@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjc0j6ss7wrgw"]
 
 [ext_resource type="PackedScene" uid="uid://cddv16lwy000e" path="res://scenes/shop/shop_items/shop_item.tscn" id="1_x1krs"]
-[ext_resource type="Script" path="res://scripts/shop_items/dagger.gd" id="2_5w4ex"]
+[ext_resource type="Script" path="res://scripts/shop_items/shop_item.gd" id="2_nenuc"]
 [ext_resource type="Texture2D" uid="uid://con2lvido3r7h" path="res://assets/32rogues/pieces/dagger.png" id="3_2p8cj"]
 
 [node name="DaggerShopItem" instance=ExtResource("1_x1krs")]
-script = ExtResource("2_5w4ex")
+script = ExtResource("2_nenuc")
 
 [node name="ItemPicture" parent="." index="2"]
 position = Vector2(60, 56)

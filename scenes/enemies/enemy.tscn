@@ -214,7 +214,7 @@ theme_override_fonts/font = ExtResource("7_yoeou")
 theme_override_font_sizes/font_size = 64
 text = "*Stunned*"
 
-[node name="DamageNumberOrigin" type="Node2D" parent="."]
+[node name="DamageNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(145, -164)
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

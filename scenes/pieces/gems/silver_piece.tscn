@@ -6,9 +6,9 @@
 [node name="SilverPiece" instance=ExtResource("1_8x17e")]
 color = "silver"
 
-[node name="Panel" parent="." index="0"]
+[node name="Panel" parent="." index="1"]
 color = Color(0, 0.63, 0.105, 1)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="3"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_qgafl")

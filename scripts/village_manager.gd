@@ -148,7 +148,43 @@ func set_village_stats(tavern_lvl_data, weaponsmith_lvl_data, armourer_lvl_data,
 	axe_item_lvl = axe_item_lvl_data
 
 func reset_village_stats():
+	#Building levels
+	manor_lvl = 0
 	tavern_lvl = 1
 	weaponsmith_lvl = 1
 	armourer_lvl = 1
+	sorcerer_lvl = 1
+	woodcutters_lvl = 1
+	stone_mine_lvl = 1
+	iron_mine_lvl = 1
+	rathaus_lvl = 1
+	farm_lvl = 1
+	build_houses = 0
+	#Buildings state
+	church_repaired = false
+	tavern_repaired = false
+	weaponsmith_repaired = false
+	armourer_repaired = false
+	sorcerer_repaired = false
+	town_square_repaired = false
+	farm_repaired = false
+	houses_repaired = false
+	left_watchtower_repaired = false
+	right_watchtower_repaired = false
+	woodcutters_camp_repaired = false
+	stone_mine_repaired = false
+	iron_mine_repaired = false
+	lamps_built = false
+	campfire_built = false
+	#Item levels
 	axe_item_lvl = 1
+	mace_item_lvl = 1
+	sword_item_lvl = 1
+	bow_item_lvl = 1
+	longsword_lvl = 1
+	dagger_item_lvl = 1
+	spell_spear_lvl = 1
+	holy_stuff_lvl = 1
+	holy_amulet_lvl = 1
+	invisibility_ring_lvl = 1
+	rage_ring_lvl = 1

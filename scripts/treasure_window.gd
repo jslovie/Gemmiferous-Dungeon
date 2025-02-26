@@ -9,12 +9,14 @@ func _ready():
 	%Timer.timer_start()
 	LevelManager.treasure_timesup = false
 	$Chest/ChestClosed.visible = false
+	wait_time()
 	get_tree().paused = true
 	
 func _process(_delta):
 	update_healthbars()
 	update_shields()
 	change_background()
+	update_material_bar()
 	%Countdown.text = str(%TimesUp.time_left)
 
 func change_background():
@@ -27,6 +29,20 @@ func change_background():
 	elif LevelManager.floor == 4:
 		$Background/F4.visible = true
 
+func wait_time():
+	$WaitTime.visible = true
+	%WaitTimeTimer.start(5)
+	get_tree().paused = true
+
+func update_material_bar():
+	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
+	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.stone)
+	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.iron)
+	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.red_gem)
+	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
+	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
+	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
+	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
 	
 func update_healthbars():
 	%PlayerHealth.value = PlayerManager.player.health
@@ -66,3 +82,30 @@ func _on_times_up_grid_timeout():
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false
 	$WaitTime.visible = false
+
+
+func _on_red_gem_area_2d_area_entered(_area):
+	PlayerManager.player.red_gem_up(1)
+	$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_blue_gem_area_2d_area_entered(_area):
+	PlayerManager.player.blue_gem_up(1)
+	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_greem_gem_area_2d_area_entered(_area):
+	PlayerManager.player.green_gem_up(1)
+	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_yellow_gem_area_2d_area_entered(_area):
+	PlayerManager.player.yellow_gem_up(1)
+	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+func _on_coin_area_2d_area_entered(_area):
+	PlayerManager.player.coins_up()
+	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(0.5).timeout
+	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)

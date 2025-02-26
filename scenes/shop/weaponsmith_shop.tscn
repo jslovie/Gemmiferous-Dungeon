@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6ekgijmd1fss"]
+[gd_scene load_steps=9 format=3 uid="uid://c6ekgijmd1fss"]
 
 [ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_h7383"]
 [ext_resource type="PackedScene" uid="uid://cqby35ctvbi61" path="res://scenes/shop/shop_items/axe_shop_item.tscn" id="2_p8ga0"]
 [ext_resource type="PackedScene" uid="uid://bclk63aeemvmd" path="res://scenes/shop/shop_items/sword_shop_item.tscn" id="3_l6v7w"]
+[ext_resource type="Resource" uid="uid://chimlx7fyx4px" path="res://scripts/shop_items/resources/sword_prices.tres" id="4_2acjo"]
 [ext_resource type="PackedScene" uid="uid://b625cjtyckc3j" path="res://scenes/shop/shop_items/bow_shop_item.tscn" id="4_4ws4j"]
 [ext_resource type="PackedScene" uid="uid://bpkgqx8gjcujt" path="res://scenes/shop/shop_items/mace_shop_item.tscn" id="5_te0mp"]
-[ext_resource type="PackedScene" uid="uid://c2rkstw6hj5tn" path="res://scenes/shop/shop_items/longsword_shop_item.tscn" id="6_k5f0f"]
-[ext_resource type="PackedScene" uid="uid://bjc0j6ss7wrgw" path="res://scenes/shop/shop_items/dagger_shop_item.tscn" id="7_5hpwb"]
+[ext_resource type="Resource" uid="uid://0ukoidyn7wko" path="res://scripts/shop_items/resources/bow_prices.tres" id="6_88sjo"]
+[ext_resource type="Resource" uid="uid://lw6y3hfqgtpp" path="res://scripts/shop_items/resources/mace_prices.tres" id="8_mg1ob"]
 
 [node name="WeaponsmithShop" instance=ExtResource("1_h7383")]
 shop_name = "Weaponsmith"
@@ -26,9 +27,9 @@ offset_bottom = 727.0
 [node name="AxeShopItem" parent="." index="7" instance=ExtResource("2_p8ga0")]
 z_index = 0
 offset_left = 650.0
-offset_top = 530.0
+offset_top = 515.0
 offset_right = 763.0
-offset_bottom = 645.0
+offset_bottom = 630.0
 
 [node name="SwordShopItem" parent="." index="8" instance=ExtResource("3_l6v7w")]
 z_index = 0
@@ -36,6 +37,7 @@ offset_left = 650.0
 offset_top = 350.0
 offset_right = 763.0
 offset_bottom = 465.0
+prices = ExtResource("4_2acjo")
 
 [node name="BowShopItem" parent="." index="9" instance=ExtResource("4_4ws4j")]
 z_index = 0
@@ -43,24 +45,12 @@ offset_left = 800.0
 offset_top = 350.0
 offset_right = 913.0
 offset_bottom = 465.0
+prices = ExtResource("6_88sjo")
 
 [node name="MaceShopItem" parent="." index="10" instance=ExtResource("5_te0mp")]
 z_index = 0
 offset_left = 800.0
-offset_top = 530.0
+offset_top = 515.0
 offset_right = 913.0
-offset_bottom = 645.0
-
-[node name="LongswordShopItem" parent="." index="11" instance=ExtResource("6_k5f0f")]
-z_index = 0
-offset_left = 1019.0
-offset_top = 350.0
-offset_right = 1132.0
-offset_bottom = 465.0
-
-[node name="DaggerShopItem" parent="." index="12" instance=ExtResource("7_5hpwb")]
-z_index = 0
-offset_left = 1165.0
-offset_top = 350.0
-offset_right = 1278.0
-offset_bottom = 465.0
+offset_bottom = 630.0
+prices = ExtResource("8_mg1ob")

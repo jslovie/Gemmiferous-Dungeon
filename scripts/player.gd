@@ -33,9 +33,13 @@ var piece_multiplier = 1
 var spawned = false
 var spins_left = 0
 
+
+
 #Weapon upgrades
 var upgraded_axe_damage = Vector2(0,0)
+var upgraded_mace_damage = Vector2(0,0)
 var upgraded_sword_damage = Vector2(0,0)
+var upgraded_bow_damage = Vector2(0,0)
 
 #Weapon Statuses
 var rage = 0
@@ -106,7 +110,6 @@ func _ready():
 	state = alive
 	PlayerManager.player = self
 	update_player_texture()
-	%PlayerHitLabel.visible = false
 	
 func _process(_delta):
 	#print_test()
@@ -298,6 +301,13 @@ func receive_damage(damage):
 		#Visual hit
 		%AnimationPlayer.play("hit")
 		
+		#Visual hit number test
+		var is_critical = false
+		if damage == EnemyManager.enemy.damage.y:
+			is_critical = true
+		var is_poison = false
+		DamageNumbers.display_number(damage, $DamageNumberOrigin.global_position, is_critical, is_poison)
+		
 		#Logic behind getting hit
 		var health_attack = 0
 		for d in range(0, damage):
@@ -311,17 +321,6 @@ func receive_damage(damage):
 		if health <= 0:
 			health = 0
 			get_killed()
-		
-		#Visual hit number
-		%PlayerHitLabel.visible = true
-		var tween_hit_number = create_tween()
-		%PlayerHitLabel.text = str(damage)
-		tween_hit_number.tween_property(%PlayerHitLabel, "position", Vector2(-116,-364),0.5)
-		await get_tree().create_timer(1).timeout
-		%PlayerHitLabel.position = Vector2(-116,-194)
-		%PlayerHitLabel.visible = false
-
-
 
 func get_killed():
 	set_treasure()
