@@ -19,8 +19,8 @@ config/icon="res://IconG.png"
 
 PlayerManager="*res://scripts/player_manager.gd"
 EnemyManager="*res://scripts/enemy_manager.gd"
-VillageManager="*res://scripts/village_manager.gd"
 SaveManager="*res://scripts/save_manager.gd"
+VillageManager="*res://scripts/village_manager.gd"
 LevelManager="*res://scripts/level_manager.gd"
 Random="*res://scripts/random.gd"
 StartGame="*res://scenes/GUI/start_game.tscn"
@@ -34,8 +34,8 @@ EffectLoad="*res://scripts/effect_load.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [editor]

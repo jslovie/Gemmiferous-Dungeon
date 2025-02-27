@@ -43,6 +43,12 @@ var savefile_data = {
 		total_coins = 0,
 		upgraded_axe_damage_x = 0,
 		upgraded_axe_damage_y = 0,
+		upgraded_mace_damage_x = 0,
+		upgraded_mace_damage_y = 0,
+		upgraded_sword_damage_x = 0,
+		upgraded_sword_damage_y = 0,
+		upgraded_bow_damage_x = 0,
+		upgraded_bow_damage_y = 0,
 	},
 	gems = {
 		total_red_gem = 0,
@@ -56,10 +62,39 @@ var savefile_data = {
 		total_iron = 0,
 	},
 	village = {
-		tavern_lvl = 0,
-		weaponsmith_lvl = 0,
-		armourer_lvl = 0,
+		#Buildings levels
+		manor_lvl = 0,
+		tavern_lvl = 1,
+		weaponsmith_lvl = 1,
+		armourer_lvl = 1,
+		sorcerer_lvl = 1,
+		woodcutters_lvl = 1,
+		stone_mine_lvl = 1,
+		iron_mine_lvl = 1,
+		rathaus_lvl = 1,
+		farm_lvl = 1,
+		build_houses = 0,
+		#Buildings state
+		church_repaired = false,
+		tavern_repaired = false,
+		weaponsmith_repaired = false,
+		armourer_repaired = false,
+		sorcerer_repaired = false,
+		town_square_repaired = false,
+		farm_repaired = false,
+		houses_repaired = false,
+		left_watchtower_repaired = false,
+		right_watchtower_repaired = false,
+		woodcutters_camp_repaired = false,
+		stone_mine_repaired = false,
+		iron_mine_repaired = false,
+		lamps_built = false,
+		campfire_built = false,
+		#Items
 		axe_item_lvl = 0,
+		mace_item_lvl = 0,
+		sword_item_lvl = 0,
+		bow_item_lvl = 0,
 	},
 }
 
@@ -68,6 +103,14 @@ func update_player_data_savefile():
 	var p : Player = PlayerManager.player
 	var v = VillageManager
 	savefile_data.player_data.save_file = save_file
+	savefile_data.player_data.upgraded_axe_damage_x = p.upgraded_axe_damage.x
+	savefile_data.player_data.upgraded_axe_damage_y = p.upgraded_axe_damage.y
+	savefile_data.player_data.upgraded_mace_damage_x = p.upgraded_mace_damage.x
+	savefile_data.player_data.upgraded_mace_damage_y = p.upgraded_mace_damage.y
+	savefile_data.player_data.upgraded_sword_damage_x = p.upgraded_sword_damage.x
+	savefile_data.player_data.upgraded_sword_damage_y = p.upgraded_sword_damage.y
+	savefile_data.player_data.upgraded_bow_damage_x = p.upgraded_bow_damage.x
+	savefile_data.player_data.upgraded_bow_damage_y = p.upgraded_bow_damage.y
 	savefile_data.player_data.total_coins = p.total_coins
 	savefile_data.gems.total_red_gem = p.total_red_gem
 	savefile_data.gems.total_green_gem = p.total_green_gem
@@ -76,12 +119,36 @@ func update_player_data_savefile():
 	savefile_data.materials.total_wood = p.total_wood
 	savefile_data.materials.total_stone = p.total_stone
 	savefile_data.materials.total_iron = p.total_iron
-	savefile_data.player_data.upgraded_axe_damage_x = p.upgraded_axe_damage.x
-	savefile_data.player_data.upgraded_axe_damage_y = p.upgraded_axe_damage.y
+	savefile_data.village.manor_lvl = v.manor_lvl
 	savefile_data.village.tavern_lvl = v.tavern_lvl
 	savefile_data.village.weaponsmith_lvl = v.weaponsmith_lvl
 	savefile_data.village.armourer_lvl = v.armourer_lvl
+	savefile_data.village.sorcerer_lvl = v.sorcerer_lvl
+	savefile_data.village.woodcutters_lvl = v.woodcutters_lvl
+	savefile_data.village.stone_mine_lvl = v.stone_mine_lvl
+	savefile_data.village.iron_mine_lvl = v.iron_mine_lvl
+	savefile_data.village.rathaus_lvl = v.rathaus_lvl
+	savefile_data.village.farm_lvl = v.farm_lvl
+	savefile_data.village.build_houses = v.build_houses
+	savefile_data.village.church_repaired = v.church_repaired
+	savefile_data.village.tavern_repaired = v.tavern_repaired
+	savefile_data.village.weaponsmith_repaired = v.weaponsmith_repaired
+	savefile_data.village.armourer_repaired = v.armourer_repaired
+	savefile_data.village.sorcerer_repaired = v.sorcerer_repaired
+	savefile_data.village.town_square_repaired = v.town_square_repaired
+	savefile_data.village.farm_repaired = v.farm_repaired
+	savefile_data.village.houses_repaired = v.houses_repaired
+	savefile_data.village.left_watchtower_repaired = v.left_watchtower_repaired
+	savefile_data.village.right_watchtower_repaired = v.right_watchtower_repaired
+	savefile_data.village.woodcutters_camp_repaired = v.woodcutters_camp_repaired
+	savefile_data.village.stone_mine_repaired = v.stone_mine_repaired
+	savefile_data.village.iron_mine_repaired = v.iron_mine_repaired
+	savefile_data.village.lamps_built = v.lamps_built
+	savefile_data.village.campfire_built = v.campfire_built
 	savefile_data.village.axe_item_lvl = v.axe_item_lvl
+	savefile_data.village.mace_item_lvl = v.mace_item_lvl
+	savefile_data.village.sword_item_lvl = v.sword_item_lvl
+	savefile_data.village.bow_item_lvl = v.bow_item_lvl
 	
 func reset_savefile():
 	savefile_data = {
@@ -90,6 +157,12 @@ func reset_savefile():
 		total_coins = 0,
 		upgraded_axe_damage_x = 0,
 		upgraded_axe_damage_y = 0,
+		upgraded_mace_damage_x = 0,
+		upgraded_mace_damage_y = 0,
+		upgraded_sword_damage_x = 0,
+		upgraded_sword_damage_y = 0,
+		upgraded_bow_damage_x = 0,
+		upgraded_bow_damage_y = 0,
 	},
 	gems = {
 		total_red_gem = 0,
@@ -103,10 +176,39 @@ func reset_savefile():
 		total_iron = 0,
 	},
 	village = {
-		tavern_lvl = 0,
-		weaponsmith_lvl = 0,
-		armourer_lvl = 0,
+		#Buildings levels
+		manor_lvl = 0,
+		tavern_lvl = 1,
+		weaponsmith_lvl = 1,
+		armourer_lvl = 1,
+		sorcerer_lvl = 1,
+		woodcutters_lvl = 1,
+		stone_mine_lvl = 1,
+		iron_mine_lvl = 1,
+		rathaus_lvl = 1,
+		farm_lvl = 1,
+		build_houses = 0,
+		#Buildings state
+		church_repaired = false,
+		tavern_repaired = false,
+		weaponsmith_repaired = false,
+		armourer_repaired = false,
+		sorcerer_repaired = false,
+		town_square_repaired = false,
+		farm_repaired = false,
+		houses_repaired = false,
+		left_watchtower_repaired = false,
+		right_watchtower_repaired = false,
+		woodcutters_camp_repaired = false,
+		stone_mine_repaired = false,
+		iron_mine_repaired = false,
+		lamps_built = false,
+		campfire_built = false,
+		#Items
 		axe_item_lvl = 0,
+		mace_item_lvl = 0,
+		sword_item_lvl = 0,
+		bow_item_lvl = 0,
 	},
 }
 
@@ -195,7 +297,15 @@ func load_savefile():
 	PlayerManager.set_savefile_stats(savefile_data.player_data.total_coins, savefile_data.gems.total_green_gem,
 	savefile_data.gems.total_red_gem, savefile_data.gems.total_blue_gem, savefile_data.gems.total_yellow_gem, 
 	savefile_data.materials.total_wood, savefile_data.materials.total_stone, savefile_data.materials.total_iron, 
-	savefile_data.player_data.upgraded_axe_damage_x, savefile_data.player_data.upgraded_axe_damage_y)
+	savefile_data.player_data.upgraded_axe_damage_x, savefile_data.player_data.upgraded_axe_damage_y,
+	savefile_data.player_data.upgraded_mace_damage_x, savefile_data.player_data.upgraded_mace_damage_y,
+	savefile_data.player_data.upgraded_sword_damage_x, savefile_data.player_data.upgraded_sword_damage_y,
+	savefile_data.player_data.upgraded_bow_damage_x, savefile_data.player_data.upgraded_bow_damage_y)
 	
-	VillageManager.set_village_stats(savefile_data.village.tavern_lvl, savefile_data.village.weaponsmith_lvl,
-	savefile_data.village.armourer_lvl, savefile_data.village.axe_item_lvl)
+	VillageManager.set_village_stats(savefile_data.village.manor_lvl, savefile_data.village.tavern_lvl, savefile_data.village.weaponsmith_lvl, savefile_data.village.armourer_lvl, 
+	savefile_data.village.sorcerer_lvl, savefile_data.village.woodcutters_lvl, savefile_data.village.stone_mine_lvl, savefile_data.village.iron_mine_lvl, savefile_data.village.rathaus_lvl,
+	savefile_data.village.farm_lvl, savefile_data.village.build_houses, savefile_data.village.church_repaired, savefile_data.village.tavern_repaired, savefile_data.village.weaponsmith_repaired, 
+	savefile_data.village.armourer_repaired, savefile_data.village.sorcerer_repaired, savefile_data.village.town_square_repaired, savefile_data.village.farm_repaired, savefile_data.village.houses_repaired,
+	savefile_data.village.left_watchtower_repaired, savefile_data.village.right_watchtower_repaired, savefile_data.village.woodcutters_camp_repaired, savefile_data.village.stone_mine_repaired, 
+	savefile_data.village.iron_mine_repaired, savefile_data.village.lamps_built, savefile_data.village.campfire_built, savefile_data.village.axe_item_lvl, savefile_data.village.mace_item_lvl,
+	savefile_data.village.sword_item_lvl, savefile_data.village.bow_item_lvl,)

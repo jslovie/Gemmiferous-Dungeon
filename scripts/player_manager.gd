@@ -58,7 +58,8 @@ func set_player_stats(type_action1x,type_action1y, type_action2x,type_action2y, 
 	player.iron = iron
 	
 func set_savefile_stats(total_coins, total_green_gem, total_red_gem, total_blue_gem, total_yellow_gem, 
-	total_wood, total_stone, total_iron, upgraded_axe_damage_x, upgraded_axe_damage_y):
+	total_wood, total_stone, total_iron, upgraded_axe_damage_x, upgraded_axe_damage_y, upgraded_mace_damage_x, upgraded_mace_damage_y,
+	upgraded_sword_damage_x, upgraded_sword_damage_y, upgraded_bow_damage_x, upgraded_bow_damage_y,):
 		
 	player.total_coins = total_coins
 	player.total_green_gem = total_green_gem
@@ -70,3 +71,12 @@ func set_savefile_stats(total_coins, total_green_gem, total_red_gem, total_blue_
 	player.total_iron = total_iron
 	player.upgraded_axe_damage.x = upgraded_axe_damage_x
 	player.upgraded_axe_damage.y = upgraded_axe_damage_y
+	player.upgraded_mace_damage.x = upgraded_mace_damage_x
+	player.upgraded_mace_damage.y = upgraded_mace_damage_y
+	player.upgraded_sword_damage.x = upgraded_sword_damage_x
+	player.upgraded_sword_damage.y = upgraded_sword_damage_y
+	player.upgraded_bow_damage.x = upgraded_bow_damage_x
+	player.upgraded_bow_damage.y = upgraded_bow_damage_y
+	
+	
+	

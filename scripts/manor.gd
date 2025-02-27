@@ -186,9 +186,11 @@ func process_cost(wood,stone,iron):
 	$Cost.visible = false
 
 func _on_enter_the_dungeon_pressed():
+	SaveManager.savefilesave()
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 func _on_exit_shop_pressed():
+	SaveManager.savefilesave()
 	visible = false
 
 func manor_button():
