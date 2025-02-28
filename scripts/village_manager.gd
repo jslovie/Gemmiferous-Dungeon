@@ -67,15 +67,17 @@ var iron_mine_timer = Timer.new()
 
 func _ready():
 	#timers()
-	wood_timer()
-	stone_timer()
-	iron_timer()
+	pass
 
 func _process(_delta):
 	woodcutters_timer()
 	stone_miners_timer()
 	iron_miners_timer()
-	print(church_repaired)
+
+func start_timers():
+	wood_timer()
+	stone_timer()
+	iron_timer()
 
 func wood_timer():
 	if woodcutters_camp_repaired == true:
@@ -168,7 +170,7 @@ func set_village_stats(manor_lvl_data, tavern_lvl_data, weaponsmith_lvl_data, ar
 	houses_repaired = houses_repaired_data
 	left_watchtower_repaired = left_watchtower_repaired_data
 	right_watchtower_repaired = right_watchtower_repaired_data
-	woodcutters_camp_repaired = weaponsmith_repaired_data
+	woodcutters_camp_repaired = woodcutters_camp_repaired_data
 	stone_mine_repaired = stone_mine_repaired_data
 	iron_mine_repaired = iron_mine_repaired_data
 	lamps_built = lamps_built_data

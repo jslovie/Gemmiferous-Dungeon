@@ -36,7 +36,7 @@ var spins_left = 0
 
 
 #Weapon upgrades
-var upgraded_axe_damage = Vector2(0,0)
+var upgraded_axe_damage  = Vector2(0,0)
 var upgraded_mace_damage = Vector2(0,0)
 var upgraded_sword_damage = Vector2(0,0)
 var upgraded_bow_damage = Vector2(0,0)
@@ -101,18 +101,17 @@ var rng = RandomNumberGenerator.new()
 
 
 
-#
-#func print_test():
-	#print(upgraded_axe_damage)
-	#
-
+func print_test():
+	pass
+	
 func _ready():
 	state = alive
 	PlayerManager.player = self
 	update_player_texture()
 	
 func _process(_delta):
-	#print_test()
+	print_test()
+	update_upgraded_actions()
 	update_base_actions()
 	total_material()
 	
@@ -125,6 +124,17 @@ func update_player_texture():
 		$Character.texture = load("res://assets/32rogues/chars/Spellblade.png")
 	elif type == "Holy":
 		$Character.texture = load("res://assets/32rogues/chars/holy.png")
+
+func update_upgraded_actions():
+	if type == "Rogue":
+		upgraded_action1 = upgraded_sword_damage
+		upgraded_action2 = upgraded_bow_damage
+	elif type == "Barbarian":
+		upgraded_action1 = upgraded_axe_damage
+		upgraded_action2 = upgraded_mace_damage
+	else:
+		upgraded_action1 = Vector2(0,0)
+		upgraded_action2 = Vector2(0,0)
 		
 func update_base_actions():
 	base_action1 = type_action1 + upgraded_action1
@@ -232,7 +242,24 @@ func handle_rage(amount):
 		rage = 2
 	$RageTimer.start()
 	print("rage is: " + str(rage))
-	
+
+func reset_player_stats():
+#Weapon upgrades
+	upgraded_axe_damage = Vector2(0,0)
+	upgraded_mace_damage = Vector2(0,0)
+	upgraded_sword_damage = Vector2(0,0)
+	upgraded_bow_damage = Vector2(0,0)
+#Gems and Coins Stored
+	total_coins = 0
+	total_red_gem = 0
+	total_yellow_gem = 0
+	total_green_gem = 0
+	total_blue_gem = 0
+#Material Stored
+	total_wood = 0
+	total_stone = 0
+	total_iron = 0
+
 func shield_up(amount):
 	if EnemyManager.enemy.status == "alive":
 		shield += amount

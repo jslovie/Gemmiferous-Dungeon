@@ -7,8 +7,13 @@ var item_lvl
 var upgraded_item_damage
 
 func _ready():
+	await get_tree().create_timer(1).timeout
 	set_item()
 	item_set()
+	print(PlayerManager.player.upgraded_axe_damage)
+	print(upgraded_item_damage)
+	print(item_lvl)
+
 
 func set_item():
 	if prices.item == "Axe":
@@ -23,6 +28,7 @@ func set_item():
 	elif prices.item == "Bow":
 		item_lvl = VillageManager.bow_item_lvl
 		upgraded_item_damage = PlayerManager.player.upgraded_bow_damage
+
 		
 		
 func effect():
@@ -38,18 +44,24 @@ func not_enough():
 func item_set():
 	if item_lvl == 1:
 		upgraded_item_damage = Vector2(0,0)
+		$ItemNameLvl.text = str(prices.item) + " Lvl " + str(item_lvl)
 		$ItemDescription.text = str(description) + str(prices.damage_0.x) + "-" + str(prices.damage_0.y)
-	else:
-		$ItemDescription.text = str(description) + str(prices.damage_0.x + upgraded_item_damage.x) + "-" + str(prices.damage_0.y + upgraded_item_damage.y)
-	if item_lvl == 6:
+	elif item_lvl == 6:
+		print("I'm six")
 		$ItemNameLvl.text = str(prices.item) + " Lvl Max"
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + upgraded_item_damage.x) + "-" + str(prices.damage_0.y + upgraded_item_damage.y)
 	else:
 		$ItemNameLvl.text = str(prices.item) + " Lvl " + str(item_lvl)
+		$ItemDescription.text = str(description) + str(prices.damage_0.x + upgraded_item_damage.x) + "-" + str(prices.damage_0.y + upgraded_item_damage.y)
+
+
 
 func item_data_save():
 	item_lvl += 1
+	if prices.item == "Axe":
+		VillageManager.axe_item_lvl = item_lvl
 	SaveManager.savefilesave()
-	SaveManager.load_savefile()
+	#SaveManager.load_savefile()
 
 func item_level_UP():
 	if item_lvl == 1 and VillageManager.weaponsmith_lvl >= 1:
@@ -57,6 +69,8 @@ func item_level_UP():
 			not_enough()
 		else:
 			upgraded_item_damage += prices.damage_1
+			print(upgraded_item_damage)
+			print(PlayerManager.player.upgraded_axe_damage)
 			PlayerManager.player.total_coins -= prices.price_coin_lvl_1
 			PlayerManager.player.total_red_gem -= prices.price_gem_lvl_1
 			item_data_save()
@@ -101,6 +115,10 @@ func item_level_UP():
 		await get_tree().create_timer(1).timeout
 		$LowLevel/LowLevelLabel.visible = false
 	print("Upgraded Axe damage: " + str(upgraded_item_damage))
+	if prices.item == "Axe":
+		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage
+	print(PlayerManager.player.upgraded_axe_damage)
+	SaveManager.savefilesave()
 func _on_mouse_entered():
 	$Price.visible = true
 	if item_lvl == 1:

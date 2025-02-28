@@ -4,13 +4,14 @@ extends Node2D
 
 func _ready():
 	SaveManager.load_savefile()
-	update_treasures()
-	update_materials()
+
 	#repair_estate()
 
 	
 func _process(_delta):
 	total_material_check()
+	update_treasures()
+	update_materials()
 	update_facility_timers()
 	update_treasures()
 	update_materials()

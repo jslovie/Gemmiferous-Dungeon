@@ -41,6 +41,7 @@ func handle_new_game():
 	
 func handle_continue_game():
 	SaveManager.load_savefile()
+	VillageManager.start_timers()
 	visible = false
 	Loading.loading_1s()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
@@ -72,6 +73,7 @@ func _on_remove_pressed():
 	SaveManager.remove_savefile()
 	SaveManager.reset_savefile()
 	VillageManager.reset_village_stats()
+	PlayerManager.player.reset_player_stats()
 
 
 func _on_start_game_new_pressed():
