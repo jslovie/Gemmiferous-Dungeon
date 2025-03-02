@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_g8jlp")
 item = "Sword"
-damage_0 = Vector2(0, 0)
+damage_0 = Vector2(2, 4)
 damage_1 = Vector2(0, 0)
 damage_2 = Vector2(0, 0)
 damage_3 = Vector2(0, 0)

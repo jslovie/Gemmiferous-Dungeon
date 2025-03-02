@@ -10,6 +10,7 @@ health_increase = 15
 max_health = 150.0
 shield = 15.0
 shield_increase = 10
+damage = Vector2(15, 20)
 coin_worth = 150
 blood_type = "Green"
 

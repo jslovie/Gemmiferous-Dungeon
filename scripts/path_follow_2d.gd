@@ -1,6 +1,8 @@
 extends PathFollow2D
 
-var speed = 0.03
+@export var type : String
+
+var speed = 0.02
 
 func _process(delta):
 	progress_ratio += delta * speed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=101 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -65,7 +65,6 @@
 [ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="62_rnoug"]
 [ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="63_bynja"]
 [ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="64_usmbd"]
-[ext_resource type="Texture2D" uid="uid://bk8e78jpmce43" path="res://assets/32rogues/gems/coin_outline.png" id="65_k3ccm"]
 [ext_resource type="PackedScene" uid="uid://c6ekgijmd1fss" path="res://scenes/shop/weaponsmith_shop.tscn" id="67_hl5fj"]
 [ext_resource type="PackedScene" uid="uid://djjvuxftam6qd" path="res://scenes/shop/armourer_shop.tscn" id="68_rr3hs"]
 [ext_resource type="PackedScene" uid="uid://crsmlojxar5u7" path="res://scenes/shop/tavern_shop.tscn" id="69_j85mg"]
@@ -80,6 +79,8 @@
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="74_kehnc"]
 [ext_resource type="Texture2D" uid="uid://bh2avrkrq5akc" path="res://assets/32rogues/material/iron2 outline W.png" id="75_aih4a"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="81_mooqg"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="82_siwi3"]
 [ext_resource type="PackedScene" uid="uid://dte5nmep4gg4w" path="res://scenes/manor.tscn" id="84_m554g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0prv"]
@@ -778,9 +779,15 @@ sources/0 = SubResource("TileSetAtlasSource_l0prv")
 
 [sub_resource type="Curve2D" id="Curve2D_wsxe6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 793, 394, 0, 0, 0, 0, 791, 398, 0, 0, 0, 0, 783, 403, 0, 0, 0, 0, 788, 410, 0, 0, 0, 0, 778, 413, 0, 0, 0, 0, 782, 420, 0, 0, 0, 0, 785, 425, 0, 0, 0, 0, 782, 440, 0, 0, 0, 0, 798, 443, 0, 0, 0, 0, 799, 465, 0, 0, 0, 0, 800, 477, 0, 0, 0, 0, 788, 475)
+"points": PackedVector2Array(0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 793, 394, 0, 0, 0, 0, 791, 398, 0, 0, 0, 0, 783, 403, 0, 0, 0, 0, 788, 410, 0, 0, 0, 0, 778, 413, 0, 0, 0, 0, 782, 420, 0, 0, 0, 0, 785, 425, 0, 0, 0, 0, 782, 440, 0, 0, 0, 0, 798, 443, 0, 0, 0, 0, 799, 465, 0, 0, 0, 0, 800, 477, 0, 0, 0, 0, 788, 475, 0, 0, 0, 0, 825, 465)
 }
-point_count = 14
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_u0r3g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 796, 386, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 782, 401, 0, 0, 0, 0, 789, 409, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 783, 435, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 770, 440, 0, 0, 0, 0, 765, 439, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 789, 408, 0, 0, 0, 0, 782, 400, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 796, 386)
+}
+point_count = 27
 
 [sub_resource type="Curve2D" id="Curve2D_hmnc5"]
 _data = {
@@ -802,9 +809,9 @@ point_count = 28
 
 [sub_resource type="Curve2D" id="Curve2D_5trkd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 903, 403, 0, 0, 0, 0, 900, 400, 0, 0, 0, 0, 907, 399, 0, 0, 0, 0, 909, 401, 0, 0, 0, 0, 907, 405, 0, 0, 0, 0, 903, 406, 0, 0, 0, 0, 900, 407, 0, 0, 0, 0, 906, 408, 0, 0, 0, 0, 909, 409, 0, 0, 0, 0, 913, 413, 0, 0, 0, 0, 915, 415, 0, 0, 0, 0, 919, 414, 0, 0, 0, 0, 921, 414, 0, 0, 0, 0, 923, 415, 0, 0, 0, 0, 924, 418, 0, 0, 0, 0, 921, 419, 0, 0, 0, 0, 919, 418, 0, 0, 0, 0, 916, 418, 0, 0, 0, 0, 914, 420, 0, 0, 0, 0, 919, 421, 0, 0, 0, 0, 922, 421, 0, 0, 0, 0, 924, 423, 0, 0, 0, 0, 920, 424, 0, 0, 0, 0, 917, 424, 0, 0, 0, 0, 914, 423, 0, 0, 0, 0, 913, 427, 0, 0, 0, 0, 912, 430, 0, 0, 0, 0, 911, 434, 0, 0, 0, 0, 911, 437, 0, 0, 0, 0, 910, 438, 0, 0, 0, 0, 907, 439, 0, 0, 0, 0, 907, 436, 0, 0, 0, 0, 908, 433, 0, 0, 0, 0, 906, 430, 0, 0, 0, 0, 904, 431, 0, 0, 0, 0, 904, 435, 0, 0, 0, 0, 904, 438, 0, 0, 0, 0, 902, 438, 0, 0, 0, 0, 901, 434, 0, 0, 0, 0, 900, 431, 0, 0, 0, 0, 898, 427, 0, 0, 0, 0, 897, 425, 0, 0, 0, 0, 899, 422, 0, 0, 0, 0, 899, 420, 0, 0, 0, 0, 894, 420, 0, 0, 0, 0, 891, 422, 0, 0, 0, 0, 887, 423, 0, 0, 0, 0, 885, 423, 0, 0, 0, 0, 883, 422, 0, 0, 0, 0, 883, 425, 0, 0, 0, 0, 886, 427, 0, 0, 0, 0, 889, 429, 0, 0, 0, 0, 891, 429, 0, 0, 0, 0, 892, 426, 0, 0, 0, 0, 893, 423, 0, 0, 0, 0, 892, 419, 0, 0, 0, 0, 892, 414, 0, 0, 0, 0, 894, 408, 0, 0, 0, 0, 896, 403, 0, 0, 0, 0, 903, 403)
+"points": PackedVector2Array(0, 0, 0, 0, 898, 422, 0, 0, 0, 0, 892, 410, 0, 0, 0, 0, 904, 404, 0, 0, 0, 0, 917, 415, 0, 0, 0, 0, 909, 428, 0, 0, 0, 0, 883, 422, 0, 0, 0, 0, 898, 420)
 }
-point_count = 60
+point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_qplpx"]
 _data = {
@@ -853,6 +860,10 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 808, 476, 0, 0, 0, 0, 802, 477, 0, 0, 0, 0, 798, 475, 0, 0, 0, 0, 797, 468, 0, 0, 0, 0, 797, 462, 0, 0, 0, 0, 797, 456, 0, 0, 0, 0, 797, 450, 0, 0, 0, 0, 794, 443, 0, 0, 0, 0, 797, 441, 0, 0, 0, 0, 807, 443, 0, 0, 0, 0, 816, 443, 0, 0, 0, 0, 831, 441, 0, 0, 0, 0, 839, 441, 0, 0, 0, 0, 848, 443, 0, 0, 0, 0, 851, 438, 0, 0, 0, 0, 851, 429, 0, 0, 0, 0, 848, 421, 0, 0, 0, 0, 848, 417, 0, 0, 0, 0, 847, 410, 0, 0, 0, 0, 847, 402, 0, 0, 0, 0, 847, 394, 0, 0, 0, 0, 844, 388, 0, 0, 0, 0, 842, 381, 0, 0, 0, 0, 842, 377)
 }
 point_count = 24
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adpdb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjta8"]
 
 [node name="Village" type="Node2D"]
 script = ExtResource("1_4s24t")
@@ -1292,351 +1303,235 @@ zoom = Vector2(7.2, 7.2)
 position = Vector2(173, 623)
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = 678.0
 offset_top = 336.0
 offset_right = 2740.0
 offset_bottom = 399.0
 scale = Vector2(0.13, 0.13)
 
-[node name="GemStats" type="Control" parent="."]
-z_index = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 576.0
-offset_top = 336.0
-offset_right = 616.0
-offset_bottom = 376.0
-scale = Vector2(0.13, 0.13)
-
-[node name="Images" type="Control" parent="GemStats"]
-anchors_preset = 0
-offset_left = 130.0
-offset_top = -4.0
-offset_right = 170.0
-offset_bottom = 36.0
-
-[node name="Red" type="Sprite2D" parent="GemStats/Images"]
-position = Vector2(697, 34)
-scale = Vector2(2, 2)
-texture = ExtResource("61_41km2")
-
-[node name="Blue" type="Sprite2D" parent="GemStats/Images"]
-position = Vector2(847, 34)
-scale = Vector2(2, 2)
-texture = ExtResource("62_rnoug")
-
-[node name="Green" type="Sprite2D" parent="GemStats/Images"]
-position = Vector2(997, 34)
-scale = Vector2(2, 2)
-texture = ExtResource("63_bynja")
-
-[node name="Yellow" type="Sprite2D" parent="GemStats/Images"]
-position = Vector2(1147, 34)
-scale = Vector2(2, 2)
-texture = ExtResource("64_usmbd")
-
-[node name="Coin1" type="Sprite2D" parent="GemStats/Images"]
-position = Vector2(1297, 34)
-scale = Vector2(2, 2)
-texture = ExtResource("65_k3ccm")
-
-[node name="Control" type="Control" parent="GemStats"]
-anchors_preset = 0
-offset_left = 130.0
-offset_top = -4.0
-offset_right = 170.0
-offset_bottom = 36.0
-
-[node name="RedLabel" type="Label" parent="GemStats/Control"]
-layout_mode = 0
-offset_left = 721.0
-offset_top = 21.0
-offset_right = 761.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("59_xh1n5")
-theme_override_font_sizes/font_size = 32
-text = ": 9999"
-
-[node name="BlueLabel" type="Label" parent="GemStats/Control"]
-layout_mode = 0
-offset_left = 871.0
-offset_top = 21.0
-offset_right = 961.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("59_xh1n5")
-theme_override_font_sizes/font_size = 32
-text = ": 9999"
-
-[node name="GreenLabel" type="Label" parent="GemStats/Control"]
-layout_mode = 0
-offset_left = 1021.0
-offset_top = 21.0
-offset_right = 1111.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("59_xh1n5")
-theme_override_font_sizes/font_size = 32
-text = ": 9999"
-
-[node name="YellowLabel" type="Label" parent="GemStats/Control"]
-layout_mode = 0
-offset_left = 1171.0
-offset_top = 21.0
-offset_right = 1261.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("59_xh1n5")
-theme_override_font_sizes/font_size = 32
-text = ": 9999"
-
-[node name="CoinsLabel" type="Label" parent="GemStats/Control"]
-layout_mode = 0
-offset_left = 1321.0
-offset_top = 21.0
-offset_right = 1411.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("59_xh1n5")
-theme_override_font_sizes/font_size = 32
-text = ": 9999"
-
-[node name="Material" type="Node2D" parent="."]
-z_index = 1
-position = Vector2(894, 316)
-scale = Vector2(0.18, 0.18)
-
-[node name="Wood" type="Sprite2D" parent="Material"]
-position = Vector2(-14.9091, 134)
-texture = ExtResource("70_n63o2")
-
-[node name="WoodLabel" type="Label" parent="Material"]
-offset_left = -2.09092
-offset_top = 123.0
-offset_right = 42.9091
-offset_bottom = 146.0
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/font = ExtResource("59_xh1n5")
-text = ": 9999"
-
-[node name="Stone" type="Sprite2D" parent="Material"]
-position = Vector2(85.0909, 131.818)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("72_bwmem")
-
-[node name="StoneLabel" type="Label" parent="Material"]
-offset_left = 97.9092
-offset_top = 123.0
-offset_right = 142.909
-offset_bottom = 146.0
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/font = ExtResource("59_xh1n5")
-text = ": 9999"
-
-[node name="Iron" type="Sprite2D" parent="Material"]
-position = Vector2(185.091, 134)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("74_kehnc")
-
-[node name="IronLabel" type="Label" parent="Material"]
-offset_left = 197.909
-offset_top = 123.0
-offset_right = 242.909
-offset_bottom = 146.0
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/font = ExtResource("59_xh1n5")
-text = ": 9999"
-
 [node name="Paths" type="Node2D" parent="."]
-visible = false
 
-[node name="Path2D" type="Path2D" parent="Paths"]
+[node name="ManorToHouse" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_wsxe6")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
-position = Vector2(790.449, 392.257)
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToHouse"]
+position = Vector2(796, 387)
 rotation = 0.674741
-progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
+type = "none"
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/ManorToHouse/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("71_ouilf")
 
-[node name="Path2D2" type="Path2D" parent="Paths"]
+[node name="ManorToCross" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_u0r3g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToCross"]
+position = Vector2(765.668, 438.964)
+rotation = 0.674741
+progress = 111.09
+rotates = false
+script = ExtResource("79_ngvu0")
+type = "none"
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/ManorToCross/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("71_ouilf")
+
+[node name="ManorToSquare" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_hmnc5")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2"]
-position = Vector2(813.344, 459.017)
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToSquare"]
+visible = false
+position = Vector2(826, 455)
 rotation = 0.674741
-progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D2/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/ManorToSquare/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("72_i6l1n")
 
-[node name="Path2D3" type="Path2D" parent="Paths"]
+[node name="WoodcuttersToTavern" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_qxjdt")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D3"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/WoodcuttersToTavern"]
 position = Vector2(712.552, 456.296)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D3/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/WoodcuttersToTavern/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("73_pn60b")
 
-[node name="Path2D4" type="Path2D" parent="Paths"]
+[node name="WoodcuttersToHouse5" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_5lo48")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D4"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/WoodcuttersToHouse5"]
 position = Vector2(865.745, 445.45)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D4/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/WoodcuttersToHouse5/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
-[node name="Path2D5" type="Path2D" parent="Paths"]
+[node name="Farm" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_5trkd")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D5"]
-position = Vector2(908.883, 400.439)
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Farm"]
+position = Vector2(898, 422)
 rotation = 0.674741
-progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
+type = "Farm"
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D5/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/Farm/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("72_i6l1n")
 
-[node name="Path2D6" type="Path2D" parent="Paths"]
+[node name="Watchtower2" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_qplpx")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D6"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Watchtower2"]
 position = Vector2(884.429, 483.387)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D6/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/Watchtower2/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("71_ouilf")
 
-[node name="Path2D7" type="Path2D" parent="Paths"]
+[node name="Watchtower1" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_uprtu")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D7"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Watchtower1"]
 position = Vector2(749.252, 485.319)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D7/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/Watchtower1/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("71_ouilf")
 
-[node name="Path2D8" type="Path2D" parent="Paths"]
+[node name="StoneMineToBigHouse" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_0ralb")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D8"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/StoneMineToBigHouse"]
 position = Vector2(911.952, 468.197)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D8/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/StoneMineToBigHouse/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
-[node name="Path2D9" type="Path2D" parent="Paths"]
+[node name="StoneMineToSquare" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_c7jrt")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D9"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/StoneMineToSquare"]
 position = Vector2(846.659, 471.163)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D9/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/StoneMineToSquare/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
-[node name="Path2D10" type="Path2D" parent="Paths"]
+[node name="ChurchToHouses" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_34gqg")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D10"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/ChurchToHouses"]
 position = Vector2(769.398, 425.004)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D10/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/ChurchToHouses/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("73_pn60b")
 
-[node name="Path2D11" type="Path2D" parent="Paths"]
+[node name="House2ToChurch" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_5jjvp")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D11"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/House2ToChurch"]
 position = Vector2(856.476, 471.751)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D11/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/House2ToChurch/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("73_pn60b")
 
-[node name="Path2D12" type="Path2D" parent="Paths"]
+[node name="IronMineToSquare" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_23eg3")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D12"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/IronMineToSquare"]
 position = Vector2(845.594, 390.053)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D12/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/IronMineToSquare/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
-[node name="Path2D13" type="Path2D" parent="Paths"]
+[node name="IronMineToSquare2" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_8utem")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D13"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/IronMineToSquare2"]
 position = Vector2(797.541, 472.015)
 rotation = 0.674741
 progress = 13.584
 rotates = false
 script = ExtResource("79_ngvu0")
 
-[node name="Peasant1" type="Sprite2D" parent="Paths/Path2D13/PathFollow2D"]
+[node name="Peasant1" type="Sprite2D" parent="Paths/IronMineToSquare2/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
@@ -1735,6 +1630,184 @@ offset_bottom = 392.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("74_kehnc")
 texture_hover = ExtResource("75_aih4a")
+
+[node name="Material" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 888.0
+offset_top = 335.0
+offset_right = 928.0
+offset_bottom = 375.0
+scale = Vector2(0.275, 0.275)
+
+[node name="Panel" type="Panel" parent="Material"]
+layout_mode = 0
+offset_left = -761.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Material"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Wood" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("70_n63o2")
+
+[node name="WoodArea2D" type="Area2D" parent="Material/HBoxContainer/Wood" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Wood/WoodArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_adpdb")
+
+[node name="Stone" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("72_bwmem")
+
+[node name="StoneArea2D" type="Area2D" parent="Material/HBoxContainer/Stone" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Stone/StoneArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_adpdb")
+
+[node name="Iron" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("74_kehnc")
+
+[node name="IronArea2D" type="Area2D" parent="Material/HBoxContainer/Iron" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Iron/IronArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_adpdb")
+
+[node name="Gems" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 689.0
+offset_top = 335.0
+offset_right = 729.0
+offset_bottom = 375.0
+scale = Vector2(0.275, 0.275)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("61_41km2")
+
+[node name="RedGemArea2D" type="Area2D" parent="Gems/HBoxContainer/RedGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_wjta8")
+
+[node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("62_rnoug")
+
+[node name="BlueGemArea2D" type="Area2D" parent="Gems/HBoxContainer/BlueGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_wjta8")
+
+[node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("63_bynja")
+
+[node name="GreemGemArea2D" type="Area2D" parent="Gems/HBoxContainer/GreenGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_wjta8")
+
+[node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("64_usmbd")
+
+[node name="YellowGemArea2D" type="Area2D" parent="Gems/HBoxContainer/YellowGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_wjta8")
+
+[node name="Coin" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("81_mooqg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("82_siwi3")
+
+[node name="CoinArea2D" type="Area2D" parent="Gems/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_wjta8")
 
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]

@@ -114,6 +114,7 @@ func _process(_delta):
 	update_upgraded_actions()
 	update_base_actions()
 	total_material()
+	total_gems()
 	
 func update_player_texture():
 	if type == "Rogue":
@@ -291,6 +292,18 @@ func total_material():
 	if total_iron > 999:
 		total_iron = 999
 
+func total_gems():
+	if total_red_gem > 999:
+		total_red_gem = 999
+	if total_blue_gem > 999:
+		total_blue_gem = 999
+	if total_green_gem > 999:
+		total_green_gem = 999
+	if total_yellow_gem > 999:
+		total_yellow_gem = 999
+	if total_coins > 999:
+		total_coins = 999
+		
 func set_treasure():
 	total_coins += coins
 	total_red_gem += red_gem

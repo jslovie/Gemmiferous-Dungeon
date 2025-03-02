@@ -93,14 +93,14 @@ func _on_quit_game_new_pressed():
 
 
 func _on_start_game_new_mouse_entered():
-	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_start_game_new_mouse_exited():
 	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_options_new_mouse_entered():
-	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_options_new_mouse_exited():
 	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_quit_game_new_mouse_entered():
-	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_quit_game_new_mouse_exited():
 	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.WHITE)

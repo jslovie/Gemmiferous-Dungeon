@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=10 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
-[ext_resource type="Texture2D" uid="uid://dfvf8p4jjvyop" path="res://assets/background/finish 1-for jslovie-7D5C2-V4.png" id="3_0jt44"]
+[ext_resource type="Texture2D" uid="uid://jnfb3g2sxub7" path="res://assets/background/finish 1-for jslovie-7D5C2-V5.png" id="3_l7ciy"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_uksad"]
+[ext_resource type="Texture2D" uid="uid://bv00fhk45wgqd" path="res://assets/background/Full-1-export.png" id="4_wjd5j"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="6_caqhg"]
 
@@ -147,10 +148,15 @@ position = Vector2(-920, -506.5)
 tile_map_data = PackedByteArray("AAAJABEAAAACAAcAAAAVAAoAAAACAAcAAAAqAAoAAAACAAcAAAAhABgAAAADAAoAAAAUAB0AAAADAAoAAAAGABoAAAABABQAAAAEABsAAAABABQAAAAGABwAAAAAABQAAAA5AB0AAAAEABMAAAA2ABsAAAADABMAAAA3AB8AAAAJABMAAAA3AB0AAAADABMAAAA0AAcAAAAAABEAAAA3ABIAAAAAABEAAAA4ABQAAAAHABAAAAA5ABAAAAACABEAAAAgAB4AAAAAABQAAAAeABwAAAAAABQAAAAhABwAAAABABQAAAAlABkAAAABABUAAAAlABcAAAAAABYAAAAxABMAAAADAAkAAAAtABMAAAADAAkAAAAvABUAAAACAAkAAAAxABcAAAABAAkAAAApABIAAAADAAYAAAAlABEAAAADAAYAAAArAB0AAAACAAkAAAAuABsAAAABAAkAAAAmAB4AAAACABMAAAAfABEAAAAOABMAAAA5ABsAAAAKABMAAAA=")
 tile_set = SubResource("TileSet_a6b2h")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BackgroundSprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 scale = Vector2(6, 6)
-texture = ExtResource("3_0jt44")
+texture = ExtResource("3_l7ciy")
+
+[node name="GameTitleSprite2D" type="Sprite2D" parent="."]
+position = Vector2(585, 109)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_wjd5j")
 
 [node name="Testing" type="Button" parent="."]
 anchors_preset = 8
@@ -238,6 +244,7 @@ theme_override_font_sizes/font_size = 64
 text = "Quit Game"
 
 [node name="GameTitle" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -333,7 +340,7 @@ offset_right = 1901.0
 offset_bottom = 1068.0
 theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 32
-text = "v1.0.0"
+text = "v0.5.0"
 
 [connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]

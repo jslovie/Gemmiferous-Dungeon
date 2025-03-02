@@ -10,6 +10,7 @@ func _ready():
 	
 func _process(_delta):
 	total_material_check()
+	total_gems_check()
 	update_treasures()
 	update_materials()
 	update_facility_timers()
@@ -19,20 +20,43 @@ func _process(_delta):
 	check_stone_mine_icon()
 	check_iron_mine_icon()
 	check_buildings_state()
+	check_villagers()
 
 func total_material_check():
 	if PlayerManager.player.total_wood >= 999:
-		$Material/WoodLabel.add_theme_color_override("font_color",Color.DARK_RED)
+		$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.DARK_RED)
 	else:
-		$Material/WoodLabel.add_theme_color_override("font_color",Color.WHITE)
+		$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_stone >= 999:
-		$Material/StoneLabel.add_theme_color_override("font_color",Color.DARK_RED)
+		$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.DARK_RED)
 	else:
-		$Material/StoneLabel.add_theme_color_override("font_color",Color.WHITE)
+		$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_iron >= 999:
-		$Material/IronLabel.add_theme_color_override("font_color",Color.DARK_RED)
+		$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.DARK_RED)
 	else:
-		$Material/IronLabel.add_theme_color_override("font_color",Color.WHITE)
+		$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
+
+func total_gems_check():
+	if PlayerManager.player.total_red_gem >= 999:
+		$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+	if PlayerManager.player.total_blue_gem >= 999:
+		$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+	if PlayerManager.player.total_green_gem >= 999:
+		$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+	if PlayerManager.player.total_yellow_gem >= 999:
+		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+	if PlayerManager.player.total_coins >= 999:
+		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.DARK_RED)
+	else:
+		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 func check_buildings_state():
 	if VillageManager.manor_lvl == 1:
@@ -104,6 +128,7 @@ func check_buildings_state():
 		$VillageTiles/Houses/House.visible = true
 		$VillageTiles/Houses/BigHouse.visible = true
 		$VillageTiles/Houses/House2.visible = true
+		$VillageTiles/Houses/House5.visible = true
 	elif VillageManager.build_houses == 3:
 		$VillageTiles/Houses/DoubleHouses.visible = true
 		$VillageTiles/Houses/House.visible = true
@@ -118,11 +143,40 @@ func check_buildings_state():
 		$VillageTiles/Houses/House2.visible = true
 		$VillageTiles/Houses/House3.visible = true
 		$VillageTiles/Houses/House4.visible = true
-		$VillageTiles/Houses/House5.visible = true
 		$VillageTiles/Houses/House6.visible = true
 		$VillageTiles/Houses/DoubleHouses2.visible = true
 		
-		
+
+func check_villagers():
+	if VillageManager.manor_lvl > 0:
+		$Paths/ManorToCross.visible = true
+	if VillageManager.manor_lvl > 0 and VillageManager.houses_repaired == true:
+		$Paths/ManorToHouse.visible = true
+	if VillageManager.manor_lvl > 0 and VillageManager.town_square_repaired == true:
+		$Paths/ManorToSquare.visible = true
+	if VillageManager.tavern_repaired == true and VillageManager.woodcutters_camp_repaired == true:
+		$Paths/WoodcuttersToTavern.visible = true
+	if VillageManager.build_houses > 1 and VillageManager.woodcutters_camp_repaired == true:
+		$Paths/WoodcuttersToHouse5.visible = true
+	if VillageManager.farm_repaired == true:
+		$Paths/Farm.visible = true
+	if VillageManager.left_watchtower_repaired == true:
+		$Paths/Watchtower1.visible = true
+	if VillageManager.right_watchtower_repaired == true:
+		$Paths/Watchtower2.visible = true
+	if VillageManager.build_houses > 2 and VillageManager.stone_mine_repaired == true:
+		$Paths/StoneMineToBigHouse.visible = true
+	if VillageManager.town_square_repaired == true and VillageManager.stone_mine_repaired == true:
+		$Paths/StoneMineToSquare.visible = true
+	if VillageManager.church_repaired == true and VillageManager.houses_repaired == true:
+		$Paths/ChurchToHouses.visible = true
+	if VillageManager.build_houses > 2 and VillageManager.church_repaired == true:
+		$Paths/House2ToChurch.visible = true
+	if VillageManager.iron_mine_repaired == true and VillageManager.town_square_repaired == true:
+		$Paths/IronMineToSquare.visible = true
+	if VillageManager.iron_mine_repaired == true and VillageManager.town_square_repaired == true:
+		$Paths/IronMineToSquare2.visible = true
+
 func repair_estate():
 	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")
 	$VillageTiles/Manor.texture_hover = load("res://assets/village/Gemmiferous_estate/manor_highlighted.png")
@@ -201,16 +255,16 @@ func collect_iron():
 
 
 func update_treasures():
-	$GemStats/Control/RedLabel.text = ": " + str(PlayerManager.player.total_red_gem)
-	$GemStats/Control/BlueLabel.text = ": " + str(PlayerManager.player.total_blue_gem)
-	$GemStats/Control/GreenLabel.text = ": " + str(PlayerManager.player.total_green_gem)
-	$GemStats/Control/YellowLabel.text = ": " + str(PlayerManager.player.total_yellow_gem)
-	$GemStats/Control/CoinsLabel.text = ": " + str(PlayerManager.player.total_coins)
+	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.total_red_gem)
+	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
+	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
+	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
+	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
 	
 func update_materials():
-	$Material/WoodLabel.text = ": " + str(PlayerManager.player.total_wood)
-	$Material/StoneLabel.text = ": " + str(PlayerManager.player.total_stone)
-	$Material/IronLabel.text = ": " + str(PlayerManager.player.total_iron)
+	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
+	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.total_stone)
+	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
 
 func _on_manor_pressed():
 	SaveManager.load_savefile()

@@ -5,9 +5,15 @@
 
 [node name="CentipedaEnemyType" instance=ExtResource("1_fxklm")]
 type = "Centipeda"
-health = 100.0
-max_health = 100.0
+health = 125.0
+health_increase = 10
+max_health = 125.0
 shield = 10.0
+shield_increase = 10
+damage = Vector2(12, 15)
+coin_worth = 16
+action_delay = Vector2(5, 6)
+blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_p2hwj")

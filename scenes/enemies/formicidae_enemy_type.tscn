@@ -6,8 +6,14 @@
 [node name="FormicidaeEnemyType" instance=ExtResource("1_eqo6m")]
 type = "Formicidae"
 health = 100.0
+health_increase = 10
 max_health = 100.0
-shield = 10.0
+shield = 15.0
+shield_increase = 5
+damage = Vector2(10, 12)
+coin_worth = 15
+action_delay = Vector2(5, 6)
+blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_qyi67")

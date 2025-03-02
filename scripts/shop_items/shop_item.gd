@@ -10,9 +10,6 @@ func _ready():
 	await get_tree().create_timer(1).timeout
 	set_item()
 	item_set()
-	print(PlayerManager.player.upgraded_axe_damage)
-	print(upgraded_item_damage)
-	print(item_lvl)
 
 
 func set_item():
@@ -47,7 +44,6 @@ func item_set():
 		$ItemNameLvl.text = str(prices.item) + " Lvl " + str(item_lvl)
 		$ItemDescription.text = str(description) + str(prices.damage_0.x) + "-" + str(prices.damage_0.y)
 	elif item_lvl == 6:
-		print("I'm six")
 		$ItemNameLvl.text = str(prices.item) + " Lvl Max"
 		$ItemDescription.text = str(description) + str(prices.damage_0.x + upgraded_item_damage.x) + "-" + str(prices.damage_0.y + upgraded_item_damage.y)
 	else:
@@ -58,8 +54,16 @@ func item_set():
 
 func item_data_save():
 	item_lvl += 1
+	
 	if prices.item == "Axe":
 		VillageManager.axe_item_lvl = item_lvl
+	elif prices.item == "Mace":
+		VillageManager.mace_item_lvl = item_lvl
+	elif prices.item == "Sword":
+		VillageManager.sword_item_lvl = item_lvl
+	elif prices.item == "bow":
+		VillageManager.bow_item_lvl = item_lvl
+		
 	SaveManager.savefilesave()
 	#SaveManager.load_savefile()
 
@@ -114,11 +118,18 @@ func item_level_UP():
 		$LowLevel/LowLevelLabel.visible = true
 		await get_tree().create_timer(1).timeout
 		$LowLevel/LowLevelLabel.visible = false
-	print("Upgraded Axe damage: " + str(upgraded_item_damage))
+		
 	if prices.item == "Axe":
 		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage
-	print(PlayerManager.player.upgraded_axe_damage)
+	elif prices.item == "Mace":
+		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage
+	elif prices.item == "Sword":
+		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage	
+	elif prices.item == "Bow":
+		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage	
+
 	SaveManager.savefilesave()
+
 func _on_mouse_entered():
 	$Price.visible = true
 	if item_lvl == 1:

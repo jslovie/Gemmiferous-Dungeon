@@ -5,6 +5,15 @@
 
 [node name="SlyEnemyType" instance=ExtResource("1_naosq")]
 type = "Sly"
+health = 50.0
+health_increase = 5
+max_health = 50.0
+shield = 5.0
+shield_increase = 2
+damage = Vector2(1, 5)
+coin_worth = 10
+action_delay = Vector2(2, 6)
+blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_30syg")
