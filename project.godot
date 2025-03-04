@@ -29,6 +29,7 @@ QuitGame="*res://scenes/GUI/quit_game.tscn"
 Loading="*res://scenes/GUI/loading.tscn"
 DamageNumbers="*res://scripts/damage_numbers.gd"
 EffectLoad="*res://scripts/effect_load.gd"
+Transition="*res://scenes/GUI/transition.tscn"
 
 [display]
 

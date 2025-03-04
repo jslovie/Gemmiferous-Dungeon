@@ -21,6 +21,8 @@ var coin_effect_position = Vector2(921,737)
 @onready var coin_effect = load("res://scenes/GUI/coin_effect.tscn")
 @onready var damage_numbers_origin = $DamageNumberOrigin
 @onready var time = $ActionTimer
+@onready var enemy_claw_animation = %EnemyClawAnimation
+@onready var enemy_sword_animation = %EnemySwordAnimation
 
 func _ready():
 	stat_check()
@@ -32,6 +34,8 @@ func _ready():
 func _process(_delta):
 	%Label.text = str(time.time_left)
 	if status == "dead":
+		%ActionTimer.stop()
+	if LevelManager.type == "Random Event":
 		%ActionTimer.stop()
 
 	
@@ -173,7 +177,6 @@ func Type_check():
 func change_delay():
 	var random_delay = randi_range(action_delay.x, action_delay.y)
 	%ActionTimer.wait_time = random_delay
-	print("Action delay is: " + str(random_delay))
 	
 func random_action():
 	var random = Random.get_rng()
@@ -200,6 +203,13 @@ func random_action():
 	
 func inflict_damage():
 	var random_damage = randi_range(damage.x,damage.y)
+	if type == "Ghost Warrior" or type == "Demon Boss":
+		sword_blue_animation()
+	elif type == "Hag":
+		sword_animation()
+	else:
+		claw_animation()
+		
 	PlayerManager.player.receive_damage(random_damage)
 
 func shield_up():
@@ -252,13 +262,10 @@ func take_damage(damage, random_base_action):
 
 func get_killed():
 	LevelManager.level_done += 1
-	print("available level is: " + str(LevelManager.available_level))
 	if LevelManager.available_level == 11:
 		LevelManager.floor += 1
-		print("floor is " + str(LevelManager.floor))
 	if LevelManager.available_level == 51:
 		PlayerManager.player.player_won = true
-		print("player won")
 	#Shield Cap
 	if PlayerManager.player.shield >  PlayerManager.player.shield_max:
 		PlayerManager.player.shield =  PlayerManager.player.shield_max
@@ -351,3 +358,22 @@ func take_poison_damage(damage):
 		if health <= 0:
 			health = 0
 			get_killed()
+
+#Animation
+func claw_animation():
+	enemy_claw_animation.visible = true
+	enemy_claw_animation.play("Claw")
+	await enemy_claw_animation.animation_finished
+	enemy_claw_animation.visible = false
+
+func sword_animation():
+	enemy_sword_animation.visible = true
+	enemy_sword_animation.play("Sword")
+	await enemy_sword_animation.animation_finished
+	enemy_sword_animation.visible = false
+
+func sword_blue_animation():
+	enemy_sword_animation.visible = true
+	enemy_sword_animation.play("Sword_blue")
+	await enemy_sword_animation.animation_finished
+	enemy_sword_animation.visible = false

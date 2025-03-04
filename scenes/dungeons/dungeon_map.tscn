@@ -848,16 +848,6 @@ floor_set = 1
 level = 1
 path = "ABC"
 
-[node name="LevelSelection27" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
-offset_left = 1193.75
-offset_top = 947.5
-offset_right = 1225.75
-offset_bottom = 979.5
-type = "Treasure"
-floor_set = 1
-level = 1
-path = "ABC"
-
 [node name="LevelSelection2" parent="Dungeons/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
 offset_left = 826.0
 offset_top = 854.0

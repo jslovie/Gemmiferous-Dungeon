@@ -24,37 +24,37 @@ func _process(_delta):
 
 func total_material_check():
 	if PlayerManager.player.total_wood >= 999:
-		$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.DARK_RED)
+		$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_stone >= 999:
-		$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.DARK_RED)
+		$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_iron >= 999:
-		$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.DARK_RED)
+		$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
 
 func total_gems_check():
 	if PlayerManager.player.total_red_gem >= 999:
-		$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.DARK_RED)
+		$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_blue_gem >= 999:
-		$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.DARK_RED)
+		$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_green_gem >= 999:
-		$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.DARK_RED)
+		$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_yellow_gem >= 999:
-		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.DARK_RED)
+		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_coins >= 999:
-		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.DARK_RED)
+		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.RED)
 	else:
 		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 

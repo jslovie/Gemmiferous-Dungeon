@@ -14,9 +14,8 @@ func assign_stats():
 	
 func _on_pressed():
 	assign_stats()
-	print(PlayerManager.player.type_action1)
-	print(PlayerManager.player.type_action2)
-	print(PlayerManager.player.type_action3)
 	SaveManager.autosave()
+	Transition.transition()
+	await get_tree().create_timer(0.5).timeout
 	LevelManager.show_map = true
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")

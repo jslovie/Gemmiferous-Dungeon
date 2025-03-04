@@ -117,6 +117,16 @@ func check_enemy_debuff():
 	else:
 		$Hud/EnemyHealth/HBoxContainer/Poison.visible = false
 
+
+#Animations
+func sword_animation():
+	%SwordAnimation.play("sword")
+
+
+
+
+
+
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false
 	$WaitTime.visible = false
@@ -159,3 +169,7 @@ func _on_coin_area_2d_area_entered(_area):
 	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
 	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
+
+
+func _on_shield_area_entered(area):
+	PlayerManager.player.shield_up(PlayerManager.player.shield_to_be_loaded)

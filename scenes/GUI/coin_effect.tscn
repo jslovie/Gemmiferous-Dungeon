@@ -10,9 +10,12 @@ radius = 8.40952
 z_index = 50
 position = Vector2(289, 93)
 scale = Vector2(3, 3)
-texture = ExtResource("1_713gg")
 script = ExtResource("2_0fb8h")
 type = "Coin"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_713gg")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = -1

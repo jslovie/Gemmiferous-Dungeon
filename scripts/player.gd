@@ -29,6 +29,7 @@ var action3 = 0
 @export var shield : int
 var shield_max = 10
 var shield_load = 3
+var shield_to_be_loaded = 0
 var piece_multiplier = 1
 var spawned = false
 var spins_left = 0
@@ -65,6 +66,7 @@ var poison_active = false
 var poison_chance = 100
 var poison_duration = 6
 var poison_repetition = 2
+var check_for_poison_arrow = false
 var poison_rarities = {
 	"nothing" : 100,
 	"poison" : poison_chance,
@@ -164,7 +166,6 @@ func damage2_attack():
 		var random_base_action2 = randi_range(base_action2.x, base_action2.y)
 		action2 = (random_base_action2 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action2, random_base_action2)
-		print("damage is: " + str(action2))
 		if has_mace == true:
 			var mace_action = get_mace_stunt_rng()
 			print(mace_action)
@@ -174,6 +175,7 @@ func damage2_attack():
 			var bow_action = get_poison_rng()
 			print(bow_action)
 			if bow_action == "poison":
+				check_for_poison_arrow = true
 				poison_active = true
 				$EnemyDebuffTimerEnd.start(poison_duration)
 				$EnemyDebuffTimer.start(poison_repetition)
@@ -228,7 +230,6 @@ func handle_invisibility(amount):
 		print(invisibility_action)
 		invisibility_chance -= amount
 		if invisibility_action == "invisibility":
-			print("worked")
 			var tween_invisibility = create_tween()
 			tween_invisibility.tween_property($Character, "modulate:a", 0.10, 0.5)
 			EnemyManager.enemy.stop_action()
@@ -242,7 +243,6 @@ func handle_rage(amount):
 	if rage > 2:
 		rage = 2
 	$RageTimer.start()
-	print("rage is: " + str(rage))
 
 func reset_player_stats():
 #Weapon upgrades

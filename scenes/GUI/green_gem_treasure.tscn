@@ -9,7 +9,7 @@ radius = 8.40952
 [node name="GreenGemTreasure" type="Sprite2D" groups=["Effect"]]
 z_index = 50
 position = Vector2(289, 93)
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 texture = ExtResource("1_0or8u")
 script = ExtResource("2_j8biq")
 type = "Green Gem T"
@@ -23,7 +23,7 @@ initial_velocity_min = 25.0
 initial_velocity_max = 25.0
 angular_velocity_min = 5.0
 angular_velocity_max = 5.0
-scale_amount_max = 15.0
+scale_amount_max = 20.0
 color = Color(0.819608, 0.282353, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="."]

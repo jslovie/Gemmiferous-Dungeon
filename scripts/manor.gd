@@ -187,6 +187,8 @@ func process_cost(wood,stone,iron):
 
 func _on_enter_the_dungeon_pressed():
 	SaveManager.savefilesave()
+	Transition.transition()
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 func _on_exit_shop_pressed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=102 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -81,6 +81,7 @@
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="81_mooqg"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="82_siwi3"]
+[ext_resource type="PackedScene" uid="uid://bih5sa1u2e6k3" path="res://scenes/GUI/transition.tscn" id="83_m6mbu"]
 [ext_resource type="PackedScene" uid="uid://dte5nmep4gg4w" path="res://scenes/manor.tscn" id="84_m554g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0prv"]
@@ -1329,10 +1330,11 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("71_ouilf")
 
 [node name="ManorToCross" type="Path2D" parent="Paths"]
+visible = false
 curve = SubResource("Curve2D_u0r3g")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToCross"]
-position = Vector2(765.668, 438.964)
+position = Vector2(765.669, 438.964)
 rotation = 0.674741
 progress = 111.09
 rotates = false
@@ -1808,6 +1810,8 @@ position = Vector2(-16, 6.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_wjta8")
+
+[node name="Transition" parent="." instance=ExtResource("83_m6mbu")]
 
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]

@@ -223,6 +223,7 @@ func material_effect(effect,column, row):
 	
 func destroy_matched():
 	var shield_load = 0
+	var shield_effect_position = Vector2(0,0)
 	var material_load = 0
 	var sword_load = 0
 	var bow_load = 0
@@ -273,7 +274,9 @@ func destroy_matched():
 								material_effect(iron_effect, i, j)
 					
 					if shield_load > 0:
-						material_effect(shield_effect, i, j)
+						shield_effect_position.x = i
+						shield_effect_position.y = j
+						
 					var color = all_pieces[i][j].background_color
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
@@ -281,18 +284,16 @@ func destroy_matched():
 	######################################################################
 	#Shield load
 	if shield_load == 3:
-		await get_tree().create_timer(0.5).timeout
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load)
+		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load
+		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 	elif shield_load == 4:
+		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 1
+		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 		emit_signal("camera_effect", 10)
-		await get_tree().create_timer(0.5).timeout
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 1)
-		
 	elif shield_load >= 5:
+		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2
+		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 		emit_signal("camera_effect", 20)
-		await get_tree().create_timer(0.5).timeout
-		PlayerManager.player.shield_up(PlayerManager.player.shield_load + 2)
-		
 	#Material load	
 	if material_load == 4:
 		emit_signal("camera_effect", 10)
@@ -304,13 +305,16 @@ func destroy_matched():
 	#Sword update
 	if sword_load == 3:
 		PlayerManager.player.piece_multiplier = 1
+		sword_animation()
 		PlayerManager.player.damage1_attack()
 	elif sword_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
+		sword_animation()
 		PlayerManager.player.damage1_attack()
 		emit_signal("camera_effect", 10)
 	elif sword_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
+		sword_animation()
 		PlayerManager.player.damage1_attack()
 		emit_signal("camera_effect", 20)
 	#Bow update
@@ -319,17 +323,23 @@ func destroy_matched():
 		PlayerManager.player.has_bow_poison = true
 		PlayerManager.player.piece_multiplier = 1	
 		PlayerManager.player.damage2_attack()
+		bow_animation()
+		PlayerManager.player.check_for_poison_arrow = false
 	elif bow_load == 4:
 		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 25
 		PlayerManager.player.has_bow_poison = true
 		PlayerManager.player.piece_multiplier = 1.5	
 		PlayerManager.player.damage2_attack()
+		bow_animation()
+		PlayerManager.player.check_for_poison_arrow = false
 		emit_signal("camera_effect", 10)
 	elif bow_load >= 5:
 		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 100
 		PlayerManager.player.has_bow_poison = true
 		PlayerManager.player.piece_multiplier = 2	
 		PlayerManager.player.damage2_attack()
+		bow_animation()
+		PlayerManager.player.check_for_poison_arrow = false
 		emit_signal("camera_effect", 20)
 	#Invisibility update
 	if invisibility_load == 3:
@@ -349,31 +359,37 @@ func destroy_matched():
 	#Axe update
 	if axe_load == 3:
 		PlayerManager.player.piece_multiplier = 1
+		axe_animation()
 		PlayerManager.player.damage1_attack()
 	elif axe_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
+		axe_animation()
 		PlayerManager.player.damage1_attack()
 		emit_signal("camera_effect", 10)
 	elif axe_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
+		axe_animation()
 		PlayerManager.player.damage1_attack()
 		emit_signal("camera_effect", 20)
 	#Mace update
 	if mace_load == 3:
 		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
 		PlayerManager.player.has_mace = true
-		PlayerManager.player.piece_multiplier = 1	
+		PlayerManager.player.piece_multiplier = 1
+		mace_animation()
 		PlayerManager.player.damage2_attack()
 	elif mace_load == 4:
 		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
 		PlayerManager.player.has_mace = true
-		PlayerManager.player.piece_multiplier = 1.5	
+		PlayerManager.player.piece_multiplier = 1.5
+		mace_animation()
 		PlayerManager.player.damage2_attack()
 		emit_signal("camera_effect", 10)
 	elif mace_load >= 5:
 		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 100
 		PlayerManager.player.has_mace = true
-		PlayerManager.player.piece_multiplier = 2	
+		PlayerManager.player.piece_multiplier = 2
+		mace_animation()
 		PlayerManager.player.damage2_attack()
 		emit_signal("camera_effect", 20)
 	#Rage update
@@ -447,3 +463,31 @@ func _on_collapse_timer_timeout():
 
 func _on_refill_timer_timeout():
 	refill_columns()
+
+#Animations
+func sword_animation():
+	%SwordAnimation.visible = true
+	%SwordAnimation.play("Sword")
+	await %SwordAnimation.animation_finished
+	%SwordAnimation.visible = false
+
+func bow_animation():
+	%BowAnimation.visible = true
+	if PlayerManager.player.check_for_poison_arrow == true:
+		%BowAnimation.play("BowPoison")
+	else:
+		%BowAnimation.play("Bow")
+	await %BowAnimation.animation_finished
+	%BowAnimation.visible = false
+
+func axe_animation():
+	%AxeAnimation.visible = true
+	%AxeAnimation.play("Axe")
+	await %AxeAnimation.animation_finished
+	%AxeAnimation.visible = false
+
+func mace_animation():
+	%MaceAnimation.visible = true
+	%MaceAnimation.play("Mace")
+	await %MaceAnimation.animation_finished
+	%MaceAnimation.visible = false

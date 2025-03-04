@@ -9,7 +9,7 @@ radius = 8.40952
 [node name="CoinTreasure" type="Sprite2D" groups=["Effect"]]
 z_index = 50
 position = Vector2(289, 93)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 texture = ExtResource("1_fly5j")
 script = ExtResource("2_nrwwl")
 type = "Coin T"
@@ -23,7 +23,7 @@ initial_velocity_min = 25.0
 initial_velocity_max = 25.0
 angular_velocity_min = 5.0
 angular_velocity_max = 5.0
-scale_amount_max = 15.0
+scale_amount_max = 20.0
 color = Color(0.552941, 0.00392157, 0.772549, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
