@@ -17,6 +17,14 @@ var coin_worth = 5
 var action_delay : Vector2
 var blood_type
 
+var rng = RandomNumberGenerator.new()
+
+var crit = false
+var crit_rarities = {
+	"nothing" : 80,
+	"crit" : 20,
+}
+
 var coin_effect_position = Vector2(921,737)
 @onready var coin_effect = load("res://scenes/GUI/coin_effect.tscn")
 @onready var damage_numbers_origin = $DamageNumberOrigin
@@ -188,29 +196,58 @@ func random_action():
 		%SwordPiece.visible = false
 			
 	if random == "shield":
-		shield_up()
-		%ShieldPiece.visible = true
-		await get_tree().create_timer(2.0).timeout
-		%ShieldPiece.visible = false
+		if shield > 15:
+			random_action()
+		else:
+			shield_up()
+			%ShieldPiece.visible = true
+			await get_tree().create_timer(2.0).timeout
+			%ShieldPiece.visible = false
 			
 	if random == "heal":
-		heal()
-		%HealPiece.visible = true
-		await get_tree().create_timer(2.0).timeout
-		%HealPiece.visible = false
+		if health == max_health:
+			random_action()
+		else:
+			heal()
+			%HealPiece.visible = true
+			await get_tree().create_timer(2.0).timeout
+			%HealPiece.visible = false
 	
 	change_delay()
 	
 func inflict_damage():
+	var crit_amount = 0
+	var crit_chance = get_crit_rng()
+	if crit_chance == "crit":
+		crit = true
+		crit_amount = 1.5
+	else:
+		crit = false
+		crit_amount = 0
+		
 	var random_damage = randi_range(damage.x,damage.y)
+	var random_damage_crit = random_damage + (random_damage * crit_amount)
+	attack_animation()
+	PlayerManager.player.receive_damage(random_damage_crit)
+
+func attack_animation():
 	if type == "Ghost Warrior" or type == "Demon Boss":
 		sword_blue_animation()
 	elif type == "Hag":
 		sword_animation()
 	else:
 		claw_animation()
-		
-	PlayerManager.player.receive_damage(random_damage)
+
+func get_crit_rng():
+	rng.randomize()
+	var weigted_sum = 0
+	for n in crit_rarities:
+		weigted_sum += crit_rarities[n]
+	var chance = rng.randi_range(0, weigted_sum)
+	for n in crit_rarities:
+		if chance <= crit_rarities[n]:
+			return n
+		chance -= crit_rarities[n]
 
 func shield_up():
 	shield += shield_increase
@@ -240,11 +277,12 @@ func take_damage(damage, random_base_action):
 			%AnimationPlayer.play("hit_red")
 		
 		#Visual hit number test
+		var is_top = false
 		var is_critical = false
 		if random_base_action == PlayerManager.player.base_action1.y or random_base_action == PlayerManager.player.base_action2.y or random_base_action == PlayerManager.player.base_action3.y:
-			is_critical = true
+			is_top = true
 		var is_poison = false
-		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_critical, is_poison)
+		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
 		
 		#Logic behind getting hit
 		var health_attack = 0
@@ -341,9 +379,10 @@ func take_poison_damage(damage):
 		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
 		#Visual hit
 		%AnimationPlayer.play("hit_poison")
+		var is_top = false
 		var is_critical = false
 		var is_poison = true
-		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_critical, is_poison)
+		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
 		
 		#Logic behind getting hit
 		var health_attack = 0

@@ -1,9 +1,9 @@
 extends Node
 
 var rarities = {
-	"attack" : 3,
+	"attack" : 6,
 	"shield" : 2,
-	"heal" : 1,
+	"heal" : 2,
 }
 
 var rng = RandomNumberGenerator.new()

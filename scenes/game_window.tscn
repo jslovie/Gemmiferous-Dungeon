@@ -1086,6 +1086,7 @@ offset_bottom = 514.0
 scale = Vector2(1.2, 1.2)
 
 [node name="Material" type="Control" parent="."]
+z_index = 31
 layout_mode = 3
 anchors_preset = 0
 offset_left = 843.0
@@ -1159,6 +1160,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_gg1ri")
 
 [node name="Gems" type="Control" parent="."]
+z_index = 31
 layout_mode = 3
 anchors_preset = 0
 offset_left = -596.0
@@ -1263,6 +1265,130 @@ position = Vector2(-16, 6.5)
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_gg1ri")
 
+[node name="MaterialTotal" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 843.0
+offset_top = -34.0
+offset_right = 883.0
+offset_bottom = 6.0
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="MaterialTotal"]
+layout_mode = 0
+offset_left = -761.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MaterialTotal"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Wood" type="Label" parent="MaterialTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="MaterialTotal/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("21_spqid")
+
+[node name="Stone" type="Label" parent="MaterialTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="MaterialTotal/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("22_s46mu")
+
+[node name="Iron" type="Label" parent="MaterialTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="MaterialTotal/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("23_pwx4o")
+
+[node name="GemsTotal" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = -596.0
+offset_top = -34.0
+offset_right = -556.0
+offset_bottom = 6.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GemsTotal"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="GemsTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="GemsTotal/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("25_cgkb1")
+
+[node name="BlueGem" type="Label" parent="GemsTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="GemsTotal/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("26_qkeal")
+
+[node name="GreenGem" type="Label" parent="GemsTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="GemsTotal/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("27_yq476")
+
+[node name="YellowGem" type="Label" parent="GemsTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="GemsTotal/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("28_o85x2")
+
+[node name="Coin" type="Label" parent="GemsTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="GemsTotal/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("29_4qh4o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="GemsTotal/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("29_ktb7s")
+
 [node name="Shield" type="Area2D" parent="." groups=["Effect"]]
 position = Vector2(-92, 1002)
 
@@ -1278,6 +1404,7 @@ position = Vector2(921, 737)
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
 [connection signal="pressed" from="Inventory/InventoryGrid/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
+[connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
 [connection signal="area_entered" from="Material/HBoxContainer/Wood/WoodArea2D" to="." method="_on_wood_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Stone/StoneArea2D" to="." method="_on_stone_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Iron/IronArea2D" to="." method="_on_iron_area_2d_area_entered"]

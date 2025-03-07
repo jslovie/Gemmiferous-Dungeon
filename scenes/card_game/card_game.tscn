@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3rdm3t28dylk"]
+[gd_scene load_steps=6 format=3 uid="uid://b3rdm3t28dylk"]
 
 [ext_resource type="Script" path="res://scripts/card_game.gd" id="1_m8tym"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_vmm01"]
 [ext_resource type="Texture2D" uid="uid://d067xevn41isn" path="res://assets/cards/Cards Collection 1-2_tile_2.png" id="2_ynapj"]
+[ext_resource type="Texture2D" uid="uid://db4r1cxnyv822" path="res://assets/cards/Cards Collection 1-2_tile_56.png" id="3_qj1ny"]
+[ext_resource type="Texture2D" uid="uid://bc2hsc1xswu7x" path="res://assets/cards/Cards Collection 1-2_tile_65.png" id="4_32uvn"]
 
 [node name="CardGame" type="Control"]
 layout_mode = 3
@@ -22,16 +24,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1.92523e-07, 0.223513, 0.141187, 1)
 
-[node name="Button" type="Button" parent="."]
+[node name="PickCard" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -157.0
+offset_left = -191.0
 offset_top = 244.5
-offset_right = -9.0
+offset_right = -43.0
 offset_bottom = 282.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -39,16 +41,16 @@ theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
 text = "pick card"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Shuffle" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 10.0
+offset_left = -24.0
 offset_top = 244.5
-offset_right = 130.0
+offset_right = 96.0
 offset_bottom = 282.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -56,15 +58,34 @@ theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
 text = "shuffle"
 
+[node name="EndTurn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 118.0
+offset_top = 244.5
+offset_right = 258.0
+offset_bottom = 282.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+theme_override_font_sizes/font_size = 32
+text = "end turn"
+
 [node name="Card1" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 860.0
 offset_top = 540.0
 offset_right = 974.0
 offset_bottom = 706.0
-texture = ExtResource("2_ynapj")
+texture = ExtResource("3_qj1ny")
 
 [node name="Card2" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 920.0
 offset_top = 540.0
@@ -74,23 +95,39 @@ texture = ExtResource("2_ynapj")
 
 [node name="Card3" type="TextureRect" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
-offset_left = 917.0
+offset_left = 981.0
 offset_top = 540.0
-offset_right = 1031.0
+offset_right = 1095.0
 offset_bottom = 706.0
 texture = ExtResource("2_ynapj")
 
 [node name="Card4" type="TextureRect" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
-offset_left = 977.0
+offset_left = 1041.0
 offset_top = 540.0
-offset_right = 1091.0
+offset_right = 1155.0
 offset_bottom = 706.0
 texture = ExtResource("2_ynapj")
+
+[node name="Card5" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 921.0
+offset_top = 78.0
+offset_right = 1035.0
+offset_bottom = 244.0
+texture = ExtResource("2_ynapj")
+
+[node name="Card6" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 981.0
+offset_top = 78.0
+offset_right = 1095.0
+offset_bottom = 244.0
+texture = ExtResource("4_32uvn")
 
 [node name="BackToVillage" type="Button" parent="."]
 layout_mode = 0
@@ -104,10 +141,20 @@ text = "Back to village"
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 877.0
-offset_top = 738.0
-offset_right = 1027.0
-offset_bottom = 768.0
+offset_left = 929.0
+offset_top = 722.0
+offset_right = 1079.0
+offset_bottom = 752.0
+theme_override_fonts/font = ExtResource("1_vmm01")
+theme_override_font_sizes/font_size = 32
+text = "Score is: 0"
+
+[node name="EnemyScore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 929.0
+offset_top = 257.0
+offset_right = 1079.0
+offset_bottom = 287.0
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
 text = "Score is: 0"
@@ -123,6 +170,7 @@ theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 64
 text = "You Won!"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="PickCard" to="." method="_on_pick_card_pressed"]
+[connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="BackToVillage" to="." method="_on_back_to_village_pressed"]

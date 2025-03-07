@@ -49,26 +49,26 @@ var has_mace = false
 var mace_stunt_chance = 10
 var stun_time = 10
 var mace_stunt_rarities = {
-	"nothing" : 100,
+	"nothing" : 90,
 	"stunt" : mace_stunt_chance,
 }
 
 var has_invisibility = false
 var invisibility_chance = 20
 var invisibility_rarities = {
-	"nothing" : 100,
+	"nothing" : 80,
 	"invisibility" : invisibility_chance,
 }
 
 var has_bow_poison = false
 var poison_damage = 1
 var poison_active = false
-var poison_chance = 100
+var poison_chance = 20
 var poison_duration = 6
 var poison_repetition = 2
 var check_for_poison_arrow = false
 var poison_rarities = {
-	"nothing" : 100,
+	"nothing" : 80,
 	"poison" : poison_chance,
 }
 
@@ -86,6 +86,13 @@ var total_yellow_gem = 0
 var total_green_gem = 0
 var total_blue_gem = 0
 
+#Gems and Coins Stored if died
+var coins_died = 0
+var red_gem_died = 0
+var yellow_gem_died = 0
+var green_gem_died = 0
+var blue_gem_died = 0
+
 #Material
 var wood = 0
 var stone = 0
@@ -96,7 +103,10 @@ var total_wood = 0
 var total_stone = 0
 var total_iron = 0
 
-
+#Material died
+var wood_died = 0
+var stone_died = 0
+var iron_died = 0
 
 var rng = RandomNumberGenerator.new()
 
@@ -209,7 +219,7 @@ func get_invisibility_rng():
 	for n in invisibility_rarities:
 		if chance <= invisibility_rarities[n]:
 			return n
-		chance -= invisibility_rarities[n]		
+		chance -= invisibility_rarities[n]
 
 func get_poison_rng():
 	rng.randomize()
@@ -223,12 +233,9 @@ func get_poison_rng():
 		chance -= poison_rarities[n]
 
 
-func handle_invisibility(amount):
-	invisibility_chance += amount
+func handle_invisibility():
 	if has_invisibility == true:
 		var invisibility_action = get_invisibility_rng()
-		print(invisibility_action)
-		invisibility_chance -= amount
 		if invisibility_action == "invisibility":
 			var tween_invisibility = create_tween()
 			tween_invisibility.tween_property($Character, "modulate:a", 0.10, 0.5)
@@ -314,6 +321,49 @@ func set_treasure():
 	total_stone += stone
 	total_iron += iron
 
+func set_treasure_died():
+	for n in coins:
+		var random = randi_range(1,2)
+		if random == 1:
+			coins_died += 1
+	for n in red_gem:
+		var random = randi_range(1,2)
+		if random == 1:
+			red_gem_died += 1
+	for n in yellow_gem:
+		var random = randi_range(1,2)
+		if random == 1:
+			yellow_gem_died += 1
+	for n in green_gem:
+		var random = randi_range(1,2)
+		if random == 1:
+			green_gem_died += 1
+	for n in blue_gem:
+		var random = randi_range(1,2)
+		if random == 1:
+			blue_gem_died += 1
+	for n in wood:
+		var random = randi_range(1,2)
+		if random == 1:
+			wood_died += 1
+	for n in stone:
+		var random = randi_range(1,2)
+		if random == 1:
+			stone_died += 1
+	for n in iron:
+		var random = randi_range(1,2)
+		if random == 1:
+			iron_died += 1
+
+	total_coins += coins_died
+	total_red_gem += red_gem_died
+	total_yellow_gem += yellow_gem_died
+	total_green_gem += green_gem_died
+	total_blue_gem += blue_gem_died
+	total_wood += wood_died
+	total_stone += stone_died
+	total_iron += iron_died
+
 func reset_current_treasure():
 	coins -= coins
 	red_gem -= red_gem
@@ -342,11 +392,14 @@ func receive_damage(damage):
 		%AnimationPlayer.play("hit")
 		
 		#Visual hit number test
+		var is_top = false
 		var is_critical = false
 		if damage == EnemyManager.enemy.damage.y:
+			is_top = true
+		if EnemyManager.enemy.crit == true:
 			is_critical = true
 		var is_poison = false
-		DamageNumbers.display_number(damage, $DamageNumberOrigin.global_position, is_critical, is_poison)
+		DamageNumbers.display_number(damage, $DamageNumberOrigin.global_position, is_top, is_critical, is_poison)
 		
 		#Logic behind getting hit
 		var health_attack = 0
@@ -363,7 +416,7 @@ func receive_damage(damage):
 			get_killed()
 
 func get_killed():
-	set_treasure()
+	set_treasure_died()
 	LevelManager.reset_map()
 	EnemyManager.enemy.player_died()
 	state = dead

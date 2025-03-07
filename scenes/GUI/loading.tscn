@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Loading" type="Label" parent="."]
 offset_left = 1613.0
 offset_top = 987.0
 offset_right = 1889.0
@@ -22,3 +22,17 @@ offset_bottom = 1047.0
 theme_override_fonts/font = ExtResource("1_4cnnu")
 theme_override_font_sizes/font_size = 64
 text = "Loading..."
+
+[node name="Tip" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_top = -91.0
+offset_right = 2219.0
+offset_bottom = -31.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_4cnnu")
+theme_override_font_sizes/font_size = 40
+text = "Tip: You will recover only some loot if explorer will die in dungeon"
+vertical_alignment = 1
