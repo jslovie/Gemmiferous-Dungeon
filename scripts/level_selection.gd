@@ -199,7 +199,9 @@ func select_enemy_new():
 				enemy_type = "Torment Us"
 		elif type == "Boss":
 			enemy_type = "Devil Boss"
-
+	if type == "Treasure":
+		enemy_type = "Treasure"
+		
 func select_type():
 	LevelManager.show_map = false
 	LevelManager.type = type
@@ -217,8 +219,8 @@ func select_type():
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
 	
 	elif type == "Treasure":
-		get_tree().change_scene_to_file("res://scenes/treasure.tscn")
-	
+		get_tree().change_scene_to_file("res://scenes/game_window.tscn")
+		
 	elif type == "Rest":
 		get_tree().change_scene_to_file("res://scenes/dungeons/rest.tscn")
 		

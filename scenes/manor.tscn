@@ -1,17 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://dte5nmep4gg4w"]
+[gd_scene load_steps=23 format=3 uid="uid://dte5nmep4gg4w"]
 
 [ext_resource type="Script" path="res://scripts/manor.gd" id="1_cgbrd"]
 [ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/paper UI/Paper/Menu3.png" id="2_jb623"]
 [ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/paper UI/Paper/Header3.png" id="3_607d0"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_we4rk"]
 [ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/paper UI/Paper/Header2new.png" id="5_jsq5c"]
+[ext_resource type="Texture2D" uid="uid://bsc7q7gkcmm82" path="res://assets/32rogues/doors/exitdoor.png" id="5_vx1r2"]
 [ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/paper UI/Paper/Header2newHighlighted.png" id="6_bulpw"]
+[ext_resource type="Texture2D" uid="uid://uh7t7cerc714" path="res://assets/32rogues/doors/exitdoor-opened.png" id="6_uh8ok"]
 [ext_resource type="Texture2D" uid="uid://bxdu3pg6duhi5" path="res://assets/paper UI/Paper/checkbox.png" id="7_7f7t3"]
+[ext_resource type="Texture2D" uid="uid://bbn2jsmfvvav6" path="res://assets/32rogues/doors/exitdoor-highlighted.png" id="7_uctvj"]
 [ext_resource type="Texture2D" uid="uid://dfod8ic64xc6x" path="res://assets/paper UI/Paper/checkbox_checked.png" id="8_v17bp"]
 [ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="9_djmxj"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="9_nvdpm"]
 [ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="10_ap8kd"]
 [ext_resource type="Texture2D" uid="uid://cqgv2hy0tkplb" path="res://assets/32rogues/material/iron.png" id="11_e5fm4"]
+[ext_resource type="Texture2D" uid="uid://dcrpnylkmyk7r" path="res://assets/paper UI/Paper/Menu1.png" id="16_lae42"]
+[ext_resource type="Texture2D" uid="uid://dr6qemq8gfqc" path="res://assets/32rogues/doors/cell.png" id="17_vw3up"]
+[ext_resource type="Texture2D" uid="uid://bbeo6mdvnlwg2" path="res://assets/32rogues/doors/cell-opened.png" id="18_11sf5"]
+[ext_resource type="Texture2D" uid="uid://cwsawy5invur6" path="res://assets/32rogues/doors/cell-highlighted.png" id="19_6nv6r"]
+[ext_resource type="Texture2D" uid="uid://bxk3dgeaqt8e6" path="res://assets/32rogues/doors/book.png" id="20_i3r6y"]
+[ext_resource type="Texture2D" uid="uid://b0s248axs4xa4" path="res://assets/32rogues/doors/book-highlighted.png" id="21_nbgds"]
+[ext_resource type="Texture2D" uid="uid://c7a6ssyotlxca" path="res://assets/32rogues/doors/book-opened.png" id="21_yvyah"]
 
 [node name="Manor" type="Node2D"]
 z_index = 10
@@ -85,28 +95,18 @@ vertical_alignment = 1
 
 [node name="ExitShop" type="TextureButton" parent="."]
 layout_direction = 1
-offset_left = 990.0
-offset_top = 673.0
-offset_right = 1063.0
-offset_bottom = 690.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("5_jsq5c")
-texture_hover = ExtResource("6_bulpw")
-
-[node name="ExitShopLabel" type="Label" parent="."]
-layout_direction = 1
-offset_left = 1004.0
-offset_top = 687.0
-offset_right = 1268.0
-offset_bottom = 727.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_we4rk")
-theme_override_font_sizes/font_size = 32
-text = "Exit the shop"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 1213.0
+offset_top = 686.0
+offset_right = 1245.0
+offset_bottom = 718.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("5_vx1r2")
+texture_pressed = ExtResource("6_uh8ok")
+texture_hover = ExtResource("7_uctvj")
 
 [node name="EnterTheDungeon" type="TextureButton" parent="."]
+visible = false
 layout_direction = 1
 offset_left = 989.0
 offset_top = 245.0
@@ -117,6 +117,7 @@ texture_normal = ExtResource("5_jsq5c")
 texture_hover = ExtResource("6_bulpw")
 
 [node name="EnterTheDungeonLabel" type="Label" parent="."]
+visible = false
 layout_direction = 1
 offset_left = 1003.0
 offset_top = 259.0
@@ -528,7 +529,6 @@ texture = ExtResource("7_7f7t3")
 
 [node name="Checked" type="Sprite2D" parent="TownRepair/VBoxContainer/IronMine"]
 visible = false
-z_index = 1
 position = Vector2(-10.146, 6.309)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_v17bp")
@@ -978,6 +978,120 @@ position = Vector2(69, 16)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_e5fm4")
 
+[node name="BookFrontPage" type="Node2D" parent="."]
+
+[node name="Book" type="Sprite2D" parent="BookFrontPage"]
+position = Vector2(937, 492)
+scale = Vector2(5, 5)
+texture = ExtResource("2_jb623")
+
+[node name="ShopName" type="Sprite2D" parent="BookFrontPage"]
+position = Vector2(778, 283)
+scale = Vector2(4, 4)
+texture = ExtResource("3_607d0")
+
+[node name="ShopNameLabel" type="Label" parent="BookFrontPage"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 672.0
+offset_top = 255.0
+offset_right = 834.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Manor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Paper" type="Sprite2D" parent="BookFrontPage"]
+position = Vector2(774, 517)
+scale = Vector2(2, 2)
+texture = ExtResource("16_lae42")
+
+[node name="Paper2" type="Sprite2D" parent="BookFrontPage"]
+position = Vector2(1140, 517)
+scale = Vector2(2, 2)
+texture = ExtResource("16_lae42")
+
+[node name="EnterDungeonLabel" type="Label" parent="BookFrontPage"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 630.0
+offset_top = 339.0
+offset_right = 920.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Enter the dungeon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VillageManagementLabel" type="Label" parent="BookFrontPage"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 989.0
+offset_top = 339.0
+offset_right = 1285.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_we4rk")
+theme_override_font_sizes/font_size = 32
+text = "Village management"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnterDungeon" type="TextureButton" parent="BookFrontPage"]
+offset_left = 762.0
+offset_top = 494.0
+offset_right = 794.0
+offset_bottom = 526.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("17_vw3up")
+texture_pressed = ExtResource("18_11sf5")
+texture_hover = ExtResource("19_6nv6r")
+
+[node name="VillageManagement" type="TextureButton" parent="BookFrontPage"]
+offset_left = 1128.0
+offset_top = 502.0
+offset_right = 1160.0
+offset_bottom = 534.0
+scale = Vector2(7, 7)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("20_i3r6y")
+texture_pressed = ExtResource("21_yvyah")
+texture_hover = ExtResource("21_nbgds")
+
+[node name="ExitShopFrontPage" type="TextureButton" parent="BookFrontPage"]
+layout_direction = 1
+offset_left = 1213.0
+offset_top = 686.0
+offset_right = 1245.0
+offset_bottom = 718.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("5_vx1r2")
+texture_pressed = ExtResource("6_uh8ok")
+texture_hover = ExtResource("7_uctvj")
+
 [connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="EnterTheDungeon" to="." method="_on_enter_the_dungeon_pressed"]
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_mouse_entered"]
@@ -1058,3 +1172,6 @@ texture = ExtResource("11_e5fm4")
 [connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_mouse_entered"]
 [connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_mouse_exited"]
 [connection signal="pressed" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_pressed"]
+[connection signal="pressed" from="BookFrontPage/EnterDungeon" to="." method="_on_enter_dungeon_pressed"]
+[connection signal="pressed" from="BookFrontPage/VillageManagement" to="." method="_on_village_management_pressed"]
+[connection signal="pressed" from="BookFrontPage/ExitShopFrontPage" to="." method="_on_exit_shop_front_page_pressed"]

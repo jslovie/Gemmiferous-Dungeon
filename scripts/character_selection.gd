@@ -59,6 +59,7 @@ func total_gems_check():
 		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 func _on_back_button_pressed():
+	$Background/DoorClosed.visible = true
 	Transition.transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

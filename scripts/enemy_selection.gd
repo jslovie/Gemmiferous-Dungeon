@@ -170,5 +170,4 @@ func select_enemy():
 		torment_us.global_position = $Controllable_player.global_position
 		add_child(torment_us)
 
-
 	print("Enemy is : " + str(enemy))

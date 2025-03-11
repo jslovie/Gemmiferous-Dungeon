@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=103 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -8,10 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="5_bfbau"]
 [ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="5_lkr4m"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_pg7vj"]
+[ext_resource type="Texture2D" uid="uid://ceov6qhg5e7pc" path="res://assets/32rogues/gems/chest_opened.png" id="6_12re3"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
+[ext_resource type="Texture2D" uid="uid://beh4dker3ieaj" path="res://assets/32rogues/gems/chest_closed.png" id="7_hg3ss"]
 [ext_resource type="Texture2D" uid="uid://m3vjmbmur66h" path="res://assets/32rogues/pieces/health_potion.png" id="9_d7cj6"]
 [ext_resource type="PackedScene" uid="uid://cbcqd1f6tddcc" path="res://scenes/camera_2d.tscn" id="9_gkok3"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
+[ext_resource type="PackedScene" uid="uid://de8pjjey6lewp" path="res://scenes/GUI/hint_effect.tscn" id="10_pi5o8"]
 [ext_resource type="Texture2D" uid="uid://u775rcwdc28k" path="res://assets/32rogues/pieces/antivenom_potion.png" id="10_x7hk7"]
 [ext_resource type="Texture2D" uid="uid://bdgpqqql7suwd" path="res://assets/VFX/Thrust VFX 02 Color 1.png" id="11_3kg1c"]
 [ext_resource type="Texture2D" uid="uid://bxfk20l7rw1x2" path="res://assets/32rogues/pieces/strenght_potion.png" id="11_7i0tj"]
@@ -587,7 +590,6 @@ script = ExtResource("2_d5ljo")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="F1" type="Node2D" parent="Background"]
-visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
 position = Vector2(12, -28)
@@ -646,6 +648,19 @@ position = Vector2(-282, 735)
 z_index = 1
 position = Vector2(921, 735)
 
+[node name="Chest" type="Node2D" parent="."]
+position = Vector2(914, 839)
+scale = Vector2(12, 12)
+
+[node name="ChestOpened" type="Sprite2D" parent="Chest"]
+texture = ExtResource("6_12re3")
+
+[node name="ChestClosed" type="Sprite2D" parent="Chest"]
+visible = false
+texture = ExtResource("7_hg3ss")
+
+[node name="TreasureTimer" type="Timer" parent="."]
+
 [node name="GamePanel" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 0.905882)
 offset_top = 54.0
@@ -697,6 +712,8 @@ x_start = 64
 y_start = 800
 offset = 64
 y_offset = 5
+empty_spaces = PackedVector2Array(0, 0, 7, 0, 0, 9, 7, 9)
+hint_effect = ExtResource("10_pi5o8")
 
 [node name="VFX" type="Node2D" parent="Grid"]
 position = Vector2(45, -40)
@@ -756,6 +773,13 @@ scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_vwpvx")
 animation = &"Sword_blue"
 flip_h = true
+
+[node name="ShuffleTimer" type="Timer" parent="Grid"]
+one_shot = true
+
+[node name="HintTimer" type="Timer" parent="Grid"]
+wait_time = 3.0
+one_shot = true
 
 [node name="DestroyTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -844,7 +868,7 @@ texture = ExtResource("11_7i0tj")
 [node name="WaitTime" type="Control" parent="."]
 process_mode = 2
 visible = false
-z_index = 2
+z_index = 32
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1398,7 +1422,10 @@ shape = SubResource("CircleShape2D_cf6hg")
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(921, 737)
 
+[connection signal="timeout" from="TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_grid_camera_effect"]
+[connection signal="timeout" from="Grid/ShuffleTimer" to="Grid" method="_on_shuffle_timer_timeout"]
+[connection signal="timeout" from="Grid/HintTimer" to="Grid" method="_on_hint_timer_timeout"]
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]

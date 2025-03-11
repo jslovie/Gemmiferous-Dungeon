@@ -2,6 +2,7 @@ extends Node2D
 
 
 @export var shop_name : String
+@onready var exit_shop = $ExitShop
 
 
 func _ready():
@@ -11,16 +12,24 @@ func _process(_delta):
 	update_level()
 
 func _on_exit_shop_pressed():
-	visible = false
+	SaveManager.savefilesave()
+	exit_door()
 
 
 func _on_card_game_pressed():
 	get_tree().change_scene_to_file("res://scenes/card_game/card_game.tscn")
 
-
-func _on_upgrade_pressed():
-	pass
-
+func exit_door():
+	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor-opened.png")
+	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-opened.png")
+	var tween = create_tween()
+	tween.tween_property(exit_shop,"scale",Vector2(4,4),0.1)
+	tween.tween_property(exit_shop,"scale",Vector2(3,3),0.1)
+	await get_tree().create_timer(0.5).timeout
+	visible = false
+	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor.png")
+	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-highlighted.png")
+	
 func update_level():
 	if shop_name == "Weaponsmith":
 		$Level.text = "Level: " + str(VillageManager.weaponsmith_lvl)

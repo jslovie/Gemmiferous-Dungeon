@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ce8u7paslcjdx" path="res://assets/32rogues/pieces/crate.png" id="2_oxclw"]
 
 [node name="MaterialPiece" instance=ExtResource("1_ej56g")]
+position = Vector2(1, 0)
 color = "material"
 background_color = Vector3(0.757, 0.757, 0)
 

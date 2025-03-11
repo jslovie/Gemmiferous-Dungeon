@@ -1,6 +1,7 @@
 extends Node2D
 
-
+var treasure_timeout_min = 10
+var treasure_timeout_max = 20
 
 func _ready():
 	SaveManager.load_autosave()
@@ -9,7 +10,15 @@ func _ready():
 	change_background()
 	update_treasures_bar()
 	update_total_treasures_bar()
-	$EnemyTypeLabel.text = EnemyManager.enemy.type
+	if LevelManager.type == "Treasure":
+		$EnemyTypeLabel.text = "Treasure"
+		$Enemy.queue_free()
+		%EnemyHealth.visible = false
+		$Chest.visible = true
+		LevelManager.treasure_timesup = false
+		$TreasureTimer.start(randi_range(treasure_timeout_min, treasure_timeout_max))
+	else:
+		$EnemyTypeLabel.text = EnemyManager.enemy.type
 	update_healthbars()
 	update_shields()
 	update_rage()
@@ -72,10 +81,13 @@ func update_healthbars():
 	%PlayerHealth.value = PlayerManager.player.health
 	%PlayerHealth.max_value = PlayerManager.player.max_health
 	%PlayerHealthLabel.text = str(PlayerManager.player.health)
-	#Enemy healthbar
-	%EnemyHealth.value = EnemyManager.enemy.health
-	%EnemyHealth.max_value = EnemyManager.enemy.max_health
-	%EnemyHealthLabel.text = str(EnemyManager.enemy.health)
+	if LevelManager.type == "Treasure":
+		pass
+	else:
+		#Enemy healthbar
+		%EnemyHealth.value = EnemyManager.enemy.health
+		%EnemyHealth.max_value = EnemyManager.enemy.max_health
+		%EnemyHealthLabel.text = str(EnemyManager.enemy.health)
 	
 func update_shields():
 	#Player shield
@@ -86,15 +98,17 @@ func update_shields():
 		%PlayerShield.visible = true
 		%PlayerShieldLabel.visible = true
 		%PlayerShieldLabel.text = str(PlayerManager.player.shield)
-		
-	#Enemy shield
-	if EnemyManager.enemy.shield == 0:
-		%EnemyShield.visible = false
-		%EnemyShieldLabel.visible = false
+	if LevelManager.type == "Treasure":
+		pass
 	else:
-		%EnemyShield.visible = true
-		%EnemyShieldLabel.visible = true
-		%EnemyShieldLabel.text = str(EnemyManager.enemy.shield)
+		#Enemy shield
+		if EnemyManager.enemy.shield == 0:
+			%EnemyShield.visible = false
+			%EnemyShieldLabel.visible = false
+		else:
+			%EnemyShield.visible = true
+			%EnemyShieldLabel.visible = true
+			%EnemyShieldLabel.text = str(EnemyManager.enemy.shield)
 
 func update_rage():
 	%PlayerRage.value = PlayerManager.player.rage
@@ -103,22 +117,27 @@ func update_rage():
 		%PlayerRage.visible = false
 	
 func resolution_screen():
-	if EnemyManager.enemy.status == "dead":
-		%Resolution.visible = true
-		%ResolutionText.text = "foe vanquished!"
-		%EnemyHealth.visible = false
-		$SlotMachine.visible = true
-		var tween = create_tween()
-		tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
-	elif PlayerManager.player.status == "dead":
-		%Resolution.visible = true
-		%ResolutionText.text = ""
-		%PlayerHealth.visible = false
-		$Material.visible = false
-		$Gems.visible = false
-		var tween = create_tween()
-		$PlayerDied.visible = true
-		tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
+	if LevelManager.type == "Treasure":
+		if LevelManager.treasure_timesup == true:
+			%Resolution.visible = true
+			%ResolutionText.text = "time's up!"
+	else:
+		if EnemyManager.enemy.status == "dead":
+			%Resolution.visible = true
+			%ResolutionText.text = "foe vanquished!"
+			%EnemyHealth.visible = false
+			$SlotMachine.visible = true
+			var tween = create_tween()
+			tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
+		elif PlayerManager.player.status == "dead":
+			%Resolution.visible = true
+			%ResolutionText.text = ""
+			%PlayerHealth.visible = false
+			$Material.visible = false
+			$Gems.visible = false
+			var tween = create_tween()
+			$PlayerDied.visible = true
+			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
 
 		
 func handle_win():
@@ -132,15 +151,6 @@ func check_enemy_debuff():
 		$Hud/EnemyHealth/HBoxContainer/Poison.visible = true
 	else:
 		$Hud/EnemyHealth/HBoxContainer/Poison.visible = false
-
-
-#Animations
-func sword_animation():
-	%SwordAnimation.play("sword")
-
-
-
-
 
 
 func _on_wait_time_timer_timeout():
@@ -225,3 +235,10 @@ func _on_player_died_update_total_bar():
 	await get_tree().create_timer(1).timeout
 	update_total_treasures_bar()
 	color_change()
+
+
+func _on_treasure_timer_timeout():
+	LevelManager.treasure_timesup = true
+	$Chest/ChestClosed.visible = true
+	LevelManager.switch_to_dungeon_map()
+	

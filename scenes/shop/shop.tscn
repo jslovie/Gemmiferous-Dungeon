@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bce7meeanu3ie"]
+[gd_scene load_steps=8 format=3 uid="uid://bce7meeanu3ie"]
 
 [ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/paper UI/Paper/Menu3.png" id="1_5ir33"]
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_fpweg"]
 [ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/paper UI/Paper/Header3.png" id="2_4ja56"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_xr2d8"]
-[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/paper UI/Paper/Header2new.png" id="5_gahx4"]
-[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/paper UI/Paper/Header2newHighlighted.png" id="6_vdv2l"]
+[ext_resource type="Texture2D" uid="uid://bsc7q7gkcmm82" path="res://assets/32rogues/doors/exitdoor.png" id="5_2g20j"]
+[ext_resource type="Texture2D" uid="uid://uh7t7cerc714" path="res://assets/32rogues/doors/exitdoor-opened.png" id="6_a2tis"]
+[ext_resource type="Texture2D" uid="uid://bbn2jsmfvvav6" path="res://assets/32rogues/doors/exitdoor-highlighted.png" id="7_00lyj"]
 
 [node name="Shop" type="Node2D"]
 z_index = 10
@@ -47,24 +48,15 @@ vertical_alignment = 1
 
 [node name="ExitShop" type="TextureButton" parent="."]
 layout_direction = 1
-offset_left = 990.0
-offset_top = 673.0
-offset_right = 1063.0
-offset_bottom = 690.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("5_gahx4")
-texture_hover = ExtResource("6_vdv2l")
-
-[node name="ExitShopLabel" type="Label" parent="."]
-layout_direction = 1
-offset_left = 1035.0
-offset_top = 691.0
-offset_right = 1235.0
-offset_bottom = 721.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_xr2d8")
-theme_override_font_sizes/font_size = 32
-text = "Exit the shop"
+offset_left = 1213.0
+offset_top = 686.0
+offset_right = 1245.0
+offset_bottom = 718.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("5_2g20j")
+texture_pressed = ExtResource("6_a2tis")
+texture_hover = ExtResource("7_00lyj")
 
 [node name="Level" type="Label" parent="."]
 offset_left = 1166.0

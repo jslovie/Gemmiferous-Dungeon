@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=4 uid="uid://mfmhytite3rx"]
+[gd_scene load_steps=24 format=4 uid="uid://mfmhytite3rx"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_1j2bm"]
 [ext_resource type="PackedScene" uid="uid://ck1auwqa8cl0c" path="res://scenes/player_type/rogue_type.tscn" id="1_3au3l"]
 [ext_resource type="Script" path="res://scripts/character_selection.gd" id="1_6qven"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_ojtev"]
 [ext_resource type="PackedScene" uid="uid://cyhrrq4evgdil" path="res://scenes/player_type/barbarian_type.tscn" id="3_in3f3"]
+[ext_resource type="Texture2D" uid="uid://dr6qemq8gfqc" path="res://assets/32rogues/doors/cell.png" id="3_yvk6t"]
+[ext_resource type="Texture2D" uid="uid://bbeo6mdvnlwg2" path="res://assets/32rogues/doors/cell-opened.png" id="4_nbi4c"]
 [ext_resource type="PackedScene" uid="uid://cxqx7mqyk6krt" path="res://scenes/player_type/holy_type.tscn" id="6_jnjga"]
 [ext_resource type="PackedScene" uid="uid://bjqus2w8mosb0" path="res://scenes/player_type/knight_type.tscn" id="7_7gxew"]
 [ext_resource type="PackedScene" uid="uid://2gtn4gwciy0f" path="res://scenes/player_type/spellblade_type.tscn" id="8_wt4uk"]
@@ -153,6 +155,17 @@ tile_set = SubResource("TileSet_gehps")
 tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
 tile_set = SubResource("TileSet_gehps")
 
+[node name="DoorOpen" type="Sprite2D" parent="Background"]
+position = Vector2(-388, 212)
+scale = Vector2(5, 5)
+texture = ExtResource("3_yvk6t")
+
+[node name="DoorClosed" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(-388, 212)
+scale = Vector2(5, 5)
+texture = ExtResource("4_nbi4c")
+
 [node name="Player" parent="." instance=ExtResource("2_ojtev")]
 position = Vector2(-510, 503)
 
@@ -205,9 +218,9 @@ offset_bottom = 63.0
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1507.0
-offset_top = -5.0
+offset_top = -6.0
 offset_right = 1547.0
-offset_bottom = 35.0
+offset_bottom = 34.0
 scale = Vector2(2, 2)
 
 [node name="Panel" type="Panel" parent="Material"]
@@ -278,9 +291,9 @@ shape = SubResource("CircleShape2D_1r10f")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 68.0
-offset_top = -5.0
+offset_top = -6.0
 offset_right = 108.0
-offset_bottom = 35.0
+offset_bottom = 34.0
 scale = Vector2(2, 2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
@@ -392,6 +405,7 @@ layout_mode = 0
 offset_top = 92.0
 offset_right = 219.0
 offset_bottom = 123.0
+texture_normal = ExtResource("3_yvk6t")
 
 [node name="Label" type="Label" parent="Back/BackButton"]
 layout_mode = 0

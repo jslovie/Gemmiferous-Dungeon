@@ -9,7 +9,7 @@ var level_done = 0
 var floor = 1
 var type : String
 var chosen_path = "ABC"
-var treasure_timesup = false
+var treasure_timesup = true
 var handle_winning = false
 var reset_complete_level = false
 

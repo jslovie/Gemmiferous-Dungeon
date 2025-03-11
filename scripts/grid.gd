@@ -14,6 +14,7 @@ var state
 @export var offset: int
 @export var y_offset: int
 
+@export var empty_spaces: PackedVector2Array
 
 #Effects
 var particle_effect = preload("res://scenes/pieces/particle.tscn")
@@ -21,18 +22,23 @@ var wood_effect = preload("res://scenes/GUI/wood_effect.tscn")
 var stone_effect = preload("res://scenes/GUI/stone_effect.tscn")
 var iron_effect = preload("res://scenes/GUI/iron_effect.tscn")
 var shield_effect = preload("res://scenes/GUI/shield_effect.tscn")
+var red_gem_effect = preload("res://scenes/GUI/red_gem_treasure.tscn")
+var blue_gem_effect = preload("res://scenes/GUI/blue_gem_treasure.tscn")
+var green_gem_effect = preload("res://scenes/GUI/green_gem_treasure.tscn")
+var yellow_gem_effect = preload("res://scenes/GUI/yellow_gem_treasure.tscn")
+var coin_effect = preload("res://scenes/GUI/coin_treasure.tscn")
+
+#Hint effect
+@export var hint_effect : PackedScene
+var hint = null
+var match_color = ""
 
 #Possible pieces array
-var possible_pieces = [
-	#preload("res://scenes/pieces/shield_piece.tscn"),
-	#preload("res://scenes/pieces/barb_shield_piece.tscn"),
-	preload("res://scenes/pieces/material_piece.tscn"),
-]
-
-
+var possible_pieces = []
 
 #Current pieces in scene
 var all_pieces = []
+var clone_array = []
 
 #Swap back variables
 var piece_one = null
@@ -51,11 +57,17 @@ func _ready():
 	randomize()
 	choose_player_type()
 	all_pieces = make_2d_array()
+	clone_array = make_2d_array()
 	spawn_pieces()
-
+	
 func _process(_delta):
-	if EnemyManager.enemy.status == "dead":
-		state = wait
+	if LevelManager.type == "Treasure":
+		if LevelManager.treasure_timesup == true:
+			state = wait
+		pass
+	else:
+		if EnemyManager.enemy.status == "dead":
+			state = wait
 	if state == move:
 		touch_input()
 
@@ -65,7 +77,8 @@ func choose_player_type():
 			preload("res://scenes/pieces/sword_piece.tscn"),
 			preload("res://scenes/pieces/bow_piece.tscn"),
 			preload("res://scenes/pieces/invisibility_ring_piece.tscn"),
-			preload("res://scenes/pieces/rogue_shield_piece.tscn"),]
+			preload("res://scenes/pieces/rogue_shield_piece.tscn"),
+			preload("res://scenes/pieces/material_piece.tscn"),]
 		possible_pieces.append_array(rogue_pieces)
 	elif SaveManager.autosave_data.player_data.type == "Barbarian":
 		var barbarian_pieces = [
@@ -73,8 +86,18 @@ func choose_player_type():
 			preload("res://scenes/pieces/mace_piece.tscn"),
 			preload("res://scenes/pieces/rage_piece.tscn"),
 			preload("res://scenes/pieces/barb_shield_piece.tscn"),
-			]
+			preload("res://scenes/pieces/material_piece.tscn"),]
 		possible_pieces.append_array(barbarian_pieces)
+		
+	if LevelManager.type == "Treasure":
+		possible_pieces.clear()
+		var gems_pieces = [
+			preload("res://scenes/pieces/gems/red_gem_piece.tscn"),
+			preload("res://scenes/pieces/gems/blue_gem_piece.tscn"),
+			preload("res://scenes/pieces/gems/green_gem_piece.tscn"),
+			preload("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
+			preload("res://scenes/pieces/gems/gold_piece.tscn"),]
+		possible_pieces.append_array(gems_pieces)
 		
 func make_2d_array():
 	var array = []
@@ -84,22 +107,32 @@ func make_2d_array():
 			array[i].append(null)
 	return array
 
+	
+func restricted_movement(place):
+	if empty_spaces != null:
+		for i in empty_spaces:
+			if i == place:
+				return true
+		return false
 
 func spawn_pieces():
 	for i in width:
 		for j in height:
-			var rand = floor(randf_range(0, possible_pieces.size()))
-			var loops = 0
-			var piece = possible_pieces[rand].instantiate()
-			while match_at(i, j, piece.color) && loops < 100:
-				rand = floor(randf_range(0, possible_pieces.size()))
-				loops += 1
-				piece = possible_pieces[rand].instantiate()
-			
-			add_child(piece)
-			piece.position = grid_to_pixel(i, j)
-			all_pieces[i][j] = piece
-			
+			if !restricted_movement(Vector2(i,j)) and all_pieces[i][j] == null:
+				var rand = floor(randf_range(0, possible_pieces.size()))
+				var loops = 0
+				var piece = possible_pieces[rand].instantiate()
+				while match_at(i, j, piece.color) && loops < 100:
+					rand = floor(randf_range(0, possible_pieces.size()))
+					loops += 1
+					piece = possible_pieces[rand].instantiate()
+				
+				add_child(piece)
+				piece.position = grid_to_pixel(i, j)
+				all_pieces[i][j] = piece
+	if is_deadlocked():
+		$ShuffleTimer.start()
+	$HintTimer.start()
 # i = column and j = row
 func match_at(i, j, color):
 	if i > 1:
@@ -135,6 +168,8 @@ func touch_input():
 		if is_in_grid(mouse):
 			first_touch = mouse
 			controlling = true
+			if hint:
+				destroy_hint()
 		else:
 			controlling = false
 			
@@ -168,7 +203,7 @@ func swap_back():
 		swap_pieces(last_place.x, last_place.y, last_direction)
 	state = move
 	move_checked = false
-	pass
+	$HintTimer.start()
 
 func touch_difference(grid_1, grid_2):
 	var difference = grid_2 - grid_1
@@ -183,29 +218,37 @@ func touch_difference(grid_1, grid_2):
 		elif difference.y < 0:
 			swap_pieces(grid_1.x, grid_1.y, Vector2(0, -1))
 			
-func find_matches():
+func find_matches(query = false, array = all_pieces):
 	for i in width:
 		for j in height:
-			if all_pieces[i][j] != null:
-				var current_color = all_pieces[i][j].color
+			if array[i][j] != null:
+				var current_color = array[i][j].color
 				if i > 0 && i < width - 1:
-					if all_pieces[i - 1][j] != null && all_pieces[i + 1][j] != null:
-						if all_pieces[i - 1][j].color == current_color && all_pieces[i + 1][j].color == current_color:
-							all_pieces[i - 1][j].matched = true
-							all_pieces[i - 1][j].dim()
-							all_pieces[i][j].matched = true
-							all_pieces[i][j].dim()
-							all_pieces[i + 1][j].matched = true
-							all_pieces[i + 1][j].dim()
+					if array[i - 1][j] != null && array[i + 1][j] != null:
+						if array[i - 1][j].color == current_color && array[i + 1][j].color == current_color:
+							if query:
+								match_color = current_color
+								return true
+							array[i - 1][j].matched = true
+							array[i - 1][j].dim()
+							array[i][j].matched = true
+							array[i][j].dim()
+							array[i + 1][j].matched = true
+							array[i + 1][j].dim()
 				if j > 0 && j < height - 1:
-					if all_pieces[i][j - 1] != null && all_pieces[i][j + 1] != null:
-						if all_pieces[i][j - 1].color == current_color && all_pieces[i][j + 1].color == current_color:
-							all_pieces[i][j - 1].matched = true
-							all_pieces[i][j - 1].dim()
-							all_pieces[i][j].matched = true
-							all_pieces[i][j].dim()
-							all_pieces[i][j + 1].matched = true
-							all_pieces[i][j + 1].dim()
+					if array[i][j - 1] != null && array[i][j + 1] != null:
+						if array[i][j - 1].color == current_color && array[i][j + 1].color == current_color:
+							if query:
+								match_color = current_color
+								return true
+							array[i][j - 1].matched = true
+							array[i][j - 1].dim()
+							array[i][j].matched = true
+							array[i][j].dim()
+							array[i][j + 1].matched = true
+							array[i][j + 1].dim()
+	if query:
+		return false
 	var timer = %DestroyTimer
 	timer.start()
 
@@ -222,6 +265,11 @@ func material_effect(effect,column, row):
 
 	
 func destroy_matched():
+	var red_gem_load = 0
+	var blue_gem_load = 0
+	var green_gem_load = 0
+	var yellow_gem_load = 0
+	var gold_load = 0
 	var shield_load = 0
 	var shield_effect_position = Vector2(0,0)
 	var material_load = 0
@@ -238,6 +286,22 @@ func destroy_matched():
 			if all_pieces[i][j] != null:
 				if all_pieces[i][j].matched:
 					was_matched = true
+					#Gems
+					if all_pieces[i][j].color == "red":
+						red_gem_load += 1
+						material_effect(red_gem_effect,i,j)
+					elif all_pieces[i][j].color == "green":
+						green_gem_load += 1
+						material_effect(green_gem_effect,i,j)
+					elif all_pieces[i][j].color == "blue":
+						blue_gem_load += 1
+						material_effect(blue_gem_effect,i,j)
+					elif all_pieces[i][j].color == "yellow":
+						yellow_gem_load += 1
+						material_effect(yellow_gem_effect,i,j)
+					elif all_pieces[i][j].color == "gold":
+						gold_load += 1
+						material_effect(coin_effect,i,j)
 					#Attacks
 					#Rogue
 					if all_pieces[i][j].color == "sword":
@@ -282,6 +346,27 @@ func destroy_matched():
 					all_pieces[i][j] = null
 					make_effect(particle_effect, i, j, color)
 	######################################################################
+	if red_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif red_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if blue_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif blue_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if green_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif green_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if yellow_gem_load == 4:
+		emit_signal("camera_effect", 10)
+	elif yellow_gem_load >= 5:
+		emit_signal("camera_effect", 20)
+	if gold_load == 4:
+		emit_signal("camera_effect", 10)
+	elif gold_load >= 5:
+		emit_signal("camera_effect", 20)
+		
 	#Shield load
 	if shield_load == 3:
 		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load
@@ -299,7 +384,6 @@ func destroy_matched():
 		emit_signal("camera_effect", 10)
 	elif material_load >= 5:
 		emit_signal("camera_effect", 20)
-		
 		
 	#Rogue
 	#Sword update
@@ -362,7 +446,6 @@ func destroy_matched():
 		PlayerManager.player.has_invisibility = true
 		PlayerManager.player.handle_invisibility()
 		emit_signal("camera_effect", 20)
-
 	######################################################################
 	#Barbarian
 	#Axe update
@@ -391,7 +474,6 @@ func destroy_matched():
 	elif mace_load == 4:
 		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
 		PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance - 25
-		
 		PlayerManager.player.has_mace = true
 		PlayerManager.player.piece_multiplier = 1.5
 		mace_animation()
@@ -422,15 +504,10 @@ func destroy_matched():
 	else:
 		swap_back()
 
-
-
-func hit():
-	print("hit")
-
 func collapse_columns():
 	for i in width:
 		for j in height:
-			if all_pieces[i][j] == null:
+			if all_pieces[i][j] == null && !restricted_movement(Vector2(i,j)):
 				for k in range(j + 1, height):
 					if all_pieces[i][k] != null:
 						all_pieces[i][k].move(grid_to_pixel(i, j))
@@ -443,7 +520,7 @@ func collapse_columns():
 func refill_columns():
 	for i in width:
 		for j in height:
-			if all_pieces[i][j] == null:
+			if all_pieces[i][j] == null && !restricted_movement(Vector2(i,j)):
 				var rand = floor(randf_range(0, possible_pieces.size()))
 				var loops = 0
 				var piece = possible_pieces[rand].instantiate()
@@ -467,7 +544,107 @@ func after_refill():
 					get_parent().get_node("%DestroyTimer").start()
 	state = move
 	move_checked = false
-	
+	if is_deadlocked():
+		$ShuffleTimer.start()
+	$HintTimer.start()
+
+func switch_pieces(place, direction, array):
+	if is_in_grid(place) and !restricted_movement(place):
+		if is_in_grid(place + direction) and !restricted_movement(place + direction):
+			var holder = array[place.x + direction.x][place.y + direction.y]
+			array[place.x + direction.x][place.y + direction.y] = array[place.x][place.y]
+			array[place.x][place.y] = holder
+
+func is_deadlocked():
+	clone_array = copy_array(all_pieces)
+	for i in width:
+		for j in height:
+			if switch_and_check(Vector2(i,j), Vector2(1,0), clone_array):
+				return false
+			if switch_and_check(Vector2(i,j), Vector2(0,1), clone_array):
+				return false
+	return true
+
+func switch_and_check(place, direction, array):
+	switch_pieces(place, direction, array)
+	if find_matches(true, array):
+		switch_pieces(place, direction, array)
+		return true
+	switch_pieces(place, direction, array)
+	return false
+
+func copy_array(array_to_copy):
+	var new_array = make_2d_array()
+	for i in width:
+		for j in height:
+			new_array[i][j] = array_to_copy[i][j]
+	return new_array
+
+func clear_and_store_board():
+	var holder_array = []
+	for i in width:
+		for j in height:
+			if all_pieces[i][j] != null:
+				holder_array.append(all_pieces[i][j])
+				all_pieces[i][j] = null
+	return holder_array
+
+func shuffle_board():
+	var holder_array = clear_and_store_board()
+	for i in width:
+		for j in height:
+			if !restricted_movement(Vector2(i,j)) and all_pieces[i][j] == null:
+				var rand = floor(randf_range(0,holder_array.size()))
+				var loops = 0
+				var piece = holder_array[rand]
+				while match_at(i, j, piece.color) && loops < 100:
+					rand = floor(randf_range(0,holder_array.size()))
+					loops += 1
+					piece = holder_array[rand]
+				
+				piece.move(grid_to_pixel(i,j))
+				all_pieces[i][j] = piece
+				holder_array.remove_at(rand)
+	if is_deadlocked():
+		shuffle_board()
+	state = move
+
+func find_all_matches():
+	var hint_holder = []
+	clone_array = copy_array(all_pieces)
+	for i in width:
+		for j in height:
+			if clone_array[i][j] != null:
+				if switch_and_check(Vector2(i,j), Vector2(1,0), clone_array) and is_in_grid(Vector2(i + 1, j)):
+					if match_color != "":
+						if match_color == clone_array[i][j].color:
+							hint_holder.append(clone_array[i][j])
+						else:
+							hint_holder.append(clone_array[i + 1][j])
+				if switch_and_check(Vector2(i,j), Vector2(0,1), clone_array) and is_in_grid(Vector2(i, j + 1)):
+					if match_color != "":
+						if match_color == clone_array[i][j].color:
+							hint_holder.append(clone_array[i][j])
+						else:
+							hint_holder.append(clone_array[i][j + 1])
+	return hint_holder
+
+func generate_hint():
+	var hints = find_all_matches()
+	if hints != null:
+		if hints.size() > 0:
+			destroy_hint()
+			var rand = floor(randi_range(0, hints.size()-1))
+			hint = hint_effect.instantiate()
+			add_child(hint)
+			hint.position = hints[rand].position
+			hint.setup(hints[rand].get_node("Sprite2D").texture, hints[rand].get_node("TextureRect").texture, hints[rand].get_node("TextureRect").modulate)
+
+func destroy_hint():
+	if hint:
+		hint.queue_free()
+		hint = null
+		
 func _on_destroy_timer_timeout():
 	destroy_matched()
 
@@ -504,3 +681,11 @@ func mace_animation():
 	%MaceAnimation.play("Mace")
 	await %MaceAnimation.animation_finished
 	%MaceAnimation.visible = false
+
+
+func _on_shuffle_timer_timeout():
+	shuffle_board()
+
+
+func _on_hint_timer_timeout():
+	generate_hint()

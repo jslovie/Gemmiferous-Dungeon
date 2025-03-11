@@ -66,6 +66,12 @@ extends Node2D
 @export var houses3_upgrade_price : Vector3
 @export var houses4_upgrade_price : Vector3
 
+@onready var exit_shop = $ExitShop
+@onready var enter_dungeon = $BookFrontPage/EnterDungeon
+@onready var village_management = $BookFrontPage/VillageManagement
+@onready var exit_shop_front_page = $BookFrontPage/ExitShopFrontPage
+
+
 func _process(_delta):
 	update_upgrade_text()
 	update_checked()
@@ -193,7 +199,64 @@ func _on_enter_the_dungeon_pressed():
 
 func _on_exit_shop_pressed():
 	SaveManager.savefilesave()
+	exit_door()
+
+func _on_village_management_pressed():
+	village_management_book()
+
+func _on_enter_dungeon_pressed():
+	enter_dungeon_door()
+
+func _on_exit_shop_front_page_pressed():
+	exit_door_front_page()
+
+
+func village_management_book():
+	village_management.texture_normal = load("res://assets/32rogues/doors/book-opened.png")
+	village_management.texture_hover = load("res://assets/32rogues/doors/book-opened.png")
+	var tween = create_tween()
+	tween.tween_property(village_management,"scale",Vector2(8,8),0.1)
+	tween.tween_property(village_management,"scale",Vector2(7,7),0.1)
+	await get_tree().create_timer(0.5).timeout
+	$BookFrontPage.visible = false
+	village_management.texture_normal = load("res://assets/32rogues/doors/book.png")
+	village_management.texture_hover = load("res://assets/32rogues/doors/book-highlighted.png")
+	
+func enter_dungeon_door():
+	enter_dungeon.texture_normal = load("res://assets/32rogues/doors/cell-opened.png")
+	enter_dungeon.texture_hover = load("res://assets/32rogues/doors/cell-opened.png")
+	var tween = create_tween()
+	tween.tween_property(enter_dungeon,"scale",Vector2(6,6),0.1)
+	tween.tween_property(enter_dungeon,"scale",Vector2(5,5),0.1)
+	await get_tree().create_timer(0.5).timeout
+	SaveManager.savefilesave()
+	Transition.transition()
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
+
+
+func exit_door():
+	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor-opened.png")
+	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-opened.png")
+	var tween = create_tween()
+	tween.tween_property(exit_shop,"scale",Vector2(4,4),0.1)
+	tween.tween_property(exit_shop,"scale",Vector2(3,3),0.1)
+	await get_tree().create_timer(0.5).timeout
+	$BookFrontPage.visible = true
+	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor.png")
+	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-highlighted.png")
+	
+
+func exit_door_front_page():
+	exit_shop_front_page.texture_normal = load("res://assets/32rogues/doors/exitdoor-opened.png")
+	exit_shop_front_page.texture_hover = load("res://assets/32rogues/doors/exitdoor-opened.png")
+	var tween = create_tween()
+	tween.tween_property(exit_shop_front_page,"scale",Vector2(4,4),0.1)
+	tween.tween_property(exit_shop_front_page,"scale",Vector2(3,3),0.1)
+	await get_tree().create_timer(0.5).timeout
 	visible = false
+	exit_shop_front_page.texture_normal = load("res://assets/32rogues/doors/exitdoor.png")
+	exit_shop_front_page.texture_hover = load("res://assets/32rogues/doors/exitdoor-highlighted.png")
 
 func manor_button():
 	if VillageManager.manor_lvl == 0:
