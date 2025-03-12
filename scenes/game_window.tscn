@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=104 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="29_4qh4o"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="29_ktb7s"]
 [ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="31_6hgcu"]
+[ext_resource type="AudioStream" uid="uid://cs5x36db3d4ax" path="res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 1 (ordinary).wav" id="42_lqh10"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
@@ -1419,8 +1420,16 @@ position = Vector2(-92, 1002)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield"]
 shape = SubResource("CircleShape2D_cf6hg")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="SFX" type="Node2D" parent="."]
 position = Vector2(921, 737)
+
+[node name="Music" type="Node2D" parent="."]
+process_mode = 3
+
+[node name="BattleMusic1" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("42_lqh10")
+autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_grid_camera_effect"]

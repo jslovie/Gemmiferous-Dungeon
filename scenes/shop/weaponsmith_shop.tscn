@@ -16,20 +16,14 @@ shop_name = "Weaponsmith"
 offset_left = 1219.0
 offset_right = 1251.0
 
-[node name="ExitShopLabel" parent="." index="5"]
-offset_left = 1038.0
-offset_top = 697.0
-offset_right = 1238.0
-offset_bottom = 727.0
-
-[node name="AxeShopItem" parent="." index="7" instance=ExtResource("2_p8ga0")]
+[node name="AxeShopItem" parent="." index="6" instance=ExtResource("2_p8ga0")]
 z_index = 0
 offset_left = 650.0
 offset_top = 515.0
 offset_right = 763.0
 offset_bottom = 630.0
 
-[node name="SwordShopItem" parent="." index="8" instance=ExtResource("3_l6v7w")]
+[node name="SwordShopItem" parent="." index="7" instance=ExtResource("3_l6v7w")]
 z_index = 0
 offset_left = 650.0
 offset_top = 350.0
@@ -37,7 +31,7 @@ offset_right = 763.0
 offset_bottom = 465.0
 prices = ExtResource("4_2acjo")
 
-[node name="BowShopItem" parent="." index="9" instance=ExtResource("4_4ws4j")]
+[node name="BowShopItem" parent="." index="8" instance=ExtResource("4_4ws4j")]
 z_index = 0
 offset_left = 800.0
 offset_top = 350.0
@@ -45,7 +39,7 @@ offset_right = 913.0
 offset_bottom = 465.0
 prices = ExtResource("6_88sjo")
 
-[node name="MaceShopItem" parent="." index="10" instance=ExtResource("5_te0mp")]
+[node name="MaceShopItem" parent="." index="9" instance=ExtResource("5_te0mp")]
 z_index = 0
 offset_left = 800.0
 offset_top = 515.0

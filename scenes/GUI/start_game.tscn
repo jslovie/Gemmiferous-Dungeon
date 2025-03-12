@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=12 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bv00fhk45wgqd" path="res://assets/background/Full-1-export.png" id="4_wjd5j"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="6_caqhg"]
+[ext_resource type="AudioStream" uid="uid://csyfsokrjwgo2" path="res://audio/music/16-Bit Fantasy Music Pack/Loops/Dark Fog.wav" id="8_x1bcw"]
+[ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="9_a42n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l2mt"]
 texture = ExtResource("2_nvocq")
@@ -341,6 +343,15 @@ offset_bottom = 1068.0
 theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 32
 text = "v0.5.0"
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_x1bcw")
+autoplay = true
+bus = &"Music"
+
+[node name="Settings" parent="." instance=ExtResource("9_a42n4")]
 
 [connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]

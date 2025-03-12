@@ -10,6 +10,7 @@ func _ready():
 	change_background()
 	update_treasures_bar()
 	update_total_treasures_bar()
+	$Chest.visible = false
 	if LevelManager.type == "Treasure":
 		$EnemyTypeLabel.text = "Treasure"
 		$Enemy.queue_free()
