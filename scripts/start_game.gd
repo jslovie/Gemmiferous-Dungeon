@@ -3,6 +3,7 @@ extends CanvasLayer
 const SAVE_PATH = "user://"
 
 func _ready():
+	Music.play_music_menu()
 	$Settings.visible = false
 	$GameTitle.add_theme_color_override("font_color", Color.DARK_ORANGE)
 	if FileAccess.file_exists(SAVE_PATH + "savefile.sav"):
@@ -11,12 +12,6 @@ func _ready():
 		print("No")
 
 func _process(_delta):
-	if visible == true:
-		$Audio/MainMenuMusic.autoplay = true
-	else:
-		$Audio/MainMenuMusic.autoplay = false
-		$Audio/MainMenuMusic.playing = false
-		
 	if SaveManager.save_file == true:
 		$StartGame.text = "Continue"
 		$Buttons/StartGameNew/Label.text = "Continue"

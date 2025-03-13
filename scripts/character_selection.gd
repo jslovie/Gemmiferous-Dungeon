@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready():
+	Music.play_music_selection()
 	SaveManager.load_savefile()
 
 func _process(delta):

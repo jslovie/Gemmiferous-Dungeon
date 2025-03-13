@@ -47,6 +47,11 @@ func select_icon():
 		$".".texture_normal = texture
 		$".".texture_hover = null
 		$".".texture_disabled = texture
+	elif type == "Shop":
+		var texture = load("res://assets/32rogues/Icons/Shop.png")
+		$".".texture_normal = texture
+		$".".texture_hover = null
+		$".".texture_disabled = texture
 	elif type == "Boss":
 		var texture = load("res://assets/32rogues/Icons/Boss.png")
 		$".".texture_normal = texture
@@ -81,6 +86,12 @@ func select_hover_icon():
 	elif type == "Rest":
 		var texture = load("res://assets/32rogues/Icons/Rest.png")
 		var texture_h = load("res://assets/32rogues/Icons/Rest_highlighted.png")
+		$".".texture_normal = texture
+		$".".texture_hover = texture_h
+		$".".texture_disabled = texture
+	elif type == "Shop":
+		var texture = load("res://assets/32rogues/Icons/Shop.png")
+		var texture_h = load("res://assets/32rogues/Icons/Shop_highlighted.png")
 		$".".texture_normal = texture
 		$".".texture_hover = texture_h
 		$".".texture_disabled = texture
@@ -223,6 +234,9 @@ func select_type():
 		
 	elif type == "Rest":
 		get_tree().change_scene_to_file("res://scenes/dungeons/rest.tscn")
+		
+	elif type == "Shop":
+		get_tree().change_scene_to_file("res://scenes/dungeons/shop_level.tscn")
 		
 	elif type == "Random Event":
 		get_tree().change_scene_to_file("res://scenes/dungeons/random_event.tscn")

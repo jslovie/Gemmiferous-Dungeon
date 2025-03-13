@@ -12,6 +12,7 @@ var chosen_path = "ABC"
 var treasure_timesup = true
 var handle_winning = false
 var reset_complete_level = false
+var place : String
 
 func reset_map():
 	level_done = 0

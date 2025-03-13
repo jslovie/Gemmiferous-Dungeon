@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://mfmhytite3rx"]
+[gd_scene load_steps=24 format=4 uid="uid://mfmhytite3rx"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_1j2bm"]
 [ext_resource type="PackedScene" uid="uid://ck1auwqa8cl0c" path="res://scenes/player_type/rogue_type.tscn" id="1_3au3l"]
@@ -20,9 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="15_lbcfx"]
 [ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="16_4tk35"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="17_6juec"]
-[ext_resource type="AudioStream" uid="uid://gsgoi76nrsmx" path="res://audio/music/16-Bit Fantasy Music Pack/Loops/Visiting the Tribe.wav" id="21_5bxev"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owe06"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knjw7"]
 texture = ExtResource("1_1j2bm")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -136,7 +135,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_gehps"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_owe06")
+sources/0 = SubResource("TileSetAtlasSource_knjw7")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1r10f"]
 
@@ -415,12 +414,6 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("11_4xv2l")
 theme_override_font_sizes/font_size = 32
 text = "Back to village"
-
-[node name="Music" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("21_5bxev")
-autoplay = true
 
 [connection signal="mouse_entered" from="Back/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="Back/BackButton" to="." method="_on_back_button_mouse_exited"]

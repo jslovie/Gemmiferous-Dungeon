@@ -76,6 +76,10 @@ func wait_time():
 	$WaitTime.visible = true
 	%WaitTimeTimer.start(5)
 	get_tree().paused = true
+	if LevelManager.type == "Treasure":
+		Music.play_music_treasure()
+	else:
+		Music.play_music_combat()
 	
 func update_healthbars():
 	#Player healthbar

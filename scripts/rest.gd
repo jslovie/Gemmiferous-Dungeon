@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready():
+	Music.play_music_rest()
 	SaveManager.load_savefile()
 	SaveManager.load_autosave()
 	LevelManager.level_done += 1

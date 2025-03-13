@@ -14,3 +14,10 @@ func _on_confirm_pressed():
 
 func _on_back_pressed():
 	visible = false
+
+
+func _on_check_box_toggled(toggled_on):
+	if $AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed == true:
+		Crt.crt_on = true
+	elif $AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed == false:
+		Crt.crt_on = false

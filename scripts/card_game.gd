@@ -63,6 +63,7 @@ var cards_pack = {
 }
 
 func _ready():
+	Music.play_music_tavern()
 	%Card1.visible = false
 	%Card2.visible = false
 	%Card3.visible = false
