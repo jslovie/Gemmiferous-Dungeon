@@ -1,23 +1,35 @@
-[gd_resource type="Resource" script_class="ShopPrices" load_steps=2 format=3 uid="uid://chimlx7fyx4px"]
+[gd_resource type="Resource" script_class="ShopPrices" load_steps=7 format=3 uid="uid://chimlx7fyx4px"]
 
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="1_cdo5o"]
 [ext_resource type="Script" path="res://scripts/shop_items/prices.gd" id="1_g8jlp"]
+[ext_resource type="Texture2D" uid="uid://4qddnfccmi83" path="res://assets/32rogues/pieces/sword.png" id="1_h5t63"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="2_4od35"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="3_vpopu"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="4_m08oc"]
 
 [resource]
 script = ExtResource("1_g8jlp")
 item = "Sword"
+item_texture = ExtResource("1_h5t63")
+item_color = Color(0.431373, 0.0313726, 0.0313726, 1)
 damage_0 = Vector2(2, 4)
-damage_1 = Vector2(0, 0)
-damage_2 = Vector2(0, 0)
-damage_3 = Vector2(0, 0)
-damage_4 = Vector2(0, 0)
-damage_5 = Vector2(0, 0)
-price_coin_lvl_1 = 0
-price_coin_lvl_2 = 0
-price_coin_lvl_3 = 0
-price_coin_lvl_4 = 0
-price_coin_lvl_5 = 0
-price_gem_lvl_1 = 0
-price_gem_lvl_2 = 0
-price_gem_lvl_3 = 0
-price_gem_lvl_4 = 0
-price_gem_lvl_5 = 0
+damage_1 = Vector2(1, 1)
+damage_2 = Vector2(0, 1)
+damage_3 = Vector2(1, 2)
+damage_4 = Vector2(1, 1)
+damage_5 = Vector2(1, 1)
+price_coin_lvl_1 = 30
+price_coin_lvl_2 = 52
+price_coin_lvl_3 = 79
+price_coin_lvl_4 = 99
+price_coin_lvl_5 = 172
+price_gem_lvl_1 = 10
+price_gem_lvl_2 = 18
+price_gem_lvl_3 = 35
+price_gem_lvl_4 = 50
+price_gem_lvl_5 = 72
+gem_color_lvl_1 = ExtResource("1_cdo5o")
+gem_color_lvl_2 = ExtResource("2_4od35")
+gem_color_lvl_3 = ExtResource("3_vpopu")
+gem_color_lvl_4 = ExtResource("4_m08oc")
+gem_color_lvl_5 = ExtResource("1_cdo5o")

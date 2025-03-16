@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://djjvuxftam6qd"]
+[gd_scene load_steps=6 format=3 uid="uid://djjvuxftam6qd"]
 
 [ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_fnvc4"]
 [ext_resource type="PackedScene" uid="uid://cjyujxs3i1l48" path="res://scenes/shop/shop_items/shield_init_shop_item.tscn" id="2_3v78t"]
+[ext_resource type="Texture2D" uid="uid://cqo4kjdeqixtk" path="res://assets/paper UI/Paper/Menu4.png" id="3_j342r"]
 [ext_resource type="PackedScene" uid="uid://dpa3pq6tccmse" path="res://scenes/shop/shop_items/shield_load_shop_item.tscn" id="3_w0ghx"]
 [ext_resource type="PackedScene" uid="uid://c4qenvr3vps44" path="res://scenes/shop/shop_items/shield_max_shop_item.tscn" id="4_062sn"]
 
@@ -17,6 +18,7 @@ offset_left = 733.0
 offset_top = 363.0
 offset_right = 846.0
 offset_bottom = 478.0
+texture_normal = ExtResource("3_j342r")
 
 [node name="ShieldLoadShopItem" parent="." index="7" instance=ExtResource("3_w0ghx")]
 z_index = 0
@@ -24,6 +26,7 @@ offset_left = 733.0
 offset_top = 536.0
 offset_right = 846.0
 offset_bottom = 651.0
+texture_normal = ExtResource("3_j342r")
 
 [node name="ShieldMaxShopItem" parent="." index="8" instance=ExtResource("4_062sn")]
 z_index = 0
@@ -31,3 +34,4 @@ offset_left = 1091.0
 offset_top = 363.0
 offset_right = 1204.0
 offset_bottom = 478.0
+texture_normal = ExtResource("3_j342r")

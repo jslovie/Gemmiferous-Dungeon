@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b74srkyidy144"]
+[gd_scene load_steps=10 format=3 uid="uid://b74srkyidy144"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_bnffa"]
 [ext_resource type="Script" path="res://scripts/audio_options.gd" id="2_87mi0"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_7vwkv"]
+[ext_resource type="AudioStream" uid="uid://ctb7ov3bec5nn" path="res://audio/SFX/Minifantasy_TrueHeroes_SFX/Druid/General_Sounds/Druid_Attack.wav" id="4_d5oax"]
+[ext_resource type="Texture2D" uid="uid://dfod8ic64xc6x" path="res://assets/paper UI/Paper/checkbox_checked.png" id="4_sxgnb"]
+[ext_resource type="Texture2D" uid="uid://bxdu3pg6duhi5" path="res://assets/paper UI/Paper/checkbox.png" id="5_6hlml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxcdg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6xnl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nnmo2"]
 
@@ -25,9 +32,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -339.0
-offset_top = -339.0
+offset_top = -438.0
 offset_right = 339.0
-offset_bottom = 339.0
+offset_bottom = 438.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
@@ -44,13 +51,14 @@ script = ExtResource("2_87mi0")
 [node name="MarginContainer" type="MarginContainer" parent="AudioOptions"]
 layout_mode = 1
 offset_left = -307.0
-offset_top = -294.0
+offset_top = -407.0
 offset_right = -1.0
-offset_bottom = -124.0
+offset_bottom = -37.0
 scale = Vector2(2, 2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AudioOptions/MarginContainer"]
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 
 [node name="Master" type="Label" parent="AudioOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,6 +96,44 @@ layout_mode = 2
 max_value = 1.0
 step = 0.05
 
+[node name="Resolution" type="Label" parent="AudioOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7vwkv")
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+
+[node name="ResOptionButton" type="OptionButton" parent="AudioOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gxcdg")
+selected = 2
+item_count = 4
+popup/item_0/text = "960x540"
+popup/item_0/id = 3
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 1
+popup/item_3/text = "2500x1440"
+popup/item_3/id = 2
+
+[node name="Mode" type="Label" parent="AudioOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7vwkv")
+theme_override_font_sizes/font_size = 32
+text = "Mode"
+
+[node name="ModeOptionButton" type="OptionButton" parent="AudioOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t6xnl")
+selected = 0
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_1/text = "Exlusive Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+
 [node name="CRT" type="Label" parent="AudioOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_7vwkv")
@@ -97,6 +143,8 @@ text = "CRT Filter"
 [node name="CheckBox" type="CheckBox" parent="AudioOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nnmo2")
+theme_override_icons/checked = ExtResource("4_sxgnb")
+theme_override_icons/unchecked = ExtResource("5_6hlml")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -106,23 +154,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -311.0
-offset_top = 241.0
+offset_top = 335.0
 offset_right = -1.0
-offset_bottom = 281.0
+offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 50
-
-[node name="Confirm" type="Button" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_7vwkv")
-theme_override_font_sizes/font_size = 32
-text = "Confirm"
 
 [node name="Back" type="Button" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(130, 0)
@@ -131,9 +173,20 @@ theme_override_fonts/font = ExtResource("3_7vwkv")
 theme_override_font_sizes/font_size = 32
 text = "Back	"
 
+[node name="SFXAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_d5oax")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="AudioOptions/MarginContainer/VBoxContainer/MasterSlider" to="AudioOptions" method="_on_master_slider_mouse_entered"]
 [connection signal="mouse_exited" from="AudioOptions/MarginContainer/VBoxContainer/MasterSlider" to="AudioOptions" method="_on_master_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioOptions/MarginContainer/VBoxContainer/MasterSlider" to="AudioOptions" method="_on_master_slider_value_changed"]
 [connection signal="mouse_exited" from="AudioOptions/MarginContainer/VBoxContainer/MusicSlider" to="AudioOptions" method="_on_music_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioOptions/MarginContainer/VBoxContainer/MusicSlider" to="AudioOptions" method="_on_music_slider_value_changed"]
+[connection signal="mouse_entered" from="AudioOptions/MarginContainer/VBoxContainer/SFXSlider" to="AudioOptions" method="_on_sfx_slider_mouse_entered"]
 [connection signal="mouse_exited" from="AudioOptions/MarginContainer/VBoxContainer/SFXSlider" to="AudioOptions" method="_on_sfx_slider_mouse_exited"]
+[connection signal="value_changed" from="AudioOptions/MarginContainer/VBoxContainer/SFXSlider" to="AudioOptions" method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="AudioOptions/MarginContainer/VBoxContainer/ResOptionButton" to="." method="_on_res_option_button_item_selected"]
+[connection signal="item_selected" from="AudioOptions/MarginContainer/VBoxContainer/ModeOptionButton" to="." method="_on_mode_option_button_item_selected"]
 [connection signal="toggled" from="AudioOptions/MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

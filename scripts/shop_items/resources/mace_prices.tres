@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="ShopPrices" load_steps=6 format=3 uid="uid://lw6y3hfqgtpp"]
+[gd_resource type="Resource" script_class="ShopPrices" load_steps=7 format=3 uid="uid://lw6y3hfqgtpp"]
 
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="1_mb40p"]
 [ext_resource type="Script" path="res://scripts/shop_items/prices.gd" id="1_mml6q"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="2_ftj1i"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="3_1o61u"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="4_g2e85"]
+[ext_resource type="Texture2D" uid="uid://cbgi4d6g7ytcw" path="res://assets/32rogues/pieces/mace.png" id="5_o1r5g"]
 
 [resource]
 script = ExtResource("1_mml6q")
 item = "Mace"
+item_texture = ExtResource("5_o1r5g")
+item_color = Color(0.0235294, 0.25098, 0.290196, 1)
 damage_0 = Vector2(1, 5)
 damage_1 = Vector2(1, 1)
 damage_2 = Vector2(2, 0)

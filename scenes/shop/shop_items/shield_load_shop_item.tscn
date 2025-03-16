@@ -15,7 +15,7 @@ offset_bottom = 114.75
 text = "+0 to shield on match"
 autowrap_mode = 2
 
-[node name="ItemPicture" parent="." index="2"]
+[node name="ItemPicture" parent="." index="3"]
 position = Vector2(58.75, 56)
 scale = Vector2(3.4, 3.4)
 texture = ExtResource("2_hicml")

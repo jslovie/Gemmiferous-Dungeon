@@ -4,7 +4,7 @@ var crt_on = false
 
 func _ready():
 	hide_crt()
-
+	
 func _process(delta):
 	if crt_on == true:
 		show_crt()

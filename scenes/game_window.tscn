@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=104 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bjjk3ntnjy3af" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 1.png" id="16_yjedy"]
 [ext_resource type="Texture2D" uid="uid://dy7r7mo4dhe5s" path="res://assets/32rogues/pieces/poison.png" id="17_dst1s"]
 [ext_resource type="Texture2D" uid="uid://dl6cimyvyaw0y" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 4.png" id="17_lkria"]
+[ext_resource type="AudioStream" uid="uid://cqecht1ewefdw" path="res://audio/SFX/SFX/05_Alchemy_Glass_break.wav" id="21_2l6mp"]
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="21_spqid"]
 [ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="22_s46mu"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="23_pwx4o"]
@@ -780,6 +781,11 @@ one_shot = true
 [node name="HintTimer" type="Timer" parent="Grid"]
 wait_time = 3.0
 one_shot = true
+
+[node name="TileBreakSFX" type="AudioStreamPlayer" parent="Grid"]
+stream = ExtResource("21_2l6mp")
+volume_db = 4.0
+bus = &"SFX_BREAK"
 
 [node name="DestroyTimer" type="Timer" parent="."]
 unique_name_in_owner = true

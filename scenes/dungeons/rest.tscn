@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://d0cv2g3t5lba5"]
+[gd_scene load_steps=52 format=4 uid="uid://d0cv2g3t5lba5"]
 
 [ext_resource type="Script" path="res://scripts/rest.gd" id="1_7uvpb"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_2gcf1"]
@@ -25,6 +25,14 @@
 [ext_resource type="Texture2D" uid="uid://dcwv5gxcymj2r" path="res://assets/32rogues/fireplace/F500-10.PNG" id="23_gxujy"]
 [ext_resource type="Texture2D" uid="uid://di36khm4jd8du" path="res://assets/32rogues/fireplace/F500-11.PNG" id="24_6ig1n"]
 [ext_resource type="Texture2D" uid="uid://cqlebbmnif6v2" path="res://assets/32rogues/fireplace/F500-12.PNG" id="25_80pa3"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="25_ekhmd"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="26_npsls"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="27_1ko82"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="28_m03b7"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="29_wt7da"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="30_lnoqw"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="31_acpei"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="32_uuw04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8bcmg"]
 texture = ExtResource("2_21q7v")
@@ -234,11 +242,24 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtnhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j56em"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yndw"]
+bg_color = Color(0.679688, 0.0398254, 0.0398254, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Rest" type="Node2D"]
 script = ExtResource("1_7uvpb")
-
-[node name="Player" parent="." instance=ExtResource("2_2gcf1")]
-position = Vector2(-1124, 483)
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(763, 35)
@@ -331,10 +352,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.5
-offset_top = 90.0
-offset_right = 211.5
-offset_bottom = 351.0
+offset_left = -130.5
+offset_top = 80.0
+offset_right = 130.5
+offset_bottom = 341.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -369,7 +390,7 @@ offset_right = 1329.0
 offset_bottom = 481.0
 theme_override_fonts/font = ExtResource("4_l0rkg")
 theme_override_font_sizes/font_size = 64
-text = "You arrived into room where you feel like you could take a rest"
+text = "You arrived in the room where you feel like you could rest"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -380,9 +401,9 @@ offset_right = 1329.0
 offset_bottom = 706.0
 theme_override_fonts/font = ExtResource("4_l0rkg")
 theme_override_font_sizes/font_size = 32
-text = "You see campfire and stairs that probably leeds directly up to manor.
+text = "You see a campfire and stairs that probably lead directly up to the manor.
 
-You have to decide if you want to rest, take all loot to manor and come back or leave this place forever with all you loot"
+You have to decide if you want to rest, take all the loot to the manor and come back, or leave this place forever with all your loot."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -551,6 +572,226 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bvtdq")
 autoplay = "default"
 frame_progress = 0.282019
+
+[node name="Material" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1512.0
+offset_top = -7.0
+offset_right = 1552.0
+offset_bottom = 33.0
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="Material"]
+layout_mode = 0
+offset_left = -761.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Material"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Wood" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("25_ekhmd")
+
+[node name="WoodArea2D" type="Area2D" parent="Material/HBoxContainer/Wood" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Wood/WoodArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="Stone" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("26_npsls")
+
+[node name="StoneArea2D" type="Area2D" parent="Material/HBoxContainer/Stone" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Stone/StoneArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="Iron" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("27_1ko82")
+
+[node name="IronArea2D" type="Area2D" parent="Material/HBoxContainer/Iron" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Iron/IronArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="Gems" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 73.0
+offset_top = -7.0
+offset_right = 113.0
+offset_bottom = 33.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("28_m03b7")
+
+[node name="RedGemArea2D" type="Area2D" parent="Gems/HBoxContainer/RedGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("29_wt7da")
+
+[node name="BlueGemArea2D" type="Area2D" parent="Gems/HBoxContainer/BlueGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("30_lnoqw")
+
+[node name="GreemGemArea2D" type="Area2D" parent="Gems/HBoxContainer/GreenGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("31_acpei")
+
+[node name="YellowGemArea2D" type="Area2D" parent="Gems/HBoxContainer/YellowGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="Coin" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("32_uuw04")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("10_3avfu")
+
+[node name="CoinArea2D" type="Area2D" parent="Gems/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_mtnhh")
+
+[node name="Player" parent="." instance=ExtResource("2_2gcf1")]
+position = Vector2(295, 686)
+
+[node name="PlayerHealth" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = 935.0
+offset_right = 307.0
+offset_bottom = 952.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxFlat_j56em")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8yndw")
+value = 50.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="PlayerHealth"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -6.5
+offset_right = 14.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_l0rkg")
+text = "100"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

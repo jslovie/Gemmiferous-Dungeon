@@ -1,16 +1,8 @@
 extends Control
 
-
-
-
-
-
-
-func _on_confirm_pressed():
-	AudioServer.set_bus_volume_db(0, linear_to_db($AudioOptions/MarginContainer/VBoxContainer/MasterSlider.value))
-	AudioServer.set_bus_volume_db(1, linear_to_db($AudioOptions/MarginContainer/VBoxContainer/MusicSlider.value))
-	AudioServer.set_bus_volume_db(2, linear_to_db($AudioOptions/MarginContainer/VBoxContainer/SFXSlider.value))
-
+func _ready():
+	get_viewport().size = DisplayServer.screen_get_size()
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_back_pressed():
 	visible = false
@@ -21,3 +13,26 @@ func _on_check_box_toggled(toggled_on):
 		Crt.crt_on = true
 	elif $AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed == false:
 		Crt.crt_on = false
+
+
+func _on_res_option_button_item_selected(index):
+	match index:
+		0:
+			get_window().set_size(Vector2(960,540))
+		1:
+			get_window().set_size(Vector2(1280,720))
+		2:
+			get_window().set_size(Vector2(1920,1080))
+		3:
+			get_window().set_size(Vector2(2500,1440))
+
+
+
+func _on_mode_option_button_item_selected(index):
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

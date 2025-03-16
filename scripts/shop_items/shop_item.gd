@@ -2,6 +2,10 @@ extends TextureButton
 
 @export var prices : ShopPrices
 
+@onready var item_picture = $ItemPicture
+@onready var item_background = $ItemBackground
+
+
 var description = "Damage: "
 var item_lvl
 var upgraded_item_damage
@@ -13,6 +17,8 @@ func _ready():
 
 
 func set_item():
+	item_picture.texture = prices.item_texture
+	item_background.modulate = prices.item_color
 	if prices.item == "Axe":
 		item_lvl = VillageManager.axe_item_lvl
 		upgraded_item_damage = PlayerManager.player.upgraded_axe_damage
@@ -34,6 +40,7 @@ func effect():
 	tween.tween_property($ItemPicture, "scale", Vector2(3,3), 0.1)
 
 func not_enough():
+	Sfx.play_SFX(Sfx.upgrade_deny)
 	$NotEnough/NotEnoughLabel.visible = true
 	await get_tree().create_timer(1).timeout
 	$NotEnough/NotEnoughLabel.visible = false
@@ -53,15 +60,16 @@ func item_set():
 
 
 func item_data_save():
+	Sfx.play_SFX(Sfx.upgrade)
 	item_lvl += 1
-	
+
 	if prices.item == "Axe":
 		VillageManager.axe_item_lvl = item_lvl
 	elif prices.item == "Mace":
 		VillageManager.mace_item_lvl = item_lvl
 	elif prices.item == "Sword":
 		VillageManager.sword_item_lvl = item_lvl
-	elif prices.item == "bow":
+	elif prices.item == "Bow":
 		VillageManager.bow_item_lvl = item_lvl
 		
 	SaveManager.savefilesave()
@@ -111,22 +119,24 @@ func item_level_UP():
 			PlayerManager.player.total_red_gem -= prices.price_gem_lvl_5
 			item_data_save()
 	elif item_lvl == 6:
+		Sfx.play_SFX(Sfx.upgrade_deny)
 		$MaxLevel/MaxLevelLabel.visible = true
 		await get_tree().create_timer(1).timeout
 		$MaxLevel/MaxLevelLabel.visible = false
 	else:
+		Sfx.play_SFX(Sfx.upgrade_deny)
 		$LowLevel/LowLevelLabel.visible = true
 		await get_tree().create_timer(1).timeout
 		$LowLevel/LowLevelLabel.visible = false
-		
+	
 	if prices.item == "Axe":
 		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage
 	elif prices.item == "Mace":
-		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage
+		PlayerManager.player.upgraded_mace_damage = upgraded_item_damage
 	elif prices.item == "Sword":
-		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage	
+		PlayerManager.player.upgraded_sword_damage = upgraded_item_damage
 	elif prices.item == "Bow":
-		PlayerManager.player.upgraded_axe_damage = upgraded_item_damage	
+		PlayerManager.player.upgraded_bow_damage = upgraded_item_damage
 
 	SaveManager.savefilesave()
 

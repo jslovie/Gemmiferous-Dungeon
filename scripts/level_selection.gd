@@ -291,6 +291,7 @@ func update_available_level():
 		
 		
 func _on_pressed():
+	Sfx.play_SFX(Sfx.level_selection)
 	select_enemy_new()
 	chose_path()
 	level_complete = true

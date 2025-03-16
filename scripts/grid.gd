@@ -289,34 +289,51 @@ func destroy_matched():
 					#Gems
 					if all_pieces[i][j].color == "red":
 						red_gem_load += 1
+						$TileBreakSFX.play()
 						material_effect(red_gem_effect,i,j)
 					elif all_pieces[i][j].color == "green":
 						green_gem_load += 1
+						$TileBreakSFX.play()
 						material_effect(green_gem_effect,i,j)
 					elif all_pieces[i][j].color == "blue":
 						blue_gem_load += 1
+						$TileBreakSFX.play()
 						material_effect(blue_gem_effect,i,j)
 					elif all_pieces[i][j].color == "yellow":
 						yellow_gem_load += 1
+						$TileBreakSFX.play()
 						material_effect(yellow_gem_effect,i,j)
 					elif all_pieces[i][j].color == "gold":
 						gold_load += 1
+						$TileBreakSFX.play()
 						material_effect(coin_effect,i,j)
 					#Attacks
 					#Rogue
 					if all_pieces[i][j].color == "sword":
 						sword_load += 1
+						$TileBreakSFX.play()
+						Sfx.play_SFX(Sfx.sword)
 					elif all_pieces[i][j].color == "bow":
 						bow_load += 1
+						$TileBreakSFX.play()
+						Sfx.play_SFX(Sfx.bow)
 					elif all_pieces[i][j].color == "invisibility":
 						invisibility_load += 1
+						$TileBreakSFX.play()
+						Sfx.play_SFX(Sfx.invisibility)
 					#Barbarian
 					elif all_pieces[i][j].color == "axe":
 						axe_load += 1
+						$TileBreakSFX.play()
+						Sfx.play_SFX(Sfx.axe)
 					elif all_pieces[i][j].color == "mace":
 						mace_load += 1
+						$TileBreakSFX.play()
+						Sfx.play_SFX(Sfx.mace)
 					elif all_pieces[i][j].color == "rage":
 						rage_load += 1
+						$TileBreakSFX.play()
+						Sfx.play_SFX(Sfx.rage)
 					
 					
 					#Extras
@@ -327,6 +344,7 @@ func destroy_matched():
 					elif all_pieces[i][j].color == "shield":
 						shield_load += 1
 					elif all_pieces[i][j].color == "material":
+						Sfx.play_SFX(Sfx.material)
 						material_load += 1
 						if EnemyManager.enemy.status == "alive":
 							var random_material = randi_range(1,3)
@@ -340,7 +358,6 @@ func destroy_matched():
 					if shield_load > 0:
 						shield_effect_position.x = i
 						shield_effect_position.y = j
-						
 					var color = all_pieces[i][j].background_color
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
@@ -369,13 +386,19 @@ func destroy_matched():
 		
 	#Shield load
 	if shield_load == 3:
+		$TileBreakSFX.play()
+		Sfx.play_SFX(Sfx.shield)
 		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load
 		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 	elif shield_load == 4:
+		$TileBreakSFX.play()
+		Sfx.play_SFX(Sfx.shield)
 		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 1
 		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 		emit_signal("camera_effect", 10)
 	elif shield_load >= 5:
+		$TileBreakSFX.play()
+		Sfx.play_SFX(Sfx.shield)
 		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2
 		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 		emit_signal("camera_effect", 20)
@@ -452,6 +475,7 @@ func destroy_matched():
 	if axe_load == 3:
 		PlayerManager.player.piece_multiplier = 1
 		axe_animation()
+		
 		PlayerManager.player.damage1_attack()
 	elif axe_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
@@ -634,7 +658,7 @@ func generate_hint():
 	if hints != null:
 		if hints.size() > 0:
 			destroy_hint()
-			var rand = floor(randi_range(0, hints.size()-1))
+			var rand = floor(randi_range(1, hints.size()))
 			hint = hint_effect.instantiate()
 			add_child(hint)
 			hint.position = hints[rand].position
@@ -688,4 +712,5 @@ func _on_shuffle_timer_timeout():
 
 
 func _on_hint_timer_timeout():
-	generate_hint()
+	#generate_hint()
+	pass

@@ -3,6 +3,8 @@ extends Resource
 class_name ShopPrices
 
 @export var item : String
+@export var item_texture : Texture2D
+@export var item_color: Color
 @export var damage_0 : Vector2
 @export var damage_1 : Vector2
 @export var damage_2 : Vector2

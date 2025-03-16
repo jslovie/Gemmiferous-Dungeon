@@ -63,6 +63,7 @@ func _on_quit_game_pressed():
 
 
 func _on_start_game_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	if SaveManager.save_file == false:
 		handle_new_game()
 	else:
@@ -79,6 +80,7 @@ func _on_remove_pressed():
 
 
 func _on_start_game_new_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	if SaveManager.save_file == false:
 		handle_new_game()
 	else:
@@ -86,10 +88,12 @@ func _on_start_game_new_pressed():
 
 
 func _on_options_new_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	$Settings.visible = true
 
 
 func _on_quit_game_new_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	SaveManager.remove_autosave()
 	get_tree().quit()
 

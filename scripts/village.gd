@@ -268,20 +268,24 @@ func update_materials():
 	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
 
 func _on_manor_pressed():
+	Sfx.play_SFX(Sfx.manor_open)
 	SaveManager.load_savefile()
 	$Manor.visible = true
 
 func _on_taverm_pressed():
+	Sfx.play_SFX(Sfx.door_open)
 	SaveManager.load_savefile()
 	$TavernShop.visible = true
 
 
 func _on_weaponsmith_pressed():
+	Sfx.play_SFX(Sfx.door_open)
 	SaveManager.load_savefile()
 	$WeaponsmithShop.visible = true
 
 
 func _on_armourer_pressed():
+	Sfx.play_SFX(Sfx.door_open)
 	SaveManager.load_savefile()
 	$ArmourerShop.visible = true
 

@@ -7,7 +7,7 @@
 [node name="ShieldInitShopItem" instance=ExtResource("1_wf8cd")]
 script = ExtResource("2_2qjoa")
 
-[node name="ItemPicture" parent="." index="2"]
+[node name="ItemPicture" parent="." index="3"]
 position = Vector2(58.75, 56.25)
 scale = Vector2(3.4, 3.4)
 texture = ExtResource("3_xacaj")

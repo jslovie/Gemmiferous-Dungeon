@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6ekgijmd1fss"]
+[gd_scene load_steps=7 format=3 uid="uid://c6ekgijmd1fss"]
 
 [ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_h7383"]
-[ext_resource type="PackedScene" uid="uid://cqby35ctvbi61" path="res://scenes/shop/shop_items/axe_shop_item.tscn" id="2_p8ga0"]
-[ext_resource type="PackedScene" uid="uid://bclk63aeemvmd" path="res://scenes/shop/shop_items/sword_shop_item.tscn" id="3_l6v7w"]
+[ext_resource type="PackedScene" uid="uid://cddv16lwy000e" path="res://scenes/shop/shop_items/shop_item.tscn" id="2_y15tg"]
+[ext_resource type="Resource" uid="uid://q50pno73s0n5" path="res://scripts/shop_items/resources/axe_prices.tres" id="3_lmj1k"]
 [ext_resource type="Resource" uid="uid://chimlx7fyx4px" path="res://scripts/shop_items/resources/sword_prices.tres" id="4_2acjo"]
-[ext_resource type="PackedScene" uid="uid://b625cjtyckc3j" path="res://scenes/shop/shop_items/bow_shop_item.tscn" id="4_4ws4j"]
-[ext_resource type="PackedScene" uid="uid://bpkgqx8gjcujt" path="res://scenes/shop/shop_items/mace_shop_item.tscn" id="5_te0mp"]
 [ext_resource type="Resource" uid="uid://0ukoidyn7wko" path="res://scripts/shop_items/resources/bow_prices.tres" id="6_88sjo"]
 [ext_resource type="Resource" uid="uid://lw6y3hfqgtpp" path="res://scripts/shop_items/resources/mace_prices.tres" id="8_mg1ob"]
 
@@ -16,33 +14,30 @@ shop_name = "Weaponsmith"
 offset_left = 1219.0
 offset_right = 1251.0
 
-[node name="AxeShopItem" parent="." index="6" instance=ExtResource("2_p8ga0")]
-z_index = 0
-offset_left = 650.0
-offset_top = 515.0
-offset_right = 763.0
-offset_bottom = 630.0
-
-[node name="SwordShopItem" parent="." index="7" instance=ExtResource("3_l6v7w")]
-z_index = 0
-offset_left = 650.0
-offset_top = 350.0
-offset_right = 763.0
-offset_bottom = 465.0
+[node name="ShopItem" parent="." index="6" instance=ExtResource("2_y15tg")]
+offset_left = 652.0
+offset_top = 355.0
+offset_right = 765.0
+offset_bottom = 470.0
 prices = ExtResource("4_2acjo")
 
-[node name="BowShopItem" parent="." index="8" instance=ExtResource("4_4ws4j")]
-z_index = 0
-offset_left = 800.0
-offset_top = 350.0
-offset_right = 913.0
-offset_bottom = 465.0
+[node name="ShopItem2" parent="." index="7" instance=ExtResource("2_y15tg")]
+offset_left = 798.0
+offset_top = 355.0
+offset_right = 911.0
+offset_bottom = 470.0
 prices = ExtResource("6_88sjo")
 
-[node name="MaceShopItem" parent="." index="9" instance=ExtResource("5_te0mp")]
-z_index = 0
-offset_left = 800.0
-offset_top = 515.0
-offset_right = 913.0
-offset_bottom = 630.0
+[node name="ShopItem3" parent="." index="8" instance=ExtResource("2_y15tg")]
+offset_left = 798.0
+offset_top = 500.0
+offset_right = 911.0
+offset_bottom = 615.0
 prices = ExtResource("8_mg1ob")
+
+[node name="ShopItem4" parent="." index="9" instance=ExtResource("2_y15tg")]
+offset_left = 655.0
+offset_top = 500.0
+offset_right = 768.0
+offset_bottom = 615.0
+prices = ExtResource("3_lmj1k")

@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="ShopPrices" load_steps=6 format=3 uid="uid://q50pno73s0n5"]
+[gd_resource type="Resource" script_class="ShopPrices" load_steps=7 format=3 uid="uid://q50pno73s0n5"]
 
 [ext_resource type="Script" path="res://scripts/shop_items/prices.gd" id="1_ocx6q"]
 [ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="1_t2lji"]
 [ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="2_rjwm0"]
 [ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="3_lj7m3"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="4_geigo"]
+[ext_resource type="Texture2D" uid="uid://crvak0hdau1im" path="res://assets/32rogues/pieces/axe.png" id="5_ul63r"]
 
 [resource]
 script = ExtResource("1_ocx6q")
 item = "Axe"
+item_texture = ExtResource("5_ul63r")
+item_color = Color(0.352941, 0.0392157, 0.4, 1)
 damage_0 = Vector2(2, 4)
 damage_1 = Vector2(1, 0)
 damage_2 = Vector2(1, 2)

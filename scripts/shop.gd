@@ -20,6 +20,7 @@ func _on_card_game_pressed():
 	get_tree().change_scene_to_file("res://scenes/card_game/card_game.tscn")
 
 func exit_door():
+	Sfx.play_SFX(Sfx.door_close)
 	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor-opened.png")
 	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-opened.png")
 	var tween = create_tween()

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://bviwbmmgyk1u5"]
+
+[ext_resource type="Texture2D" uid="uid://vukhhbilycag" path="res://assets/32rogues/pieces/gem_relic.png" id="1_03gxd"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_fmc5c"]
+
+[resource]
+script = ExtResource("1_fmc5c")
+relic_name = "Gem Relic"
+relic_texture = ExtResource("1_03gxd")
