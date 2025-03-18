@@ -11,6 +11,8 @@ func assign_stats():
 	PlayerManager.player.type_action1 = type.type_action1
 	PlayerManager.player.type_action2 = type.type_action2
 	PlayerManager.player.type_action3 = type.type_action3
+	SaveManager.save_resource(type.starting_relic, type.starting_relic.resource_naming)
+	
 	
 func _on_pressed():
 	assign_stats()

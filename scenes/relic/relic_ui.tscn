@@ -1,22 +1,126 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk8ejwl0brlut"]
+[gd_scene load_steps=7 format=3 uid="uid://dk8ejwl0brlut"]
 
 [ext_resource type="Texture2D" uid="uid://vukhhbilycag" path="res://assets/32rogues/pieces/gem_relic.png" id="1_a8exy"]
 [ext_resource type="Script" path="res://scripts/relics/relic_ui.gd" id="1_f867s"]
+[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="2_rfkx2"]
+
+[sub_resource type="Animation" id="Animation_ujrkr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.235294, 0.235294, 0.235294, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_086id"]
+resource_name = "flash"
+length = 0.3
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.285714),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.235294, 0.235294, 0.235294, 1), Color(0.439, 0.439, 0.439, 1), Color(0.235294, 0.235294, 0.235294, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7lta"]
+_data = {
+"RESET": SubResource("Animation_ujrkr"),
+"flash": SubResource("Animation_086id")
+}
 
 [node name="RelicUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1888.0
+offset_bottom = -1048.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f867s")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
+texture = ExtResource("2_rfkx2")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 32.0
+offset_bottom = 31.0
 pivot_offset = Vector2(16, 16)
 texture = ExtResource("1_a8exy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h7lta")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

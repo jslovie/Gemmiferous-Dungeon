@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://0y1ua5vfelro" path="res://scripts/player_types/rogue.tres" id="3_hehdk"]
 
 [node name="RogueType" instance=ExtResource("1_0bdcu")]
+offset_right = 32.0
+offset_bottom = 32.0
 texture_normal = ExtResource("1_hqagf")
 texture_hover = ExtResource("3_hcjc1")
 type = ExtResource("3_hehdk")

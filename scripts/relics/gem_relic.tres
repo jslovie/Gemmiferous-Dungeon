@@ -5,5 +5,7 @@
 
 [resource]
 script = ExtResource("1_fmc5c")
-relic_name = "Gem Relic"
+relic_name = "Gem Necklace"
 relic_texture = ExtResource("1_03gxd")
+description = "Damage modifier x1.2 but board looks like gem"
+resource_naming = "GemNecklace.tres"

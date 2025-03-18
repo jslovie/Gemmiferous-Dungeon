@@ -9,3 +9,4 @@ class_name PlayerType
 @export var type_action1 : Vector2
 @export var type_action2 : Vector2
 @export var type_action3 : Vector2
+@export var starting_relic : Relic

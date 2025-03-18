@@ -2,6 +2,8 @@ extends Node
 
 
 const SAVE_PATH = "user://"
+const RESOURCE_PATH = "user://resources/"
+var test_resource_name = "HealthPotion.tres"
 
 #Savefile
 var save_file = false
@@ -97,6 +99,24 @@ var savefile_data = {
 		bow_item_lvl = 0,
 	},
 }
+
+#Resourcesaver
+func _ready():
+	verify_save_directory(RESOURCE_PATH)
+	
+func verify_save_directory(path: String):
+	DirAccess.make_dir_absolute(path)
+
+func save_resource(resource, resource_name):
+	ResourceSaver.save(resource, RESOURCE_PATH + resource_name)
+
+func load_resource(resource_name):
+	return ResourceLoader.load(RESOURCE_PATH + resource_name)
+
+func remove_resources():
+	var dir = DirAccess.open(RESOURCE_PATH)
+	for file in dir.get_files():
+		dir.remove(file)
 
 #Savefile
 func update_player_data_savefile():
@@ -283,7 +303,7 @@ func load_autosave():
 	 autosave_data.player_data.health, autosave_data.player_data.max_health,
 	 autosave_data.player_data.shield, autosave_data.player_data.shield_load, autosave_data.player_data.coins, autosave_data.player_data.type, autosave_data.gems.red_gem, 
 	 autosave_data.gems.green_gem, autosave_data.gems.blue_gem, autosave_data.gems.yellow_gem, 
-	 autosave_data.materials.wood, autosave_data.materials.stone, autosave_data.materials.iron)
+	 autosave_data.materials.wood, autosave_data.materials.stone, autosave_data.materials.iron,)
 
 func load_savefile():
 	var file = get_savefile_file()

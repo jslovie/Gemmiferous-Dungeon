@@ -232,6 +232,7 @@ func enter_dungeon_door():
 	tween.tween_property(enter_dungeon,"scale",Vector2(5,5),0.1)
 	await get_tree().create_timer(0.5).timeout
 	SaveManager.savefilesave()
+	SaveManager.remove_resources()
 	Transition.transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")

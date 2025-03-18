@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://cf4esjnq887h4" path="res://scripts/player_types/barbarian.tres" id="3_wu7pr"]
 
 [node name="BarbarianType" instance=ExtResource("1_0lwvy")]
+offset_right = 32.0
+offset_bottom = 32.0
 texture_normal = ExtResource("2_267eb")
 texture_hover = ExtResource("3_7o2ye")
 type = ExtResource("3_wu7pr")

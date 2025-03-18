@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://bigony5157l2u"]
+
+[ext_resource type="Texture2D" uid="uid://d25di2bwhrub5" path="res://assets/32rogues/pieces/relics/armor.png" id="1_kkvag"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_vrqti"]
+
+[resource]
+script = ExtResource("1_vrqti")
+relic_name = "Armor"
+relic_texture = ExtResource("1_kkvag")
+description = "Plus 5 shield every 5 hits received"
+resource_naming = "Armor.tres"

@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var relic_handler = %RelicHandler
+
+const RESOURCE_PATH = "user://resources/"
+
 var treasure_timeout_min = 10
 var treasure_timeout_max = 20
 
@@ -31,7 +35,7 @@ func _ready():
 	$MaterialTotal.visible = false
 	$GemsTotal.visible = false
 	wait_time()
-	
+	load_relics()
 	
 func _process(_delta):
 	update_healthbars()
@@ -41,6 +45,16 @@ func _process(_delta):
 	handle_win()
 	check_enemy_debuff()
 	update_treasures_bar()
+	update_relic_description()
+	
+func load_relics():
+	var dir = DirAccess.open(RESOURCE_PATH)
+	for file in dir.get_files():
+		relic_handler.add_relic(SaveManager.load_resource(file))
+
+func update_relic_description():
+	$RelicDescription.text = LevelManager.relic_description
+		
 
 func change_background():
 	if LevelManager.floor == 1:
@@ -140,6 +154,7 @@ func resolution_screen():
 			%PlayerHealth.visible = false
 			$Material.visible = false
 			$Gems.visible = false
+			relic_handler.visible = false
 			var tween = create_tween()
 			$PlayerDied.visible = true
 			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)

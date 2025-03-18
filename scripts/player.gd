@@ -34,7 +34,8 @@ var piece_multiplier = 1
 var spawned = false
 var spins_left = 0
 
-
+#relics
+var got_hit_health_potion = 0
 
 #Weapon upgrades
 var upgraded_axe_damage  = Vector2(0,0)
@@ -111,10 +112,14 @@ var iron_died = 0
 var rng = RandomNumberGenerator.new()
 
 
-
+var text = ""
 
 func print_test():
-	pass
+	if text == "":
+		return
+	else:
+		$Label.text = text
+		
 	
 func _ready():
 	state = alive
@@ -153,7 +158,16 @@ func update_base_actions():
 	base_action1 = type_action1 + upgraded_action1
 	base_action2 = type_action2 + upgraded_action2
 	base_action3 = type_action3 + upgraded_action3
-	
+
+func shield_up(amount):
+	if EnemyManager.enemy.status == "alive":
+		shield += amount
+		
+func heal(amount):
+	health += amount
+	if health > max_health:
+		health = max_health
+
 func damage1_attack():
 	if EnemyManager.enemy.status == "dead":
 		pass
@@ -268,11 +282,6 @@ func reset_player_stats():
 	total_stone = 0
 	total_iron = 0
 
-func shield_up(amount):
-	if EnemyManager.enemy.status == "alive":
-		shield += amount
-		
-
 func red_gem_up(amount):
 	red_gem += amount
 	
@@ -374,13 +383,9 @@ func reset_current_treasure():
 	stone -= stone
 	iron -= iron
 
-func heal(amount):
-	health += amount
-	if health > max_health:
-		health = max_health
-
 func receive_damage(damage):
 	if state == alive:
+		got_hit_health_potion += 1
 		#Visual knockback
 		var tween_scale = create_tween()
 		tween_scale.tween_property($Character,"scale", Vector2(16,16), 0.1)

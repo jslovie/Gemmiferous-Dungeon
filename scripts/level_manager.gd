@@ -14,6 +14,11 @@ var handle_winning = false
 var reset_complete_level = false
 var place : String
 
+var relic_description = ""
+
+func _process(delta):
+	print(relic_description)
+
 func reset_map():
 	level_done = 0
 	available_level = 1

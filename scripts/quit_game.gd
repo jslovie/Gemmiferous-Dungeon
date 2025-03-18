@@ -22,6 +22,7 @@ func _unhandled_input(event):
 
 func _on_button_pressed():
 	SaveManager.remove_autosave()
+	SaveManager.remove_resources()
 	hide_quit()
 	LevelManager.reset_map()
 	LevelManager.show_map = false

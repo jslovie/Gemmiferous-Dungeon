@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PlayerType" load_steps=2 format=3 uid="uid://0y1ua5vfelro"]
+[gd_resource type="Resource" script_class="PlayerType" load_steps=3 format=3 uid="uid://0y1ua5vfelro"]
 
 [ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_af28e"]
+[ext_resource type="Resource" uid="uid://cv2gv062edcyk" path="res://scripts/relics/health_potion_relic.tres" id="2_ui5hn"]
 
 [resource]
 script = ExtResource("1_af28e")
@@ -11,3 +12,4 @@ shield = 6
 type_action1 = Vector2(2, 4)
 type_action2 = Vector2(2, 5)
 type_action3 = Vector2(3, 4)
+starting_relic = ExtResource("2_ui5hn")

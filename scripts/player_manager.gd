@@ -36,7 +36,7 @@ var status
 	#coins = p.coins
 
 func set_player_stats(type_action1x,type_action1y, type_action2x,type_action2y, type_action3x, type_action3y, health, max_health, shield, shield_load, 
-					  coins, type, red_gem, green_gem, blue_gem, yellow_gem, wood, stone, iron):
+					  coins, type, red_gem, green_gem, blue_gem, yellow_gem, wood, stone, iron,):
 	player.type_action1.x = type_action1x
 	player.type_action1.y = type_action1y
 	player.type_action2.x = type_action2x
