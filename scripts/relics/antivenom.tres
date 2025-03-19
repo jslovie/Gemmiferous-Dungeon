@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://buxps44dwfmcw"]
+
+[ext_resource type="Texture2D" uid="uid://d0lmkxads3k0y" path="res://assets/32rogues/pieces/relics/antivenom_potion.png" id="1_pyg54"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_xiyoe"]
+
+[resource]
+script = ExtResource("1_xiyoe")
+relic_name = "Antivenom"
+relic_texture = ExtResource("1_pyg54")
+description = "Cannot get poisoned"
+price = 100
+resource_naming = "Antivenom.tres"

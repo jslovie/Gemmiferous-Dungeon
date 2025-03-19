@@ -21,8 +21,8 @@ var rng = RandomNumberGenerator.new()
 
 var crit = false
 var crit_rarities = {
-	"nothing" : 80,
-	"crit" : 20,
+	"nothing" : 85,
+	"crit" : 15,
 }
 
 var coin_effect_position = Vector2(921,737)

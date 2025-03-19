@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://cfexvx5mevcbp"]
+
+[ext_resource type="Texture2D" uid="uid://du0nweoqrkngw" path="res://assets/32rogues/pieces/Shuriken.png" id="1_kka1a"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_w8v8b"]
+
+[resource]
+script = ExtResource("1_w8v8b")
+relic_name = "Shuriken"
+relic_texture = ExtResource("1_kka1a")
+description = "Deal 1 damage back every time you are attacked"
+price = 100
+resource_naming = ""

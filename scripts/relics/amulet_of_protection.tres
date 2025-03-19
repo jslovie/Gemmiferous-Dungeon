@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://c4ps2e5l3bn3c"]
+
+[ext_resource type="Texture2D" uid="uid://cmffyyot6oo0p" path="res://assets/32rogues/pieces/relics/shield_necklace.png" id="1_d7l7m"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_j7t7c"]
+
+[resource]
+script = ExtResource("1_j7t7c")
+relic_name = "Amulet of Protection"
+relic_texture = ExtResource("1_d7l7m")
+description = "Gain 10 shield at the start of each combat"
+price = 100
+resource_naming = "AmuletOfProtection.tres"

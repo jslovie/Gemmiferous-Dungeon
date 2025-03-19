@@ -1,10 +1,29 @@
-[gd_scene load_steps=8 format=4 uid="uid://bskgvhuabvsbl"]
+[gd_scene load_steps=28 format=4 uid="uid://bskgvhuabvsbl"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_00vle"]
 [ext_resource type="Script" path="res://scripts/shop_level.gd" id="1_rku67"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="3_q1op1"]
-[ext_resource type="Texture2D" uid="uid://bqpcelf0unpfp" path="res://assets/32rogues/chars/shopper.png" id="4_l4rwk"]
+[ext_resource type="Texture2D" uid="uid://cw4o0mh7hmt7o" path="res://assets/32rogues/rug2.png" id="4_m1osh"]
 [ext_resource type="Texture2D" uid="uid://c0m8b8uluaoah" path="res://assets/paper UI/Paper/Menu2.png" id="5_56hgj"]
+[ext_resource type="Texture2D" uid="uid://jrtimt4iprw2" path="res://assets/32rogues/chars/merchant.png" id="5_nmy1n"]
+[ext_resource type="Texture2D" uid="uid://dvxdyvrnpf3le" path="res://assets/paper UI/Paper/Leave.png" id="6_8ot1m"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="6_gdsat"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="7_p0cy8"]
+[ext_resource type="Texture2D" uid="uid://cwk58rw3cewqd" path="res://assets/paper UI/Paper/Leave_highlighted.png" id="7_vq3lr"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="8_7cljh"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="9_lofro"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="10_7xv4i"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="11_2aur4"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="12_87ivu"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="13_rsuoi"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="14_uq357"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="15_0jc5i"]
+[ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="16_djr58"]
+[ext_resource type="PackedScene" uid="uid://dmgsurua3m28a" path="res://scenes/shop_level/relic_ui_shop.tscn" id="17_s2jk7"]
+[ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/relics/armor_relic.tres" id="18_teyop"]
+[ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/relics/gem_relic.tres" id="19_qvklh"]
+[ext_resource type="PackedScene" uid="uid://o08oqdda5nm7" path="res://scenes/shop_level/piece_ui_shop.tscn" id="20_iswna"]
+[ext_resource type="Resource" uid="uid://dijyklg82m6eu" path="res://scripts/relics/thorned_necklace.tres" id="20_yq58d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t78xh"]
 texture = ExtResource("1_00vle")
@@ -122,6 +141,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_t78xh")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq862"]
+
 [node name="ShopLevel" type="Node2D"]
 script = ExtResource("1_rku67")
 
@@ -137,7 +158,7 @@ tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAE
 tile_set = SubResource("TileSet_qvl8e")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/F1/Dungeon1"]
-tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAA=")
+tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAEABEAAAAGAAYAAAACABEAAAADAAYAAAADABEAAAADAAMAAAAFABEAAAAGAAIAAAACABEAAAA=")
 tile_set = SubResource("TileSet_qvl8e")
 
 [node name="F2" type="Node2D" parent="Background"]
@@ -170,12 +191,313 @@ tile_set = SubResource("TileSet_qvl8e")
 [node name="Player" parent="." instance=ExtResource("3_q1op1")]
 position = Vector2(298, 659)
 
-[node name="Shopper" type="Sprite2D" parent="."]
+[node name="Rug" type="Sprite2D" parent="."]
+position = Vector2(1613, 765)
+rotation = 1.5708
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("4_m1osh")
+
+[node name="Merchant" type="Sprite2D" parent="."]
 position = Vector2(1612, 659)
 scale = Vector2(15, 15)
-texture = ExtResource("4_l4rwk")
+texture = ExtResource("5_nmy1n")
 
 [node name="Shop" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 scale = Vector2(10, 10)
 texture = ExtResource("5_56hgj")
+
+[node name="LeaveButton" type="TextureButton" parent="."]
+offset_left = 1270.0
+offset_top = 763.0
+offset_right = 1298.0
+offset_bottom = 780.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("6_8ot1m")
+texture_hover = ExtResource("7_vq3lr")
+
+[node name="Material" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1512.0
+offset_top = -7.0
+offset_right = 1552.0
+offset_bottom = 33.0
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="Material"]
+layout_mode = 0
+offset_left = -761.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Material"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Wood" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("7_p0cy8")
+
+[node name="WoodArea2D" type="Area2D" parent="Material/HBoxContainer/Wood" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Wood/WoodArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="Stone" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("8_7cljh")
+
+[node name="StoneArea2D" type="Area2D" parent="Material/HBoxContainer/Stone" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Stone/StoneArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="Iron" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("9_lofro")
+
+[node name="IronArea2D" type="Area2D" parent="Material/HBoxContainer/Iron" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Iron/IronArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="Gems" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 73.0
+offset_top = -7.0
+offset_right = 113.0
+offset_bottom = 33.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("10_7xv4i")
+
+[node name="RedGemArea2D" type="Area2D" parent="Gems/HBoxContainer/RedGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("11_2aur4")
+
+[node name="BlueGemArea2D" type="Area2D" parent="Gems/HBoxContainer/BlueGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("12_87ivu")
+
+[node name="GreemGemArea2D" type="Area2D" parent="Gems/HBoxContainer/GreenGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("13_rsuoi")
+
+[node name="YellowGemArea2D" type="Area2D" parent="Gems/HBoxContainer/YellowGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="Coin" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gdsat")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("14_uq357")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_0jc5i")
+
+[node name="CoinArea2D" type="Area2D" parent="Gems/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_kq862")
+
+[node name="RelicHandler" parent="." instance=ExtResource("16_djr58")]
+unique_name_in_owner = true
+z_index = 32
+offset_left = 804.0
+offset_right = 964.0
+
+[node name="RelicName" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 659.0
+offset_top = 925.0
+offset_right = 1240.0
+offset_bottom = 976.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RelicDescription" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 659.0
+offset_top = 979.0
+offset_right = 1240.0
+offset_bottom = 1070.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LeaveLabel" type="Label" parent="."]
+offset_left = 1276.0
+offset_top = 793.0
+offset_right = 1358.0
+offset_bottom = 823.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Leave"
+
+[node name="ShopLabel" type="Label" parent="."]
+offset_left = 785.0
+offset_top = 224.0
+offset_right = 1140.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Merchant"
+
+[node name="PieceUIShop" parent="." instance=ExtResource("20_iswna")]
+offset_left = 685.0
+offset_top = 408.0
+offset_right = 685.0
+offset_bottom = 440.0
+scale = Vector2(4, 4)
+
+[node name="PieceUIShop2" parent="." instance=ExtResource("20_iswna")]
+offset_left = 877.0
+offset_top = 408.0
+offset_right = 877.0
+offset_bottom = 440.0
+scale = Vector2(4, 4)
+
+[node name="PieceUIShop3" parent="." instance=ExtResource("20_iswna")]
+offset_left = 1069.0
+offset_top = 408.0
+offset_right = 1069.0
+offset_bottom = 440.0
+scale = Vector2(4, 4)
+
+[node name="RelicUIShop" parent="." instance=ExtResource("17_s2jk7")]
+offset_left = 685.0
+offset_top = 600.0
+offset_right = 685.0
+offset_bottom = 632.0
+scale = Vector2(4, 4)
+relic = ExtResource("18_teyop")
+
+[node name="RelicUIShop2" parent="." instance=ExtResource("17_s2jk7")]
+offset_left = 877.0
+offset_top = 600.0
+offset_right = 877.0
+offset_bottom = 632.0
+scale = Vector2(4, 4)
+relic = ExtResource("19_qvklh")
+
+[node name="RelicUIShop3" parent="." instance=ExtResource("17_s2jk7")]
+offset_left = 1069.0
+offset_top = 600.0
+offset_right = 1069.0
+offset_bottom = 632.0
+scale = Vector2(4, 4)
+relic = ExtResource("20_yq58d")
+
+[connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]

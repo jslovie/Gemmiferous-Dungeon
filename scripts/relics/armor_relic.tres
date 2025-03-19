@@ -8,4 +8,5 @@ script = ExtResource("1_vrqti")
 relic_name = "Armor"
 relic_texture = ExtResource("1_kkvag")
 description = "Plus 5 shield every 5 hits received"
+price = 1
 resource_naming = "Armor.tres"

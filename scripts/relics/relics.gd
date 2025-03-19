@@ -5,6 +5,7 @@ class_name Relic
 @export var relic_name: String
 @export var relic_texture: Texture
 @export var description: String
+@export var price: int
 @export var resource_naming: String
 
 func initialize_relic(_owner: RelicUI):

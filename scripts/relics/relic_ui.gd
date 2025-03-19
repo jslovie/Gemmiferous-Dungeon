@@ -11,7 +11,9 @@ signal description
 func _process(delta):
 	if relic.relic_name == "Health Potion":
 		health_potion()
-
+	if relic.relic_name == "Armor":
+		armor()
+		
 func set_relic(new_relic: Relic):
 	if not is_node_ready():
 		await ready
@@ -28,17 +30,22 @@ func _on_gui_input(event):
 		
 		
 func health_potion():
-	if PlayerManager.player.got_hit_health_potion == 5:
+	if RelicManager.got_hit_health_potion == 5:
+		PlayerManager.player.heal(5)
+		flash()
+		RelicManager.got_hit_health_potion = 0
+
+func armor():
+	if RelicManager.got_hit_armor == 5:
 		PlayerManager.player.shield_up(5)
 		flash()
-		PlayerManager.player.got_hit_health_potion = 0
-
+		RelicManager.got_hit_armor = 0
 
 func _on_mouse_entered():
 	$TextureRect.modulate = Color(0.439, 0.439, 0.439)
-	LevelManager.relic_description = relic.description
+	RelicManager.relic_description = relic.description
 	
 func _on_mouse_exited():
 	$TextureRect.modulate = Color(0.235, 0.235, 0.235)
-	LevelManager.relic_description = ""
+	RelicManager.relic_description = ""
 	

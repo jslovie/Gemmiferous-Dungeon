@@ -34,8 +34,6 @@ var piece_multiplier = 1
 var spawned = false
 var spins_left = 0
 
-#relics
-var got_hit_health_potion = 0
 
 #Weapon upgrades
 var upgraded_axe_damage  = Vector2(0,0)
@@ -385,7 +383,9 @@ func reset_current_treasure():
 
 func receive_damage(damage):
 	if state == alive:
-		got_hit_health_potion += 1
+		#Relics update
+		RelicManager.got_hit_health_potion += 1
+		RelicManager.got_hit_armor += 1
 		#Visual knockback
 		var tween_scale = create_tween()
 		tween_scale.tween_property($Character,"scale", Vector2(16,16), 0.1)

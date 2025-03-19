@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://coqoxmml5lbfa"]
+[gd_scene load_steps=7 format=3 uid="uid://coqoxmml5lbfa"]
 
 [ext_resource type="Script" path="res://scripts/relics/relic_handler.gd" id="1_cslhy"]
 [ext_resource type="Script" path="res://scripts/relics/relics_control.gd" id="2_4gyya"]
 [ext_resource type="PackedScene" uid="uid://dk8ejwl0brlut" path="res://scenes/relic/relic_ui.tscn" id="3_cklsn"]
+[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="3_xo1vh"]
 [ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/relics/gem_relic.tres" id="4_tk772"]
 [ext_resource type="Resource" uid="uid://cv2gv062edcyk" path="res://scripts/relics/health_potion_relic.tres" id="5_ci7et"]
 
@@ -15,6 +16,63 @@ script = ExtResource("1_cslhy")
 [node name="RelicsControl" type="Control" parent="."]
 layout_mode = 2
 script = ExtResource("2_4gyya")
+
+[node name="Background" type="HBoxContainer" parent="RelicsControl"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 32.0
+offset_bottom = 31.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect2" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect3" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect4" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect5" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect6" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect7" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect8" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect9" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect10" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
+
+[node name="TextureRect11" type="TextureRect" parent="RelicsControl/Background"]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+layout_mode = 2
+texture = ExtResource("3_xo1vh")
 
 [node name="Relics" type="HBoxContainer" parent="RelicsControl"]
 unique_name_in_owner = true

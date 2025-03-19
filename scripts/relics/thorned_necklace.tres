@@ -8,4 +8,5 @@ script = ExtResource("1_s68gq")
 relic_name = "Thorned Necklace"
 relic_texture = ExtResource("1_6kktv")
 description = "Every 10th attacked is doubled but you recieve -3HP"
+price = 100
 resource_naming = "ThornedNecklace.tres"

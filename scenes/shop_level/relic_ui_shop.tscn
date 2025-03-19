@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmgsurua3m28a"]
+
+[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="1_l4io6"]
+[ext_resource type="Script" path="res://scripts/level_shop/relic_ui_shop.gd" id="2_n6jhg"]
+[ext_resource type="Texture2D" uid="uid://du0nweoqrkngw" path="res://assets/32rogues/pieces/Shuriken.png" id="3_i5wlh"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="4_6jhco"]
+
+[node name="RelicUIShop" type="TextureButton"]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("2_n6jhg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.235294, 0.235294, 0.235294, 1)
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_l4io6")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("3_i5wlh")
+
+[node name="ParticlePoint" type="Node2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="Price" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 33.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(0.5, 0.5)
+
+[node name="PriceLabel" type="Label" parent="Price"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(27, 15)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Coin1" type="Sprite2D" parent="Price"]
+position = Vector2(36, 6)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_6jhco")
+
+[node name="NotEnough" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 40.0
+offset_right = 118.0
+offset_bottom = 55.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+text = "Not enough coins!"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

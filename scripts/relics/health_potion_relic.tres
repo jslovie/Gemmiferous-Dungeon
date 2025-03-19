@@ -8,4 +8,5 @@ script = ExtResource("1_awmr1")
 relic_name = "Health Potion"
 relic_texture = ExtResource("1_pk0na")
 description = "Heals for 5HP every 5 hits received"
+price = 100
 resource_naming = "HealthPotion.tres"
