@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlayerType" load_steps=3 format=3 uid="uid://cf4esjnq887h4"]
 
 [ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_mkclj"]
-[ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/relics/armor_relic.tres" id="2_v68so"]
+[ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/level_shop/relics/armor_relic.tres" id="2_v68so"]
 
 [resource]
 script = ExtResource("1_mkclj")

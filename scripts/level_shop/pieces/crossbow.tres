@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://by4x5trjed6ca"]
+
+[ext_resource type="Texture2D" uid="uid://dqw0707thskjd" path="res://assets/32rogues/pieces/shop_pieces/crossbow.png" id="1_1hp52"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_jpg5y"]
+
+[resource]
+script = ExtResource("1_jpg5y")
+relic_name = "Crossbow"
+relic_texture = ExtResource("1_1hp52")
+description = "Deals 2-10 damage and has a 20% chance to cause the enemy to bleed"
+price = 0
+resource_naming = ""
+color = Color(0.301961, 0.219608, 0, 1)
+is_relic = false

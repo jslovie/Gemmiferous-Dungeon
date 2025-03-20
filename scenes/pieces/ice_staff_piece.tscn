@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://liqq86f5ihs3"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_gthe8"]
+[ext_resource type="Texture2D" uid="uid://u2puus0fs8lr" path="res://assets/32rogues/pieces/shop_pieces/ice_staff.png" id="2_6vcv1"]
+
+[node name="IceStaffPiece" instance=ExtResource("1_gthe8")]
+color = "ice"
+background_color = Vector3(0.42, 0.251, 0.271)
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.419608, 0.25098, 0.270588, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_6vcv1")

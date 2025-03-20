@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://cos5sib17l8t3"]
+
+[ext_resource type="Texture2D" uid="uid://1kwv7cqkr8k2" path="res://assets/32rogues/pieces/shop_pieces/flail.png" id="1_8n52u"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_lp7cs"]
+
+[resource]
+script = ExtResource("1_lp7cs")
+relic_name = "Flail"
+relic_texture = ExtResource("1_8n52u")
+description = "Deals 6-8 damage and has a 20% chance to make the enemy frail"
+price = 0
+resource_naming = ""
+color = Color(0.227451, 0.231373, 0.278431, 1)
+is_relic = false

@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/relics/relics_control.gd" id="2_4gyya"]
 [ext_resource type="PackedScene" uid="uid://dk8ejwl0brlut" path="res://scenes/relic/relic_ui.tscn" id="3_cklsn"]
 [ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="3_xo1vh"]
-[ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/relics/gem_relic.tres" id="4_tk772"]
-[ext_resource type="Resource" uid="uid://cv2gv062edcyk" path="res://scripts/relics/health_potion_relic.tres" id="5_ci7et"]
+[ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/level_shop/relics/gem_relic.tres" id="4_tk772"]
+[ext_resource type="Resource" uid="uid://cv2gv062edcyk" path="res://scripts/level_shop/relics/health_potion_relic.tres" id="5_ci7et"]
 
 [node name="RelicHandler" type="HBoxContainer"]
 offset_right = 160.0

@@ -10,3 +10,5 @@ relic_texture = ExtResource("1_pyg54")
 description = "Cannot get poisoned"
 price = 100
 resource_naming = "Antivenom.tres"
+color = Color(0.235294, 0.235294, 0.235294, 1)
+is_relic = true

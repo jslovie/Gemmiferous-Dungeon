@@ -53,8 +53,8 @@ func load_relics():
 		relic_handler.add_relic(SaveManager.load_resource(file))
 
 func update_relic_description():
+	$RelicName.text = RelicManager.relic_name
 	$RelicDescription.text = RelicManager.relic_description
-		
 
 func change_background():
 	if LevelManager.floor == 1:

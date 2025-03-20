@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bskgvhuabvsbl"]
+[gd_scene load_steps=30 format=4 uid="uid://bskgvhuabvsbl"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_00vle"]
 [ext_resource type="Script" path="res://scripts/shop_level.gd" id="1_rku67"]
@@ -20,10 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="15_0jc5i"]
 [ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="16_djr58"]
 [ext_resource type="PackedScene" uid="uid://dmgsurua3m28a" path="res://scenes/shop_level/relic_ui_shop.tscn" id="17_s2jk7"]
-[ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/relics/armor_relic.tres" id="18_teyop"]
-[ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/relics/gem_relic.tres" id="19_qvklh"]
-[ext_resource type="PackedScene" uid="uid://o08oqdda5nm7" path="res://scenes/shop_level/piece_ui_shop.tscn" id="20_iswna"]
-[ext_resource type="Resource" uid="uid://dijyklg82m6eu" path="res://scripts/relics/thorned_necklace.tres" id="20_yq58d"]
+[ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/level_shop/relics/armor_relic.tres" id="18_teyop"]
+[ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/level_shop/relics/gem_relic.tres" id="19_qvklh"]
+[ext_resource type="Resource" uid="uid://dijyklg82m6eu" path="res://scripts/level_shop/relics/thorned_necklace.tres" id="20_yq58d"]
+[ext_resource type="Resource" uid="uid://by4x5trjed6ca" path="res://scripts/level_shop/pieces/crossbow.tres" id="24_j8q61"]
+[ext_resource type="Resource" uid="uid://cos5sib17l8t3" path="res://scripts/level_shop/pieces/flail.tres" id="25_lfrdf"]
+[ext_resource type="Resource" uid="uid://3rmd3iqiq6dl" path="res://scripts/level_shop/pieces/sickle.tres" id="26_8ouap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t78xh"]
 texture = ExtResource("1_00vle")
@@ -144,6 +146,7 @@ sources/0 = SubResource("TileSetAtlasSource_t78xh")
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq862"]
 
 [node name="ShopLevel" type="Node2D"]
+visible = false
 script = ExtResource("1_rku67")
 
 [node name="Background" type="Node2D" parent="."]
@@ -455,27 +458,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
 text = "Merchant"
 
-[node name="PieceUIShop" parent="." instance=ExtResource("20_iswna")]
-offset_left = 685.0
-offset_top = 408.0
-offset_right = 685.0
-offset_bottom = 440.0
-scale = Vector2(4, 4)
-
-[node name="PieceUIShop2" parent="." instance=ExtResource("20_iswna")]
-offset_left = 877.0
-offset_top = 408.0
-offset_right = 877.0
-offset_bottom = 440.0
-scale = Vector2(4, 4)
-
-[node name="PieceUIShop3" parent="." instance=ExtResource("20_iswna")]
-offset_left = 1069.0
-offset_top = 408.0
-offset_right = 1069.0
-offset_bottom = 440.0
-scale = Vector2(4, 4)
-
 [node name="RelicUIShop" parent="." instance=ExtResource("17_s2jk7")]
 offset_left = 685.0
 offset_top = 600.0
@@ -499,5 +481,29 @@ offset_right = 1069.0
 offset_bottom = 632.0
 scale = Vector2(4, 4)
 relic = ExtResource("20_yq58d")
+
+[node name="RelicUIShop4" parent="." instance=ExtResource("17_s2jk7")]
+offset_left = 685.0
+offset_top = 399.0
+offset_right = 685.0
+offset_bottom = 431.0
+scale = Vector2(4, 4)
+relic = ExtResource("24_j8q61")
+
+[node name="RelicUIShop5" parent="." instance=ExtResource("17_s2jk7")]
+offset_left = 877.0
+offset_top = 399.0
+offset_right = 877.0
+offset_bottom = 431.0
+scale = Vector2(4, 4)
+relic = ExtResource("25_lfrdf")
+
+[node name="RelicUIShop6" parent="." instance=ExtResource("17_s2jk7")]
+offset_left = 1069.0
+offset_top = 399.0
+offset_right = 1069.0
+offset_bottom = 431.0
+scale = Vector2(4, 4)
+relic = ExtResource("26_8ouap")
 
 [connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nt3m0cdtl68u"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_55g7b"]
+[ext_resource type="Texture2D" uid="uid://cg17fwxmsggen" path="res://assets/32rogues/pieces/shop_pieces/bolt_staff.png" id="2_ge37m"]
+
+[node name="BoltStaffPiece" instance=ExtResource("1_55g7b")]
+color = "bolt"
+background_color = Vector3(0.188, 0.196, 0.463)
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.188235, 0.196078, 0.462745, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_ge37m")

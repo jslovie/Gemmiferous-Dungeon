@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsldr4paobbfe"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_e1rj4"]
+[ext_resource type="Texture2D" uid="uid://0xoxqx658n8j" path="res://assets/32rogues/pieces/shop_pieces/sickle.png" id="2_wst3n"]
+
+[node name="SicklePiece" instance=ExtResource("1_e1rj4")]
+color = "sickle"
+background_color = Vector3(0.227, 0.318, 0.4)
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.227451, 0.317647, 0.4, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_wst3n")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://077gsjuuuo1c"]
+
+[ext_resource type="Texture2D" uid="uid://u2puus0fs8lr" path="res://assets/32rogues/pieces/shop_pieces/ice_staff.png" id="1_t5765"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_ytfj4"]
+
+[resource]
+script = ExtResource("1_ytfj4")
+relic_name = "Ice Staff"
+relic_texture = ExtResource("1_t5765")
+description = "Deals 5-9 damage and has a 20% chance to freeze the enemy"
+price = 0
+resource_naming = ""
+color = Color(0.419608, 0.25098, 0.270588, 1)
+is_relic = false

@@ -4,6 +4,7 @@ extends TextureButton
 
 @onready var icon = $Icon
 @onready var price_label = %PriceLabel
+@onready var texture_rect = $TextureRect
 
 func _ready():
 	$NotEnough.visible = false
@@ -15,6 +16,7 @@ func set_relic(new_relic: Relic):
 	relic = new_relic
 	icon.texture = relic.relic_texture
 	price_label.text = str(relic.price)
+	texture_rect.modulate = relic.color
 
 func check_enough_coins(coins):
 	if PlayerManager.player.coins >= coins:
@@ -32,14 +34,22 @@ func not_enough():
 	$NotEnough.visible = false
 	
 func purchase_relic():
-	if check_enough_coins(relic.price):
-		process_cost(relic.price)
-		get_parent().add_relic(relic)
-		get_parent().spawn_effect(position)
-		visible = false
+	if relic.is_relic == true:
+		if check_enough_coins(relic.price):
+			process_cost(relic.price)
+			get_parent().add_relic(relic)
+			get_parent().spawn_effect(position)
+			visible = false
+		else:
+			not_enough()
 	else:
-		not_enough()
-		
+		if check_enough_coins(relic.price):
+			process_cost(relic.price)
+			get_parent().add_piece(relic.relic_name, relic)
+			get_parent().spawn_effect(position)
+			visible = false
+		else:
+			not_enough()
 func _on_pressed():
 	purchase_relic()
 

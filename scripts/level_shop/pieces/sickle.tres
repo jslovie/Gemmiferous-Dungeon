@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://3rmd3iqiq6dl"]
+
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_ej7xk"]
+[ext_resource type="Texture2D" uid="uid://0xoxqx658n8j" path="res://assets/32rogues/pieces/shop_pieces/sickle.png" id="1_ydxmt"]
+
+[resource]
+script = ExtResource("1_ej7xk")
+relic_name = "Sickle"
+relic_texture = ExtResource("1_ydxmt")
+description = "Deals 1-10 damage and has a 20% chance to make the enemy vulnerable"
+price = 0
+resource_naming = ""
+color = Color(0.227451, 0.317647, 0.4, 1)
+is_relic = false

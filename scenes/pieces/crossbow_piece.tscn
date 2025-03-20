@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://boj3m5pofrj5"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_prtyx"]
+[ext_resource type="Texture2D" uid="uid://dqw0707thskjd" path="res://assets/32rogues/pieces/shop_pieces/crossbow.png" id="2_wwsvq"]
+
+[node name="CrossbowPiece" instance=ExtResource("1_prtyx")]
+color = "crossbow"
+background_color = Vector3(0.302, 0.22, 0)
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.301961, 0.219608, 0, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_wwsvq")

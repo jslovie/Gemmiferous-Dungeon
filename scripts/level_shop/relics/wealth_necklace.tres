@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://cfq5pur7kwfdp"]
+
+[ext_resource type="Texture2D" uid="uid://cn65x80wxr1qu" path="res://assets/32rogues/pieces/relics/wealth_necklace.png" id="1_wuy2m"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="2_q44gs"]
+
+[resource]
+script = ExtResource("2_q44gs")
+relic_name = "Wealth Necklace"
+relic_texture = ExtResource("1_wuy2m")
+description = "Earn 1.5x more coins"
+price = 100
+resource_naming = "WealthNecklace.tres"
+color = Color(0.235294, 0.235294, 0.235294, 1)
+is_relic = true

@@ -160,6 +160,7 @@ func update_materials():
 func _on_exit_pressed():
 	SaveManager.savefilesave()
 	LevelManager.reset_map()
+	RelicManager.reset_pieces_relics()
 	emit_signal("update_total_bar")
 	await get_tree().create_timer(2.5).timeout
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

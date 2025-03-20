@@ -20,4 +20,5 @@ func _on_exit_pressed():
 	PlayerManager.player.set_treasure()
 	SaveManager.savefilesave()
 	LevelManager.reset_map()
+	RelicManager.reset_pieces_relics()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

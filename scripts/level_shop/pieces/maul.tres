@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://cly7esx16ga65"]
+
+[ext_resource type="Texture2D" uid="uid://bi8cjst4h0wne" path="res://assets/32rogues/pieces/shop_pieces/maul.png" id="1_2swum"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="1_arg73"]
+
+[resource]
+script = ExtResource("1_arg73")
+relic_name = "Maul"
+relic_texture = ExtResource("1_2swum")
+description = "Deals 7-8 damage and has a 20% chance to weaken the enemy"
+price = 0
+resource_naming = ""
+color = Color(0.521569, 0.172549, 0.141176, 1)
+is_relic = false

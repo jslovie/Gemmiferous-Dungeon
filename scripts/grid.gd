@@ -88,7 +88,9 @@ func choose_player_type():
 			preload("res://scenes/pieces/barb_shield_piece.tscn"),
 			preload("res://scenes/pieces/material_piece.tscn"),]
 		possible_pieces.append_array(barbarian_pieces)
-		
+	if RelicManager.current_pieces.size() > 0:
+		possible_pieces.append_array(RelicManager.current_pieces)
+	
 	if LevelManager.type == "Treasure":
 		possible_pieces.clear()
 		var gems_pieces = [

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://d2y3i3vupjujf"]
+
+[ext_resource type="Texture2D" uid="uid://cyc73pixftahh" path="res://assets/32rogues/pieces/relics/scroll.png" id="1_8kykk"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="2_yvvnl"]
+
+[resource]
+script = ExtResource("2_yvvnl")
+relic_name = "Report"
+relic_texture = ExtResource("1_8kykk")
+description = "Gain 30 coins for every 3 enemies you defeat"
+price = 100
+resource_naming = "Report.tres"
+color = Color(0.235294, 0.235294, 0.235294, 1)
+is_relic = true

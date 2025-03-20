@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfgcl2m5l2qjd"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_0fyq7"]
+[ext_resource type="Texture2D" uid="uid://1kwv7cqkr8k2" path="res://assets/32rogues/pieces/shop_pieces/flail.png" id="2_1rddv"]
+
+[node name="FlailPiece" instance=ExtResource("1_0fyq7")]
+color = "flail"
+background_color = Vector3(0.227, 0.231, 0.278)
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.227451, 0.231373, 0.278431, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_1rddv")

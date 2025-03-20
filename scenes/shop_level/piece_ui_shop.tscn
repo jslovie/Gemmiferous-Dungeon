@@ -9,11 +9,13 @@ offset_bottom = 32.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.411765, 0.0392157, 0.211765, 1)
+layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("1_qekgt")
 
 [node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("2_pgokk")

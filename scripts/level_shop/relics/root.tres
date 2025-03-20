@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Relic" load_steps=3 format=3 uid="uid://c2sdp63a4lm2r"]
+
+[ext_resource type="Texture2D" uid="uid://0yj3ye0n0hyy" path="res://assets/32rogues/pieces/relics/root.png" id="1_o0qtq"]
+[ext_resource type="Script" path="res://scripts/relics/relics.gd" id="2_sfn34"]
+
+[resource]
+script = ExtResource("2_sfn34")
+relic_name = "Root"
+relic_texture = ExtResource("1_o0qtq")
+description = "Heal 25 HP at the start of the boss encounter"
+price = 100
+resource_naming = "Root.tres"
+color = Color(0.235294, 0.235294, 0.235294, 1)
+is_relic = true

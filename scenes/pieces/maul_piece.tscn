@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcnvxbl67adg2"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_adprl"]
+[ext_resource type="Texture2D" uid="uid://bi8cjst4h0wne" path="res://assets/32rogues/pieces/shop_pieces/maul.png" id="2_367m8"]
+
+[node name="MaulPiece" instance=ExtResource("1_adprl")]
+color = "maul"
+background_color = Vector3(0.522, 0.173, 0.141)
+
+[node name="TextureRect" parent="." index="2"]
+modulate = Color(0.521569, 0.172549, 0.141176, 1)
+
+[node name="Sprite2D" parent="." index="3"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_367m8")

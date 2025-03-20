@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlayerType" load_steps=3 format=3 uid="uid://0y1ua5vfelro"]
 
 [ext_resource type="Script" path="res://scripts/player_types/player_type.gd" id="1_af28e"]
-[ext_resource type="Resource" uid="uid://cv2gv062edcyk" path="res://scripts/relics/health_potion_relic.tres" id="2_ui5hn"]
+[ext_resource type="Resource" uid="uid://cv2gv062edcyk" path="res://scripts/level_shop/relics/health_potion_relic.tres" id="2_ui5hn"]
 
 [resource]
 script = ExtResource("1_af28e")

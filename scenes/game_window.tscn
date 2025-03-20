@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=107 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="29_4qh4o"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="29_ktb7s"]
 [ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="31_6hgcu"]
+[ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="31_a4scn"]
+[ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="32_ijjaj"]
 [ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="43_xaq8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
@@ -1057,27 +1059,37 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hud/EnemyHealth"]
 layout_mode = 0
-offset_left = -73.5
+offset_left = -102.5
 offset_top = 7.0
-offset_right = -33.5
+offset_right = -42.5
 offset_bottom = 47.0
 scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 20
 alignment = 2
 
 [node name="Bleed" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Bleed"]
 texture = ExtResource("16_tkke6")
 
 [node name="Poison" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Poison"]
 texture = ExtResource("17_dst1s")
+
+[node name="Ice" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Ice"]
+texture = ExtResource("31_a4scn")
+
+[node name="Fire" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Fire"]
+texture = ExtResource("32_ijjaj")
 
 [node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
 visible = false
@@ -1437,14 +1449,39 @@ shape = SubResource("CircleShape2D_cf6hg")
 [node name="SFX" type="Node2D" parent="."]
 position = Vector2(921, 737)
 
-[node name="RelicDescription" type="Label" parent="."]
-offset_left = -1.0
-offset_top = 927.0
-offset_right = 580.0
-offset_bottom = 1049.0
+[node name="RelicName" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = 925.0
+offset_right = 579.0
+offset_bottom = 976.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RelicDescription" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = 979.0
+offset_right = 579.0
+offset_bottom = 1070.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="timeout" from="TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_grid_camera_effect"]
