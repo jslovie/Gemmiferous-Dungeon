@@ -146,7 +146,6 @@ sources/0 = SubResource("TileSetAtlasSource_t78xh")
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq862"]
 
 [node name="ShopLevel" type="Node2D"]
-visible = false
 script = ExtResource("1_rku67")
 
 [node name="Background" type="Node2D" parent="."]

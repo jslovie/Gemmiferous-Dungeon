@@ -281,6 +281,14 @@ func destroy_matched():
 	var mace_load = 0
 	var rage_load = 0
 	var invisibility_load = 0
+	var bolt_staff_load = 0
+	var crossbow_load = 0
+	var flail_load = 0
+	var ice_staff_load = 0
+	var maul_load = 0
+	var sickle_load = 0
+	
+	
 	
 	var was_matched = false
 	for i in width:
@@ -336,6 +344,28 @@ func destroy_matched():
 						rage_load += 1
 						$TileBreakSFX.play()
 						Sfx.play_SFX(Sfx.rage)
+					
+					#Shop pieces 
+					#ADD SFX
+					if all_pieces[i][j].color == "bolt":
+						bolt_staff_load += 1
+						$TileBreakSFX.play()
+					elif all_pieces[i][j].color == "crossbow":
+						crossbow_load += 1
+						$TileBreakSFX.play()
+					elif all_pieces[i][j].color == "flail":
+						flail_load += 1
+						$TileBreakSFX.play()
+					elif all_pieces[i][j].color == "ice":
+						ice_staff_load += 1
+						$TileBreakSFX.play()
+					elif all_pieces[i][j].color == "maul":
+						maul_load += 1
+						$TileBreakSFX.play()
+					elif all_pieces[i][j].color == "sickle":
+						sickle_load += 1
+						$TileBreakSFX.play()
+					
 					
 					
 					#Extras
@@ -404,12 +434,122 @@ func destroy_matched():
 		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2
 		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 		emit_signal("camera_effect", 20)
-	#Material load	
+	#Material load
 	if material_load == 4:
 		emit_signal("camera_effect", 10)
 	elif material_load >= 5:
 		emit_signal("camera_effect", 20)
-		
+	
+	#Shop pieces
+	#Bolt staff
+	if bolt_staff_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		#animation
+		PlayerManager.player.base_action4 = Vector2(5,7)
+		PlayerManager.player.damage4_attack()
+	elif bolt_staff_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		#animation
+		PlayerManager.player.base_action4 = Vector2(5,7)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 10)
+	elif bolt_staff_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		#animation
+		PlayerManager.player.base_action4 = Vector2(5,7)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 20)
+	#Crossbow
+	if crossbow_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		#animation
+		PlayerManager.player.base_action4 = Vector2(2,10)
+		PlayerManager.player.damage4_attack()
+	elif crossbow_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		#animation
+		PlayerManager.player.base_action4 = Vector2(2,10)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 10)
+	elif crossbow_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		#animation
+		PlayerManager.player.base_action4 = Vector2(2,10)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 20)
+	#Flail
+	if flail_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		#animation
+		PlayerManager.player.base_action4 = Vector2(6,8)
+		PlayerManager.player.damage4_attack()
+	elif flail_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		#animation
+		PlayerManager.player.base_action4 = Vector2(6,8)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 10)
+	elif flail_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		#animation
+		PlayerManager.player.base_action4 = Vector2(6,8)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 20)
+	#Ice Staff
+	if ice_staff_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		#animation
+		PlayerManager.player.base_action4 = Vector2(5,9)
+		PlayerManager.player.damage4_attack()
+	elif ice_staff_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		#animation
+		PlayerManager.player.base_action4 = Vector2(5,9)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 10)
+	elif ice_staff_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		#animation
+		PlayerManager.player.base_action4 = Vector2(5,9)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 20)
+	#Maul
+	if maul_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		#animation
+		PlayerManager.player.base_action4 = Vector2(7,8)
+		PlayerManager.player.damage4_attack()
+	elif maul_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		#animation
+		PlayerManager.player.base_action4 = Vector2(7,8)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 10)
+	elif maul_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		#animation
+		PlayerManager.player.base_action4 = Vector2(7,8)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 20)
+	#Sickle
+	if sickle_load == 3:
+		PlayerManager.player.piece_multiplier = 1
+		#animation
+		PlayerManager.player.base_action4 = Vector2(1,10)
+		PlayerManager.player.damage4_attack()
+	elif sickle_load == 4:
+		PlayerManager.player.piece_multiplier = 1.5
+		#animation
+		PlayerManager.player.base_action4 = Vector2(1,10)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 10)
+	elif sickle_load >= 5:
+		PlayerManager.player.piece_multiplier = 2
+		#animation
+		PlayerManager.player.base_action4 = Vector2(1,10)
+		PlayerManager.player.damage4_attack()
+		emit_signal("camera_effect", 20)
+
 	#Rogue
 	#Sword update
 	if sword_load == 3:

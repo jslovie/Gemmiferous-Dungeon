@@ -20,9 +20,11 @@ var player_won = false
 var base_action1 : Vector2
 var base_action2 : Vector2
 var base_action3 : Vector2
+var base_action4 : Vector2
 var action1 = 0
 var action2 = 0
 var action3 = 0
+var action4 = 0
 
 @export var health : float
 @export var max_health : float
@@ -70,6 +72,8 @@ var poison_rarities = {
 	"nothing" : 80,
 	"poison" : poison_chance,
 }
+
+var has_antivenom = false
 
 #Gems and Coins
 var coins = 0
@@ -210,6 +214,15 @@ func damage3_attack():
 		action3 = (random_base_action3 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action3, random_base_action3)
 		print("damage is: " + str(action3))
+
+func damage4_attack():
+	if EnemyManager.enemy.status == "dead":
+		pass
+	else:
+		var random_base_action4 = randi_range(base_action4.x, base_action4.y)
+		action4 = (random_base_action4 * piece_multiplier)
+		EnemyManager.enemy.take_damage(action4, random_base_action4)
+		print("damage is: " + str(action4))
 	
 func get_mace_stunt_rng():
 	rng.randomize()

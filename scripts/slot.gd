@@ -8,7 +8,7 @@ const TURN = -120
 var spinning = false
 var result = null
 
-var time_interval = 0.005
+var time_interval = 0.00001
 var rng = RandomNumberGenerator.new()
 var random_value = 0
 
@@ -17,7 +17,7 @@ func _ready():
 	
 	
 func _handle_pulled():
-	random_value = 60 * rng.randi_range(2,8)
+	random_value = 60 * rng.randi_range(2,3)
 	for i in random_value:
 		if round(row.position.y) >= 0:
 			row.position.y = TURN

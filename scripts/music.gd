@@ -14,6 +14,7 @@ var treasure_music = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/
 var combat_music_1 = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/Level1(loop).wav")
 var combat_music_2 = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/Level2(loop).wav")
 var combat_music_3 = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/Level3(loop).wav")
+var boss_music = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/BossFight(loop).wav")
 #var combat_music_4 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 2 (ordinary).wav")
 #var combat_music_5 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 2 (smooth).wav")
 #var combat_music_6 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 2 (tough).wav")

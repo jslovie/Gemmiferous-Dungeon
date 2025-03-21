@@ -10,6 +10,7 @@ var curret_pieces_for_check = []
 #relics
 var got_hit_health_potion = 0
 var got_hit_armor = 0
+var report = 0
 
 #pieces
 var bolt_staff = preload("res://scenes/pieces/bolt_staff_piece.tscn")

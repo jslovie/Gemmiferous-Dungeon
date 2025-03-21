@@ -8,12 +8,20 @@ signal description
 @onready var icon = $Icon
 @onready var animation_player = $AnimationPlayer
 
+func _ready():
+	if relic.relic_name == "Amulet of Protection":
+		amulet_of_protection()
+	if relic.relic_name == "Antivenom":
+		antivenom()
+	
 func _process(delta):
 	if relic.relic_name == "Health Potion":
 		health_potion()
 	if relic.relic_name == "Armor":
 		armor()
-		
+	if relic.relic_name == "Report":
+		report()
+	
 func set_relic(new_relic: Relic):
 	if not is_node_ready():
 		await ready
@@ -40,6 +48,20 @@ func armor():
 		PlayerManager.player.shield_up(5)
 		flash()
 		RelicManager.got_hit_armor = 0
+		
+func amulet_of_protection():
+	if LevelManager.type == "Enemy" or LevelManager.type == "Elite Enemy" or LevelManager.type == "Boss":
+		PlayerManager.player.shield_up(10)
+
+func antivenom():
+	flash()
+	PlayerManager.player.has_antivenom = true
+
+func report():
+	if RelicManager.report == 3:
+		PlayerManager.player.get_coins(30)
+		flash()
+		RelicManager.report = 0
 
 func _on_mouse_entered():
 	$TextureRect.modulate = Color(0.439, 0.439, 0.439)

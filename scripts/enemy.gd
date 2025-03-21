@@ -279,7 +279,7 @@ func take_damage(damage, random_base_action):
 		#Visual hit number test
 		var is_top = false
 		var is_critical = false
-		if random_base_action == PlayerManager.player.base_action1.y or random_base_action == PlayerManager.player.base_action2.y or random_base_action == PlayerManager.player.base_action3.y:
+		if random_base_action == PlayerManager.player.base_action1.y or random_base_action == PlayerManager.player.base_action2.y or random_base_action == PlayerManager.player.base_action3.y or random_base_action == PlayerManager.player.base_action4.y:
 			is_top = true
 		var is_poison = false
 		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
@@ -332,10 +332,11 @@ func get_killed():
 	var tween_rotate = create_tween()
 	tween_rotate.tween_property($EnemyType, "rotation", deg_to_rad(90), 0.5)
 	
-
+	#Relics
+	RelicManager.report += 1
 	
 	#Update player spins
-	PlayerManager.player.spins_left += 1
+	PlayerManager.player.spins_left += 99
 	
 	#Get coins
 	EffectLoad.material_effect(coin_effect, coin_effect_position)
