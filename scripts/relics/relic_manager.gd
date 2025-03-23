@@ -10,7 +10,10 @@ var curret_pieces_for_check = []
 #relics
 var got_hit_health_potion = 0
 var got_hit_armor = 0
+var thorned_necklade = 0
 var report = 0
+var has_shuriken = false
+var has_wealth_necklace = false
 
 #pieces
 var bolt_staff = preload("res://scenes/pieces/bolt_staff_piece.tscn")
@@ -24,3 +27,8 @@ func reset_pieces_relics():
 	current_relics.clear()
 	current_pieces.clear()
 	curret_pieces_for_check.clear()
+	got_hit_health_potion = 0
+	got_hit_armor = 0
+	report = 0
+	has_shuriken = false
+	has_wealth_necklace = false

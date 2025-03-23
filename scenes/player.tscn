@@ -67,11 +67,6 @@ speed_scale = 4.0
 [node name="RageTimer" type="Timer" parent="."]
 wait_time = 3.0
 
-[node name="EnemyDebuffTimer" type="Timer" parent="."]
-
-[node name="EnemyDebuffTimerEnd" type="Timer" parent="."]
-one_shot = true
-
 [node name="DamageNumberOrigin" type="Node2D" parent="."]
 position = Vector2(-116, -200)
 
@@ -82,6 +77,15 @@ offset_right = 19.0
 offset_bottom = -231.0
 theme_override_font_sizes/font_size = 64
 
+[node name="EnemyDebuffTimers" type="Node2D" parent="."]
+
+[node name="PoisonDebuffTimer" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="PoisonDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="timeout" from="RageTimer" to="." method="_on_rage_timer_timeout"]
-[connection signal="timeout" from="EnemyDebuffTimer" to="." method="_on_enemy_debuff_timer_timeout"]
-[connection signal="timeout" from="EnemyDebuffTimerEnd" to="." method="_on_enemy_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/PoisonDebuffTimer" to="." method="_on_poison_debuff_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/PoisonDebuffTimerEnd" to="." method="_on_poison_debuff_timer_end_timeout"]

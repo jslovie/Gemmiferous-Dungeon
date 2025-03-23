@@ -9,10 +9,7 @@ signal description
 @onready var animation_player = $AnimationPlayer
 
 func _ready():
-	if relic.relic_name == "Amulet of Protection":
-		amulet_of_protection()
-	if relic.relic_name == "Antivenom":
-		antivenom()
+	set_relics()
 	
 func _process(delta):
 	if relic.relic_name == "Health Potion":
@@ -21,7 +18,22 @@ func _process(delta):
 		armor()
 	if relic.relic_name == "Report":
 		report()
-	
+	if relic.relic_name == "Thorned Necklace":
+		thorned_necklace()
+
+func set_relics():
+	await get_tree().create_timer(3).timeout
+	if relic.relic_name == "Amulet of Protection":
+		amulet_of_protection()
+	if relic.relic_name == "Antivenom":
+		antivenom()
+	if relic.relic_name == "Root":
+		root()
+	if relic.relic_name == "Shuriken":
+		shuriken()
+	if relic.relic_name == "Wealth Necklace":
+		wealth_necklace()
+
 func set_relic(new_relic: Relic):
 	if not is_node_ready():
 		await ready
@@ -42,15 +54,20 @@ func health_potion():
 		PlayerManager.player.heal(5)
 		flash()
 		RelicManager.got_hit_health_potion = 0
+	if RelicManager.got_hit_health_potion > 5:
+		RelicManager.got_hit_health_potion = 0
 
 func armor():
 	if RelicManager.got_hit_armor == 5:
 		PlayerManager.player.shield_up(5)
 		flash()
 		RelicManager.got_hit_armor = 0
-		
+	if RelicManager.got_hit_armor > 5:
+		RelicManager.got_hit_armor = 0
+			
 func amulet_of_protection():
 	if LevelManager.type == "Enemy" or LevelManager.type == "Elite Enemy" or LevelManager.type == "Boss":
+		flash()
 		PlayerManager.player.shield_up(10)
 
 func antivenom():
@@ -62,6 +79,30 @@ func report():
 		PlayerManager.player.get_coins(30)
 		flash()
 		RelicManager.report = 0
+	if RelicManager.report > 3:
+		RelicManager.report = 0
+	
+func root():
+	if LevelManager.type == "Boss":
+		flash()
+		PlayerManager.player.heal(25)
+
+func shuriken():
+	flash()
+	RelicManager.has_shuriken = true
+
+func wealth_necklace():
+	flash()
+	RelicManager.has_wealth_necklace = true
+
+func thorned_necklace():
+	if RelicManager.thorned_necklade == 10:
+		flash()
+		PlayerManager.player.damage_thorned_necklace()
+		RelicManager.thorned_necklade = 0
+	if RelicManager.thorned_necklade > 10:
+		RelicManager.thorned_necklade = 0
+	
 
 func _on_mouse_entered():
 	$TextureRect.modulate = Color(0.439, 0.439, 0.439)

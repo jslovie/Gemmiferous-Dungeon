@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="4_6jhco"]
 
 [node name="RelicUIShop" type="TextureButton"]
+visible = false
 offset_right = 32.0
 offset_bottom = 32.0
 script = ExtResource("2_n6jhg")

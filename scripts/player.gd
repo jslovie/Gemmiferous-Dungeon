@@ -73,6 +73,12 @@ var poison_rarities = {
 	"poison" : poison_chance,
 }
 
+var action_rarities = {
+	"nothing" : 80,
+	"action" : 20,
+}
+
+
 var has_antivenom = false
 
 #Gems and Coins
@@ -171,6 +177,7 @@ func heal(amount):
 		health = max_health
 
 func damage1_attack():
+	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
@@ -186,6 +193,7 @@ func damage1_attack():
 			print("damage is: " + str(action1))
 		
 func damage2_attack():
+	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
@@ -203,10 +211,11 @@ func damage2_attack():
 			if bow_action == "poison":
 				check_for_poison_arrow = true
 				poison_active = true
-				$EnemyDebuffTimerEnd.start(poison_duration)
-				$EnemyDebuffTimer.start(poison_repetition)
+				%PoisonDebuffTimerEnd.start(poison_duration)
+				%PoisonDebuffTimer.start(poison_repetition)
 	
 func damage3_attack():
+	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
@@ -215,7 +224,8 @@ func damage3_attack():
 		EnemyManager.enemy.take_damage(action3, random_base_action3)
 		print("damage is: " + str(action3))
 
-func damage4_attack():
+func damage4_attack(action):
+	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
 		pass
 	else:
@@ -223,7 +233,35 @@ func damage4_attack():
 		action4 = (random_base_action4 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action4, random_base_action4)
 		print("damage is: " + str(action4))
-	
+		if action == "electric":
+			var take_action = action_rng()
+			if take_action == "action":
+				print("enemy is electrocuted")
+		if action == "bleed":
+			var take_action = action_rng()
+			if take_action == "action":
+				print("enemy is bleeding")
+		if action == "frail":
+			var take_action = action_rng()
+			if take_action == "action":
+				print("enemy is frail")
+		if action == "ice":
+			var take_action = action_rng()
+			if take_action == "action":
+				print("enemy is iced")
+		if action == "weak":
+			var take_action = action_rng()
+			if take_action == "action":
+				print("enemy is weakened")
+		if action == "vulnerable":
+			var take_action = action_rng()
+			if take_action == "action":
+				print("enemy is vulnerable")
+				
+func damage_thorned_necklace():
+	EnemyManager.enemy.take_damage(15,15)
+	receive_damage(5)
+
 func get_mace_stunt_rng():
 	rng.randomize()
 	var weigted_sum = 0
@@ -257,6 +295,16 @@ func get_poison_rng():
 			return n
 		chance -= poison_rarities[n]
 
+func action_rng():
+	rng.randomize()
+	var weigted_sum = 0
+	for n in action_rarities:
+		weigted_sum += action_rarities[n]
+	var chance = rng.randi_range(0, weigted_sum)
+	for n in action_rarities:
+		if chance <= action_rarities[n]:
+			return n
+		chance -= action_rarities[n]
 
 func handle_invisibility():
 	if has_invisibility == true:
@@ -459,10 +507,10 @@ func _on_rage_timer_timeout():
 		rage -= 0.2
 
 
-func _on_enemy_debuff_timer_timeout():
+func _on_poison_debuff_timer_timeout():
 	EnemyManager.enemy.take_poison_damage(poison_damage)
 
 
-func _on_enemy_debuff_timer_end_timeout():
+func _on_poison_debuff_timer_end_timeout():
 	$EnemyDebuffTimer.stop()
 	poison_active = false

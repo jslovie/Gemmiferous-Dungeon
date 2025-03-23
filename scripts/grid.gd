@@ -52,7 +52,11 @@ var first_touch = Vector2(0, 0)
 var final_touch = Vector2(0, 0)
 var controlling = false
 
+#Shuffle
+var shuffles_left = 2
+
 func _ready():
+	%ShuffleLabel.text = "x" + str(shuffles_left)
 	state = move
 	randomize()
 	choose_player_type()
@@ -60,7 +64,9 @@ func _ready():
 	clone_array = make_2d_array()
 	spawn_pieces()
 	
+	
 func _process(_delta):
+	%ShuffleLabel.text = "x" + str(shuffles_left)
 	if LevelManager.type == "Treasure":
 		if LevelManager.treasure_timesup == true:
 			state = wait
@@ -260,6 +266,12 @@ func make_effect(effect, column, row, color):
 	add_child(current)
 	current.color = Color(color.x, color.y, color.z)
 
+func make_effect_shuffle(effect, pos, color):
+	var current = effect.instantiate()
+	current.position = pos
+	add_child(current)
+	current.color = color
+
 func material_effect(effect,column, row):
 	var current = effect.instantiate()
 	current.position = grid_to_pixel(column,row)
@@ -446,108 +458,108 @@ func destroy_matched():
 		PlayerManager.player.piece_multiplier = 1
 		#animation
 		PlayerManager.player.base_action4 = Vector2(5,7)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("electric")
 	elif bolt_staff_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		#animation
 		PlayerManager.player.base_action4 = Vector2(5,7)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("electric")
 		emit_signal("camera_effect", 10)
 	elif bolt_staff_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		#animation
 		PlayerManager.player.base_action4 = Vector2(5,7)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("electric")
 		emit_signal("camera_effect", 20)
 	#Crossbow
 	if crossbow_load == 3:
 		PlayerManager.player.piece_multiplier = 1
 		#animation
 		PlayerManager.player.base_action4 = Vector2(2,10)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("bleed")
 	elif crossbow_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		#animation
 		PlayerManager.player.base_action4 = Vector2(2,10)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("bleed")
 		emit_signal("camera_effect", 10)
 	elif crossbow_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		#animation
 		PlayerManager.player.base_action4 = Vector2(2,10)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("bleed")
 		emit_signal("camera_effect", 20)
 	#Flail
 	if flail_load == 3:
 		PlayerManager.player.piece_multiplier = 1
 		#animation
 		PlayerManager.player.base_action4 = Vector2(6,8)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("frail")
 	elif flail_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		#animation
 		PlayerManager.player.base_action4 = Vector2(6,8)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("frail")
 		emit_signal("camera_effect", 10)
 	elif flail_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		#animation
 		PlayerManager.player.base_action4 = Vector2(6,8)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("frail")
 		emit_signal("camera_effect", 20)
 	#Ice Staff
 	if ice_staff_load == 3:
 		PlayerManager.player.piece_multiplier = 1
 		#animation
 		PlayerManager.player.base_action4 = Vector2(5,9)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("ice")
 	elif ice_staff_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		#animation
 		PlayerManager.player.base_action4 = Vector2(5,9)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("ice")
 		emit_signal("camera_effect", 10)
 	elif ice_staff_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		#animation
 		PlayerManager.player.base_action4 = Vector2(5,9)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("ice")
 		emit_signal("camera_effect", 20)
 	#Maul
 	if maul_load == 3:
 		PlayerManager.player.piece_multiplier = 1
 		#animation
 		PlayerManager.player.base_action4 = Vector2(7,8)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("weak")
 	elif maul_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		#animation
 		PlayerManager.player.base_action4 = Vector2(7,8)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("weak")
 		emit_signal("camera_effect", 10)
 	elif maul_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		#animation
 		PlayerManager.player.base_action4 = Vector2(7,8)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("weak")
 		emit_signal("camera_effect", 20)
 	#Sickle
 	if sickle_load == 3:
 		PlayerManager.player.piece_multiplier = 1
 		#animation
 		PlayerManager.player.base_action4 = Vector2(1,10)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("vulnerable")
 	elif sickle_load == 4:
 		PlayerManager.player.piece_multiplier = 1.5
 		#animation
 		PlayerManager.player.base_action4 = Vector2(1,10)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("vulnerable")
 		emit_signal("camera_effect", 10)
 	elif sickle_load >= 5:
 		PlayerManager.player.piece_multiplier = 2
 		#animation
 		PlayerManager.player.base_action4 = Vector2(1,10)
-		PlayerManager.player.damage4_attack()
+		PlayerManager.player.damage4_attack("vulnerable")
 		emit_signal("camera_effect", 20)
 
 	#Rogue
@@ -856,3 +868,15 @@ func _on_shuffle_timer_timeout():
 func _on_hint_timer_timeout():
 	#generate_hint()
 	pass
+
+
+func _on_shuffle_pressed():
+	emit_signal("camera_effect", 10)
+	shuffle_board()
+	shuffles_left -= 1
+	if shuffles_left == 0:
+		$Shuffle.visible = false
+		make_effect_shuffle(particle_effect, $Shuffle/Sprite2D.position, $Shuffle/TextureRect.modulate)
+		make_effect_shuffle(particle_effect, $Shuffle/Sprite2D.position, $Shuffle/TextureRect.modulate)
+		make_effect_shuffle(particle_effect, $Shuffle/Sprite2D.position, $Shuffle/TextureRect.modulate)
+	

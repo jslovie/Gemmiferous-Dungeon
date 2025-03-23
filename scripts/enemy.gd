@@ -216,6 +216,8 @@ func random_action():
 	change_delay()
 	
 func inflict_damage():
+	if RelicManager.has_shuriken == true:
+		take_damage(3,3)
 	var crit_amount = 0
 	var crit_chance = get_crit_rng()
 	if crit_chance == "crit":
@@ -341,7 +343,10 @@ func get_killed():
 	#Get coins
 	EffectLoad.material_effect(coin_effect, coin_effect_position)
 	await get_tree().create_timer(1).timeout
-	PlayerManager.player.get_coins(coin_worth)
+	if RelicManager.has_wealth_necklace == true:
+		PlayerManager.player.get_coins(coin_worth * 1.5)
+	else:
+		PlayerManager.player.get_coins(coin_worth)
 	
 	#Autosave
 	SaveManager.autosave()
@@ -380,6 +385,37 @@ func take_poison_damage(damage):
 		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
 		#Visual hit
 		%AnimationPlayer.play("hit_poison")
+		var is_top = false
+		var is_critical = false
+		var is_poison = true
+		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
+		
+		#Logic behind getting hit
+		var health_attack = 0
+		for d in range(0, damage):
+			if shield > 0:
+				shield -= 1
+			else:
+				health_attack += 1
+		var total_attack = health_attack
+		health -= total_attack
+		
+		if health <= 0:
+			health = 0
+			get_killed()
+
+func take_action_damage(damage, action):
+	if state == alive:
+		#Visual knockback
+		var tween_scale = create_tween()
+		tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
+		tween_scale.tween_property($EnemyType,"scale", Vector2(15,15), 0.1)
+		var tween_move = create_tween()
+		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
+		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
+		#Visual hit
+		if action == "poison":
+			%AnimationPlayer.play("hit_poison")
 		var is_top = false
 		var is_critical = false
 		var is_poison = true
