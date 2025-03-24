@@ -79,6 +79,13 @@ theme_override_font_sizes/font_size = 64
 
 [node name="EnemyDebuffTimers" type="Node2D" parent="."]
 
+[node name="BleedDebuffTimer" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="BleedDebuffTmerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="PoisonDebuffTimer" type="Timer" parent="EnemyDebuffTimers"]
 unique_name_in_owner = true
 
@@ -86,6 +93,44 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 one_shot = true
 
+[node name="IceDebuffTimer" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="IceDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="FireDebuffTimer" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="FireDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="ElectricDebuffTimer" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="ElectricDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="WeakDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="VulnerableDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
+[node name="FrailDebuffTimerEnd" type="Timer" parent="EnemyDebuffTimers"]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="RageTimer" to="." method="_on_rage_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/BleedDebuffTimer" to="." method="_on_bleed_debuff_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/BleedDebuffTmerEnd" to="." method="_on_bleed_debuff_tmer_end_timeout"]
 [connection signal="timeout" from="EnemyDebuffTimers/PoisonDebuffTimer" to="." method="_on_poison_debuff_timer_timeout"]
 [connection signal="timeout" from="EnemyDebuffTimers/PoisonDebuffTimerEnd" to="." method="_on_poison_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/IceDebuffTimer" to="." method="_on_ice_debuff_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/IceDebuffTimerEnd" to="." method="_on_ice_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/FireDebuffTimer" to="." method="_on_fire_debuff_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/FireDebuffTimerEnd" to="." method="_on_fire_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/ElectricDebuffTimer" to="." method="_on_electric_debuff_timer_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/ElectricDebuffTimerEnd" to="." method="_on_electric_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/WeakDebuffTimerEnd" to="." method="_on_weak_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/VulnerableDebuffTimerEnd" to="." method="_on_vulnerable_debuff_timer_end_timeout"]
+[connection signal="timeout" from="EnemyDebuffTimers/FrailDebuffTimerEnd" to="." method="_on_frail_debuff_timer_end_timeout"]

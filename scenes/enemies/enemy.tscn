@@ -1,12 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://n43ef13rao3h"]
+[gd_scene load_steps=25 format=3 uid="uid://n43ef13rao3h"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1qn5t"]
-[ext_resource type="Texture2D" uid="uid://clldop74dvmc6" path="res://assets/32rogues/enem/devil_boss.png" id="2_jyuxk"]
+[ext_resource type="Texture2D" uid="uid://1wf53nbdox6o" path="res://assets/32rogues/enem/skeleton.png" id="2_qo2l7"]
 [ext_resource type="PackedScene" uid="uid://bql308123inii" path="res://scenes/pieces/random_piece.tscn" id="3_055m7"]
 [ext_resource type="PackedScene" uid="uid://b570oxexdcdm3" path="res://scenes/pieces/shield_piece.tscn" id="4_yre0p"]
 [ext_resource type="PackedScene" uid="uid://clwqkm8vxwml7" path="res://scenes/pieces/heal_piece.tscn" id="5_0gyra"]
 [ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="6_xh011"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="7_yoeou"]
+[ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="8_5mr14"]
+[ext_resource type="Texture2D" uid="uid://x1b6fvtydon6" path="res://assets/32rogues/pieces/bleed.png" id="9_deou7"]
+[ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="10_3ltjs"]
+[ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="11_cnjwx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3vca"]
 radius = 140.036
@@ -24,6 +28,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Electric:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VFX/Bleed:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VFX/Ice:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VFX/Fire:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_20rb6"]
@@ -116,12 +168,124 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_y353f"]
+resource_name = "hit_electric"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(100, 3.243, 0.193, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Electric:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i4rld"]
+resource_name = "hit_bleed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.831436, 0.0722675, 0.0849077, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Bleed:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pgngh"]
+resource_name = "hit_ice"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 2.703, 52.432, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Ice:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_swnhv"]
+resource_name = "hit_fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyType:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(26.3922, 0.529412, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Fire:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dwrcl"]
 _data = {
 "RESET": SubResource("Animation_5sy3q"),
 "hit": SubResource("Animation_20rb6"),
+"hit_bleed": SubResource("Animation_i4rld"),
+"hit_electric": SubResource("Animation_y353f"),
+"hit_fire": SubResource("Animation_swnhv"),
 "hit_ghost": SubResource("Animation_w5rdk"),
 "hit_green": SubResource("Animation_ihqq1"),
+"hit_ice": SubResource("Animation_pgngh"),
 "hit_poison": SubResource("Animation_rm3at"),
 "hit_red": SubResource("Animation_yl8wt"),
 "hit_white": SubResource("Animation_gihrh")
@@ -133,7 +297,7 @@ script = ExtResource("1_1qn5t")
 [node name="EnemyType" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(15, 15)
-texture = ExtResource("2_jyuxk")
+texture = ExtResource("2_qo2l7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v3vca")
@@ -216,5 +380,71 @@ text = "*Stunned*"
 
 [node name="DamageNumbersOrigin" type="Node2D" parent="."]
 position = Vector2(145, -164)
+
+[node name="VFX" type="Node2D" parent="."]
+
+[node name="Electric" type="Node2D" parent="VFX"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="VFX/Electric"]
+position = Vector2(-17.75, -24.5)
+texture = ExtResource("8_5mr14")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VFX/Electric"]
+position = Vector2(-4.25, 11.75)
+texture = ExtResource("8_5mr14")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VFX/Electric"]
+position = Vector2(27.5, -16)
+texture = ExtResource("8_5mr14")
+
+[node name="Bleed" type="Node2D" parent="VFX"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="VFX/Bleed"]
+position = Vector2(-17.75, -24.5)
+texture = ExtResource("9_deou7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VFX/Bleed"]
+position = Vector2(-4.25, 11.75)
+texture = ExtResource("9_deou7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VFX/Bleed"]
+position = Vector2(27.5, -16)
+texture = ExtResource("9_deou7")
+
+[node name="Ice" type="Node2D" parent="VFX"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="VFX/Ice"]
+position = Vector2(-17.75, -24.5)
+texture = ExtResource("10_3ltjs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VFX/Ice"]
+position = Vector2(-4.25, 11.75)
+texture = ExtResource("10_3ltjs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VFX/Ice"]
+position = Vector2(27.5, -16)
+texture = ExtResource("10_3ltjs")
+
+[node name="Fire" type="Node2D" parent="VFX"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="VFX/Fire"]
+position = Vector2(-17.75, -24.5)
+texture = ExtResource("11_cnjwx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VFX/Fire"]
+position = Vector2(-4.25, 11.75)
+texture = ExtResource("11_cnjwx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VFX/Fire"]
+position = Vector2(27.5, -16)
+texture = ExtResource("11_cnjwx")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

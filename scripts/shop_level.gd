@@ -132,9 +132,12 @@ func add_piece(relic_name, relic):
 func spawn_effect(pos):
 	make_effect(particle_effect, Color(0.235, 0.235, 0.235), pos)
 
+func spawn_effect_pieces(pos, color):
+	make_effect(particle_effect, color, pos)
+
 func make_effect(effect, color, pos):
 	var current = effect.instantiate()
-	current.scale = Vector2(3,3)
+	current.scale = Vector2(2.5,2.5)
 	current.position = pos
 	add_child(current)
 	current.color = color

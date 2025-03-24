@@ -62,11 +62,9 @@ var invisibility_rarities = {
 }
 
 var has_bow_poison = false
-var poison_damage = 1
 var poison_active = false
 var poison_chance = 20
-var poison_duration = 6
-var poison_repetition = 2
+
 var check_for_poison_arrow = false
 var poison_rarities = {
 	"nothing" : 80,
@@ -77,6 +75,36 @@ var action_rarities = {
 	"nothing" : 80,
 	"action" : 20,
 }
+var bleed_active = false
+var ice_active = false
+var fire_active = false
+var electric_active = false
+var stun_active = false
+var weak_active = false
+var vulnerable_active = false
+var frail_active = false
+
+var bleed_damage = 2
+var poison_damage = 1
+var ice_damage = 2
+var fire_damage = 2
+var electric_damage = 2
+
+
+var bleed_duration = 6
+var bleed_repetetion = 2
+var poison_duration = 6
+var poison_repetition = 2
+var ice_duration = 6
+var ice_repetetion = 2
+var fire_duration = 6
+var fire_repetetion = 2
+var electric_duration = 6
+var electric_repetetion = 2
+var stun_duration = 6
+var weak_duration = 6
+var vulnerable_duration = 6
+var frail_duration = 6
 
 
 var has_antivenom = false
@@ -233,31 +261,53 @@ func damage4_attack(action):
 		action4 = (random_base_action4 * piece_multiplier)
 		EnemyManager.enemy.take_damage(action4, random_base_action4)
 		print("damage is: " + str(action4))
-		if action == "electric":
-			var take_action = action_rng()
-			if take_action == "action":
-				print("enemy is electrocuted")
+		
 		if action == "bleed":
 			var take_action = action_rng()
 			if take_action == "action":
-				print("enemy is bleeding")
-		if action == "frail":
-			var take_action = action_rng()
-			if take_action == "action":
-				print("enemy is frail")
+				%BleedDebuffTimer.start(bleed_repetetion)
+				%BleedDebuffTmerEnd.start(bleed_duration)
+				bleed_active = true
+				
 		if action == "ice":
 			var take_action = action_rng()
 			if take_action == "action":
-				print("enemy is iced")
+				%IceDebuffTimer.start(ice_repetetion)
+				%IceDebuffTimerEnd.start(ice_duration)
+				ice_active = true
+				
+		if action == "fire":
+			var take_action = action_rng()
+			if take_action == "action":
+				%FireDebuffTimer.start(fire_repetetion)
+				%FireDebuffTimerEnd.start(fire_duration)
+				fire_active = true
+				
+		if action == "electric":
+			var take_action = action_rng()
+			if take_action == "action":
+				%ElectricDebuffTimer.start(electric_repetetion)
+				%ElectricDebuffTimerEnd.start(electric_duration)
+				electric_active = true
+				
 		if action == "weak":
 			var take_action = action_rng()
 			if take_action == "action":
-				print("enemy is weakened")
+				%WeakDebuffTimerEnd.start(weak_duration)
+				weak_active = true
+				
 		if action == "vulnerable":
 			var take_action = action_rng()
 			if take_action == "action":
-				print("enemy is vulnerable")
+				%VulnerableDebuffTimerEnd.start(vulnerable_duration)
+				vulnerable_active = true
 				
+		if action == "frail":
+			var take_action = action_rng()
+			if take_action == "action":
+				%FrailDebuffTimerEnd.start(frail_duration)
+				frail_active = true
+
 func damage_thorned_necklace():
 	EnemyManager.enemy.take_damage(15,15)
 	receive_damage(5)
@@ -506,11 +556,49 @@ func _on_rage_timer_timeout():
 	if rage > 0:
 		rage -= 0.2
 
-
+func _on_bleed_debuff_timer_timeout():
+	EnemyManager.enemy.take_action_damage(bleed_damage, "bleed")
+	
+func _on_bleed_debuff_tmer_end_timeout():
+	%BleedDebuffTimer.stop()
+	bleed_active = false
+	
 func _on_poison_debuff_timer_timeout():
-	EnemyManager.enemy.take_poison_damage(poison_damage)
-
-
+	EnemyManager.enemy.take_action_damage(poison_damage, "poison")
+	
 func _on_poison_debuff_timer_end_timeout():
-	$EnemyDebuffTimer.stop()
+	%PoisonDebuffTimer.stop()
 	poison_active = false
+
+func _on_ice_debuff_timer_timeout():
+	EnemyManager.enemy.take_action_damage(ice_damage, "ice")
+
+func _on_ice_debuff_timer_end_timeout():
+	%IceDebuffTimer.stop()
+	ice_active = false
+
+func _on_fire_debuff_timer_timeout():
+	EnemyManager.enemy.take_action_damage(fire_damage, "fire")
+
+func _on_fire_debuff_timer_end_timeout():
+	%FireDebuffTimer.stop()
+	fire_active = false
+
+func _on_electric_debuff_timer_timeout():
+	EnemyManager.enemy.take_action_damage(electric_damage, "electric")
+
+func _on_electric_debuff_timer_end_timeout():
+	%ElectricDebuffTimer.stop()
+	electric_active = false
+
+func _on_weak_debuff_timer_end_timeout():
+	%WeakDebuffTimer.stop()
+	weak_active = false
+
+func _on_vulnerable_debuff_timer_end_timeout():
+	%VulnerableDebuffTimer.stop()
+	vulnerable_active = false
+
+func _on_frail_debuff_timer_end_timeout():
+	%FrailDebuffTimer.stop()
+	frail_active = false

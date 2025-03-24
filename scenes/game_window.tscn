@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=114 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -46,6 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="31_6hgcu"]
 [ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="31_a4scn"]
 [ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="32_ijjaj"]
+[ext_resource type="Texture2D" uid="uid://bbylyst6mttt5" path="res://assets/32rogues/pieces/stun.png" id="35_4mjqk"]
+[ext_resource type="Texture2D" uid="uid://csgjrhkhj0l40" path="res://assets/32rogues/pieces/weak.png" id="36_1cyfe"]
+[ext_resource type="Texture2D" uid="uid://vrop2vlgx2dt" path="res://assets/32rogues/pieces/vulnerable.png" id="37_lkdhj"]
+[ext_resource type="Texture2D" uid="uid://dm8mt7x7w0fav" path="res://assets/32rogues/pieces/frail.png" id="38_od5u3"]
+[ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="39_igw6i"]
 [ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="43_xaq8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
@@ -688,17 +693,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 206.5
-offset_top = 62.0
-offset_right = 369.5
-offset_bottom = 131.0
+offset_left = 190.0
+offset_top = 55.0
+offset_right = 394.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_pg7vj")
 theme_override_font_sizes/font_size = 64
-text = "Enemy"
+text = "Enemy "
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Timer" parent="EnemyTypeLabel" instance=ExtResource("5_lkr4m")]
 layout_mode = 1
@@ -707,8 +713,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 60.5
-offset_bottom = 60.5
+offset_top = 76.0
+offset_bottom = 76.0
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("4_pskgn")
@@ -1091,9 +1097,9 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hud/EnemyHealth"]
 layout_mode = 0
-offset_left = -102.5
+offset_left = -256.5
 offset_top = 7.0
-offset_right = -42.5
+offset_right = -96.5
 offset_bottom = 47.0
 scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 20
@@ -1126,6 +1132,43 @@ layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Fire"]
 texture = ExtResource("32_ijjaj")
+
+[node name="Electric" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Electric"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("39_igw6i")
+
+[node name="Stun" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Stun"]
+texture = ExtResource("35_4mjqk")
+
+[node name="Weak" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Weak"]
+texture = ExtResource("36_1cyfe")
+
+[node name="Vulnerable" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Vulnerable"]
+texture = ExtResource("37_lkdhj")
+
+[node name="Frail" type="Control" parent="Hud/EnemyHealth/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hud/EnemyHealth/HBoxContainer/Frail"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("38_od5u3")
 
 [node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
 visible = false
@@ -1511,7 +1554,7 @@ anchor_bottom = 0.5
 offset_left = -2.0
 offset_top = 979.0
 offset_right = 579.0
-offset_bottom = 1070.0
+offset_bottom = 1048.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32

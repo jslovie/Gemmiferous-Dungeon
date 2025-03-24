@@ -338,7 +338,7 @@ func get_killed():
 	RelicManager.report += 1
 	
 	#Update player spins
-	PlayerManager.player.spins_left += 99
+	PlayerManager.player.spins_left += 1
 	
 	#Get coins
 	EffectLoad.material_effect(coin_effect, coin_effect_position)
@@ -355,9 +355,11 @@ func get_killed():
 func stunt(amount):
 	var stunt_time = %ActionTimer.time_left + amount
 	%ActionTimer.start(stunt_time)
-	%Stunned.visible = true
+	#%Stunned.visible = true
+	PlayerManager.player.stun_active = true
 	await  get_tree().create_timer(amount).timeout
-	%Stunned.visible = false
+	PlayerManager.player.stun_active = false
+	#%Stunned.visible = false
 	
 func stop_action():
 	%ActionTimer.stop()
@@ -373,37 +375,6 @@ func player_died():
 func _on_action_timer_timeout():
 	random_action()
 
-
-func take_poison_damage(damage):
-	if state == alive:
-		#Visual knockback
-		var tween_scale = create_tween()
-		tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
-		tween_scale.tween_property($EnemyType,"scale", Vector2(15,15), 0.1)
-		var tween_move = create_tween()
-		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
-		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
-		#Visual hit
-		%AnimationPlayer.play("hit_poison")
-		var is_top = false
-		var is_critical = false
-		var is_poison = true
-		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
-		
-		#Logic behind getting hit
-		var health_attack = 0
-		for d in range(0, damage):
-			if shield > 0:
-				shield -= 1
-			else:
-				health_attack += 1
-		var total_attack = health_attack
-		health -= total_attack
-		
-		if health <= 0:
-			health = 0
-			get_killed()
-
 func take_action_damage(damage, action):
 	if state == alive:
 		#Visual knockback
@@ -413,13 +384,33 @@ func take_action_damage(damage, action):
 		var tween_move = create_tween()
 		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
 		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
+
 		#Visual hit
-		if action == "poison":
-			%AnimationPlayer.play("hit_poison")
 		var is_top = false
 		var is_critical = false
-		var is_poison = true
-		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
+		var is_poison = false
+		var is_bleed = false
+		var is_ice = false
+		var is_fire = false
+		var is_electric = false
+		
+		if action == "bleed":
+			%AnimationPlayer.play("hit_bleed")
+			is_bleed = true
+		if action == "poison":
+			%AnimationPlayer.play("hit_poison")
+			is_poison = true
+		if action == "ice":
+			%AnimationPlayer.play("hit_ice")
+			is_ice = true
+		if action == "fire":
+			%AnimationPlayer.play("hit_fire")
+			is_fire = true
+		if action == "electric":
+			%AnimationPlayer.play("hit_electric")
+			is_electric = true
+			
+		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison, is_bleed, is_ice, is_fire, is_electric)
 		
 		#Logic behind getting hit
 		var health_attack = 0

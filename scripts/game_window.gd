@@ -167,11 +167,44 @@ func handle_win():
 		$Player_win.visible = true
 
 func check_enemy_debuff():
+	if PlayerManager.player.bleed_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Bleed.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Bleed.visible = false
 	if PlayerManager.player.poison_active == true:
 		$Hud/EnemyHealth/HBoxContainer/Poison.visible = true
 	else:
 		$Hud/EnemyHealth/HBoxContainer/Poison.visible = false
+	if PlayerManager.player.ice_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Ice.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Ice.visible = false
 
+	if PlayerManager.player.fire_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Fire.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Fire.visible = false
+
+	if PlayerManager.player.electric_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Electric.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Electric.visible = false
+	if PlayerManager.player.stun_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Stun.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Stun.visible = false
+	if PlayerManager.player.weak_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Weak.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Weak.visible = false
+	if PlayerManager.player.vulnerable_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Vulnerable.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Vulnerable.visible = false
+	if PlayerManager.player.frail_active == true:
+		$Hud/EnemyHealth/HBoxContainer/Frail.visible = true
+	else:
+		$Hud/EnemyHealth/HBoxContainer/Frail.visible = false
 
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false

@@ -46,7 +46,7 @@ func purchase_relic():
 		if check_enough_coins(relic.price):
 			process_cost(relic.price)
 			get_parent().add_piece(relic.relic_name, relic)
-			get_parent().spawn_effect(position)
+			get_parent().spawn_effect_pieces(position, relic.color)
 			visible = false
 		else:
 			not_enough()
