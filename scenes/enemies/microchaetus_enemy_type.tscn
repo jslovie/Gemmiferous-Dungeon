@@ -17,3 +17,6 @@ blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_l3vsk")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false

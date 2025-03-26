@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=123 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -31,9 +31,10 @@
 [ext_resource type="Texture2D" uid="uid://bjjk3ntnjy3af" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 1.png" id="16_yjedy"]
 [ext_resource type="Texture2D" uid="uid://dy7r7mo4dhe5s" path="res://assets/32rogues/pieces/poison.png" id="17_dst1s"]
 [ext_resource type="Texture2D" uid="uid://dl6cimyvyaw0y" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 4.png" id="17_lkria"]
-[ext_resource type="AudioStream" uid="uid://cqecht1ewefdw" path="res://audio/SFX/SFX/05_Alchemy_Glass_break.wav" id="21_2l6mp"]
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="21_spqid"]
+[ext_resource type="Texture2D" uid="uid://d25legurp1eyr" path="res://assets/VFX/Thrusts VFX/Thrust 01/Thrust VFX 01 Color 1.png" id="21_yoa2y"]
 [ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="22_7rbg4"]
+[ext_resource type="AudioStream" uid="uid://cehqsstbaltrf" path="res://audio/SFX/SFX/TileBreak2.wav" id="22_rmg55"]
 [ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="22_s46mu"]
 [ext_resource type="Texture2D" uid="uid://s1oh0c0s6a5b" path="res://assets/32rogues/pieces/repeat_v3.png" id="23_1j0tw"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="23_pwx4o"]
@@ -559,6 +560,63 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh31c"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2te34"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61720"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nauu8"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo6kw"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybou4"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5fpk"]
+atlas = ExtResource("21_yoa2y")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yara6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh31c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2te34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61720")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nauu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo6kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybou4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5fpk")
+}],
+"loop": false,
+"name": &"Magic",
+"speed": 10.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk2h3"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
@@ -693,18 +751,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 190.0
+offset_left = 110.0
 offset_top = 55.0
-offset_right = 394.0
+offset_right = 480.0
 offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_pg7vj")
 theme_override_font_sizes/font_size = 64
-text = "Enemy "
+text = "Ghost Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="Timer" parent="EnemyTypeLabel" instance=ExtResource("5_lkr4m")]
 layout_mode = 1
@@ -713,8 +770,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 76.0
-offset_bottom = 76.0
+offset_top = 47.5
+offset_bottom = 47.5
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("4_pskgn")
@@ -786,6 +843,17 @@ sprite_frames = SubResource("SpriteFrames_vwpvx")
 animation = &"Sword_blue"
 flip_h = true
 
+[node name="MagicAnimatedSprite2D" type="AnimatedSprite2D" parent="Grid/VFX"]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+position = Vector2(621, 791)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_yara6")
+animation = &"Magic"
+frame = 6
+frame_progress = 1.0
+
 [node name="ShuffleTimer" type="Timer" parent="Grid"]
 one_shot = true
 
@@ -794,16 +862,15 @@ wait_time = 3.0
 one_shot = true
 
 [node name="TileBreakSFX" type="AudioStreamPlayer" parent="Grid"]
-stream = ExtResource("21_2l6mp")
-volume_db = 4.0
+stream = ExtResource("22_rmg55")
 bus = &"SFX_BREAK"
 
 [node name="Shuffle" type="TextureButton" parent="Grid"]
-offset_left = 17.0
-offset_top = 70.0
-offset_right = 49.0
-offset_bottom = 102.0
-scale = Vector2(3, 3)
+offset_left = 9.0
+offset_top = 62.0
+offset_right = 41.0
+offset_bottom = 94.0
+scale = Vector2(2, 2)
 
 [node name="TextureRect" type="TextureRect" parent="Grid/Shuffle"]
 modulate = Color(0.368627, 0.380392, 0.67451, 1)
@@ -830,7 +897,7 @@ horizontal_alignment = 1
 
 [node name="DestroyTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="CollapseTimer" type="Timer" parent="."]
@@ -955,7 +1022,7 @@ text_overrun_behavior = 1
 
 [node name="WaitTimeTimer" type="Timer" parent="WaitTime"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Hud" type="Control" parent="."]

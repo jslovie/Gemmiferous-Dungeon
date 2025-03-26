@@ -5,8 +5,14 @@
 
 [node name="LeshenEnemyType" instance=ExtResource("1_epbdh")]
 type = "Leshen"
-health = 100.0
-max_health = 100.0
+health = 125.0
+health_increase = 9
+max_health = 125.0
+shield = 11.0
+shield_increase = 6
+damage = Vector2(15, 20)
+coin_worth = 45
+action_delay = Vector2(6, 10)
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]

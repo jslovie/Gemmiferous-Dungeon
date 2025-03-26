@@ -192,7 +192,7 @@ func random_action():
 	if random == "attack":
 		inflict_damage()
 		%SwordPiece.visible = true
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		%SwordPiece.visible = false
 			
 	if random == "shield":
@@ -201,7 +201,7 @@ func random_action():
 		else:
 			shield_up()
 			%ShieldPiece.visible = true
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(1.5).timeout
 			%ShieldPiece.visible = false
 			
 	if random == "heal":
@@ -210,7 +210,7 @@ func random_action():
 		else:
 			heal()
 			%HealPiece.visible = true
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(1.5).timeout
 			%HealPiece.visible = false
 	
 	change_delay()
@@ -301,6 +301,8 @@ func take_damage(damage, random_base_action):
 			get_killed()
 
 func get_killed():
+	Music.dim_music()
+	Sfx.play_SFX(Sfx.victory)
 	LevelManager.level_done += 1
 	if LevelManager.available_level == 11:
 		LevelManager.floor += 1

@@ -17,7 +17,7 @@ func _unhandled_input(event):
 			show_quit()
 		else:
 			hide_quit()
-		get_viewport().set_input_as_handled()
+		#get_viewport().set_input_as_handled()
 
 
 func _on_button_pressed():

@@ -158,6 +158,8 @@ func update_materials():
 
 
 func _on_exit_pressed():
+	$ExitLabel.visible = false
+	$Exit.visible = false
 	SaveManager.savefilesave()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()

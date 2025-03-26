@@ -190,6 +190,7 @@ offset_top = 223.0
 offset_right = 888.0
 offset_bottom = 255.0
 scale = Vector2(10, 10)
+disabled = true
 
 [node name="KnightType" parent="." instance=ExtResource("7_7gxew")]
 modulate = Color(0.203922, 0.203922, 0.203922, 1)
@@ -198,6 +199,7 @@ offset_top = 571.0
 offset_right = 1475.0
 offset_bottom = 603.0
 scale = Vector2(10, 10)
+disabled = true
 flip_h = false
 
 [node name="SpellbladeType" parent="." instance=ExtResource("8_wt4uk")]
@@ -207,6 +209,7 @@ offset_top = 349.0
 offset_right = 1206.0
 offset_bottom = 381.0
 scale = Vector2(10, 10)
+disabled = true
 
 [node name="Panel" type="Panel" parent="."]
 visible = false

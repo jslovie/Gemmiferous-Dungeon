@@ -88,10 +88,14 @@ func update_total_treasures_bar():
 	
 func wait_time():
 	$WaitTime.visible = true
-	%WaitTimeTimer.start(5)
+	%WaitTimeTimer.start(3)
 	get_tree().paused = true
 	if LevelManager.type == "Treasure":
 		Music.play_music_treasure()
+	elif LevelManager.type == "Elite Enemy":
+		Music.play_music_combat_elite()
+	elif LevelManager.type == "Boss":
+		Music.play_music_boss()
 	else:
 		Music.play_music_combat()
 	
@@ -158,6 +162,7 @@ func resolution_screen():
 			var tween = create_tween()
 			$PlayerDied.visible = true
 			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
+			Music.play_music_game_over()
 
 		
 func handle_win():
@@ -292,6 +297,9 @@ func _on_player_died_update_total_bar():
 
 func _on_treasure_timer_timeout():
 	LevelManager.treasure_timesup = true
+	Music.dim_music()
 	$Chest/ChestClosed.visible = true
 	LevelManager.switch_to_dungeon_map()
+	await get_tree().create_timer(3).timeout
+	Music.music_to_normal()
 	

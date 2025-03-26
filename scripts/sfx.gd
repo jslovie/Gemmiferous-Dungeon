@@ -9,9 +9,22 @@ var axe = preload("res://audio/SFX/SFX/Axe.wav")
 var mace = preload("res://audio/SFX/SFX/Mace.wav")
 var rage = preload("res://audio/SFX/SFX/10_Buff_02.wav")
 
-var shield = preload("res://audio/SFX/SFX/05_Holy_Shield.wav")
+var shield = preload("res://audio/SFX/SFX/Paladin_Damage.wav")
 var material = preload("res://audio/SFX/SFX/05_Woodwork_Wood_Handling_3.wav")
+var gem = preload("res://audio/SFX/SFX/Buff_Start.wav")
 
+var ice = preload("res://audio/SFX/SFX/Ice.wav")
+var electric = preload("res://audio/SFX/SFX/Electric.wav")
+
+var relic = preload("res://audio/SFX/SFX/11_Buff_03.wav")
+
+var damage = preload("res://audio/SFX/SFX/04_Fighter_Damage_2.wav")
+var death = preload("res://audio/SFX/SFX/Barbarian_Death.wav")
+var victory = preload("res://audio/SFX/SFX/Battle_Victory_Fanfare.wav")
+#
+var slot_win = preload("res://audio/SFX/SFX/mixkit-magical-coin-win-1936.wav")
+var slot_spin = preload("res://audio/SFX/SFX/mixkit-arcade-slot-machine-wheel-1933.wav")
+var key = preload("res://audio/SFX/SFX/double-door-lock-101210.mp3")
 #Menu
 var menu_confirm = preload("res://audio/SFX/Menu/MainMenu.wav")
 var enter_dungeon = preload("res://audio/SFX/Menu/Dungeon.wav")
@@ -24,6 +37,8 @@ var manor_open = preload("res://audio/SFX/Menu/ManorOpen.wav")
 var manor_close = preload("res://audio/SFX/Menu/ManorClose.wav")
 var upgrade = preload("res://audio/SFX/Menu/Upgrade.wav")
 var upgrade_deny = preload("res://audio/SFX/Menu/UpgradeDeny.wav")
+var buy = preload("res://audio/SFX/SFX/081_Buy_sell_03.wav")
+var deny = preload("res://audio/SFX/SFX/033_Denied_03.wav")
 
 func play_SFX(stream: AudioStream):
 	var sfx_player = AudioStreamPlayer.new()

@@ -42,6 +42,7 @@ func set_relic(new_relic: Relic):
 	icon.texture = relic.relic_texture
 
 func flash():
+	Sfx.play_SFX(Sfx.relic)
 	animation_player.play("flash")
 
 func _on_gui_input(event):

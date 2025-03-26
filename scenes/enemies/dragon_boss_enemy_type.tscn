@@ -5,13 +5,14 @@
 
 [node name="DragonBossEnemyType" instance=ExtResource("1_utqao")]
 type = "Dragon Boss"
-health = 150.0
+health = 156.0
 health_increase = 15
-max_health = 150.0
+max_health = 156.0
 shield = 15.0
 shield_increase = 10
-damage = Vector2(15, 20)
-coin_worth = 150
+damage = Vector2(20, 25)
+coin_worth = 80
+action_delay = Vector2(10, 15)
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

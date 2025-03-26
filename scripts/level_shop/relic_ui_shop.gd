@@ -37,21 +37,27 @@ func purchase_relic():
 	if relic.is_relic == true:
 		if check_enough_coins(relic.price):
 			process_cost(relic.price)
+			Sfx.play_SFX(Sfx.buy)
 			get_parent().add_relic(relic)
 			get_parent().spawn_effect(position)
 			visible = false
 		else:
 			not_enough()
+			Sfx.play_SFX(Sfx.deny)
 	else:
 		if check_enough_coins(relic.price):
 			process_cost(relic.price)
+			Sfx.play_SFX(Sfx.buy)
 			get_parent().add_piece(relic.relic_name, relic)
 			get_parent().spawn_effect_pieces(position, relic.color)
 			visible = false
 		else:
 			not_enough()
+			Sfx.play_SFX(Sfx.deny)
+
 func _on_pressed():
 	purchase_relic()
+	
 
 
 func _on_mouse_entered():

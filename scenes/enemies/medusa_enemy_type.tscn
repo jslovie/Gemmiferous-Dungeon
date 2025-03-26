@@ -5,14 +5,14 @@
 
 [node name="MedusaEnemyType" instance=ExtResource("1_nhj2l")]
 type = "Medusa"
-health = 50.0
-health_increase = 5
-max_health = 50.0
-shield = 5.0
-shield_increase = 2
-damage = Vector2(1, 5)
-coin_worth = 10
-action_delay = Vector2(2, 6)
+health = 100.0
+health_increase = 8
+max_health = 100.0
+shield = 15.0
+shield_increase = 5
+damage = Vector2(10, 25)
+coin_worth = 35
+action_delay = Vector2(5, 9)
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]

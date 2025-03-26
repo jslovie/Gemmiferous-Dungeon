@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://iyqiu0ynkg46"]
+[gd_scene load_steps=5 format=3 uid="uid://iyqiu0ynkg46"]
 
 [ext_resource type="Script" path="res://scripts/piece.gd" id="1_vwivf"]
 [ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="2_24gud"]
 [ext_resource type="Texture2D" uid="uid://4qddnfccmi83" path="res://assets/32rogues/pieces/sword.png" id="2_emqqt"]
+[ext_resource type="AudioStream" uid="uid://cehqsstbaltrf" path="res://audio/SFX/SFX/TileBreak2.wav" id="4_5w37o"]
 
 [node name="Piece" type="Node2D"]
 script = ExtResource("1_vwivf")
@@ -47,3 +48,7 @@ texture = ExtResource("2_24gud")
 z_index = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_emqqt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5w37o")
+bus = &"SFX_BREAK"

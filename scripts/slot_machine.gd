@@ -22,11 +22,13 @@ func _process(_delta):
 func pull():
 	
 	$Key.play("open")
+	Sfx.play_SFX(Sfx.key)
 	await get_tree().create_timer(0.2).timeout
 	tween()
 	await get_tree().create_timer(0.9).timeout
 	tween_back()
 	
+	$AudioStreamPlayer.play()
 	
 	%Slot._handle_pulled()
 	
@@ -75,11 +77,13 @@ func material_effect(effect, position):
 	add_child(current)
 
 func handle_result():
+	$AudioStreamPlayer.stop()
 	#Jackpots
 	if %Slot.result == "blue" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
 		EffectLoad.material_effect(blue_gem_effect, result1)
 		EffectLoad.material_effect(blue_gem_effect, result2)
 		EffectLoad.material_effect(blue_gem_effect, result3)
+		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.blue_gem_up(25)
 		jackpot = true
@@ -87,6 +91,7 @@ func handle_result():
 		EffectLoad.material_effect(red_gem_effect, result1)
 		EffectLoad.material_effect(red_gem_effect, result2)
 		EffectLoad.material_effect(red_gem_effect, result3)
+		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.red_gem_up(25)
 		jackpot = true
@@ -94,6 +99,7 @@ func handle_result():
 		EffectLoad.material_effect(green_gem_effect, result1)
 		EffectLoad.material_effect(green_gem_effect, result2)
 		EffectLoad.material_effect(green_gem_effect, result3)
+		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.green_gem_up(25)
 		jackpot = true
@@ -101,37 +107,50 @@ func handle_result():
 		EffectLoad.material_effect(yellow_gem_effect, result1)
 		EffectLoad.material_effect(yellow_gem_effect, result2)
 		EffectLoad.material_effect(yellow_gem_effect, result3)
+		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
 		PlayerManager.player.yellow_gem_up(25)
 		jackpot = true
 	else:
 		if %Slot.result == "blue":
 			EffectLoad.material_effect(blue_gem_effect, result1)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot.result == "red":
 			EffectLoad.material_effect(red_gem_effect, result1)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot.result == "green":
 			EffectLoad.material_effect(green_gem_effect, result1)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot.result == "yellow":
 			EffectLoad.material_effect(yellow_gem_effect, result1)
+			Sfx.play_SFX(Sfx.slot_win)
 			
 		if %Slot2.result == "blue":
 			EffectLoad.material_effect(blue_gem_effect, result2)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot2.result == "red":
 			EffectLoad.material_effect(red_gem_effect, result2)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot2.result == "green":
 			EffectLoad.material_effect(green_gem_effect, result2)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot2.result == "yellow":
 			EffectLoad.material_effect(yellow_gem_effect, result2)
+			Sfx.play_SFX(Sfx.slot_win)
 		
 		if %Slot3.result == "blue":
 			EffectLoad.material_effect(blue_gem_effect, result3)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot3.result == "red":
 			EffectLoad.material_effect(red_gem_effect, result3)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot3.result == "green":
 			EffectLoad.material_effect(green_gem_effect, result3)
+			Sfx.play_SFX(Sfx.slot_win)
 		elif %Slot3.result == "yellow":
 			EffectLoad.material_effect(yellow_gem_effect, result3)
-			
+			Sfx.play_SFX(Sfx.slot_win)
+	
 	jackpot = false
 	
 func _on_continue_pressed():
@@ -141,6 +160,7 @@ func _on_continue_pressed():
 		if PlayerManager.player.player_won == true:
 			LevelManager.handle_winning = true
 		else:
+			Music.music_to_normal()
 			LevelManager.switch_to_dungeon_map_timeless()
 		
 
@@ -148,6 +168,7 @@ func _on_yes_pressed():
 	if PlayerManager.player.player_won == true:
 		LevelManager.handle_winning = true
 	else:
+		Music.music_to_normal()
 		LevelManager.switch_to_dungeon_map_timeless()
 
 

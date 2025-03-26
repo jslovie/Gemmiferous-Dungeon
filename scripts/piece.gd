@@ -12,3 +12,6 @@ func move(target):
 func dim():
 	var sprite = $Sprite2D
 	sprite.modulate.a = 0.5
+
+func play_sound():
+	$AudioStreamPlayer.play()

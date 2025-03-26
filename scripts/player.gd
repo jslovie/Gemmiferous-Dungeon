@@ -494,6 +494,7 @@ func reset_current_treasure():
 
 func receive_damage(damage):
 	if state == alive:
+		Sfx.play_SFX(Sfx.damage)
 		#Relics update
 		RelicManager.got_hit_health_potion += 1
 		RelicManager.got_hit_armor += 1
@@ -532,6 +533,7 @@ func receive_damage(damage):
 			get_killed()
 
 func get_killed():
+	Sfx.play_SFX(Sfx.death)
 	set_treasure_died()
 	LevelManager.reset_map()
 	EnemyManager.enemy.player_died()
