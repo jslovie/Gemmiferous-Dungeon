@@ -298,3 +298,6 @@ func _on_stone_button_pressed():
 
 func _on_iron_button_pressed():
 	collect_iron()
+
+func _on_home_pressed():
+	LevelManager.main_menu()

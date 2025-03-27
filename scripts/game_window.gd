@@ -287,6 +287,19 @@ func color_change():
 	$GemsTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
 	
 
+func pause():
+	$Pause.visible = true
+
+func unpause():
+	$Pause.visible = false
+
+func back_to_village():
+	SaveManager.remove_autosave()
+	SaveManager.remove_resources()
+	LevelManager.reset_map()
+	LevelManager.show_map = false
+	get_tree().change_scene_to_file("res://scenes/village.tscn")
+
 func _on_player_died_update_total_bar():
 	$MaterialTotal.visible = true
 	$GemsTotal.visible = true
@@ -303,3 +316,13 @@ func _on_treasure_timer_timeout():
 	await get_tree().create_timer(3).timeout
 	Music.music_to_normal()
 	
+
+func _on_home_pressed():
+	pause()
+
+func _on_back_pressed():
+	unpause()
+
+func _on_menu_pressed():
+	Loading.loading_2s()
+	back_to_village()

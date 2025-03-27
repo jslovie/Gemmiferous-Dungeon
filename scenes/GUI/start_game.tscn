@@ -345,6 +345,33 @@ text = "v0.5.0"
 
 [node name="Settings" parent="." instance=ExtResource("9_a42n4")]
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = 335.0
+offset_right = -1.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Back" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uksad")
+theme_override_font_sizes/font_size = 32
+text = "Back	"
+
 [connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
@@ -358,3 +385,4 @@ text = "v0.5.0"
 [connection signal="mouse_entered" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_mouse_exited"]
 [connection signal="pressed" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

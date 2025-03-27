@@ -34,3 +34,12 @@ func switch_to_dungeon_map_timeless():
 	SaveManager.autosave()
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	show_map = true
+
+func main_menu():
+	SaveManager.remove_autosave()
+	SaveManager.remove_resources()
+	LevelManager.reset_map()
+	LevelManager.show_map = false
+	Loading.loading_1s()
+	get_tree().change_scene_to_file("res://scenes/GUI/start_game.tscn")
+	

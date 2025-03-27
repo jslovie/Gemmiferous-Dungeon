@@ -90,6 +90,7 @@ func _on_start_game_new_pressed():
 func _on_options_new_pressed():
 	Sfx.play_SFX(Sfx.menu_confirm)
 	$Settings.visible = true
+	$MarginContainer.visible = true
 
 
 func _on_quit_game_new_pressed():
@@ -110,3 +111,8 @@ func _on_quit_game_new_mouse_entered():
 	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_quit_game_new_mouse_exited():
 	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.WHITE)
+
+
+func _on_back_pressed():
+	$Settings.visible = false
+	$MarginContainer.visible = false

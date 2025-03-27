@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=103 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -82,6 +82,7 @@
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="81_mooqg"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="82_siwi3"]
 [ext_resource type="PackedScene" uid="uid://bih5sa1u2e6k3" path="res://scenes/GUI/transition.tscn" id="83_m6mbu"]
+[ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="84_appnm"]
 [ext_resource type="PackedScene" uid="uid://dte5nmep4gg4w" path="res://scenes/manor.tscn" id="84_m554g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0prv"]
@@ -1813,6 +1814,14 @@ shape = SubResource("CircleShape2D_wjta8")
 
 [node name="Transition" parent="." instance=ExtResource("83_m6mbu")]
 
+[node name="Home" type="TextureButton" parent="."]
+offset_left = 935.0
+offset_top = 345.0
+offset_right = 967.0
+offset_bottom = 377.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("84_appnm")
+
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
@@ -1820,3 +1829,4 @@ shape = SubResource("CircleShape2D_wjta8")
 [connection signal="pressed" from="Wood/WoodButton" to="." method="_on_wood_button_pressed"]
 [connection signal="pressed" from="Stone/StoneButton" to="." method="_on_stone_button_pressed"]
 [connection signal="pressed" from="Iron/IronButton" to="." method="_on_iron_button_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
