@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4qt24ku7ns2l"
-path="res://.godot/imported/openart-image_c2lxRADd_1737564175566_raw.jpg-5f3cd5b44328fd7248c0a5af1d069b72.ctex"
+uid="uid://dwnp3opnljr31"
+path="res://.godot/imported/Home_highlighted.png-437f9dff6349135edb3bcfd95c9e9558.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/32rogues/Icons/openart-image_c2lxRADd_1737564175566_raw.jpg"
-dest_files=["res://.godot/imported/openart-image_c2lxRADd_1737564175566_raw.jpg-5f3cd5b44328fd7248c0a5af1d069b72.ctex"]
+source_file="res://assets/32rogues/Icons/Home_highlighted.png"
+dest_files=["res://.godot/imported/Home_highlighted.png-437f9dff6349135edb3bcfd95c9e9558.ctex"]
 
 [params]
 

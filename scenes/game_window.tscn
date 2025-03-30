@@ -868,11 +868,12 @@ stream = ExtResource("22_rmg55")
 bus = &"SFX_BREAK"
 
 [node name="Shuffle" type="TextureButton" parent="Grid"]
-offset_left = 9.0
-offset_top = 62.0
-offset_right = 41.0
-offset_bottom = 94.0
+offset_left = 25.0
+offset_top = 78.0
+offset_right = 57.0
+offset_bottom = 110.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(16, 16)
 
 [node name="TextureRect" type="TextureRect" parent="Grid/Shuffle"]
 modulate = Color(0.368627, 0.380392, 0.67451, 1)
@@ -888,11 +889,10 @@ texture = ExtResource("23_1j0tw")
 [node name="ShuffleLabel" type="Label" parent="Grid/Shuffle"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1.66667
+offset_left = -5.0
 offset_top = 31.6667
-offset_right = 41.6667
+offset_right = 35.0
 offset_bottom = 46.6667
-scale = Vector2(0.7, 0.7)
 theme_override_font_sizes/font_size = 16
 text = "x1"
 horizontal_alignment = 1
@@ -1295,9 +1295,32 @@ offset_bottom = 36.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Material"]
 layout_mode = 0
-offset_right = 40.0
+offset_left = -81.0
+offset_right = 202.0
 offset_bottom = 40.0
 theme_override_constants/separation = 41
+
+[node name="Coin" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("29_4qh4o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("29_ktb7s")
+
+[node name="CoinArea2D" type="Area2D" parent="Material/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_gg1ri")
 
 [node name="Wood" type="Label" parent="Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1434,28 +1457,6 @@ position = Vector2(-16, 6.5)
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_gg1ri")
 
-[node name="Coin" type="Label" parent="Gems/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
-text = ": 999"
-
-[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
-position = Vector2(-17, 7.5)
-texture = ExtResource("29_4qh4o")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
-position = Vector2(-17, 7)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("29_ktb7s")
-
-[node name="CoinArea2D" type="Area2D" parent="Gems/HBoxContainer/Coin" groups=["Effect"]]
-position = Vector2(-16, 6.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
-position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_gg1ri")
-
 [node name="MaterialTotal" type="Control" parent="."]
 z_index = 31
 layout_mode = 3
@@ -1475,9 +1476,25 @@ offset_bottom = 36.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MaterialTotal"]
 layout_mode = 0
-offset_right = 40.0
+offset_left = -81.5
+offset_right = 201.5
 offset_bottom = 40.0
 theme_override_constants/separation = 41
+
+[node name="Coin" type="Label" parent="MaterialTotal/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pg7vj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="MaterialTotal/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("29_4qh4o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MaterialTotal/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("29_ktb7s")
 
 [node name="Wood" type="Label" parent="MaterialTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1565,28 +1582,13 @@ text = ": 999"
 position = Vector2(-17, 7.5)
 texture = ExtResource("28_o85x2")
 
-[node name="Coin" type="Label" parent="GemsTotal/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
-text = ": 999"
-
-[node name="Sprite2D" type="Sprite2D" parent="GemsTotal/HBoxContainer/Coin"]
-position = Vector2(-17, 7.5)
-texture = ExtResource("29_4qh4o")
-
-[node name="Sprite2D2" type="Sprite2D" parent="GemsTotal/HBoxContainer/Coin"]
-position = Vector2(-17, 7)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("29_ktb7s")
-
 [node name="RelicHandler" parent="." instance=ExtResource("43_xaq8w")]
 unique_name_in_owner = true
 z_index = 32
-offset_left = 135.0
-offset_top = -27.0
-offset_right = 295.0
-offset_bottom = 5.0
+offset_left = -29.0
+offset_top = -25.0
+offset_right = 131.0
+offset_bottom = 7.0
 
 [node name="Shield" type="Area2D" parent="." groups=["Effect"]]
 position = Vector2(-92, 1002)
@@ -1632,11 +1634,12 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Home" type="TextureButton" parent="."]
-offset_left = 503.0
-offset_top = 62.0
-offset_right = 535.0
-offset_bottom = 94.0
+offset_left = 519.0
+offset_top = 78.0
+offset_right = 551.0
+offset_bottom = 110.0
 scale = Vector2(2, 2)
+pivot_offset = Vector2(16, 16)
 
 [node name="TextureRect" type="TextureRect" parent="Home"]
 modulate = Color(0.368627, 0.380392, 0.67451, 1)
@@ -1714,12 +1717,24 @@ offset_bottom = 851.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("5_pg7vj")
 theme_override_font_sizes/font_size = 32
-text = "Menu"
+text = "Exit"
+
+[node name="Progress" type="Label" parent="Pause"]
+visible = false
+layout_mode = 0
+offset_left = -29.0
+offset_top = 946.0
+offset_right = 617.0
+offset_bottom = 976.0
+theme_override_font_sizes/font_size = 32
+text = "Please note all loot and progress will be lost"
 
 [connection signal="timeout" from="TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_grid_camera_effect"]
 [connection signal="timeout" from="Grid/ShuffleTimer" to="Grid" method="_on_shuffle_timer_timeout"]
 [connection signal="timeout" from="Grid/HintTimer" to="Grid" method="_on_hint_timer_timeout"]
+[connection signal="mouse_entered" from="Grid/Shuffle" to="." method="_on_shuffle_mouse_entered"]
+[connection signal="mouse_exited" from="Grid/Shuffle" to="." method="_on_shuffle_mouse_exited"]
 [connection signal="pressed" from="Grid/Shuffle" to="Grid" method="_on_shuffle_pressed"]
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
@@ -1727,6 +1742,7 @@ text = "Menu"
 [connection signal="pressed" from="Inventory/InventoryGrid/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
 [connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
+[connection signal="area_entered" from="Material/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Wood/WoodArea2D" to="." method="_on_wood_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Stone/StoneArea2D" to="." method="_on_stone_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Iron/IronArea2D" to="." method="_on_iron_area_2d_area_entered"]
@@ -1734,8 +1750,11 @@ text = "Menu"
 [connection signal="area_entered" from="Gems/HBoxContainer/BlueGem/BlueGemArea2D" to="." method="_on_blue_gem_area_2d_area_entered"]
 [connection signal="area_entered" from="Gems/HBoxContainer/GreenGem/GreemGemArea2D" to="." method="_on_greem_gem_area_2d_area_entered"]
 [connection signal="area_entered" from="Gems/HBoxContainer/YellowGem/YellowGemArea2D" to="." method="_on_yellow_gem_area_2d_area_entered"]
-[connection signal="area_entered" from="Gems/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]
 [connection signal="area_entered" from="Shield" to="." method="_on_shield_area_entered"]
+[connection signal="mouse_entered" from="Home" to="." method="_on_home_mouse_entered"]
+[connection signal="mouse_exited" from="Home" to="." method="_on_home_mouse_exited"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
+[connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]
 [connection signal="pressed" from="Pause/Menu" to="." method="_on_menu_pressed"]

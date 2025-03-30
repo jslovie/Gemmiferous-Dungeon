@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_mkclj")
 type = "Barbarian"
-health = 60.0
-max_health = 60.0
-shield = 0
+health = 90.0
+max_health = 90.0
+shield = 10
 type_action1 = Vector2(2, 4)
 type_action2 = Vector2(1, 5)
 type_action3 = Vector2(0, 0)

@@ -49,7 +49,7 @@ func tween_material():
 		move_tween.tween_property(self, "position", Vector2(-143,4), 0.8)
 	elif type == "Coin":
 		var move_tween = create_tween()
-		move_tween.tween_property(self, "position", Vector2(19,4), 1)
+		move_tween.tween_property(self, "position", Vector2(647,4), 1)
 	elif type == "Red Gem T":
 		var move_tween = create_tween()
 		move_tween.tween_property(self, "position", Vector2(-630,4), 0.8)
@@ -64,7 +64,7 @@ func tween_material():
 		move_tween.tween_property(self, "position", Vector2(-143,4), 0.8)
 	elif type == "Coin T":
 		var move_tween = create_tween()
-		move_tween.tween_property(self, "position", Vector2(19,4), 0.8)
+		move_tween.tween_property(self, "position", Vector2(647,4), 0.8)
 	
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Effect"):

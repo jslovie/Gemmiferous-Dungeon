@@ -55,9 +55,9 @@ func total_gems_check():
 	else:
 		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_coins >= 999:
-		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.RED)
+		$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.RED)
 	else:
-		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
+		$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 func check_buildings_state():
 	if VillageManager.manor_lvl == 1:
@@ -260,7 +260,7 @@ func update_treasures():
 	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
 	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
-	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
 	
 func update_materials():
 	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)

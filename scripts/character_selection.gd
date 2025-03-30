@@ -16,7 +16,7 @@ func update_treasures():
 	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
 	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
-	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
 	
 func update_materials():
 	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
@@ -55,9 +55,9 @@ func total_gems_check():
 	else:
 		$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
 	if PlayerManager.player.total_coins >= 999:
-		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.RED)
+		$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.RED)
 	else:
-		$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
+		$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 func _on_back_button_pressed():
 	$Background/DoorClosed.visible = true
@@ -70,3 +70,16 @@ func _on_back_button_mouse_entered():
 
 func _on_back_button_mouse_exited():
 	$Back/BackButton/Label.add_theme_color_override("font_color", Color.WHITE)
+
+
+func _on_rogue_type_mouse_entered():
+	$DescriptionRogue.visible = true
+
+func _on_rogue_type_mouse_exited():
+	$DescriptionRogue.visible = false
+
+func _on_barbarian_type_mouse_entered():
+	$DescriptionBarbarian.visible = true
+
+func _on_barbarian_type_mouse_exited():
+	$DescriptionBarbarian.visible = false

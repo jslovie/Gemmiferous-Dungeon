@@ -74,7 +74,7 @@ func update_treasures_bar():
 	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
 	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
-	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
 	
 func update_total_treasures_bar():
 	$MaterialTotal/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
@@ -84,7 +84,7 @@ func update_total_treasures_bar():
 	$GemsTotal/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
 	$GemsTotal/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
 	$GemsTotal/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
-	$GemsTotal/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
+	$MaterialTotal/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
 	
 func wait_time():
 	$WaitTime.visible = true
@@ -250,9 +250,9 @@ func _on_yellow_gem_area_2d_area_entered(_area):
 	await get_tree().create_timer(0.5).timeout
 	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
 func _on_coin_area_2d_area_entered(_area):
-	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
+	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 
 func _on_shield_area_entered(area):
@@ -275,7 +275,7 @@ func color_change():
 	if PlayerManager.player.yellow_gem_died > 0:
 		$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.coins_died > 0:
-		$GemsTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+		$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(1).timeout
 	$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
 	$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
@@ -284,7 +284,7 @@ func color_change():
 	$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
 	$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
 	$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
+	$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
 	
 
 func pause():
@@ -317,7 +317,14 @@ func _on_treasure_timer_timeout():
 	Music.music_to_normal()
 	
 
+func tween_size():
+	var tween = create_tween()
+	tween.tween_property($Home,"size", Vector2(2.2,2.2),0.5)
+	await get_tree().create_timer(0.5).timeout
+	tween.tween_property($Home,"size", Vector2(2,2),0.5)
+
 func _on_home_pressed():
+	tween_size()
 	pause()
 
 func _on_back_pressed():
@@ -326,3 +333,21 @@ func _on_back_pressed():
 func _on_menu_pressed():
 	Loading.loading_2s()
 	back_to_village()
+
+func _on_menu_mouse_entered():
+	$Pause/Progress.visible = true
+
+func _on_menu_mouse_exited():
+	$Pause/Progress.visible = false
+
+func _on_home_mouse_entered():
+	$Home/TextureRect.modulate = Color(0.537, 0.558, 0.828)
+
+func _on_home_mouse_exited():
+	$Home/TextureRect.modulate = Color(0.369, 0.38, 0.675)
+
+func _on_shuffle_mouse_entered():
+	$Grid/Shuffle/TextureRect.modulate = Color(0.537, 0.558, 0.828)
+
+func _on_shuffle_mouse_exited():
+	$Grid/Shuffle/TextureRect.modulate = Color(0.369, 0.38, 0.675)

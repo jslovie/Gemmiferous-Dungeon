@@ -25,7 +25,7 @@ func update_loot_treasures():
 	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
 	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
-	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
 	
 func update_loot_materials():
 	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
@@ -37,7 +37,7 @@ func update_treasures():
 	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
 	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
-	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
 	
 func update_materials():
 	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
@@ -53,7 +53,7 @@ func change_background():
 	elif LevelManager.floor == 3:
 		$Background/F3.visible = true
 	elif LevelManager.floor == 4:
-		$Background/F4.visible = true	
+		$Background/F4.visible = true
 	
 func handle_heal():
 	PlayerManager.player.heal(15)
@@ -74,7 +74,7 @@ func handle_loot_to_manor():
 	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
 	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
 	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
-	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	update_treasures()
 	update_materials()
 	SaveManager.savefilesave()
@@ -87,7 +87,7 @@ func handle_loot_to_manor():
 	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
 	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
 	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
-	$Gems/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
+	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 	await get_tree().create_timer(1).timeout
 	LevelManager.switch_to_dungeon_map_timeless()
 	

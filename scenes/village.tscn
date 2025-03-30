@@ -78,6 +78,7 @@
 [ext_resource type="Texture2D" uid="uid://ce7q7n3golxdt" path="res://assets/village/Gemmiferous_estate/peasant4_ver2.png" id="74_1lufa"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="74_kehnc"]
 [ext_resource type="Texture2D" uid="uid://bh2avrkrq5akc" path="res://assets/32rogues/material/iron2 outline W.png" id="75_aih4a"]
+[ext_resource type="Texture2D" uid="uid://dwnp3opnljr31" path="res://assets/32rogues/Icons/Home_highlighted.png" id="79_ax3gs"]
 [ext_resource type="Script" path="res://scripts/path_follow_2d.gd" id="79_ngvu0"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="81_mooqg"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="82_siwi3"]
@@ -863,9 +864,7 @@ _data = {
 }
 point_count = 24
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_adpdb"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wjta8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vam8g"]
 
 [node name="Village" type="Node2D"]
 script = ExtResource("1_4s24t")
@@ -1634,27 +1633,62 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("74_kehnc")
 texture_hover = ExtResource("75_aih4a")
 
+[node name="Transition" parent="." instance=ExtResource("83_m6mbu")]
+
+[node name="Home" type="TextureButton" parent="."]
+offset_left = 935.0
+offset_top = 345.0
+offset_right = 967.0
+offset_bottom = 377.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("84_appnm")
+texture_hover = ExtResource("79_ax3gs")
+
 [node name="Material" type="Control" parent="."]
+z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 888.0
+offset_left = 890.0
 offset_top = 335.0
-offset_right = 928.0
+offset_right = 930.0
 offset_bottom = 375.0
-scale = Vector2(0.275, 0.275)
+scale = Vector2(0.27, 0.27)
 
 [node name="Panel" type="Panel" parent="Material"]
 layout_mode = 0
-offset_left = -761.0
+offset_left = -785.0
 offset_top = 3.0
 offset_right = 208.0
 offset_bottom = 36.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Material"]
 layout_mode = 0
-offset_right = 40.0
+offset_left = -81.0
+offset_right = 202.0
 offset_bottom = 40.0
 theme_override_constants/separation = 41
+
+[node name="Coin" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("59_xh1n5")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("81_mooqg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("82_siwi3")
+
+[node name="CoinArea2D" type="Area2D" parent="Material/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="Wood" type="Label" parent="Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1671,7 +1705,7 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Wood/WoodArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_adpdb")
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="Stone" type="Label" parent="Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1688,7 +1722,7 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Stone/StoneArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_adpdb")
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="Iron" type="Label" parent="Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1705,16 +1739,17 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Iron/IronArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_adpdb")
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="Gems" type="Control" parent="."]
+z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 689.0
+offset_left = 688.0
 offset_top = 335.0
-offset_right = 729.0
+offset_right = 728.0
 offset_bottom = 375.0
-scale = Vector2(0.275, 0.275)
+scale = Vector2(0.27, 0.27)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
 layout_mode = 0
@@ -1737,7 +1772,7 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_wjta8")
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1754,7 +1789,7 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_wjta8")
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1771,7 +1806,7 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_wjta8")
+shape = SubResource("CircleShape2D_vam8g")
 
 [node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -1788,39 +1823,7 @@ position = Vector2(-16, 6.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
 position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_wjta8")
-
-[node name="Coin" type="Label" parent="Gems/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("59_xh1n5")
-text = ": 999"
-
-[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
-position = Vector2(-17, 7.5)
-texture = ExtResource("81_mooqg")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Gems/HBoxContainer/Coin"]
-position = Vector2(-17, 7)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("82_siwi3")
-
-[node name="CoinArea2D" type="Area2D" parent="Gems/HBoxContainer/Coin" groups=["Effect"]]
-position = Vector2(-16, 6.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/Coin/CoinArea2D"]
-position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_wjta8")
-
-[node name="Transition" parent="." instance=ExtResource("83_m6mbu")]
-
-[node name="Home" type="TextureButton" parent="."]
-offset_left = 935.0
-offset_top = 345.0
-offset_right = 967.0
-offset_bottom = 377.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("84_appnm")
+shape = SubResource("CircleShape2D_vam8g")
 
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]

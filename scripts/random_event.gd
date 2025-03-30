@@ -66,6 +66,13 @@ func gained_health(amount):
 	health_gained = amount
 	PlayerManager.player.health += health_gained
 
+func gain_gems(amount):
+	PlayerManager.player.red_gem += round(PlayerManager.player.red_gem * amount)
+	PlayerManager.player.blue_gem += round(PlayerManager.player.blue_gem * amount)
+	PlayerManager.player.green_gem += round(PlayerManager.player.green_gem * amount)
+	PlayerManager.player.yellow_gem += round(PlayerManager.player.yellow_gem * amount)
+	
+	
 func handle_game_over():
 	await get_tree().create_timer(3).timeout
 	PlayerManager.player.status = "dead"
@@ -90,7 +97,7 @@ func template_to_copy(): #just a template, should be removed later
 
 func update_text():
 	if room == 1:
-		%EventText.text = "You entered a room but you were caught of guard by a group of monsters"
+		%EventText.text = "You entered a room, but you were caught off guard by a group of monsters"
 		%Button.text = "Attempt to flee"
 		%Button2.text = "Fight them"
 		%Button3.visible = false
@@ -109,7 +116,11 @@ func update_text():
 		%Button.text = "Open the chest"
 		%Button2.text = "Leave the chest alone"
 		%Button3.visible = false
-		
+	elif room == 5:
+		%EventText.text = "You entered a room, but there seems to be nothing inside"
+		%Button.text = "Quite disappointed, you decided to head towards the door on the other side to leave"
+		%Button2.visible = false
+		%Button3.visible = false
 		
 func resolution_screen():
 	$Control/Event.visible = false
@@ -179,7 +190,28 @@ func handle_button():
 				%ResolutionText.text = "You successfully opened the chest"
 				await get_tree().create_timer(3).timeout
 				get_tree().change_scene_to_file("res://scenes/treasure.tscn")
-			
+	elif room == 5:
+		if %Button.text == "Quite disappointed, you decided to head towards the door on the other side to leave":
+			var random_resolution = randi_range(1,3)
+			if random_resolution == 1:
+				resolution_screen()
+				%ResolutionText.text = "You stepped on hidden spikes and lost 15 HP"
+				lost_health_amount(15)
+				LevelManager.switch_to_dungeon_map()
+			elif random_resolution == 2:
+				resolution_screen()
+				%ResolutionText.text = "Nothing happened on the way"
+				LevelManager.switch_to_dungeon_map()
+			elif random_resolution == 3:
+				resolution_screen()
+				%ResolutionText.text = "You noticed a pile of gems on the floor. Luck is on your side"
+				gain_gems(0.15)
+				LevelManager.switch_to_dungeon_map()
+			elif random_resolution == 4:
+				resolution_screen()
+				%ResolutionText.text = "You noticed a pouch full of gold on the floor. Looks like someone lost it here"
+				gained_coins(50)
+				LevelManager.switch_to_dungeon_map()
 func handle_button2():
 	if room == 1:
 		if %Button2.text == "Fight them":

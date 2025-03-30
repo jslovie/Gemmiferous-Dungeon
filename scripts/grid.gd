@@ -892,8 +892,14 @@ func _on_hint_timer_timeout():
 	#generate_hint()
 	pass
 
+func tween_size():
+	var tween = create_tween()
+	tween.tween_property($Shuffle,"size", Vector2(2.2,2.2),0.5)
+	await get_tree().create_timer(0.5).timeout
+	tween.tween_property($Shuffle,"size", Vector2(2,2),0.5)
 
 func _on_shuffle_pressed():
+	tween_size()
 	emit_signal("camera_effect", 10)
 	shuffle_board()
 	shuffles_left -= 1

@@ -154,7 +154,7 @@ func update_treasures_bar():
 	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
 	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
-	$Gems/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
 
 
 func _on_leave_button_pressed():

@@ -257,6 +257,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_nvkye")
 theme_override_font_sizes/font_size = 32
 text = "Option 1"
+autowrap_mode = 2
 
 [node name="Button2" type="Button" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
@@ -265,6 +266,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_nvkye")
 theme_override_font_sizes/font_size = 32
 text = "Option 2"
+autowrap_mode = 2
 
 [node name="Button3" type="Button" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
@@ -273,6 +275,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_nvkye")
 theme_override_font_sizes/font_size = 32
 text = "Option 3"
+autowrap_mode = 2
 
 [node name="Resolution" type="Panel" parent="Control"]
 layout_mode = 1
