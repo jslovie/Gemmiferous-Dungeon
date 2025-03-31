@@ -83,3 +83,19 @@ func _on_barbarian_type_mouse_entered():
 
 func _on_barbarian_type_mouse_exited():
 	$DescriptionBarbarian.visible = false
+
+
+func _on_home_pressed():
+	$Pause.visible = true
+
+func _on_back_pressed():
+	$Pause.visible = false
+
+func _on_menu_pressed():
+	LevelManager.back_to_village()
+
+func _on_menu_mouse_entered():
+	$Pause/Progress.visible = true
+	
+func _on_menu_mouse_exited():
+	$Pause/Progress.visible = false

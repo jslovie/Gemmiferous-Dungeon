@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bmk20yax6xshm"]
+[gd_scene load_steps=23 format=4 uid="uid://bmk20yax6xshm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_map.gd" id="1_7n5ek"]
 [ext_resource type="PackedScene" uid="uid://ck1wk0h13dqbh" path="res://scenes/dungeons/level_selection.tscn" id="1_fovlk"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="9_x6sp5"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="10_kn7bq"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="11_ilkoa"]
+[ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="18_wj36p"]
+[ext_resource type="Texture2D" uid="uid://dwnp3opnljr31" path="res://assets/32rogues/Icons/Home_highlighted.png" id="19_bqa15"]
+[ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="20_nhsug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i43qi"]
 texture = ExtResource("5_bqnj5")
@@ -879,7 +882,6 @@ level = 3
 path = "C"
 
 [node name="DungeonF2_1" type="Node2D" parent="Dungeons"]
-visible = false
 position = Vector2(451, 104)
 scale = Vector2(0.8, 0.8)
 
@@ -1180,7 +1182,7 @@ offset_left = 1048.75
 offset_top = 527.5
 offset_right = 1080.75
 offset_bottom = 559.5
-type = "Enemy"
+type = "Shop"
 floor_set = 2
 level = 17
 path = "ABC"
@@ -2275,3 +2277,97 @@ type = "Boss"
 floor_set = 4
 level = 50
 path = "ABC"
+
+[node name="Home" type="TextureButton" parent="."]
+offset_left = 1840.0
+offset_top = 16.0
+offset_right = 1872.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("18_wj36p")
+texture_hover = ExtResource("19_bqa15")
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+z_index = 50
+layout_mode = 3
+anchors_preset = 0
+offset_left = 663.0
+offset_top = 18.0
+offset_right = 703.0
+offset_bottom = 58.0
+
+[node name="ColorRect2" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -844.0
+offset_top = -70.0
+offset_right = 1399.0
+offset_bottom = 1096.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.807843)
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 894.0
+offset_right = 619.0
+offset_bottom = 988.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.517647)
+
+[node name="Settings" parent="Pause" instance=ExtResource("20_nhsug")]
+layout_mode = 1
+offset_left = 280.0
+offset_top = 456.0
+offset_right = 280.0
+offset_bottom = 456.0
+
+[node name="Back" type="Button" parent="Pause"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 811.0
+offset_right = 147.0
+offset_bottom = 851.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_5rtj8")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Menu" type="Button" parent="Pause"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 0
+offset_left = 299.0
+offset_top = 811.0
+offset_right = 429.0
+offset_bottom = 851.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_5rtj8")
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="Progress" type="Label" parent="Pause"]
+visible = false
+layout_mode = 0
+offset_left = -29.0
+offset_top = 946.0
+offset_right = 617.0
+offset_bottom = 976.0
+theme_override_font_sizes/font_size = 32
+text = "Please note all loot and progress will be lost"
+
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
+[connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]
+[connection signal="pressed" from="Pause/Menu" to="." method="_on_menu_pressed"]

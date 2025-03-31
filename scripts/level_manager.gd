@@ -13,7 +13,7 @@ var treasure_timesup = true
 var handle_winning = false
 var reset_complete_level = false
 var place : String
-
+var spinning = false
 
 func reset_map():
 	level_done = 0
@@ -41,5 +41,14 @@ func main_menu():
 	LevelManager.reset_map()
 	LevelManager.show_map = false
 	Loading.loading_1s()
-	get_tree().change_scene_to_file("res://scenes/GUI/start_game.tscn")
-	
+	StartGame.visible = true
+	Music.play_music_menu()
+	get_tree().change_scene_to_file("res://scenes/GUI/main_menu.tscn")
+
+func back_to_village():
+	SaveManager.remove_autosave()
+	SaveManager.remove_resources()
+	LevelManager.reset_map()
+	Loading.loading_1s()
+	LevelManager.show_map = false
+	get_tree().change_scene_to_file("res://scenes/village.tscn")

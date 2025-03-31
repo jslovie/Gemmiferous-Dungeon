@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ItemUpgrade" load_steps=6 format=3 uid="uid://q8xaojgkclwr"]
+
+[ext_resource type="Script" path="res://scripts/shop_items/item_upgrade.gd" id="1_c5m7b"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="1_gjpvp"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="2_8xayj"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="3_4fxaq"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="4_dkyjo"]
+
+[resource]
+script = ExtResource("1_c5m7b")
+item = "Initial Shield"
+description = " + to initial Shield"
+origin_value = 0
+value_lvl_1 = 2
+value_lvl_2 = 3
+value_lvl_3 = 1
+value_lvl_4 = 2
+value_lvl_5 = 2
+price_coin_lvl_1 = 20
+price_coin_lvl_2 = 45
+price_coin_lvl_3 = 65
+price_coin_lvl_4 = 85
+price_coin_lvl_5 = 130
+price_gem_lvl_1 = 12
+price_gem_lvl_2 = 25
+price_gem_lvl_3 = 38
+price_gem_lvl_4 = 49
+price_gem_lvl_5 = 70
+gem_color_lvl_1 = ExtResource("1_gjpvp")
+gem_color_lvl_2 = ExtResource("2_8xayj")
+gem_color_lvl_3 = ExtResource("3_4fxaq")
+gem_color_lvl_4 = ExtResource("4_dkyjo")
+gem_color_lvl_5 = ExtResource("2_8xayj")

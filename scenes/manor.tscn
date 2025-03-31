@@ -986,6 +986,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_jb623")
 
 [node name="ShopName" type="Sprite2D" parent="BookFrontPage"]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
 position = Vector2(778, 283)
 scale = Vector2(4, 4)
 texture = ExtResource("3_607d0")
@@ -1011,11 +1012,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Paper" type="Sprite2D" parent="BookFrontPage"]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
 position = Vector2(774, 517)
 scale = Vector2(2, 2)
 texture = ExtResource("16_lae42")
 
 [node name="Paper2" type="Sprite2D" parent="BookFrontPage"]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
 position = Vector2(1140, 517)
 scale = Vector2(2, 2)
 texture = ExtResource("16_lae42")

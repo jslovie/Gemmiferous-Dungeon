@@ -18,9 +18,16 @@ var yellow_gem_effect = load("res://scenes/GUI/yellow_gem.tscn")
 
 func _process(_delta):
 	update_spins()
-
-func pull():
+	check_for_continued()
 	
+func check_for_continued():
+	if LevelManager.spinning == true:
+		$Continue.visible = false
+	elif LevelManager.spinning == false:
+		$Continue.visible = true
+		
+func pull():
+	LevelManager.spinning = true
 	$Key.play("open")
 	Sfx.play_SFX(Sfx.key)
 	await get_tree().create_timer(0.2).timeout

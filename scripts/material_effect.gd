@@ -76,22 +76,31 @@ func _on_area_2d_area_entered(area):
 			PlayerManager.player.iron += 1
 		elif type == "Red Gem":
 			PlayerManager.player.red_gem += 1
+			LevelManager.spinning = false
 		elif type == "Blue Gem":
-			PlayerManager.player.blue_gem += 1	
+			PlayerManager.player.blue_gem += 1
+			LevelManager.spinning = false
 		elif type == "Green Gem":
-			PlayerManager.player.green_gem += 1	
+			PlayerManager.player.green_gem += 1
+			LevelManager.spinning = false
 		elif type == "Yellow Gem":
-			PlayerManager.player.yellow_gem += 1	
+			PlayerManager.player.yellow_gem += 1
+			LevelManager.spinning = false
 		elif type == "Red Gem T":
 			PlayerManager.player.red_gem += 1
+			LevelManager.spinning = false
 		elif type == "Blue Gem T":
 			PlayerManager.player.blue_gem += 1
+			LevelManager.spinning = false
 		elif type == "Green Gem T":
 			PlayerManager.player.green_gem += 1
+			LevelManager.spinning = false
 		elif type == "Yellow Gem T":
 			PlayerManager.player.yellow_gem += 1
+			LevelManager.spinning = false
 		elif type == "Coin T":
 			PlayerManager.player.coins += 1
+		
 			
 			
 			

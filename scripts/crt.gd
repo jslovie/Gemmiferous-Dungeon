@@ -11,7 +11,7 @@ func _ready():
 	hide_crt()
 	
 	
-func _process(delta):
+func _process(_delta):
 	get_CRT_parameter()
 	if crt_on == true:
 		show_crt()

@@ -36,6 +36,10 @@ var piece_multiplier = 1
 var spawned = false
 var spins_left = 0
 
+#Shield upgrades
+var upgraded_shield_max = 0
+var upgraded_shield_load = 0
+var upgraded_shield_init = 0
 
 #Weapon upgrades
 var upgraded_axe_damage  = Vector2(0,0)

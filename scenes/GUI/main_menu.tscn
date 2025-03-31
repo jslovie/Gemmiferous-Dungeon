@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk6jqnd8gq2e2"]
+
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="1_u7cxn"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 690.0
+offset_top = 342.0
+offset_right = 1378.0
+offset_bottom = 591.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Main Menu
+You should not see this
+If you do, please report
+Thanks :)"
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("1_u7cxn")]
+position = Vector2(303, 470)

@@ -53,7 +53,7 @@ offset_bottom = -154.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
-text = "Barbarian managed to return from the dungeon alive
+text = "The barbarian managed to return from the dungeon alive.
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -61,16 +61,14 @@ autowrap_mode = 2
 
 [node name="Description2" type="Label" parent="."]
 layout_mode = 0
-offset_left = -299.0
-offset_top = 64.0
-offset_right = 304.0
-offset_bottom = 273.0
+offset_left = -316.0
+offset_top = 46.0
+offset_right = 314.0
+offset_bottom = 301.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
-text = "Some people say he kept some of the treasures for himself and spend few weeks drinking and whoring. Eventually he died of plague.
-The alegations of stealing were never confirmed.
-"
+text = "Some say he roamed the seas, chasing tales of lost islands and hidden treasures. He vanished without a trace, leaving only his journals behind. No one knows what he discovered, but his name lives on in the stories of those who sailed with him."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -89,7 +87,7 @@ text = "Treasure found:
 autowrap_mode = 2
 
 [node name="Gems" type="Node2D" parent="."]
-position = Vector2(-530, -91)
+position = Vector2(-525, -99)
 scale = Vector2(1.5, 1.5)
 
 [node name="GemsNames" type="GridContainer" parent="Gems"]
@@ -118,58 +116,59 @@ position = Vector2(0, 81.5)
 texture = ExtResource("8_2bydy")
 
 [node name="GemsNumbers" type="GridContainer" parent="Gems"]
-offset_left = 217.0
-offset_top = -7.5
-offset_right = 262.0
-offset_bottom = 83.5
+offset_left = 208.667
+offset_top = -8.66667
+offset_right = 253.667
+offset_bottom = 82.3333
 scale = Vector2(1.1, 1.1)
 
 [node name="RedGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
-text = "9999"
+text = ": 9999"
 
 [node name="GreenGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
-text = "9999"
+text = ": 9999"
 
 [node name="BlueGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
-text = "9999"
+text = ": 9999"
 
 [node name="YellowGemNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
-text = "9999"
+text = ": 9999"
 
 [node name="CoinNumber" type="Label" parent="Gems/GemsNumbers"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
-text = "9999"
+text = ": 9999"
 
 [node name="Exit" type="TextureButton" parent="."]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
 layout_mode = 0
 offset_left = -186.0
-offset_top = 289.0
+offset_top = 308.0
 offset_right = -113.0
-offset_bottom = 307.0
+offset_bottom = 326.0
 scale = Vector2(5, 5)
 texture_normal = ExtResource("9_0w02h")
 texture_hover = ExtResource("10_m3301")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -178.0
-offset_top = 315.0
-offset_right = 176.0
-offset_bottom = 345.0
+offset_left = -179.0
+offset_top = 335.0
+offset_right = 175.0
+offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vkjl0")
 theme_override_font_sizes/font_size = 32
@@ -191,7 +190,7 @@ text = "Material found:
 autowrap_mode = 2
 
 [node name="Material" type="Node2D" parent="."]
-position = Vector2(84, -233)
+position = Vector2(84, -240)
 scale = Vector2(1.1, 1.1)
 
 [node name="Wood" type="Sprite2D" parent="Material"]

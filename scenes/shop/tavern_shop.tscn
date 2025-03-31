@@ -11,6 +11,7 @@
 text = "Tavern"
 
 [node name="CardGame" type="TextureButton" parent="." index="6"]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
 offset_left = 993.0
 offset_top = 458.0
 offset_right = 1066.0

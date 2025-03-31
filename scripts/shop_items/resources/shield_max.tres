@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ItemUpgrade" load_steps=6 format=3 uid="uid://b5qdfsb5v08tk"]
+
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="1_kwdn2"]
+[ext_resource type="Script" path="res://scripts/shop_items/item_upgrade.gd" id="1_o8coe"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="2_gqsyt"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="3_ed3jw"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="4_sjfwx"]
+
+[resource]
+script = ExtResource("1_o8coe")
+item = "Max Shield"
+description = " + to Max Shield"
+origin_value = 0
+value_lvl_1 = 2
+value_lvl_2 = 3
+value_lvl_3 = 3
+value_lvl_4 = 2
+value_lvl_5 = 5
+price_coin_lvl_1 = 30
+price_coin_lvl_2 = 50
+price_coin_lvl_3 = 68
+price_coin_lvl_4 = 99
+price_coin_lvl_5 = 150
+price_gem_lvl_1 = 30
+price_gem_lvl_2 = 45
+price_gem_lvl_3 = 60
+price_gem_lvl_4 = 90
+price_gem_lvl_5 = 120
+gem_color_lvl_1 = ExtResource("1_kwdn2")
+gem_color_lvl_2 = ExtResource("2_gqsyt")
+gem_color_lvl_3 = ExtResource("3_ed3jw")
+gem_color_lvl_4 = ExtResource("1_kwdn2")
+gem_color_lvl_5 = ExtResource("4_sjfwx")

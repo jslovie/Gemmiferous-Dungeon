@@ -10,7 +10,7 @@ health_increase = 6
 max_health = 65.0
 shield_increase = 5
 damage = Vector2(5, 10)
-coin_worth = 8
+coin_worth = 14
 action_delay = Vector2(2, 6)
 blood_type = "Green"
 

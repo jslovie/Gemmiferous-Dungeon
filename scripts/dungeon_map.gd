@@ -95,3 +95,19 @@ func visual_update_stats():
 		$Stats/StatsNames/BaseAction3.visible = false
 		$Stats/StatsNumbers/BaseAction3Number. visible = false
 		
+
+
+func _on_home_pressed():
+	$Pause.visible = true
+
+func _on_back_pressed():
+	$Pause.visible = false
+
+func _on_menu_pressed():
+	LevelManager.back_to_village()
+
+func _on_menu_mouse_entered():
+	$Pause/Progress.visible = true
+	
+func _on_menu_mouse_exited():
+	$Pause/Progress.visible = false

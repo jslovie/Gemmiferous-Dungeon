@@ -293,12 +293,6 @@ func pause():
 func unpause():
 	$Pause.visible = false
 
-func back_to_village():
-	SaveManager.remove_autosave()
-	SaveManager.remove_resources()
-	LevelManager.reset_map()
-	LevelManager.show_map = false
-	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 func _on_player_died_update_total_bar():
 	$MaterialTotal.visible = true
@@ -331,8 +325,7 @@ func _on_back_pressed():
 	unpause()
 
 func _on_menu_pressed():
-	Loading.loading_2s()
-	back_to_village()
+	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
 	$Pause/Progress.visible = true

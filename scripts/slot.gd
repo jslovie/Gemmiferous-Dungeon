@@ -12,12 +12,10 @@ var time_interval = 0.00001
 var rng = RandomNumberGenerator.new()
 var random_value = 0
 
-func _ready():
-	rng.randomize()
-	
 	
 func _handle_pulled():
-	random_value = 60 * rng.randi_range(2,3)
+	rng.randomize()
+	random_value = 4 * rng.randi_range(30,60)
 	for i in random_value:
 		if round(row.position.y) >= 0:
 			row.position.y = TURN

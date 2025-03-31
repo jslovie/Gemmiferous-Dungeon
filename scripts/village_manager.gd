@@ -60,6 +60,9 @@ var holy_amulet_lvl = 1
 var invisibility_ring_lvl = 1
 var rage_ring_lvl = 1
 
+var shield_init_lvl = 1
+var shield_load_lvl = 1
+var shield_max_lvl = 1
 
 var woodcutter_timer = Timer.new()
 var stone_mine_timer = Timer.new()

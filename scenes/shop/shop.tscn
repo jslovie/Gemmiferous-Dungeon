@@ -22,6 +22,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("1_5ir33")
 
 [node name="ShopName" type="Sprite2D" parent="."]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
 position = Vector2(778, 283)
 scale = Vector2(4, 4)
 texture = ExtResource("2_4ja56")
