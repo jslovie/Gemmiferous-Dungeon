@@ -1,8 +1,15 @@
 extends CanvasLayer
 
 const SAVE_PATH = "user://"
+var is_demo = false
+
 
 func _ready():
+	if OS.has_feature("Demo"):
+		$AnimationPlayer.play("Demo")
+		is_demo = true
+		$DemoVersion.add_theme_color_override("font_color", Color.ORANGE_RED)
+		$DemoVersion.visible = true
 	Music.play_music_menu()
 	$Settings.visible = false
 	$GameTitle.add_theme_color_override("font_color", Color.DARK_ORANGE)
@@ -18,6 +25,8 @@ func _process(_delta):
 	else:
 		$StartGame.text = "New Game"
 		$Buttons/StartGameNew/Label.text = "New Game"
+
+
 
 func create_test_game():
 	SaveManager.save_file = true

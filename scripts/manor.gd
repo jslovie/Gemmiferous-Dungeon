@@ -1181,3 +1181,7 @@ func _on_houses_upgrade_mouse_entered():
 		$Cost/Description.text = "Build new houses for your villagers"	
 func _on_houses_upgrade_mouse_exited():
 	$Cost.visible = false
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")

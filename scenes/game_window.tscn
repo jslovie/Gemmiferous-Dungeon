@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=122 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -11,13 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://ceov6qhg5e7pc" path="res://assets/32rogues/gems/chest_opened.png" id="6_12re3"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
 [ext_resource type="Texture2D" uid="uid://beh4dker3ieaj" path="res://assets/32rogues/gems/chest_closed.png" id="7_hg3ss"]
-[ext_resource type="Texture2D" uid="uid://m3vjmbmur66h" path="res://assets/32rogues/pieces/health_potion.png" id="9_d7cj6"]
 [ext_resource type="PackedScene" uid="uid://cbcqd1f6tddcc" path="res://scenes/camera_2d.tscn" id="9_gkok3"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
 [ext_resource type="PackedScene" uid="uid://de8pjjey6lewp" path="res://scenes/GUI/hint_effect.tscn" id="10_pi5o8"]
-[ext_resource type="Texture2D" uid="uid://u775rcwdc28k" path="res://assets/32rogues/pieces/antivenom_potion.png" id="10_x7hk7"]
 [ext_resource type="Texture2D" uid="uid://bdgpqqql7suwd" path="res://assets/VFX/Thrust VFX 02 Color 1.png" id="11_3kg1c"]
-[ext_resource type="Texture2D" uid="uid://bxfk20l7rw1x2" path="res://assets/32rogues/pieces/strenght_potion.png" id="11_7i0tj"]
 [ext_resource type="Script" path="res://scripts/wait_time.gd" id="11_ih4n0"]
 [ext_resource type="PackedScene" uid="uid://covxy0k6qglqu" path="res://scenes/slot/slot_machine.tscn" id="12_8bcan"]
 [ext_resource type="Texture2D" uid="uid://cp4p6ui015t2i" path="res://assets/VFX/Thrust VFX 02 Color 3.png" id="12_uluv3"]
@@ -942,45 +939,6 @@ theme_override_fonts/font = ExtResource("5_pg7vj")
 theme_override_font_sizes/font_size = 128
 text = "You Died!"
 
-[node name="Inventory" type="Node2D" parent="."]
-visible = false
-position = Vector2(-337, 9)
-
-[node name="InventoryGrid" type="HBoxContainer" parent="Inventory"]
-offset_left = -305.0
-offset_top = 16.0
-offset_right = -33.0
-offset_bottom = 101.0
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="Button" type="Button" parent="Inventory/InventoryGrid"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Inventory/InventoryGrid/Button"]
-position = Vector2(45, 36)
-scale = Vector2(4, 4)
-texture = ExtResource("9_d7cj6")
-
-[node name="Button2" type="Button" parent="Inventory/InventoryGrid"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-
-[node name="Sprite2D2" type="Sprite2D" parent="Inventory/InventoryGrid/Button2"]
-position = Vector2(43, 36)
-scale = Vector2(4, 4)
-texture = ExtResource("10_x7hk7")
-
-[node name="Button3" type="Button" parent="Inventory/InventoryGrid"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 2
-
-[node name="Sprite2D2" type="Sprite2D" parent="Inventory/InventoryGrid/Button3"]
-position = Vector2(43, 39)
-scale = Vector2(4, 4)
-texture = ExtResource("11_7i0tj")
-
 [node name="WaitTime" type="Control" parent="."]
 process_mode = 2
 visible = false
@@ -1739,7 +1697,6 @@ text = "Please note all loot and progress will be lost"
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
-[connection signal="pressed" from="Inventory/InventoryGrid/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
 [connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
 [connection signal="area_entered" from="Material/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]

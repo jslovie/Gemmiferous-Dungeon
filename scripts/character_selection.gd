@@ -59,18 +59,6 @@ func total_gems_check():
 	else:
 		$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
-func _on_back_button_pressed():
-	$Background/DoorClosed.visible = true
-	Transition.transition()
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/village.tscn")
-
-func _on_back_button_mouse_entered():
-	$Back/BackButton/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
-
-func _on_back_button_mouse_exited():
-	$Back/BackButton/Label.add_theme_color_override("font_color", Color.WHITE)
-
 
 func _on_rogue_type_mouse_entered():
 	$DescriptionRogue.visible = true

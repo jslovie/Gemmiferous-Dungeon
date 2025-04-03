@@ -16,6 +16,8 @@ var place : String
 var spinning = false
 
 func reset_map():
+	PlayerManager.player.player_won = false
+	handle_winning = false
 	level_done = 0
 	available_level = 1
 	chosen_path = "ABC"

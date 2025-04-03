@@ -306,6 +306,11 @@ func get_killed():
 	LevelManager.level_done += 1
 	if LevelManager.available_level == 11:
 		LevelManager.floor += 1
+	if LevelManager.available_level == 2:
+			PlayerManager.player.player_won = true
+	if OS.has_feature("Demo"):
+		if LevelManager.available_level == 2:
+			PlayerManager.player.player_won = true
 	if LevelManager.available_level == 51:
 		PlayerManager.player.player_won = true
 	#Shield Cap

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=14 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
@@ -132,6 +132,44 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_a6b2h"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_0l2mt")
+
+[sub_resource type="Animation" id="Animation_57v0p"]
+resource_name = "Demo"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DemoVersion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_54e52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DemoVersion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bq0w"]
+_data = {
+"Demo": SubResource("Animation_57v0p"),
+"RESET": SubResource("Animation_54e52")
+}
 
 [node name="StartGame" type="CanvasLayer"]
 script = ExtResource("1_wk5s1")
@@ -371,6 +409,24 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 32
 text = "Back	"
+
+[node name="DemoVersion" type="Label" parent="."]
+offset_left = 1317.0
+offset_top = 137.0
+offset_right = 1947.0
+offset_bottom = 227.0
+rotation = 0.488596
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(315, 45)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_font_sizes/font_size = 96
+text = "Demo Version!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6bq0w")
+}
 
 [connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]
