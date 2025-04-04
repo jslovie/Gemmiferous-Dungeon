@@ -1095,13 +1095,6 @@ texture_normal = ExtResource("5_vx1r2")
 texture_pressed = ExtResource("6_uh8ok")
 texture_hover = ExtResource("7_uctvj")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 755.0
-offset_top = 697.0
-offset_right = 763.0
-offset_bottom = 705.0
-text = "Test"
-
 [connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="EnterTheDungeon" to="." method="_on_enter_the_dungeon_pressed"]
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_mouse_entered"]
@@ -1185,4 +1178,3 @@ text = "Test"
 [connection signal="pressed" from="BookFrontPage/EnterDungeon" to="." method="_on_enter_dungeon_pressed"]
 [connection signal="pressed" from="BookFrontPage/VillageManagement" to="." method="_on_village_management_pressed"]
 [connection signal="pressed" from="BookFrontPage/ExitShopFrontPage" to="." method="_on_exit_shop_front_page_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

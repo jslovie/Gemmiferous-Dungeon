@@ -164,7 +164,9 @@ func _on_continue_pressed():
 	if PlayerManager.player.spins_left > 0:
 		$SpinsLeft.visible = true
 	else:
+		visible = false
 		if PlayerManager.player.player_won == true:
+			PlayerManager.player.set_treasure()
 			LevelManager.handle_winning = true
 		else:
 			Music.music_to_normal()

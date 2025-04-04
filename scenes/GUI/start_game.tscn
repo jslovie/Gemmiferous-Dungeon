@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=15 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv00fhk45wgqd" path="res://assets/background/Full-1-export.png" id="4_wjd5j"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="6_caqhg"]
+[ext_resource type="Texture2D" uid="uid://dhs3vuxrp12ua" path="res://assets/paper UI/cross.png" id="9_4kujo"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="9_a42n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l2mt"]
@@ -203,10 +204,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 710.0
-offset_top = -459.0
-offset_right = 1082.0
-offset_bottom = -315.0
+offset_left = 672.0
+offset_top = 478.0
+offset_right = 1044.0
+offset_bottom = 598.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -220,10 +221,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 711.0
-offset_top = -531.0
-offset_right = 1195.0
-offset_bottom = -387.0
+offset_left = 406.0
+offset_top = 478.0
+offset_right = 890.0
+offset_bottom = 598.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -381,6 +382,114 @@ theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 32
 text = "v0.5.0"
 
+[node name="DemoVersion" type="Label" parent="."]
+visible = false
+offset_left = 626.0
+offset_top = 142.0
+offset_right = 1256.0
+offset_bottom = 232.0
+rotation = -0.233504
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(315, 45)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_font_sizes/font_size = 96
+text = "Demo Version!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6bq0w")
+}
+
+[node name="DemoMessage" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 339.0
+offset_top = -438.0
+offset_right = 959.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.517647)
+
+[node name="DemoLabelTitle" type="Label" parent="DemoMessage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.5
+offset_top = 25.0
+offset_right = 306.5
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Welcome
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DemoText" type="Label" parent="DemoMessage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 97.0
+offset_right = -5.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Thank you so much for downloading the demo!
+Your support and interest in my game mean the world to me.
+I’d greatly appreciate any feedback or insights you have to offer.
+Please keep in mind that the game is still in the early stages of development, and many aspects are likely to change.
+For the full release, I plan to introduce a lot of new features and gameplay improvements.
+
+If you enjoy the gameplay loop, I’d be honored if you considered wishlisting the game.
+
+
+
+
+Thank you again, and stay safe!"
+autowrap_mode = 2
+
+[node name="Close" type="TextureButton" parent="DemoMessage"]
+layout_mode = 0
+offset_left = 588.0
+offset_right = 604.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("9_4kujo")
+
+[node name="Wishlist" type="TextureButton" parent="DemoMessage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -257.0
+offset_top = 673.0
+offset_right = 65.0
+offset_bottom = 736.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="DemoMessage/Wishlist"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Wishlist Gemmiferous 
+on Steam!"
+horizontal_alignment = 1
+
 [node name="Settings" parent="." instance=ExtResource("9_a42n4")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -410,24 +519,6 @@ theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 32
 text = "Back	"
 
-[node name="DemoVersion" type="Label" parent="."]
-offset_left = 1317.0
-offset_top = 137.0
-offset_right = 1947.0
-offset_bottom = 227.0
-rotation = 0.488596
-scale = Vector2(0.8, 0.8)
-pivot_offset = Vector2(315, 45)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_font_sizes/font_size = 96
-text = "Demo Version!"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6bq0w")
-}
-
 [connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
@@ -441,4 +532,10 @@ libraries = {
 [connection signal="mouse_entered" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_mouse_exited"]
 [connection signal="pressed" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_pressed"]
+[connection signal="mouse_entered" from="DemoMessage/Close" to="." method="_on_close_mouse_entered"]
+[connection signal="mouse_exited" from="DemoMessage/Close" to="." method="_on_close_mouse_exited"]
+[connection signal="pressed" from="DemoMessage/Close" to="." method="_on_close_pressed"]
+[connection signal="mouse_entered" from="DemoMessage/Wishlist" to="." method="_on_wishlist_mouse_entered"]
+[connection signal="mouse_exited" from="DemoMessage/Wishlist" to="." method="_on_wishlist_mouse_exited"]
+[connection signal="pressed" from="DemoMessage/Wishlist" to="." method="_on_wishlist_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

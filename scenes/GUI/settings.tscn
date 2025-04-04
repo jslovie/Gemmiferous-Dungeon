@@ -105,19 +105,19 @@ theme_override_font_sizes/font_size = 32
 text = "Resolution"
 
 [node name="ResOptionButton" type="OptionButton" parent="AudioOptions/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gxcdg")
 selected = 2
 item_count = 4
 popup/item_0/text = "960x540"
-popup/item_0/id = 3
 popup/item_1/text = "1280x720"
 popup/item_1/id = 1
 popup/item_2/text = "1920x1080"
-popup/item_2/id = 1
+popup/item_2/id = 2
 popup/item_3/text = "2500x1440"
-popup/item_3/id = 2
+popup/item_3/id = 3
 
 [node name="Mode" type="Label" parent="AudioOptions/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -126,6 +126,7 @@ theme_override_font_sizes/font_size = 32
 text = "Mode"
 
 [node name="ModeOptionButton" type="OptionButton" parent="AudioOptions/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t6xnl")
 selected = 0

@@ -5,11 +5,7 @@ var is_demo = false
 
 
 func _ready():
-	if OS.has_feature("Demo"):
-		$AnimationPlayer.play("Demo")
-		is_demo = true
-		$DemoVersion.add_theme_color_override("font_color", Color.ORANGE_RED)
-		$DemoVersion.visible = true
+	demo_setup()
 	Music.play_music_menu()
 	$Settings.visible = false
 	$GameTitle.add_theme_color_override("font_color", Color.DARK_ORANGE)
@@ -26,7 +22,15 @@ func _process(_delta):
 		$StartGame.text = "New Game"
 		$Buttons/StartGameNew/Label.text = "New Game"
 
-
+func demo_setup():
+	if OS.has_feature("Demo"):
+		$DemoMessage.visible = true
+		$Testing.visible = false
+		$Remove.visible = false
+		$AnimationPlayer.play("Demo")
+		is_demo = true
+		#$DemoVersion.add_theme_color_override("font_color", Color.ORANGE_RED)
+		$DemoVersion.visible = true
 
 func create_test_game():
 	SaveManager.save_file = true
@@ -125,3 +129,25 @@ func _on_quit_game_new_mouse_exited():
 func _on_back_pressed():
 	$Settings.visible = false
 	$MarginContainer.visible = false
+
+
+func _on_close_pressed():
+	$DemoMessage.visible = false
+
+func _on_close_mouse_entered():
+	$DemoMessage/Close.modulate = Color.ORANGE_RED
+
+func _on_close_mouse_exited():
+	$DemoMessage/Close.modulate = Color.WHITE
+
+
+func _on_wishlist_pressed():
+	var res: int = OS.shell_open("steam://advertise/3507510")
+	if res != OK:
+		OS.shell_open("https://store.steampowered.com/app/3507510/Gemmiferous/")
+	
+func _on_wishlist_mouse_entered():
+	$DemoMessage/Wishlist/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+
+func _on_wishlist_mouse_exited():
+	$DemoMessage/Wishlist/Label.add_theme_color_override("font_color", Color.WHITE)

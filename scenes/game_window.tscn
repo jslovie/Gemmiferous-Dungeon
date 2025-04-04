@@ -1218,7 +1218,7 @@ text = "Continue"
 
 [node name="PlayerDied" parent="." instance=ExtResource("13_wcutr")]
 visible = false
-z_index = 30
+z_index = 100
 offset_left = 285.0
 offset_top = 514.0
 offset_right = 285.0
@@ -1227,7 +1227,7 @@ scale = Vector2(1.2, 1.2)
 
 [node name="Player_win" parent="." instance=ExtResource("14_w782t")]
 visible = false
-z_index = 30
+z_index = 100
 offset_left = 285.0
 offset_top = 514.0
 offset_right = 285.0
@@ -1699,6 +1699,7 @@ text = "Please note all loot and progress will be lost"
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
 [connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
 [connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
+[connection signal="update_total_bar" from="Player_win" to="." method="_on_player_win_update_total_bar"]
 [connection signal="area_entered" from="Material/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Wood/WoodArea2D" to="." method="_on_wood_area_2d_area_entered"]
 [connection signal="area_entered" from="Material/HBoxContainer/Stone/StoneArea2D" to="." method="_on_stone_area_2d_area_entered"]

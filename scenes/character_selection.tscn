@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://mfmhytite3rx"]
+[gd_scene load_steps=39 format=4 uid="uid://mfmhytite3rx"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_1j2bm"]
 [ext_resource type="PackedScene" uid="uid://ck1auwqa8cl0c" path="res://scenes/player_type/rogue_type.tscn" id="1_3au3l"]
@@ -26,10 +26,15 @@
 [ext_resource type="PackedScene" uid="uid://v7xutm1d7nmt" path="res://scenes/pieces/axe_piece.tscn" id="28_ttw0b"]
 [ext_resource type="PackedScene" uid="uid://bfyb02eqj3ipv" path="res://scenes/pieces/mace_piece.tscn" id="29_islwp"]
 [ext_resource type="PackedScene" uid="uid://cmw4eeyvxun18" path="res://scenes/pieces/rage_piece.tscn" id="30_pm0gk"]
+[ext_resource type="PackedScene" uid="uid://cyhrrq4evgdil" path="res://scenes/player_type/barbarian_type.tscn" id="31_h2vtn"]
 [ext_resource type="Texture2D" uid="uid://d25di2bwhrub5" path="res://assets/32rogues/pieces/relics/armor.png" id="31_phvei"]
+[ext_resource type="PackedScene" uid="uid://cxqx7mqyk6krt" path="res://scenes/player_type/holy_type.tscn" id="32_5gdtw"]
 [ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="32_oir2d"]
 [ext_resource type="Texture2D" uid="uid://dwnp3opnljr31" path="res://assets/32rogues/Icons/Home_highlighted.png" id="33_rulpw"]
+[ext_resource type="PackedScene" uid="uid://2gtn4gwciy0f" path="res://scenes/player_type/spellblade_type.tscn" id="33_xnynu"]
+[ext_resource type="PackedScene" uid="uid://bjqus2w8mosb0" path="res://scenes/player_type/knight_type.tscn" id="34_3540q"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="34_u0h7w"]
+[ext_resource type="Texture2D" uid="uid://vvn880es663f" path="res://assets/32rogues/doors/lock.png" id="35_e052o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knjw7"]
 texture = ExtResource("1_1j2bm")
@@ -362,10 +367,10 @@ shape = SubResource("CircleShape2D_ba3ls")
 
 [node name="DescriptionRogue" type="ColorRect" parent="."]
 visible = false
-offset_left = 748.0
-offset_top = 677.0
-offset_right = 1221.0
-offset_bottom = 932.0
+offset_left = 794.0
+offset_top = 726.0
+offset_right = 1267.0
+offset_bottom = 981.0
 color = Color(0, 0, 0, 0.439216)
 
 [node name="Name" type="Label" parent="DescriptionRogue"]
@@ -487,10 +492,10 @@ texture = ExtResource("27_xchyu")
 
 [node name="DescriptionBarbarian" type="ColorRect" parent="."]
 visible = false
-offset_left = 748.0
-offset_top = 677.0
-offset_right = 1230.0
-offset_bottom = 932.0
+offset_left = 794.0
+offset_top = 726.0
+offset_right = 1276.0
+offset_bottom = 981.0
 color = Color(0, 0, 0, 0.439216)
 
 [node name="Name" type="Label" parent="DescriptionBarbarian"]
@@ -619,6 +624,63 @@ scale = Vector2(2, 1.93)
 texture_normal = ExtResource("32_oir2d")
 texture_hover = ExtResource("33_rulpw")
 
+[node name="RogueType" parent="." instance=ExtResource("1_3au3l")]
+offset_left = 194.0
+offset_top = 604.0
+offset_right = 226.0
+offset_bottom = 636.0
+scale = Vector2(12, 12)
+
+[node name="BarbarianType" parent="." instance=ExtResource("31_h2vtn")]
+offset_left = 432.0
+offset_top = 356.0
+offset_right = 464.0
+offset_bottom = 388.0
+scale = Vector2(12, 12)
+
+[node name="HolyType" parent="." instance=ExtResource("32_5gdtw")]
+modulate = Color(0.370364, 0.370364, 0.370364, 1)
+offset_left = 824.0
+offset_top = 242.0
+offset_right = 856.0
+offset_bottom = 274.0
+scale = Vector2(12, 12)
+disabled = true
+
+[node name="SpellbladeType" parent="." instance=ExtResource("33_xnynu")]
+modulate = Color(0.368627, 0.368627, 0.368627, 1)
+offset_left = 1179.0
+offset_top = 332.0
+offset_right = 1211.0
+offset_bottom = 364.0
+scale = Vector2(12, 12)
+disabled = true
+
+[node name="KnightType" parent="." instance=ExtResource("34_3540q")]
+modulate = Color(0.368627, 0.368627, 0.368627, 1)
+offset_left = 1501.0
+offset_top = 597.0
+offset_right = 1533.0
+offset_bottom = 629.0
+scale = Vector2(12, 12)
+disabled = true
+flip_h = false
+
+[node name="LockHoly" type="Sprite2D" parent="."]
+position = Vector2(969, 455)
+scale = Vector2(5, 5)
+texture = ExtResource("35_e052o")
+
+[node name="LockSpellblade" type="Sprite2D" parent="."]
+position = Vector2(1349, 533)
+scale = Vector2(5, 5)
+texture = ExtResource("35_e052o")
+
+[node name="LockKinght" type="Sprite2D" parent="."]
+position = Vector2(1632, 788)
+scale = Vector2(5, 5)
+texture = ExtResource("35_e052o")
+
 [node name="Pause" type="Control" parent="."]
 visible = false
 z_index = 50
@@ -698,14 +760,11 @@ offset_bottom = 976.0
 theme_override_font_sizes/font_size = 32
 text = "Please note all loot and progress will be lost"
 
-[node name="RogueType" parent="." instance=ExtResource("1_3au3l")]
-offset_left = 522.0
-offset_top = 504.0
-offset_right = 554.0
-offset_bottom = 536.0
-scale = Vector2(10, 10)
-
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="mouse_entered" from="RogueType" to="." method="_on_rogue_type_mouse_entered"]
+[connection signal="mouse_exited" from="RogueType" to="." method="_on_rogue_type_mouse_exited"]
+[connection signal="mouse_entered" from="BarbarianType" to="." method="_on_barbarian_type_mouse_entered"]
+[connection signal="mouse_exited" from="BarbarianType" to="." method="_on_barbarian_type_mouse_exited"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]

@@ -286,6 +286,32 @@ func color_change():
 	$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
 	$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
 	
+func color_change_on_win():
+	if PlayerManager.player.wood > 0:
+		$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.stone > 0:
+		$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.iron > 0:
+		$MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.red_gem > 0:
+		$GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.blue_gem > 0:
+		$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.green_gem > 0:
+		$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.yellow_gem > 0:
+		$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
+	if PlayerManager.player.coins > 0:
+		$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+	await get_tree().create_timer(1).timeout
+	$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
+	$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
+	$MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
+	$GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+	$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+	$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+	$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+	$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
 
 func pause():
 	$Pause.visible = true
@@ -297,6 +323,8 @@ func unpause():
 func _on_player_died_update_total_bar():
 	$MaterialTotal.visible = true
 	$GemsTotal.visible = true
+	$Material.visible = false
+	$Gems.visible = false
 	await get_tree().create_timer(1).timeout
 	update_total_treasures_bar()
 	color_change()
@@ -344,3 +372,13 @@ func _on_shuffle_mouse_entered():
 
 func _on_shuffle_mouse_exited():
 	$Grid/Shuffle/TextureRect.modulate = Color(0.369, 0.38, 0.675)
+
+
+func _on_player_win_update_total_bar():
+	$MaterialTotal.visible = true
+	$GemsTotal.visible = true
+	$Material.visible = false
+	$Gems.visible = false
+	await get_tree().create_timer(1).timeout
+	update_total_treasures_bar()
+	color_change_on_win()

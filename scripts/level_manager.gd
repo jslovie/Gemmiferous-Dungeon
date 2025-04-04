@@ -15,9 +15,11 @@ var reset_complete_level = false
 var place : String
 var spinning = false
 
+var resolution
+var windows_mode
+
+
 func reset_map():
-	PlayerManager.player.player_won = false
-	handle_winning = false
 	level_done = 0
 	available_level = 1
 	chosen_path = "ABC"
@@ -25,7 +27,11 @@ func reset_map():
 	reset_complete_level = true
 	await get_tree().create_timer(1).timeout
 	reset_complete_level = false
-	
+
+func reset_win():
+	PlayerManager.player.player_won = false
+	handle_winning = false
+
 func switch_to_dungeon_map():
 	SaveManager.autosave()
 	await get_tree().create_timer(3).timeout

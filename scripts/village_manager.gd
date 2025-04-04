@@ -224,3 +224,7 @@ func reset_village_stats():
 	holy_amulet_lvl = 1
 	invisibility_ring_lvl = 1
 	rage_ring_lvl = 1
+	#Shield levels
+	shield_init_lvl = 1
+	shield_load_lvl = 1
+	shield_max_lvl = 1

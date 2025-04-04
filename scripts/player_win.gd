@@ -1,5 +1,6 @@
 extends Control
 
+signal update_total_bar
 
 var descriptions_man = {
 	description1 = "Many believe he spent his final days traveling the seas, searching for new lands to conquer. Some say he met his end in a violent storm, while others whisper of a betrayal within his own crew. His fate remains unknown.",
@@ -16,6 +17,7 @@ func _ready():
 func _process(_delta):
 	update_treasures()
 	update_materials()
+	update_description()
 
 func choose_description():
 	var description_keys = descriptions_man.keys()
@@ -40,8 +42,14 @@ func update_materials():
 	$Material/IronLabel.text = ": " + str(PlayerManager.player.iron)
 
 func _on_exit_pressed():
-	PlayerManager.player.set_treasure()
+	$Exit.visible = false
+	$Label.visible = false
 	SaveManager.savefilesave()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	emit_signal("update_total_bar")
+	await get_tree().create_timer(2.5).timeout
+	SaveManager.remove_autosave()
+	SaveManager.savefilesave()
+	LevelManager.reset_win()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
