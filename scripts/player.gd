@@ -36,6 +36,9 @@ var piece_multiplier = 1
 var spawned = false
 var spins_left = 0
 
+#Characted unlocks
+var barbarian_unlocked = false
+
 #Shield upgrades
 var upgraded_shield_max = 0
 var upgraded_shield_load = 0

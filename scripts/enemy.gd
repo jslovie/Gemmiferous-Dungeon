@@ -305,6 +305,8 @@ func get_killed():
 	Sfx.play_SFX(Sfx.victory)
 	LevelManager.level_done += 1
 	if LevelManager.available_level == 11:
+		PlayerManager.player.barbarian_unlocked = true
+		SaveManager.savefilesave()
 		LevelManager.floor += 1
 	if OS.has_feature("Demo"):
 		if LevelManager.available_level == 24:

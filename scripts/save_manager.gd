@@ -42,6 +42,7 @@ var autosave_data = {
 var savefile_data = {
 	player_data = {
 		save_file = false,
+		barbarian_unlocked = false,
 		total_coins = 0,
 		upgraded_axe_damage_x = 0,
 		upgraded_axe_damage_y = 0,
@@ -131,6 +132,7 @@ func update_player_data_savefile():
 	savefile_data.player_data.upgraded_sword_damage_y = p.upgraded_sword_damage.y
 	savefile_data.player_data.upgraded_bow_damage_x = p.upgraded_bow_damage.x
 	savefile_data.player_data.upgraded_bow_damage_y = p.upgraded_bow_damage.y
+	savefile_data.player_data.barbarian_unlocked = p.barbarian_unlocked
 	savefile_data.player_data.total_coins = p.total_coins
 	savefile_data.gems.total_red_gem = p.total_red_gem
 	savefile_data.gems.total_green_gem = p.total_green_gem
@@ -320,7 +322,8 @@ func load_savefile():
 	savefile_data.player_data.upgraded_axe_damage_x, savefile_data.player_data.upgraded_axe_damage_y,
 	savefile_data.player_data.upgraded_mace_damage_x, savefile_data.player_data.upgraded_mace_damage_y,
 	savefile_data.player_data.upgraded_sword_damage_x, savefile_data.player_data.upgraded_sword_damage_y,
-	savefile_data.player_data.upgraded_bow_damage_x, savefile_data.player_data.upgraded_bow_damage_y)
+	savefile_data.player_data.upgraded_bow_damage_x, savefile_data.player_data.upgraded_bow_damage_y, 
+	savefile_data.player_data.barbarian_unlocked,)
 	
 	VillageManager.set_village_stats(savefile_data.village.manor_lvl, savefile_data.village.tavern_lvl, savefile_data.village.weaponsmith_lvl, savefile_data.village.armourer_lvl, 
 	savefile_data.village.sorcerer_lvl, savefile_data.village.woodcutters_lvl, savefile_data.village.stone_mine_lvl, savefile_data.village.iron_mine_lvl, savefile_data.village.rathaus_lvl,

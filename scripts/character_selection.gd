@@ -1,15 +1,28 @@
 extends Node2D
 
+var is_demo = false
 
 func _ready():
+	if OS.has_feature("Demo"):
+		is_demo = true
+	else:
+		is_demo = false
 	Music.play_music_selection()
 	SaveManager.load_savefile()
-
+	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
+	
 func _process(delta):
 	update_treasures()
 	update_materials()
 	total_gems_check()
 	total_material_check()
+	check_unlocked()
+
+func check_unlocked():
+	if PlayerManager.player.barbarian_unlocked == false:
+		$BarbarianType.disabled = true
+		$LockBarbarian.visible = true
+		$BarbarianType.modulate = Color(0.369, 0.369, 0.369)
 
 func update_treasures():
 	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.total_red_gem)
@@ -68,10 +81,13 @@ func _on_rogue_type_mouse_exited():
 
 func _on_barbarian_type_mouse_entered():
 	$DescriptionBarbarian.visible = true
-
+	if PlayerManager.player.barbarian_unlocked == false:
+		$Unlock.text = "Beat first boss to unlock!"
+		$Unlock.visible = true
+		
 func _on_barbarian_type_mouse_exited():
 	$DescriptionBarbarian.visible = false
-
+	$Unlock.visible = false
 
 func _on_home_pressed():
 	$Pause.visible = true
@@ -87,3 +103,23 @@ func _on_menu_mouse_entered():
 	
 func _on_menu_mouse_exited():
 	$Pause/Progress.visible = false
+
+
+func _on_holy_type_mouse_entered():
+	if is_demo:
+		$NotAvailable.visible = true
+func _on_holy_type_mouse_exited():
+	if is_demo:
+		$NotAvailable.visible = false
+func _on_spellblade_type_mouse_entered():
+	if is_demo:
+		$NotAvailable.visible = true
+func _on_spellblade_type_mouse_exited():
+	if is_demo:
+		$NotAvailable.visible = false
+func _on_knight_type_mouse_entered():
+	if is_demo:
+		$NotAvailable.visible = true
+func _on_knight_type_mouse_exited():
+	if is_demo:
+		$NotAvailable.visible = false

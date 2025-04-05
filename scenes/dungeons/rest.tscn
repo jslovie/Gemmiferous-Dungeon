@@ -395,15 +395,15 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 648.0
+offset_left = 634.0
 offset_top = 433.0
-offset_right = 1329.0
+offset_right = 1333.0
 offset_bottom = 706.0
 theme_override_fonts/font = ExtResource("4_l0rkg")
 theme_override_font_sizes/font_size = 32
 text = "You see a campfire and stairs that probably lead directly up to the manor.
 
-You have to decide if you want to rest, take all the loot to the manor and come back, or leave this place forever with all your loot."
+You have to decide whether  you want to rest, take all the loot to the manor and come back, or leave this place forever with all your loot."
 horizontal_alignment = 1
 autowrap_mode = 2
 

@@ -109,6 +109,10 @@ func _on_options_new_pressed():
 func _on_quit_game_new_pressed():
 	Sfx.play_SFX(Sfx.menu_confirm)
 	SaveManager.remove_autosave()
+	if OS.has_feature("Demo"):
+		var res: int = OS.shell_open("steam://advertise/3507510")
+		if res != OK:
+			OS.shell_open("https://store.steampowered.com/app/3507510/Gemmiferous/")
 	get_tree().quit()
 
 

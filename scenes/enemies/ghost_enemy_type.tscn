@@ -11,7 +11,7 @@ max_health = 85.0
 shield = 2.0
 shield_increase = 5
 damage = Vector2(1, 15)
-coin_worth = 15
+coin_worth = 19
 action_delay = Vector2(5, 8)
 blood_type = "Ghost"
 

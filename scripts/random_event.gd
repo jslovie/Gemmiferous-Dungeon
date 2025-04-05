@@ -13,6 +13,7 @@ var health_lost
 var health_gained
 
 func _ready():
+	Music.play_music_random_event()
 	LevelManager.level_done += 1
 	EnemyManager.enemy.type = "Trap"
 	SaveManager.load_autosave()
@@ -189,7 +190,9 @@ func handle_button():
 				resolution_screen()
 				%ResolutionText.text = "You successfully opened the chest"
 				await get_tree().create_timer(3).timeout
-				get_tree().change_scene_to_file("res://scenes/treasure.tscn")
+				LevelManager.type = "Treasure"
+				get_tree().change_scene_to_file("res://scenes/game_window.tscn")
+				
 	elif room == 5:
 		if %Button.text == "Quite disappointed, you decided to head towards the door on the other side to leave":
 			var random_resolution = randi_range(1,3)
