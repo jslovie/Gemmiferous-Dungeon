@@ -75,8 +75,9 @@ extends Node2D
 func _process(_delta):
 	update_upgrade_text()
 	update_checked()
-	check_manor_level()
 	manor_button()
+	check_manor_level()
+
 
 func update_checked():
 	if VillageManager.manor_lvl == 3 and VillageManager.houses_repaired == true:
@@ -272,37 +273,67 @@ func manor_button():
 		$TownRepair/VBoxContainer/Manor/Label.text = "Repair Manor lvl 3"
 
 func check_manor_level():
-	if VillageManager.manor_lvl == 1:
-		$TownRepair/VBoxContainer/Church.visible = true
-		$TownRepair/VBoxContainer/Tavern.visible = true
-		$TownRepair/VBoxContainer/Weaponsmith.visible = true
-		$TownRepair/VBoxContainer/Armourer.visible = true
-		$TownRepair/VBoxContainer/Sorcerer.visible = true
-	elif VillageManager.manor_lvl == 2:
-		$TownRepair/VBoxContainer/Church.visible = true
-		$TownRepair/VBoxContainer/Tavern.visible = true
-		$TownRepair/VBoxContainer/Weaponsmith.visible = true
-		$TownRepair/VBoxContainer/Armourer.visible = true
-		$TownRepair/VBoxContainer/Sorcerer.visible = true
-		$TownRepair/VBoxContainer/TownSquare.visible = true
-		$TownRepair/VBoxContainer/Farm.visible = true
-		$TownRepair/VBoxContainer/Houses.visible = true
-		$TownRepair/VBoxContainer/LeftWatchtower.visible = true
-		$TownRepair/VBoxContainer/RightWatchtower.visible = true
-	elif VillageManager.manor_lvl == 3:
-		$TownRepair/VBoxContainer/Church.visible = true
-		$TownRepair/VBoxContainer/Tavern.visible = true
-		$TownRepair/VBoxContainer/Weaponsmith.visible = true
-		$TownRepair/VBoxContainer/Armourer.visible = true
-		$TownRepair/VBoxContainer/Sorcerer.visible = true
-		$TownRepair/VBoxContainer/TownSquare.visible = true
-		$TownRepair/VBoxContainer/Farm.visible = true
-		$TownRepair/VBoxContainer/Houses.visible = true
-		$TownRepair/VBoxContainer/LeftWatchtower.visible = true
-		$TownRepair/VBoxContainer/RightWatchtower.visible = true
-		$TownRepair/VBoxContainer/WoodcuttersCamp.visible = true
-		$TownRepair/VBoxContainer/StoneMine.visible = true
-		$TownRepair/VBoxContainer/IronMine.visible = true
+	if OS.has_feature("Demo"):
+		if VillageManager.manor_lvl == 1:
+			$TownRepair/VBoxContainer/Church.visible = true
+			$TownRepair/VBoxContainer/Tavern.visible = true
+			$TownRepair/VBoxContainer/Weaponsmith.visible = true
+			$TownRepair/VBoxContainer/Armourer.visible = true
+		elif VillageManager.manor_lvl == 2:
+			$TownRepair/VBoxContainer/Church.visible = true
+			$TownRepair/VBoxContainer/Tavern.visible = true
+			$TownRepair/VBoxContainer/Weaponsmith.visible = true
+			$TownRepair/VBoxContainer/Armourer.visible = true
+			$TownRepair/VBoxContainer/TownSquare.visible = true
+			$TownRepair/VBoxContainer/Farm.visible = true
+			$TownRepair/VBoxContainer/Houses.visible = true
+			$TownRepair/VBoxContainer/WoodcuttersCamp.visible = true
+			$TownRepair/VBoxContainer/StoneMine.visible = true
+			$TownRepair/VBoxContainer/IronMine.visible = true
+		elif VillageManager.manor_lvl == 3:
+			$TownRepair/VBoxContainer/Church.visible = true
+			$TownRepair/VBoxContainer/Tavern.visible = true
+			$TownRepair/VBoxContainer/Weaponsmith.visible = true
+			$TownRepair/VBoxContainer/Armourer.visible = true
+			$TownRepair/VBoxContainer/TownSquare.visible = true
+			$TownRepair/VBoxContainer/Farm.visible = true
+			$TownRepair/VBoxContainer/Houses.visible = true
+			$TownRepair/VBoxContainer/WoodcuttersCamp.visible = true
+			$TownRepair/VBoxContainer/StoneMine.visible = true
+			$TownRepair/VBoxContainer/IronMine.visible = true
+			
+	else:
+		if VillageManager.manor_lvl == 1:
+			$TownRepair/VBoxContainer/Church.visible = true
+			$TownRepair/VBoxContainer/Tavern.visible = true
+			$TownRepair/VBoxContainer/Weaponsmith.visible = true
+			$TownRepair/VBoxContainer/Armourer.visible = true
+			$TownRepair/VBoxContainer/Sorcerer.visible = true
+		elif VillageManager.manor_lvl == 2:
+			$TownRepair/VBoxContainer/Church.visible = true
+			$TownRepair/VBoxContainer/Tavern.visible = true
+			$TownRepair/VBoxContainer/Weaponsmith.visible = true
+			$TownRepair/VBoxContainer/Armourer.visible = true
+			$TownRepair/VBoxContainer/Sorcerer.visible = true
+			$TownRepair/VBoxContainer/TownSquare.visible = true
+			$TownRepair/VBoxContainer/Farm.visible = true
+			$TownRepair/VBoxContainer/Houses.visible = true
+			$TownRepair/VBoxContainer/LeftWatchtower.visible = true
+			$TownRepair/VBoxContainer/RightWatchtower.visible = true
+		elif VillageManager.manor_lvl == 3:
+			$TownRepair/VBoxContainer/Church.visible = true
+			$TownRepair/VBoxContainer/Tavern.visible = true
+			$TownRepair/VBoxContainer/Weaponsmith.visible = true
+			$TownRepair/VBoxContainer/Armourer.visible = true
+			$TownRepair/VBoxContainer/Sorcerer.visible = true
+			$TownRepair/VBoxContainer/TownSquare.visible = true
+			$TownRepair/VBoxContainer/Farm.visible = true
+			$TownRepair/VBoxContainer/Houses.visible = true
+			$TownRepair/VBoxContainer/LeftWatchtower.visible = true
+			$TownRepair/VBoxContainer/RightWatchtower.visible = true
+			$TownRepair/VBoxContainer/WoodcuttersCamp.visible = true
+			$TownRepair/VBoxContainer/StoneMine.visible = true
+			$TownRepair/VBoxContainer/IronMine.visible = true
 
 #Manor repair
 func _on_manor_pressed():

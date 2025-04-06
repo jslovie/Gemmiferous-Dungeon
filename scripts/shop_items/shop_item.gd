@@ -76,13 +76,13 @@ func item_data_save():
 	#SaveManager.load_savefile()
 
 func process_gem(gem_texture, price_gem_lvl):
-	if str(gem_texture) == "<CompressedTexture2D#-9223371982093941084>":
+	if gem_texture == "Red":
 		PlayerManager.player.total_red_gem -= price_gem_lvl
-	elif str(gem_texture) == "<CompressedTexture2D#-9223371981439629654>":
+	elif gem_texture == "Blue":
 		PlayerManager.player.total_blue_gem -= price_gem_lvl
-	elif str(gem_texture) == "<CompressedTexture2D#-9223371981875837274>":
+	elif gem_texture == "Green":
 		PlayerManager.player.total_green_gem -= price_gem_lvl
-	elif str(gem_texture) == "<CompressedTexture2D#-9223371981003422034>":
+	elif gem_texture == "Yellow":
 		PlayerManager.player.total_yellow_gem -= price_gem_lvl
 		
 
@@ -95,7 +95,7 @@ func item_level_UP():
 			print(upgraded_item_damage)
 			print(PlayerManager.player.upgraded_axe_damage)
 			PlayerManager.player.total_coins -= prices.price_coin_lvl_1
-			process_gem(prices.gem_color_lvl_1, prices.price_gem_lvl_1)
+			process_gem(prices.gem_color_text_lvl_1, prices.price_gem_lvl_1)
 			item_data_save()
 	elif item_lvl == 2 and VillageManager.weaponsmith_lvl >= 1:
 		if PlayerManager.player.total_coins < prices.price_coin_lvl_2 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_2:
@@ -103,7 +103,7 @@ func item_level_UP():
 		else:
 			upgraded_item_damage += prices.damage_2
 			PlayerManager.player.total_coins -= prices.price_coin_lvl_2
-			process_gem(prices.gem_color_lvl_2, prices.price_gem_lvl_2)
+			process_gem(prices.gem_color_text_lvl_2, prices.price_gem_lvl_2)
 			item_data_save()
 	elif item_lvl == 3 and VillageManager.weaponsmith_lvl >= 2:
 		if PlayerManager.player.total_coins < prices.price_coin_lvl_3 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_3:
@@ -111,7 +111,7 @@ func item_level_UP():
 		else:
 			upgraded_item_damage += prices.damage_3
 			PlayerManager.player.total_coins -= prices.price_coin_lvl_3
-			process_gem(prices.gem_color_lvl_3, prices.price_gem_lvl_3)
+			process_gem(prices.gem_color_text_lvl_3, prices.price_gem_lvl_3)
 			item_data_save()
 	elif item_lvl == 4 and VillageManager.weaponsmith_lvl >= 2:
 		if PlayerManager.player.total_coins < prices.price_coin_lvl_4 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_4:
@@ -119,7 +119,7 @@ func item_level_UP():
 		else:
 			upgraded_item_damage += prices.damage_4
 			PlayerManager.player.total_coins -= prices.price_coin_lvl_4
-			process_gem(prices.gem_color_lvl_4, prices.price_gem_lvl_4)
+			process_gem(prices.gem_color_text_lvl_4, prices.price_gem_lvl_4)
 			item_data_save()
 	elif item_lvl == 5 and VillageManager.weaponsmith_lvl >= 3:
 		if PlayerManager.player.total_coins < prices.price_coin_lvl_5 or PlayerManager.player.total_red_gem < prices.price_gem_lvl_5:
@@ -127,7 +127,7 @@ func item_level_UP():
 		else:
 			upgraded_item_damage += prices.damage_5
 			PlayerManager.player.total_coins -= prices.price_coin_lvl_5
-			process_gem(prices.gem_color_lvl_5, prices.price_gem_lvl_5)
+			process_gem(prices.gem_color_text_lvl_5, prices.price_gem_lvl_5)
 			item_data_save()
 			
 	elif item_lvl == 6:

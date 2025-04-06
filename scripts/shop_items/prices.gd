@@ -29,3 +29,9 @@ class_name ShopPrices
 @export var gem_color_lvl_3 : Texture2D
 @export var gem_color_lvl_4 : Texture2D
 @export var gem_color_lvl_5 : Texture2D
+
+@export var gem_color_text_lvl_1 : String
+@export var gem_color_text_lvl_2 : String
+@export var gem_color_text_lvl_3 : String
+@export var gem_color_text_lvl_4 : String
+@export var gem_color_text_lvl_5 : String

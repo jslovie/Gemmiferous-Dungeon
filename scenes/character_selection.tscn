@@ -491,6 +491,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("27_xchyu")
 
 [node name="DescriptionBarbarian" type="ColorRect" parent="."]
+visible = false
 offset_left = 794.0
 offset_top = 726.0
 offset_right = 1276.0

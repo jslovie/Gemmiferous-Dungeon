@@ -25,8 +25,8 @@ func _process(_delta):
 func demo_setup():
 	if OS.has_feature("Demo"):
 		$DemoMessage.visible = true
-		$Testing.visible = false
-		$Remove.visible = false
+		$Testing.visible = true
+		$Remove.visible = true
 		$AnimationPlayer.play("Demo")
 		is_demo = true
 		#$DemoVersion.add_theme_color_override("font_color", Color.ORANGE_RED)
