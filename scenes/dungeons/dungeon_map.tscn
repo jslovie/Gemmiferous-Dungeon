@@ -402,6 +402,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DungeonF1_1" type="Node2D" parent="Dungeons"]
+visible = false
 position = Vector2(450, 103)
 scale = Vector2(0.8, 0.8)
 
@@ -870,6 +871,384 @@ type = "Elite Enemy"
 floor_set = 1
 level = 3
 path = "C"
+
+[node name="DungeonF1_2" type="Node2D" parent="Dungeons"]
+position = Vector2(450, 103)
+scale = Vector2(0.8, 0.8)
+
+[node name="Background" type="Node2D" parent="Dungeons/DungeonF1_2"]
+position = Vector2(3.8147e-05, -32.5)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Dungeons/DungeonF1_2/Background"]
+z_index = -1
+position = Vector2(-563.75, -130)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD/////AAAAAAYAAAD//wAAAAAAAAYAAAD//wEAAAAAAAYAAAD//wIAAAAAAAYAAAD//wMAAAAAAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAD//wgAAAAAAAYAAAD//wkAAAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAABAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAABAP//AAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAACAAcAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAYAAAABAAUAAAABAAYAAAABAAYAAAAAAAYAAAABAAcAAAADAAoAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAACAP//AAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAACAAgAAAAAAAYAAAACAAkAAAAAAAYAAAADAP//AAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAAEAP//AAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAEAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAFAP//AAAAAAYAAAAFAAAAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAFAAgAAAAAAAYAAAAFAAkAAAAAAAYAAAAGAP//AAAAAAYAAAAGAAAAAAAAAAYAAAAGAAEAAAAAAAYAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAGAAgAAAAAAAYAAAAGAAkAAAAAAAYAAAAHAP//AAAAAAYAAAAHAAAAAAAAAAYAAAAHAAEAAAAAAAYAAAAHAAIAAAAAAAYAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAHAAgAAAAAAAYAAAAHAAkAAAAAAAYAAAAIAP//AAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAAIAAgAAAAAAAYAAAAIAAkAAAAAAAYAAAAJAP//AAAAAAYAAAAJAAAAAAAAAAYAAAAJAAEAAAAAAAYAAAAJAAIAAAAAAAYAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAYAAAAJAAUAAAAAAAYAAAAJAAYAAAAAAAYAAAAJAAcAAAAAAAYAAAAJAAgAAAAAAAYAAAAJAAkAAAAAAAYAAAAKAP//AAAAAAYAAAAKAAAAAAAAAAYAAAAKAAEAAAAAAAYAAAAKAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAYAAAAKAAUAAAAAAAYAAAAKAAYAAAAAAAYAAAAKAAcAAAAAAAYAAAAKAAgAAAAAAAYAAAAKAAkAAAAAAAYAAAALAP//AAAAAAYAAAALAAAAAAAAAAYAAAALAAEAAAAAAAYAAAALAAIAAAAAAAYAAAALAAMAAAAAAAYAAAALAAQAAAAAAAYAAAALAAUAAAAAAAYAAAALAAYAAAAAAAYAAAALAAcAAAAAAAYAAAALAAgAAAAAAAYAAAALAAkAAAAAAAYAAAAMAP//AAAAAAYAAAAMAAAAAAAAAAYAAAAMAAEAAAAAAAYAAAAMAAIAAAAAAAYAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAYAAAAMAAUAAAAAAAYAAAAMAAYAAAAAAAYAAAAMAAcAAAAAAAYAAAAMAAgAAAAAAAYAAAAMAAkAAAAAAAYAAAANAP//AAAAAAYAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAACAAcAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAAAAYAAAANAAYAAAAAAAYAAAANAAcAAAAAAAYAAAANAAgAAAAAAAYAAAANAAkAAAAAAAYAAAAOAP//AAAAAAYAAAAOAAAAAAAAAAYAAAAOAAEAAAACAAcAAAAOAAIAAAAAAAYAAAAOAAMAAAAAAAYAAAAOAAQAAAAAAAYAAAAOAAUAAAAAAAYAAAAOAAYAAAAAAAYAAAAOAAcAAAACAAcAAAAOAAgAAAAAAAYAAAAOAAkAAAAAAAYAAAAPAP//AAAAAAYAAAAPAAAAAAAAAAYAAAAPAAEAAAAAAAYAAAAPAAIAAAAAAAYAAAAPAAMAAAAAAAYAAAAPAAQAAAAAAAYAAAAPAAUAAAAAAAYAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAYAAAAPAAgAAAAAAAYAAAAPAAkAAAAAAAYAAAAQAP//AAAAAAYAAAAQAAAAAAAAAAYAAAAQAAEAAAAAAAYAAAAQAAIAAAAAAAYAAAAQAAMAAAAAAAYAAAAQAAQAAAAAAAYAAAAQAAUAAAAAAAYAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAYAAAAQAAgAAAAAAAYAAAAQAAkAAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_p53bj")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Dungeons/DungeonF1_2/Background"]
+z_index = -1
+position = Vector2(-563.75, -76.25)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD/////AAAAAAYAAAD//wAAAAAAAAYAAAD//wEAAAAAAAYAAAD//wIAAAAAAAYAAAD//wMAAAAAAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAD//wgAAAAAAAYAAAD//wkAAAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAGAAkAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAABAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAABAP//AAAAAAYAAAABAAAAAAAAAAYAAAABAAEAAAACAAcAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAAAAAYAAAABAAUAAAABAAYAAAABAAYAAAAAAAYAAAABAAcAAAADAAoAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAACAP//AAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAACAAgAAAABABQAAAACAAkAAAAAAAYAAAADAP//AAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAAEAP//AAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAEAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAFAP//AAAAAAYAAAAFAAAAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAFAAgAAAAAAAYAAAAFAAkAAAAAAAYAAAAGAP//AAAAAAYAAAAGAAAAAAAAAAYAAAAGAAEAAAAAAAYAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAGAAgAAAAFAAkAAAAGAAkAAAAAAAYAAAAHAP//AAAAAAYAAAAHAAAAAAAAAAYAAAAHAAEAAAAAAAYAAAAHAAIAAAAAAAYAAAAHAAMAAAAAAAYAAAAHAAQAAAAAAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAHAAgAAAAAAAYAAAAHAAkAAAAAAAYAAAAIAP//AAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAAIAAgAAAAAAAYAAAAIAAkAAAAAAAYAAAAJAP//AAAAAAYAAAAJAAAAAAAFABMAAAAJAAEAAAAAAAYAAAAJAAIAAAAAAAYAAAAJAAMAAAAAAAYAAAAJAAQAAAAAAAYAAAAJAAUAAAAAAAYAAAAJAAYAAAAAAAYAAAAJAAcAAAAAAAYAAAAJAAgAAAAAAAYAAAAJAAkAAAAAAAYAAAAKAP//AAAAAAYAAAAKAAAAAAAAAAYAAAAKAAEAAAAAAAYAAAAKAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAAKAAQAAAAAAAYAAAAKAAUAAAAAAAYAAAAKAAYAAAAAAAYAAAAKAAcAAAAAAAYAAAAKAAgAAAAAAAYAAAAKAAkAAAAAAAYAAAALAP//AAAAAAYAAAALAAAAAAAAAAYAAAALAAEAAAAAAAYAAAALAAIAAAAAAAYAAAALAAMAAAAAAAYAAAALAAQAAAAAAAYAAAALAAUAAAAAAAYAAAALAAYAAAAAAAYAAAALAAcAAAAAAAYAAAALAAgAAAAAAAYAAAALAAkAAAAAAAYAAAAMAP//AAAAAAYAAAAMAAAAAAAAAAYAAAAMAAEAAAAAAAYAAAAMAAIAAAAAAAYAAAAMAAMAAAAAAAYAAAAMAAQAAAAAAAYAAAAMAAUAAAAAAAYAAAAMAAYAAAAAAAYAAAAMAAcAAAAAAAYAAAAMAAgAAAAAAAYAAAAMAAkAAAAAAAYAAAANAP//AAAAAAYAAAANAAAAAAAAAAYAAAANAAEAAAAAAAYAAAANAAIAAAACAAcAAAANAAMAAAAAAAYAAAANAAQAAAAAAAYAAAANAAUAAAAGAAkAAAANAAYAAAAAAAYAAAANAAcAAAAAAAYAAAANAAgAAAAAAAYAAAANAAkAAAAAAAYAAAAOAP//AAAAAAYAAAAOAAAAAAAAABQAAAAOAAEAAAACAAcAAAAOAAIAAAAAAAYAAAAOAAMAAAAAAAYAAAAOAAQAAAAAAAYAAAAOAAUAAAAAAAYAAAAOAAYAAAAAAAYAAAAOAAcAAAACAAcAAAAOAAgAAAAAAAYAAAAOAAkAAAAAAAYAAAAPAP//AAAAAAYAAAAPAAAAAAAAAAYAAAAPAAEAAAAAAAYAAAAPAAIAAAAAAAYAAAAPAAMAAAAAAAYAAAAPAAQAAAAAAAYAAAAPAAUAAAAAAAYAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAYAAAAPAAgAAAAAAAYAAAAPAAkAAAAAAAYAAAAQAP//AAAAAAYAAAAQAAAAAAAAAAYAAAAQAAEAAAAAAAYAAAAQAAIAAAAAAAYAAAAQAAMAAAAAAAYAAAAQAAQAAAAAAAYAAAAQAAUAAAAAAAYAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAYAAAAQAAgAAAAAAAYAAAAQAAkAAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_p53bj")
+
+[node name="TextureRect" type="TextureRect" parent="Dungeons/DungeonF1_2"]
+modulate = Color(0.979378, 0.923706, 0.876487, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 731.0
+offset_top = -41.0
+offset_right = 1373.0
+offset_bottom = 1097.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0aie6")
+
+[node name="Floor" type="Label" parent="Dungeons/DungeonF1_2"]
+offset_left = 1093.75
+offset_top = 27.5
+offset_right = 1337.75
+offset_bottom = 87.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5rtj8")
+theme_override_font_sizes/font_size = 64
+text = "Floor - 1"
+
+[node name="Lines" type="Node2D" parent="Dungeons/DungeonF1_2"]
+modulate = Color(0.103744, 0.103744, 0.103744, 1)
+position = Vector2(0, -54)
+
+[node name="Line2D" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(64, 113.75, 60.25, 35)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D12" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(121.5, -56.25, 60.25, 35)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D13" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(121.5, -56.25, 266.5, -108.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D14" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(164, -215, 266.5, -108.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D15" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(266.5, -113.75, 276.5, -227.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D16" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(219, -327.5, 276.5, -227.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D17" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(219, -327.5, 156.5, -212.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D18" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(219, -327.5, 157.75, -413.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D19" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(219, -327.5, 254, -422.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D20" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(75.25, -613.75, 254, -422.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D21" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(75.25, -613.75, 157.75, -412.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D2" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-16, -51.25, 60.25, 35)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D3" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-16, -51.25, -141, -115)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D4" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-164.75, -286.25, -141, -115)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D5" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-164.75, -286.25, -33.5, -327.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D6" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-124.75, -435, -33.5, -327.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D7" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(36.5, -445, -33.5, -327.5)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D8" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-33.5, -330, -42.25, -458.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D22" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(39, -445, 71.5, -611.25)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D23" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-126, -437.5, 72.75, -613.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D24" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-41, -458.75, 72.75, -613.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D10" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(74, -615, -3.5, -723.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Line2D11" type="Line2D" parent="Dungeons/DungeonF1_2/Lines"]
+position = Vector2(1016, 944)
+points = PackedVector2Array(-143.5, -786.25, -3.5, -723.75)
+width = 5.0
+default_color = Color(0.0990594, 0.106879, 0.0346922, 1)
+
+[node name="Levels" type="Node2D" parent="Dungeons/DungeonF1_2"]
+
+[node name="LevelSelection" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1045.0
+offset_top = 970.0
+offset_right = 1077.0
+offset_bottom = 1002.0
+type = "Enemy"
+floor_set = 1
+level = 1
+path = "ABC"
+
+[node name="LevelSelection2" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1045.0
+offset_top = 891.25
+offset_right = 1077.0
+offset_bottom = 923.25
+type = "Enemy"
+floor_set = 1
+level = 2
+path = "ABC"
+
+[node name="LevelSelection3" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 967.5
+offset_top = 806.25
+offset_right = 999.5
+offset_bottom = 838.25
+type = "Elite Enemy"
+floor_set = 1
+level = 3
+path = "A"
+
+[node name="LevelSelection4" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1105.0
+offset_top = 801.25
+offset_right = 1137.0
+offset_bottom = 833.25
+type = "Random Event"
+floor_set = 1
+level = 3
+path = "B"
+
+[node name="LevelSelection5" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1251.25
+offset_top = 747.5
+offset_right = 1283.25
+offset_bottom = 779.5
+type = "Enemy"
+floor_set = 1
+level = 4
+path = "ABCB"
+
+[node name="LevelSelection15" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1147.5
+offset_top = 643.75
+offset_right = 1179.5
+offset_bottom = 675.75
+type = "Treasure"
+floor_set = 1
+level = 5
+path = "B"
+
+[node name="LevelSelection16" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1258.75
+offset_top = 632.5
+offset_right = 1290.75
+offset_bottom = 664.5
+type = "Enemy"
+floor_set = 1
+level = 5
+path = "C"
+
+[node name="LevelSelection17" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1200.0
+offset_top = 535.0
+offset_right = 1232.0
+offset_bottom = 567.0
+type = "Elite Enemy"
+floor_set = 1
+level = 6
+path = "ABCB"
+
+[node name="LevelSelection18" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1145.0
+offset_top = 443.75
+offset_right = 1177.0
+offset_bottom = 475.75
+type = "Enemy"
+floor_set = 1
+level = 7
+path = "B"
+
+[node name="LevelSelection19" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1236.25
+offset_top = 433.75
+offset_right = 1268.25
+offset_bottom = 465.75
+type = "Random Event"
+floor_set = 1
+level = 7
+path = "C"
+
+[node name="LevelSelection6" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 842.5
+offset_top = 740.0
+offset_right = 874.5
+offset_bottom = 772.0
+type = "Enemy"
+floor_set = 1
+level = 4
+path = "A"
+
+[node name="LevelSelection7" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 822.5
+offset_top = 570.0
+offset_right = 854.5
+offset_bottom = 602.0
+type = "Random Event"
+floor_set = 1
+level = 5
+path = "A"
+
+[node name="LevelSelection8" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 950.0
+offset_top = 527.5
+offset_right = 982.0
+offset_bottom = 559.5
+type = "Enemy"
+floor_set = 1
+level = 6
+path = "ABCA"
+
+[node name="LevelSelection9" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 857.5
+offset_top = 420.0
+offset_right = 889.5
+offset_bottom = 452.0
+type = "Treasure"
+floor_set = 1
+level = 7
+path = "A"
+
+[node name="LevelSelection10" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1018.75
+offset_top = 412.5
+offset_right = 1050.75
+offset_bottom = 444.5
+type = "Random Event"
+floor_set = 1
+level = 7
+path = "C"
+
+[node name="LevelSelection11" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 940.0
+offset_top = 400.0
+offset_right = 972.0
+offset_bottom = 432.0
+type = "Elite Enemy"
+floor_set = 1
+level = 7
+path = "B"
+
+[node name="LevelSelection12" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1057.5
+offset_top = 243.75
+offset_right = 1089.5
+offset_bottom = 275.75
+type = "Shop"
+floor_set = 1
+level = 8
+path = "ABC"
+
+[node name="LevelSelection13" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 978.75
+offset_top = 128.75
+offset_right = 1010.75
+offset_bottom = 160.75
+type = "Rest"
+floor_set = 1
+level = 9
+path = "A"
+
+[node name="LevelSelection14" parent="Dungeons/DungeonF1_2/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 835.0
+offset_top = 70.0
+offset_right = 867.0
+offset_bottom = 102.0
+type = "Boss"
+floor_set = 1
+level = 10
+path = "A"
 
 [node name="DungeonF2_1" type="Node2D" parent="Dungeons"]
 visible = false

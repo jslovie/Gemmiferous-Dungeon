@@ -452,6 +452,24 @@ position = Vector2(-16, 6.5)
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_c1kk2")
 
+[node name="Tiles" type="Label" parent="."]
+offset_left = 665.0
+offset_top = 359.0
+offset_right = 743.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tiles:"
+
+[node name="Relics" type="Label" parent="."]
+offset_left = 665.0
+offset_top = 593.0
+offset_right = 745.0
+offset_bottom = 623.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Relics:"
+
 [node name="RelicHandler" parent="." instance=ExtResource("16_djr58")]
 unique_name_in_owner = true
 z_index = 32
@@ -463,27 +481,27 @@ offset_bottom = 35.0
 [node name="RelicUIShop" parent="." instance=ExtResource("17_s2jk7")]
 visible = true
 offset_left = 685.0
-offset_top = 600.0
+offset_top = 633.0
 offset_right = 685.0
-offset_bottom = 632.0
+offset_bottom = 665.0
 scale = Vector2(4, 4)
 relic = ExtResource("18_teyop")
 
 [node name="RelicUIShop2" parent="." instance=ExtResource("17_s2jk7")]
 visible = true
 offset_left = 877.0
-offset_top = 600.0
+offset_top = 633.0
 offset_right = 877.0
-offset_bottom = 632.0
+offset_bottom = 665.0
 scale = Vector2(4, 4)
 relic = ExtResource("19_qvklh")
 
 [node name="RelicUIShop3" parent="." instance=ExtResource("17_s2jk7")]
 visible = true
 offset_left = 1069.0
-offset_top = 600.0
+offset_top = 633.0
 offset_right = 1069.0
-offset_bottom = 632.0
+offset_bottom = 665.0
 scale = Vector2(4, 4)
 relic = ExtResource("20_yq58d")
 

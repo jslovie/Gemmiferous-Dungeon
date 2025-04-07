@@ -17,6 +17,9 @@ var coin_worth = 5
 var action_delay : Vector2
 var blood_type
 
+#Statuses
+var is_vulnerable = false
+
 var rng = RandomNumberGenerator.new()
 
 var crit = false
@@ -31,6 +34,9 @@ var coin_effect_position = Vector2(921,737)
 @onready var time = $ActionTimer
 @onready var enemy_claw_animation = %EnemyClawAnimation
 @onready var enemy_sword_animation = %EnemySwordAnimation
+
+
+
 
 func _ready():
 	stat_check()
@@ -278,17 +284,22 @@ func take_damage(damage, random_base_action):
 		elif blood_type == "Red":
 			%AnimationPlayer.play("hit_red")
 		
+		#Apply statuses
+		var total_damage = damage
+		if is_vulnerable:
+			total_damage = total_damage * 1.3
+		
 		#Visual hit number test
 		var is_top = false
 		var is_critical = false
 		if random_base_action == PlayerManager.player.base_action1.y or random_base_action == PlayerManager.player.base_action2.y or random_base_action == PlayerManager.player.base_action3.y or random_base_action == PlayerManager.player.base_action4.y:
 			is_top = true
 		var is_poison = false
-		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
+		DamageNumbers.display_number(total_damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison)
 		
 		#Logic behind getting hit
 		var health_attack = 0
-		for d in range(0, damage):
+		for d in range(0, total_damage):
 			if shield > 0:
 				shield -= 1
 			else:
