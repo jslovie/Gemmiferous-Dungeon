@@ -8,6 +8,11 @@ func _ready():
 	
 	$MarginContainer/VBoxContainer/CRTSlider.value = Crt.get_CRT_parameter()
 	
+func _process(delta):
+	$MarginContainer/VBoxContainer/MasterSlider.value = db_to_linear(AudioServer.get_bus_volume_db(0))
+	$MarginContainer/VBoxContainer/MusicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
+	$MarginContainer/VBoxContainer/SFXSlider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
+
 func _on_master_slider_mouse_exited():
 	release_focus()
 	%SFXAudio.stop()

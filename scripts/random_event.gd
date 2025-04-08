@@ -222,15 +222,17 @@ func handle_button2():
 			if random_resolution == 1:
 				resolution_screen()
 				lost_health_percentage(0.2)
-				gained_coins(200)
-				%ResolutionText.text = "You fought well and gained 200 coins, but lost " + str(health_lost) + " health"
+				var random_coins = randi_range(25,50)
+				gained_coins(random_coins)
+				%ResolutionText.text = "You fought well and gained " + str(random_coins) + " coins, but lost " + str(health_lost) + " health"
 				LevelManager.switch_to_dungeon_map()
 				
 			elif random_resolution == 2:
 				resolution_screen()
 				lost_health_percentage(0.1)
-				gained_coins(50)
-				%ResolutionText.text = "You fought good and gained 50 coins, but lost " + str(health_lost) + " health"
+				var random_coins = randi_range(15,25)
+				gained_coins(15)
+				%ResolutionText.text = "You fought good and gained " + str(random_coins) + " coins, but lost " + str(health_lost) + " health"
 				LevelManager.switch_to_dungeon_map()
 	elif room == 2:
 		resolution_screen()

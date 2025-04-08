@@ -8,35 +8,50 @@ var max_health
 var shield 
 var xp 
 
+var random_f1
+var random_f2
+var random_f3
+var random_f4
 
 func _ready():
 	LevelManager.show_map = false
-
+	choose_random_f()
+	
 func _process(_delta):
 	dungeon_map()
 	choose_map()
 
+func choose_random_f():
+	random_f1 = randi_range(1,6)
+	random_f2 = randi_range(1,3)
+
 func choose_map():
 	if LevelManager.floor == 1:
-		$Dungeons/DungeonF1_1.visible = true
-		$Dungeons/DungeonF2_1.visible = false
-		$Dungeons/DungeonF3_1.visible = false
-		$Dungeons/DungeonF4_1.visible = false
+		if random_f1 == 1:
+			%DungeonF1_1.visible = true
+		elif random_f1 == 2:
+			%DungeonF1_2.visible = true
+		elif random_f1 == 3:
+			%DungeonF1_3.visible = true
+		elif random_f1 == 4:
+			%DungeonF1_4.visible = true
+		elif random_f1 == 5:
+			%DungeonF1_5.visible = true
+		elif random_f1 == 6:
+			%DungeonF1_6.visible = true
+			
 	elif LevelManager.floor == 2:
-		$Dungeons/DungeonF1_1.visible = false
-		$Dungeons/DungeonF2_1.visible = true
-		$Dungeons/DungeonF3_1.visible = false
-		$Dungeons/DungeonF4_1.visible = false
+		if random_f2 == 1:
+			%DungeonF2_1.visible = true
+		elif random_f2 == 2:
+			%DungeonF2_2.visible = true
+		elif random_f2 == 3:
+			%DungeonF2_3.visible = true
+			
 	elif LevelManager.floor == 3:
-		$Dungeons/DungeonF1_1.visible = false
-		$Dungeons/DungeonF2_1.visible = false
-		$Dungeons/DungeonF3_1.visible = true
-		$Dungeons/DungeonF4_1.visible = false
+		%DungeonF3_1.visible = true
 	elif LevelManager.floor == 4:
-		$Dungeons/DungeonF1_1.visible = false
-		$Dungeons/DungeonF2_1.visible = false
-		$Dungeons/DungeonF3_1.visible = false
-		$Dungeons/DungeonF4_1.visible = true
+		%DungeonF4_1.visible = true
 		
 func dungeon_map():
 	if LevelManager.show_map == false:
@@ -104,6 +119,8 @@ func _on_back_pressed():
 	$Pause.visible = false
 
 func _on_menu_pressed():
+	$Pause.visible = false
+	choose_random_f()
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
