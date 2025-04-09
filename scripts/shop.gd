@@ -21,6 +21,7 @@ func _on_card_game_pressed():
 
 func exit_door():
 	Sfx.play_SFX(Sfx.door_close)
+	VillageManager.in_shop = false
 	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor-opened.png")
 	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-opened.png")
 	var tween = create_tween()

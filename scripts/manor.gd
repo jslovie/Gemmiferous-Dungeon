@@ -93,7 +93,10 @@ func update_checked():
 	if VillageManager.tavern_repaired == true:
 		$TownRepair/VBoxContainer/Tavern/Checked.visible = true
 		$TownRepair/VBoxContainer/Tavern.disabled = true
-		$TownUpgrades/VBoxContainer/TavernUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			print("demo")
+		else:
+			$TownUpgrades/VBoxContainer/TavernUpgrade.visible = true
 	if VillageManager.weaponsmith_repaired == true:
 		$TownRepair/VBoxContainer/Weaponsmith/Checked.visible = true
 		$TownRepair/VBoxContainer/Weaponsmith.disabled = true
@@ -126,15 +129,24 @@ func update_checked():
 	if VillageManager.woodcutters_camp_repaired == true:
 		$TownRepair/VBoxContainer/WoodcuttersCamp/Checked.visible = true
 		$TownRepair/VBoxContainer/WoodcuttersCamp.disabled = true
-		$TownUpgrades/VBoxContainer/WoodcuttersUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			print("demo")
+		else:
+			$TownUpgrades/VBoxContainer/WoodcuttersUpgrade.visible = true
 	if VillageManager.stone_mine_repaired == true:
 		$TownRepair/VBoxContainer/StoneMine/Checked.visible = true
 		$TownRepair/VBoxContainer/StoneMine.disabled = true
-		$TownUpgrades/VBoxContainer/StoneMineUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			print("demo")
+		else:
+			$TownUpgrades/VBoxContainer/StoneMineUpgrade.visible = true
 	if VillageManager.iron_mine_repaired == true:
 		$TownRepair/VBoxContainer/IronMine/Checked.visible = true
 		$TownRepair/VBoxContainer/IronMine.disabled = true
-		$TownUpgrades/VBoxContainer/IronMineUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			print("demo")
+		else:
+			$TownUpgrades/VBoxContainer/IronMineUpgrade.visible = true
 	if VillageManager.tavern_lvl == 3:
 		$TownUpgrades/VBoxContainer/TavernUpgrade/Checked.visible = true
 		$TownUpgrades/VBoxContainer/TavernUpgrade.disabled = true
@@ -226,6 +238,7 @@ func village_management_book():
 	village_management.texture_hover = load("res://assets/32rogues/doors/book-highlighted.png")
 	
 func enter_dungeon_door():
+	VillageManager.in_shop = false
 	enter_dungeon.texture_normal = load("res://assets/32rogues/doors/cell-opened.png")
 	enter_dungeon.texture_hover = load("res://assets/32rogues/doors/cell-opened.png")
 	var tween = create_tween()
@@ -254,6 +267,7 @@ func exit_door():
 
 func exit_door_front_page():
 	Sfx.play_SFX(Sfx.manor_close)
+	VillageManager.in_shop = false
 	exit_shop_front_page.texture_normal = load("res://assets/32rogues/doors/exitdoor-opened.png")
 	exit_shop_front_page.texture_hover = load("res://assets/32rogues/doors/exitdoor-opened.png")
 	var tween = create_tween()
@@ -273,7 +287,7 @@ func manor_button():
 		$TownRepair/VBoxContainer/Manor/Label.text = "Repair Manor lvl 3"
 
 func check_manor_level():
-	if OS.has_feature("Demo"):
+	if LevelManager.is_demo == true:
 		if VillageManager.manor_lvl == 1:
 			$TownRepair/VBoxContainer/Church.visible = true
 			$TownRepair/VBoxContainer/Tavern.visible = true

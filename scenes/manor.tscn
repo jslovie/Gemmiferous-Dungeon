@@ -56,8 +56,12 @@ stone_mine_repair_price = Vector3(50, 20, 45)
 stone_mine_repair_description = "Villagers will mine and process stone in nearby hills"
 iron_mine_repair_price = Vector3(65, 50, 35)
 iron_mine_repair_description = "Villagers will mine and process iron in nearby mountains"
-weaponsmith1_upgrade_price = Vector3(10, 10, 10)
-weaponsmith2_upgrade_price = Vector3(20, 20, 20)
+tavern1_upgrade_price = Vector3(45, 32, 33)
+tavern2_upgrade_price = Vector3(62, 42, 38)
+weaponsmith1_upgrade_price = Vector3(55, 60, 32)
+weaponsmith2_upgrade_price = Vector3(80, 75, 55)
+armourer1_upgrade_price = Vector3(65, 45, 55)
+armourer2_upgrade_price = Vector3(70, 54, 32)
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1918.0

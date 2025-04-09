@@ -1,5 +1,7 @@
 extends Node
 
+var in_shop = false
+
 #Facility timers
 var wood_m
 var wood_s

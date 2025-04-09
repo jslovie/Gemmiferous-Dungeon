@@ -23,9 +23,7 @@ func display_number(value, position: Vector2, is_top: bool = false, is_critical:
 		color = Color.ORANGE_RED
 	if is_electric:
 		color = Color.YELLOW
-	
-	if value == 0:
-		color = Color.TRANSPARENT
+
 	
 	number.label_settings.font_color = color
 	number.label_settings.font_size = 64

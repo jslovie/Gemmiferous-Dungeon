@@ -1,6 +1,6 @@
 extends Node
 
-
+var is_demo = false
 
 var show_map = true
 
@@ -18,6 +18,12 @@ var spinning = false
 var resolution
 var windows_mode
 
+func _ready():
+	check_demo()
+
+func check_demo():
+	if OS.has_feature("Demo"):
+		is_demo = true
 
 func reset_map():
 	level_done = 0

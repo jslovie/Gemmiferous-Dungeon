@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://djjvuxftam6qd"]
+[gd_scene load_steps=6 format=3 uid="uid://djjvuxftam6qd"]
 
 [ext_resource type="PackedScene" uid="uid://bce7meeanu3ie" path="res://scenes/shop/shop.tscn" id="1_fnvc4"]
 [ext_resource type="PackedScene" uid="uid://c03m4it8px808" path="res://scenes/shop/shop_items/shield_shop_item.tscn" id="2_25l4k"]
 [ext_resource type="Resource" uid="uid://q8xaojgkclwr" path="res://scripts/shop_items/resources/shield_init.tres" id="3_8c822"]
+[ext_resource type="Resource" uid="uid://y7mg1ex0xmic" path="res://scripts/shop_items/resources/shield_load.tres" id="4_4vsp8"]
+[ext_resource type="Resource" uid="uid://b5qdfsb5v08tk" path="res://scripts/shop_items/resources/shield_max.tres" id="5_ys8yn"]
 
 [node name="ArmourerShop" instance=ExtResource("1_fnvc4")]
 shop_name = "Armourer"
@@ -16,3 +18,17 @@ offset_top = 367.0
 offset_right = 844.0
 offset_bottom = 482.0
 upgrade_set = ExtResource("3_8c822")
+
+[node name="ShieldShopItem2" parent="." index="7" instance=ExtResource("2_25l4k")]
+offset_left = 731.0
+offset_top = 534.0
+offset_right = 844.0
+offset_bottom = 649.0
+upgrade_set = ExtResource("4_4vsp8")
+
+[node name="ShieldShopItem3" parent="." index="8" instance=ExtResource("2_25l4k")]
+offset_left = 1089.0
+offset_top = 367.0
+offset_right = 1202.0
+offset_bottom = 482.0
+upgrade_set = ExtResource("5_ys8yn")

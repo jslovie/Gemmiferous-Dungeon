@@ -196,10 +196,16 @@ func random_action():
 	var random = Random.get_rng()
 		
 	if random == "attack":
-		inflict_damage()
-		%SwordPiece.visible = true
-		await get_tree().create_timer(1.5).timeout
-		%SwordPiece.visible = false
+		if PlayerManager.player.is_invisible == true:
+			inflict_zero_damage()
+			%SwordPiece.visible = true
+			await get_tree().create_timer(1.5).timeout
+			%SwordPiece.visible = false
+		else:
+			inflict_damage()
+			%SwordPiece.visible = true
+			await get_tree().create_timer(1.5).timeout
+			%SwordPiece.visible = false
 			
 	if random == "shield":
 		if shield > 15:
@@ -220,6 +226,12 @@ func random_action():
 			%HealPiece.visible = false
 	
 	change_delay()
+
+func inflict_zero_damage():
+	if RelicManager.has_shuriken == true:
+		take_damage(3,3)
+	attack_animation()
+	PlayerManager.player.receive_damage(0)
 	
 func inflict_damage():
 	if RelicManager.has_shuriken == true:
@@ -288,6 +300,9 @@ func take_damage(damage, random_base_action):
 		var total_damage = damage
 		if is_vulnerable:
 			total_damage = total_damage * 1.3
+		if RelicManager.has_gem_necklace:
+			total_damage = total_damage * 1.4
+		
 		
 		#Visual hit number test
 		var is_top = false

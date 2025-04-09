@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://clwqkm8vxwml7"]
+[gd_scene load_steps=3 format=3 uid="uid://clwqkm8vxwml7"]
 
 [ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_8wse1"]
-[ext_resource type="Texture2D" uid="uid://xjgbi3gueipw" path="res://assets/32rogues/items.png" id="2_mfau1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ydej"]
-atlas = ExtResource("2_mfau1")
-region = Rect2(40.5256, 617.146, 14.146, 17.3138)
+[ext_resource type="Texture2D" uid="uid://bnmfsm5m0vxgy" path="res://assets/32rogues/pieces/heart.png" id="2_a23rk"]
 
 [node name="HealPiece" instance=ExtResource("1_8wse1")]
 color = "Heal"
@@ -17,5 +13,5 @@ color = Color(0.337634, 0.101624, 0.433594, 1)
 modulate = Color(0.337255, 0.101961, 0.435294, 1)
 
 [node name="Sprite2D" parent="." index="3"]
-scale = Vector2(2.5, 2.5)
-texture = SubResource("AtlasTexture_7ydej")
+scale = Vector2(2, 2)
+texture = ExtResource("2_a23rk")

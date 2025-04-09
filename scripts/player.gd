@@ -55,14 +55,16 @@ var rage = 0
 
 var has_mace = false
 var mace_stunt_chance = 10
-var stun_time = 10
+var stun_time = 3
 var mace_stunt_rarities = {
 	"nothing" : 90,
 	"stunt" : mace_stunt_chance,
 }
 
 var has_invisibility = false
+var is_invisible = false
 var invisibility_chance = 20
+var invisibility_timer = 4
 var invisibility_rarities = {
 	"nothing" : 80,
 	"invisibility" : invisibility_chance,
@@ -370,11 +372,11 @@ func handle_invisibility():
 		if invisibility_action == "invisibility":
 			var tween_invisibility = create_tween()
 			tween_invisibility.tween_property($Character, "modulate:a", 0.10, 0.5)
-			EnemyManager.enemy.stop_action()
-			await get_tree().create_timer(4).timeout
+			is_invisible = true
+			await get_tree().create_timer(invisibility_timer).timeout
 			var tween_invisibility_back = create_tween()
 			tween_invisibility_back.tween_property($Character, "modulate:a", 1.0, 0.5)
-			EnemyManager.enemy.start_action()
+			is_invisible = false
 
 func handle_rage(amount):
 	rage += amount

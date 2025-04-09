@@ -36,6 +36,7 @@ func _ready():
 	$GemsTotal.visible = false
 	wait_time()
 	load_relics()
+
 	
 func _process(_delta):
 	update_healthbars()
@@ -46,7 +47,7 @@ func _process(_delta):
 	check_enemy_debuff()
 	update_treasures_bar()
 	update_relic_description()
-	
+
 func load_relics():
 	var dir = DirAccess.open(RESOURCE_PATH)
 	for file in dir.get_files():
@@ -55,7 +56,10 @@ func load_relics():
 func update_relic_description():
 	$RelicName.text = RelicManager.relic_name
 	$RelicDescription.text = RelicManager.relic_description
-
+	if PlayerManager.player.status == "dead" or EnemyManager.enemy.status == "dead":
+		$RelicName.visible = false
+		$RelicDescription.visible = false
+		
 func change_background():
 	if LevelManager.floor == 1:
 		$Background/F1.visible = true

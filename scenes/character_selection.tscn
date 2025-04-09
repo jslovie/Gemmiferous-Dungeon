@@ -672,6 +672,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("35_e052o")
 
 [node name="LockBarbarian" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(615, 538)
 scale = Vector2(5, 5)
 texture = ExtResource("35_e052o")

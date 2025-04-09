@@ -56,6 +56,7 @@ var controlling = false
 var shuffles_left = 2
 
 func _ready():
+	change_empty_spaces()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
 	state = move
 	randomize()
@@ -76,6 +77,15 @@ func _process(_delta):
 			state = wait
 	if state == move:
 		touch_input()
+
+func change_empty_spaces():
+	if RelicManager.has_gem_necklace == true:
+		empty_spaces.clear()
+		var empty_spaces_list = [Vector2(0,0),Vector2(0,1),Vector2(0,2),Vector2(1,0),Vector2(2,0),Vector2(1,1),
+								Vector2(0,9),Vector2(0,8),Vector2(0,7),Vector2(1,9),Vector2(2,9),Vector2(1,8),
+								Vector2(7,0),Vector2(6,0),Vector2(5,0),Vector2(7,1),Vector2(7,2),Vector2(6,1),
+								Vector2(7,9),Vector2(6,9),Vector2(5,9),Vector2(7,8),Vector2(6,8),Vector2(7,7),]
+		empty_spaces.append_array(empty_spaces_list)
 
 func choose_player_type():
 	if SaveManager.autosave_data.player_data.type == "Rogue":
@@ -285,419 +295,420 @@ func material_effect(effect,column, row):
 
 	
 func destroy_matched():
-	var red_gem_load = 0
-	var blue_gem_load = 0
-	var green_gem_load = 0
-	var yellow_gem_load = 0
-	var gold_load = 0
-	var shield_load = 0
-	var shield_effect_position = Vector2(0,0)
-	var material_load = 0
-	var sword_load = 0
-	var bow_load = 0
-	var axe_load = 0
-	var mace_load = 0
-	var rage_load = 0
-	var invisibility_load = 0
-	var bolt_staff_load = 0
-	var crossbow_load = 0
-	var flail_load = 0
-	var ice_staff_load = 0
-	var maul_load = 0
-	var sickle_load = 0
-	
-	
-	
-	var was_matched = false
-	for i in width:
-		for j in height:
-			if all_pieces[i][j] != null:
-				if all_pieces[i][j].matched:
-					was_matched = true
-					#Gems
-					if all_pieces[i][j].color == "red":
-						red_gem_load += 1
-						Sfx.play_SFX(Sfx.gem)
-						$TileBreakSFX.play()
-						material_effect(red_gem_effect,i,j)
-					elif all_pieces[i][j].color == "green":
-						green_gem_load += 1
-						Sfx.play_SFX(Sfx.gem)
-						$TileBreakSFX.play()
-						material_effect(green_gem_effect,i,j)
-					elif all_pieces[i][j].color == "blue":
-						blue_gem_load += 1
-						Sfx.play_SFX(Sfx.gem)
-						$TileBreakSFX.play()
-						material_effect(blue_gem_effect,i,j)
-					elif all_pieces[i][j].color == "yellow":
-						yellow_gem_load += 1
-						Sfx.play_SFX(Sfx.gem)
-						$TileBreakSFX.play()
-						material_effect(yellow_gem_effect,i,j)
-					elif all_pieces[i][j].color == "gold":
-						gold_load += 1
-						Sfx.play_SFX(Sfx.gem)
-						$TileBreakSFX.play()
-						material_effect(coin_effect,i,j)
-					#Attacks
-					#Rogue
-					if all_pieces[i][j].color == "sword":
-						sword_load += 1
-						$TileBreakSFX.play()
-						Sfx.play_SFX(Sfx.sword)
-					elif all_pieces[i][j].color == "bow":
-						bow_load += 1
-						$TileBreakSFX.play()
-						Sfx.play_SFX(Sfx.bow)
-					elif all_pieces[i][j].color == "invisibility":
-						invisibility_load += 1
-						$TileBreakSFX.play()
-						Sfx.play_SFX(Sfx.invisibility)
-					#Barbarian
-					elif all_pieces[i][j].color == "axe":
-						axe_load += 1
-						$TileBreakSFX.play()
-						Sfx.play_SFX(Sfx.axe)
-					elif all_pieces[i][j].color == "mace":
-						mace_load += 1
-						$TileBreakSFX.play()
-						Sfx.play_SFX(Sfx.mace)
-					elif all_pieces[i][j].color == "rage":
-						rage_load += 1
-						$TileBreakSFX.play()
-						Sfx.play_SFX(Sfx.rage)
-					
-					#Shop pieces 
-					#ADD SFX
-					if all_pieces[i][j].color == "bolt":
-						bolt_staff_load += 1
-						Sfx.play_SFX(Sfx.electric)
-						$TileBreakSFX.play()
-					elif all_pieces[i][j].color == "crossbow":
-						crossbow_load += 1
-						Sfx.play_SFX(Sfx.bow)
-						$TileBreakSFX.play()
-					elif all_pieces[i][j].color == "flail":
-						flail_load += 1
-						Sfx.play_SFX(Sfx.axe)
-						$TileBreakSFX.play()
-					elif all_pieces[i][j].color == "ice":
-						ice_staff_load += 1
-						Sfx.play_SFX(Sfx.ice)
-						$TileBreakSFX.play()
-					elif all_pieces[i][j].color == "maul":
-						maul_load += 1
-						Sfx.play_SFX(Sfx.mace)
-						$TileBreakSFX.play()
-					elif all_pieces[i][j].color == "sickle":
-						sickle_load += 1
-						Sfx.play_SFX(Sfx.sword)
-						$TileBreakSFX.play()
-					
-					
-					
-					#Extras
-					elif all_pieces[i][j].color == "barbarian shield":
-						shield_load += 1
-					elif all_pieces[i][j].color == "rogue shield":
-						shield_load += 1
-					elif all_pieces[i][j].color == "shield":
-						shield_load += 1
-					elif all_pieces[i][j].color == "material":
-						Sfx.play_SFX(Sfx.material)
-						material_load += 1
-						if EnemyManager.enemy.status == "alive":
-							var random_material = randi_range(1,3)
-							if random_material == 1:
-								material_effect(wood_effect, i, j)
-							elif random_material == 2:
-								material_effect(stone_effect, i, j)
-							elif random_material == 3:
-								material_effect(iron_effect, i, j)
-					
-					if shield_load > 0:
-						shield_effect_position.x = i
-						shield_effect_position.y = j
-					var color = all_pieces[i][j].background_color
-					all_pieces[i][j].queue_free()
-					all_pieces[i][j] = null
-					make_effect(particle_effect, i, j, color)
-	######################################################################
-	if red_gem_load == 4:
-		emit_signal("camera_effect", 10)
-	elif red_gem_load >= 5:
-		emit_signal("camera_effect", 20)
-	if blue_gem_load == 4:
-		emit_signal("camera_effect", 10)
-	elif blue_gem_load >= 5:
-		emit_signal("camera_effect", 20)
-	if green_gem_load == 4:
-		emit_signal("camera_effect", 10)
-	elif green_gem_load >= 5:
-		emit_signal("camera_effect", 20)
-	if yellow_gem_load == 4:
-		emit_signal("camera_effect", 10)
-	elif yellow_gem_load >= 5:
-		emit_signal("camera_effect", 20)
-	if gold_load == 4:
-		emit_signal("camera_effect", 10)
-	elif gold_load >= 5:
-		emit_signal("camera_effect", 20)
+	if EnemyManager.enemy.status == "alive" or LevelManager.type == "Treasure":
+		var red_gem_load = 0
+		var blue_gem_load = 0
+		var green_gem_load = 0
+		var yellow_gem_load = 0
+		var gold_load = 0
+		var shield_load = 0
+		var shield_effect_position = Vector2(0,0)
+		var material_load = 0
+		var sword_load = 0
+		var bow_load = 0
+		var axe_load = 0
+		var mace_load = 0
+		var rage_load = 0
+		var invisibility_load = 0
+		var bolt_staff_load = 0
+		var crossbow_load = 0
+		var flail_load = 0
+		var ice_staff_load = 0
+		var maul_load = 0
+		var sickle_load = 0
 		
-	#Shield load
-	if shield_load == 3:
-		$TileBreakSFX.play()
-		Sfx.play_SFX(Sfx.shield)
-		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load
-		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
-	elif shield_load == 4:
-		$TileBreakSFX.play()
-		Sfx.play_SFX(Sfx.shield)
-		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 1
-		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
-		emit_signal("camera_effect", 10)
-	elif shield_load >= 5:
-		$TileBreakSFX.play()
-		Sfx.play_SFX(Sfx.shield)
-		PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2
-		material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
-		emit_signal("camera_effect", 20)
-	#Material load
-	if material_load == 4:
-		emit_signal("camera_effect", 10)
-	elif material_load >= 5:
-		emit_signal("camera_effect", 20)
-	
-	#Shop pieces
-	#Bolt staff
-	if bolt_staff_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		magic_animation(Color.YELLOW)
-		PlayerManager.player.base_action4 = Vector2(5,7)
-		PlayerManager.player.damage4_attack("electric")
-	elif bolt_staff_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		magic_animation(Color.YELLOW)
-		PlayerManager.player.base_action4 = Vector2(5,7)
-		PlayerManager.player.damage4_attack("electric")
-		emit_signal("camera_effect", 10)
-	elif bolt_staff_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		magic_animation(Color.YELLOW)
-		PlayerManager.player.base_action4 = Vector2(5,7)
-		PlayerManager.player.damage4_attack("electric")
-		emit_signal("camera_effect", 20)
-	#Crossbow
-	if crossbow_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		bow_animation()
-		PlayerManager.player.base_action4 = Vector2(2,10)
-		PlayerManager.player.damage4_attack("bleed")
-	elif crossbow_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		bow_animation()
-		PlayerManager.player.base_action4 = Vector2(2,10)
-		PlayerManager.player.damage4_attack("bleed")
-		emit_signal("camera_effect", 10)
-	elif crossbow_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		bow_animation()
-		PlayerManager.player.base_action4 = Vector2(2,10)
-		PlayerManager.player.damage4_attack("bleed")
-		emit_signal("camera_effect", 20)
-	#Flail
-	if flail_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		mace_animation()
-		PlayerManager.player.base_action4 = Vector2(6,8)
-		PlayerManager.player.damage4_attack("frail")
-	elif flail_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		mace_animation()
-		PlayerManager.player.base_action4 = Vector2(6,8)
-		PlayerManager.player.damage4_attack("frail")
-		emit_signal("camera_effect", 10)
-	elif flail_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		mace_animation()
-		PlayerManager.player.base_action4 = Vector2(6,8)
-		PlayerManager.player.damage4_attack("frail")
-		emit_signal("camera_effect", 20)
-	#Ice Staff
-	if ice_staff_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		magic_animation(Color.AQUA)
-		PlayerManager.player.base_action4 = Vector2(5,9)
-		PlayerManager.player.damage4_attack("ice")
-	elif ice_staff_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		magic_animation(Color.AQUA)
-		PlayerManager.player.base_action4 = Vector2(5,9)
-		PlayerManager.player.damage4_attack("ice")
-		emit_signal("camera_effect", 10)
-	elif ice_staff_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		magic_animation(Color.AQUA)
-		PlayerManager.player.base_action4 = Vector2(5,9)
-		PlayerManager.player.damage4_attack("ice")
-		emit_signal("camera_effect", 20)
-	#Maul
-	if maul_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		mace_animation()
-		PlayerManager.player.base_action4 = Vector2(7,8)
-		PlayerManager.player.damage4_attack("weak")
-	elif maul_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		mace_animation()
-		PlayerManager.player.base_action4 = Vector2(7,8)
-		PlayerManager.player.damage4_attack("weak")
-		emit_signal("camera_effect", 10)
-	elif maul_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		mace_animation()
-		PlayerManager.player.base_action4 = Vector2(7,8)
-		PlayerManager.player.damage4_attack("weak")
-		emit_signal("camera_effect", 20)
-	#Sickle
-	if sickle_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		sword_animation()
-		PlayerManager.player.base_action4 = Vector2(1,10)
-		PlayerManager.player.damage4_attack("vulnerable")
-	elif sickle_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		sword_animation()
-		PlayerManager.player.base_action4 = Vector2(1,10)
-		PlayerManager.player.damage4_attack("vulnerable")
-		emit_signal("camera_effect", 10)
-	elif sickle_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		sword_animation()
-		PlayerManager.player.base_action4 = Vector2(1,10)
-		PlayerManager.player.damage4_attack("vulnerable")
-		emit_signal("camera_effect", 20)
+		
+		
+		var was_matched = false
+		for i in width:
+			for j in height:
+				if all_pieces[i][j] != null:
+					if all_pieces[i][j].matched:
+						was_matched = true
+						#Gems
+						if all_pieces[i][j].color == "red":
+							red_gem_load += 1
+							Sfx.play_SFX(Sfx.gem)
+							$TileBreakSFX.play()
+							material_effect(red_gem_effect,i,j)
+						elif all_pieces[i][j].color == "green":
+							green_gem_load += 1
+							Sfx.play_SFX(Sfx.gem)
+							$TileBreakSFX.play()
+							material_effect(green_gem_effect,i,j)
+						elif all_pieces[i][j].color == "blue":
+							blue_gem_load += 1
+							Sfx.play_SFX(Sfx.gem)
+							$TileBreakSFX.play()
+							material_effect(blue_gem_effect,i,j)
+						elif all_pieces[i][j].color == "yellow":
+							yellow_gem_load += 1
+							Sfx.play_SFX(Sfx.gem)
+							$TileBreakSFX.play()
+							material_effect(yellow_gem_effect,i,j)
+						elif all_pieces[i][j].color == "gold":
+							gold_load += 1
+							Sfx.play_SFX(Sfx.gem)
+							$TileBreakSFX.play()
+							material_effect(coin_effect,i,j)
+						#Attacks
+						#Rogue
+						if all_pieces[i][j].color == "sword":
+							sword_load += 1
+							$TileBreakSFX.play()
+							Sfx.play_SFX(Sfx.sword)
+						elif all_pieces[i][j].color == "bow":
+							bow_load += 1
+							$TileBreakSFX.play()
+							Sfx.play_SFX(Sfx.bow)
+						elif all_pieces[i][j].color == "invisibility":
+							invisibility_load += 1
+							$TileBreakSFX.play()
+							Sfx.play_SFX(Sfx.invisibility)
+						#Barbarian
+						elif all_pieces[i][j].color == "axe":
+							axe_load += 1
+							$TileBreakSFX.play()
+							Sfx.play_SFX(Sfx.axe)
+						elif all_pieces[i][j].color == "mace":
+							mace_load += 1
+							$TileBreakSFX.play()
+							Sfx.play_SFX(Sfx.mace)
+						elif all_pieces[i][j].color == "rage":
+							rage_load += 1
+							$TileBreakSFX.play()
+							Sfx.play_SFX(Sfx.rage)
+						
+						#Shop pieces 
+						#ADD SFX
+						if all_pieces[i][j].color == "bolt":
+							bolt_staff_load += 1
+							Sfx.play_SFX(Sfx.electric)
+							$TileBreakSFX.play()
+						elif all_pieces[i][j].color == "crossbow":
+							crossbow_load += 1
+							Sfx.play_SFX(Sfx.bow)
+							$TileBreakSFX.play()
+						elif all_pieces[i][j].color == "flail":
+							flail_load += 1
+							Sfx.play_SFX(Sfx.axe)
+							$TileBreakSFX.play()
+						elif all_pieces[i][j].color == "ice":
+							ice_staff_load += 1
+							Sfx.play_SFX(Sfx.ice)
+							$TileBreakSFX.play()
+						elif all_pieces[i][j].color == "maul":
+							maul_load += 1
+							Sfx.play_SFX(Sfx.mace)
+							$TileBreakSFX.play()
+						elif all_pieces[i][j].color == "sickle":
+							sickle_load += 1
+							Sfx.play_SFX(Sfx.sword)
+							$TileBreakSFX.play()
+						
+						
+						
+						#Extras
+						elif all_pieces[i][j].color == "barbarian shield":
+							shield_load += 1
+						elif all_pieces[i][j].color == "rogue shield":
+							shield_load += 1
+						elif all_pieces[i][j].color == "shield":
+							shield_load += 1
+						elif all_pieces[i][j].color == "material":
+							Sfx.play_SFX(Sfx.material)
+							material_load += 1
+							if EnemyManager.enemy.status == "alive":
+								var random_material = randi_range(1,3)
+								if random_material == 1:
+									material_effect(wood_effect, i, j)
+								elif random_material == 2:
+									material_effect(stone_effect, i, j)
+								elif random_material == 3:
+									material_effect(iron_effect, i, j)
+						
+						if shield_load > 0:
+							shield_effect_position.x = i
+							shield_effect_position.y = j
+						var color = all_pieces[i][j].background_color
+						all_pieces[i][j].queue_free()
+						all_pieces[i][j] = null
+						make_effect(particle_effect, i, j, color)
+		######################################################################
+		if red_gem_load == 4:
+			emit_signal("camera_effect", 10)
+		elif red_gem_load >= 5:
+			emit_signal("camera_effect", 20)
+		if blue_gem_load == 4:
+			emit_signal("camera_effect", 10)
+		elif blue_gem_load >= 5:
+			emit_signal("camera_effect", 20)
+		if green_gem_load == 4:
+			emit_signal("camera_effect", 10)
+		elif green_gem_load >= 5:
+			emit_signal("camera_effect", 20)
+		if yellow_gem_load == 4:
+			emit_signal("camera_effect", 10)
+		elif yellow_gem_load >= 5:
+			emit_signal("camera_effect", 20)
+		if gold_load == 4:
+			emit_signal("camera_effect", 10)
+		elif gold_load >= 5:
+			emit_signal("camera_effect", 20)
+			
+		#Shield load
+		if shield_load == 3:
+			$TileBreakSFX.play()
+			Sfx.play_SFX(Sfx.shield)
+			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load
+			material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
+		elif shield_load == 4:
+			$TileBreakSFX.play()
+			Sfx.play_SFX(Sfx.shield)
+			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 1
+			material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
+			emit_signal("camera_effect", 10)
+		elif shield_load >= 5:
+			$TileBreakSFX.play()
+			Sfx.play_SFX(Sfx.shield)
+			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2
+			material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
+			emit_signal("camera_effect", 20)
+		#Material load
+		if material_load == 4:
+			emit_signal("camera_effect", 10)
+		elif material_load >= 5:
+			emit_signal("camera_effect", 20)
+		
+		#Shop pieces
+		#Bolt staff
+		if bolt_staff_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			magic_animation(Color.YELLOW)
+			PlayerManager.player.base_action4 = Vector2(5,7)
+			PlayerManager.player.damage4_attack("electric")
+		elif bolt_staff_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			magic_animation(Color.YELLOW)
+			PlayerManager.player.base_action4 = Vector2(5,7)
+			PlayerManager.player.damage4_attack("electric")
+			emit_signal("camera_effect", 10)
+		elif bolt_staff_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			magic_animation(Color.YELLOW)
+			PlayerManager.player.base_action4 = Vector2(5,7)
+			PlayerManager.player.damage4_attack("electric")
+			emit_signal("camera_effect", 20)
+		#Crossbow
+		if crossbow_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			bow_animation()
+			PlayerManager.player.base_action4 = Vector2(2,10)
+			PlayerManager.player.damage4_attack("bleed")
+		elif crossbow_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			bow_animation()
+			PlayerManager.player.base_action4 = Vector2(2,10)
+			PlayerManager.player.damage4_attack("bleed")
+			emit_signal("camera_effect", 10)
+		elif crossbow_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			bow_animation()
+			PlayerManager.player.base_action4 = Vector2(2,10)
+			PlayerManager.player.damage4_attack("bleed")
+			emit_signal("camera_effect", 20)
+		#Flail
+		if flail_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			mace_animation()
+			PlayerManager.player.base_action4 = Vector2(6,8)
+			PlayerManager.player.damage4_attack("frail")
+		elif flail_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			mace_animation()
+			PlayerManager.player.base_action4 = Vector2(6,8)
+			PlayerManager.player.damage4_attack("frail")
+			emit_signal("camera_effect", 10)
+		elif flail_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			mace_animation()
+			PlayerManager.player.base_action4 = Vector2(6,8)
+			PlayerManager.player.damage4_attack("frail")
+			emit_signal("camera_effect", 20)
+		#Ice Staff
+		if ice_staff_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			magic_animation(Color.AQUA)
+			PlayerManager.player.base_action4 = Vector2(5,9)
+			PlayerManager.player.damage4_attack("ice")
+		elif ice_staff_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			magic_animation(Color.AQUA)
+			PlayerManager.player.base_action4 = Vector2(5,9)
+			PlayerManager.player.damage4_attack("ice")
+			emit_signal("camera_effect", 10)
+		elif ice_staff_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			magic_animation(Color.AQUA)
+			PlayerManager.player.base_action4 = Vector2(5,9)
+			PlayerManager.player.damage4_attack("ice")
+			emit_signal("camera_effect", 20)
+		#Maul
+		if maul_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			mace_animation()
+			PlayerManager.player.base_action4 = Vector2(7,8)
+			PlayerManager.player.damage4_attack("weak")
+		elif maul_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			mace_animation()
+			PlayerManager.player.base_action4 = Vector2(7,8)
+			PlayerManager.player.damage4_attack("weak")
+			emit_signal("camera_effect", 10)
+		elif maul_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			mace_animation()
+			PlayerManager.player.base_action4 = Vector2(7,8)
+			PlayerManager.player.damage4_attack("weak")
+			emit_signal("camera_effect", 20)
+		#Sickle
+		if sickle_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			sword_animation()
+			PlayerManager.player.base_action4 = Vector2(1,10)
+			PlayerManager.player.damage4_attack("vulnerable")
+		elif sickle_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			sword_animation()
+			PlayerManager.player.base_action4 = Vector2(1,10)
+			PlayerManager.player.damage4_attack("vulnerable")
+			emit_signal("camera_effect", 10)
+		elif sickle_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			sword_animation()
+			PlayerManager.player.base_action4 = Vector2(1,10)
+			PlayerManager.player.damage4_attack("vulnerable")
+			emit_signal("camera_effect", 20)
 
-	#Rogue
-	#Sword update
-	if sword_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		sword_animation()
-		PlayerManager.player.damage1_attack()
-	elif sword_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		sword_animation()
-		PlayerManager.player.damage1_attack()
-		emit_signal("camera_effect", 10)
-	elif sword_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		sword_animation()
-		PlayerManager.player.damage1_attack()
-		emit_signal("camera_effect", 20)
-	#Bow update
-	if bow_load == 3:
-		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
-		PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
-		PlayerManager.player.has_bow_poison = true
-		PlayerManager.player.piece_multiplier = 1
-		PlayerManager.player.damage2_attack()
-		bow_animation()
-		PlayerManager.player.check_for_poison_arrow = false
-	elif bow_load == 4:
-		PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 25
-		PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance - 25
-		PlayerManager.player.has_bow_poison = true
-		PlayerManager.player.piece_multiplier = 1.5
-		PlayerManager.player.damage2_attack()
-		bow_animation()
-		PlayerManager.player.check_for_poison_arrow = false
-		emit_signal("camera_effect", 10)
-	elif bow_load >= 5:
-		PlayerManager.player.poison_rarities["poison"] = 100
-		PlayerManager.player.poison_rarities["nothing"] = 0
-		PlayerManager.player.has_bow_poison = true
-		PlayerManager.player.piece_multiplier = 2
-		PlayerManager.player.damage2_attack()
-		bow_animation()
-		PlayerManager.player.check_for_poison_arrow = false
-		emit_signal("camera_effect", 20)
-	#Invisibility update
-	if invisibility_load == 3:
-		PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
-		PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
-		PlayerManager.player.has_invisibility = true
-		PlayerManager.player.handle_invisibility()
-	elif invisibility_load == 4:
-		PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance + 25
-		PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance - 25
-		PlayerManager.player.has_invisibility = true
-		PlayerManager.player.handle_invisibility()
-		emit_signal("camera_effect", 10)
-	elif invisibility_load >= 5:
-		PlayerManager.player.invisibility_rarities["invisibility"] = 100
-		PlayerManager.player.invisibility_rarities["nothing"] = 0
-		PlayerManager.player.has_invisibility = true
-		PlayerManager.player.handle_invisibility()
-		emit_signal("camera_effect", 20)
-	######################################################################
-	#Barbarian
-	#Axe update
-	if axe_load == 3:
-		PlayerManager.player.piece_multiplier = 1
-		axe_animation()
-		
-		PlayerManager.player.damage1_attack()
-	elif axe_load == 4:
-		PlayerManager.player.piece_multiplier = 1.5
-		axe_animation()
-		PlayerManager.player.damage1_attack()
-		emit_signal("camera_effect", 10)
-	elif axe_load >= 5:
-		PlayerManager.player.piece_multiplier = 2
-		axe_animation()
-		PlayerManager.player.damage1_attack()
-		emit_signal("camera_effect", 20)
-	#Mace update
-	if mace_load == 3:
-		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
-		PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance
-		PlayerManager.player.has_mace = true
-		PlayerManager.player.piece_multiplier = 1
-		mace_animation()
-		PlayerManager.player.damage2_attack()
-	elif mace_load == 4:
-		PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
-		PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance - 25
-		PlayerManager.player.has_mace = true
-		PlayerManager.player.piece_multiplier = 1.5
-		mace_animation()
-		PlayerManager.player.damage2_attack()
-		emit_signal("camera_effect", 10)
-	elif mace_load >= 5:
-		PlayerManager.player.mace_stunt_rarities["stunt"] = 100
-		PlayerManager.player.mace_stunt_rarities["nothing"] = 0
-		PlayerManager.player.has_mace = true
-		PlayerManager.player.piece_multiplier = 2
-		mace_animation()
-		PlayerManager.player.damage2_attack()
-		emit_signal("camera_effect", 20)
-	#Rage update
-	if rage_load == 3:
-		PlayerManager.player.handle_rage(0.2)
-	elif rage_load == 4:
-		PlayerManager.player.handle_rage(0.4)
-		emit_signal("camera_effect", 10)
-	elif rage_load >= 5:
-		PlayerManager.player.handle_rage(0.6)
-		emit_signal("camera_effect", 20)
-		
-	move_checked = true
-	if was_matched:
-		var timer = %CollapseTimer
-		timer.start()
-	else:
-		swap_back()
+		#Rogue
+		#Sword update
+		if sword_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			sword_animation()
+			PlayerManager.player.damage1_attack()
+		elif sword_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			sword_animation()
+			PlayerManager.player.damage1_attack()
+			emit_signal("camera_effect", 10)
+		elif sword_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			sword_animation()
+			PlayerManager.player.damage1_attack()
+			emit_signal("camera_effect", 20)
+		#Bow update
+		if bow_load == 3:
+			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
+			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
+			PlayerManager.player.has_bow_poison = true
+			PlayerManager.player.piece_multiplier = 1
+			PlayerManager.player.damage2_attack()
+			bow_animation()
+			PlayerManager.player.check_for_poison_arrow = false
+		elif bow_load == 4:
+			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 25
+			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance - 25
+			PlayerManager.player.has_bow_poison = true
+			PlayerManager.player.piece_multiplier = 1.5
+			PlayerManager.player.damage2_attack()
+			bow_animation()
+			PlayerManager.player.check_for_poison_arrow = false
+			emit_signal("camera_effect", 10)
+		elif bow_load >= 5:
+			PlayerManager.player.poison_rarities["poison"] = 100
+			PlayerManager.player.poison_rarities["nothing"] = 0
+			PlayerManager.player.has_bow_poison = true
+			PlayerManager.player.piece_multiplier = 2
+			PlayerManager.player.damage2_attack()
+			bow_animation()
+			PlayerManager.player.check_for_poison_arrow = false
+			emit_signal("camera_effect", 20)
+		#Invisibility update
+		if invisibility_load == 3:
+			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
+			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
+			PlayerManager.player.has_invisibility = true
+			PlayerManager.player.handle_invisibility()
+		elif invisibility_load == 4:
+			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance + 25
+			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance - 25
+			PlayerManager.player.has_invisibility = true
+			PlayerManager.player.handle_invisibility()
+			emit_signal("camera_effect", 10)
+		elif invisibility_load >= 5:
+			PlayerManager.player.invisibility_rarities["invisibility"] = 100
+			PlayerManager.player.invisibility_rarities["nothing"] = 0
+			PlayerManager.player.has_invisibility = true
+			PlayerManager.player.handle_invisibility()
+			emit_signal("camera_effect", 20)
+		######################################################################
+		#Barbarian
+		#Axe update
+		if axe_load == 3:
+			PlayerManager.player.piece_multiplier = 1
+			axe_animation()
+			
+			PlayerManager.player.damage1_attack()
+		elif axe_load == 4:
+			PlayerManager.player.piece_multiplier = 1.5
+			axe_animation()
+			PlayerManager.player.damage1_attack()
+			emit_signal("camera_effect", 10)
+		elif axe_load >= 5:
+			PlayerManager.player.piece_multiplier = 2
+			axe_animation()
+			PlayerManager.player.damage1_attack()
+			emit_signal("camera_effect", 20)
+		#Mace update
+		if mace_load == 3:
+			PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
+			PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance
+			PlayerManager.player.has_mace = true
+			PlayerManager.player.piece_multiplier = 1
+			mace_animation()
+			PlayerManager.player.damage2_attack()
+		elif mace_load == 4:
+			PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
+			PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance - 25
+			PlayerManager.player.has_mace = true
+			PlayerManager.player.piece_multiplier = 1.5
+			mace_animation()
+			PlayerManager.player.damage2_attack()
+			emit_signal("camera_effect", 10)
+		elif mace_load >= 5:
+			PlayerManager.player.mace_stunt_rarities["stunt"] = 100
+			PlayerManager.player.mace_stunt_rarities["nothing"] = 0
+			PlayerManager.player.has_mace = true
+			PlayerManager.player.piece_multiplier = 2
+			mace_animation()
+			PlayerManager.player.damage2_attack()
+			emit_signal("camera_effect", 20)
+		#Rage update
+		if rage_load == 3:
+			PlayerManager.player.handle_rage(0.2)
+		elif rage_load == 4:
+			PlayerManager.player.handle_rage(0.4)
+			emit_signal("camera_effect", 10)
+		elif rage_load >= 5:
+			PlayerManager.player.handle_rage(0.6)
+			emit_signal("camera_effect", 20)
+			
+		move_checked = true
+		if was_matched:
+			var timer = %CollapseTimer
+			timer.start()
+		else:
+			swap_back()
 
 func collapse_columns():
 	for i in width:

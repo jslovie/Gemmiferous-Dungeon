@@ -7,8 +7,8 @@
 script = ExtResource("2_1bwcl")
 relic_name = "Gem Necklace"
 relic_texture = ExtResource("1_0a30t")
-description = "Damage modifier x1.2 but board looks like gem"
-price = 0
+description = "Damage modifier x1.4 but board looks like gem"
+price = 115
 resource_naming = "GemNecklace.tres"
 color = Color(0.235294, 0.235294, 0.235294, 1)
 is_relic = true

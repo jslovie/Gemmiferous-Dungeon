@@ -22,6 +22,13 @@ func _process(_delta):
 	check_iron_mine_icon()
 	check_buildings_state()
 	check_villagers()
+	check_in_shop()
+
+func check_in_shop():
+	if VillageManager.in_shop == true:
+		$Home.disabled = true
+	else:
+		$Home.disabled = false
 
 func total_material_check():
 	if PlayerManager.player.total_wood >= 999:
@@ -269,23 +276,27 @@ func update_materials():
 
 func _on_manor_pressed():
 	Sfx.play_SFX(Sfx.manor_open)
+	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	$Manor.visible = true
 
 func _on_taverm_pressed():
 	Sfx.play_SFX(Sfx.door_open)
+	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	$TavernShop.visible = true
 
 
 func _on_weaponsmith_pressed():
 	Sfx.play_SFX(Sfx.door_open)
+	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	$WeaponsmithShop.visible = true
 
 
 func _on_armourer_pressed():
 	Sfx.play_SFX(Sfx.door_open)
+	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	$ArmourerShop.visible = true
 

@@ -33,7 +33,9 @@ func set_relics():
 		shuriken()
 	if relic.relic_name == "Wealth Necklace":
 		wealth_necklace()
-
+	if relic.relic_name == "Gem Necklace":
+		gem_necklace()
+	
 func set_relic(new_relic: Relic):
 	if not is_node_ready():
 		await ready
@@ -103,7 +105,10 @@ func thorned_necklace():
 		RelicManager.thorned_necklade = 0
 	if RelicManager.thorned_necklade > 10:
 		RelicManager.thorned_necklade = 0
-	
+
+func gem_necklace():
+	flash()
+	RelicManager.has_gem_necklace = true
 
 func _on_mouse_entered():
 	$TextureRect.modulate = Color(0.439, 0.439, 0.439)

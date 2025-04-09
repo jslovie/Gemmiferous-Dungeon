@@ -1,5 +1,7 @@
 extends Node
 
+const RESOURCE_PATH = "user://resources/"
+
 var relic_description = ""
 var relic_name = ""
 
@@ -14,6 +16,7 @@ var thorned_necklade = 0
 var report = 0
 var has_shuriken = false
 var has_wealth_necklace = false
+var has_gem_necklace = false
 
 #pieces
 var bolt_staff = preload("res://scenes/pieces/bolt_staff_piece.tscn")
@@ -23,6 +26,16 @@ var ice_staff = preload("res://scenes/pieces/ice_staff_piece.tscn")
 var maul = preload("res://scenes/pieces/maul_piece.tscn")
 var sickle = preload("res://scenes/pieces/sickle_piece.tscn")
 
+func _process(delta):
+	check_resource()
+
+func check_resource():
+	var dir = DirAccess.open("user://")
+	var gem_necklace = "user://resources/GemNecklace.tres"
+	if dir.file_exists(gem_necklace):
+		RelicManager.has_gem_necklace = true
+	
+	
 func reset_pieces_relics():
 	current_relics.clear()
 	current_pieces.clear()
