@@ -71,7 +71,7 @@ func armor():
 func amulet_of_protection():
 	if LevelManager.type == "Enemy" or LevelManager.type == "Elite Enemy" or LevelManager.type == "Boss":
 		flash()
-		PlayerManager.player.shield_up(10)
+		PlayerManager.player.shield_up(5)
 
 func antivenom():
 	flash()

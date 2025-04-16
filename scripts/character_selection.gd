@@ -11,7 +11,7 @@ func _ready():
 	SaveManager.load_savefile()
 	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
 	
-func _process(delta):
+func _process(_delta):
 	update_treasures()
 	update_materials()
 	total_gems_check()

@@ -5,10 +5,10 @@
 
 [node name="CrossbowPiece" instance=ExtResource("1_prtyx")]
 color = "crossbow"
-background_color = Vector3(0.269, 0.531, 0.217)
+background_color = Vector3(0.56, 0.854, 0.377)
 
 [node name="TextureRect" parent="." index="2"]
-modulate = Color(0.268827, 0.531207, 0.217143, 1)
+modulate = Color(0.559913, 0.853891, 0.376726, 1)
 
 [node name="Sprite2D" parent="." index="3"]
 scale = Vector2(2, 2)

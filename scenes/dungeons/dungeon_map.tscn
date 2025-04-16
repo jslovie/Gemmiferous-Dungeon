@@ -405,7 +405,6 @@ offset_bottom = 40.0
 
 [node name="DungeonF1_1" type="Node2D" parent="Dungeons/F1"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(450, 103)
 scale = Vector2(0.8, 0.8)
 
@@ -851,6 +850,16 @@ offset_top = 967.5
 offset_right = 1079.5
 offset_bottom = 999.5
 type = "Enemy"
+floor_set = 1
+level = 1
+path = "ABC"
+
+[node name="LevelSelection27" parent="Dungeons/F1/DungeonF1_1/Levels" instance=ExtResource("1_fovlk")]
+offset_left = 1200.0
+offset_top = 967.5
+offset_right = 1232.0
+offset_bottom = 999.5
+type = "Shop"
 floor_set = 1
 level = 1
 path = "ABC"

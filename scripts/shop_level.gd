@@ -31,6 +31,8 @@ var possible_pieces = [
 	#load(),
 ]
 
+var in_tile_remove = false
+
 func _ready():
 	Music.play_music_shop()
 	SaveManager.load_savefile()
@@ -42,9 +44,16 @@ func _ready():
 	choose_relic()
 	choose_piece()
 
-func _process(delta):
+func _process(_delta):
 	update_treasures_bar()
 	update_relic_description()
+	check_in_tile_remove()
+
+func check_in_tile_remove():
+	if in_tile_remove == true:
+		$LeaveLabel.text = "Back"
+	else:
+		$LeaveLabel.text = "Leave"
 
 func check_duplicates():
 	for i in RelicManager.current_relics:
@@ -158,4 +167,13 @@ func update_treasures_bar():
 
 
 func _on_leave_button_pressed():
-	LevelManager.switch_to_dungeon_map_timeless()
+	if in_tile_remove == true:
+		$RemoveTile.visible = false
+		in_tile_remove = false
+	else:
+		LevelManager.switch_to_dungeon_map_timeless()
+
+
+func _on_remove_tiles_pressed():
+	$RemoveTile.visible = true
+	in_tile_remove = true

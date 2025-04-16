@@ -8,6 +8,7 @@ var treasure_timeout_min = 10
 var treasure_timeout_max = 20
 
 func _ready():
+	LevelManager.level_active = true
 	SaveManager.load_autosave()
 	SaveManager.load_savefile()
 	PlayerManager.player.update_player_texture()
@@ -56,7 +57,7 @@ func load_relics():
 func update_relic_description():
 	$RelicName.text = RelicManager.relic_name
 	$RelicDescription.text = RelicManager.relic_description
-	if PlayerManager.player.status == "dead" or EnemyManager.enemy.status == "dead":
+	if LevelManager.level_active == false:
 		$RelicName.visible = false
 		$RelicDescription.visible = false
 		
@@ -259,7 +260,7 @@ func _on_coin_area_2d_area_entered(_area):
 	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 
-func _on_shield_area_entered(area):
+func _on_shield_area_entered(_area):
 	PlayerManager.player.shield_up(PlayerManager.player.shield_to_be_loaded)
 
 
@@ -335,6 +336,7 @@ func _on_player_died_update_total_bar():
 
 
 func _on_treasure_timer_timeout():
+	LevelManager.level_active = false
 	LevelManager.treasure_timesup = true
 	Music.dim_music()
 	$Chest/ChestClosed.visible = true

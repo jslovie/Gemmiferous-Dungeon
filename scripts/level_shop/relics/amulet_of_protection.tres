@@ -7,8 +7,8 @@
 script = ExtResource("1_j7t7c")
 relic_name = "Amulet of Protection"
 relic_texture = ExtResource("1_d7l7m")
-description = "Gain 10 shield at the start of each combat"
-price = 65
+description = "Gain 5 shield at the start of each combat"
+price = 70
 resource_naming = "AmuletOfProtection.tres"
 color = Color(0.235294, 0.235294, 0.235294, 1)
 is_relic = true

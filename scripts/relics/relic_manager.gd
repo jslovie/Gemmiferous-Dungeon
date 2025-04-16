@@ -26,6 +26,28 @@ var ice_staff = preload("res://scenes/pieces/ice_staff_piece.tscn")
 var maul = preload("res://scenes/pieces/maul_piece.tscn")
 var sickle = preload("res://scenes/pieces/sickle_piece.tscn")
 
+var rogue_pieces = [
+	preload("res://scenes/pieces/sword_piece.tscn"),
+	preload("res://scenes/pieces/bow_piece.tscn"),
+	preload("res://scenes/pieces/invisibility_ring_piece.tscn"),
+	preload("res://scenes/pieces/rogue_shield_piece.tscn"),
+	preload("res://scenes/pieces/material_piece.tscn"),]
+
+var barbarian_pieces = [
+	preload("res://scenes/pieces/axe_piece.tscn"),
+	preload("res://scenes/pieces/mace_piece.tscn"),
+	preload("res://scenes/pieces/rage_piece.tscn"),
+	preload("res://scenes/pieces/barb_shield_piece.tscn"),
+	preload("res://scenes/pieces/material_piece.tscn"),]
+
+var gems_pieces = [
+	preload("res://scenes/pieces/gems/red_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/blue_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/green_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
+	preload("res://scenes/pieces/gems/gold_piece.tscn"),]
+
+
 func _process(delta):
 	check_resource()
 

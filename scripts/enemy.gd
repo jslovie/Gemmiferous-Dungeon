@@ -30,7 +30,7 @@ var crit_rarities = {
 
 var coin_effect_position = Vector2(921,737)
 @onready var coin_effect = load("res://scenes/GUI/coin_effect.tscn")
-@onready var damage_numbers_origin = $DamageNumberOrigin
+@onready var damage_numbers_origin = $DamageNumbersOrigin
 @onready var time = $ActionTimer
 @onready var enemy_claw_animation = %EnemyClawAnimation
 @onready var enemy_sword_animation = %EnemySwordAnimation
@@ -345,6 +345,7 @@ func get_killed():
 	#Status change and stop for actions
 	state = dead
 	status = "dead"
+	LevelManager.level_active = false
 	%ActionTimer.stop()
 	%Actions.visible = false
 	%Stunned.visible = false

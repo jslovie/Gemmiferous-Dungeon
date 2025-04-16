@@ -24,8 +24,12 @@ func _process(_delta):
 func choose_random_f():
 	random_f1 = randi_range(1,6)
 	random_f2 = randi_range(1,3)
-
+	
+	#Test
+	random_f1 = 1
+	
 func choose_map():
+	
 	if LevelManager.floor == 1:
 		if random_f1 == 1:
 			%DungeonF1_1.visible = true
@@ -52,7 +56,20 @@ func choose_map():
 		%DungeonF3_1.visible = true
 	elif LevelManager.floor == 4:
 		%DungeonF4_1.visible = true
-		
+
+func hide_all_dungeons():
+	#F1
+	%DungeonF1_1.visible = false
+	%DungeonF1_2.visible = false
+	%DungeonF1_3.visible = false
+	%DungeonF1_4.visible = false
+	%DungeonF1_5.visible = false
+	%DungeonF1_6.visible = false
+	#F2
+	%DungeonF2_1.visible = false
+	%DungeonF2_2.visible = false
+	%DungeonF2_3.visible = false
+	
 func dungeon_map():
 	if LevelManager.show_map == false:
 		visible = false

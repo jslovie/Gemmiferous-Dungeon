@@ -830,6 +830,8 @@ position = Vector2(-147, 666)
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_lokdw")
 animation = &"Claw"
+frame = 5
+frame_progress = 1.0
 flip_h = true
 
 [node name="EnemySwordAnimation" type="AnimatedSprite2D" parent="Grid/VFX"]

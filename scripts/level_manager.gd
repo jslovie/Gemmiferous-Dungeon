@@ -15,6 +15,8 @@ var reset_complete_level = false
 var place : String
 var spinning = false
 
+var level_active = true
+
 var resolution
 var windows_mode
 

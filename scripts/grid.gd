@@ -89,33 +89,15 @@ func change_empty_spaces():
 
 func choose_player_type():
 	if SaveManager.autosave_data.player_data.type == "Rogue":
-		var rogue_pieces = [
-			preload("res://scenes/pieces/sword_piece.tscn"),
-			preload("res://scenes/pieces/bow_piece.tscn"),
-			preload("res://scenes/pieces/invisibility_ring_piece.tscn"),
-			preload("res://scenes/pieces/rogue_shield_piece.tscn"),
-			preload("res://scenes/pieces/material_piece.tscn"),]
-		possible_pieces.append_array(rogue_pieces)
+		possible_pieces.append_array(RelicManager.rogue_pieces)
 	elif SaveManager.autosave_data.player_data.type == "Barbarian":
-		var barbarian_pieces = [
-			preload("res://scenes/pieces/axe_piece.tscn"),
-			preload("res://scenes/pieces/mace_piece.tscn"),
-			preload("res://scenes/pieces/rage_piece.tscn"),
-			preload("res://scenes/pieces/barb_shield_piece.tscn"),
-			preload("res://scenes/pieces/material_piece.tscn"),]
-		possible_pieces.append_array(barbarian_pieces)
+		possible_pieces.append_array(RelicManager.barbarian_pieces)
 	if RelicManager.current_pieces.size() > 0:
 		possible_pieces.append_array(RelicManager.current_pieces)
 	
 	if LevelManager.type == "Treasure":
 		possible_pieces.clear()
-		var gems_pieces = [
-			preload("res://scenes/pieces/gems/red_gem_piece.tscn"),
-			preload("res://scenes/pieces/gems/blue_gem_piece.tscn"),
-			preload("res://scenes/pieces/gems/green_gem_piece.tscn"),
-			preload("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
-			preload("res://scenes/pieces/gems/gold_piece.tscn"),]
-		possible_pieces.append_array(gems_pieces)
+		possible_pieces.append_array(RelicManager.gems_pieces)
 		
 func make_2d_array():
 	var array = []
@@ -295,7 +277,7 @@ func material_effect(effect,column, row):
 
 	
 func destroy_matched():
-	if EnemyManager.enemy.status == "alive" or LevelManager.type == "Treasure":
+	if LevelManager.level_active == true:
 		var red_gem_load = 0
 		var blue_gem_load = 0
 		var green_gem_load = 0
@@ -907,6 +889,7 @@ func tween_size():
 	var tween = create_tween()
 	tween.tween_property($Shuffle,"size", Vector2(2.2,2.2),0.5)
 	await get_tree().create_timer(0.5).timeout
+	tween.stop()
 	tween.tween_property($Shuffle,"size", Vector2(2,2),0.5)
 
 func _on_shuffle_pressed():

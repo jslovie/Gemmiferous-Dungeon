@@ -10,5 +10,5 @@ relic_texture = ExtResource("1_1hp52")
 description = "Deals 2-10 damage and has a 20% chance to cause the enemy to bleed"
 price = 50
 resource_naming = ""
-color = Color(0.270588, 0.529412, 0.215686, 1)
+color = Color(0.560784, 0.854902, 0.376471, 1)
 is_relic = false

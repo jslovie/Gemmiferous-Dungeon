@@ -12,7 +12,7 @@ shield = 15.0
 shield_increase = 5
 damage = Vector2(10, 25)
 coin_worth = 35
-action_delay = Vector2(5, 9)
+action_delay = Vector2(3, 9)
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]

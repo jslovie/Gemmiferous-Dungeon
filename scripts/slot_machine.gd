@@ -31,7 +31,7 @@ func pull():
 	$Key.play("open")
 	Sfx.play_SFX(Sfx.key)
 	await get_tree().create_timer(0.2).timeout
-	tween()
+	tween_in()
 	await get_tree().create_timer(0.9).timeout
 	tween_back()
 	
@@ -44,7 +44,7 @@ func pull():
 	%Slot3._handle_pulled()
 
 
-func tween():
+func tween_in():
 	var tween = create_tween()
 	tween.tween_property($Key, "position", Vector2(1,8), 0.1)
 	
@@ -78,9 +78,9 @@ func load_result():
 		%Slot2.result = null
 		%Slot3.result = null
 
-func material_effect(effect, position):
+func material_effect(effect, pos):
 	var current = effect.instantiate()
-	current.position = position
+	current.position = pos
 	add_child(current)
 
 func handle_result():

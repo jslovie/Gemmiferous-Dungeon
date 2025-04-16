@@ -505,9 +505,6 @@ func reset_current_treasure():
 func receive_damage(damage):
 	if state == alive:
 		Sfx.play_SFX(Sfx.damage)
-		#Relics update
-		RelicManager.got_hit_health_potion += 1
-		RelicManager.got_hit_armor += 1
 		#Visual knockback
 		var tween_scale = create_tween()
 		tween_scale.tween_property($Character,"scale", Vector2(16,16), 0.1)
@@ -530,11 +527,15 @@ func receive_damage(damage):
 		
 		#Logic behind getting hit
 		var health_attack = 0
+		if shield > 0:
+			RelicManager.got_hit_armor += 1
 		for d in range(0, damage):
 			if shield > 0:
 				shield -= 1
 			else:
 				health_attack += 1
+		if health_attack > 0:
+			RelicManager.got_hit_health_potion += 1
 		var total_attack = health_attack
 		health -= total_attack
 		
@@ -549,6 +550,7 @@ func get_killed():
 	EnemyManager.enemy.player_died()
 	state = dead
 	status = "dead"
+	LevelManager.level_active = false
 	
 	%AnimationPlayer.play("hit")
 	var tween_scale = create_tween()
