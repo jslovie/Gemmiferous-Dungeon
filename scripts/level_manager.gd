@@ -55,6 +55,7 @@ func main_menu():
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
+	RelicManager.reset_pieces_relics()
 	LevelManager.show_map = false
 	Loading.loading_1s()
 	StartGame.visible = true
@@ -65,6 +66,7 @@ func back_to_village():
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
+	RelicManager.reset_pieces_relics()
 	Loading.loading_1s()
 	LevelManager.show_map = false
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

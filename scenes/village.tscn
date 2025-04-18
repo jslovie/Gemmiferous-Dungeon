@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=105 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -786,6 +786,18 @@ _data = {
 }
 point_count = 15
 
+[sub_resource type="Curve2D" id="Curve2D_ej2j6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 859, 463, 0, 0, 0, 0, 858, 465, 0, 0, 0, 0, 857, 466, 0, 0, 0, 0, 855, 467, 0, 0, 0, 0, 853, 468, 0, 0, 0, 0, 851, 469, 0, 0, 0, 0, 848, 468, 0, 0, 0, 0, 846, 465, 0, 0, 0, 0, 845, 462, 0, 0, 0, 0, 844, 458, 0, 0, 0, 0, 844, 455, 0, 0, 0, 0, 845, 451, 0, 0, 0, 0, 846, 447, 0, 0, 0, 0, 845, 445, 0, 0, 0, 0, 845, 441, 0, 0, 0, 0, 838, 440, 0, 0, 0, 0, 825, 442, 0, 0, 0, 0, 814, 443, 0, 0, 0, 0, 807, 441, 0, 0, 0, 0, 801, 441, 0, 0, 0, 0, 794, 441, 0, 0, 0, 0, 786, 441, 0, 0, 0, 0, 782, 439, 0, 0, 0, 0, 783, 432, 0, 0, 0, 0, 785, 425, 0, 0, 0, 0, 783, 421, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 779, 414, 0, 0, 0, 0, 779, 411, 0, 0, 0, 0, 787, 410, 0, 0, 0, 0, 789, 406, 0, 0, 0, 0, 784, 403, 0, 0, 0, 0, 785, 401, 0, 0, 0, 0, 788, 398, 0, 0, 0, 0, 792, 398, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 790, 396, 0, 0, 0, 0, 790, 394, 0, 0, 0, 0, 793, 394, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 791, 392, 0, 0, 0, 0, 788, 391, 0, 0, 0, 0, 786, 390, 0, 0, 0, 0, 789, 389, 0, 0, 0, 0, 792, 389, 0, 0, 0, 0, 795, 387)
+}
+point_count = 46
+
+[sub_resource type="Curve2D" id="Curve2D_7vsrh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 796, 386, 0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 792, 389, 0, 0, 0, 0, 789, 389, 0, 0, 0, 0, 787, 391, 0, 0, 0, 0, 792, 391, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 792, 395, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 792, 397, 0, 0, 0, 0, 793, 398, 0, 0, 0, 0, 790, 398, 0, 0, 0, 0, 787, 399, 0, 0, 0, 0, 784, 401, 0, 0, 0, 0, 786, 406, 0, 0, 0, 0, 788, 410, 0, 0, 0, 0, 782, 412, 0, 0, 0, 0, 779, 414, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 782, 420, 0, 0, 0, 0, 785, 423, 0, 0, 0, 0, 786, 427, 0, 0, 0, 0, 783, 432, 0, 0, 0, 0, 782, 436, 0, 0, 0, 0, 782, 440, 0, 0, 0, 0, 786, 441, 0, 0, 0, 0, 793, 441, 0, 0, 0, 0, 798, 441, 0, 0, 0, 0, 798, 445, 0, 0, 0, 0, 799, 450, 0, 0, 0, 0, 799, 459, 0, 0, 0, 0, 799, 465, 0, 0, 0, 0, 799, 472, 0, 0, 0, 0, 800, 477, 0, 0, 0, 0, 803, 481, 0, 0, 0, 0, 809, 482, 0, 0, 0, 0, 821, 482, 0, 0, 0, 0, 829, 482, 0, 0, 0, 0, 839, 482, 0, 0, 0, 0, 844, 482, 0, 0, 0, 0, 849, 483, 0, 0, 0, 0, 852, 483, 0, 0, 0, 0, 857, 483, 0, 0, 0, 0, 858, 482)
+}
+point_count = 44
+
 [sub_resource type="Curve2D" id="Curve2D_u0r3g"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 796, 386, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 782, 401, 0, 0, 0, 0, 789, 409, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 783, 435, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 770, 440, 0, 0, 0, 0, 765, 439, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 789, 408, 0, 0, 0, 0, 782, 400, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 796, 386)
@@ -1325,6 +1337,38 @@ script = ExtResource("79_ngvu0")
 type = "none"
 
 [node name="Peasant1" type="Sprite2D" parent="Paths/ManorToHouse/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("71_ouilf")
+
+[node name="WeaponsmithToManor" type="Path2D" parent="Paths"]
+visible = false
+curve = SubResource("Curve2D_ej2j6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/WeaponsmithToManor"]
+position = Vector2(859, 463)
+rotation = 0.674741
+rotates = false
+script = ExtResource("79_ngvu0")
+type = "none"
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/WeaponsmithToManor/PathFollow2D"]
+rotation = -0.674741
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("71_ouilf")
+
+[node name="ArmourerToManor" type="Path2D" parent="Paths"]
+visible = false
+curve = SubResource("Curve2D_7vsrh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/ArmourerToManor"]
+position = Vector2(796, 386)
+rotation = 0.674741
+rotates = false
+script = ExtResource("79_ngvu0")
+type = "none"
+
+[node name="Peasant1" type="Sprite2D" parent="Paths/ArmourerToManor/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("71_ouilf")

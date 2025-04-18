@@ -11,6 +11,8 @@ var curret_pieces_for_check = []
 
 var in_tile_remove = false
 
+var remove_dict = {}
+
 #relics
 var got_hit_health_potion = 0
 var got_hit_armor = 0
@@ -69,18 +71,20 @@ func reset_pieces_relics():
 	report = 0
 	has_shuriken = false
 	has_wealth_necklace = false
+	rogue_pieces.clear()
 	rogue_pieces = [
 	load("res://scenes/pieces/sword_piece.tscn"),
 	load("res://scenes/pieces/bow_piece.tscn"),
 	load("res://scenes/pieces/invisibility_ring_piece.tscn"),
 	load("res://scenes/pieces/rogue_shield_piece.tscn"),
 	load("res://scenes/pieces/material_piece.tscn"),]
+	barbarian_pieces.clear()
 	barbarian_pieces = [
 	load("res://scenes/pieces/axe_piece.tscn"),
 	load("res://scenes/pieces/mace_piece.tscn"),
 	load("res://scenes/pieces/rage_piece.tscn"),
 	load("res://scenes/pieces/barb_shield_piece.tscn"),
 	load("res://scenes/pieces/material_piece.tscn"),]
-	
+	remove_dict.clear()
 	
 	

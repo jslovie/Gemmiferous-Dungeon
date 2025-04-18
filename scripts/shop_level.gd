@@ -36,6 +36,7 @@ var possible_pieces = [
 
 func _ready():
 	$RemoveTile.visible = false
+	SignalBus.remove_tile.connect(_on_remove_tile_signal)
 	Music.play_music_shop()
 	SaveManager.load_savefile()
 	SaveManager.load_autosave()
@@ -55,17 +56,19 @@ func _process(_delta):
 
 func spawn_remove_tiles():
 	if PlayerManager.player.type == "Rogue":
-		$RemoveTile/TilesNumber.text = "Current tiles: " + str(len(RelicManager.rogue_pieces)) + "/9"
+		%TilesNumber.text = "Current tiles: " + str(len(RelicManager.rogue_pieces)) + "/9"
 	elif PlayerManager.player.type == "Barbarian":
-		$RemoveTile/TilesNumber.text = "Current tiles: " + str(len(RelicManager.barbarian_pieces)) + "/9"
-	remove_dict.clear()
+		%TilesNumber.text = "Current tiles: " + str(len(RelicManager.barbarian_pieces)) + "/9"
+	for i in %Tiles.get_children():
+		i.queue_free()
+	RelicManager.remove_dict.clear()
 	var tile_position = Vector2(777,415)
 	if PlayerManager.player.type == "Rogue":
 		for i in RelicManager.rogue_pieces:
 			var index = RelicManager.rogue_pieces.find(i)
 			var tile = i.instantiate()
 			var path = tile.get_name()
-			$RemoveTile.add_child(tile)
+			%Tiles.add_child(tile)
 			tile.scale = Vector2(2,2)
 			tile.position = tile_position
 			if tile_position == Vector2(1121,415):
@@ -74,7 +77,7 @@ func spawn_remove_tiles():
 				tile_position = Vector2(777,726)
 			else:
 				tile_position += Vector2(172,0)
-			remove_dict[path] = index
+			RelicManager.remove_dict[path] = index
 	elif PlayerManager.player.type == "Barbarian":
 		for i in RelicManager.barbarian_pieces:
 			var index = RelicManager.barbarian_pieces.find(i)
@@ -89,25 +92,13 @@ func spawn_remove_tiles():
 				tile_position = Vector2(777,726)
 			else:
 				tile_position += Vector2(172,0)
-			remove_dict[path] = index
+			RelicManager.remove_dict[path] = index
 
 func check_in_tile_remove():
 	if RelicManager.in_tile_remove == true:
 		$LeaveLabel.text = "Back"
-		$RelicUIShop.disabled = true
-		$RelicUIShop2.disabled = true
-		$RelicUIShop3.disabled = true
-		$RelicUIShop4.disabled = true
-		$RelicUIShop5.disabled = true
-		$RelicUIShop6.disabled = true
 	else:
 		$LeaveLabel.text = "Leave"
-		$RelicUIShop.disabled = false
-		$RelicUIShop2.disabled = false
-		$RelicUIShop3.disabled = false
-		$RelicUIShop4.disabled = false
-		$RelicUIShop5.disabled = false
-		$RelicUIShop6.disabled = false
 		
 func check_duplicates():
 	for i in RelicManager.current_relics:
@@ -234,10 +225,32 @@ func update_treasures_bar():
 	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
 	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
 
+func hide_shop():
+	$RelicUIShop.visible = false
+	$RelicUIShop2.visible = false
+	$RelicUIShop3.visible = false
+	$RelicUIShop4.visible = false
+	$RelicUIShop5.visible = false
+	$RelicUIShop6.visible = false
+
+func show_shop():
+	if $RelicUIShop.is_purchased == false:
+		$RelicUIShop.visible = true
+	if $RelicUIShop2.is_purchased == false:
+		$RelicUIShop2.visible = true
+	if $RelicUIShop3.is_purchased == false:
+		$RelicUIShop3.visible = true
+	if $RelicUIShop4.is_purchased == false:
+		$RelicUIShop4.visible = true
+	if $RelicUIShop5.is_purchased == false:
+		$RelicUIShop5.visible = true
+	if $RelicUIShop6.is_purchased == false:
+		$RelicUIShop6.visible = true
 
 func _on_leave_button_pressed():
 	spawn_remove_tiles()
 	if RelicManager.in_tile_remove == true:
+		show_shop()
 		$RemoveTile.visible = false
 		RelicManager.in_tile_remove = false
 	else:
@@ -246,5 +259,10 @@ func _on_leave_button_pressed():
 
 func _on_remove_tiles_pressed():
 	spawn_remove_tiles()
+	hide_shop()
 	$RemoveTile.visible = true
 	RelicManager.in_tile_remove = true
+
+func _on_remove_tile_signal():
+	print("works")
+	spawn_remove_tiles()

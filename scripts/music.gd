@@ -1,39 +1,29 @@
 extends AudioStreamPlayer
 
-var menu_music = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Dark Fog.wav")
-var village_music_1 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/The Wizard's Hut.wav")
-var village_music_2 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Wintertime Venture.wav")
-var village_music_3 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Hallowed Place.wav")
-var tavern_music = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/A Hidden Tavern.wav")
-var selection_music = preload("res://audio/music/Cyberleaf-Super90sAction/Credits&Extras/Credits(loop).wav")
-var shop_music = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Talking to the Peasants (Part I).wav")
-var rest_music = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/By the Meadow.wav")
-var random_event_music_1 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Talking to the Peasants (Part II).wav")
-var random_event_music_2 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Talking to the Peasants (Part II).wav")
-var treasure_music_intro = preload("res://audio/music/Mega90s-ShootEmUp/BossFight/BossFight(intro-loop)New.wav")
-var treasure_music = preload("res://audio/music/Mega90s-ShootEmUp/BossFight/BossFight(loop)(110).wav")
-var combat_music_1 = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/Level1(loop).wav")
-var combat_music_2 = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/Level2(loop).wav")
-var combat_music_3 = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/Level3(loop).wav")
-var combat_music_4 = preload("res://audio/music/Various/BulletWitch-Level1(loop)(125).wav")
-var combat_music_5 = preload("res://audio/music/Mega90s-ShootEmUp/Levels/Level2(loop)(84).wav")
-var combat_music_elite_1 = preload("res://audio/music/Amigatrack-SwordsAndDungeons/Hellmouth(loop)(100).wav")
-var combat_music_elite_2 = preload("res://audio/music/ArcadeDays-Commandos/TheFinalBase(intro-loop).wav")
-var combat_music_elite_3 = preload("res://audio/music/Various/BulletWitch-Level3(loop)(125).wav")
-var combat_music_elite_4 = preload("res://audio/music/Mega90s-ShootEmUp/Levels/Level3(loop)(100).wav")
-var boss_music = preload("res://audio/music/Cyberleaf-Super90sAction/Levels/BossFight(loop).wav")
-var game_over_music = preload("res://audio/music/Mega90s-ShootEmUp/Extras/GameOverCountdown(loop)(120).wav")
+var menu_music = preload("res://audio/music/music/Dark Fog.wav")
+var village_music_1 = preload("res://audio/music/music/The Wizard's Hut.wav")
+var village_music_2 = preload("res://audio/music/music/Wintertime Venture.wav")
+var village_music_3 = preload("res://audio/music/music/Hallowed Place.wav")
+var tavern_music = preload("res://audio/music/music/A Hidden Tavern.wav")
+var selection_music = preload("res://audio/music/music/Credits(loop).wav")
+var shop_music = preload("res://audio/music/music/Talking to the Peasants (Part I).wav")
+var rest_music = preload("res://audio/music/music/By the Meadow.wav")
+var random_event_music = preload("res://audio/music/music/Talking to the Peasants (Part II).wav")
+var treasure_music_intro = preload("res://audio/music/music/BossFight(intro-loop).wav")
+var treasure_music = preload("res://audio/music/music/BossFight(loop)(110).wav")
+var combat_music_1 = preload("res://audio/music/music/Level1(loop).wav")
+var combat_music_2 = preload("res://audio/music/music/Level2(loop).wav")
+var combat_music_3 = preload("res://audio/music/music/Level3(loop).wav")
+var combat_music_4 = preload("res://audio/music/music/BulletWitch-Level1(loop)(125).wav")
+var combat_music_5 = preload("res://audio/music/music/Level2(loop)(84).wav")
+var combat_music_elite_1 = preload("res://audio/music/music/Hellmouth(loop)(100).wav")
+var combat_music_elite_2 = preload("res://audio/music/music/TheFinalBase(intro-loop).wav")
+var combat_music_elite_3 = preload("res://audio/music/music/BulletWitch-Level3(loop)(125).wav")
+var combat_music_elite_4 = preload("res://audio/music/music/Level3(loop)(100).wav")
+var boss_music = preload("res://audio/music/music/BossFight(loop).wav")
+var game_over_music = preload("res://audio/music/music/GameOverCountdown(loop)(120).wav")
 
 
-
-
-
-#var combat_music_4 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 2 (ordinary).wav")
-#var combat_music_5 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 2 (smooth).wav")
-#var combat_music_6 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 2 (tough).wav")
-#var combat_music_7 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 3 (ordinary).wav")
-#var combat_music_8 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 3 (smooth).wav")
-#var combat_music_9 = preload("res://audio/music/16-Bit Fantasy Music Pack/Loops/Adrenaline Blasts 3 (tough).wav")
 
 func dim_music():
 	var current_db = AudioServer.get_bus_volume_db(1)
@@ -83,13 +73,7 @@ func play_music_rest():
 	_play_music(rest_music)
 
 func play_music_random_event():
-	var random_music
-	var random = randi_range(1,2)
-	if random == 1:
-		random_music = random_event_music_1
-	elif random == 2:
-		random_music = random_event_music_2
-	_play_music(random_music)
+	_play_music(random_event_music)
 
 func play_music_treasure():
 	_play_music(treasure_music_intro)

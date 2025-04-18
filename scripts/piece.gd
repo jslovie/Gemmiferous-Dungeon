@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var color: String
 @export var naming: String
 @export var background_color: Vector3
@@ -27,11 +28,21 @@ func on_piece_clicked(event):
 			if RelicManager.in_tile_remove == true:
 				if PlayerManager.player.type == "Rogue":
 					if len(RelicManager.rogue_pieces) > 5:
-						print("remove tile")
+						for i in RelicManager.remove_dict:
+							if str(i) == naming:
+								var index = RelicManager.remove_dict[i]
+								RelicManager.rogue_pieces.remove_at(index)
+								SignalBus.remove_tile.emit()
+								queue_free()
 					else:
 						print("minimum 5 tiles")
 				elif PlayerManager.player.type == "Barbarian":
 					if len(RelicManager.barbarian_pieces) > 5:
-						print("remove tile")
+						for i in RelicManager.remove_dict:
+							if str(i) == naming:
+								var index = RelicManager.remove_dict[i]
+								RelicManager.barbarian_pieces.remove_at(index)
+								SignalBus.remove_tile.emit()
+								queue_free()
 					else:
 						print("minimum 5 tiles")

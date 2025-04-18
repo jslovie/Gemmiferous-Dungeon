@@ -204,11 +204,6 @@ func process_cost(wood,stone,iron):
 	SaveManager.savefilesave()
 	$Cost.visible = false
 
-func _on_enter_the_dungeon_pressed():
-	SaveManager.savefilesave()
-	Transition.transition()
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 func _on_exit_shop_pressed():
 	SaveManager.savefilesave()
@@ -247,6 +242,7 @@ func enter_dungeon_door():
 	await get_tree().create_timer(0.5).timeout
 	SaveManager.savefilesave()
 	SaveManager.remove_resources()
+	RelicManager.reset_pieces_relics()
 	Transition.transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")

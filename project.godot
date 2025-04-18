@@ -35,6 +35,7 @@ Transition="*res://scenes/GUI/transition.tscn"
 Music="*res://scenes/music.tscn"
 Sfx="*res://scenes/sfx.tscn"
 Crt="*res://scenes/GUI/crt.tscn"
+SignalBus="*res://scripts/signal_bus.gd"
 
 [display]
 

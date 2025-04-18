@@ -184,6 +184,11 @@ func check_villagers():
 		$Paths/IronMineToSquare.visible = true
 	if VillageManager.iron_mine_repaired == true and VillageManager.town_square_repaired == true:
 		$Paths/IronMineToSquare2.visible = true
+	if VillageManager.manor_lvl > 0 and VillageManager.weaponsmith_repaired == true:
+		$Paths/WeaponsmithToManor.visible = true
+	if VillageManager.manor_lvl > 0 and VillageManager.armourer_repaired == true:
+		$Paths/ArmourerToManor.visible = true
+
 
 func repair_estate():
 	$VillageTiles/Manor.texture_normal = load("res://assets/village/Gemmiferous_estate/manor.png")

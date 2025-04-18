@@ -348,6 +348,7 @@ func tween_size():
 	var tween = create_tween()
 	tween.tween_property($Home,"size", Vector2(2.2,2.2),0.5)
 	await get_tree().create_timer(0.5).timeout
+	tween.stop()
 	tween.tween_property($Home,"size", Vector2(2,2),0.5)
 
 func _on_home_pressed():

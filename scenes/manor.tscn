@@ -1,12 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://dte5nmep4gg4w"]
+[gd_scene load_steps=21 format=3 uid="uid://dte5nmep4gg4w"]
 
 [ext_resource type="Script" path="res://scripts/manor.gd" id="1_cgbrd"]
 [ext_resource type="Texture2D" uid="uid://cntdlan8qsgm4" path="res://assets/paper UI/Paper/Menu3.png" id="2_jb623"]
 [ext_resource type="Texture2D" uid="uid://cfnnt3d1jm4ul" path="res://assets/paper UI/Paper/Header3.png" id="3_607d0"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_we4rk"]
-[ext_resource type="Texture2D" uid="uid://dj3pa0fadoeo" path="res://assets/paper UI/Paper/Header2new.png" id="5_jsq5c"]
 [ext_resource type="Texture2D" uid="uid://bsc7q7gkcmm82" path="res://assets/32rogues/doors/exitdoor.png" id="5_vx1r2"]
-[ext_resource type="Texture2D" uid="uid://dloj8xps4ekve" path="res://assets/paper UI/Paper/Header2newHighlighted.png" id="6_bulpw"]
 [ext_resource type="Texture2D" uid="uid://uh7t7cerc714" path="res://assets/32rogues/doors/exitdoor-opened.png" id="6_uh8ok"]
 [ext_resource type="Texture2D" uid="uid://bxdu3pg6duhi5" path="res://assets/paper UI/Paper/checkbox.png" id="7_7f7t3"]
 [ext_resource type="Texture2D" uid="uid://bbn2jsmfvvav6" path="res://assets/32rogues/doors/exitdoor-highlighted.png" id="7_uctvj"]
@@ -109,31 +107,6 @@ pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("5_vx1r2")
 texture_pressed = ExtResource("6_uh8ok")
 texture_hover = ExtResource("7_uctvj")
-
-[node name="EnterTheDungeon" type="TextureButton" parent="."]
-visible = false
-layout_direction = 1
-offset_left = 989.0
-offset_top = 245.0
-offset_right = 1062.0
-offset_bottom = 262.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("5_jsq5c")
-texture_hover = ExtResource("6_bulpw")
-
-[node name="EnterTheDungeonLabel" type="Label" parent="."]
-visible = false
-layout_direction = 1
-offset_left = 1003.0
-offset_top = 259.0
-offset_right = 1267.0
-offset_bottom = 299.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_we4rk")
-theme_override_font_sizes/font_size = 32
-text = "Enter Dungeon "
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TownRepair" type="Control" parent="."]
 layout_mode = 3
@@ -1101,7 +1074,6 @@ texture_pressed = ExtResource("6_uh8ok")
 texture_hover = ExtResource("7_uctvj")
 
 [connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]
-[connection signal="pressed" from="EnterTheDungeon" to="." method="_on_enter_the_dungeon_pressed"]
 [connection signal="mouse_entered" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_mouse_entered"]
 [connection signal="mouse_exited" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_mouse_exited"]
 [connection signal="pressed" from="TownRepair/VBoxContainer/Manor" to="." method="_on_manor_pressed"]

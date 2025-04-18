@@ -220,6 +220,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("5_56hgj")
 
 [node name="TilesNumber" type="Label" parent="RemoveTile"]
+unique_name_in_owner = true
 offset_left = 640.0
 offset_top = 301.0
 offset_right = 872.0
@@ -227,6 +228,9 @@ offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Current Tiles: 0/9"
+
+[node name="Tiles" type="Node2D" parent="RemoveTile"]
+unique_name_in_owner = true
 
 [node name="RemoveTiles" type="TextureButton" parent="."]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)

@@ -6,6 +6,8 @@ extends TextureButton
 @onready var price_label = %PriceLabel
 @onready var texture_rect = $TextureRect
 
+var is_purchased = false
+
 func _ready():
 	$NotEnough.visible = false
 
@@ -41,6 +43,7 @@ func purchase_relic():
 			get_parent().add_relic(relic)
 			get_parent().spawn_effect(position)
 			visible = false
+			is_purchased = true
 		else:
 			not_enough()
 			Sfx.play_SFX(Sfx.deny)
@@ -51,6 +54,7 @@ func purchase_relic():
 			get_parent().add_piece(relic.relic_name, relic)
 			get_parent().spawn_effect_pieces(position, relic.color)
 			visible = false
+			is_purchased = true
 		else:
 			not_enough()
 			Sfx.play_SFX(Sfx.deny)
