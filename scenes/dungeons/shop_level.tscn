@@ -220,11 +220,13 @@ scale = Vector2(10, 10)
 texture = ExtResource("5_56hgj")
 
 [node name="TilesNumber" type="Label" parent="RemoveTile"]
-offset_left = 681.0
-offset_top = 365.0
-offset_right = 721.0
-offset_bottom = 380.0
-text = "Current Tiles: 0"
+offset_left = 640.0
+offset_top = 301.0
+offset_right = 872.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Current Tiles: 0/9"
 
 [node name="RemoveTiles" type="TextureButton" parent="."]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
@@ -519,7 +521,6 @@ offset_right = 802.0
 offset_bottom = 35.0
 
 [node name="RelicUIShop" parent="." instance=ExtResource("17_s2jk7")]
-visible = true
 offset_left = 685.0
 offset_top = 645.0
 offset_right = 685.0
@@ -528,7 +529,6 @@ scale = Vector2(4, 4)
 relic = ExtResource("18_teyop")
 
 [node name="RelicUIShop2" parent="." instance=ExtResource("17_s2jk7")]
-visible = true
 offset_left = 877.0
 offset_top = 645.0
 offset_right = 877.0
@@ -537,7 +537,6 @@ scale = Vector2(4, 4)
 relic = ExtResource("19_qvklh")
 
 [node name="RelicUIShop3" parent="." instance=ExtResource("17_s2jk7")]
-visible = true
 offset_left = 1069.0
 offset_top = 645.0
 offset_right = 1069.0
@@ -546,7 +545,6 @@ scale = Vector2(4, 4)
 relic = ExtResource("20_yq58d")
 
 [node name="RelicUIShop4" parent="." instance=ExtResource("17_s2jk7")]
-visible = true
 offset_left = 685.0
 offset_top = 411.0
 offset_right = 685.0
@@ -555,7 +553,6 @@ scale = Vector2(4, 4)
 relic = ExtResource("24_j8q61")
 
 [node name="RelicUIShop5" parent="." instance=ExtResource("17_s2jk7")]
-visible = true
 offset_left = 877.0
 offset_top = 411.0
 offset_right = 877.0
@@ -564,7 +561,6 @@ scale = Vector2(4, 4)
 relic = ExtResource("25_lfrdf")
 
 [node name="RelicUIShop6" parent="." instance=ExtResource("17_s2jk7")]
-visible = true
 offset_left = 1069.0
 offset_top = 411.0
 offset_right = 1069.0

@@ -5,6 +5,7 @@
 
 [node name="MaulPiece" instance=ExtResource("1_adprl")]
 color = "maul"
+naming = "MaulPiece"
 background_color = Vector3(0.522, 0.173, 0.141)
 
 [node name="TextureRect" parent="." index="2"]

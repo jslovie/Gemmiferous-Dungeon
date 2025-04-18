@@ -5,6 +5,7 @@
 
 [node name="InvisibilityRingPiece" instance=ExtResource("1_7se08")]
 color = "invisibility"
+naming = "InvisibilityRingPiece"
 background_color = Vector3(0.122, 0.314, 0.553)
 
 [node name="TextureRect" parent="." index="2"]

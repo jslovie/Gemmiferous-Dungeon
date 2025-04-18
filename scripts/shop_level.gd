@@ -4,6 +4,8 @@ extends Node2D
 
 const RESOURCE_PATH = "user://resources/"
 
+var remove_dict = {}
+
 #Effects
 var particle_effect = preload("res://scenes/pieces/particle.tscn")
 
@@ -31,9 +33,9 @@ var possible_pieces = [
 	#load(),
 ]
 
-var in_tile_remove = false
 
 func _ready():
+	$RemoveTile.visible = false
 	Music.play_music_shop()
 	SaveManager.load_savefile()
 	SaveManager.load_autosave()
@@ -43,18 +45,70 @@ func _ready():
 	check_duplicates()
 	choose_relic()
 	choose_piece()
+	spawn_remove_tiles()
 
 func _process(_delta):
 	update_treasures_bar()
 	update_relic_description()
 	check_in_tile_remove()
 
+
+func spawn_remove_tiles():
+	if PlayerManager.player.type == "Rogue":
+		$RemoveTile/TilesNumber.text = "Current tiles: " + str(len(RelicManager.rogue_pieces)) + "/9"
+	elif PlayerManager.player.type == "Barbarian":
+		$RemoveTile/TilesNumber.text = "Current tiles: " + str(len(RelicManager.barbarian_pieces)) + "/9"
+	remove_dict.clear()
+	var tile_position = Vector2(777,415)
+	if PlayerManager.player.type == "Rogue":
+		for i in RelicManager.rogue_pieces:
+			var index = RelicManager.rogue_pieces.find(i)
+			var tile = i.instantiate()
+			var path = tile.get_name()
+			$RemoveTile.add_child(tile)
+			tile.scale = Vector2(2,2)
+			tile.position = tile_position
+			if tile_position == Vector2(1121,415):
+				tile_position = Vector2(777,570)
+			elif tile_position == Vector2(1121,570):
+				tile_position = Vector2(777,726)
+			else:
+				tile_position += Vector2(172,0)
+			remove_dict[path] = index
+	elif PlayerManager.player.type == "Barbarian":
+		for i in RelicManager.barbarian_pieces:
+			var index = RelicManager.barbarian_pieces.find(i)
+			var tile = i.instantiate()
+			var path = tile.get_name()
+			$RemoveTile.add_child(tile)
+			tile.scale = Vector2(2,2)
+			tile.position = tile_position
+			if tile_position == Vector2(1121,415):
+				tile_position = Vector2(777,570)
+			elif tile_position == Vector2(1121,570):
+				tile_position = Vector2(777,726)
+			else:
+				tile_position += Vector2(172,0)
+			remove_dict[path] = index
+
 func check_in_tile_remove():
-	if in_tile_remove == true:
+	if RelicManager.in_tile_remove == true:
 		$LeaveLabel.text = "Back"
+		$RelicUIShop.disabled = true
+		$RelicUIShop2.disabled = true
+		$RelicUIShop3.disabled = true
+		$RelicUIShop4.disabled = true
+		$RelicUIShop5.disabled = true
+		$RelicUIShop6.disabled = true
 	else:
 		$LeaveLabel.text = "Leave"
-
+		$RelicUIShop.disabled = false
+		$RelicUIShop2.disabled = false
+		$RelicUIShop3.disabled = false
+		$RelicUIShop4.disabled = false
+		$RelicUIShop5.disabled = false
+		$RelicUIShop6.disabled = false
+		
 func check_duplicates():
 	for i in RelicManager.current_relics:
 		for j in possible_relics:
@@ -123,20 +177,35 @@ func add_relic(relic):
 	SaveManager.save_resource(relic, relic.resource_naming)
 
 func add_piece(relic_name, relic):
-	RelicManager.curret_pieces_for_check.append(relic)
-	if relic_name == "Bolt Staff":
-		RelicManager.current_pieces.append(RelicManager.bolt_staff)
-	elif relic_name == "Crossbow":
-		RelicManager.current_pieces.append(RelicManager.crossbow)
-	elif relic_name == "Flail":
-		RelicManager.current_pieces.append(RelicManager.flail)
-	elif relic_name == "Ice Staff":
-		RelicManager.current_pieces.append(RelicManager.ice_staff)
-	elif relic_name == "Maul":
-		RelicManager.current_pieces.append(RelicManager.maul)
-	elif relic_name == "Sickle":
-		RelicManager.current_pieces.append(RelicManager.sickle)
-		
+	spawn_remove_tiles()
+	if PlayerManager.player.type == "Rogue":
+		RelicManager.curret_pieces_for_check.append(relic)
+		if relic_name == "Bolt Staff":
+			RelicManager.rogue_pieces.append(RelicManager.bolt_staff)
+		elif relic_name == "Crossbow":
+			RelicManager.rogue_pieces.append(RelicManager.crossbow)
+		elif relic_name == "Flail":
+			RelicManager.rogue_pieces.append(RelicManager.flail)
+		elif relic_name == "Ice Staff":
+			RelicManager.rogue_pieces.append(RelicManager.ice_staff)
+		elif relic_name == "Maul":
+			RelicManager.rogue_pieces.append(RelicManager.maul)
+		elif relic_name == "Sickle":
+			RelicManager.rogue_pieces.append(RelicManager.sickle)
+	elif PlayerManager.player.type == "Barbarian":
+		RelicManager.curret_pieces_for_check.append(relic)
+		if relic_name == "Bolt Staff":
+			RelicManager.barbarian_pieces.append(RelicManager.bolt_staff)
+		elif relic_name == "Crossbow":
+			RelicManager.barbarian_pieces.append(RelicManager.crossbow)
+		elif relic_name == "Flail":
+			RelicManager.barbarian_pieces.append(RelicManager.flail)
+		elif relic_name == "Ice Staff":
+			RelicManager.barbarian_pieces.append(RelicManager.ice_staff)
+		elif relic_name == "Maul":
+			RelicManager.barbarian_pieces.append(RelicManager.maul)
+		elif relic_name == "Sickle":
+			RelicManager.barbarian_pieces.append(RelicManager.sickle)
 		
 func spawn_effect(pos):
 	make_effect(particle_effect, Color(0.235, 0.235, 0.235), pos)
@@ -167,13 +236,15 @@ func update_treasures_bar():
 
 
 func _on_leave_button_pressed():
-	if in_tile_remove == true:
+	spawn_remove_tiles()
+	if RelicManager.in_tile_remove == true:
 		$RemoveTile.visible = false
-		in_tile_remove = false
+		RelicManager.in_tile_remove = false
 	else:
 		LevelManager.switch_to_dungeon_map_timeless()
 
 
 func _on_remove_tiles_pressed():
+	spawn_remove_tiles()
 	$RemoveTile.visible = true
-	in_tile_remove = true
+	RelicManager.in_tile_remove = true

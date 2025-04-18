@@ -5,6 +5,7 @@
 
 [node name="FlailPiece" instance=ExtResource("1_0fyq7")]
 color = "flail"
+naming = "FlailPiece"
 background_color = Vector3(0.227, 0.231, 0.278)
 
 [node name="TextureRect" parent="." index="2"]

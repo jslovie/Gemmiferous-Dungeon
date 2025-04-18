@@ -37,7 +37,6 @@ func _ready():
 	$GemsTotal.visible = false
 	wait_time()
 	load_relics()
-
 	
 func _process(_delta):
 	update_healthbars()

@@ -5,6 +5,7 @@
 
 [node name="CrossbowPiece" instance=ExtResource("1_prtyx")]
 color = "crossbow"
+naming = "CrossbowPiece"
 background_color = Vector3(0.56, 0.854, 0.377)
 
 [node name="TextureRect" parent="." index="2"]

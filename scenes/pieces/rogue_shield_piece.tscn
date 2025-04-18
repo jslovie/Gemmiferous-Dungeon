@@ -5,6 +5,7 @@
 
 [node name="RogueShieldPiece" instance=ExtResource("1_sb7uk")]
 color = "rogue shield"
+naming = "RogueShieldPiece"
 background_color = Vector3(0.235, 0.235, 0.235)
 
 [node name="TextureRect" parent="." index="2"]

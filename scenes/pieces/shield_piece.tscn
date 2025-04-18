@@ -5,6 +5,7 @@
 
 [node name="ShieldPiece" instance=ExtResource("1_jax0n")]
 color = "shield"
+naming = "ShieldPiece"
 background_color = Vector3(0.235, 0.235, 0.235)
 
 [node name="Panel" parent="." index="1"]

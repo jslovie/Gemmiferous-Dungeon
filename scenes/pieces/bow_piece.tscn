@@ -9,6 +9,7 @@ region = Rect2(70.4203, 293.643, 18.02, 17.6518)
 
 [node name="BowPiece" instance=ExtResource("1_iave7")]
 color = "bow"
+naming = "BowPiece"
 background_color = Vector3(0.188, 0.475, 0.231)
 
 [node name="Panel" parent="." index="1"]

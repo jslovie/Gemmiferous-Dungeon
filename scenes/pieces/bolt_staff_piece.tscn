@@ -5,6 +5,7 @@
 
 [node name="BoltStaffPiece" instance=ExtResource("1_55g7b")]
 color = "bolt"
+naming = "BoltStaffPiece"
 background_color = Vector3(0.188, 0.196, 0.463)
 
 [node name="TextureRect" parent="." index="2"]

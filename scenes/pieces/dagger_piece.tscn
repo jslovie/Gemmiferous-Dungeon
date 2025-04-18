@@ -5,6 +5,7 @@
 
 [node name="DaggerPiece" instance=ExtResource("1_2aywu")]
 color = "dagger"
+naming = "DaggerPiece"
 background_color = Vector3(0.262, 0.179, 0.339)
 
 [node name="TextureRect" parent="." index="2"]

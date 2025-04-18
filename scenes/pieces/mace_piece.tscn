@@ -5,6 +5,7 @@
 
 [node name="MacePiece" instance=ExtResource("1_2ijqt")]
 color = "mace"
+naming = "MacePiece"
 background_color = Vector3(0.024, 0.251, 0.29)
 
 [node name="Panel" parent="." index="1"]

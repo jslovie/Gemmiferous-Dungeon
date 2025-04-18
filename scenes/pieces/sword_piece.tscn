@@ -9,6 +9,7 @@ region = Rect2(39.4982, 67.0205, 16.2441, 22.8433)
 
 [node name="SwordPiece" instance=ExtResource("1_vw1ii")]
 color = "sword"
+naming = "SwordPiece"
 background_color = Vector3(0.431, 0.031, 0.031)
 
 [node name="Panel" parent="." index="1"]

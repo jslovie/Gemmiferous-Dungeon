@@ -5,6 +5,7 @@
 
 [node name="IceStaffPiece" instance=ExtResource("1_gthe8")]
 color = "ice"
+naming = "IceStaffPiece"
 background_color = Vector3(0.42, 0.251, 0.271)
 
 [node name="TextureRect" parent="." index="2"]

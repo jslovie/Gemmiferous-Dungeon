@@ -5,6 +5,7 @@
 
 [node name="SicklePiece" instance=ExtResource("1_e1rj4")]
 color = "sickle"
+naming = "SicklePiece"
 background_color = Vector3(0.227, 0.318, 0.4)
 
 [node name="TextureRect" parent="." index="2"]
