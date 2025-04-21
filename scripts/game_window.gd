@@ -36,6 +36,7 @@ func _ready():
 	$MaterialTotal.visible = false
 	$GemsTotal.visible = false
 	wait_time()
+	PlayerManager.player.shield += PlayerManager.player.upgraded_shield_init
 	load_relics()
 	
 func _process(_delta):

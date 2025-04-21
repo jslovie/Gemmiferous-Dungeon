@@ -442,18 +442,18 @@ func destroy_matched():
 		if shield_load == 3:
 			$TileBreakSFX.play()
 			Sfx.play_SFX(Sfx.shield)
-			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load
+			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + PlayerManager.player.upgraded_shield_load
 			material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 		elif shield_load == 4:
 			$TileBreakSFX.play()
 			Sfx.play_SFX(Sfx.shield)
-			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 1
+			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 1 + PlayerManager.player.upgraded_shield_load
 			material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 			emit_signal("camera_effect", 10)
 		elif shield_load >= 5:
 			$TileBreakSFX.play()
 			Sfx.play_SFX(Sfx.shield)
-			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2
+			PlayerManager.player.shield_to_be_loaded = PlayerManager.player.shield_load + 2 + PlayerManager.player.upgraded_shield_load
 			material_effect(shield_effect, shield_effect_position.x, shield_effect_position.y)
 			emit_signal("camera_effect", 20)
 		#Material load

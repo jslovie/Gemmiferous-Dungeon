@@ -27,7 +27,6 @@ func play_sound():
 func make_effect(effect, color):
 	var current = effect.instantiate()
 	current.position = $ParticleOrigin.position
-	current.scale = Vector2(2.25,2.25)
 	add_child(current)
 	current.color = Color(color.x, color.y, color.z)
 
@@ -41,13 +40,14 @@ func on_piece_clicked(event):
 						for i in RelicManager.remove_dict:
 							if str(i) == naming:
 								var index = RelicManager.remove_dict[i]
+
+								$TextureRect.visible = false
+								$Sprite2D.visible = false
+								make_effect(particle_effect, background_color)
+								await get_tree().create_timer(1.5).timeout
 								RelicManager.rogue_pieces.remove_at(index)
 								SignalBus.remove_tile.emit()
-								#$TextureRect.visible = false
-								#$Sprite2D.visible = false
-								make_effect(particle_effect, background_color)
-								#get_tree().create_timer(1.5).timeout
-								#queue_free()
+								queue_free()
 					else:
 						SignalBus.minimum_tiles.emit()
 				elif PlayerManager.player.type == "Barbarian":

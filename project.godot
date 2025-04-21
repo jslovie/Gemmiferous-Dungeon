@@ -55,6 +55,7 @@ Effect=""
 
 [gui]
 
+theme/custom="res://assets/alagard.ttf"
 theme/custom_font="res://assets/alagard.ttf"
 
 [input]

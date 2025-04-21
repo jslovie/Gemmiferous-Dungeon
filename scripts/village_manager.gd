@@ -153,7 +153,7 @@ func _on_iron_miner_timeout():
 func set_village_stats(manor_lvl_data, tavern_lvl_data, weaponsmith_lvl_data, armourer_lvl_data, sorcerer_lvl_data, woodcutters_lvl_data, stone_mine_lvl_data, iron_mine_lvl_data, rathaus_lvl_data, 
 						farm_lvl_data, build_houses_data, church_repaired_data, tavern_repaired_data, weaponsmith_repaired_data, armourer_repaired_data,sorcerer_repaired_data, town_square_repaired_data, 
 						farm_repaired_data, houses_repaired_data, left_watchtower_repaired_data, right_watchtower_repaired_data, woodcutters_camp_repaired_data, stone_mine_repaired_data, iron_mine_repaired_data, 
-						lamps_built_data, campfire_built_data, axe_item_lvl_data, mace_item_lvl_data, sword_item_lvl_data, bow_item_lvl_data,):
+						lamps_built_data, campfire_built_data, axe_item_lvl_data, mace_item_lvl_data, sword_item_lvl_data, bow_item_lvl_data,shield_init_lvl_data, shield_load_lvl_data, shield_max_lvl_data):
 	manor_lvl = manor_lvl_data
 	tavern_lvl = tavern_lvl_data
 	weaponsmith_lvl = weaponsmith_lvl_data
@@ -184,7 +184,10 @@ func set_village_stats(manor_lvl_data, tavern_lvl_data, weaponsmith_lvl_data, ar
 	mace_item_lvl = mace_item_lvl_data
 	sword_item_lvl = sword_item_lvl_data
 	bow_item_lvl = bow_item_lvl_data
-
+	shield_init_lvl = shield_init_lvl_data
+	shield_load_lvl = shield_load_lvl_data
+	shield_max_lvl = shield_max_lvl_data
+	
 func reset_village_stats():
 	#Building levels
 	manor_lvl = 0

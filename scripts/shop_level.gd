@@ -267,9 +267,12 @@ func _on_remove_tiles_pressed():
 
 func _on_remove_tile_signal():
 	spawn_remove_tiles()
-	
-func _on_minimum_tiles_signal():
+
+func show_minimum():
 	print("show")
 	%LessTiles.visible = true
-	get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.5).timeout
 	%LessTiles.visible = false
+	
+func _on_minimum_tiles_signal():
+	show_minimum()

@@ -302,6 +302,7 @@ func damage4_attack(action):
 		if action == "weak":
 			var take_action = action_rng()
 			if take_action == "action":
+				EnemyManager.enemy.is_weak = true
 				%WeakDebuffTimerEnd.start(weak_duration)
 				weak_active = true
 				
@@ -315,6 +316,7 @@ func damage4_attack(action):
 		if action == "frail":
 			var take_action = action_rng()
 			if take_action == "action":
+				EnemyManager.enemy.is_frail = true
 				%FrailDebuffTimerEnd.start(frail_duration)
 				frail_active = true
 
@@ -606,6 +608,7 @@ func _on_electric_debuff_timer_end_timeout():
 	electric_active = false
 
 func _on_weak_debuff_timer_end_timeout():
+	EnemyManager.enemy.is_weak = false
 	weak_active = false
 
 func _on_vulnerable_debuff_timer_end_timeout():
@@ -613,4 +616,5 @@ func _on_vulnerable_debuff_timer_end_timeout():
 	vulnerable_active = false
 
 func _on_frail_debuff_timer_end_timeout():
+	EnemyManager.enemy.is_frail = false
 	frail_active = false

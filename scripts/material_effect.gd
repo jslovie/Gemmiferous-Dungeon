@@ -2,6 +2,7 @@ extends Sprite2D
 
 @export var type: String
 
+var reward = 1
 
 func _ready():
 	tween_material()
@@ -9,6 +10,20 @@ func _ready():
 	
 	
 func _physics_process(delta):
+	rotation_set(delta)
+	reward_up()
+
+func reward_up():
+	if LevelManager.floor == 1:
+		reward = 1
+	elif LevelManager.floor == 2:
+		reward = 2
+	elif LevelManager.floor == 3:
+		reward = 3
+	elif LevelManager.floor == 4:
+		reward = 4
+		
+func rotation_set(delta):
 	if type == "Shield" or "Red Gem" or "Blue Gem" or "Green Gem" or "Yellow Gem" or "Coin" or "Red Gem T" or "Blue Gem T" or "Green Gem T" or "Yellow Gem T" or "Coin T":
 		rotation += -8 * delta
 	else:
@@ -75,28 +90,28 @@ func _on_area_2d_area_entered(area):
 		elif type == "Iron":
 			PlayerManager.player.iron += 1
 		elif type == "Red Gem":
-			PlayerManager.player.red_gem += 1
+			PlayerManager.player.red_gem += reward
 			LevelManager.spinning = false
 		elif type == "Blue Gem":
-			PlayerManager.player.blue_gem += 1
+			PlayerManager.player.blue_gem += reward
 			LevelManager.spinning = false
 		elif type == "Green Gem":
-			PlayerManager.player.green_gem += 1
+			PlayerManager.player.green_gem += reward
 			LevelManager.spinning = false
 		elif type == "Yellow Gem":
-			PlayerManager.player.yellow_gem += 1
+			PlayerManager.player.yellow_gem += reward
 			LevelManager.spinning = false
 		elif type == "Red Gem T":
-			PlayerManager.player.red_gem += 1
+			PlayerManager.player.red_gem += reward
 			LevelManager.spinning = false
 		elif type == "Blue Gem T":
-			PlayerManager.player.blue_gem += 1
+			PlayerManager.player.blue_gem += reward
 			LevelManager.spinning = false
 		elif type == "Green Gem T":
-			PlayerManager.player.green_gem += 1
+			PlayerManager.player.green_gem += reward
 			LevelManager.spinning = false
 		elif type == "Yellow Gem T":
-			PlayerManager.player.yellow_gem += 1
+			PlayerManager.player.yellow_gem += reward
 			LevelManager.spinning = false
 		elif type == "Coin T":
 			PlayerManager.player.coins += 1

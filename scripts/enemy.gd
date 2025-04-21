@@ -19,6 +19,8 @@ var blood_type
 
 #Statuses
 var is_vulnerable = false
+var is_weak = false
+var is_frail = false
 
 var rng = RandomNumberGenerator.new()
 
@@ -246,6 +248,8 @@ func inflict_damage():
 		crit_amount = 0
 		
 	var random_damage = randi_range(damage.x,damage.y)
+	if is_weak == true:
+		random_damage = random_damage - (random_damage * 0.3)
 	var random_damage_crit = random_damage + (random_damage * crit_amount)
 	attack_animation()
 	PlayerManager.player.receive_damage(random_damage_crit)
@@ -270,7 +274,10 @@ func get_crit_rng():
 		chance -= crit_rarities[n]
 
 func shield_up():
-	shield += shield_increase
+	if is_frail == true:
+		shield += round(shield_increase * 0.7)
+	else:
+		shield += shield_increase
 
 func heal():
 	health += health_increase
@@ -326,6 +333,64 @@ func take_damage(damage, random_base_action):
 			health = 0
 			get_killed()
 
+func take_action_damage(damage, action):
+	if state == alive:
+		#Visual knockback
+		var tween_scale = create_tween()
+		tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
+		tween_scale.tween_property($EnemyType,"scale", Vector2(15,15), 0.1)
+		var tween_move = create_tween()
+		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
+		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
+
+		#Visual hit
+		var is_top = false
+		var is_critical = false
+		var is_poison = false
+		var is_bleed = false
+		var is_ice = false
+		var is_fire = false
+		var is_electric = false
+		
+		if action == "bleed":
+			%AnimationPlayer.play("hit_bleed")
+			is_bleed = true
+		if action == "poison":
+			%AnimationPlayer.play("hit_poison")
+			is_poison = true
+		if action == "ice":
+			%AnimationPlayer.play("hit_ice")
+			is_ice = true
+		if action == "fire":
+			%AnimationPlayer.play("hit_fire")
+			is_fire = true
+		if action == "electric":
+			%AnimationPlayer.play("hit_electric")
+			is_electric = true
+		
+		#Apply statuses
+		var total_damage = damage
+		if is_vulnerable:
+			total_damage = total_damage * 1.3
+		if RelicManager.has_gem_necklace:
+			total_damage = total_damage * 1.4
+
+		DamageNumbers.display_number(total_damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison, is_bleed, is_ice, is_fire, is_electric)
+
+		#Logic behind getting hit
+		var health_attack = 0
+		for d in range(0, damage):
+			if shield > 0:
+				shield -= 1
+			else:
+				health_attack += 1
+		var total_attack = health_attack
+		health -= total_attack
+		
+		if health <= 0:
+			health = 0
+			get_killed()
+
 func get_killed():
 	Music.dim_music()
 	Sfx.play_SFX(Sfx.victory)
@@ -340,8 +405,8 @@ func get_killed():
 	if LevelManager.available_level == 51:
 		PlayerManager.player.player_won = true
 	#Shield Cap
-	if PlayerManager.player.shield >  PlayerManager.player.shield_max:
-		PlayerManager.player.shield =  PlayerManager.player.shield_max
+	if PlayerManager.player.shield > PlayerManager.player.shield_max:
+		PlayerManager.player.shield = PlayerManager.player.shield_max + PlayerManager.player.upgraded_shield_max
 	#Status change and stop for actions
 	state = dead
 	status = "dead"
@@ -409,56 +474,6 @@ func player_died():
 func _on_action_timer_timeout():
 	random_action()
 
-func take_action_damage(damage, action):
-	if state == alive:
-		#Visual knockback
-		var tween_scale = create_tween()
-		tween_scale.tween_property($EnemyType,"scale", Vector2(16,16), 0.1)
-		tween_scale.tween_property($EnemyType,"scale", Vector2(15,15), 0.1)
-		var tween_move = create_tween()
-		tween_move.tween_property($EnemyType, "position", Vector2(0,-100), 0.1)
-		tween_move.tween_property($EnemyType, "position", Vector2(0, 0), 0.1)
-
-		#Visual hit
-		var is_top = false
-		var is_critical = false
-		var is_poison = false
-		var is_bleed = false
-		var is_ice = false
-		var is_fire = false
-		var is_electric = false
-		
-		if action == "bleed":
-			%AnimationPlayer.play("hit_bleed")
-			is_bleed = true
-		if action == "poison":
-			%AnimationPlayer.play("hit_poison")
-			is_poison = true
-		if action == "ice":
-			%AnimationPlayer.play("hit_ice")
-			is_ice = true
-		if action == "fire":
-			%AnimationPlayer.play("hit_fire")
-			is_fire = true
-		if action == "electric":
-			%AnimationPlayer.play("hit_electric")
-			is_electric = true
-			
-		DamageNumbers.display_number(damage, $DamageNumbersOrigin.global_position, is_top, is_critical, is_poison, is_bleed, is_ice, is_fire, is_electric)
-		
-		#Logic behind getting hit
-		var health_attack = 0
-		for d in range(0, damage):
-			if shield > 0:
-				shield -= 1
-			else:
-				health_attack += 1
-		var total_attack = health_attack
-		health -= total_attack
-		
-		if health <= 0:
-			health = 0
-			get_killed()
 
 #Animation
 func claw_animation():

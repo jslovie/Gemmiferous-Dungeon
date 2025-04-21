@@ -52,6 +52,9 @@ var savefile_data = {
 		upgraded_sword_damage_y = 0,
 		upgraded_bow_damage_x = 0,
 		upgraded_bow_damage_y = 0,
+		upgraded_shield_max = 0,
+		upgraded_shield_load = 0,
+		upgraded_shield_init = 0,
 	},
 	gems = {
 		total_red_gem = 0,
@@ -98,6 +101,9 @@ var savefile_data = {
 		mace_item_lvl = 0,
 		sword_item_lvl = 0,
 		bow_item_lvl = 0,
+		shield_init_lvl = 0,
+		shield_load_lvl = 0,
+		shield_max_lvl = 0,
 	},
 }
 
@@ -132,6 +138,9 @@ func update_player_data_savefile():
 	savefile_data.player_data.upgraded_sword_damage_y = p.upgraded_sword_damage.y
 	savefile_data.player_data.upgraded_bow_damage_x = p.upgraded_bow_damage.x
 	savefile_data.player_data.upgraded_bow_damage_y = p.upgraded_bow_damage.y
+	savefile_data.player_data.upgraded_shield_max = p.upgraded_shield_max
+	savefile_data.player_data.upgraded_shield_load = p.upgraded_shield_load
+	savefile_data.player_data.upgraded_shield_init = p.upgraded_shield_init
 	savefile_data.player_data.barbarian_unlocked = p.barbarian_unlocked
 	savefile_data.player_data.total_coins = p.total_coins
 	savefile_data.gems.total_red_gem = p.total_red_gem
@@ -171,6 +180,9 @@ func update_player_data_savefile():
 	savefile_data.village.mace_item_lvl = v.mace_item_lvl
 	savefile_data.village.sword_item_lvl = v.sword_item_lvl
 	savefile_data.village.bow_item_lvl = v.bow_item_lvl
+	savefile_data.village.shield_init_lvl = v.shield_init_lvl
+	savefile_data.village.shield_load_lvl = v.shield_load_lvl
+	savefile_data.village.shield_max_lvl = v.shield_max_lvl
 	
 func reset_savefile():
 	savefile_data = {
@@ -185,6 +197,9 @@ func reset_savefile():
 		upgraded_sword_damage_y = 0,
 		upgraded_bow_damage_x = 0,
 		upgraded_bow_damage_y = 0,
+		upgraded_shield_max = 0,
+		upgraded_shield_load = 0,
+		upgraded_shield_init = 0,
 	},
 	gems = {
 		total_red_gem = 0,
@@ -231,6 +246,9 @@ func reset_savefile():
 		mace_item_lvl = 0,
 		sword_item_lvl = 0,
 		bow_item_lvl = 0,
+		shield_init_lvl = 0,
+		shield_load_lvl = 0,
+		shield_max_lvl = 0,
 	},
 }
 
@@ -323,7 +341,9 @@ func load_savefile():
 	savefile_data.player_data.upgraded_mace_damage_x, savefile_data.player_data.upgraded_mace_damage_y,
 	savefile_data.player_data.upgraded_sword_damage_x, savefile_data.player_data.upgraded_sword_damage_y,
 	savefile_data.player_data.upgraded_bow_damage_x, savefile_data.player_data.upgraded_bow_damage_y, 
+	savefile_data.player_data.upgraded_shield_init, savefile_data.player_data.upgraded_shield_load, savefile_data.player_data.upgraded_shield_max, 
 	savefile_data.player_data.barbarian_unlocked,)
+	
 	
 	VillageManager.set_village_stats(savefile_data.village.manor_lvl, savefile_data.village.tavern_lvl, savefile_data.village.weaponsmith_lvl, savefile_data.village.armourer_lvl, 
 	savefile_data.village.sorcerer_lvl, savefile_data.village.woodcutters_lvl, savefile_data.village.stone_mine_lvl, savefile_data.village.iron_mine_lvl, savefile_data.village.rathaus_lvl,
@@ -331,4 +351,4 @@ func load_savefile():
 	savefile_data.village.armourer_repaired, savefile_data.village.sorcerer_repaired, savefile_data.village.town_square_repaired, savefile_data.village.farm_repaired, savefile_data.village.houses_repaired,
 	savefile_data.village.left_watchtower_repaired, savefile_data.village.right_watchtower_repaired, savefile_data.village.woodcutters_camp_repaired, savefile_data.village.stone_mine_repaired, 
 	savefile_data.village.iron_mine_repaired, savefile_data.village.lamps_built, savefile_data.village.campfire_built, savefile_data.village.axe_item_lvl, savefile_data.village.mace_item_lvl,
-	savefile_data.village.sword_item_lvl, savefile_data.village.bow_item_lvl,)
+	savefile_data.village.sword_item_lvl, savefile_data.village.bow_item_lvl, savefile_data.village.shield_init_lvl, savefile_data.village.shield_load_lvl, savefile_data.village.shield_max_lvl)
