@@ -227,7 +227,31 @@ offset_right = 872.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Current Tiles: 0/9"
+text = "Current tiles: 0/9"
+
+[node name="MinimumTiles" type="Label" parent="RemoveTile"]
+unique_name_in_owner = true
+offset_left = 978.0
+offset_top = 301.0
+offset_right = 1252.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Minimum tiles: 5"
+
+[node name="LessTiles" type="Label" parent="RemoveTile"]
+unique_name_in_owner = true
+offset_left = 686.0
+offset_top = 774.0
+offset_right = 1039.0
+offset_bottom = 845.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+theme_override_font_sizes/font_size = 32
+text = "You can't have less then 5 tiles!"
+horizontal_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
 
 [node name="Tiles" type="Node2D" parent="RemoveTile"]
 unique_name_in_owner = true

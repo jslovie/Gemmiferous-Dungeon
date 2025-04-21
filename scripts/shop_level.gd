@@ -36,7 +36,9 @@ var possible_pieces = [
 
 func _ready():
 	$RemoveTile.visible = false
+	%LessTiles.visible = false
 	SignalBus.remove_tile.connect(_on_remove_tile_signal)
+	SignalBus.minimum_tiles.connect(_on_minimum_tiles_signal)
 	Music.play_music_shop()
 	SaveManager.load_savefile()
 	SaveManager.load_autosave()
@@ -206,7 +208,7 @@ func spawn_effect_pieces(pos, color):
 
 func make_effect(effect, color, pos):
 	var current = effect.instantiate()
-	current.scale = Vector2(2.5,2.5)
+	current.scale = Vector2(2.25,2.25)
 	current.position = pos
 	add_child(current)
 	current.color = color
@@ -264,5 +266,10 @@ func _on_remove_tiles_pressed():
 	RelicManager.in_tile_remove = true
 
 func _on_remove_tile_signal():
-	print("works")
 	spawn_remove_tiles()
+	
+func _on_minimum_tiles_signal():
+	print("show")
+	%LessTiles.visible = true
+	get_tree().create_timer(1.5).timeout
+	%LessTiles.visible = false

@@ -52,3 +52,5 @@ texture = ExtResource("2_emqqt")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5w37o")
 bus = &"SFX_BREAK"
+
+[node name="ParticleOrigin" type="Node2D" parent="."]
