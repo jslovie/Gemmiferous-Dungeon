@@ -60,6 +60,8 @@ weaponsmith1_upgrade_price = Vector3(55, 60, 32)
 weaponsmith2_upgrade_price = Vector3(80, 75, 55)
 armourer1_upgrade_price = Vector3(65, 45, 55)
 armourer2_upgrade_price = Vector3(70, 54, 32)
+lamp_upgrade_price = Vector3(25, 15, 45)
+campfire_upgrade_price = Vector3(65, 50, 10)
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1918.0

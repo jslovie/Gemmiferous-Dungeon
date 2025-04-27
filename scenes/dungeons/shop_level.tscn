@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bskgvhuabvsbl"]
+[gd_scene load_steps=42 format=4 uid="uid://bskgvhuabvsbl"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_00vle"]
 [ext_resource type="Script" path="res://scripts/shop_level.gd" id="1_rku67"]
@@ -16,11 +16,17 @@
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="9_lofro"]
 [ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="10_7xv4i"]
 [ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="11_2aur4"]
+[ext_resource type="Texture2D" uid="uid://bsxy02pw7lyo0" path="res://assets/paper UI/Paper/Reroll.png" id="11_opjwd"]
+[ext_resource type="Texture2D" uid="uid://clgj87ul53fip" path="res://assets/paper UI/Paper/Reroll_highlighted.png" id="12_3dijt"]
 [ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="12_87ivu"]
 [ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="13_rsuoi"]
+[ext_resource type="Texture2D" uid="uid://cnmjsybmn75q3" path="res://assets/paper UI/Paper/heal10.png" id="14_ppors"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="14_uq357"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="15_0jc5i"]
+[ext_resource type="Texture2D" uid="uid://doefnj1qlp3iy" path="res://assets/paper UI/Paper/heal10_highlighted.png" id="15_pisvn"]
 [ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="16_djr58"]
+[ext_resource type="Texture2D" uid="uid://bkrciwt47le8y" path="res://assets/paper UI/Paper/heal25.png" id="16_sb8r2"]
+[ext_resource type="Texture2D" uid="uid://kynss1jvd1ht" path="res://assets/paper UI/Paper/heal25_highlighted.png" id="17_s2bk8"]
 [ext_resource type="PackedScene" uid="uid://dmgsurua3m28a" path="res://scenes/shop_level/relic_ui_shop.tscn" id="17_s2jk7"]
 [ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/level_shop/relics/armor_relic.tres" id="18_teyop"]
 [ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/level_shop/relics/gem_relic.tres" id="19_qvklh"]
@@ -147,6 +153,168 @@ sources/0 = SubResource("TileSetAtlasSource_t78xh")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1kk2"]
 
+[sub_resource type="Animation" id="Animation_6kg7n"]
+resource_name = "heal10_pressed"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heal10:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(553, 525), Vector2(438, 1136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heal10:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heal10:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bs8sv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heal10:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(553, 525)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heal10:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heal25:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(553, 651)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Heal25:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Heal25:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Heal10:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fiv8t"]
+resource_name = "heal25_pressed"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heal25:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(553, 651), Vector2(455, 1151)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heal25:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heal25:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.733333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igqyi"]
+_data = {
+"RESET": SubResource("Animation_bs8sv"),
+"heal10_pressed": SubResource("Animation_6kg7n"),
+"heal25_pressed": SubResource("Animation_fiv8t")
+}
+
 [node name="ShopLevel" type="Node2D"]
 script = ExtResource("1_rku67")
 
@@ -212,6 +380,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("5_56hgj")
 
 [node name="RemoveTile" type="Node2D" parent="."]
+visible = false
 z_index = 50
 
 [node name="Shop" type="Sprite2D" parent="RemoveTile"]
@@ -256,6 +425,15 @@ text_overrun_behavior = 1
 [node name="Tiles" type="Node2D" parent="RemoveTile"]
 unique_name_in_owner = true
 
+[node name="RemoveTilesLabel" type="Label" parent="."]
+offset_left = 1024.0
+offset_top = 327.0
+offset_right = 1216.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Remove Tiles"
+
 [node name="RemoveTiles" type="TextureButton" parent="."]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
 offset_left = 966.0
@@ -266,15 +444,6 @@ scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("7_55q2s")
 texture_hover = ExtResource("8_2t1rv")
 texture_focused = ExtResource("8_2t1rv")
-
-[node name="RemoveTilesLabel" type="Label" parent="."]
-offset_left = 1024.0
-offset_top = 327.0
-offset_right = 1216.0
-offset_bottom = 357.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Remove Tiles"
 
 [node name="LeaveButton" type="TextureButton" parent="."]
 z_index = 52
@@ -296,6 +465,157 @@ scale = Vector2(1.4, 1.4)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Leave"
+
+[node name="Reroll" type="TextureButton" parent="."]
+z_index = 52
+offset_left = 1270.0
+offset_top = 371.0
+offset_right = 1298.0
+offset_bottom = 388.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("11_opjwd")
+texture_hover = ExtResource("12_3dijt")
+
+[node name="RerollLabel" type="Label" parent="."]
+z_index = 52
+offset_left = 1276.0
+offset_top = 394.0
+offset_right = 1364.0
+offset_bottom = 424.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Reroll"
+
+[node name="RerollCostLabel" type="Label" parent="."]
+z_index = 52
+offset_left = 1318.0
+offset_top = 427.0
+offset_right = 1348.0
+offset_bottom = 457.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "25"
+
+[node name="RerollCostLabelSprite" type="Sprite2D" parent="."]
+z_index = 52
+position = Vector2(1356, 438)
+texture = ExtResource("15_0jc5i")
+
+[node name="RerollNotEnough" type="Label" parent="."]
+visible = false
+offset_left = 645.0
+offset_top = 829.0
+offset_right = 1053.0
+offset_bottom = 859.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+theme_override_font_sizes/font_size = 32
+text = "Not enough coins for reroll"
+
+[node name="Heal10" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 553.0
+offset_top = 525.0
+offset_right = 593.0
+offset_bottom = 565.0
+
+[node name="Heal10Button" type="TextureButton" parent="Heal10"]
+unique_name_in_owner = true
+z_index = 52
+offset_left = -91.0
+offset_top = -47.0
+offset_right = -63.0
+offset_bottom = -30.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("14_ppors")
+texture_hover = ExtResource("15_pisvn")
+
+[node name="Heal10Label" type="Label" parent="Heal10"]
+z_index = 52
+offset_left = -41.0
+offset_top = -25.0
+offset_right = 47.0
+offset_bottom = 5.00003
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "10 HP"
+
+[node name="Heal10CostLabel" type="Label" parent="Heal10"]
+z_index = 52
+offset_left = -9.00006
+offset_top = 9.0
+offset_right = 22.9999
+offset_bottom = 39.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "30"
+
+[node name="Heal10CostLabelSprite" type="Sprite2D" parent="Heal10"]
+z_index = 52
+position = Vector2(28.9999, 20)
+texture = ExtResource("15_0jc5i")
+
+[node name="Heal25" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 553.0
+offset_top = 651.0
+offset_right = 593.0
+offset_bottom = 691.0
+
+[node name="Heal25Button" type="TextureButton" parent="Heal25"]
+unique_name_in_owner = true
+z_index = 52
+offset_left = -91.0
+offset_top = -47.0
+offset_right = -63.0
+offset_bottom = -30.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("16_sb8r2")
+texture_hover = ExtResource("17_s2bk8")
+
+[node name="Heal25Label" type="Label" parent="Heal25"]
+z_index = 52
+offset_left = -40.9999
+offset_top = -25.0
+offset_right = 47.0001
+offset_bottom = 5.00005
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "25 HP"
+
+[node name="Heal25CostLabel" type="Label" parent="Heal25"]
+z_index = 52
+offset_left = -9.00006
+offset_top = 9.0
+offset_right = 22.9999
+offset_bottom = 39.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="Heal25CostLabelSprite" type="Sprite2D" parent="Heal25"]
+z_index = 52
+position = Vector2(28.9999, 20)
+texture = ExtResource("15_0jc5i")
+
+[node name="HealNotEnought" type="Label" parent="."]
+visible = false
+offset_left = 659.0
+offset_top = 829.0
+offset_right = 1067.0
+offset_bottom = 859.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+theme_override_font_sizes/font_size = 32
+text = "Not enough coins for heal"
 
 [node name="RelicName" type="Label" parent="."]
 anchors_preset = 8
@@ -596,5 +916,13 @@ offset_bottom = 443.0
 scale = Vector2(4, 4)
 relic = ExtResource("26_8ouap")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_igqyi")
+}
+
 [connection signal="pressed" from="RemoveTiles" to="." method="_on_remove_tiles_pressed"]
 [connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]
+[connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="pressed" from="Heal10/Heal10Button" to="." method="_on_heal_10_pressed"]
+[connection signal="pressed" from="Heal25/Heal25Button" to="." method="_on_heal_25_pressed"]

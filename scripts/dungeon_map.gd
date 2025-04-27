@@ -13,6 +13,8 @@ var random_f2
 var random_f3
 var random_f4
 
+@export var test_active : bool
+
 func _ready():
 	LevelManager.show_map = false
 	choose_random_f()
@@ -25,11 +27,11 @@ func choose_random_f():
 	random_f1 = randi_range(1,6)
 	random_f2 = randi_range(1,3)
 	
-	#Test
-	random_f1 = 1
+	if test_active == true:
+		random_f1 = 1
+		$Dungeons/F1/DungeonF1_1/Levels/LevelSelection27.visible = true
 	
 func choose_map():
-	
 	if LevelManager.floor == 1:
 		if random_f1 == 1:
 			%DungeonF1_1.visible = true

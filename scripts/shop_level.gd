@@ -6,6 +6,10 @@ const RESOURCE_PATH = "user://resources/"
 
 var remove_dict = {}
 
+var reroll_price = 25
+var heal10_price = 30
+var heal25_price = 50
+
 #Effects
 var particle_effect = preload("res://scenes/pieces/particle.tscn")
 
@@ -167,6 +171,7 @@ func load_relics():
 
 func add_relic(relic):
 	relic_handler.add_relic(relic)
+	RelicManager.current_relics.append(relic)
 	SaveManager.save_resource(relic, relic.resource_naming)
 
 func add_piece(relic_name, relic):
@@ -276,3 +281,54 @@ func show_minimum():
 	
 func _on_minimum_tiles_signal():
 	show_minimum()
+
+func check_enough_coins(coins):
+	if PlayerManager.player.coins >= coins:
+		return true
+	else:
+		return false
+
+func process_cost(coins):
+	PlayerManager.player.coins -= coins
+	SaveManager.savefilesave()
+
+func not_enough():
+	$RerollNotEnough.visible = true
+	await get_tree().create_timer(1).timeout
+	$RerollNotEnough.visible = false
+
+func not_enough_heal():
+	$HealNotEnought.visible = true
+	await get_tree().create_timer(1).timeout
+	$HealNotEnought.visible = false
+
+func _on_reroll_pressed():
+	if check_enough_coins(reroll_price):
+		process_cost(reroll_price)
+		load_relics()
+		check_duplicates()
+		choose_relic()
+		choose_piece()
+		spawn_remove_tiles()
+	else:
+		not_enough()
+
+
+func _on_heal_10_pressed():
+	if check_enough_coins(heal10_price):
+		process_cost(heal10_price)
+		PlayerManager.player.heal(10)
+		$AnimationPlayer.play("heal10_pressed")
+		%Heal10Button.disabled = true
+	else:
+		not_enough_heal()
+
+
+func _on_heal_25_pressed():
+	if check_enough_coins(heal25_price):
+		process_cost(heal25_price)
+		PlayerManager.player.heal(25)
+		$AnimationPlayer.play("heal25_pressed")
+		%Heal25Button.disabled = true
+	else:
+		not_enough_heal()

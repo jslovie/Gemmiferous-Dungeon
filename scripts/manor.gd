@@ -81,7 +81,10 @@ func _process(_delta):
 
 func update_checked():
 	if VillageManager.manor_lvl == 3 and VillageManager.houses_repaired == true:
-		$TownUpgrades/VBoxContainer/HousesUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			pass
+		else:
+			$TownUpgrades/VBoxContainer/HousesUpgrade.visible = true
 	if VillageManager.manor_lvl == 3:
 		$TownRepair/VBoxContainer/Manor/Checked.visible = true
 		$TownRepair/VBoxContainer/Manor.disabled = true
@@ -94,7 +97,7 @@ func update_checked():
 		$TownRepair/VBoxContainer/Tavern/Checked.visible = true
 		$TownRepair/VBoxContainer/Tavern.disabled = true
 		if LevelManager.is_demo == true:
-			print("demo")
+			pass
 		else:
 			$TownUpgrades/VBoxContainer/TavernUpgrade.visible = true
 	if VillageManager.weaponsmith_repaired == true:
@@ -112,11 +115,17 @@ func update_checked():
 	if VillageManager.town_square_repaired == true:
 		$TownRepair/VBoxContainer/TownSquare/Checked.visible = true
 		$TownRepair/VBoxContainer/TownSquare.disabled = true
-		$TownUpgrades/VBoxContainer/RathausUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			pass
+		else:
+			$TownUpgrades/VBoxContainer/RathausUpgrade.visible = true
 	if VillageManager.farm_repaired == true:
 		$TownRepair/VBoxContainer/Farm/Checked.visible = true
 		$TownRepair/VBoxContainer/Farm.disabled = true
-		$TownUpgrades/VBoxContainer/FarmUpgrade.visible = true
+		if LevelManager.is_demo == true:
+			pass
+		else:
+			$TownUpgrades/VBoxContainer/FarmUpgrade.visible = true
 	if VillageManager.houses_repaired == true:
 		$TownRepair/VBoxContainer/Houses/Checked.visible = true
 		$TownRepair/VBoxContainer/Houses.disabled = true
@@ -130,21 +139,21 @@ func update_checked():
 		$TownRepair/VBoxContainer/WoodcuttersCamp/Checked.visible = true
 		$TownRepair/VBoxContainer/WoodcuttersCamp.disabled = true
 		if LevelManager.is_demo == true:
-			print("demo")
+			pass
 		else:
 			$TownUpgrades/VBoxContainer/WoodcuttersUpgrade.visible = true
 	if VillageManager.stone_mine_repaired == true:
 		$TownRepair/VBoxContainer/StoneMine/Checked.visible = true
 		$TownRepair/VBoxContainer/StoneMine.disabled = true
 		if LevelManager.is_demo == true:
-			print("demo")
+			pass
 		else:
 			$TownUpgrades/VBoxContainer/StoneMineUpgrade.visible = true
 	if VillageManager.iron_mine_repaired == true:
 		$TownRepair/VBoxContainer/IronMine/Checked.visible = true
 		$TownRepair/VBoxContainer/IronMine.disabled = true
 		if LevelManager.is_demo == true:
-			print("demo")
+			pass
 		else:
 			$TownUpgrades/VBoxContainer/IronMineUpgrade.visible = true
 	if VillageManager.tavern_lvl == 3:

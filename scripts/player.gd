@@ -177,6 +177,7 @@ func _process(_delta):
 	update_base_actions()
 	total_material()
 	total_gems()
+	check_max_health()
 	
 func update_player_texture():
 	if type == "Rogue":
@@ -210,6 +211,10 @@ func shield_up(amount):
 		
 func heal(amount):
 	health += amount
+	if health > max_health:
+		health = max_health
+
+func check_max_health():
 	if health > max_health:
 		health = max_health
 
