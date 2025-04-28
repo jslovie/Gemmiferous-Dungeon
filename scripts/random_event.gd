@@ -12,6 +12,9 @@ var materials_lost
 var health_lost
 var health_gained
 
+@export var test : bool
+@export var test_level : int
+
 func _ready():
 	Music.play_music_random_event()
 	LevelManager.level_done += 1
@@ -35,7 +38,10 @@ func change_background():
 		$Background/F4.visible = true
 
 func choose_random_room():
-	room = randi_range(1, 4)
+	room = randi_range(1, 6)
+	if test == true:
+		room = test_level
+		
 	
 func lost_items(amount):
 	coins_lost = round(PlayerManager.player.coins * amount)
@@ -50,6 +56,10 @@ func lost_items(amount):
 	PlayerManager.player.green_gem -= green_gems_lost
 	PlayerManager.player.yellow_gem -= yellow_gems_lost
 	PlayerManager.player.materials -= materials_lost
+
+func lost_coins(percentage):
+	coins_lost = round(PlayerManager.player.coins * percentage)
+	PlayerManager.player.coins -= coins_lost
 	
 func lost_health_percentage(amount):
 	health_lost = round(PlayerManager.player.health * amount)
@@ -66,6 +76,8 @@ func gained_coins(amount):
 func gained_health(amount):
 	health_gained = amount
 	PlayerManager.player.health += health_gained
+	if PlayerManager.player.health >= PlayerManager.player.max_health:
+		PlayerManager.player.health = PlayerManager.player.max_health
 
 func gain_gems(amount):
 	PlayerManager.player.red_gem += round(PlayerManager.player.red_gem * amount)
@@ -121,6 +133,11 @@ func update_text():
 		%EventText.text = "You entered a room, but there seems to be nothing inside"
 		%Button.text = "Quite disappointed, you decided to head towards the door on the other side to leave"
 		%Button2.visible = false
+		%Button3.visible = false
+	elif room == 6:
+		%EventText.text = "You entered a room and see old man sitting on the ground, he seems to have some healing skills"
+		%Button.text = "Heal some HP for some spare coins"
+		%Button2.text = "Leave the old man alone"
 		%Button3.visible = false
 		
 func resolution_screen():
@@ -215,6 +232,16 @@ func handle_button():
 				%ResolutionText.text = "You noticed a pouch full of gold on the floor. Looks like someone lost it here"
 				gained_coins(50)
 				LevelManager.switch_to_dungeon_map()
+	elif room == 6:
+		if %Button.text == "Heal some HP for some spare coins":
+			resolution_screen()
+			var random_heal = randi_range(1,10)
+			gained_health(random_heal)
+			lost_coins(0.1)
+			%ResolutionText.text = "You gained " + str(random_heal) + " HP and gave the old man " + str(coins_lost) + " coins"
+			LevelManager.switch_to_dungeon_map()
+			
+			
 func handle_button2():
 	if room == 1:
 		if %Button2.text == "Fight them":
@@ -246,7 +273,14 @@ func handle_button2():
 		resolution_screen()
 		%ResolutionText.text = "You decided that you don't trust the chest and left the room"
 		LevelManager.switch_to_dungeon_map()
-	
+	elif room == 6:
+		resolution_screen()
+		%ResolutionText.text = "You decided that you don't trust the old man and left the room"
+		LevelManager.switch_to_dungeon_map()
+			
+			
+			
+				
 func handle_button3():
 	pass
 
