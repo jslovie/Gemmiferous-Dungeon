@@ -18,6 +18,7 @@ var random_f4
 func _ready():
 	LevelManager.show_map = false
 	choose_random_f()
+	hide_tutorial()
 	
 func _process(_delta):
 	dungeon_map()
@@ -147,3 +148,26 @@ func _on_menu_mouse_entered():
 	
 func _on_menu_mouse_exited():
 	$Pause/Progress.visible = false
+
+func show_tutorial():
+	$InfoPage.visible = true
+	$InfoPageHeader.visible = true
+	$InfoLabel.visible = true
+	$InfoPageDetails.visible = true
+	
+func hide_tutorial():
+	$InfoPage.visible = false
+	$InfoPageHeader.visible = false
+	$InfoLabel.visible = false
+	$InfoPageDetails.visible = false
+
+func _on_info_pressed():
+	Sfx.play_SFX(Sfx.confirm_book)
+	show_tutorial()
+func _on_info_mouse_entered():
+	$Info/TextureRect.modulate = Color(0.537, 0.558, 0.828)
+func _on_info_mouse_exited():
+	$Info/TextureRect.modulate = Color(0.369, 0.38, 0.675)
+func _on_back_button_pressed():
+	Sfx.play_SFX(Sfx.confirm_book)
+	hide_tutorial()

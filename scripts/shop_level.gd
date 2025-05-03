@@ -58,7 +58,13 @@ func _process(_delta):
 	update_treasures_bar()
 	update_relic_description()
 	check_in_tile_remove()
-
+	update_healthbars()
+	
+func update_healthbars():
+	#Player healthbar
+	%PlayerHealth.value = PlayerManager.player.health
+	%PlayerHealth.max_value = PlayerManager.player.max_health
+	%PlayerHealthLabel.text = str(PlayerManager.player.health)
 
 func spawn_remove_tiles():
 	if PlayerManager.player.type == "Rogue":

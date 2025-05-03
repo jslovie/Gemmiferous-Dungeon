@@ -571,7 +571,7 @@ position = Vector2(1633, 745)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bvtdq")
 autoplay = "default"
-frame_progress = 0.282019
+frame_progress = 0.842526
 
 [node name="Player" parent="." instance=ExtResource("2_2gcf1")]
 position = Vector2(295, 686)

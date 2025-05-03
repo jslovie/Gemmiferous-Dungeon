@@ -17,6 +17,7 @@ offset_top = 458.0
 offset_right = 1066.0
 offset_bottom = 475.0
 scale = Vector2(4, 4)
+disabled = true
 texture_normal = ExtResource("2_15arv")
 texture_hover = ExtResource("3_mseus")
 
@@ -32,5 +33,14 @@ theme_override_font_sizes/font_size = 32
 text = "Play Cards"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." index="8"]
+offset_left = 1034.0
+offset_top = 428.0
+offset_right = 1254.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.720186, 0.292234, 0.0210431, 1)
+theme_override_font_sizes/font_size = 32
+text = "Comming soon!"
 
 [connection signal="pressed" from="CardGame" to="." method="_on_card_game_pressed"]

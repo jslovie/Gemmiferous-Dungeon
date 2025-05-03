@@ -15,6 +15,7 @@ func _ready():
 	change_background()
 	update_treasures_bar()
 	update_total_treasures_bar()
+	%Resolution.visible = false
 	$Chest.visible = false
 	if LevelManager.type == "Treasure":
 		$EnemyTypeLabel.text = "Treasure"
@@ -61,6 +62,10 @@ func update_relic_description():
 		$RelicName.visible = false
 		$RelicDescription.visible = false
 		
+func _unhandled_input(event):
+	if  event.is_action_pressed("Esc"):
+		pause()
+
 func change_background():
 	if LevelManager.floor == 1:
 		$Background/F1.visible = true
@@ -143,12 +148,25 @@ func update_rage():
 	$Hud.visible = true
 	if PlayerManager.player.type != "Barbarian":
 		%PlayerRage.visible = false
+
+func update_result():
+	$Resolution/Result/Labels/RedGem.text = ": " + str($Grid.red_gem_gained)
+	$Resolution/Result/Labels/BlueGem.text = ": " + str($Grid.blue_gem_gained)
+	$Resolution/Result/Labels/GreenGem.text = ": " + str($Grid.green_gem_gained)
+	$Resolution/Result/Labels/YellowGem.text = ": " + str($Grid.yellow_gem_gained)
+	$Resolution/Result/Labels/Coins.text = ": " + str($Grid.coins_gained)
 	
+
 func resolution_screen():
 	if LevelManager.type == "Treasure":
 		if LevelManager.treasure_timesup == true:
 			%Resolution.visible = true
 			%ResolutionText.text = "time's up!"
+			await get_tree().create_timer(1).timeout
+			%Continue.visible = true
+			update_result()
+			%Result.visible = true
+			
 	else:
 		if EnemyManager.enemy.status == "dead":
 			%Resolution.visible = true
@@ -320,10 +338,11 @@ func color_change_on_win():
 
 func pause():
 	$Pause.visible = true
+	get_tree().paused = true
 
 func unpause():
 	$Pause.visible = false
-
+	get_tree().paused = false
 
 func _on_player_died_update_total_bar():
 	$MaterialTotal.visible = true
@@ -336,13 +355,14 @@ func _on_player_died_update_total_bar():
 
 
 func _on_treasure_timer_timeout():
+	LevelManager.timer_stop = true
 	LevelManager.level_active = false
 	LevelManager.treasure_timesup = true
 	Music.dim_music()
 	$Chest/ChestClosed.visible = true
-	LevelManager.switch_to_dungeon_map()
-	await get_tree().create_timer(3).timeout
-	Music.music_to_normal()
+	#LevelManager.switch_to_dungeon_map()
+	#await get_tree().create_timer(3).timeout
+	#Music.music_to_normal()
 	
 
 func tween_size():
@@ -389,3 +409,12 @@ func _on_player_win_update_total_bar():
 	await get_tree().create_timer(1).timeout
 	update_total_treasures_bar()
 	color_change_on_win()
+
+
+func _on_continue_pressed():
+	Music.music_to_normal()
+	LevelManager.switch_to_dungeon_map_timeless()
+func _on_continue_mouse_entered():
+	$Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_continue_mouse_exited():
+	$Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.WHITE)

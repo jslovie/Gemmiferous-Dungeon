@@ -16,6 +16,7 @@ var health_gained
 @export var test_level : int
 
 func _ready():
+	$Continue.visible = false
 	Music.play_music_random_event()
 	LevelManager.level_done += 1
 	EnemyManager.enemy.type = "Trap"
@@ -143,6 +144,7 @@ func update_text():
 func resolution_screen():
 	$Control/Event.visible = false
 	$Control/Resolution.visible = true
+	$Continue.visible = true
 
 func update_text_next():
 	pass
@@ -153,6 +155,7 @@ func handle_button():
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
+				$Continue.visible = false
 				%ResolutionText.text = "One of the monsters caught you"
 				await get_tree().create_timer(3).timeout
 				EnemyManager.type = "Zombie"
@@ -162,7 +165,7 @@ func handle_button():
 				resolution_screen()
 				%ResolutionText.text = "You managed to escape but lost some items"
 				lost_items(0.1)
-				LevelManager.switch_to_dungeon_map()
+				
 	elif room == 2:
 		if %Button.text == "Drink the liquid":
 			var random_resolution = randi_range(1,2)
@@ -170,9 +173,10 @@ func handle_button():
 				resolution_screen()
 				%ResolutionText.text = "You feel well and healed 25 HP"
 				gained_health(25)
-				LevelManager.switch_to_dungeon_map()
+				
 			elif random_resolution == 2:
 				resolution_screen()
+				$Continue.visible = false
 				%ResolutionText.text = "You don't feel well and lost 25 HP"
 				lost_health_amount(25)
 				if PlayerManager.player.health <= 0:
@@ -186,17 +190,18 @@ func handle_button():
 				resolution_screen()
 				%ResolutionText.text = "You quickly realized that it was not a good idea.
 										You leave the room quite shaken but unharmed"
-				LevelManager.switch_to_dungeon_map()
+				
 			elif random_resolution == 2:
 				resolution_screen()
 				%ResolutionText.text = "You found some useful knowledge on the book" #Need to add some knowledge here
-				LevelManager.switch_to_dungeon_map()
+				
 	elif room == 4:
 		if %Button.text == "Open the chest":
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
-				%ResolutionText.text = "As you were trying to open the chest you triggered a hiddin mechanism which drove sharp spikes into your hand
+				$Continue.visible = false
+				%ResolutionText.text = "As you were trying to open the chest you triggered a hidden mechanism which drove sharp spikes into your hand
 										Your hand got hurt badly and you lost 15HP"
 				lost_health_amount(15)
 				if PlayerManager.player.health <= 0:
@@ -215,23 +220,24 @@ func handle_button():
 			var random_resolution = randi_range(1,3)
 			if random_resolution == 1:
 				resolution_screen()
-				%ResolutionText.text = "You stepped on hidden spikes and lost 15 HP"
-				lost_health_amount(15)
+				lost_health_percentage(0.15)
+				%ResolutionText.text = "You stepped on hidden spikes and lost " + str(health_lost) + " HP"
+				
 				LevelManager.switch_to_dungeon_map()
 			elif random_resolution == 2:
 				resolution_screen()
 				%ResolutionText.text = "Nothing happened on the way"
-				LevelManager.switch_to_dungeon_map()
+				
 			elif random_resolution == 3:
 				resolution_screen()
 				%ResolutionText.text = "You noticed a pile of gems on the floor. Luck is on your side"
 				gain_gems(0.15)
-				LevelManager.switch_to_dungeon_map()
+				
 			elif random_resolution == 4:
 				resolution_screen()
 				%ResolutionText.text = "You noticed a pouch full of gold on the floor. Looks like someone lost it here"
 				gained_coins(50)
-				LevelManager.switch_to_dungeon_map()
+				
 	elif room == 6:
 		if %Button.text == "Heal some HP for some spare coins":
 			resolution_screen()
@@ -239,7 +245,7 @@ func handle_button():
 			gained_health(random_heal)
 			lost_coins(0.1)
 			%ResolutionText.text = "You gained " + str(random_heal) + " HP and gave the old man " + str(coins_lost) + " coins"
-			LevelManager.switch_to_dungeon_map()
+			
 			
 			
 func handle_button2():
@@ -252,7 +258,7 @@ func handle_button2():
 				var random_coins = randi_range(25,50)
 				gained_coins(random_coins)
 				%ResolutionText.text = "You fought well and gained " + str(random_coins) + " coins, but lost " + str(health_lost) + " health"
-				LevelManager.switch_to_dungeon_map()
+				
 				
 			elif random_resolution == 2:
 				resolution_screen()
@@ -260,23 +266,23 @@ func handle_button2():
 				var random_coins = randi_range(15,25)
 				gained_coins(15)
 				%ResolutionText.text = "You fought good and gained " + str(random_coins) + " coins, but lost " + str(health_lost) + " health"
-				LevelManager.switch_to_dungeon_map()
+				
 	elif room == 2:
 		resolution_screen()
 		%ResolutionText.text = "You decided to not drink the mysterious liquid and left the room hoping it was a good decision"
-		LevelManager.switch_to_dungeon_map()
+		
 	elif room == 3:
 		resolution_screen()
 		%ResolutionText.text = "Such book won't bring anything good, you left the room glad that you did't touch it"
-		LevelManager.switch_to_dungeon_map()	
+			
 	elif room == 4:
 		resolution_screen()
 		%ResolutionText.text = "You decided that you don't trust the chest and left the room"
-		LevelManager.switch_to_dungeon_map()
+		
 	elif room == 6:
 		resolution_screen()
 		%ResolutionText.text = "You decided that you don't trust the old man and left the room"
-		LevelManager.switch_to_dungeon_map()
+		
 			
 			
 			
@@ -293,3 +299,11 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed():
 	handle_button3()
+
+
+func _on_continue_pressed():
+	LevelManager.switch_to_dungeon_map_timeless()
+func _on_continue_mouse_entered():
+	$Continue/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_continue_mouse_exited():
+	$Continue/Label.add_theme_color_override("font_color", Color.WHITE)

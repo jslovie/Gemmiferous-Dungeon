@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bmk20yax6xshm"]
+[gd_scene load_steps=37 format=4 uid="uid://bmk20yax6xshm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_map.gd" id="1_7n5ek"]
 [ext_resource type="PackedScene" uid="uid://ck1wk0h13dqbh" path="res://scenes/dungeons/level_selection.tscn" id="1_fovlk"]
@@ -20,6 +20,20 @@
 [ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="18_wj36p"]
 [ext_resource type="Texture2D" uid="uid://dwnp3opnljr31" path="res://assets/32rogues/Icons/Home_highlighted.png" id="19_bqa15"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="20_nhsug"]
+[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="21_27mah"]
+[ext_resource type="Texture2D" uid="uid://dn4waou3imryn" path="res://assets/32rogues/pieces/info.png" id="22_3d01s"]
+[ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="23_f7p4r"]
+[ext_resource type="PackedScene" uid="uid://bv0ldcglpasbk" path="res://scenes/pieces/bow_piece.tscn" id="24_lqum0"]
+[ext_resource type="PackedScene" uid="uid://qoryo24dni6g" path="res://scenes/pieces/invisibility_ring_piece.tscn" id="25_cdxay"]
+[ext_resource type="PackedScene" uid="uid://caa8r8tto8tvc" path="res://scenes/pieces/rogue_shield_piece.tscn" id="26_3h136"]
+[ext_resource type="PackedScene" uid="uid://csnwfbdroxwg0" path="res://scenes/pieces/material_piece.tscn" id="27_0e5fh"]
+[ext_resource type="PackedScene" uid="uid://v7xutm1d7nmt" path="res://scenes/pieces/axe_piece.tscn" id="28_msscn"]
+[ext_resource type="Texture2D" uid="uid://dvxdyvrnpf3le" path="res://assets/paper UI/Paper/Leave.png" id="28_u6dfy"]
+[ext_resource type="Texture2D" uid="uid://cwk58rw3cewqd" path="res://assets/paper UI/Paper/Leave_highlighted.png" id="29_biiia"]
+[ext_resource type="PackedScene" uid="uid://bfyb02eqj3ipv" path="res://scenes/pieces/mace_piece.tscn" id="29_xgshi"]
+[ext_resource type="PackedScene" uid="uid://b570oxexdcdm3" path="res://scenes/pieces/shield_piece.tscn" id="30_djmyx"]
+[ext_resource type="PackedScene" uid="uid://cmw4eeyvxun18" path="res://scenes/pieces/rage_piece.tscn" id="30_h7lxc"]
+[ext_resource type="Texture2D" uid="uid://s1oh0c0s6a5b" path="res://assets/32rogues/pieces/repeat_v3.png" id="34_fr2sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i43qi"]
 texture = ExtResource("5_bqnj5")
@@ -147,7 +161,6 @@ sources/0 = SubResource("TileSetAtlasSource_i43qi")
 
 [node name="DungeonMap" type="CanvasLayer"]
 script = ExtResource("1_7n5ek")
-test_active = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -860,7 +873,7 @@ offset_left = 1228.75
 offset_top = 946.25
 offset_right = 1260.75
 offset_bottom = 978.25
-type = "Random Event"
+type = "Shop"
 floor_set = 1
 level = 1
 path = "ABC"
@@ -2925,7 +2938,7 @@ offset_left = 1201.25
 offset_top = 680.0
 offset_right = 1233.25
 offset_bottom = 712.0
-type = "E;lite Enemy"
+type = "Elite Enemy"
 floor_set = 1
 level = 4
 path = "ABCB"
@@ -5507,8 +5520,430 @@ offset_bottom = 976.0
 theme_override_font_sizes/font_size = 32
 text = "Please note all loot and progress will be lost"
 
+[node name="Info" type="TextureButton" parent="."]
+offset_left = 297.0
+offset_top = 81.0
+offset_right = 329.0
+offset_bottom = 113.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(16, 16)
+
+[node name="TextureRect" type="TextureRect" parent="Info"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("21_27mah")
+
+[node name="Sprite2D" type="Sprite2D" parent="Info"]
+position = Vector2(16, 16)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("22_3d01s")
+
+[node name="InfoPage" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_right = -265.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_1eqxt")
+
+[node name="InfoPageHeader" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
+position = Vector2(612, 158.5)
+scale = Vector2(7.5625, 7.55)
+texture = ExtResource("3_amlki")
+
+[node name="InfoLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 524.0
+offset_top = 108.5
+offset_right = -1217.0
+offset_bottom = -911.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5rtj8")
+theme_override_font_sizes/font_size = 64
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoPageDetails" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 266.0
+offset_top = 50.0
+offset_right = 294.0
+offset_bottom = 69.0
+
+[node name="SwordPiece" parent="InfoPageDetails" instance=ExtResource("23_f7p4r")]
+position = Vector2(111, 221)
+
+[node name="SwordPiece2" parent="InfoPageDetails" instance=ExtResource("23_f7p4r")]
+position = Vector2(829, 102)
+
+[node name="SwordPiece3" parent="InfoPageDetails" instance=ExtResource("23_f7p4r")]
+position = Vector2(893, 102)
+
+[node name="SwordPiece4" parent="InfoPageDetails" instance=ExtResource("23_f7p4r")]
+position = Vector2(957, 102)
+
+[node name="BowPiece" parent="InfoPageDetails" instance=ExtResource("24_lqum0")]
+position = Vector2(111, 301)
+
+[node name="InvisibilityRingPiece" parent="InfoPageDetails" instance=ExtResource("25_cdxay")]
+position = Vector2(111, 381)
+
+[node name="RogueShieldPiece" parent="InfoPageDetails" instance=ExtResource("26_3h136")]
+position = Vector2(111, 461)
+
+[node name="MaterialPiece" parent="InfoPageDetails" instance=ExtResource("27_0e5fh")]
+position = Vector2(111, 541)
+
+[node name="AxePiece" parent="InfoPageDetails" instance=ExtResource("28_msscn")]
+position = Vector2(111, 621)
+
+[node name="MacePiece" parent="InfoPageDetails" instance=ExtResource("29_xgshi")]
+position = Vector2(111, 701)
+
+[node name="RagePiece" parent="InfoPageDetails" instance=ExtResource("30_h7lxc")]
+position = Vector2(111, 781)
+
+[node name="Label" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 206.0
+offset_right = 309.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sword attack tile"
+
+[node name="Label6" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 206.0
+offset_right = 309.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sword attack tile"
+
+[node name="Label2" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 273.0
+offset_right = 606.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Bow attack tile, has a chance to poison enemy"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 351.0
+offset_right = 624.0
+offset_bottom = 414.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Invisibility ring tile, has a chance to become invisible"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 446.0
+offset_right = 403.0
+offset_bottom = 476.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Rogue shield tile"
+
+[node name="Label5" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 513.0
+offset_right = 653.0
+offset_bottom = 609.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Material tile, drop wood, stone and iron for village upgrades"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 606.0
+offset_right = 403.0
+offset_bottom = 636.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Axe attack tile"
+
+[node name="Label8" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 673.0
+offset_right = 546.0
+offset_bottom = 736.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Mace attack tile, has chance to stun enemy"
+autowrap_mode = 2
+
+[node name="Label9" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 752.0
+offset_right = 628.0
+offset_bottom = 815.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Rage tile, match to increase the rage meter, higher rage leads to higher axe damage multiplier"
+autowrap_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="InfoPageDetails"]
+z_index = 52
+offset_left = 1371.0
+offset_top = 816.0
+offset_right = 1399.0
+offset_bottom = 833.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("28_u6dfy")
+texture_hover = ExtResource("29_biiia")
+
+[node name="BackLabel" type="Label" parent="InfoPageDetails"]
+z_index = 52
+offset_left = 1386.0
+offset_top = 846.0
+offset_right = 1468.0
+offset_bottom = 876.0
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="X" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 86.0
+offset_right = 787.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X3" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 162.0
+offset_right = 787.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X5" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 277.0
+offset_right = 787.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X7" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 358.0
+offset_right = 787.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X10" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 425.0
+offset_right = 787.0
+offset_bottom = 455.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X11" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 425.0
+offset_right = 787.0
+offset_bottom = 455.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X14" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 489.0
+offset_right = 787.0
+offset_bottom = 519.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X17" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 561.0
+offset_right = 787.0
+offset_bottom = 591.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X18" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 561.0
+offset_right = 832.0
+offset_bottom = 591.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Be fast to survive"
+
+[node name="X15" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 489.0
+offset_right = 833.0
+offset_bottom = 519.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Use"
+
+[node name="X16" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 489.0
+offset_right = 988.0
+offset_bottom = 519.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "to refresh the board"
+
+[node name="X8" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 358.0
+offset_right = 940.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Focus on"
+
+[node name="X12" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 425.0
+offset_right = 940.0
+offset_bottom = 455.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Focus on"
+
+[node name="X9" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 358.0
+offset_right = 1304.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "to get more material"
+
+[node name="X13" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 425.0
+offset_right = 1304.0
+offset_bottom = 455.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "to survive"
+
+[node name="X6" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 277.0
+offset_right = 1218.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Defeat boss to progress to next floor"
+autowrap_mode = 2
+
+[node name="X4" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 162.0
+offset_right = 1298.0
+offset_bottom = 258.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Matching 4, 5 or more attack tiles will reward damage multiplier"
+autowrap_mode = 2
+
+[node name="X2" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 999.0
+offset_top = 73.0
+offset_right = 1256.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Match 3 or more tiles for action"
+autowrap_mode = 2
+
+[node name="MaterialPiece2" parent="InfoPageDetails" instance=ExtResource("27_0e5fh")]
+position = Vector2(971, 373)
+
+[node name="ShieldPiece" parent="InfoPageDetails" instance=ExtResource("30_djmyx")]
+position = Vector2(971, 439)
+
+[node name="TextureRect" type="TextureRect" parent="InfoPageDetails"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+offset_left = 867.0
+offset_top = 475.0
+offset_right = 899.0
+offset_bottom = 507.0
+scale = Vector2(2, 2)
+texture = ExtResource("21_27mah")
+
+[node name="Sprite2D" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(899, 507)
+scale = Vector2(2, 2)
+texture = ExtResource("34_fr2sp")
+
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]
 [connection signal="pressed" from="Pause/Menu" to="." method="_on_menu_pressed"]
+[connection signal="mouse_entered" from="Info" to="." method="_on_info_mouse_entered"]
+[connection signal="mouse_exited" from="Info" to="." method="_on_info_mouse_exited"]
+[connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="InfoPageDetails/BackButton" to="." method="_on_back_button_pressed"]

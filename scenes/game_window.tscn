@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=126 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -37,9 +37,13 @@
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="23_pwx4o"]
 [ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="25_cgkb1"]
 [ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="26_qkeal"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="26_v4aci"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="27_gxw3g"]
 [ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="27_yq476"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="28_fypd8"]
 [ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="28_o85x2"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="29_4qh4o"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="29_5m2lj"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="29_ktb7s"]
 [ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="31_6hgcu"]
 [ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="31_a4scn"]
@@ -941,6 +945,124 @@ theme_override_fonts/font = ExtResource("5_pg7vj")
 theme_override_font_sizes/font_size = 128
 text = "You Died!"
 
+[node name="Continue" type="TextureButton" parent="Resolution"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 1097.0
+offset_top = 950.0
+offset_right = 1229.0
+offset_bottom = 977.0
+
+[node name="ContinueLabel" type="Label" parent="Resolution/Continue"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="Result" type="Panel" parent="Resolution"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 993.0
+offset_top = 601.0
+offset_right = 1335.0
+offset_bottom = 871.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(171, 135)
+
+[node name="Panel" type="Panel" parent="Resolution/Result"]
+modulate = Color(0, 0, 0, 0.847059)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="Label" parent="Resolution/Result"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.0
+offset_top = 15.0
+offset_right = 84.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Treasure gained"
+
+[node name="Sprites" type="Node2D" parent="Resolution/Result"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Resolution/Result/Sprites"]
+position = Vector2(57, 71)
+scale = Vector2(2, 2)
+texture = ExtResource("26_v4aci")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Resolution/Result/Sprites"]
+position = Vector2(57, 111)
+scale = Vector2(2, 2)
+texture = ExtResource("27_gxw3g")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Resolution/Result/Sprites"]
+position = Vector2(57, 151)
+scale = Vector2(2, 2)
+texture = ExtResource("28_fypd8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Resolution/Result/Sprites"]
+position = Vector2(57, 191)
+scale = Vector2(2, 2)
+texture = ExtResource("29_5m2lj")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Resolution/Result/Sprites"]
+position = Vector2(57, 231)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_ktb7s")
+
+[node name="Labels" type="Node2D" parent="Resolution/Result"]
+
+[node name="RedGem" type="Label" parent="Resolution/Result/Labels"]
+offset_left = 83.0
+offset_top = 56.0
+offset_right = 123.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 32
+text = ": 0"
+
+[node name="BlueGem" type="Label" parent="Resolution/Result/Labels"]
+offset_left = 83.0
+offset_top = 96.0
+offset_right = 123.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 32
+text = ": 0"
+
+[node name="GreenGem" type="Label" parent="Resolution/Result/Labels"]
+offset_left = 83.0
+offset_top = 136.0
+offset_right = 123.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 32
+text = ": 0"
+
+[node name="YellowGem" type="Label" parent="Resolution/Result/Labels"]
+offset_left = 83.0
+offset_top = 176.0
+offset_right = 123.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 32
+text = ": 0"
+
+[node name="Coins" type="Label" parent="Resolution/Result/Labels"]
+offset_left = 83.0
+offset_top = 216.0
+offset_right = 123.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 32
+text = ": 0"
+
 [node name="WaitTime" type="Control" parent="."]
 process_mode = 2
 visible = false
@@ -1613,6 +1735,7 @@ position = Vector2(16, 16)
 texture = ExtResource("54_1lpto")
 
 [node name="Pause" type="Control" parent="."]
+process_mode = 3
 visible = false
 z_index = 50
 layout_mode = 3
@@ -1699,6 +1822,9 @@ text = "Please note all loot and progress will be lost"
 [connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
 [connection signal="timeout" from="RefillTimer" to="Grid" method="_on_refill_timer_timeout"]
+[connection signal="mouse_entered" from="Resolution/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="Resolution/Continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="pressed" from="Resolution/Continue" to="." method="_on_continue_pressed"]
 [connection signal="timeout" from="WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
 [connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
 [connection signal="update_total_bar" from="Player_win" to="." method="_on_player_win_update_total_bar"]

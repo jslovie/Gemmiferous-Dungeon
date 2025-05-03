@@ -55,6 +55,13 @@ var controlling = false
 #Shuffle
 var shuffles_left = 2
 
+#Treasure
+var red_gem_gained = 0
+var blue_gem_gained = 0
+var green_gem_gained = 0
+var yellow_gem_gained = 0
+var coins_gained = 0
+
 func _ready():
 	change_empty_spaces()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
@@ -310,26 +317,31 @@ func destroy_matched():
 						#Gems
 						if all_pieces[i][j].color == "red":
 							red_gem_load += 1
+							red_gem_gained += 1
 							Sfx.play_SFX(Sfx.gem)
 							$TileBreakSFX.play()
 							material_effect(red_gem_effect,i,j)
 						elif all_pieces[i][j].color == "green":
 							green_gem_load += 1
+							green_gem_gained += 1
 							Sfx.play_SFX(Sfx.gem)
 							$TileBreakSFX.play()
 							material_effect(green_gem_effect,i,j)
 						elif all_pieces[i][j].color == "blue":
 							blue_gem_load += 1
+							blue_gem_gained += 1
 							Sfx.play_SFX(Sfx.gem)
 							$TileBreakSFX.play()
 							material_effect(blue_gem_effect,i,j)
 						elif all_pieces[i][j].color == "yellow":
 							yellow_gem_load += 1
+							yellow_gem_gained += 1
 							Sfx.play_SFX(Sfx.gem)
 							$TileBreakSFX.play()
 							material_effect(yellow_gem_effect,i,j)
 						elif all_pieces[i][j].color == "gold":
 							gold_load += 1
+							coins_gained += 1
 							Sfx.play_SFX(Sfx.gem)
 							$TileBreakSFX.play()
 							material_effect(coin_effect,i,j)

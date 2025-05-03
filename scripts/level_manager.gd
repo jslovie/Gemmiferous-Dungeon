@@ -20,6 +20,8 @@ var level_active = true
 var resolution
 var windows_mode
 
+var timer_stop = false
+
 func _ready():
 	check_demo()
 
@@ -63,6 +65,7 @@ func main_menu():
 	get_tree().change_scene_to_file("res://scenes/GUI/main_menu.tscn")
 
 func back_to_village():
+	get_tree().paused = false
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
@@ -70,3 +73,9 @@ func back_to_village():
 	Loading.loading_1s()
 	LevelManager.show_map = false
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
+
+func reset():
+	SaveManager.remove_autosave()
+	SaveManager.remove_resources()
+	LevelManager.reset_map()
+	RelicManager.reset_pieces_relics()

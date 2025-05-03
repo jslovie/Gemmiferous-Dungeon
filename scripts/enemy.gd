@@ -392,6 +392,7 @@ func take_action_damage(damage, action):
 			get_killed()
 
 func get_killed():
+	LevelManager.timer_stop = true
 	Music.dim_music()
 	Sfx.play_SFX(Sfx.victory)
 	LevelManager.level_done += 1
