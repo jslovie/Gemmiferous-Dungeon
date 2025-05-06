@@ -8,9 +8,9 @@ color = "bolt"
 naming = "BoltStaffPiece"
 background_color = Vector3(0.188, 0.196, 0.463)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.188235, 0.196078, 0.462745, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_ge37m")

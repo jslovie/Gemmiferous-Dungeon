@@ -7,9 +7,9 @@
 color = "longsword"
 background_color = Vector3(0.41, 0.041, 0.212)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.410456, 0.0409149, 0.211828, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_jbk4y")

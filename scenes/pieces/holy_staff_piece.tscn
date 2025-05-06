@@ -7,9 +7,9 @@
 color = "holy staff"
 background_color = Vector3(1, 0.953, 0.69)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(1, 0.9535, 0.69, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_rpxug")

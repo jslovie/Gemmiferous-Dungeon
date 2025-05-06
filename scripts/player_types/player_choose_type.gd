@@ -2,6 +2,7 @@ extends TextureButton
 
 
 @export var type: PlayerType
+@export var is_tutorial: bool
 
 func assign_stats():
 	PlayerManager.player.type = type.type
@@ -19,6 +20,9 @@ func _on_pressed():
 	assign_stats()
 	SaveManager.autosave()
 	Transition.transition()
+	if is_tutorial:
+		LevelManager.in_tutorial_level = true
+		DungeonMap.show_tutorial()
 	await get_tree().create_timer(0.5).timeout
 	LevelManager.show_map = true
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")

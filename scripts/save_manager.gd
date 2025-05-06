@@ -2,11 +2,13 @@ extends Node
 
 
 const SAVE_PATH = "user://"
+const SAVE_PATH_FOLDER = "user://saves/"
 const RESOURCE_PATH = "user://resources/"
 var test_resource_name = "HealthPotion.tres"
 
 #Savefile
 var save_file = false
+var save_file_2 = false
 
 
 #Autosave
@@ -106,6 +108,11 @@ var savefile_data = {
 		shield_max_lvl = 0,
 	},
 }
+var savefile_data_2 = {
+	rogue_unlocked = false,
+	save_file_2 = false,
+}
+
 
 #Resourcesaver
 func _ready():
@@ -183,11 +190,17 @@ func update_player_data_savefile():
 	savefile_data.village.shield_init_lvl = v.shield_init_lvl
 	savefile_data.village.shield_load_lvl = v.shield_load_lvl
 	savefile_data.village.shield_max_lvl = v.shield_max_lvl
+	savefile_data_2.rogue_unlocked = p.rogue_unlocked
+	savefile_data_2.save_file_2 = save_file_2
 	
 func reset_savefile():
+	savefile_data_2 = {
+		rogue_unlocked = false
+	}
 	savefile_data = {
 	player_data = {
 		save_file = false,
+		barbarian_unlocked = false,
 		total_coins = 0,
 		upgraded_axe_damage_x = 0,
 		upgraded_axe_damage_y = 0,
@@ -254,6 +267,7 @@ func reset_savefile():
 
 
 
+
 #Autosave
 func update_player_data_autosave():
 	var p : Player = PlayerManager.player
@@ -303,9 +317,15 @@ func savefilesave():
 	var file := FileAccess.open(SAVE_PATH + "savefile.sav", FileAccess.WRITE)
 	var save_json = JSON.stringify(savefile_data)
 	file.store_line(save_json)
-
+	var file_2 := FileAccess.open(SAVE_PATH + "savefile2.sav", FileAccess.WRITE)
+	var save_json2 = JSON.stringify(savefile_data_2)
+	file_2.store_line(save_json2)
+	
 func get_savefile_file():
 	return FileAccess.open(SAVE_PATH + "savefile.sav", FileAccess.READ)
+
+func get_savefile_file_2():
+	return FileAccess.open(SAVE_PATH + "savefile2.sav", FileAccess.READ)
 
 func get_autosave_file():
 	return FileAccess.open(SAVE_PATH + "autosave.sav", FileAccess.READ)
@@ -352,3 +372,14 @@ func load_savefile():
 	savefile_data.village.left_watchtower_repaired, savefile_data.village.right_watchtower_repaired, savefile_data.village.woodcutters_camp_repaired, savefile_data.village.stone_mine_repaired, 
 	savefile_data.village.iron_mine_repaired, savefile_data.village.lamps_built, savefile_data.village.campfire_built, savefile_data.village.axe_item_lvl, savefile_data.village.mace_item_lvl,
 	savefile_data.village.sword_item_lvl, savefile_data.village.bow_item_lvl, savefile_data.village.shield_init_lvl, savefile_data.village.shield_load_lvl, savefile_data.village.shield_max_lvl)
+
+func load_savefile_2():
+	var file = get_savefile_file_2()
+	var json = JSON.new()
+	json.parse(file.get_line())
+	var save_dict : Dictionary = json.get_data() as Dictionary
+	savefile_data_2 = save_dict
+	
+	save_file_2 = savefile_data_2.save_file_2
+	
+	PlayerManager.set_savefile_stats_2(savefile_data_2.rogue_unlocked)

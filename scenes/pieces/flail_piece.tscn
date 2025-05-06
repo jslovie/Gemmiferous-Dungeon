@@ -8,9 +8,9 @@ color = "flail"
 naming = "FlailPiece"
 background_color = Vector3(0.227, 0.231, 0.278)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.227451, 0.231373, 0.278431, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_1rddv")

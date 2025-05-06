@@ -7,13 +7,10 @@
 color = "gold"
 background_color = Vector3(0.553, 0.004, 0.773)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.55295, 0.00197259, 0.773503, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.552941, 0.00392157, 0.772549, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -2)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_b7x11")

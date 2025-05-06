@@ -7,13 +7,10 @@
 color = "yellow"
 background_color = Vector3(0, 0.408, 0.941)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0, 0.408994, 0.941378, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0, 0.407843, 0.941176, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -3)
 scale = Vector2(2.8, 2.8)
 texture = ExtResource("2_apj3t")

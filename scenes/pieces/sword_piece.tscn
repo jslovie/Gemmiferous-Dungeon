@@ -12,13 +12,10 @@ color = "sword"
 naming = "SwordPiece"
 background_color = Vector3(0.431, 0.031, 0.031)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.429688, 0.0302124, 0.0302124, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.431373, 0.0313726, 0.0313726, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -1)
 scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_5rp7v")

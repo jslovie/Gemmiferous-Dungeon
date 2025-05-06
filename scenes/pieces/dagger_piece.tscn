@@ -8,10 +8,10 @@ color = "dagger"
 naming = "DaggerPiece"
 background_color = Vector3(0.262, 0.179, 0.339)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.262321, 0.178979, 0.339431, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(-3, -4)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("2_ybd0i")

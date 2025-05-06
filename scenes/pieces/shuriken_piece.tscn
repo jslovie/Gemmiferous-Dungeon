@@ -6,13 +6,10 @@
 [node name="ShurikenPiece" instance=ExtResource("1_26jgq")]
 color = "shuriken"
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.121569, 0.313726, 0.552941, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.121569, 0.313726, 0.552941, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(1, 1)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_x26tn")

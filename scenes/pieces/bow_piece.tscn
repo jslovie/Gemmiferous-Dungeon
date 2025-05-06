@@ -12,13 +12,10 @@ color = "bow"
 naming = "BowPiece"
 background_color = Vector3(0.188, 0.475, 0.231)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.188324, 0.472656, 0.232751, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.188235, 0.47451, 0.231373, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(-1, 0)
 scale = Vector2(2.8, 2.8)
 texture = SubResource("AtlasTexture_dshp8")

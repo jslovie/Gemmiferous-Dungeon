@@ -19,6 +19,10 @@ func _process(_delta):
 	check_unlocked()
 
 func check_unlocked():
+	if PlayerManager.player.rogue_unlocked == false:
+		$RogueType.disabled = true
+		$LockRogue.visible = true
+		$RogueType.modulate = Color(0.369, 0.369, 0.369)
 	if PlayerManager.player.barbarian_unlocked == false:
 		$BarbarianType.disabled = true
 		$LockBarbarian.visible = true
@@ -75,9 +79,13 @@ func total_gems_check():
 
 func _on_rogue_type_mouse_entered():
 	$DescriptionRogue.visible = true
+	if PlayerManager.player.rogue_unlocked == false:
+		$Unlock.text = "Complete tutorial level to unlock!"
+		$Unlock.visible = true
 
 func _on_rogue_type_mouse_exited():
 	$DescriptionRogue.visible = false
+	$Unlock.visible = false
 
 func _on_barbarian_type_mouse_entered():
 	$DescriptionBarbarian.visible = true

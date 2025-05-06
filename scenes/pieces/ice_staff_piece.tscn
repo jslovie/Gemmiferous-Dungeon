@@ -8,9 +8,9 @@ color = "ice"
 naming = "IceStaffPiece"
 background_color = Vector3(0.42, 0.251, 0.271)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.419608, 0.25098, 0.270588, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_6vcv1")

@@ -8,9 +8,9 @@ color = "maul"
 naming = "MaulPiece"
 background_color = Vector3(0.522, 0.173, 0.141)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.521569, 0.172549, 0.141176, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_367m8")

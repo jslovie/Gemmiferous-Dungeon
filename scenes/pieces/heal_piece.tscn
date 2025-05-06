@@ -6,12 +6,9 @@
 [node name="HealPiece" instance=ExtResource("1_8wse1")]
 color = "Heal"
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.337634, 0.101624, 0.433594, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.337255, 0.101961, 0.435294, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_a23rk")

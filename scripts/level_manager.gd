@@ -22,6 +22,9 @@ var windows_mode
 
 var timer_stop = false
 
+var in_game = true
+var in_tutorial_level = false
+
 func _ready():
 	check_demo()
 
@@ -74,7 +77,9 @@ func back_to_village():
 	LevelManager.show_map = false
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
+
 func reset():
+	DungeonMap.hide_all_dungeons()
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()

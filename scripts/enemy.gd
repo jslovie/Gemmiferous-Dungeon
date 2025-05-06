@@ -189,6 +189,13 @@ func Type_check():
 	elif type == "Torment Us":
 		var torment_us_texture = load("res://assets/32rogues/enem/torment_us.png")
 		%EnemyType.texture = torment_us_texture
+	elif type == "Goblin":
+		var goblin_texture = load("res://assets/32rogues/enem/goblin.png")
+		%EnemyType.texture = goblin_texture
+	elif type == "Troll Boss":
+		var troll_boss_texture = load("res://assets/32rogues/enem/troll_boss.png")
+		%EnemyType.texture = troll_boss_texture
+		
 		
 func change_delay():
 	var random_delay = randi_range(action_delay.x, action_delay.y)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://mfmhytite3rx"]
+[gd_scene load_steps=41 format=4 uid="uid://mfmhytite3rx"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_1j2bm"]
 [ext_resource type="PackedScene" uid="uid://ck1auwqa8cl0c" path="res://scenes/player_type/rogue_type.tscn" id="1_3au3l"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bnmfsm5m0vxgy" path="res://assets/32rogues/pieces/heart.png" id="26_qtjxu"]
 [ext_resource type="Texture2D" uid="uid://dmdome0cw4agd" path="res://assets/32rogues/pieces/shield.png" id="27_xchyu"]
 [ext_resource type="PackedScene" uid="uid://v7xutm1d7nmt" path="res://scenes/pieces/axe_piece.tscn" id="28_ttw0b"]
+[ext_resource type="PackedScene" uid="uid://bbgufiypigf35" path="res://scenes/player_type/tutorial_type.tscn" id="29_dx01t"]
 [ext_resource type="PackedScene" uid="uid://bfyb02eqj3ipv" path="res://scenes/pieces/mace_piece.tscn" id="29_islwp"]
 [ext_resource type="PackedScene" uid="uid://cmw4eeyvxun18" path="res://scenes/pieces/rage_piece.tscn" id="30_pm0gk"]
 [ext_resource type="PackedScene" uid="uid://cyhrrq4evgdil" path="res://scenes/player_type/barbarian_type.tscn" id="31_h2vtn"]
@@ -35,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqus2w8mosb0" path="res://scenes/player_type/knight_type.tscn" id="34_3540q"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="34_u0h7w"]
 [ext_resource type="Texture2D" uid="uid://vvn880es663f" path="res://assets/32rogues/doors/lock.png" id="35_e052o"]
+[ext_resource type="Texture2D" uid="uid://bfowlijf7q63f" path="res://assets/paper UI/Paper/Header1.png" id="36_u5j4t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knjw7"]
 texture = ExtResource("1_1j2bm")
@@ -167,11 +169,11 @@ tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAE
 tile_set = SubResource("TileSet_gehps")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/DungeonTiles"]
-tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
+tile_map_data = PackedByteArray("AAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
 tile_set = SubResource("TileSet_gehps")
 
 [node name="DoorOpen" type="Sprite2D" parent="Background"]
-position = Vector2(-388, 212)
+position = Vector2(1055, 212)
 scale = Vector2(5, 5)
 texture = ExtResource("3_yvk6t")
 
@@ -624,6 +626,14 @@ scale = Vector2(2, 1.93)
 texture_normal = ExtResource("32_oir2d")
 texture_hover = ExtResource("33_rulpw")
 
+[node name="TutorialType" parent="." instance=ExtResource("29_dx01t")]
+offset_left = 70.0
+offset_top = 179.0
+offset_right = 102.0
+offset_bottom = 211.0
+scale = Vector2(12, 12)
+is_tutorial = true
+
 [node name="RogueType" parent="." instance=ExtResource("1_3au3l")]
 offset_left = 194.0
 offset_top = 604.0
@@ -674,6 +684,12 @@ texture = ExtResource("35_e052o")
 [node name="LockBarbarian" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(615, 538)
+scale = Vector2(5, 5)
+texture = ExtResource("35_e052o")
+
+[node name="LockRogue" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(393, 817)
 scale = Vector2(5, 5)
 texture = ExtResource("35_e052o")
 
@@ -777,13 +793,32 @@ text = "Not available in demo!"
 
 [node name="Unlock" type="Label" parent="."]
 visible = false
-offset_left = 746.0
 offset_top = 982.0
-offset_right = 1490.0
+offset_right = 2400.0
 offset_bottom = 1042.0
 scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 64
 text = "Beat first boss to unlock!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutotialBanner" type="Sprite2D" parent="."]
+position = Vector2(271, 190)
+scale = Vector2(5, 5)
+texture = ExtResource("36_u5j4t")
+
+[node name="TutorialLabel" type="Label" parent="."]
+offset_left = 194.0
+offset_top = 142.0
+offset_right = 314.0
+offset_bottom = 205.0
+scale = Vector2(1.3, 1.3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tutorial 
+Level"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="mouse_entered" from="RogueType" to="." method="_on_rogue_type_mouse_entered"]

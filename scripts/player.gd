@@ -37,6 +37,7 @@ var spawned = false
 var spins_left = 0
 
 #Characted unlocks
+var rogue_unlocked = false
 var barbarian_unlocked = false
 
 #Shield upgrades

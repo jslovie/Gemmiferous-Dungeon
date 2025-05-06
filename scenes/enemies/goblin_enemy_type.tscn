@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjw7fhrbrpda7"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_740i2"]
+[ext_resource type="Texture2D" uid="uid://7dnli24kal21" path="res://assets/32rogues/enem/goblin.png" id="2_25ikk"]
+
+[node name="GoblinEnemyType" instance=ExtResource("1_740i2")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_25ikk")

@@ -8,10 +8,10 @@ color = "rogue shield"
 naming = "RogueShieldPiece"
 background_color = Vector3(0.235, 0.235, 0.235)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.235294, 0.235294, 0.235294, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -2)
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("2_4i0s8")

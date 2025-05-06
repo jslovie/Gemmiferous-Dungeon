@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbgufiypigf35"]
+
+[ext_resource type="PackedScene" uid="uid://bcob5klmphwwu" path="res://scenes/player_type/player_type.tscn" id="1_wqlha"]
+[ext_resource type="Texture2D" uid="uid://h0fbq561lv52" path="res://assets/32rogues/chars/tutorial.png" id="2_nndq0"]
+[ext_resource type="Texture2D" uid="uid://c5sn8qrp8sf0o" path="res://assets/32rogues/chars/tutorial_highlighted.png" id="3_frx4s"]
+[ext_resource type="Resource" uid="uid://0y1ua5vfelro" path="res://scripts/player_types/rogue.tres" id="4_paj5t"]
+
+[node name="TutorialType" instance=ExtResource("1_wqlha")]
+texture_normal = ExtResource("2_nndq0")
+texture_hover = ExtResource("3_frx4s")
+type = ExtResource("4_paj5t")

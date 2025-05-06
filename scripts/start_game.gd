@@ -34,6 +34,7 @@ func demo_setup():
 
 func create_test_game():
 	SaveManager.save_file = true
+	SaveManager.save_file_2 = true
 	SaveManager.remove_savefile()
 	SaveManager.reset_savefile()
 	VillageManager.reset_village_stats()
@@ -49,16 +50,25 @@ func create_test_game():
 	
 func handle_new_game():
 	SaveManager.save_file = true
+	SaveManager.save_file_2 = true
 	SaveManager.savefilesave()
 	visible = false
 	Loading.loading_1s()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 	
 func handle_continue_game():
-	SaveManager.load_savefile()
-	VillageManager.start_timers()
 	visible = false
 	Loading.loading_1s()
+	if SaveManager.save_file_2 == false:
+		SaveManager.save_file_2 = true
+		SaveManager.savefilesave()
+	else:
+		SaveManager.load_savefile_2()
+	await get_tree().create_timer(0.5).timeout
+	SaveManager.load_savefile()
+	SaveManager.load_savefile_2()
+	VillageManager.start_timers()
+
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 func _on_button_pressed():

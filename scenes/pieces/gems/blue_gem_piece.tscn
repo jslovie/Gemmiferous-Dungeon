@@ -7,13 +7,10 @@
 color = "blue"
 background_color = Vector3(0.96, 0, 0.576)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.959548, 2.69532e-06, 0.575564, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.960784, 0, 0.576471, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -3)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_hhcnb")

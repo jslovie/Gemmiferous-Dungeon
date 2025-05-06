@@ -7,13 +7,10 @@
 color = "rage"
 background_color = Vector3(0.569, 0.239, 0.004)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.568265, 0.239474, 0.00573257, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.568627, 0.239216, 0.00392157, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(1, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_54flr")

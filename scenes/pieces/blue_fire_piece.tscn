@@ -7,9 +7,9 @@
 color = "blue fire"
 background_color = Vector3(0, 0.245, 0.341)
 
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(5.53504e-07, 0.244613, 0.341262, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_kcnd2")

@@ -9,12 +9,9 @@ color = "material"
 naming = "MaterialPiece"
 background_color = Vector3(0.757, 0.757, 0)
 
-[node name="Panel" parent="." index="1"]
-color = Color(0.670327, 0.65142, 0.138802, 1)
-
-[node name="TextureRect" parent="." index="2"]
+[node name="TextureRect" parent="." index="1"]
 modulate = Color(0.757009, 0.75701, 3.85046e-07, 1)
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_oxclw")

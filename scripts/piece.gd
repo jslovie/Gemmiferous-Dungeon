@@ -13,6 +13,9 @@ var matched = false
 func _ready():
 	texture_rect.connect("gui_input", on_piece_clicked)
 
+func _process(_delta):
+	outline()
+
 func move(target):
 	var tween = create_tween()
 	tween.tween_property(self, "position", target,0.6).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
@@ -30,11 +33,17 @@ func make_effect(effect, color):
 	add_child(current)
 	current.color = Color(color.x, color.y, color.z)
 
+func outline():
+	if LevelManager.in_game == true:
+		#if Input.is_action_pressed("ui_touch"):
+			#$Outline.visible = true
+		if Input.is_action_just_released("ui_touch"):
+			$Outline.visible = false
 
 func on_piece_clicked(event):
 	if event is InputEventMouseButton:
-		if event.pressed:
-			if RelicManager.in_tile_remove == true:
+		if RelicManager.in_tile_remove == true:
+			if event.pressed:
 				if PlayerManager.player.type == "Rogue":
 					if len(RelicManager.rogue_pieces) > 5:
 						for i in RelicManager.remove_dict:
@@ -64,3 +73,12 @@ func on_piece_clicked(event):
 								queue_free()
 					else:
 						SignalBus.minimum_tiles.emit()
+		elif LevelManager.in_game == true:
+			if event.pressed:
+				$Outline.visible = true
+
+
+						
+						
+						
+						

@@ -76,10 +76,13 @@ func set_savefile_stats(total_coins, total_green_gem, total_red_gem, total_blue_
 	player.upgraded_mace_damage.x = upgraded_mace_damage_x
 	player.upgraded_mace_damage.y = upgraded_mace_damage_y
 	player.upgraded_sword_damage.x = upgraded_sword_damage_x
-	player.upgraded_sword_damage.y = upgraded_sword_damage_y
+	player.upgraded_sword_damage.y = upgraded_sword_damage_y	
 	player.upgraded_bow_damage.x = upgraded_bow_damage_x
 	player.upgraded_bow_damage.y = upgraded_bow_damage_y
 	player.barbarian_unlocked = barbarian_unlocked
 	player.upgraded_shield_init = upgraded_shield_init
 	player.upgraded_shield_load = upgraded_shield_load
 	player.upgraded_shield_max = upgraded_shield_max
+
+func set_savefile_stats_2(rogue_unlocked):
+	player.rogue_unlocked = rogue_unlocked

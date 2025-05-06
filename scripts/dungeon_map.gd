@@ -23,6 +23,8 @@ func _ready():
 func _process(_delta):
 	dungeon_map()
 	choose_map()
+	if LevelManager.in_tutorial_level:
+		$InfoPageDetails/BackLabel.text = "Play"
 
 func choose_random_f():
 	random_f1 = randi_range(1,6)
@@ -31,7 +33,10 @@ func choose_random_f():
 	if test_active == true:
 		random_f1 = 1
 		$Dungeons/F1/DungeonF1_1/Levels/LevelSelection27.visible = true
-	
+	else:
+		$Dungeons/F1/DungeonF1_1/Levels/LevelSelection27.visible = false
+
+
 func choose_map():
 	if LevelManager.floor == 1:
 		if random_f1 == 1:
@@ -59,7 +64,9 @@ func choose_map():
 		%DungeonF3_1.visible = true
 	elif LevelManager.floor == 4:
 		%DungeonF4_1.visible = true
-
+	if LevelManager.in_tutorial_level:
+		$Dungeons/Tutorial/DungeonF_T.visible = true
+	
 func hide_all_dungeons():
 	#F1
 	%DungeonF1_1.visible = false
