@@ -139,6 +139,15 @@ func type_check():
 	elif EnemyManager.enemy.type == "Torment Us":
 		var torment_us_texture = load("res://assets/32rogues/enem/torment_us.png")
 		$EnemySprite.texture = torment_us_texture
+	elif EnemyManager.enemy.type == "Goblin":
+		var goblin_texture = load("res://assets/32rogues/enem/goblin.png")
+		$EnemySprite.texture = goblin_texture
+	elif EnemyManager.enemy.type == "Mogglewog":
+		var mogglewog_texture = load("res://assets/32rogues/enem/mogglewog.png")
+		$EnemySprite.texture = mogglewog_texture
+	elif EnemyManager.enemy.type == "Troll Boss":
+		var troll_boss_texture = load("res://assets/32rogues/enem/troll_boss.png")
+		$EnemySprite.texture = troll_boss_texture
 	elif EnemyManager.enemy.type == "Trap":
 		$Who.visible = false
 		$EnemySprite.visible = false

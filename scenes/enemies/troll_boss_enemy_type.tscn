@@ -4,6 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://co5c0rrkfxnie" path="res://assets/32rogues/enem/troll_boss.png" id="2_pov5o"]
 
 [node name="TrollBossEnemyType" instance=ExtResource("1_t6ih2")]
+type = "Troll Boss"
+health = 100.0
+health_increase = 10
+max_health = 100.0
+shield = 20.0
+shield_increase = 5
+damage = Vector2(5, 10)
+coin_worth = 15
+action_delay = Vector2(8, 15)
+blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_pov5o")

@@ -169,5 +169,17 @@ func select_enemy():
 		var torment_us = preload("res://scenes/enemies/torment_us_enemy_type.tscn").instantiate()
 		torment_us.global_position = $Controllable_player.global_position
 		add_child(torment_us)
+	elif enemy == "Goblin":
+		var goblin = preload("res://scenes/enemies/goblin_enemy_type.tscn").instantiate()
+		goblin.global_position = $Controllable_player.global_position
+		add_child(goblin)
+	elif enemy == "Mogglewog":
+		var mogglewog = preload("res://scenes/enemies/mogglewog_enemy_type.tscn").instantiate()
+		mogglewog.global_position = $Controllable_player.global_position
+		add_child(mogglewog)
+	elif enemy == "Troll Boss":
+		var troll_boss = preload("res://scenes/enemies/troll_boss_enemy_type.tscn").instantiate()
+		troll_boss.global_position = $Controllable_player.global_position
+		add_child(troll_boss)
 
 	print("Enemy is : " + str(enemy))

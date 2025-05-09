@@ -24,6 +24,7 @@ var timer_stop = false
 
 var in_game = true
 var in_tutorial_level = false
+var tutorial_completed = false
 
 func _ready():
 	check_demo()
@@ -45,6 +46,10 @@ func reset_win():
 	PlayerManager.player.player_won = false
 	handle_winning = false
 
+func reset_tutorial():
+	in_tutorial_level = false
+	tutorial_completed = false
+
 func switch_to_dungeon_map():
 	SaveManager.autosave()
 	await get_tree().create_timer(3).timeout
@@ -61,6 +66,7 @@ func main_menu():
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	LevelManager.reset_tutorial()
 	LevelManager.show_map = false
 	Loading.loading_1s()
 	StartGame.visible = true
@@ -73,6 +79,7 @@ func back_to_village():
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	LevelManager.reset_tutorial()
 	Loading.loading_1s()
 	LevelManager.show_map = false
 	get_tree().change_scene_to_file("res://scenes/village.tscn")

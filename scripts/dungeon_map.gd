@@ -79,6 +79,13 @@ func hide_all_dungeons():
 	%DungeonF2_1.visible = false
 	%DungeonF2_2.visible = false
 	%DungeonF2_3.visible = false
+	#F3
+	%DungeonF3_1.visible = false
+	#F4
+	%DungeonF4_1.visible = false
+	#FT
+	$Dungeons/Tutorial/DungeonF_T.visible = false
+	
 	
 func dungeon_map():
 	if LevelManager.show_map == false:

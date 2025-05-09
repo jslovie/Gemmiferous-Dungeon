@@ -192,6 +192,9 @@ func Type_check():
 	elif type == "Goblin":
 		var goblin_texture = load("res://assets/32rogues/enem/goblin.png")
 		%EnemyType.texture = goblin_texture
+	elif type == "Mogglewog":
+		var mogglewog_texture = load("res://assets/32rogues/enem/mogglewog.png")
+		%EnemyType.texture = mogglewog_texture
 	elif type == "Troll Boss":
 		var troll_boss_texture = load("res://assets/32rogues/enem/troll_boss.png")
 		%EnemyType.texture = troll_boss_texture
@@ -402,16 +405,9 @@ func get_killed():
 	LevelManager.timer_stop = true
 	Music.dim_music()
 	Sfx.play_SFX(Sfx.victory)
+	handle_tutorial()
 	LevelManager.level_done += 1
-	if LevelManager.available_level == 11:
-		PlayerManager.player.barbarian_unlocked = true
-		SaveManager.savefilesave()
-		LevelManager.floor += 1
-	if OS.has_feature("Demo"):
-		if LevelManager.available_level == 24:
-			PlayerManager.player.player_won = true
-	if LevelManager.available_level == 51:
-		PlayerManager.player.player_won = true
+	handle_progress()
 	#Shield Cap
 	if PlayerManager.player.shield > PlayerManager.player.shield_max:
 		PlayerManager.player.shield = PlayerManager.player.shield_max + PlayerManager.player.upgraded_shield_max
@@ -457,7 +453,45 @@ func get_killed():
 	
 	#Autosave
 	SaveManager.autosave()
-	
+
+func handle_tutorial():
+	if LevelManager.in_tutorial_level:
+		if LevelManager.available_level == 8:
+			PlayerManager.player.rogue_unlocked = true
+			LevelManager.tutorial_completed = true
+			PlayerManager.player.wood += 25
+			PlayerManager.player.stone += 30
+			PlayerManager.player.iron += 15
+			PlayerManager.player.player_won = true
+			if LevelManager.tutorial_completed:
+				PlayerManager.player.coins = 0
+				PlayerManager.player.red_gem = 0
+				PlayerManager.player.yellow_gem = 0
+				PlayerManager.player.green_gem = 0
+				PlayerManager.player.blue_gem = 0
+				PlayerManager.player.wood = 0
+				PlayerManager.player.stone = 0
+				PlayerManager.player.iron = 0
+				await get_tree().create_timer(2).timeout
+				PlayerManager.player.coins = 0
+				PlayerManager.player.red_gem = 0
+				PlayerManager.player.yellow_gem = 0
+				PlayerManager.player.green_gem = 0
+				PlayerManager.player.blue_gem = 0
+				PlayerManager.player.wood = 0
+				PlayerManager.player.stone = 0
+				PlayerManager.player.iron = 0
+
+func handle_progress():
+	if LevelManager.available_level == 11:
+		PlayerManager.player.barbarian_unlocked = true
+		SaveManager.savefilesave()
+		LevelManager.floor += 1
+	if OS.has_feature("Demo"):
+		if LevelManager.available_level == 24:
+			PlayerManager.player.player_won = true
+	if LevelManager.available_level == 51:
+		PlayerManager.player.player_won = true
 
 func stunt(amount):
 	var stunt_time = %ActionTimer.time_left + amount

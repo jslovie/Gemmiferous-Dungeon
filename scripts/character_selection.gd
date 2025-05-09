@@ -27,6 +27,7 @@ func check_unlocked():
 		$BarbarianType.disabled = true
 		$LockBarbarian.visible = true
 		$BarbarianType.modulate = Color(0.369, 0.369, 0.369)
+	
 
 func update_treasures():
 	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.total_red_gem)
@@ -131,3 +132,15 @@ func _on_knight_type_mouse_entered():
 func _on_knight_type_mouse_exited():
 	if is_demo:
 		$NotAvailable.visible = false
+
+
+func _on_tutorial_type_mouse_entered():
+	$TutotialBanner.visible = true
+	$TutorialLabel.visible = true
+	if LevelManager.tutorial_completed:
+		$Unlock.text = "Tutorial completed: No rewards for playing"
+		$Unlock.visible = true
+func _on_tutorial_type_mouse_exited():
+	$TutotialBanner.visible = false
+	$TutorialLabel.visible = false
+	$Unlock.visible = false

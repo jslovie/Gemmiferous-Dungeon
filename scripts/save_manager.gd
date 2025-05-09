@@ -110,6 +110,7 @@ var savefile_data = {
 }
 var savefile_data_2 = {
 	rogue_unlocked = false,
+	tutorial_completed = false,
 	save_file_2 = false,
 }
 
@@ -136,6 +137,7 @@ func remove_resources():
 func update_player_data_savefile():
 	var p : Player = PlayerManager.player
 	var v = VillageManager
+	var l = LevelManager
 	savefile_data.player_data.save_file = save_file
 	savefile_data.player_data.upgraded_axe_damage_x = p.upgraded_axe_damage.x
 	savefile_data.player_data.upgraded_axe_damage_y = p.upgraded_axe_damage.y
@@ -191,11 +193,13 @@ func update_player_data_savefile():
 	savefile_data.village.shield_load_lvl = v.shield_load_lvl
 	savefile_data.village.shield_max_lvl = v.shield_max_lvl
 	savefile_data_2.rogue_unlocked = p.rogue_unlocked
+	savefile_data_2.tutorial_completed = l.tutorial_completed
 	savefile_data_2.save_file_2 = save_file_2
 	
 func reset_savefile():
 	savefile_data_2 = {
-		rogue_unlocked = false
+		rogue_unlocked = false,
+		tutorial_completed = false
 	}
 	savefile_data = {
 	player_data = {
@@ -372,7 +376,9 @@ func load_savefile():
 	savefile_data.village.left_watchtower_repaired, savefile_data.village.right_watchtower_repaired, savefile_data.village.woodcutters_camp_repaired, savefile_data.village.stone_mine_repaired, 
 	savefile_data.village.iron_mine_repaired, savefile_data.village.lamps_built, savefile_data.village.campfire_built, savefile_data.village.axe_item_lvl, savefile_data.village.mace_item_lvl,
 	savefile_data.village.sword_item_lvl, savefile_data.village.bow_item_lvl, savefile_data.village.shield_init_lvl, savefile_data.village.shield_load_lvl, savefile_data.village.shield_max_lvl)
-
+	
+	load_savefile_2()
+	
 func load_savefile_2():
 	var file = get_savefile_file_2()
 	var json = JSON.new()
@@ -382,4 +388,4 @@ func load_savefile_2():
 	
 	save_file_2 = savefile_data_2.save_file_2
 	
-	PlayerManager.set_savefile_stats_2(savefile_data_2.rogue_unlocked)
+	PlayerManager.set_savefile_stats_2(savefile_data_2.rogue_unlocked, savefile_data_2.tutorial_completed)

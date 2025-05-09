@@ -9,9 +9,9 @@ health = 49.0
 health_increase = 10
 max_health = 49.0
 shield_increase = 1
-damage = Vector2(2, 15)
+damage = Vector2(2, 10)
 coin_worth = 12
-action_delay = Vector2(2, 6)
+action_delay = Vector2(4, 6)
 blood_type = "Green"
 
 [node name="Sprite2D" parent="." index="0"]

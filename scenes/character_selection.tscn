@@ -803,11 +803,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TutotialBanner" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(271, 190)
 scale = Vector2(5, 5)
 texture = ExtResource("36_u5j4t")
 
 [node name="TutorialLabel" type="Label" parent="."]
+visible = false
 offset_left = 194.0
 offset_top = 142.0
 offset_right = 314.0
@@ -821,6 +823,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="mouse_entered" from="TutorialType" to="." method="_on_tutorial_type_mouse_entered"]
+[connection signal="mouse_exited" from="TutorialType" to="." method="_on_tutorial_type_mouse_exited"]
 [connection signal="mouse_entered" from="RogueType" to="." method="_on_rogue_type_mouse_entered"]
 [connection signal="mouse_exited" from="RogueType" to="." method="_on_rogue_type_mouse_exited"]
 [connection signal="mouse_entered" from="BarbarianType" to="." method="_on_barbarian_type_mouse_entered"]

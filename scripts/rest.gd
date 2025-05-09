@@ -13,6 +13,7 @@ func _ready():
 func _process(_delta):
 	change_background()
 	update_healthbars()
+	check_in_tutorial()
 	
 func update_healthbars():
 	#Player healthbar
@@ -44,6 +45,10 @@ func update_materials():
 	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.total_stone)
 	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
 
+func check_in_tutorial():
+	if LevelManager.in_tutorial_level:
+		$Control/Panel/VBoxContainer/Button2.visible = false
+		$Control/Panel/VBoxContainer/Button3.visible = false
 
 func change_background():
 	if LevelManager.floor == 1:

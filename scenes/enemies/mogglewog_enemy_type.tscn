@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65phb5fqlejt"]
+
+[ext_resource type="PackedScene" uid="uid://dx4nybs08jljc" path="res://scenes/enemies/enemy_type.tscn" id="1_lhkx1"]
+[ext_resource type="Texture2D" uid="uid://dyy6t81ofsemb" path="res://assets/32rogues/enem/mogglewog.png" id="2_hr0yq"]
+
+[node name="MogglewogEnemyType" instance=ExtResource("1_lhkx1")]
+type = "Mogglewog"
+health = 60.0
+health_increase = 5
+max_health = 60.0
+shield = 10.0
+shield_increase = 5
+damage = Vector2(2, 10)
+coin_worth = 65
+action_delay = Vector2(10, 15)
+blood_type = "Red"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hr0yq")

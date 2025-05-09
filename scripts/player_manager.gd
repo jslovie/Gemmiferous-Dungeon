@@ -84,5 +84,6 @@ func set_savefile_stats(total_coins, total_green_gem, total_red_gem, total_blue_
 	player.upgraded_shield_load = upgraded_shield_load
 	player.upgraded_shield_max = upgraded_shield_max
 
-func set_savefile_stats_2(rogue_unlocked):
+func set_savefile_stats_2(rogue_unlocked, tutorial_completed):
 	player.rogue_unlocked = rogue_unlocked
+	LevelManager.tutorial_completed = tutorial_completed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://d0cv2g3t5lba5"]
+[gd_scene load_steps=27 format=4 uid="uid://d0cv2g3t5lba5"]
 
 [ext_resource type="Script" path="res://scripts/rest.gd" id="1_7uvpb"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_2gcf1"]
@@ -13,18 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="11_kf30m"]
 [ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="12_r2hs0"]
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="13_v3laq"]
-[ext_resource type="Texture2D" uid="uid://dhwvivhd1lu88" path="res://assets/32rogues/fireplace/F500-1.PNG" id="14_egtmx"]
-[ext_resource type="Texture2D" uid="uid://y6ktfhtfm0iy" path="res://assets/32rogues/fireplace/F500-2.PNG" id="15_uogcs"]
-[ext_resource type="Texture2D" uid="uid://ciwepiwapogla" path="res://assets/32rogues/fireplace/F500-3.PNG" id="16_hwagm"]
-[ext_resource type="Texture2D" uid="uid://n3nqe0q1pelw" path="res://assets/32rogues/fireplace/F500-4.PNG" id="17_kr6ee"]
-[ext_resource type="Texture2D" uid="uid://beupliridgco2" path="res://assets/32rogues/fireplace/F500-5.PNG" id="18_4svb0"]
-[ext_resource type="Texture2D" uid="uid://bbol8lsqbvtg" path="res://assets/32rogues/fireplace/F500-6.PNG" id="19_is0rh"]
-[ext_resource type="Texture2D" uid="uid://bnsnbbywqbup" path="res://assets/32rogues/fireplace/F500-7.PNG" id="20_sj677"]
-[ext_resource type="Texture2D" uid="uid://dbt6p08u7rh4w" path="res://assets/32rogues/fireplace/F500-8.PNG" id="21_048e4"]
-[ext_resource type="Texture2D" uid="uid://duwj8ijq4aprg" path="res://assets/32rogues/fireplace/F500-9.PNG" id="22_bx6ds"]
-[ext_resource type="Texture2D" uid="uid://dcwv5gxcymj2r" path="res://assets/32rogues/fireplace/F500-10.PNG" id="23_gxujy"]
-[ext_resource type="Texture2D" uid="uid://di36khm4jd8du" path="res://assets/32rogues/fireplace/F500-11.PNG" id="24_6ig1n"]
-[ext_resource type="Texture2D" uid="uid://cqlebbmnif6v2" path="res://assets/32rogues/fireplace/F500-12.PNG" id="25_80pa3"]
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="25_ekhmd"]
 [ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="26_npsls"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="27_1ko82"]
@@ -150,98 +138,6 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_8bcmg")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7x7ak"]
-atlas = ExtResource("14_egtmx")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dw5bj"]
-atlas = ExtResource("15_uogcs")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dlk6k"]
-atlas = ExtResource("16_hwagm")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fyl5d"]
-atlas = ExtResource("17_kr6ee")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gruul"]
-atlas = ExtResource("18_4svb0")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxbce"]
-atlas = ExtResource("19_is0rh")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_be6g2"]
-atlas = ExtResource("20_sj677")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7lkls"]
-atlas = ExtResource("21_048e4")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gah6"]
-atlas = ExtResource("22_bx6ds")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ho3tj"]
-atlas = ExtResource("23_gxujy")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_byom7"]
-atlas = ExtResource("24_6ig1n")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fo3le"]
-atlas = ExtResource("25_80pa3")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bvtdq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7x7ak")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dw5bj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlk6k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fyl5d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gruul")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxbce")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_be6g2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7lkls")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2gah6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ho3tj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_byom7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fo3le")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j56em"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
@@ -270,11 +166,11 @@ position = Vector2(29, -4)
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
 position = Vector2(12, -28)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wQAAAAAAAYAAAD6/wUAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wcAAAAAAAYAAAD7////AAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAABAAEAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD7/wQAAAACAAcAAAD7/wUAAAAAAAYAAAD7/wcAAAAAAAYAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAEAAAD8/wIAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wQAAAAAAAYAAAD8/wUAAAACAAoAAAD8/wYAAAAAAAYAAAD8/wcAAAAAAAYAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAEAAAD9/wIAAAACAAcAAAD9/wMAAAAAAAYAAAD9/wQAAAAAAAYAAAD9/wUAAAAAAAYAAAD9/wYAAAAAAAYAAAD9/wcAAAAAAAYAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAABAAEAAAD+/wIAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wQAAAAAAAYAAAD+/wUAAAAAAAYAAAD+/wYAAAAAAAYAAAD+/wcAAAAAAAYAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAABAAEAAAD//wIAAAAAAAYAAAD//wMAAAADAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAABAAEAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAACAAkAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAADAAkAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAADAAoAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAABAAEAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAIAAAACAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAADAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAA=")
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wQAAAAAAAYAAAD6/wUAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wcAAAAAAAYAAAD7////AAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAABAAEAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD7/wQAAAACAAcAAAD7/wUAAAAAAAYAAAD7/wcAAAAAAAYAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAEAAAD8/wIAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wQAAAAAAAYAAAD8/wUAAAACAAoAAAD8/wYAAAAAAAYAAAD8/wcAAAAAAAYAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAEAAAD9/wIAAAACAAcAAAD9/wMAAAAAAAYAAAD9/wQAAAAAAAYAAAD9/wUAAAAAAAYAAAD9/wYAAAAAAAYAAAD9/wcAAAAAAAYAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAABAAEAAAD+/wIAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wQAAAAAAAYAAAD+/wUAAAAAAAYAAAD+/wYAAAAAAAYAAAD+/wcAAAAAAAYAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAABAAEAAAD//wIAAAAAAAYAAAD//wMAAAADAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAABAAEAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAACAAkAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAADAAkAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAABAAEAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAIAAAACAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAADAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAADAAUAAAAAAAYAAAA=")
 tile_set = SubResource("TileSet_j13jj")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/F1/Dungeon1"]
-tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
+tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAABAAYAAAAKABMAAAAGAAYAAAAGAAkAAAD+/wYAAAAFAAkAAAD+/wMAAAAGABMAAAAGAAMAAAAGABEAAAAEAAYAAAADABMAAAAGAAUAAAAEABMAAAAEAAMAAAABABQAAAD7/wIAAAAJABMAAAADAAUAAAAPABMAAAD9/wYAAAALABMAAAAFAAIAAAACABEAAAA=")
 tile_set = SubResource("TileSet_j13jj")
 
 [node name="F2" type="Node2D" parent="Background"]
@@ -565,13 +461,6 @@ offset_bottom = 146.0
 scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("4_l0rkg")
 text = ": 9999"
-
-[node name="Campfire" type="AnimatedSprite2D" parent="."]
-position = Vector2(1633, 745)
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_bvtdq")
-autoplay = "default"
-frame_progress = 0.842526
 
 [node name="Player" parent="." instance=ExtResource("2_2gcf1")]
 position = Vector2(295, 686)

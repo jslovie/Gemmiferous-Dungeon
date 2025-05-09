@@ -175,6 +175,7 @@ func _on_continue_pressed():
 
 func _on_yes_pressed():
 	if PlayerManager.player.player_won == true:
+		PlayerManager.player.set_treasure()
 		LevelManager.handle_winning = true
 	else:
 		Music.music_to_normal()

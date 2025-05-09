@@ -11,7 +11,7 @@ max_health = 30.0
 shield_increase = 1
 damage = Vector2(2, 7)
 coin_worth = 12
-action_delay = Vector2(2, 4)
+action_delay = Vector2(3, 4)
 blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]

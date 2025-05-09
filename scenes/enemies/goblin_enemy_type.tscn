@@ -4,6 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://7dnli24kal21" path="res://assets/32rogues/enem/goblin.png" id="2_25ikk"]
 
 [node name="GoblinEnemyType" instance=ExtResource("1_740i2")]
+type = "Goblin"
+health = 40.0
+health_increase = 6
+max_health = 40.0
+shield = 6.0
+shield_increase = 3
+damage = Vector2(3, 6)
+coin_worth = 50
+action_delay = Vector2(4, 8)
+blood_type = "Red"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_25ikk")

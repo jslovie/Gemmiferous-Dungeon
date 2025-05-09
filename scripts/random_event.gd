@@ -85,7 +85,12 @@ func gain_gems(amount):
 	PlayerManager.player.blue_gem += round(PlayerManager.player.blue_gem * amount)
 	PlayerManager.player.green_gem += round(PlayerManager.player.green_gem * amount)
 	PlayerManager.player.yellow_gem += round(PlayerManager.player.yellow_gem * amount)
-	
+
+func get_gems(amount):
+	PlayerManager.player.red_gem += amount
+	PlayerManager.player.blue_gem += amount
+	PlayerManager.player.green_gem += amount
+	PlayerManager.player.yellow_gem += amount
 	
 func handle_game_over():
 	await get_tree().create_timer(3).timeout
@@ -193,7 +198,8 @@ func handle_button():
 				
 			elif random_resolution == 2:
 				resolution_screen()
-				%ResolutionText.text = "You found some useful knowledge on the book" #Need to add some knowledge here
+				%ResolutionText.text = "You started to read the book but quickly realized that you don't understand anything. 
+										You decided it would be better to leave."
 				
 	elif room == 4:
 		if %Button.text == "Open the chest":
@@ -231,6 +237,7 @@ func handle_button():
 			elif random_resolution == 3:
 				resolution_screen()
 				%ResolutionText.text = "You noticed a pile of gems on the floor. Luck is on your side"
+				get_gems(2)
 				gain_gems(0.15)
 				
 			elif random_resolution == 4:
@@ -264,7 +271,7 @@ func handle_button2():
 				resolution_screen()
 				lost_health_percentage(0.1)
 				var random_coins = randi_range(15,25)
-				gained_coins(15)
+				gained_coins(random_coins)
 				%ResolutionText.text = "You fought good and gained " + str(random_coins) + " coins, but lost " + str(health_lost) + " health"
 				
 	elif room == 2:

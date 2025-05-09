@@ -317,3 +317,9 @@ func _on_iron_button_pressed():
 
 func _on_home_pressed():
 	LevelManager.main_menu()
+
+
+func _on_church_pressed():
+	$VillageTiles/Shops/Church/Label.visible = true
+	await get_tree().create_timer(1).timeout
+	$VillageTiles/Shops/Church/Label.visible = false

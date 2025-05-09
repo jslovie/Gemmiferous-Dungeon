@@ -121,7 +121,7 @@ func select_enemy_new():
 			elif random == 7:
 				enemy_type = "Crone"
 			if LevelManager.in_tutorial_level:
-				enemy_type = "Spider"
+				enemy_type = "Goblin"
 		elif type == "Elite Enemy":
 				var random = randi_range(1, 3)
 				if random == 1:
@@ -131,11 +131,11 @@ func select_enemy_new():
 				elif random == 3:
 					enemy_type = "Ghost Warrior"
 				if LevelManager.in_tutorial_level:
-					enemy_type = "Goblin"
+					enemy_type = "Mogglewog"
 		elif type == "Boss":
 			enemy_type = "Demon Boss"
-		if LevelManager.in_tutorial_level:
-			enemy_type = "Troll Boss"
+			if LevelManager.in_tutorial_level:
+				enemy_type = "Troll Boss"
 	elif floor_set == 2:
 		if type == "Enemy":
 			var random = randi_range(1, 7)
