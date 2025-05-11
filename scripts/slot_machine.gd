@@ -92,7 +92,7 @@ func handle_result():
 		EffectLoad.material_effect(blue_gem_effect, result3)
 		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
-		PlayerManager.player.blue_gem_up(25)
+		PlayerManager.player.blue_gem_up(22)
 		jackpot = true
 	elif %Slot.result == "red" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
 		EffectLoad.material_effect(red_gem_effect, result1)
@@ -100,7 +100,7 @@ func handle_result():
 		EffectLoad.material_effect(red_gem_effect, result3)
 		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
-		PlayerManager.player.red_gem_up(25)
+		PlayerManager.player.red_gem_up(22)
 		jackpot = true
 	elif %Slot.result == "green" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
 		EffectLoad.material_effect(green_gem_effect, result1)
@@ -108,7 +108,7 @@ func handle_result():
 		EffectLoad.material_effect(green_gem_effect, result3)
 		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
-		PlayerManager.player.green_gem_up(25)
+		PlayerManager.player.green_gem_up(22)
 		jackpot = true
 	elif %Slot.result == "yellow" and %Slot.result == %Slot2.result and %Slot.result == %Slot3.result:
 		EffectLoad.material_effect(yellow_gem_effect, result1)
@@ -116,7 +116,7 @@ func handle_result():
 		EffectLoad.material_effect(yellow_gem_effect, result3)
 		Sfx.play_SFX(Sfx.slot_win)
 		await get_tree().create_timer(0.8).timeout
-		PlayerManager.player.yellow_gem_up(25)
+		PlayerManager.player.yellow_gem_up(22)
 		jackpot = true
 	else:
 		if %Slot.result == "blue":
@@ -166,8 +166,12 @@ func _on_continue_pressed():
 	else:
 		visible = false
 		if PlayerManager.player.player_won == true:
-			PlayerManager.player.set_treasure()
-			LevelManager.handle_winning = true
+			if LevelManager.tutorial_completed:
+				handle_tutorial_completed()
+			else:
+				PlayerManager.player.set_treasure()
+				LevelManager.tutorial_completed = true
+				LevelManager.handle_winning = true
 		else:
 			Music.music_to_normal()
 			LevelManager.switch_to_dungeon_map_timeless()
@@ -175,12 +179,28 @@ func _on_continue_pressed():
 
 func _on_yes_pressed():
 	if PlayerManager.player.player_won == true:
-		PlayerManager.player.set_treasure()
-		LevelManager.handle_winning = true
+		if LevelManager.tutorial_completed:
+			handle_tutorial_completed()
+		else:
+			PlayerManager.player.set_treasure()
+			LevelManager.tutorial_completed = true
+			LevelManager.handle_winning = true
 	else:
 		Music.music_to_normal()
 		LevelManager.switch_to_dungeon_map_timeless()
 
+func handle_tutorial_completed():
+	PlayerManager.player.coins = round(PlayerManager.player.coins / 2)
+	PlayerManager.player.red_gem = round(PlayerManager.player.red_gem / 2)
+	PlayerManager.player.yellow_gem = round(PlayerManager.player.yellow_gem / 2)
+	PlayerManager.player.green_gem = round(PlayerManager.player.green_gem / 2)
+	PlayerManager.player.blue_gem = round(PlayerManager.player.blue_gem / 2)
+	PlayerManager.player.wood = round(PlayerManager.player.wood / 2)
+	PlayerManager.player.stone = round(PlayerManager.player.stone / 2)
+	PlayerManager.player.iron = round(PlayerManager.player.iron / 2)
+	PlayerManager.player.set_treasure()
+	LevelManager.tutorial_completed = true
+	LevelManager.handle_winning = true
 
 func _on_no_pressed():
 	$SpinsLeft.visible = false

@@ -138,7 +138,7 @@ func _on_tutorial_type_mouse_entered():
 	$TutotialBanner.visible = true
 	$TutorialLabel.visible = true
 	if LevelManager.tutorial_completed:
-		$Unlock.text = "Tutorial completed: No rewards for playing"
+		$Unlock.text = "Tutorial completed: Halved rewards for playing"
 		$Unlock.visible = true
 func _on_tutorial_type_mouse_exited():
 	$TutotialBanner.visible = false

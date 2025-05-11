@@ -458,30 +458,14 @@ func handle_tutorial():
 	if LevelManager.in_tutorial_level:
 		if LevelManager.available_level == 8:
 			PlayerManager.player.rogue_unlocked = true
-			LevelManager.tutorial_completed = true
-			PlayerManager.player.wood += 25
-			PlayerManager.player.stone += 30
-			PlayerManager.player.iron += 15
-			PlayerManager.player.player_won = true
 			if LevelManager.tutorial_completed:
-				PlayerManager.player.coins = 0
-				PlayerManager.player.red_gem = 0
-				PlayerManager.player.yellow_gem = 0
-				PlayerManager.player.green_gem = 0
-				PlayerManager.player.blue_gem = 0
-				PlayerManager.player.wood = 0
-				PlayerManager.player.stone = 0
-				PlayerManager.player.iron = 0
-				await get_tree().create_timer(2).timeout
-				PlayerManager.player.coins = 0
-				PlayerManager.player.red_gem = 0
-				PlayerManager.player.yellow_gem = 0
-				PlayerManager.player.green_gem = 0
-				PlayerManager.player.blue_gem = 0
-				PlayerManager.player.wood = 0
-				PlayerManager.player.stone = 0
-				PlayerManager.player.iron = 0
-
+				PlayerManager.player.player_won = true
+			else:
+				PlayerManager.player.wood += 25
+				PlayerManager.player.stone += 30
+				PlayerManager.player.iron += 15
+				PlayerManager.player.player_won = true
+			
 func handle_progress():
 	if LevelManager.available_level == 11:
 		PlayerManager.player.barbarian_unlocked = true

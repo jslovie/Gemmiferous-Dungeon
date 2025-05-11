@@ -145,6 +145,7 @@ func _on_options_new_pressed():
 	$MarginContainer.visible = true
 	
 func _on_credits_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	enter_credits()
 
 
@@ -187,11 +188,13 @@ func _on_exit_credits_mouse_exited():
 	$Credits/ExitCredits/ExitCreditsLabel.add_theme_color_override("font_color", Color.WHITE)
 
 func _on_back_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	$Settings.visible = false
 	$MarginContainer.visible = false
 
 
 func _on_close_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	$DemoMessage.visible = false
 
 func _on_close_mouse_entered():
@@ -214,6 +217,7 @@ func _on_wishlist_mouse_exited():
 
 
 func _on_yes_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	remove_savefile()
 	handle_new_game()
 	$Removesavefile.visible = false
@@ -222,6 +226,7 @@ func _on_yes_mouse_entered():
 func _on_yes_mouse_exited():
 	$Removesavefile/Yes/YesLabel.add_theme_color_override("font_color", Color.WHITE)
 func _on_no_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	$Removesavefile.visible = false
 func _on_no_mouse_entered():
 	$Removesavefile/No/NoLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
@@ -230,4 +235,5 @@ func _on_no_mouse_exited():
 
 
 func _on_exit_credits_pressed():
+	Sfx.play_SFX(Sfx.menu_confirm)
 	exit_credits()

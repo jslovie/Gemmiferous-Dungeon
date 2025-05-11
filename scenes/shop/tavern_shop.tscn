@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="4_i4bt6"]
 
 [node name="TavernShop" instance=ExtResource("1_1v5iy")]
+shop_name = "Tavern"
 
 [node name="ShopNameLabel" parent="." index="3"]
 text = "Tavern"
@@ -41,6 +42,6 @@ offset_right = 1254.0
 offset_bottom = 458.0
 theme_override_colors/font_color = Color(0.720186, 0.292234, 0.0210431, 1)
 theme_override_font_sizes/font_size = 32
-text = "Comming soon!"
+text = "Coming soon!"
 
 [connection signal="pressed" from="CardGame" to="." method="_on_card_game_pressed"]

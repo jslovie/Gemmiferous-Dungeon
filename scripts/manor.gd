@@ -249,8 +249,8 @@ func enter_dungeon_door():
 	tween.tween_property(enter_dungeon,"scale",Vector2(6,6),0.1)
 	tween.tween_property(enter_dungeon,"scale",Vector2(5,5),0.1)
 	await get_tree().create_timer(0.5).timeout
-	LevelManager.reset()
 	SaveManager.savefilesave()
+	LevelManager.reset()
 	SaveManager.remove_resources()
 	RelicManager.reset_pieces_relics()
 	Transition.transition()

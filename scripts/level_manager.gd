@@ -91,3 +91,4 @@ func reset():
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	LevelManager.reset_tutorial()
