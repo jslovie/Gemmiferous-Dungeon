@@ -54,7 +54,7 @@ var gems_pieces = [
 
 func _process(delta):
 	check_resource()
-
+	
 func check_resource():
 	var dir = DirAccess.open("user://")
 	var gem_necklace = "user://resources/GemNecklace.tres"
@@ -71,6 +71,7 @@ func reset_pieces_relics():
 	report = 0
 	has_shuriken = false
 	has_wealth_necklace = false
+	has_gem_necklace = false
 	rogue_pieces.clear()
 	rogue_pieces = [
 	load("res://scenes/pieces/sword_piece.tscn"),

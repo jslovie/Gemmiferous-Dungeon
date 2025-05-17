@@ -70,6 +70,7 @@ func handle_loot_to_manor():
 	update_materials()
 	update_treasures()
 	await get_tree().create_timer(1).timeout
+	halve_loot()
 	PlayerManager.player.set_treasure()
 	PlayerManager.player.reset_current_treasure()
 	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
@@ -95,7 +96,17 @@ func handle_loot_to_manor():
 	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 	await get_tree().create_timer(1).timeout
 	LevelManager.switch_to_dungeon_map_timeless()
-	
+
+func halve_loot():
+	PlayerManager.player.red_gem = PlayerManager.player.red_gem / 2
+	PlayerManager.player.blue_gem = PlayerManager.player.blue_gem / 2
+	PlayerManager.player.green_gem = PlayerManager.player.green_gem / 2
+	PlayerManager.player.yellow_gem = PlayerManager.player.yellow_gem / 2
+	PlayerManager.player.coins = PlayerManager.player.coins / 2
+	PlayerManager.player.wood = PlayerManager.player.wood / 2
+	PlayerManager.player.stone = PlayerManager.player.stone / 2
+	PlayerManager.player.iron = PlayerManager.player.iron / 2
+
 func handle_end():
 	$Player_win.visible = true
 	

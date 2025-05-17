@@ -71,10 +71,35 @@ func process_gem(gem_texture, price_gem_lvl):
 		PlayerManager.player.total_green_gem -= price_gem_lvl
 	elif gem_texture == "Yellow":
 		PlayerManager.player.total_yellow_gem -= price_gem_lvl
-		
+
+func check_enough(gem_color, gem_price, coin_price):
+	if PlayerManager.player.total_coins < coin_price:
+		return false
+	else:
+		if gem_color == "Red":
+			if PlayerManager.player.total_red_gem < gem_price:
+				return false
+			else:
+				return true
+		elif gem_color == "Blue":
+			if PlayerManager.player.total_blue_gem < gem_price:
+				return false
+			else:
+				return true
+		elif gem_color == "Green":
+			if PlayerManager.player.total_green_gem < gem_price:
+				return false
+			else:
+				return true
+		elif gem_color == "Yellow":
+			if PlayerManager.player.total_yellow_gem < gem_price:
+				return false
+			else:
+				return true
+
 func item_level_UP():
 	if item_lvl == 1 and VillageManager.armourer_lvl >= 1:
-		if PlayerManager.player.total_coins < upgrade_set.price_coin_lvl_1 or PlayerManager.player.total_red_gem < upgrade_set.price_gem_lvl_1:
+		if check_enough(upgrade_set.gem_color_text_lvl_1, upgrade_set.price_gem_lvl_1, upgrade_set.price_coin_lvl_1) == false:
 			not_enough()
 		else:
 			upgraded_amount += upgrade_set.value_lvl_1
@@ -82,7 +107,7 @@ func item_level_UP():
 			process_gem(upgrade_set.gem_color_text_lvl_1, upgrade_set.price_gem_lvl_1)
 			item_data_save()
 	elif item_lvl == 2 and VillageManager.armourer_lvl >= 1:
-		if PlayerManager.player.total_coins < upgrade_set.price_coin_lvl_2 or PlayerManager.player.total_red_gem < upgrade_set.price_gem_lvl_2:
+		if check_enough(upgrade_set.gem_color_text_lvl_2, upgrade_set.price_gem_lvl_2, upgrade_set.price_coin_lvl_2) == false:
 			not_enough()
 		else:
 			upgraded_amount += upgrade_set.value_lvl_2
@@ -90,7 +115,7 @@ func item_level_UP():
 			process_gem(upgrade_set.gem_color_text_lvl_2, upgrade_set.price_gem_lvl_2)
 			item_data_save()
 	elif item_lvl == 3 and VillageManager.armourer_lvl >= 2:
-		if PlayerManager.player.total_coins < upgrade_set.price_coin_lvl_3 or PlayerManager.player.total_red_gem < upgrade_set.price_gem_lvl_3:
+		if check_enough(upgrade_set.gem_color_text_lvl_3, upgrade_set.price_gem_lvl_3, upgrade_set.price_coin_lvl_3) == false:
 			not_enough()
 		else:
 			upgraded_amount += upgrade_set.value_lvl_3
@@ -98,7 +123,7 @@ func item_level_UP():
 			process_gem(upgrade_set.gem_color_text_lvl_3, upgrade_set.price_gem_lvl_3)
 			item_data_save()
 	elif item_lvl == 4 and VillageManager.armourer_lvl >= 2:
-		if PlayerManager.player.total_coins < upgrade_set.price_coin_lvl_4 or PlayerManager.player.total_red_gem < upgrade_set.price_gem_lvl_4:
+		if check_enough(upgrade_set.gem_color_text_lvl_4, upgrade_set.price_gem_lvl_4, upgrade_set.price_coin_lvl_4) == false:
 			not_enough()
 		else:
 			upgraded_amount += upgrade_set.value_lvl_4
@@ -106,7 +131,7 @@ func item_level_UP():
 			process_gem(upgrade_set.gem_color_text_lvl_4, upgrade_set.price_gem_lvl_4)
 			item_data_save()
 	elif item_lvl == 5 and VillageManager.armourer_lvl >= 3:
-		if PlayerManager.player.total_coins < upgrade_set.price_coin_lvl_5 or PlayerManager.player.total_red_gem < upgrade_set.price_gem_lvl_5:
+		if check_enough(upgrade_set.gem_color_text_lvl_5, upgrade_set.price_gem_lvl_5, upgrade_set.price_coin_lvl_5) == false:
 			not_enough()
 		else:
 			upgraded_amount += upgrade_set.value_lvl_5

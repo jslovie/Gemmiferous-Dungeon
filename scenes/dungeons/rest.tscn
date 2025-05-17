@@ -267,7 +267,7 @@ Heal 15 HP"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_l0rkg")
 theme_override_font_sizes/font_size = 32
-text = "Send all loot
+text = "Send half of loot
  to manor"
 text_overrun_behavior = 2
 

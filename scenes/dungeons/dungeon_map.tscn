@@ -5763,7 +5763,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("22_3d01s")
 
 [node name="InfoPage" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -5775,14 +5774,12 @@ size_flags_horizontal = 4
 texture = ExtResource("2_1eqxt")
 
 [node name="InfoPageHeader" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
 position = Vector2(612, 158.5)
 scale = Vector2(7.5625, 7.55)
 texture = ExtResource("3_amlki")
 
 [node name="InfoLabel" type="Label" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -5800,7 +5797,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoPageDetails" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 266.0
@@ -6039,6 +6035,26 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "x"
 
+[node name="X19" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 623.0
+offset_right = 787.0
+offset_bottom = 653.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
+[node name="X21" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 685.0
+offset_right = 787.0
+offset_bottom = 715.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "x"
+
 [node name="X18" type="Label" parent="InfoPageDetails"]
 layout_mode = 0
 offset_left = 810.0
@@ -6048,6 +6064,26 @@ offset_bottom = 591.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Be fast to survive"
+
+[node name="X20" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 1025.0
+offset_top = 624.0
+offset_right = 1299.0
+offset_bottom = 654.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Used for upgrades"
+
+[node name="X22" type="Label" parent="InfoPageDetails"]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 688.0
+offset_right = 1301.0
+offset_bottom = 718.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Used for village repairs"
 
 [node name="X15" type="Label" parent="InfoPageDetails"]
 layout_mode = 0
@@ -6162,6 +6198,46 @@ texture = ExtResource("21_27mah")
 position = Vector2(899, 507)
 scale = Vector2(2, 2)
 texture = ExtResource("34_fr2sp")
+
+[node name="Red" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(818, 637)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_rtvoq")
+
+[node name="Blue" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(869, 636)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_vpnme")
+
+[node name="Green" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(912, 636)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_mckq2")
+
+[node name="Yellow" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(952, 636)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("10_kn7bq")
+
+[node name="Coin1" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(999, 636)
+scale = Vector2(2, 2)
+texture = ExtResource("11_ilkoa")
+
+[node name="Wood" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(817, 697)
+scale = Vector2(2, 2)
+texture = ExtResource("7_q8kqm")
+
+[node name="Stone" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(867, 696)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_tkxfq")
+
+[node name="Iron2" type="Sprite2D" parent="InfoPageDetails"]
+position = Vector2(923, 707)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_x6sp5")
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
