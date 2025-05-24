@@ -1,0 +1,716 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkbgiiq2ltfal"]
+
+[ext_resource type="Script" path="res://scripts/start_game_mobile.gd" id="1_50dj5"]
+[ext_resource type="Texture2D" uid="uid://jnfb3g2sxub7" path="res://assets/background/finish 1-for jslovie-7D5C2-V5.png" id="3_scuxx"]
+[ext_resource type="Texture2D" uid="uid://bv00fhk45wgqd" path="res://assets/background/Full-1-export.png" id="4_0ctxi"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_ivw4d"]
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="6_utxx4"]
+[ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="7_nt0fi"]
+[ext_resource type="Texture2D" uid="uid://dhs3vuxrp12ua" path="res://assets/paper UI/cross.png" id="8_4y63w"]
+[ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="9_fe7ud"]
+
+[sub_resource type="Animation" id="Animation_57v0p"]
+resource_name = "Demo"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DemoVersion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.8, 0.8), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_54e52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DemoVersion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bq0w"]
+_data = {
+"Demo": SubResource("Animation_57v0p"),
+"RESET": SubResource("Animation_54e52")
+}
+
+[node name="StartGameMobile" type="CanvasLayer"]
+script = ExtResource("1_50dj5")
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="."]
+position = Vector2(127, 538)
+scale = Vector2(6, 6)
+texture = ExtResource("3_scuxx")
+
+[node name="GameTitleSprite2D" type="Sprite2D" parent="."]
+position = Vector2(288, 160)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_0ctxi")
+
+[node name="Testing" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 672.0
+offset_top = 478.0
+offset_right = 1044.0
+offset_bottom = 598.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "For testing"
+
+[node name="Remove" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 406.0
+offset_top = 478.0
+offset_right = 890.0
+offset_bottom = 598.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Remove filesave"
+
+[node name="StartGame" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -143.0
+offset_right = 186.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "New Game	"
+
+[node name="Options" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = 27.0
+offset_right = 186.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Mobil"
+
+[node name="QuitGame" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = 199.0
+offset_right = 186.0
+offset_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Quit Game"
+
+[node name="GameTitle" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -884.0
+offset_top = -518.0
+offset_right = 452.0
+offset_bottom = -338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 192
+text = "Gemmiferous"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TestSection" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("6_utxx4")]
+position = Vector2(-1260, 974)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 69.0
+offset_right = 150.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="StartGameNew" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_direction = 1
+layout_mode = 2
+texture_normal = ExtResource("7_nt0fi")
+
+[node name="Label" type="Label" parent="Buttons/StartGameNew"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 300.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "New Game"
+
+[node name="Continue" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0.509804)
+custom_minimum_size = Vector2(0, 60)
+layout_direction = 1
+layout_mode = 2
+texture_normal = ExtResource("7_nt0fi")
+
+[node name="Label" type="Label" parent="Buttons/Continue"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 300.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Continue"
+
+[node name="OptionsNew" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("7_nt0fi")
+
+[node name="Label" type="Label" parent="Buttons/OptionsNew"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 300.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Options"
+
+[node name="Credits" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("7_nt0fi")
+
+[node name="Label" type="Label" parent="Buttons/Credits"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 300.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+
+[node name="QuitGameNew" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("7_nt0fi")
+
+[node name="Label" type="Label" parent="Buttons/QuitGameNew"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 300.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 64
+text = "Quit Game"
+
+[node name="Version" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 103.0
+offset_bottom = 31.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 32
+text = "v0.5.2.2"
+
+[node name="DemoVersion" type="Label" parent="."]
+visible = false
+offset_left = 351.0
+offset_top = 132.0
+offset_right = 495.0
+offset_bottom = 222.0
+rotation = -0.233504
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(147, 45)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_font_sizes/font_size = 96
+text = "iOS"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6bq0w")
+}
+
+[node name="DemoMessage" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 339.0
+offset_top = -438.0
+offset_right = 959.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.517647)
+
+[node name="DemoLabelTitle" type="Label" parent="DemoMessage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.5
+offset_top = 25.0
+offset_right = 306.5
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Welcome
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DemoText" type="Label" parent="DemoMessage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 97.0
+offset_right = -5.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Thank you so much for downloading the demo!
+Your support and interest in my game mean the world to me.
+I’d greatly appreciate any feedback or insights you have to offer.
+Please keep in mind that the game is still in the early stages of development, and many aspects are likely to change.
+For the full release, I plan to introduce a lot of new features and gameplay improvements.
+
+If you enjoy the gameplay loop, I’d be honored if you considered wishlisting the game.
+
+
+
+
+Thank you again, and stay safe!"
+autowrap_mode = 2
+
+[node name="Close" type="TextureButton" parent="DemoMessage"]
+layout_mode = 0
+offset_left = 588.0
+offset_right = 604.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_4y63w")
+
+[node name="Wishlist" type="TextureButton" parent="DemoMessage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -257.0
+offset_top = 673.0
+offset_right = 65.0
+offset_bottom = 736.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="DemoMessage/Wishlist"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Wishlist Gemmiferous 
+on Steam!"
+horizontal_alignment = 1
+
+[node name="Settings" parent="." instance=ExtResource("9_fe7ud")]
+visible = false
+offset_top = -21.0
+offset_bottom = -21.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = 314.0
+offset_right = -1.0
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Back" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ivw4d")
+theme_override_font_sizes/font_size = 32
+text = "Back	"
+
+[node name="Removesavefile" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 426.0
+offset_top = 606.0
+offset_right = -679.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.517647)
+
+[node name="RemovesavefileLabel" type="Label" parent="Removesavefile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_right = -272.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "*This action will delete your save file and start a new game. Are you sure you want to proceed?*"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Yes" type="TextureButton" parent="Removesavefile"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 203.0
+offset_right = 295.0
+offset_bottom = 218.0
+scale = Vector2(3, 3)
+
+[node name="YesLabel" type="Label" parent="Removesavefile/Yes"]
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 15.0
+text = "Yes"
+
+[node name="No" type="TextureButton" parent="Removesavefile"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 203.0
+offset_right = 489.0
+offset_bottom = 218.0
+scale = Vector2(3, 3)
+
+[node name="NoLabel" type="Label" parent="Removesavefile/No"]
+layout_mode = 0
+offset_right = 26.0
+offset_bottom = 15.0
+text = "No"
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitCredits" type="TextureButton" parent="Credits"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -85.9999
+offset_right = 20.0
+offset_bottom = -70.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3.5, 3.5)
+
+[node name="ExitCreditsLabel" type="Label" parent="Credits/ExitCredits"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 15.0
+text = "Back"
+
+[node name="LeadDevLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 694.0
+offset_right = 262.0
+offset_bottom = 724.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Lead Developer:"
+
+[node name="Label" type="Label" parent="Credits/LeadDevLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 38.6667
+offset_right = 89.6667
+offset_bottom = 53.6667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "jslovieDev"
+
+[node name="MusicLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 818.0
+offset_right = 399.0
+offset_bottom = 848.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Music:"
+
+[node name="Label" type="Label" parent="Credits/MusicLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 38.6667
+offset_right = 89.6667
+offset_bottom = 53.6667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "Augusto Mazzoli"
+
+[node name="Label2" type="Label" parent="Credits/MusicLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 68.6667
+offset_right = 135.667
+offset_bottom = 83.6667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "Cyberleaf Studio"
+
+[node name="SFXLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 748.0
+offset_right = 775.0
+offset_bottom = 778.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "SFX:"
+
+[node name="Label" type="Label" parent="Credits/SFXLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 38.6667
+offset_right = 89.6667
+offset_bottom = 53.6667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "Leohpaz"
+
+[node name="GameByLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 193.0
+offset_right = 846.0
+offset_bottom = 223.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Game by: jslovieDev"
+
+[node name="PlatestersLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 1384.0
+offset_top = 769.0
+offset_right = 1614.0
+offset_bottom = 799.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Playtesters:"
+
+[node name="Label" type="Label" parent="Credits/PlatestersLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 38.6667
+offset_right = 89.6667
+offset_bottom = 53.6667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "jslovieDev"
+
+[node name="Label4" type="Label" parent="Credits/PlatestersLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 60.6666
+offset_right = 89.6667
+offset_bottom = 75.6666
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "Skaya"
+
+[node name="Label2" type="Label" parent="Credits/PlatestersLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 86.0
+offset_right = 104.667
+offset_bottom = 101.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "CMvonRBTV"
+
+[node name="Label3" type="Label" parent="Credits/PlatestersLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 110.0
+offset_right = 104.667
+offset_bottom = 125.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "beebooba"
+
+[node name="ArtistsLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 672.0
+offset_right = 1330.0
+offset_bottom = 702.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Artists:"
+
+[node name="Label" type="Label" parent="Credits/ArtistsLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 38.6667
+offset_right = 89.6667
+offset_bottom = 53.6667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "Seth"
+
+[node name="Label3" type="Label" parent="Credits/ArtistsLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 64.0
+offset_right = 103.667
+offset_bottom = 79.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "Merry Mary"
+
+[node name="Label4" type="Label" parent="Credits/ArtistsLabel"]
+layout_mode = 0
+offset_left = 16.6667
+offset_top = 87.3333
+offset_right = 103.667
+offset_bottom = 102.333
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 16
+text = "jslovieDev"
+
+[connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="mouse_entered" from="Buttons/StartGameNew" to="." method="_on_start_game_new_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/StartGameNew" to="." method="_on_start_game_new_mouse_exited"]
+[connection signal="pressed" from="Buttons/StartGameNew" to="." method="_on_start_game_new_pressed"]
+[connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="Buttons/OptionsNew" to="." method="_on_options_new_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/OptionsNew" to="." method="_on_options_new_mouse_exited"]
+[connection signal="pressed" from="Buttons/OptionsNew" to="." method="_on_options_new_pressed"]
+[connection signal="mouse_entered" from="Buttons/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_mouse_exited"]
+[connection signal="pressed" from="Buttons/QuitGameNew" to="." method="_on_quit_game_new_pressed"]
+[connection signal="mouse_entered" from="DemoMessage/Close" to="." method="_on_close_mouse_entered"]
+[connection signal="mouse_exited" from="DemoMessage/Close" to="." method="_on_close_mouse_exited"]
+[connection signal="pressed" from="DemoMessage/Close" to="." method="_on_close_pressed"]
+[connection signal="mouse_entered" from="DemoMessage/Wishlist" to="." method="_on_wishlist_mouse_entered"]
+[connection signal="mouse_exited" from="DemoMessage/Wishlist" to="." method="_on_wishlist_mouse_exited"]
+[connection signal="pressed" from="DemoMessage/Wishlist" to="." method="_on_wishlist_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Removesavefile/Yes" to="." method="_on_yes_mouse_entered"]
+[connection signal="mouse_exited" from="Removesavefile/Yes" to="." method="_on_yes_mouse_exited"]
+[connection signal="pressed" from="Removesavefile/Yes" to="." method="_on_yes_pressed"]
+[connection signal="mouse_entered" from="Removesavefile/No" to="." method="_on_no_mouse_entered"]
+[connection signal="mouse_exited" from="Removesavefile/No" to="." method="_on_no_mouse_exited"]
+[connection signal="pressed" from="Removesavefile/No" to="." method="_on_no_pressed"]
+[connection signal="mouse_entered" from="Credits/ExitCredits" to="." method="_on_exit_credits_mouse_entered"]
+[connection signal="mouse_exited" from="Credits/ExitCredits" to="." method="_on_exit_credits_mouse_exited"]
+[connection signal="pressed" from="Credits/ExitCredits" to="." method="_on_exit_credits_pressed"]

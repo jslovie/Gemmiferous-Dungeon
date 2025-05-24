@@ -3,10 +3,16 @@ extends Node2D
 func _ready():
 	set_resolution()
 	SaveManager.autosave()
-	get_viewport().size = DisplayServer.screen_get_size()
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if LevelManager.is_mobile == true:
+		get_window().set_size(Vector2(288,512))
+	else:
+		get_viewport().size = DisplayServer.screen_get_size()
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	LevelManager.windows_mode = 0
 
+
+		
+		
 func set_resolution():
 	if str(DisplayServer.screen_get_size()) == "(960, 540)":
 		LevelManager.resolution = 0

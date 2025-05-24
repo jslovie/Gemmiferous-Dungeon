@@ -5,9 +5,9 @@ var is_demo = false
 
 
 func _ready():
-	if LevelManager.is_mobile == true:
-		visible = false
-		print("classic view was hidden")
+	visible = false
+	if LevelManager.is_mobile:
+		visible = true
 	demo_setup()
 	Music.play_music_menu()
 	$Settings.visible = false

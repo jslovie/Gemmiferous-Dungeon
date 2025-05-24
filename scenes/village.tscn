@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=106 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://bgneukmq6bl1x" path="res://assets/village/Gemmiferous_estate/watchtower_1_ruin.png" id="57_88hr1"]
 [ext_resource type="Texture2D" uid="uid://bsmjslq0bbo1j" path="res://assets/village/Gemmiferous_estate/watchtower_2_ruin.png" id="58_2kywu"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="59_xh1n5"]
+[ext_resource type="Script" path="res://scripts/touch_control.gd" id="60_uaxlv"]
 [ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="61_41km2"]
 [ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="62_rnoug"]
 [ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="63_bynja"]
@@ -1318,12 +1319,19 @@ texture = ExtResource("44_vn4qc")
 position = Vector2(885, 437)
 texture = ExtResource("44_vn4qc")
 
+[node name="Player" parent="." instance=ExtResource("53_l6ruk")]
+position = Vector2(173, 623)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(812, 411)
 zoom = Vector2(7.2, 7.2)
-
-[node name="Player" parent="." instance=ExtResource("53_l6ruk")]
-position = Vector2(173, 623)
+limit_left = 679
+limit_top = 337
+limit_right = 948
+limit_bottom = 486
+script = ExtResource("60_uaxlv")
+pan_speed = 0.2
+can_pan = true
 
 [node name="Panel" type="Panel" parent="."]
 visible = false

@@ -1,6 +1,7 @@
 extends Node
 
 var is_demo = false
+var is_mobile = false
 
 var show_map = true
 
@@ -27,11 +28,14 @@ var in_tutorial_level = false
 var tutorial_completed = false
 
 func _ready():
-	check_demo()
+	check_version()
 
-func check_demo():
+func check_version():
 	if OS.has_feature("Demo"):
-		is_demo = true
+		LevelManager.is_demo = true
+	if OS.has_feature("Mobile"):
+		LevelManager.is_mobile = true
+	#LevelManager.is_mobile = true
 
 func reset_map():
 	level_done = 0

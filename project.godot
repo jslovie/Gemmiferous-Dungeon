@@ -26,6 +26,7 @@ LevelManager="*res://scripts/level_manager.gd"
 RelicManager="*res://scripts/relics/relic_manager.gd"
 Random="*res://scripts/random.gd"
 StartGame="*res://scenes/GUI/start_game.tscn"
+StartGameMobile="*res://scenes/GUI/start_game_mobile.tscn"
 DungeonMap="*res://scenes/dungeons/dungeon_map.tscn"
 QuitGame="*res://scenes/GUI/quit_game.tscn"
 Loading="*res://scenes/GUI/loading.tscn"
@@ -44,6 +45,7 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://cursor.png"
+window/emulate_touch_from_mouse=false
 
 [editor]
 
@@ -90,6 +92,10 @@ Esc={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
