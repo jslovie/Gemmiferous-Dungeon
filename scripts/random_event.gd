@@ -8,7 +8,7 @@ var red_gems_lost
 var blue_gems_lost
 var green_gems_lost
 var yellow_gems_lost
-var materials_lost
+#var materials_lost
 var health_lost
 var health_gained
 
@@ -17,6 +17,7 @@ var health_gained
 
 func _ready():
 	$Continue.visible = false
+	$PlayerDied.visible = false
 	Music.play_music_random_event()
 	LevelManager.level_done += 1
 	EnemyManager.enemy.type = "Trap"
@@ -50,13 +51,13 @@ func lost_items(amount):
 	blue_gems_lost = round(PlayerManager.player.blue_gem * amount)
 	green_gems_lost = round(PlayerManager.player.green_gem * amount)
 	yellow_gems_lost = round(PlayerManager.player.yellow_gem * amount)
-	materials_lost = round(PlayerManager.player.materials * amount)
+	#materials_lost = round(PlayerManager.player.materials * amount)
 	PlayerManager.player.coins -= coins_lost
 	PlayerManager.player.red_gem -= red_gems_lost
 	PlayerManager.player.blue_gem -= blue_gems_lost
 	PlayerManager.player.green_gem -= green_gems_lost
 	PlayerManager.player.yellow_gem -= yellow_gems_lost
-	PlayerManager.player.materials -= materials_lost
+	#PlayerManager.player.materials -= materials_lost
 
 func lost_coins(percentage):
 	coins_lost = round(PlayerManager.player.coins * percentage)

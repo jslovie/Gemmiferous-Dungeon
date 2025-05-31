@@ -16,26 +16,26 @@ func _ready():
 	update_treasures_bar()
 	update_total_treasures_bar()
 	%Resolution.visible = false
-	$Chest.visible = false
+	$Desktop/Chest.visible = false
 	if LevelManager.type == "Treasure":
-		$EnemyTypeLabel.text = "Treasure"
-		$Enemy.queue_free()
+		$Desktop/EnemyTypeLabel.text = "Treasure"
+		$Desktop/Enemy.queue_free()
 		%EnemyHealth.visible = false
-		$Chest.visible = true
+		$Desktop/Chest.visible = true
 		LevelManager.treasure_timesup = false
-		$TreasureTimer.start(randi_range(treasure_timeout_min, treasure_timeout_max))
+		$Desktop/TreasureTimer.start(randi_range(treasure_timeout_min, treasure_timeout_max))
 	else:
-		$EnemyTypeLabel.text = EnemyManager.enemy.type
+		$Desktop/EnemyTypeLabel.text = EnemyManager.enemy.type
 	update_healthbars()
 	update_shields()
 	update_rage()
-	$EnemyTypeLabel/Timer.timer_start()
-	$Hud.visible = false
+	$Desktop/EnemyTypeLabel/Timer.timer_start()
+	$Desktop/Hud.visible = false
 	$SlotMachine.visible = false
-	$PlayerDied.visible = false
-	$Player_win.visible = false
-	$MaterialTotal.visible = false
-	$GemsTotal.visible = false
+	$Desktop/PlayerDied.visible = false
+	$Desktop/Player_win.visible = false
+	$Desktop/MaterialTotal.visible = false
+	$Desktop/GemsTotal.visible = false
 	wait_time()
 	PlayerManager.player.shield += PlayerManager.player.upgraded_shield_init
 	load_relics()
@@ -49,18 +49,18 @@ func _process(_delta):
 	check_enemy_debuff()
 	update_treasures_bar()
 	update_relic_description()
-
+	
 func load_relics():
 	var dir = DirAccess.open(RESOURCE_PATH)
 	for file in dir.get_files():
 		relic_handler.add_relic(SaveManager.load_resource(file))
 
 func update_relic_description():
-	$RelicName.text = RelicManager.relic_name
-	$RelicDescription.text = RelicManager.relic_description
+	$Desktop/RelicName.text = RelicManager.relic_name
+	$Desktop/RelicDescription.text = RelicManager.relic_description
 	if LevelManager.level_active == false:
-		$RelicName.visible = false
-		$RelicDescription.visible = false
+		$Desktop/RelicName.visible = false
+		$Desktop/RelicDescription.visible = false
 		
 func _unhandled_input(event):
 	if  event.is_action_pressed("Esc"):
@@ -68,36 +68,36 @@ func _unhandled_input(event):
 
 func change_background():
 	if LevelManager.floor == 1:
-		$Background/F1.visible = true
+		$Desktop/Background/F1.visible = true
 	elif LevelManager.floor == 2:
-		$Background/F2.visible = true
+		$Desktop/Background/F2.visible = true
 	elif LevelManager.floor == 3:
-		$Background/F3.visible = true
+		$Desktop/Background/F3.visible = true
 	elif LevelManager.floor == 4:
-		$Background/F4.visible = true
+		$Desktop/Background/F4.visible = true
 
 func update_treasures_bar():
-	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
-	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.stone)
-	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.iron)
-	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.red_gem)
-	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
-	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
-	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
-	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
+	$Desktop/Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
+	$Desktop/Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.stone)
+	$Desktop/Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.iron)
+	$Desktop/Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.red_gem)
+	$Desktop/Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.blue_gem)
+	$Desktop/Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.green_gem)
+	$Desktop/Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.yellow_gem)
+	$Desktop/Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.coins)
 	
 func update_total_treasures_bar():
-	$MaterialTotal/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
-	$MaterialTotal/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.total_stone)
-	$MaterialTotal/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
-	$GemsTotal/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.total_red_gem)
-	$GemsTotal/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
-	$GemsTotal/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
-	$GemsTotal/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
-	$MaterialTotal/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
+	$Desktop/MaterialTotal/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
+	$Desktop/MaterialTotal/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.total_stone)
+	$Desktop/MaterialTotal/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
+	$Desktop/GemsTotal/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.total_red_gem)
+	$Desktop/GemsTotal/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
+	$Desktop/GemsTotal/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
+	$Desktop/GemsTotal/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
+	$Desktop/MaterialTotal/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
 	
 func wait_time():
-	$WaitTime.visible = true
+	$Desktop/WaitTime.visible = true
 	%WaitTimeTimer.start(3)
 	get_tree().paused = true
 	if LevelManager.type == "Treasure":
@@ -145,16 +145,16 @@ func update_shields():
 
 func update_rage():
 	%PlayerRage.value = PlayerManager.player.rage
-	$Hud.visible = true
+	$Desktop/Hud.visible = true
 	if PlayerManager.player.type != "Barbarian":
 		%PlayerRage.visible = false
 
 func update_result():
-	$Resolution/Result/Labels/RedGem.text = ": " + str($Grid.red_gem_gained)
-	$Resolution/Result/Labels/BlueGem.text = ": " + str($Grid.blue_gem_gained)
-	$Resolution/Result/Labels/GreenGem.text = ": " + str($Grid.green_gem_gained)
-	$Resolution/Result/Labels/YellowGem.text = ": " + str($Grid.yellow_gem_gained)
-	$Resolution/Result/Labels/Coins.text = ": " + str($Grid.coins_gained)
+	$Desktop/Resolution/Result/Labels/RedGem.text = ": " + str($Grid.red_gem_gained)
+	$Desktop/Resolution/Result/Labels/BlueGem.text = ": " + str($Grid.blue_gem_gained)
+	$Desktop/Resolution/Result/Labels/GreenGem.text = ": " + str($Grid.green_gem_gained)
+	$Desktop/Resolution/Result/Labels/YellowGem.text = ": " + str($Grid.yellow_gem_gained)
+	$Desktop/Resolution/Result/Labels/Coins.text = ": " + str($Grid.coins_gained)
 	
 
 func resolution_screen():
@@ -163,7 +163,12 @@ func resolution_screen():
 			%Resolution.visible = true
 			%ResolutionText.text = "time's up!"
 			await get_tree().create_timer(1).timeout
-			%Continue.visible = true
+			if LevelManager.is_mobile:
+				%Continue.visible = false
+				$ContinueMobile.visible = true
+			else:
+				%Continue.visible = true
+				$ContinueMobile.visible = false
 			update_result()
 			%Result.visible = true
 			
@@ -174,17 +179,20 @@ func resolution_screen():
 			%EnemyHealth.visible = false
 			$SlotMachine.visible = true
 			var tween = create_tween()
-			tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
+			if LevelManager.is_mobile:
+				tween.tween_property($SlotMachine, "position", Vector2(288,459), 0.1)
+			else:
+				tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
 		elif PlayerManager.player.status == "dead":
 			%Resolution.visible = true
 			%ResolutionText.text = ""
 			%PlayerHealth.visible = false
-			$Material.visible = false
-			$Gems.visible = false
+			$Desktop/Material.visible = false
+			$Desktop/Gems.visible = false
 			relic_handler.visible = false
 			var tween = create_tween()
-			$PlayerDied.visible = true
-			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
+			$Desktop/PlayerDied.visible = true
+			tween.tween_property($Desktop/PlayerDied, "position", Vector2(285,514), 0.1)
 			Music.play_music_game_over()
 
 		
@@ -192,51 +200,51 @@ func handle_win():
 	if LevelManager.handle_winning == true:
 		%Resolution.visible = false
 		$SlotMachine.visible = false
-		$Player_win.visible = true
+		$Desktop/Player_win.visible = true
 
 func check_enemy_debuff():
 	if PlayerManager.player.bleed_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Bleed.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Bleed.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Bleed.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Bleed.visible = false
 	if PlayerManager.player.poison_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Poison.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Poison.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Poison.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Poison.visible = false
 	if PlayerManager.player.ice_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Ice.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Ice.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Ice.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Ice.visible = false
 
 	if PlayerManager.player.fire_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Fire.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Fire.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Fire.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Fire.visible = false
 
 	if PlayerManager.player.electric_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Electric.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Electric.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Electric.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Electric.visible = false
 	if PlayerManager.player.stun_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Stun.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Stun.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Stun.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Stun.visible = false
 	if PlayerManager.player.weak_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Weak.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Weak.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Weak.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Weak.visible = false
 	if PlayerManager.player.vulnerable_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Vulnerable.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Vulnerable.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Vulnerable.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Vulnerable.visible = false
 	if PlayerManager.player.frail_active == true:
-		$Hud/EnemyHealth/HBoxContainer/Frail.visible = true
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Frail.visible = true
 	else:
-		$Hud/EnemyHealth/HBoxContainer/Frail.visible = false
+		$Desktop/Hud/EnemyHealth/HBoxContainer/Frail.visible = false
 
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false
-	$WaitTime.visible = false
+	$Desktop/WaitTime.visible = false
 	
 
 
@@ -245,37 +253,37 @@ func _on_button_pressed():
 
 
 func _on_wood_area_2d_area_entered(_area):
-	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Material/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
 func _on_stone_area_2d_area_entered(_area):
-	$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Material/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
 func _on_iron_area_2d_area_entered(_area):
-	$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Material/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
 func _on_red_gem_area_2d_area_entered(_area):
-	$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Gems/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
 func _on_blue_gem_area_2d_area_entered(_area):
-	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Gems/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
 func _on_greem_gem_area_2d_area_entered(_area):
-	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Gems/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
 func _on_yellow_gem_area_2d_area_entered(_area):
-	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Gems/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
 func _on_coin_area_2d_area_entered(_area):
-	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+	$Desktop/Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(0.5).timeout
-	$Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/Material/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)
 
 
 func _on_shield_area_entered(_area):
@@ -284,57 +292,57 @@ func _on_shield_area_entered(_area):
 
 func color_change():
 	if PlayerManager.player.wood_died > 0:
-		$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.stone_died > 0:
-		$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.iron_died > 0:
-		$MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.red_gem_died > 0:
-		$GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.blue_gem_died > 0:
-		$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.green_gem_died > 0:
-		$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.yellow_gem_died > 0:
-		$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.coins_died > 0:
-		$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(1).timeout
-	$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
-	$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
-	$MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
-	$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
+	$Desktop/MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
 	
 func color_change_on_win():
 	if PlayerManager.player.wood > 0:
-		$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.stone > 0:
-		$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.iron > 0:
-		$MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.red_gem > 0:
-		$GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.blue_gem > 0:
-		$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.green_gem > 0:
-		$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.yellow_gem > 0:
-		$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.GREEN)
 	if PlayerManager.player.coins > 0:
-		$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
+		$Desktop/MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.GREEN)
 	await get_tree().create_timer(1).timeout
-	$MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
-	$MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
-	$MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
-	$GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
-	$MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
+	$Desktop/MaterialTotal/HBoxContainer/Wood.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/MaterialTotal/HBoxContainer/Stone.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/MaterialTotal/HBoxContainer/Iron.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/RedGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/BlueGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/GreenGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/GemsTotal/HBoxContainer/YellowGem.add_theme_color_override("font_color",Color.WHITE)
+	$Desktop/MaterialTotal/HBoxContainer/Coin.add_theme_color_override("font_color",Color.WHITE)	
 
 func pause():
 	$Pause.visible = true
@@ -345,10 +353,10 @@ func unpause():
 	get_tree().paused = false
 
 func _on_player_died_update_total_bar():
-	$MaterialTotal.visible = true
-	$GemsTotal.visible = true
-	$Material.visible = false
-	$Gems.visible = false
+	$Desktop/MaterialTotal.visible = true
+	$Desktop/GemsTotal.visible = true
+	$Desktop/Material.visible = false
+	$Desktop/Gems.visible = false
 	await get_tree().create_timer(1).timeout
 	update_total_treasures_bar()
 	color_change()
@@ -359,7 +367,7 @@ func _on_treasure_timer_timeout():
 	LevelManager.level_active = false
 	LevelManager.treasure_timesup = true
 	Music.dim_music()
-	$Chest/ChestClosed.visible = true
+	$Desktop/Chest/ChestClosed.visible = true
 	#LevelManager.switch_to_dungeon_map()
 	#await get_tree().create_timer(3).timeout
 	#Music.music_to_normal()
@@ -367,10 +375,10 @@ func _on_treasure_timer_timeout():
 
 func tween_size():
 	var tween = create_tween()
-	tween.tween_property($Home,"size", Vector2(2.2,2.2),0.5)
+	tween.tween_property($Desktop/Home,"size", Vector2(2.2,2.2),0.5)
 	await get_tree().create_timer(0.5).timeout
 	tween.stop()
-	tween.tween_property($Home,"size", Vector2(2,2),0.5)
+	tween.tween_property($Desktop/Home,"size", Vector2(2,2),0.5)
 
 func _on_home_pressed():
 	tween_size()
@@ -389,10 +397,10 @@ func _on_menu_mouse_exited():
 	$Pause/Progress.visible = false
 
 func _on_home_mouse_entered():
-	$Home/TextureRect.modulate = Color(0.537, 0.558, 0.828)
+	$Desktop/Home/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 
 func _on_home_mouse_exited():
-	$Home/TextureRect.modulate = Color(0.369, 0.38, 0.675)
+	$Desktop/Home/TextureRect.modulate = Color(0.369, 0.38, 0.675)
 
 func _on_shuffle_mouse_entered():
 	$Grid/Shuffle/TextureRect.modulate = Color(0.537, 0.558, 0.828)
@@ -402,10 +410,10 @@ func _on_shuffle_mouse_exited():
 
 
 func _on_player_win_update_total_bar():
-	$MaterialTotal.visible = true
-	$GemsTotal.visible = true
-	$Material.visible = false
-	$Gems.visible = false
+	$Desktop/MaterialTotal.visible = true
+	$Desktop/GemsTotal.visible = true
+	$Desktop/Material.visible = false
+	$Desktop/Gems.visible = false
 	await get_tree().create_timer(1).timeout
 	update_total_treasures_bar()
 	color_change_on_win()
@@ -415,6 +423,15 @@ func _on_continue_pressed():
 	Music.music_to_normal()
 	LevelManager.switch_to_dungeon_map_timeless()
 func _on_continue_mouse_entered():
-	$Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Desktop/Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_continue_mouse_exited():
-	$Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.WHITE)
+	$Desktop/Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.WHITE)
+
+
+func _on_continue_mobile_pressed():
+	Music.music_to_normal()
+	LevelManager.switch_to_dungeon_map_timeless()
+func _on_continue_mobile_mouse_entered():
+	$ContinueMobile/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_continue_mobile_mouse_exited():
+	$ContinueMobile/Label.add_theme_color_override("font_color", Color.WHITE)

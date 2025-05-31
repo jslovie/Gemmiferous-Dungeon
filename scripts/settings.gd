@@ -7,10 +7,17 @@ func _process(delta):
 	check_CRT_button()
 	check_mode()
 	check_resolution()
+	check_mobile_version()
 	
 func _on_back_pressed():
 	visible = false
 
+func check_mobile_version():
+	if LevelManager.is_mobile:
+		$AudioOptions/MarginContainer/VBoxContainer/Resolution.visible = false
+		%ResOptionButton.visible = false
+		$AudioOptions/MarginContainer/VBoxContainer/Mode.visible = false
+		%ModeOptionButton.visible = false
 
 func check_resolution():
 	if LevelManager.resolution == 0:

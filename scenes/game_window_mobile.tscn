@@ -1,64 +1,64 @@
-[gd_scene load_steps=126 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=126 format=4 uid="uid://ccfnhl17cetff"]
 
-[ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
-[ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
-[ext_resource type="Script" path="res://scripts/effect_load.gd" id="2_d5ljo"]
-[ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_kiygc"]
-[ext_resource type="Script" path="res://scripts/grid.gd" id="4_pskgn"]
-[ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="5_bfbau"]
-[ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="5_lkr4m"]
-[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_pg7vj"]
-[ext_resource type="Texture2D" uid="uid://ceov6qhg5e7pc" path="res://assets/32rogues/gems/chest_opened.png" id="6_12re3"]
-[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
-[ext_resource type="Texture2D" uid="uid://beh4dker3ieaj" path="res://assets/32rogues/gems/chest_closed.png" id="7_hg3ss"]
-[ext_resource type="PackedScene" uid="uid://cbcqd1f6tddcc" path="res://scenes/camera_2d.tscn" id="9_gkok3"]
-[ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
-[ext_resource type="PackedScene" uid="uid://de8pjjey6lewp" path="res://scenes/GUI/hint_effect.tscn" id="10_pi5o8"]
-[ext_resource type="Texture2D" uid="uid://bdgpqqql7suwd" path="res://assets/VFX/Thrust VFX 02 Color 1.png" id="11_3kg1c"]
-[ext_resource type="Script" path="res://scripts/wait_time.gd" id="11_ih4n0"]
-[ext_resource type="PackedScene" uid="uid://covxy0k6qglqu" path="res://scenes/slot/slot_machine.tscn" id="12_8bcan"]
-[ext_resource type="Texture2D" uid="uid://cp4p6ui015t2i" path="res://assets/VFX/Thrust VFX 02 Color 3.png" id="12_uluv3"]
-[ext_resource type="Texture2D" uid="uid://b1cj8ua1u77fy" path="res://assets/VFX/Smear VFX/Smear VFX 04/Smear 4 Horizontal 1.png" id="13_3qj4f"]
-[ext_resource type="Texture2D" uid="uid://dmdome0cw4agd" path="res://assets/32rogues/pieces/shield.png" id="13_4f4qt"]
-[ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="13_wcutr"]
-[ext_resource type="Texture2D" uid="uid://d2ufwdj7jp5ex" path="res://assets/VFX/Smear VFX/Smear VFX 07/Smear 07 Horizontal 1.png" id="14_dlrwm"]
-[ext_resource type="PackedScene" uid="uid://bjjktcnjegl47" path="res://scenes/GUI/player_win.tscn" id="14_w782t"]
-[ext_resource type="Texture2D" uid="uid://k88dxt4e4da3" path="res://assets/VFX/Smear VFX/Smear VFX 10/Smear 10 Horizontal 1.png" id="15_ghkf0"]
-[ext_resource type="Texture2D" uid="uid://x1b6fvtydon6" path="res://assets/32rogues/pieces/bleed.png" id="16_tkke6"]
-[ext_resource type="Texture2D" uid="uid://bjjk3ntnjy3af" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 1.png" id="16_yjedy"]
-[ext_resource type="Texture2D" uid="uid://dy7r7mo4dhe5s" path="res://assets/32rogues/pieces/poison.png" id="17_dst1s"]
-[ext_resource type="Texture2D" uid="uid://dl6cimyvyaw0y" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 4.png" id="17_lkria"]
-[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="21_spqid"]
-[ext_resource type="Texture2D" uid="uid://d25legurp1eyr" path="res://assets/VFX/Thrusts VFX/Thrust 01/Thrust VFX 01 Color 1.png" id="21_yoa2y"]
-[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="22_7rbg4"]
-[ext_resource type="AudioStream" uid="uid://cehqsstbaltrf" path="res://audio/SFX/SFX/TileBreak2.wav" id="22_rmg55"]
-[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="22_s46mu"]
-[ext_resource type="Texture2D" uid="uid://s1oh0c0s6a5b" path="res://assets/32rogues/pieces/repeat_v3.png" id="23_1j0tw"]
-[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="23_pwx4o"]
-[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="25_cgkb1"]
-[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="26_qkeal"]
-[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="26_v4aci"]
-[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="27_gxw3g"]
-[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="27_yq476"]
-[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="28_fypd8"]
-[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="28_o85x2"]
-[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="29_4qh4o"]
-[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="29_5m2lj"]
-[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="29_ktb7s"]
-[ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="31_6hgcu"]
-[ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="31_a4scn"]
-[ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="32_ijjaj"]
-[ext_resource type="Texture2D" uid="uid://bbylyst6mttt5" path="res://assets/32rogues/pieces/stun.png" id="35_4mjqk"]
-[ext_resource type="Texture2D" uid="uid://csgjrhkhj0l40" path="res://assets/32rogues/pieces/weak.png" id="36_1cyfe"]
-[ext_resource type="Texture2D" uid="uid://vrop2vlgx2dt" path="res://assets/32rogues/pieces/vulnerable.png" id="37_lkdhj"]
-[ext_resource type="Texture2D" uid="uid://dm8mt7x7w0fav" path="res://assets/32rogues/pieces/frail.png" id="38_od5u3"]
-[ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="39_igw6i"]
-[ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="43_xaq8w"]
-[ext_resource type="Texture2D" uid="uid://cto6o7oms0ywt" path="res://assets/32rogues/pieces/home.png" id="54_1lpto"]
-[ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="55_vg62u"]
+[ext_resource type="Script" path="res://scripts/game_window.gd" id="1_a74fi"]
+[ext_resource type="Script" path="res://scripts/effect_load.gd" id="2_ma5d1"]
+[ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="3_2p3tu"]
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="4_j1vxe"]
+[ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="5_plkgx"]
+[ext_resource type="Texture2D" uid="uid://ceov6qhg5e7pc" path="res://assets/32rogues/gems/chest_opened.png" id="6_6filf"]
+[ext_resource type="Texture2D" uid="uid://beh4dker3ieaj" path="res://assets/32rogues/gems/chest_closed.png" id="7_3dgrs"]
+[ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="8_0skn8"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="9_7j0xe"]
+[ext_resource type="PackedScene" uid="uid://crnr4fjuk2nsl" path="res://scenes/timer.tscn" id="10_m5rhp"]
+[ext_resource type="Script" path="res://scripts/grid.gd" id="11_uxyrw"]
+[ext_resource type="PackedScene" uid="uid://de8pjjey6lewp" path="res://scenes/GUI/hint_effect.tscn" id="12_e4crh"]
+[ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="13_1e5cq"]
+[ext_resource type="Texture2D" uid="uid://bdgpqqql7suwd" path="res://assets/VFX/Thrust VFX 02 Color 1.png" id="14_5tnjt"]
+[ext_resource type="Texture2D" uid="uid://cp4p6ui015t2i" path="res://assets/VFX/Thrust VFX 02 Color 3.png" id="15_2fhsd"]
+[ext_resource type="Texture2D" uid="uid://b1cj8ua1u77fy" path="res://assets/VFX/Smear VFX/Smear VFX 04/Smear 4 Horizontal 1.png" id="16_ovdi1"]
+[ext_resource type="Texture2D" uid="uid://d2ufwdj7jp5ex" path="res://assets/VFX/Smear VFX/Smear VFX 07/Smear 07 Horizontal 1.png" id="17_mh5vo"]
+[ext_resource type="Texture2D" uid="uid://k88dxt4e4da3" path="res://assets/VFX/Smear VFX/Smear VFX 10/Smear 10 Horizontal 1.png" id="18_u8d06"]
+[ext_resource type="Texture2D" uid="uid://bjjk3ntnjy3af" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 1.png" id="19_af8up"]
+[ext_resource type="Texture2D" uid="uid://dl6cimyvyaw0y" path="res://assets/VFX/Smear VFX/Smear VFX 02/Smear 02 Horizontal 4.png" id="20_us3ef"]
+[ext_resource type="Texture2D" uid="uid://d25legurp1eyr" path="res://assets/VFX/Thrusts VFX/Thrust 01/Thrust VFX 01 Color 1.png" id="21_2x1ja"]
+[ext_resource type="AudioStream" uid="uid://cehqsstbaltrf" path="res://audio/SFX/SFX/TileBreak2.wav" id="22_w8nwa"]
+[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="23_8012o"]
+[ext_resource type="Texture2D" uid="uid://s1oh0c0s6a5b" path="res://assets/32rogues/pieces/repeat_v3.png" id="24_0uwbx"]
+[ext_resource type="PackedScene" uid="uid://cbcqd1f6tddcc" path="res://scenes/camera_2d.tscn" id="25_c8dtd"]
+[ext_resource type="Texture2D" uid="uid://ci66aa0snhn45" path="res://assets/32rogues/gems/red.png" id="26_tfkvy"]
+[ext_resource type="Texture2D" uid="uid://cxldoai10a4l2" path="res://assets/32rogues/gems/blue.png" id="27_5co5g"]
+[ext_resource type="Texture2D" uid="uid://bia86h43fmf6r" path="res://assets/32rogues/gems/green.png" id="28_brc4n"]
+[ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="29_bw5kc"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="30_fc7wl"]
+[ext_resource type="Script" path="res://scripts/wait_time.gd" id="31_3gl1k"]
+[ext_resource type="Texture2D" uid="uid://dmdome0cw4agd" path="res://assets/32rogues/pieces/shield.png" id="32_7v1nj"]
+[ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="33_exsxa"]
+[ext_resource type="Texture2D" uid="uid://x1b6fvtydon6" path="res://assets/32rogues/pieces/bleed.png" id="34_5g2gh"]
+[ext_resource type="Texture2D" uid="uid://dy7r7mo4dhe5s" path="res://assets/32rogues/pieces/poison.png" id="35_263j2"]
+[ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="36_swa41"]
+[ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="37_6uf7w"]
+[ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="38_ujm8t"]
+[ext_resource type="Texture2D" uid="uid://bbylyst6mttt5" path="res://assets/32rogues/pieces/stun.png" id="39_ryjng"]
+[ext_resource type="Texture2D" uid="uid://csgjrhkhj0l40" path="res://assets/32rogues/pieces/weak.png" id="40_ah5wx"]
+[ext_resource type="Texture2D" uid="uid://vrop2vlgx2dt" path="res://assets/32rogues/pieces/vulnerable.png" id="41_tkqoy"]
+[ext_resource type="Texture2D" uid="uid://dm8mt7x7w0fav" path="res://assets/32rogues/pieces/frail.png" id="42_a62m2"]
+[ext_resource type="PackedScene" uid="uid://covxy0k6qglqu" path="res://scenes/slot/slot_machine.tscn" id="43_yiina"]
+[ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="44_qjju0"]
+[ext_resource type="PackedScene" uid="uid://bjjktcnjegl47" path="res://scenes/GUI/player_win.tscn" id="45_07rrk"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="46_nbsvw"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="47_nc3ae"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="48_lxl5g"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="49_w6o4e"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="50_35t2v"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="51_joyny"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="52_sklyi"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="53_jm2r3"]
+[ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="54_i766r"]
+[ext_resource type="Texture2D" uid="uid://cto6o7oms0ywt" path="res://assets/32rogues/pieces/home.png" id="55_ucbyr"]
+[ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="56_nvknh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
-texture = ExtResource("2_kiygc")
+texture = ExtResource("3_2p3tu")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -206,23 +206,23 @@ corner_radius_bottom_left = 8
 [sub_resource type="CircleShape2D" id="CircleShape2D_cf6hg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3twqd"]
-atlas = ExtResource("31_6hgcu")
+atlas = ExtResource("13_1e5cq")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkmw1"]
-atlas = ExtResource("31_6hgcu")
+atlas = ExtResource("13_1e5cq")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_blv8j"]
-atlas = ExtResource("31_6hgcu")
+atlas = ExtResource("13_1e5cq")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pbl6"]
-atlas = ExtResource("31_6hgcu")
+atlas = ExtResource("13_1e5cq")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jf4v"]
-atlas = ExtResource("31_6hgcu")
+atlas = ExtResource("13_1e5cq")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w0ccd"]
@@ -252,67 +252,67 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vyj43"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6pb5"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v111y"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewkm5"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqxea"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ntg7"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3pqb"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83a45"]
-atlas = ExtResource("11_3kg1c")
+atlas = ExtResource("14_5tnjt")
 region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h43mc"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pbfo"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqtj8"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2c6r"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e21wa"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5fs6r"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1a6u2"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjeni"]
-atlas = ExtResource("12_uluv3")
+atlas = ExtResource("15_2fhsd")
 region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_inwop"]
@@ -377,23 +377,23 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86dts"]
-atlas = ExtResource("13_3qj4f")
+atlas = ExtResource("16_ovdi1")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nekl4"]
-atlas = ExtResource("13_3qj4f")
+atlas = ExtResource("16_ovdi1")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rupit"]
-atlas = ExtResource("13_3qj4f")
+atlas = ExtResource("16_ovdi1")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00rfa"]
-atlas = ExtResource("13_3qj4f")
+atlas = ExtResource("16_ovdi1")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0gih"]
-atlas = ExtResource("13_3qj4f")
+atlas = ExtResource("16_ovdi1")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mlx6d"]
@@ -420,23 +420,23 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kr67r"]
-atlas = ExtResource("14_dlrwm")
+atlas = ExtResource("17_mh5vo")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgti4"]
-atlas = ExtResource("14_dlrwm")
+atlas = ExtResource("17_mh5vo")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wnb6"]
-atlas = ExtResource("14_dlrwm")
+atlas = ExtResource("17_mh5vo")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhdqn"]
-atlas = ExtResource("14_dlrwm")
+atlas = ExtResource("17_mh5vo")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw1p3"]
-atlas = ExtResource("14_dlrwm")
+atlas = ExtResource("17_mh5vo")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_806ac"]
@@ -463,27 +463,27 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26f6u"]
-atlas = ExtResource("15_ghkf0")
+atlas = ExtResource("18_u8d06")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0wvc"]
-atlas = ExtResource("15_ghkf0")
+atlas = ExtResource("18_u8d06")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrs2k"]
-atlas = ExtResource("15_ghkf0")
+atlas = ExtResource("18_u8d06")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyntq"]
-atlas = ExtResource("15_ghkf0")
+atlas = ExtResource("18_u8d06")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sxjk"]
-atlas = ExtResource("15_ghkf0")
+atlas = ExtResource("18_u8d06")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3d3a"]
-atlas = ExtResource("15_ghkf0")
+atlas = ExtResource("18_u8d06")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lokdw"]
@@ -513,43 +513,43 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81thj"]
-atlas = ExtResource("16_yjedy")
+atlas = ExtResource("19_af8up")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cp2dr"]
-atlas = ExtResource("16_yjedy")
+atlas = ExtResource("19_af8up")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eofu2"]
-atlas = ExtResource("16_yjedy")
+atlas = ExtResource("19_af8up")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxdgb"]
-atlas = ExtResource("16_yjedy")
+atlas = ExtResource("19_af8up")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_31kv5"]
-atlas = ExtResource("16_yjedy")
+atlas = ExtResource("19_af8up")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4uho"]
-atlas = ExtResource("17_lkria")
+atlas = ExtResource("20_us3ef")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7bd3"]
-atlas = ExtResource("17_lkria")
+atlas = ExtResource("20_us3ef")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_050k3"]
-atlas = ExtResource("17_lkria")
+atlas = ExtResource("20_us3ef")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_th25a"]
-atlas = ExtResource("17_lkria")
+atlas = ExtResource("20_us3ef")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmbho"]
-atlas = ExtResource("17_lkria")
+atlas = ExtResource("20_us3ef")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwpvx"]
@@ -596,31 +596,31 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh31c"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2te34"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_61720"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nauu8"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lo6kw"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybou4"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5fpk"]
-atlas = ExtResource("21_yoa2y")
+atlas = ExtResource("21_2x1ja")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yara6"]
@@ -652,27 +652,50 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="GameWindow" type="Node2D"]
-script = ExtResource("1_0rfml")
+[node name="GameWindowMobile" type="Node2D"]
+script = ExtResource("1_a74fi")
 
 [node name="Desktop" type="Node2D" parent="."]
+scale = Vector2(0.939, 0.939)
 
 [node name="EffectLoad" type="Node2D" parent="Desktop"]
 position = Vector2(435, 583)
-script = ExtResource("2_d5ljo")
+script = ExtResource("2_ma5d1")
 
 [node name="Background" type="Node2D" parent="Desktop"]
+position = Vector2(231.947, -43.6635)
+scale = Vector2(0.3, 0.3)
 
 [node name="F1" type="Node2D" parent="Desktop/Background"]
 
 [node name="Dungeon1" type="TileMapLayer" parent="Desktop/Background/F1"]
-position = Vector2(12, -28)
+position = Vector2(7.81681, -145.545)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wQAAAAAAAYAAAD6/wUAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wcAAAAAAAYAAAD7////AAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAABAAEAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD7/wQAAAACAAcAAAD7/wUAAAAAAAYAAAD7/wcAAAAAAAYAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAEAAAD8/wIAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wQAAAAAAAYAAAD8/wUAAAACAAoAAAD8/wYAAAAAAAYAAAD8/wcAAAAAAAYAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAEAAAD9/wIAAAACAAcAAAD9/wMAAAAAAAYAAAD9/wQAAAAAAAYAAAD9/wUAAAAAAAYAAAD9/wYAAAAAAAYAAAD9/wcAAAAAAAYAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAABAAEAAAD+/wIAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wQAAAAAAAYAAAD+/wUAAAAAAAYAAAD+/wYAAAAAAAYAAAD+/wcAAAAAAAYAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAABAAEAAAD//wIAAAAAAAYAAAD//wMAAAADAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAABAAEAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAACAAkAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAADAAkAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAUAAAADAAoAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAABAAEAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAIAAAACAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAADAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAA=")
+tile_map_data = PackedByteArray("AAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wQAAAAAAAYAAAD7////AAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAABAAEAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD7/wQAAAACAAcAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAEAAAD8/wIAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wQAAAAAAAYAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAEAAAD9/wIAAAACAAcAAAD9/wMAAAAAAAYAAAD9/wQAAAAAAAYAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAABAAEAAAD+/wIAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wQAAAAAAAYAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAABAAEAAAD//wIAAAAAAAYAAAD//wMAAAADAAYAAAD//wQAAAAAAAYAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAABAAEAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAACAAkAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAADAAkAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAABAAEAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAIAAAACAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAADAAYAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAD6/wUAAAAAAAYAAAD7/wUAAAAAAAYAAAD8/wUAAAAAAAYAAAD9/wUAAAAAAAYAAAD+/wUAAAAAAAYAAAD//wUAAAAAAAYAAAAAAAUAAAAAAAYAAAABAAUAAAAAAAYAAAACAAUAAAAAAAYAAAADAAUAAAAAAAYAAAAEAAUAAAAAAAYAAAAFAAUAAAAAAAYAAAAGAAUAAAAAAAYAAAAHAAUAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAHAAYAAAAAAAYAAAAGAAYAAAAAAAYAAAAFAAYAAAAAAAYAAAAEAAYAAAAAAAYAAAADAAYAAAAAAAYAAAACAAYAAAAAAAYAAAABAAYAAAAAAAYAAAAAAAYAAAAAAAYAAAD//wYAAAAAAAYAAAD+/wYAAAAAAAYAAAD9/wYAAAAAAAYAAAD8/wYAAAAAAAYAAAD7/wYAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wcAAAAAAAYAAAD7/wcAAAAAAAYAAAD8/wcAAAAAAAYAAAD9/wcAAAAAAAYAAAD+/wcAAAAAAAYAAAD//wcAAAAAAAYAAAAAAAcAAAAAAAYAAAABAAcAAAAAAAYAAAACAAcAAAAAAAYAAAADAAcAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAAcAAAAAAAYAAAA=")
 tile_set = SubResource("TileSet_5mgtx")
 
-[node name="DungeonTilesDetails" type="TileMapLayer" parent="Desktop/Background/F1/Dungeon1"]
-tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
+[node name="DungeonTilesDetails" type="TileMapLayer" parent="Desktop/Background/F1"]
+position = Vector2(-6.38267, -145.545)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAD//wIAAAAEABEAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAAGAAMAAAAHABAAAAA=")
+tile_set = SubResource("TileSet_5mgtx")
+
+[node name="DungeonTilesDetails3" type="TileMapLayer" parent="Desktop/Background/F1"]
+position = Vector2(-2633.29, -908.768)
+scale = Vector2(15, 15)
+tile_map_data = PackedByteArray("AAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAUAAAAAAAEAAAAGAAUAAAAAAAEAAAAHAAUAAAAAAAEAAAAHAAYAAAAAAAEAAAAGAAYAAAAAAAEAAAAFAAYAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAcAAAAAAAEAAAAGAAcAAAAAAAEAAAAHAAcAAAAAAAEAAAAHAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAFAAgAAAAAAAEAAAAEAAgAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_5mgtx")
+
+[node name="DungeonTilesDetails4" type="TileMapLayer" parent="Desktop/Background/F1"]
+position = Vector2(-2633.29, -990.415)
+scale = Vector2(15, 15)
+tile_map_data = PackedByteArray("AAAIAAIAAAAAAAYAAAAIAAEAAAAAAAYAAAAHAAEAAAAAAAYAAAAGAAEAAAAAAAYAAAAFAAEAAAAAAAYAAAAEAAEAAAAAAAYAAAADAAEAAAAAAAYAAAADAAIAAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_5mgtx")
+
+[node name="DungeonTilesDetails2" type="TileMapLayer" parent="Desktop/Background/F1"]
+position = Vector2(14.9166, 70.9975)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAADAAQAAAABABUAAAD6/xMAAAAAAAYAAAD6/xQAAAAAAAYAAAD6/xUAAAAAAAYAAAD6/xYAAAAAAAYAAAD7/xYAAAAAAAYAAAD7/xUAAAAAAAYAAAD7/xQAAAAAAAYAAAD7/xMAAAAAAAYAAAD8/xMAAAAAAAYAAAD8/xQAAAAAAAYAAAD8/xUAAAAAAAYAAAD8/xYAAAAAAAYAAAD9/xYAAAAAAAYAAAD9/xUAAAAAAAYAAAD9/xQAAAAAAAYAAAD9/xMAAAAAAAYAAAD+/xUAAAAAAAYAAAD+/xYAAAAAAAYAAAD+/xQAAAAAAAYAAAD+/xMAAAAAAAYAAAD//xMAAAAAAAYAAAD//xQAAAAAAAYAAAD//xUAAAAAAAYAAAD//xYAAAAAAAYAAAAAABYAAAAAAAYAAAABABYAAAAAAAYAAAACABYAAAAAAAYAAAADABYAAAAAAAYAAAAEABYAAAAAAAYAAAAFABYAAAAAAAYAAAAGABYAAAAAAAYAAAAHABYAAAAAAAYAAAAHABUAAAAAAAYAAAAHABQAAAAAAAYAAAAHABMAAAAAAAYAAAAGABMAAAAAAAYAAAAFABMAAAAAAAYAAAAEABMAAAAAAAYAAAADABMAAAAAAAYAAAACABMAAAAAAAYAAAABABMAAAAAAAYAAAAAABMAAAAAAAYAAAAAABUAAAAAAAYAAAABABUAAAAAAAYAAAAAABQAAAAAAAYAAAABABQAAAAAAAYAAAACABQAAAAAAAYAAAADABQAAAAAAAYAAAADABUAAAAAAAYAAAAEABUAAAAAAAYAAAAFABUAAAAAAAYAAAAFABQAAAAAAAYAAAAGABQAAAAAAAYAAAAGABUAAAAAAAYAAAACABUAAAAAAAYAAAAIABYAAAAAAAYAAAAIABUAAAAAAAYAAAAIABQAAAAAAAYAAAAIABMAAAAAAAYAAAAEABQAAAAAAAYAAAA=")
 tile_set = SubResource("TileSet_5mgtx")
 
 [node name="F2" type="Node2D" parent="Desktop/Background"]
@@ -714,61 +737,75 @@ tile_set = SubResource("TileSet_5mgtx")
 tile_map_data = PackedByteArray("AAD+/wEAAAADABAAAAAGAAEAAAADABAAAAAEAAIAAAAHABAAAAD8/wIAAAAEABEAAAAHAAIAAAACABEAAAD//wIAAAADAAsAAAD8/wMAAAABAAsAAAACAAYAAAADAAsAAAAEAAQAAAACAAsAAAAHAAMAAAABAAsAAAD//wMAAAAGAAoAAAADAAYAAAAFAAoAAAD8/wUAAAABABUAAAD+/wIAAAABABYAAAAAAAYAAAAAABYAAAA=")
 tile_set = SubResource("TileSet_5mgtx")
 
-[node name="Player" parent="Desktop" instance=ExtResource("7_2hndj")]
+[node name="Player" parent="Desktop" instance=ExtResource("4_j1vxe")]
 z_index = 1
-position = Vector2(-282, 735)
+position = Vector2(169.329, 119.276)
+scale = Vector2(0.3, 0.3)
 
-[node name="Enemy" parent="Desktop" instance=ExtResource("2_04xhg")]
+[node name="Enemy" parent="Desktop" instance=ExtResource("5_plkgx")]
 z_index = 1
-position = Vector2(921, 735)
+position = Vector2(450.024, 130.99)
+scale = Vector2(0.3, 0.3)
 
 [node name="Chest" type="Node2D" parent="Desktop"]
-position = Vector2(914, 839)
-scale = Vector2(12, 12)
+position = Vector2(450.479, 157.614)
+scale = Vector2(3, 3)
 
 [node name="ChestOpened" type="Sprite2D" parent="Desktop/Chest"]
-texture = ExtResource("6_12re3")
+texture = ExtResource("6_6filf")
 
 [node name="ChestClosed" type="Sprite2D" parent="Desktop/Chest"]
 visible = false
-texture = ExtResource("7_hg3ss")
+texture = ExtResource("7_3dgrs")
 
 [node name="TreasureTimer" type="Timer" parent="Desktop"]
 
 [node name="GamePanel" type="Panel" parent="Desktop"]
 modulate = Color(0, 0, 0, 0.905882)
-offset_top = 54.0
-offset_right = 576.0
-offset_bottom = 912.0
+offset_left = 19.0
+offset_top = 267.0
+offset_right = 595.0
+offset_bottom = 892.0
+
+[node name="TextureRect2" type="TextureRect" parent="Desktop"]
+modulate = Color(0.674815, 0.674815, 0.674814, 1)
+offset_left = 1.0
+offset_top = 258.0
+offset_right = 613.0
+offset_bottom = 899.0
+texture = ExtResource("8_0skn8")
 
 [node name="TextureRect" type="TextureRect" parent="Desktop"]
 modulate = Color(0.674815, 0.674815, 0.674814, 1)
-offset_left = -18.0
-offset_top = 40.0
-offset_right = 594.0
-offset_bottom = 926.0
-texture = ExtResource("5_bfbau")
+offset_left = 1.06496
+offset_top = -56.443
+offset_right = 613.065
+offset_bottom = 1032.56
+texture = ExtResource("8_0skn8")
 
 [node name="EnemyTypeLabel" type="Label" parent="Desktop"]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 83.0
-offset_top = 55.0
-offset_right = 491.0
-offset_bottom = 178.0
+offset_left = 184.0
+offset_top = 220.0
+offset_right = 1015.0
+offset_bottom = 343.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 64
 text = "Ghost Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" parent="Desktop/EnemyTypeLabel" instance=ExtResource("5_lkr4m")]
+[node name="Timer" parent="Desktop/EnemyTypeLabel" instance=ExtResource("10_m5rhp")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -793,11 +830,11 @@ unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="Camera2D" parent="Desktop" instance=ExtResource("9_gkok3")]
+[node name="Camera2D" parent="Desktop" instance=ExtResource("25_c8dtd")]
+position = Vector2(306.709, 488.818)
 
 [node name="Resolution" type="Panel" parent="Desktop"]
 unique_name_in_owner = true
-visible = false
 z_index = 21
 offset_left = -876.0
 offset_top = -105.0
@@ -813,39 +850,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -280.0
-offset_top = -277.0
-offset_right = 280.0
-offset_bottom = -157.0
+offset_left = -289.5
+offset_top = -498.0
+offset_right = 471.5
+offset_bottom = -255.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 128
-text = "You Died!"
+text = "foe vanquished!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Continue" type="TextureButton" parent="Desktop/Resolution"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 1097.0
-offset_top = 950.0
-offset_right = 1229.0
-offset_bottom = 977.0
+offset_left = 1042.0
+offset_top = 925.021
+offset_right = 1330.0
+offset_bottom = 1016.02
 
 [node name="ContinueLabel" type="Label" parent="Desktop/Resolution/Continue"]
-layout_mode = 0
-offset_right = 132.0
-offset_bottom = 30.0
-theme_override_font_sizes/font_size = 32
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -15.0
+offset_right = 66.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
 text = "Continue"
 
 [node name="Result" type="Panel" parent="Desktop/Resolution"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
-offset_left = 993.0
+offset_left = 1013.38
 offset_top = 601.0
-offset_right = 1335.0
+offset_right = 1355.38
 offset_bottom = 871.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(171, 135)
@@ -877,27 +926,27 @@ text = "Treasure gained"
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Resolution/Result/Sprites"]
 position = Vector2(57, 71)
 scale = Vector2(2, 2)
-texture = ExtResource("26_v4aci")
+texture = ExtResource("26_tfkvy")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Desktop/Resolution/Result/Sprites"]
 position = Vector2(57, 111)
 scale = Vector2(2, 2)
-texture = ExtResource("27_gxw3g")
+texture = ExtResource("27_5co5g")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Desktop/Resolution/Result/Sprites"]
 position = Vector2(57, 151)
 scale = Vector2(2, 2)
-texture = ExtResource("28_fypd8")
+texture = ExtResource("28_brc4n")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Desktop/Resolution/Result/Sprites"]
 position = Vector2(57, 191)
 scale = Vector2(2, 2)
-texture = ExtResource("29_5m2lj")
+texture = ExtResource("29_bw5kc")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Desktop/Resolution/Result/Sprites"]
 position = Vector2(57, 231)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("29_ktb7s")
+texture = ExtResource("30_fc7wl")
 
 [node name="Labels" type="Node2D" parent="Desktop/Resolution/Result"]
 
@@ -952,7 +1001,7 @@ anchor_bottom = 1.0
 offset_left = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("11_ih4n0")
+script = ExtResource("31_3gl1k")
 
 [node name="WaitTimePanel" type="Panel" parent="Desktop/WaitTime"]
 layout_mode = 0
@@ -975,7 +1024,7 @@ offset_right = 110.5
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 256
 text = "0	"
 horizontal_alignment = 1
@@ -1001,13 +1050,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -470.0
-offset_top = 970.0
-offset_right = -303.0
-offset_bottom = 987.0
+offset_left = 205.0
+offset_top = 968.0
+offset_right = 372.0
+offset_bottom = 985.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(83, 8)
 theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
 value = 50.0
@@ -1027,7 +1077,7 @@ offset_right = 14.5
 offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = "100"
 horizontal_alignment = 1
 
@@ -1035,7 +1085,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 position = Vector2(178.667, 6.5)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_4f4qt")
+texture = ExtResource("32_7v1nj")
 
 [node name="PlayerShieldLabel" type="Label" parent="Desktop/Hud/PlayerHealth/PlayerShield"]
 unique_name_in_owner = true
@@ -1044,7 +1094,7 @@ offset_top = -5.83333
 offset_right = 11.7775
 offset_bottom = 17.1667
 scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = "20"
 horizontal_alignment = 1
 
@@ -1067,7 +1117,7 @@ show_percentage = false
 position = Vector2(-16, 9)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("9_k5q0v")
+texture = ExtResource("33_exsxa")
 
 [node name="EnemyHealth" type="ProgressBar" parent="Desktop/Hud"]
 unique_name_in_owner = true
@@ -1077,13 +1127,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 730.0
-offset_top = 970.0
-offset_right = 897.0
-offset_bottom = 987.0
+offset_left = 205.0
+offset_top = 207.902
+offset_right = 372.0
+offset_bottom = 224.902
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(83, 8)
 theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
 value = 50.0
@@ -1091,6 +1142,7 @@ show_percentage = false
 
 [node name="EnemyHealthLabel" type="Label" parent="Desktop/Hud/EnemyHealth"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1103,7 +1155,7 @@ offset_right = 14.5
 offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = "100"
 horizontal_alignment = 1
 
@@ -1111,7 +1163,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 position = Vector2(178.667, 6.5)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_4f4qt")
+texture = ExtResource("32_7v1nj")
 
 [node name="EnemyShieldLabel" type="Label" parent="Desktop/Hud/EnemyHealth/EnemyShield"]
 unique_name_in_owner = true
@@ -1120,7 +1172,7 @@ offset_top = -5.83333
 offset_right = 11.7775
 offset_bottom = 17.1667
 scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = "20"
 horizontal_alignment = 1
 
@@ -1139,28 +1191,28 @@ visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Bleed"]
-texture = ExtResource("16_tkke6")
+texture = ExtResource("34_5g2gh")
 
 [node name="Poison" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Poison"]
-texture = ExtResource("17_dst1s")
+texture = ExtResource("35_263j2")
 
 [node name="Ice" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Ice"]
-texture = ExtResource("31_a4scn")
+texture = ExtResource("36_swa41")
 
 [node name="Fire" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Fire"]
-texture = ExtResource("32_ijjaj")
+texture = ExtResource("37_6uf7w")
 
 [node name="Electric" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
@@ -1168,28 +1220,28 @@ layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Electric"]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("39_igw6i")
+texture = ExtResource("38_ujm8t")
 
 [node name="Stun" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Stun"]
-texture = ExtResource("35_4mjqk")
+texture = ExtResource("39_ryjng")
 
 [node name="Weak" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Weak"]
-texture = ExtResource("36_1cyfe")
+texture = ExtResource("40_ah5wx")
 
 [node name="Vulnerable" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Vulnerable"]
-texture = ExtResource("37_lkdhj")
+texture = ExtResource("41_tkqoy")
 
 [node name="Frail" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
 visible = false
@@ -1197,7 +1249,7 @@ layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Frail"]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("38_od5u3")
+texture = ExtResource("42_a62m2")
 
 [node name="Continue" type="Button" parent="Desktop"]
 visible = false
@@ -1205,11 +1257,11 @@ offset_left = 159.0
 offset_top = 948.0
 offset_right = 431.0
 offset_bottom = 1016.0
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 64
 text = "Continue"
 
-[node name="PlayerDied" parent="Desktop" instance=ExtResource("13_wcutr")]
+[node name="PlayerDied" parent="Desktop" instance=ExtResource("44_qjju0")]
 visible = false
 z_index = 100
 offset_left = 285.0
@@ -1218,7 +1270,7 @@ offset_right = 285.0
 offset_bottom = 514.0
 scale = Vector2(1.2, 1.2)
 
-[node name="Player_win" parent="Desktop" instance=ExtResource("14_w782t")]
+[node name="Player_win" parent="Desktop" instance=ExtResource("45_07rrk")]
 visible = false
 z_index = 100
 offset_left = 285.0
@@ -1231,13 +1283,14 @@ scale = Vector2(1.2, 1.2)
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 843.0
-offset_top = -34.0
-offset_right = 883.0
-offset_bottom = 6.0
-scale = Vector2(2, 2)
+offset_left = 252.396
+offset_top = 893.504
+offset_right = 292.396
+offset_bottom = 933.504
+scale = Vector2(1.2, 1.2)
 
 [node name="Panel" type="Panel" parent="Desktop/Material"]
+visible = false
 layout_mode = 0
 offset_left = -761.0
 offset_top = 3.0
@@ -1254,20 +1307,20 @@ theme_override_constants/separation = 41
 [node name="Coin" type="Label" parent="Desktop/Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Material/HBoxContainer/Coin"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("29_4qh4o")
+texture = ExtResource("46_nbsvw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Desktop/Material/HBoxContainer/Coin"]
 position = Vector2(-17, 7)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("29_ktb7s")
+texture = ExtResource("30_fc7wl")
 
 [node name="CoinArea2D" type="Area2D" parent="Desktop/Material/HBoxContainer/Coin" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(-49, 272)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Material/HBoxContainer/Coin/CoinArea2D"]
 position = Vector2(-1, 1)
@@ -1276,15 +1329,15 @@ shape = SubResource("CircleShape2D_gg1ri")
 [node name="Wood" type="Label" parent="Desktop/Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Material/HBoxContainer/Wood"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("21_spqid")
+texture = ExtResource("47_nc3ae")
 
 [node name="WoodArea2D" type="Area2D" parent="Desktop/Material/HBoxContainer/Wood" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(-194, -951)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Material/HBoxContainer/Wood/WoodArea2D"]
 position = Vector2(-1, 1)
@@ -1293,15 +1346,15 @@ shape = SubResource("CircleShape2D_gg1ri")
 [node name="Stone" type="Label" parent="Desktop/Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Material/HBoxContainer/Stone"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("22_s46mu")
+texture = ExtResource("48_lxl5g")
 
 [node name="StoneArea2D" type="Area2D" parent="Desktop/Material/HBoxContainer/Stone" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(-37, -966)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Material/HBoxContainer/Stone/StoneArea2D"]
 position = Vector2(-1, 1)
@@ -1310,15 +1363,15 @@ shape = SubResource("CircleShape2D_gg1ri")
 [node name="Iron" type="Label" parent="Desktop/Material/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Material/HBoxContainer/Iron"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("23_pwx4o")
+texture = ExtResource("49_w6o4e")
 
 [node name="IronArea2D" type="Area2D" parent="Desktop/Material/HBoxContainer/Iron" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(119, -953)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Material/HBoxContainer/Iron/IronArea2D"]
 position = Vector2(-1, 1)
@@ -1328,11 +1381,11 @@ shape = SubResource("CircleShape2D_gg1ri")
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = -596.0
-offset_top = -34.0
-offset_right = -556.0
-offset_bottom = 6.0
-scale = Vector2(2, 2)
+offset_left = 155.485
+offset_top = 928.648
+offset_right = 195.485
+offset_bottom = 968.648
+scale = Vector2(1.2, 1.2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Desktop/Gems"]
 layout_mode = 0
@@ -1343,15 +1396,15 @@ theme_override_constants/separation = 41
 [node name="RedGem" type="Label" parent="Desktop/Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Gems/HBoxContainer/RedGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("25_cgkb1")
+texture = ExtResource("50_35t2v")
 
 [node name="RedGemArea2D" type="Area2D" parent="Desktop/Gems/HBoxContainer/RedGem" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(-363, -588)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Gems/HBoxContainer/RedGem/RedGemArea2D"]
 position = Vector2(-1, 1)
@@ -1360,15 +1413,15 @@ shape = SubResource("CircleShape2D_gg1ri")
 [node name="BlueGem" type="Label" parent="Desktop/Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Gems/HBoxContainer/BlueGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("26_qkeal")
+texture = ExtResource("51_joyny")
 
 [node name="BlueGemArea2D" type="Area2D" parent="Desktop/Gems/HBoxContainer/BlueGem" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(-432, -186)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
 position = Vector2(-1, 1)
@@ -1377,15 +1430,15 @@ shape = SubResource("CircleShape2D_gg1ri")
 [node name="GreenGem" type="Label" parent="Desktop/Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Gems/HBoxContainer/GreenGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("27_yq476")
+texture = ExtResource("52_sklyi")
 
 [node name="GreemGemArea2D" type="Area2D" parent="Desktop/Gems/HBoxContainer/GreenGem" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(447, -582)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
 position = Vector2(-1, 1)
@@ -1394,15 +1447,15 @@ shape = SubResource("CircleShape2D_gg1ri")
 [node name="YellowGem" type="Label" parent="Desktop/Gems/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Gems/HBoxContainer/YellowGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("28_o85x2")
+texture = ExtResource("53_jm2r3")
 
 [node name="YellowGemArea2D" type="Area2D" parent="Desktop/Gems/HBoxContainer/YellowGem" groups=["Effect"]]
-position = Vector2(-16, 6.5)
+position = Vector2(368, -170)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
 position = Vector2(-1, 1)
@@ -1412,13 +1465,14 @@ shape = SubResource("CircleShape2D_gg1ri")
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 843.0
-offset_top = -34.0
-offset_right = 883.0
-offset_bottom = 6.0
-scale = Vector2(2, 2)
+offset_left = 252.396
+offset_top = 893.504
+offset_right = 292.396
+offset_bottom = 933.504
+scale = Vector2(1.2, 1.2)
 
 [node name="Panel" type="Panel" parent="Desktop/MaterialTotal"]
+visible = false
 layout_mode = 0
 offset_left = -761.0
 offset_top = 3.0
@@ -1435,57 +1489,57 @@ theme_override_constants/separation = 41
 [node name="Coin" type="Label" parent="Desktop/MaterialTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/MaterialTotal/HBoxContainer/Coin"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("29_4qh4o")
+texture = ExtResource("46_nbsvw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Desktop/MaterialTotal/HBoxContainer/Coin"]
 position = Vector2(-17, 7)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("29_ktb7s")
+texture = ExtResource("30_fc7wl")
 
 [node name="Wood" type="Label" parent="Desktop/MaterialTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/MaterialTotal/HBoxContainer/Wood"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("21_spqid")
+texture = ExtResource("47_nc3ae")
 
 [node name="Stone" type="Label" parent="Desktop/MaterialTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/MaterialTotal/HBoxContainer/Stone"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("22_s46mu")
+texture = ExtResource("48_lxl5g")
 
 [node name="Iron" type="Label" parent="Desktop/MaterialTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/MaterialTotal/HBoxContainer/Iron"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("23_pwx4o")
+texture = ExtResource("49_w6o4e")
 
 [node name="GemsTotal" type="Control" parent="Desktop"]
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = -596.0
-offset_top = -34.0
-offset_right = -556.0
-offset_bottom = 6.0
-scale = Vector2(2, 2)
+offset_left = 155.485
+offset_top = 928.648
+offset_right = 195.485
+offset_bottom = 968.648
+scale = Vector2(1.2, 1.2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Desktop/GemsTotal"]
 layout_mode = 0
@@ -1496,59 +1550,60 @@ theme_override_constants/separation = 41
 [node name="RedGem" type="Label" parent="Desktop/GemsTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/GemsTotal/HBoxContainer/RedGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("25_cgkb1")
+texture = ExtResource("50_35t2v")
 
 [node name="BlueGem" type="Label" parent="Desktop/GemsTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/GemsTotal/HBoxContainer/BlueGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("26_qkeal")
+texture = ExtResource("51_joyny")
 
 [node name="GreenGem" type="Label" parent="Desktop/GemsTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/GemsTotal/HBoxContainer/GreenGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("27_yq476")
+texture = ExtResource("52_sklyi")
 
 [node name="YellowGem" type="Label" parent="Desktop/GemsTotal/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 text = ": 999"
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/GemsTotal/HBoxContainer/YellowGem"]
 position = Vector2(-17, 7.5)
-texture = ExtResource("28_o85x2")
+texture = ExtResource("53_jm2r3")
 
-[node name="RelicHandler" parent="Desktop" instance=ExtResource("43_xaq8w")]
+[node name="RelicHandler" parent="Desktop" instance=ExtResource("54_i766r")]
 unique_name_in_owner = true
 z_index = 32
-offset_left = -29.0
-offset_top = -25.0
-offset_right = 131.0
-offset_bottom = 7.0
+offset_left = 134.185
+offset_top = -35.1438
+offset_right = 294.185
+offset_bottom = -3.14377
+scale = Vector2(1.2, 1.2)
 
 [node name="Shield" type="Area2D" parent="Desktop" groups=["Effect"]]
-position = Vector2(-92, 1002)
+position = Vector2(499, 1233)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desktop/Shield"]
 shape = SubResource("CircleShape2D_cf6hg")
 
 [node name="SFX" type="Node2D" parent="Desktop"]
-position = Vector2(921, 737)
+position = Vector2(304.579, 1123.54)
 
 [node name="RelicName" type="Label" parent="Desktop"]
 anchors_preset = 8
@@ -1585,10 +1640,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Home" type="TextureButton" parent="Desktop"]
-offset_left = 519.0
-offset_top = 78.0
-offset_right = 551.0
-offset_bottom = 110.0
+offset_left = 545.261
+offset_top = 916.958
+offset_right = 577.261
+offset_bottom = 948.958
 scale = Vector2(2, 2)
 pivot_offset = Vector2(16, 16)
 
@@ -1597,22 +1652,21 @@ modulate = Color(0.368627, 0.380392, 0.67451, 1)
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
-texture = ExtResource("22_7rbg4")
+texture = ExtResource("23_8012o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Home"]
 position = Vector2(16, 16)
-texture = ExtResource("54_1lpto")
+texture = ExtResource("55_ucbyr")
 
 [node name="Grid" type="Node2D" parent="."]
-script = ExtResource("4_pskgn")
+script = ExtResource("11_uxyrw")
 width = 8
-height = 10
+height = 9
 x_start = 64
 y_start = 800
 offset = 64
 y_offset = 5
-empty_spaces = PackedVector2Array(0, 0, 7, 0, 0, 9, 7, 9)
-hint_effect = ExtResource("10_pi5o8")
+hint_effect = ExtResource("12_e4crh")
 
 [node name="VFX" type="Node2D" parent="Grid"]
 position = Vector2(45, -40)
@@ -1694,14 +1748,14 @@ wait_time = 3.0
 one_shot = true
 
 [node name="TileBreakSFX" type="AudioStreamPlayer" parent="Grid"]
-stream = ExtResource("22_rmg55")
+stream = ExtResource("22_w8nwa")
 bus = &"SFX_BREAK"
 
 [node name="Shuffle" type="TextureButton" parent="Grid"]
-offset_left = 25.0
-offset_top = 78.0
-offset_right = 57.0
-offset_bottom = 110.0
+offset_left = 36.0
+offset_top = 862.024
+offset_right = 68.0
+offset_bottom = 894.024
 scale = Vector2(2, 2)
 pivot_offset = Vector2(16, 16)
 
@@ -1710,11 +1764,11 @@ modulate = Color(0.368627, 0.380392, 0.67451, 1)
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
-texture = ExtResource("22_7rbg4")
+texture = ExtResource("23_8012o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Grid/Shuffle"]
 position = Vector2(16, 16)
-texture = ExtResource("23_1j0tw")
+texture = ExtResource("24_0uwbx")
 
 [node name="ShuffleLabel" type="Label" parent="Grid/Shuffle"]
 unique_name_in_owner = true
@@ -1727,14 +1781,14 @@ theme_override_font_sizes/font_size = 16
 text = "x1"
 horizontal_alignment = 1
 
-[node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
+[node name="SlotMachine" parent="." instance=ExtResource("43_yiina")]
 visible = false
 z_index = 22
-offset_left = 287.0
-offset_top = 2084.0
-offset_right = 287.0
-offset_bottom = 2084.0
-scale = Vector2(4, 4)
+offset_left = 288.0
+offset_top = 1393.0
+offset_right = 288.0
+offset_bottom = 1393.0
+scale = Vector2(3, 3)
 
 [node name="Pause" type="Control" parent="."]
 process_mode = 3
@@ -1742,8 +1796,10 @@ visible = false
 z_index = 50
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = -92.0
+offset_right = 42.0
+offset_bottom = -52.0
 
 [node name="ColorRect2" type="ColorRect" parent="Pause"]
 layout_mode = 1
@@ -1773,7 +1829,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
 
-[node name="Settings" parent="Pause" instance=ExtResource("55_vg62u")]
+[node name="Settings" parent="Pause" instance=ExtResource("56_nvknh")]
 layout_mode = 1
 offset_left = 280.0
 offset_top = 456.0
@@ -1788,7 +1844,7 @@ offset_top = 811.0
 offset_right = 147.0
 offset_bottom = 851.0
 scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
@@ -1800,28 +1856,48 @@ offset_top = 811.0
 offset_right = 429.0
 offset_bottom = 851.0
 scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("5_pg7vj")
+theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 32
 text = "Exit"
 
 [node name="Progress" type="Label" parent="Pause"]
-visible = false
 layout_mode = 0
-offset_left = -29.0
+offset_left = 39.0
 offset_top = 946.0
-offset_right = 617.0
-offset_bottom = 976.0
+offset_right = 531.0
+offset_bottom = 1009.0
 theme_override_font_sizes/font_size = 32
 text = "Please note all loot and progress will be lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(469, 1158)
 
 [node name="ContinueMobile" type="TextureButton" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+z_index = 100
+offset_left = 150.0
+offset_top = 781.0
+offset_right = 434.0
+offset_bottom = 849.0
 
 [node name="Label" type="Label" parent="ContinueMobile"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 15.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -30.0
+offset_right = 137.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Continue"
 
 [connection signal="timeout" from="Desktop/TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="timeout" from="Desktop/DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
@@ -1831,6 +1907,7 @@ offset_bottom = 15.0
 [connection signal="mouse_exited" from="Desktop/Resolution/Continue" to="." method="_on_continue_mouse_exited"]
 [connection signal="pressed" from="Desktop/Resolution/Continue" to="." method="_on_continue_pressed"]
 [connection signal="timeout" from="Desktop/WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
+[connection signal="pressed" from="Desktop/Continue" to="." method="_on_continue_pressed"]
 [connection signal="update_total_bar" from="Desktop/PlayerDied" to="." method="_on_player_died_update_total_bar"]
 [connection signal="update_total_bar" from="Desktop/Player_win" to="." method="_on_player_win_update_total_bar"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]

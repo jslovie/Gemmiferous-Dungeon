@@ -1325,13 +1325,15 @@ position = Vector2(173, 623)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(812, 411)
 zoom = Vector2(7.2, 7.2)
-limit_left = 679
-limit_top = 337
-limit_right = 948
-limit_bottom = 486
+limit_left = 674
+limit_top = 324
+limit_right = 945
+limit_bottom = 492
 script = ExtResource("60_uaxlv")
+zoom_speed = 0.1
 pan_speed = 0.2
 can_pan = true
+can_zoom = true
 
 [node name="Panel" type="Panel" parent="."]
 visible = false

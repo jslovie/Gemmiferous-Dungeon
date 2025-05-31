@@ -221,6 +221,7 @@ func select_enemy_new():
 		
 func select_type():
 	LevelManager.show_map = false
+	LevelManager.show_map_mobile = false
 	LevelManager.type = type
 	Loading.loading_1s()
 	if type == "Enemy":
@@ -236,16 +237,22 @@ func select_type():
 		get_tree().change_scene_to_file("res://scenes/dungeons/enemy_selection.tscn")
 	
 	elif type == "Treasure":
-		get_tree().change_scene_to_file("res://scenes/game_window.tscn")
+		LevelManager.switch_to_game_window()
 		
 	elif type == "Rest":
 		get_tree().change_scene_to_file("res://scenes/dungeons/rest.tscn")
 		
 	elif type == "Shop":
-		get_tree().change_scene_to_file("res://scenes/dungeons/shop_level.tscn")
+		if LevelManager.is_mobile:
+			get_tree().change_scene_to_file("res://scenes/dungeons/shop_level_mobile.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/dungeons/shop_level.tscn")
 		
 	elif type == "Random Event":
-		get_tree().change_scene_to_file("res://scenes/dungeons/random_event.tscn")
+		if LevelManager.is_mobile:
+			get_tree().change_scene_to_file("res://scenes/dungeons/random_event_mobile.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/dungeons/random_event.tscn")
 
 func chose_path():
 	LevelManager.chosen_path = path
@@ -292,10 +299,7 @@ func available_level():
 		
 func update_available_level():
 	LevelManager.available_level = level + 1
-	
-		
-		
-		
+
 func _on_pressed():
 	Sfx.play_SFX(Sfx.level_selection)
 	select_enemy_new()

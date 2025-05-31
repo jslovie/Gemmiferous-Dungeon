@@ -17,7 +17,11 @@ func _process(_delta):
 	total_gems_check()
 	total_material_check()
 	check_unlocked()
-
+	if LevelManager.is_mobile:
+		$TutotialBanner.visible = true
+		$TutorialLabel.visible = true
+	
+	
 func check_unlocked():
 	if PlayerManager.player.rogue_unlocked == false:
 		$RogueType.disabled = true
@@ -141,6 +145,9 @@ func _on_tutorial_type_mouse_entered():
 		$Unlock.text = "Tutorial completed: Halved rewards for playing"
 		$Unlock.visible = true
 func _on_tutorial_type_mouse_exited():
-	$TutotialBanner.visible = false
-	$TutorialLabel.visible = false
+	if LevelManager.is_mobile:
+		pass
+	else:	
+		$TutotialBanner.visible = false
+		$TutorialLabel.visible = false
 	$Unlock.visible = false

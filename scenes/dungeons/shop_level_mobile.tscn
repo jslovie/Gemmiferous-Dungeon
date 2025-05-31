@@ -1,0 +1,998 @@
+[gd_scene load_steps=44 format=4 uid="uid://dq6ssa7rytvwo"]
+
+[ext_resource type="Script" path="res://scripts/shop_level.gd" id="1_1vupm"]
+[ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nkoc2"]
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="3_c52mp"]
+[ext_resource type="Texture2D" uid="uid://cw4o0mh7hmt7o" path="res://assets/32rogues/rug2.png" id="4_rwc7c"]
+[ext_resource type="Texture2D" uid="uid://jrtimt4iprw2" path="res://assets/32rogues/chars/merchant.png" id="5_a2q7h"]
+[ext_resource type="Texture2D" uid="uid://c0m8b8uluaoah" path="res://assets/paper UI/Paper/Menu2.png" id="6_3rs7g"]
+[ext_resource type="Texture2D" uid="uid://bfowlijf7q63f" path="res://assets/paper UI/Paper/Header1.png" id="7_ktip3"]
+[ext_resource type="Texture2D" uid="uid://vsmv2rr06fd5" path="res://assets/paper UI/Paper/Header1-highlighted.png" id="8_0d85o"]
+[ext_resource type="Texture2D" uid="uid://dvxdyvrnpf3le" path="res://assets/paper UI/Paper/Leave.png" id="9_sgyqn"]
+[ext_resource type="Texture2D" uid="uid://cwk58rw3cewqd" path="res://assets/paper UI/Paper/Leave_highlighted.png" id="10_ocmph"]
+[ext_resource type="Texture2D" uid="uid://bsxy02pw7lyo0" path="res://assets/paper UI/Paper/Reroll.png" id="11_al8po"]
+[ext_resource type="Texture2D" uid="uid://clgj87ul53fip" path="res://assets/paper UI/Paper/Reroll_highlighted.png" id="12_btnms"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="13_ro5df"]
+[ext_resource type="Texture2D" uid="uid://cnmjsybmn75q3" path="res://assets/paper UI/Paper/heal10.png" id="14_l4dhb"]
+[ext_resource type="Texture2D" uid="uid://doefnj1qlp3iy" path="res://assets/paper UI/Paper/heal10_highlighted.png" id="15_s568f"]
+[ext_resource type="Texture2D" uid="uid://bkrciwt47le8y" path="res://assets/paper UI/Paper/heal25.png" id="16_gbh3c"]
+[ext_resource type="Texture2D" uid="uid://kynss1jvd1ht" path="res://assets/paper UI/Paper/heal25_highlighted.png" id="17_pb61p"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="18_pjnvt"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="19_53j45"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="20_0cvb0"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="21_w0qfk"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="22_0a77y"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="23_eo5cd"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="24_lww8j"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="25_yntfd"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="26_o738k"]
+[ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="27_7f0ae"]
+[ext_resource type="PackedScene" uid="uid://dmgsurua3m28a" path="res://scenes/shop_level/relic_ui_shop.tscn" id="28_glhcc"]
+[ext_resource type="Resource" uid="uid://bigony5157l2u" path="res://scripts/level_shop/relics/armor_relic.tres" id="29_kackm"]
+[ext_resource type="Resource" uid="uid://bviwbmmgyk1u5" path="res://scripts/level_shop/relics/gem_relic.tres" id="30_3lsy7"]
+[ext_resource type="Resource" uid="uid://dijyklg82m6eu" path="res://scripts/level_shop/relics/thorned_necklace.tres" id="31_6wfvo"]
+[ext_resource type="Resource" uid="uid://by4x5trjed6ca" path="res://scripts/level_shop/pieces/crossbow.tres" id="32_cm3l0"]
+[ext_resource type="Resource" uid="uid://cos5sib17l8t3" path="res://scripts/level_shop/pieces/flail.tres" id="33_vwkdh"]
+[ext_resource type="Resource" uid="uid://3rmd3iqiq6dl" path="res://scripts/level_shop/pieces/sickle.tres" id="34_8bfpe"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t78xh"]
+texture = ExtResource("2_nkoc2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qvl8e"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_t78xh")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1kk2"]
+
+[sub_resource type="Animation" id="Animation_bs8sv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heal10:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(711, 898)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heal10:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.71239]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heal25:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(862, 897)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Heal25:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.71239]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Heal25:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Heal10:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6kg7n"]
+resource_name = "heal10_pressed"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heal10:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(711, 898), Vector2(691, 1297)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heal10:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.71239, -3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heal10:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fiv8t"]
+resource_name = "heal25_pressed"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heal25:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(862, 897), Vector2(892, 1220)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heal25:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.71239, -3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heal25:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.733333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igqyi"]
+_data = {
+"RESET": SubResource("Animation_bs8sv"),
+"heal10_pressed": SubResource("Animation_6kg7n"),
+"heal25_pressed": SubResource("Animation_fiv8t")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tn4e"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24cfs"]
+bg_color = Color(0.679688, 0.0398254, 0.0398254, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ShopLevel" type="Node2D"]
+script = ExtResource("1_1vupm")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(857, -97)
+scale = Vector2(0.4, 0.4)
+
+[node name="F1" type="Node2D" parent="Background"]
+
+[node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
+position = Vector2(12, -28)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wQAAAAAAAYAAAD6/wUAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wcAAAAAAAYAAAD7////AAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAABAAEAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD7/wUAAAAAAAYAAAD7/wcAAAAAAAYAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAEAAAD8/wIAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wQAAAAAAAYAAAD8/wUAAAAAAAYAAAD8/wYAAAAAAAYAAAD8/wcAAAAAAAYAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAEAAAD9/wIAAAACAAcAAAD9/wMAAAAAAAYAAAD9/wQAAAAAAAYAAAD9/wUAAAAAAAYAAAD9/wYAAAAAAAYAAAD9/wcAAAAAAAYAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAABAAEAAAD+/wIAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wQAAAAAAAYAAAD+/wUAAAAAAAYAAAD+/wYAAAAAAAYAAAD+/wcAAAAAAAYAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAABAAEAAAD//wIAAAAAAAYAAAD//wMAAAADAAYAAAD//wQAAAAAAAYAAAD//wUAAAAAAAYAAAD//wYAAAAAAAYAAAD//wcAAAAAAAYAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAYAAAAAAAQAAAAAAAYAAAAAAAUAAAAAAAYAAAAAAAYAAAAAAAYAAAAAAAcAAAAAAAYAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAABAAEAAAABAAIAAAAAAAYAAAABAAMAAAAAAAYAAAABAAQAAAACAAkAAAABAAUAAAAAAAYAAAABAAYAAAAAAAYAAAABAAcAAAAAAAYAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAACAAQAAAAAAAYAAAACAAUAAAAAAAYAAAACAAYAAAAAAAYAAAACAAcAAAAAAAYAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAABAAEAAAADAAIAAAADAAkAAAADAAMAAAAAAAYAAAADAAQAAAAAAAYAAAADAAYAAAAAAAYAAAADAAcAAAAAAAYAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAAEAAQAAAAAAAYAAAAEAAUAAAAAAAYAAAAEAAYAAAAAAAYAAAAEAAcAAAAAAAYAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAABAAEAAAAFAAIAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAUAAAAAAAYAAAAFAAYAAAAAAAYAAAAFAAcAAAAAAAYAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAIAAAAAAAYAAAAGAAMAAAAAAAYAAAAGAAQAAAAAAAYAAAAGAAUAAAAAAAYAAAAGAAYAAAAAAAYAAAAGAAcAAAAAAAYAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAIAAAACAAcAAAAHAAMAAAAAAAYAAAAHAAQAAAADAAYAAAAHAAUAAAAAAAYAAAAHAAYAAAAAAAYAAAAHAAcAAAAAAAYAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAIAAUAAAAAAAYAAAAIAAYAAAAAAAYAAAAIAAcAAAAAAAYAAAADAAUAAAAAAAYAAAD7/wQAAAAAAAYAAAD6/wgAAAAAAAYAAAD6/wkAAAAAAAYAAAD6/woAAAAAAAYAAAD6/wsAAAAAAAYAAAD6/wwAAAAAAAYAAAD6/w0AAAAAAAYAAAD6/w4AAAAAAAYAAAD6/w8AAAAAAAYAAAD6/xAAAAAAAAYAAAD6/xEAAAAAAAYAAAD6/xIAAAAAAAYAAAD6/xMAAAAAAAYAAAD7/wgAAAAAAAYAAAD7/wkAAAAAAAYAAAD7/woAAAAAAAYAAAD7/wsAAAAAAAYAAAD7/wwAAAAAAAYAAAD7/w0AAAAAAAYAAAD7/w4AAAAAAAYAAAD7/w8AAAAAAAYAAAD7/xAAAAAAAAYAAAD7/xEAAAAAAAYAAAD7/xIAAAAAAAYAAAD7/xMAAAAAAAYAAAD8/wgAAAAAAAYAAAD8/wkAAAAAAAYAAAD8/woAAAAAAAYAAAD8/wsAAAAAAAYAAAD8/wwAAAAAAAYAAAD8/w0AAAAAAAYAAAD8/w4AAAAAAAYAAAD8/w8AAAAAAAYAAAD8/xAAAAAAAAYAAAD8/xEAAAAAAAYAAAD8/xIAAAAAAAYAAAD8/xMAAAAAAAYAAAD9/wgAAAAAAAYAAAD9/wkAAAAAAAYAAAD9/woAAAAAAAYAAAD9/wsAAAAAAAYAAAD9/wwAAAAAAAYAAAD9/w0AAAAAAAYAAAD9/w4AAAAAAAYAAAD9/w8AAAAAAAYAAAD9/xAAAAAAAAYAAAD9/xEAAAAAAAYAAAD9/xIAAAAAAAYAAAD9/xMAAAAAAAYAAAD+/wgAAAAAAAYAAAD+/wkAAAAAAAYAAAD+/woAAAAAAAYAAAD+/wsAAAAAAAYAAAD+/wwAAAAAAAYAAAD+/w0AAAAAAAYAAAD+/w4AAAAAAAYAAAD+/w8AAAAAAAYAAAD+/xAAAAAAAAYAAAD+/xEAAAAAAAYAAAD+/xIAAAAAAAYAAAD+/xMAAAAAAAYAAAD//wgAAAAAAAYAAAD//wkAAAAAAAYAAAD//woAAAAAAAYAAAD//wsAAAAAAAYAAAD//wwAAAAAAAYAAAD//w0AAAAAAAYAAAD//w4AAAAAAAYAAAD//w8AAAAAAAYAAAD//xAAAAAAAAYAAAD//xEAAAAAAAYAAAD//xIAAAAAAAYAAAD//xMAAAAAAAYAAAAAAAgAAAAAAAYAAAAAAAkAAAAAAAYAAAAAAAoAAAAAAAYAAAAAAAsAAAAAAAYAAAAAAAwAAAAAAAYAAAAAAA0AAAAAAAYAAAAAAA4AAAAAAAYAAAAAAA8AAAAAAAYAAAAAABAAAAAAAAYAAAAAABEAAAAAAAYAAAAAABIAAAAAAAYAAAAAABMAAAAAAAYAAAABAAgAAAAAAAYAAAABAAkAAAAAAAYAAAABAAoAAAAAAAYAAAABAAsAAAAAAAYAAAABAAwAAAAAAAYAAAABAA0AAAAAAAYAAAABAA4AAAAAAAYAAAABAA8AAAAAAAYAAAABABAAAAAAAAYAAAABABEAAAAAAAYAAAABABIAAAAAAAYAAAABABMAAAAAAAYAAAACAAgAAAAAAAYAAAACAAkAAAAAAAYAAAACAAoAAAAAAAYAAAACAAsAAAAAAAYAAAACAAwAAAAAAAYAAAACAA0AAAAAAAYAAAACAA4AAAAAAAYAAAACAA8AAAAAAAYAAAACABAAAAAAAAYAAAACABEAAAAAAAYAAAACABIAAAAAAAYAAAACABMAAAAAAAYAAAADAAgAAAAAAAYAAAADAAkAAAAAAAYAAAADAAoAAAAAAAYAAAADAAsAAAAAAAYAAAADAAwAAAAAAAYAAAADAA0AAAAAAAYAAAADAA4AAAAAAAYAAAADAA8AAAAAAAYAAAADABAAAAAAAAYAAAADABEAAAAAAAYAAAADABIAAAAAAAYAAAADABMAAAAAAAYAAAAEAAgAAAAAAAYAAAAEAAkAAAAAAAYAAAAEAAoAAAAAAAYAAAAEAAsAAAAAAAYAAAAEAAwAAAAAAAYAAAAEAA0AAAAAAAYAAAAEAA4AAAAAAAYAAAAEAA8AAAAAAAYAAAAEABAAAAAAAAYAAAAEABEAAAAAAAYAAAAEABIAAAAAAAYAAAAEABMAAAAAAAYAAAAFAAgAAAAAAAYAAAAFAAkAAAAAAAYAAAAFAAoAAAAAAAYAAAAFAAsAAAAAAAYAAAAFAAwAAAAAAAYAAAAFAA0AAAAAAAYAAAAFAA4AAAAAAAYAAAAFAA8AAAAAAAYAAAAFABAAAAAAAAYAAAAFABEAAAAAAAYAAAAFABIAAAAAAAYAAAAFABMAAAAAAAYAAAAGAAgAAAAAAAYAAAAGAAkAAAAAAAYAAAAGAAoAAAAAAAYAAAAGAAsAAAAAAAYAAAAGAAwAAAAAAAYAAAAGAA0AAAAAAAYAAAAGAA4AAAAAAAYAAAAGAA8AAAAAAAYAAAAGABAAAAAAAAYAAAAGABEAAAAAAAYAAAAGABIAAAAAAAYAAAAGABMAAAAAAAYAAAAHAAgAAAAAAAYAAAAHAAkAAAAAAAYAAAAHAAoAAAAAAAYAAAAHAAsAAAAAAAYAAAAHAAwAAAAAAAYAAAAHAA0AAAAAAAYAAAAHAA4AAAAAAAYAAAAHAA8AAAAAAAYAAAAHABAAAAAAAAYAAAAHABEAAAAAAAYAAAAHABIAAAAAAAYAAAAHABMAAAAAAAYAAAAIAAgAAAAAAAYAAAAIAAkAAAAAAAYAAAAIAAoAAAAAAAYAAAAIAAsAAAAAAAYAAAAIAAwAAAAAAAYAAAAIAA0AAAAAAAYAAAAIAA4AAAAAAAYAAAAIAA8AAAAAAAYAAAAIABAAAAAAAAYAAAAIABEAAAAAAAYAAAAIABIAAAAAAAYAAAAIABMAAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_qvl8e")
+
+[node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/F1/Dungeon1"]
+tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAEABEAAAAGAAYAAAACABEAAAADAAYAAAADABEAAAADAAMAAAAFABEAAAAGAAIAAAACABEAAAACAAIAAAAEABEAAAAGAAMAAAADABEAAAA=")
+tile_set = SubResource("TileSet_qvl8e")
+
+[node name="F2" type="Node2D" parent="Background"]
+visible = false
+
+[node name="Dungeon1" type="TileMapLayer" parent="Background/F2"]
+position = Vector2(12, -28)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAA8AAAD6////AAAAAAMAAAD6/wAAAAAAAAMAAAD6/wEAAAABAAMAAAD6/wIAAAAAAA8AAAD6/wMAAAAAAA8AAAD6/wQAAAAAAA8AAAD6/wUAAAAAAA8AAAD6/wYAAAAAAA8AAAD6/wcAAAAAAA8AAAD7////AAAAAAMAAAD7/wAAAAAAAAMAAAD7/wEAAAABAAMAAAD7/wIAAAAAAA8AAAD7/wMAAAAAAA8AAAD7/wQAAAAAAA8AAAD7/wUAAAAAAA8AAAD7/wcAAAAAAA8AAAD8////AAAAAAMAAAD8/wAAAAAAAAMAAAD8/wEAAAABAAMAAAD8/wIAAAAAAA8AAAD8/wMAAAAAAA8AAAD8/wQAAAAAAA8AAAD8/wUAAAAAAA8AAAD8/wYAAAAAAA8AAAD8/wcAAAAAAA8AAAD9////AAAAAAMAAAD9/wAAAAAAAAMAAAD9/wEAAAABAAMAAAD9/wIAAAAAAA8AAAD9/wMAAAAAAA8AAAD9/wQAAAAAAA8AAAD9/wUAAAAAAA8AAAD9/wYAAAAAAA8AAAD9/wcAAAAAAA8AAAD+////AAAAAAMAAAD+/wAAAAAAAAMAAAD+/wEAAAABAAMAAAD+/wIAAAAAAA8AAAD+/wMAAAAAAA8AAAD+/wQAAAAAAA8AAAD+/wUAAAAAAA8AAAD+/wYAAAAAAA8AAAD+/wcAAAAAAA8AAAD/////AAAAAAMAAAD//wAAAAAAAAMAAAD//wEAAAABAAMAAAD//wIAAAAAAA8AAAD//wMAAAAAAA8AAAD//wQAAAAAAA8AAAD//wUAAAAAAA8AAAD//wYAAAAAAA8AAAD//wcAAAAAAA8AAAAAAP//AAAAAAMAAAAAAAAAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAIAAAAAAA8AAAAAAAMAAAAAAA8AAAAAAAQAAAAAAA8AAAAAAAUAAAAAAA8AAAAAAAYAAAAAAA8AAAAAAAcAAAAAAA8AAAABAP//AAAAAAMAAAABAAAAAAAAAAMAAAABAAEAAAABAAMAAAABAAIAAAAAAA8AAAABAAMAAAAAAA8AAAABAAQAAAAAAA8AAAABAAUAAAAAAA8AAAABAAYAAAAAAA8AAAABAAcAAAAAAA8AAAACAP//AAAAAAMAAAACAAAAAAAAAAMAAAACAAEAAAABAAMAAAACAAIAAAAAAA8AAAACAAMAAAAAAA8AAAACAAQAAAAAAA8AAAACAAUAAAAAAA8AAAACAAYAAAAAAA8AAAACAAcAAAAAAA8AAAADAP//AAAAAAMAAAADAAAAAAAAAAMAAAADAAEAAAABAAMAAAADAAIAAAAAAA8AAAADAAMAAAAAAA8AAAADAAQAAAAAAA8AAAADAAUAAAAAAA8AAAADAAYAAAAAAA8AAAADAAcAAAAAAA8AAAAEAP//AAAAAAMAAAAEAAAAAAAAAAMAAAAEAAEAAAABAAMAAAAEAAIAAAAAAA8AAAAEAAMAAAAAAA8AAAAEAAQAAAAAAA8AAAAEAAUAAAAAAA8AAAAEAAYAAAAAAA8AAAAEAAcAAAAAAA8AAAAFAP//AAAAAAMAAAAFAAAAAAAAAAMAAAAFAAEAAAABAAMAAAAFAAIAAAAAAA8AAAAFAAMAAAAAAA8AAAAFAAQAAAAAAA8AAAAFAAUAAAAAAA8AAAAFAAYAAAAAAA8AAAAFAAcAAAAAAA8AAAAGAP//AAAAAAMAAAAGAAAAAAAAAAMAAAAGAAEAAAABAAMAAAAGAAIAAAAAAA8AAAAGAAMAAAAAAA8AAAAGAAQAAAAAAA8AAAAGAAUAAAAAAA8AAAAGAAYAAAAAAA8AAAAGAAcAAAAAAA8AAAAHAP//AAAAAAMAAAAHAAAAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAIAAAAAAA8AAAAHAAMAAAAAAA8AAAAHAAQAAAAAAA8AAAAHAAUAAAAAAA8AAAAHAAYAAAAAAA8AAAAHAAcAAAAAAA8AAAAIAP//AAAAAAMAAAAIAAAAAAAAAAMAAAAIAAEAAAABAAMAAAAIAAIAAAAAAA8AAAAIAAMAAAAAAA8AAAAIAAQAAAAAAA8AAAAIAAUAAAAAAA8AAAAIAAYAAAAAAA8AAAAIAAcAAAAAAA8AAAA=")
+tile_set = SubResource("TileSet_qvl8e")
+
+[node name="F3" type="Node2D" parent="Background"]
+visible = false
+
+[node name="Dungeon1" type="TileMapLayer" parent="Background/F3"]
+position = Vector2(12, -28)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAAcAAAD6////AAAAAAUAAAD6/wAAAAAAAAUAAAD6/wEAAAABAAUAAAD6/wIAAAAAAAcAAAD6/wMAAAAAAAcAAAD6/wQAAAAAAAcAAAD6/wUAAAAAAAcAAAD6/wYAAAAAAAcAAAD6/wcAAAAAAAcAAAD7////AAAAAAUAAAD7/wAAAAAAAAUAAAD7/wEAAAABAAUAAAD7/wIAAAAAAAcAAAD7/wMAAAAAAAcAAAD7/wQAAAAAAAcAAAD7/wUAAAAAAAcAAAD7/wcAAAAAAAcAAAD8////AAAAAAUAAAD8/wAAAAAAAAUAAAD8/wEAAAABAAUAAAD8/wIAAAAAAAcAAAD8/wMAAAAAAAcAAAD8/wQAAAAAAAcAAAD8/wUAAAAAAAcAAAD8/wYAAAAAAAcAAAD8/wcAAAAAAAcAAAD9////AAAAAAUAAAD9/wAAAAAAAAUAAAD9/wEAAAABAAUAAAD9/wIAAAAAAAcAAAD9/wMAAAAAAAcAAAD9/wQAAAAAAAcAAAD9/wUAAAAAAAcAAAD9/wYAAAAAAAcAAAD9/wcAAAAAAAcAAAD+////AAAAAAUAAAD+/wAAAAAAAAUAAAD+/wEAAAABAAUAAAD+/wIAAAAAAAcAAAD+/wMAAAAAAAcAAAD+/wQAAAAAAAcAAAD+/wUAAAAAAAcAAAD+/wYAAAAAAAcAAAD+/wcAAAAAAAcAAAD/////AAAAAAUAAAD//wAAAAAAAAUAAAD//wEAAAABAAUAAAD//wIAAAAAAAcAAAD//wMAAAAAAAcAAAD//wQAAAAAAAcAAAD//wUAAAAAAAcAAAD//wYAAAAAAAcAAAD//wcAAAAAAAcAAAAAAP//AAAAAAUAAAAAAAAAAAAAAAUAAAAAAAEAAAABAAUAAAAAAAIAAAAAAAcAAAAAAAMAAAAAAAcAAAAAAAQAAAAAAAcAAAAAAAUAAAAAAAcAAAAAAAYAAAAAAAcAAAAAAAcAAAAAAAcAAAABAP//AAAAAAUAAAABAAAAAAAAAAUAAAABAAEAAAABAAUAAAABAAIAAAAAAAcAAAABAAMAAAAAAAcAAAABAAQAAAAAAAcAAAABAAUAAAAAAAcAAAABAAYAAAAAAAcAAAABAAcAAAAAAAcAAAACAP//AAAAAAUAAAACAAAAAAAAAAUAAAACAAEAAAABAAUAAAACAAIAAAAAAAcAAAACAAMAAAAAAAcAAAACAAQAAAAAAAcAAAACAAUAAAAAAAcAAAACAAYAAAAAAAcAAAACAAcAAAAAAAcAAAADAP//AAAAAAUAAAADAAAAAAAAAAUAAAADAAEAAAABAAUAAAADAAIAAAAAAAcAAAADAAMAAAAAAAcAAAADAAQAAAAAAAcAAAADAAUAAAAAAAcAAAADAAYAAAAAAAcAAAADAAcAAAAAAAcAAAAEAP//AAAAAAUAAAAEAAAAAAAAAAUAAAAEAAEAAAABAAUAAAAEAAIAAAAAAAcAAAAEAAMAAAAAAAcAAAAEAAQAAAAAAAcAAAAEAAUAAAAAAAcAAAAEAAYAAAAAAAcAAAAEAAcAAAAAAAcAAAAFAP//AAAAAAUAAAAFAAAAAAAAAAUAAAAFAAEAAAABAAUAAAAFAAIAAAAAAAcAAAAFAAMAAAAAAAcAAAAFAAQAAAAAAAcAAAAFAAUAAAAAAAcAAAAFAAYAAAAAAAcAAAAFAAcAAAAAAAcAAAAGAP//AAAAAAUAAAAGAAAAAAAAAAUAAAAGAAEAAAABAAUAAAAGAAIAAAAAAAcAAAAGAAMAAAAAAAcAAAAGAAQAAAAAAAcAAAAGAAUAAAAAAAcAAAAGAAYAAAAAAAcAAAAGAAcAAAAAAAcAAAAHAP//AAAAAAUAAAAHAAAAAAAAAAUAAAAHAAEAAAABAAUAAAAHAAIAAAAAAAcAAAAHAAMAAAAAAAcAAAAHAAQAAAAAAAcAAAAHAAUAAAAAAAcAAAAHAAYAAAAAAAcAAAAHAAcAAAAAAAcAAAAIAP//AAAAAAUAAAAIAAAAAAAAAAUAAAAIAAEAAAABAAUAAAAIAAIAAAAAAAcAAAAIAAMAAAAAAAcAAAAIAAQAAAAAAAcAAAAIAAUAAAAAAAcAAAAIAAYAAAAAAAcAAAAIAAcAAAAAAAcAAAA=")
+tile_set = SubResource("TileSet_qvl8e")
+
+[node name="F4" type="Node2D" parent="Background"]
+visible = false
+
+[node name="Dungeon1" type="TileMapLayer" parent="Background/F4"]
+position = Vector2(12, -28)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD7/wYAAAAAAAsAAAD6////AAAAAAQAAAD6/wAAAAAAAAQAAAD6/wEAAAABAAQAAAD6/wIAAAAAAAsAAAD6/wMAAAAAAAsAAAD6/wQAAAAAAAsAAAD6/wUAAAAAAAsAAAD6/wYAAAAAAAsAAAD6/wcAAAAAAAsAAAD7////AAAAAAQAAAD7/wAAAAAAAAQAAAD7/wEAAAABAAQAAAD7/wIAAAAAAAsAAAD7/wMAAAAAAAsAAAD7/wQAAAAAAAsAAAD7/wUAAAAAAAsAAAD7/wcAAAAAAAsAAAD8////AAAAAAQAAAD8/wAAAAAAAAQAAAD8/wEAAAABAAQAAAD8/wIAAAAAAAsAAAD8/wMAAAAAAAsAAAD8/wQAAAAAAAsAAAD8/wUAAAAAAAsAAAD8/wYAAAAAAAsAAAD8/wcAAAAAAAsAAAD9////AAAAAAQAAAD9/wAAAAAAAAQAAAD9/wEAAAABAAQAAAD9/wIAAAAAAAsAAAD9/wMAAAAAAAsAAAD9/wQAAAAAAAsAAAD9/wUAAAAAAAsAAAD9/wYAAAAAAAsAAAD9/wcAAAAAAAsAAAD+////AAAAAAQAAAD+/wAAAAAAAAQAAAD+/wEAAAABAAQAAAD+/wIAAAAAAAsAAAD+/wMAAAAAAAsAAAD+/wQAAAAAAAsAAAD+/wUAAAAAAAsAAAD+/wYAAAAAAAsAAAD+/wcAAAAAAAsAAAD/////AAAAAAQAAAD//wAAAAAAAAQAAAD//wEAAAABAAQAAAD//wIAAAAAAAsAAAD//wMAAAAAAAsAAAD//wQAAAAAAAsAAAD//wUAAAAAAAsAAAD//wYAAAAAAAsAAAD//wcAAAAAAAsAAAAAAP//AAAAAAQAAAAAAAAAAAAAAAQAAAAAAAEAAAABAAQAAAAAAAIAAAAAAAsAAAAAAAMAAAAAAAsAAAAAAAQAAAAAAAsAAAAAAAUAAAAAAAsAAAAAAAYAAAAAAAsAAAAAAAcAAAAAAAsAAAABAP//AAAAAAQAAAABAAAAAAAAAAQAAAABAAEAAAABAAQAAAABAAIAAAAAAAsAAAABAAMAAAAAAAsAAAABAAQAAAAAAAsAAAABAAUAAAAAAAsAAAABAAYAAAAAAAsAAAABAAcAAAAAAAsAAAACAP//AAAAAAQAAAACAAAAAAAAAAQAAAACAAEAAAABAAQAAAACAAIAAAAAAAsAAAACAAMAAAAAAAsAAAACAAQAAAAAAAsAAAACAAUAAAAAAAsAAAACAAYAAAAAAAsAAAACAAcAAAAAAAsAAAADAP//AAAAAAQAAAADAAAAAAAAAAQAAAADAAEAAAABAAQAAAADAAIAAAAAAAsAAAADAAMAAAAAAAsAAAADAAQAAAAAAAsAAAADAAUAAAAAAAsAAAADAAYAAAAAAAsAAAADAAcAAAAAAAsAAAAEAP//AAAAAAQAAAAEAAAAAAAAAAQAAAAEAAEAAAABAAQAAAAEAAIAAAAAAAsAAAAEAAMAAAAAAAsAAAAEAAQAAAAAAAsAAAAEAAUAAAAAAAsAAAAEAAYAAAAAAAsAAAAEAAcAAAAAAAsAAAAFAP//AAAAAAQAAAAFAAAAAAAAAAQAAAAFAAEAAAABAAQAAAAFAAIAAAAAAAsAAAAFAAMAAAAAAAsAAAAFAAQAAAAAAAsAAAAFAAUAAAAAAAsAAAAFAAYAAAAAAAsAAAAFAAcAAAAAAAsAAAAGAP//AAAAAAQAAAAGAAAAAAAAAAQAAAAGAAEAAAABAAQAAAAGAAIAAAAAAAsAAAAGAAMAAAAAAAsAAAAGAAQAAAAAAAsAAAAGAAUAAAAAAAsAAAAGAAYAAAAAAAsAAAAGAAcAAAAAAAsAAAAHAP//AAAAAAQAAAAHAAAAAAAAAAQAAAAHAAEAAAABAAQAAAAHAAIAAAAAAAsAAAAHAAMAAAAAAAsAAAAHAAQAAAAAAAsAAAAHAAUAAAAAAAsAAAAHAAYAAAAAAAsAAAAHAAcAAAAAAAsAAAAIAP//AAAAAAQAAAAIAAAAAAAAAAQAAAAIAAEAAAABAAQAAAAIAAIAAAAAAAsAAAAIAAMAAAAAAAsAAAAIAAQAAAAAAAsAAAAIAAUAAAAAAAsAAAAIAAYAAAAAAAsAAAAIAAcAAAAAAAsAAAA=")
+tile_set = SubResource("TileSet_qvl8e")
+
+[node name="Player" parent="." instance=ExtResource("3_c52mp")]
+position = Vector2(779, 46)
+scale = Vector2(0.35, 0.35)
+
+[node name="Rug" type="Sprite2D" parent="."]
+position = Vector2(1180, 148)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_rwc7c")
+
+[node name="Merchant" type="Sprite2D" parent="."]
+position = Vector2(1172, 57)
+scale = Vector2(5, 5)
+texture = ExtResource("5_a2q7h")
+
+[node name="Shop" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("6_3rs7g")
+
+[node name="RemoveTile" type="Node2D" parent="."]
+visible = false
+z_index = 50
+
+[node name="Shop" type="Sprite2D" parent="RemoveTile"]
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+texture = ExtResource("6_3rs7g")
+
+[node name="TilesNumber" type="Label" parent="RemoveTile"]
+unique_name_in_owner = true
+offset_left = 640.0
+offset_top = 301.0
+offset_right = 872.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Current tiles: 0/9"
+
+[node name="MinimumTiles" type="Label" parent="RemoveTile"]
+unique_name_in_owner = true
+offset_left = 978.0
+offset_top = 301.0
+offset_right = 1252.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Minimum tiles: 5"
+
+[node name="LessTiles" type="Label" parent="RemoveTile"]
+unique_name_in_owner = true
+offset_left = 686.0
+offset_top = 774.0
+offset_right = 1039.0
+offset_bottom = 845.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+theme_override_font_sizes/font_size = 32
+text = "You can't have less then 5 tiles!"
+horizontal_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="Tiles" type="Node2D" parent="RemoveTile"]
+unique_name_in_owner = true
+
+[node name="RemoveTiles" type="TextureButton" parent="."]
+modulate = Color(0.980392, 0.92549, 0.878431, 1)
+offset_left = 966.0
+offset_top = 294.0
+offset_right = 1034.0
+offset_bottom = 318.0
+scale = Vector2(4.5, 4.5)
+texture_normal = ExtResource("7_ktip3")
+texture_hover = ExtResource("8_0d85o")
+texture_focused = ExtResource("8_0d85o")
+
+[node name="RemoveTilesLabel" type="Label" parent="."]
+offset_left = 1024.0
+offset_top = 327.0
+offset_right = 1216.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Remove Tiles"
+
+[node name="LeaveButton" type="TextureButton" parent="."]
+z_index = 52
+offset_left = 1234.73
+offset_top = 821.055
+offset_right = 1262.73
+offset_bottom = 838.055
+rotation = 1.56967
+scale = Vector2(6, 6)
+texture_normal = ExtResource("9_sgyqn")
+texture_hover = ExtResource("10_ocmph")
+
+[node name="LeaveLabel" type="Label" parent="."]
+z_index = 52
+offset_left = 1162.0
+offset_top = 944.0
+offset_right = 1244.0
+offset_bottom = 974.0
+rotation = 4.71237
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Leave"
+
+[node name="Reroll" type="TextureButton" parent="."]
+z_index = 52
+offset_left = 1075.0
+offset_top = 820.0
+offset_right = 1103.0
+offset_bottom = 837.0
+rotation = 1.56416
+scale = Vector2(6, 6)
+texture_normal = ExtResource("11_al8po")
+texture_hover = ExtResource("12_btnms")
+
+[node name="RerollLabel" type="Label" parent="."]
+z_index = 52
+offset_left = 995.0
+offset_top = 949.0
+offset_right = 1083.0
+offset_bottom = 979.0
+rotation = -1.57465
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Reroll"
+
+[node name="RerollCostLabel" type="Label" parent="."]
+z_index = 52
+offset_left = 1030.0
+offset_top = 907.0
+offset_right = 1060.0
+offset_bottom = 937.0
+rotation = 4.69624
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "25"
+
+[node name="RerollCostLabelSprite" type="Sprite2D" parent="."]
+z_index = 52
+position = Vector2(1040, 867)
+rotation = -1.57013
+texture = ExtResource("13_ro5df")
+
+[node name="RerollNotEnough" type="Label" parent="."]
+visible = false
+offset_left = 645.0
+offset_top = 995.0
+offset_right = 1053.0
+offset_bottom = 1025.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+theme_override_font_sizes/font_size = 32
+text = "Not enough coins for reroll"
+
+[node name="Heal10" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 711.0
+offset_top = 898.0
+offset_right = 751.0
+offset_bottom = 938.0
+rotation = 4.71239
+
+[node name="Heal10Button" type="TextureButton" parent="Heal10"]
+unique_name_in_owner = true
+z_index = 52
+layout_mode = 0
+offset_left = -91.0
+offset_top = -47.0
+offset_right = -63.0
+offset_bottom = -30.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("14_l4dhb")
+texture_hover = ExtResource("15_s568f")
+
+[node name="Heal10Label" type="Label" parent="Heal10"]
+z_index = 52
+layout_mode = 0
+offset_left = -41.0
+offset_top = -25.0
+offset_right = 47.0
+offset_bottom = 5.00003
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "10 HP"
+
+[node name="Heal10CostLabel" type="Label" parent="Heal10"]
+z_index = 52
+layout_mode = 0
+offset_left = -9.00006
+offset_top = 9.0
+offset_right = 22.9999
+offset_bottom = 39.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "30"
+
+[node name="Heal10CostLabelSprite" type="Sprite2D" parent="Heal10"]
+z_index = 52
+position = Vector2(28.9999, 20)
+texture = ExtResource("13_ro5df")
+
+[node name="Heal25" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 862.0
+offset_top = 897.0
+offset_right = 902.0
+offset_bottom = 937.0
+rotation = 4.71239
+
+[node name="Heal25Button" type="TextureButton" parent="Heal25"]
+unique_name_in_owner = true
+z_index = 52
+layout_mode = 0
+offset_left = -91.0
+offset_top = -47.0
+offset_right = -63.0
+offset_bottom = -30.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("16_gbh3c")
+texture_hover = ExtResource("17_pb61p")
+
+[node name="Heal25Label" type="Label" parent="Heal25"]
+z_index = 52
+layout_mode = 0
+offset_left = -40.9999
+offset_top = -25.0
+offset_right = 47.0001
+offset_bottom = 5.00005
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "25 HP"
+
+[node name="Heal25CostLabel" type="Label" parent="Heal25"]
+z_index = 52
+layout_mode = 0
+offset_left = -9.00006
+offset_top = 9.0
+offset_right = 22.9999
+offset_bottom = 39.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="Heal25CostLabelSprite" type="Sprite2D" parent="Heal25"]
+z_index = 52
+position = Vector2(28.9999, 20)
+texture = ExtResource("13_ro5df")
+
+[node name="HealNotEnought" type="Label" parent="."]
+visible = false
+offset_left = 659.0
+offset_top = 995.0
+offset_right = 1067.0
+offset_bottom = 1025.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.54902, 0.105882, 0.0627451, 1)
+theme_override_font_sizes/font_size = 32
+text = "Not enough coins for heal"
+
+[node name="RelicName" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 659.0
+offset_top = 988.0
+offset_right = 1240.0
+offset_bottom = 1039.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RelicDescription" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 659.0
+offset_top = 1042.0
+offset_right = 1240.0
+offset_bottom = 1133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ShopLabel" type="Label" parent="."]
+z_index = 51
+offset_left = 785.0
+offset_top = 224.0
+offset_right = 1140.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Merchant"
+
+[node name="Material" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1514.0
+offset_top = -673.0
+offset_right = 1554.0
+offset_bottom = -633.0
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="Material"]
+layout_mode = 0
+offset_left = -761.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Material"]
+layout_mode = 0
+offset_left = -81.0
+offset_right = 202.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Coin" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("19_53j45")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_ro5df")
+
+[node name="CoinArea2D" type="Area2D" parent="Material/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="Wood" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("20_0cvb0")
+
+[node name="WoodArea2D" type="Area2D" parent="Material/HBoxContainer/Wood" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Wood/WoodArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="Stone" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("21_w0qfk")
+
+[node name="StoneArea2D" type="Area2D" parent="Material/HBoxContainer/Stone" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Stone/StoneArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="Iron" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("22_0a77y")
+
+[node name="IronArea2D" type="Area2D" parent="Material/HBoxContainer/Iron" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Iron/IronArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="Gems" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 75.0
+offset_top = -673.0
+offset_right = 115.0
+offset_bottom = -633.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("23_eo5cd")
+
+[node name="RedGemArea2D" type="Area2D" parent="Gems/HBoxContainer/RedGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("24_lww8j")
+
+[node name="BlueGemArea2D" type="Area2D" parent="Gems/HBoxContainer/BlueGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("25_yntfd")
+
+[node name="GreemGemArea2D" type="Area2D" parent="Gems/HBoxContainer/GreenGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("26_o738k")
+
+[node name="YellowGemArea2D" type="Area2D" parent="Gems/HBoxContainer/YellowGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_c1kk2")
+
+[node name="Tiles" type="Label" parent="."]
+offset_left = 665.0
+offset_top = 371.0
+offset_right = 743.0
+offset_bottom = 401.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tiles:"
+
+[node name="Relics" type="Label" parent="."]
+offset_left = 665.0
+offset_top = 605.0
+offset_right = 759.0
+offset_bottom = 635.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Relics:"
+
+[node name="RelicHandler" parent="." instance=ExtResource("27_7f0ae")]
+unique_name_in_owner = true
+z_index = 32
+offset_left = 642.0
+offset_top = -664.0
+offset_right = 802.0
+offset_bottom = -632.0
+
+[node name="RelicUIShop" parent="." instance=ExtResource("28_glhcc")]
+offset_left = 685.0
+offset_top = 645.0
+offset_right = 685.0
+offset_bottom = 677.0
+scale = Vector2(4, 4)
+relic = ExtResource("29_kackm")
+
+[node name="RelicUIShop2" parent="." instance=ExtResource("28_glhcc")]
+offset_left = 877.0
+offset_top = 645.0
+offset_right = 877.0
+offset_bottom = 677.0
+scale = Vector2(4, 4)
+relic = ExtResource("30_3lsy7")
+
+[node name="RelicUIShop3" parent="." instance=ExtResource("28_glhcc")]
+offset_left = 1069.0
+offset_top = 645.0
+offset_right = 1069.0
+offset_bottom = 677.0
+scale = Vector2(4, 4)
+relic = ExtResource("31_6wfvo")
+
+[node name="RelicUIShop4" parent="." instance=ExtResource("28_glhcc")]
+offset_left = 685.0
+offset_top = 411.0
+offset_right = 685.0
+offset_bottom = 443.0
+scale = Vector2(4, 4)
+relic = ExtResource("32_cm3l0")
+
+[node name="RelicUIShop5" parent="." instance=ExtResource("28_glhcc")]
+offset_left = 877.0
+offset_top = 411.0
+offset_right = 877.0
+offset_bottom = 443.0
+scale = Vector2(4, 4)
+relic = ExtResource("33_vwkdh")
+
+[node name="RelicUIShop6" parent="." instance=ExtResource("28_glhcc")]
+offset_left = 1069.0
+offset_top = 411.0
+offset_right = 1069.0
+offset_bottom = 443.0
+scale = Vector2(4, 4)
+relic = ExtResource("34_8bfpe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_igqyi")
+}
+
+[node name="PlayerHealth" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 705.0
+offset_top = 126.0
+offset_right = 872.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3tn4e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_24cfs")
+value = 50.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="PlayerHealth"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -6.5
+offset_right = 14.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_pjnvt")
+text = "100"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(956, 516)
+zoom = Vector2(0.82, 0.82)
+
+[connection signal="pressed" from="RemoveTiles" to="." method="_on_remove_tiles_pressed"]
+[connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]
+[connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="pressed" from="Heal10/Heal10Button" to="." method="_on_heal_10_pressed"]
+[connection signal="pressed" from="Heal25/Heal25Button" to="." method="_on_heal_25_pressed"]

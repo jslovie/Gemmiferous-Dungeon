@@ -28,8 +28,6 @@ func _physics_process(delta):
 	##xp = PlayerManager.xp
 	##coins = PlayerManager.coins
 
-func change_to_fight_scene():
-	get_tree().change_scene_to_file("res://scenes/game_window.tscn")
 
 func get_body_data(body):
 	EnemyManager.type = body.get("type")
@@ -47,5 +45,5 @@ func get_body_data(body):
 func _on_enemy_detection_radius_body_entered(body):
 	if body.is_in_group("enemies"):
 		get_body_data(body)
-		change_to_fight_scene()
+		LevelManager.switch_to_game_window()
 	

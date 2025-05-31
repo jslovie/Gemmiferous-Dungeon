@@ -4,6 +4,10 @@ extends CanvasLayer
 func _ready():
 	visible = false
 
+func _process(_delta):
+	if LevelManager.is_mobile:
+		$Mobile.visible = true
+
 func loading():
 	visible = true
 

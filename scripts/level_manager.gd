@@ -3,7 +3,8 @@ extends Node
 var is_demo = false
 var is_mobile = false
 
-var show_map = true
+var show_map = false
+var show_map_mobile = false
 
 var available_level = 1
 var level_done = 0
@@ -35,7 +36,7 @@ func check_version():
 		LevelManager.is_demo = true
 	if OS.has_feature("Mobile"):
 		LevelManager.is_mobile = true
-	#LevelManager.is_mobile = true
+	LevelManager.is_mobile = true
 
 func reset_map():
 	level_done = 0
@@ -58,12 +59,24 @@ func switch_to_dungeon_map():
 	SaveManager.autosave()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
-	show_map = true
+	if is_mobile:
+		show_map_mobile = true
+	else:
+		show_map = true
 	
 func switch_to_dungeon_map_timeless():
 	SaveManager.autosave()
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
-	show_map = true
+	if is_mobile:
+		show_map_mobile = true
+	else:
+		show_map = true
+
+func switch_to_game_window():
+	if is_mobile:
+		get_tree().change_scene_to_file("res://scenes/game_window_mobile.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/game_window.tscn")
 
 func main_menu():
 	SaveManager.remove_autosave()
@@ -72,6 +85,7 @@ func main_menu():
 	RelicManager.reset_pieces_relics()
 	LevelManager.reset_tutorial()
 	LevelManager.show_map = false
+	LevelManager.show_map_mobile = false
 	Loading.loading_1s()
 	StartGame.visible = true
 	Music.play_music_menu()
@@ -86,6 +100,7 @@ func back_to_village():
 	LevelManager.reset_tutorial()
 	Loading.loading_1s()
 	LevelManager.show_map = false
+	LevelManager.show_map_mobile = false
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 

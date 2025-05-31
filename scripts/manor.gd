@@ -255,7 +255,10 @@ func enter_dungeon_door():
 	RelicManager.reset_pieces_relics()
 	Transition.transition()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
+	if LevelManager.is_mobile:
+		get_tree().change_scene_to_file("res://scenes/character_selection_mobile.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/character_selection.tscn")
 
 
 func exit_door():

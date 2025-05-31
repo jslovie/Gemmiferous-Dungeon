@@ -15,11 +15,12 @@ var blue_gem_effect = load("res://scenes/GUI/blue_gem.tscn")
 var green_gem_effect = load("res://scenes/GUI/green_gem.tscn")
 var yellow_gem_effect = load("res://scenes/GUI/yellow_gem.tscn")
 
-
 func _process(_delta):
 	update_spins()
 	check_for_continued()
-	
+	if LevelManager.is_mobile:
+		$Continue.position = Vector2(-43,78)
+		
 func check_for_continued():
 	if LevelManager.spinning == true:
 		$Continue.visible = false

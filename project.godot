@@ -28,6 +28,7 @@ Random="*res://scripts/random.gd"
 StartGame="*res://scenes/GUI/start_game.tscn"
 StartGameMobile="*res://scenes/GUI/start_game_mobile.tscn"
 DungeonMap="*res://scenes/dungeons/dungeon_map.tscn"
+DungeonMapMobile="*res://scenes/dungeons/dungeon_map_mobile.tscn"
 QuitGame="*res://scenes/GUI/quit_game.tscn"
 Loading="*res://scenes/GUI/loading.tscn"
 DamageNumbers="*res://scripts/damage_numbers.gd"
@@ -40,12 +41,13 @@ SignalBus="*res://scripts/signal_bus.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=576
+window/size/viewport_height=1024
 window/size/mode=3
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 mouse_cursor/custom_image="res://cursor.png"
-window/emulate_touch_from_mouse=false
+window/emulate_touch_from_mouse=true
 
 [editor]
 
