@@ -49,7 +49,8 @@ func check_in_tutorial():
 	if LevelManager.in_tutorial_level:
 		$Control/Panel/VBoxContainer/Button2.visible = false
 		$Control/Panel/VBoxContainer/Button3.visible = false
-
+		$TutorialText.visible = true
+		
 func change_background():
 	if LevelManager.floor == 1:
 		$Background/F1.visible = true
@@ -63,8 +64,7 @@ func change_background():
 func handle_heal():
 	PlayerManager.player.heal(15)
 	SaveManager.autosave()
-	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
-	LevelManager.show_map = true
+	LevelManager.switch_to_dungeon_map_timeless()
 
 func handle_loot_to_manor():
 	update_materials()

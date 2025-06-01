@@ -23,5 +23,6 @@ func _on_pressed():
 	if is_tutorial:
 		LevelManager.in_tutorial_level = true
 		DungeonMap.show_tutorial()
+		DungeonMapMobile.show_tutorial()
 	await get_tree().create_timer(0.5).timeout
 	LevelManager.switch_to_dungeon_map_timeless()

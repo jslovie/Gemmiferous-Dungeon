@@ -5443,6 +5443,7 @@ path = "ABC"
 [node name="Tutorial" type="Node2D" parent="Map/Dungeons"]
 
 [node name="DungeonF_T" type="Node2D" parent="Map/Dungeons/Tutorial"]
+visible = false
 position = Vector2(450, 103)
 scale = Vector2(0.8, 0.8)
 
@@ -5534,16 +5535,6 @@ offset_top = 917.5
 offset_right = 1079.5
 offset_bottom = 949.5
 type = "Enemy"
-floor_set = 1
-level = 1
-path = "ABC"
-
-[node name="LevelSelection32" parent="Map/Dungeons/Tutorial/DungeonF_T/Levels" instance=ExtResource("17_8ubgh")]
-offset_left = 1208.84
-offset_top = 917.5
-offset_right = 1240.84
-offset_bottom = 949.5
-type = "Treasure"
 floor_set = 1
 level = 1
 path = "ABC"
@@ -5861,10 +5852,11 @@ autowrap_mode = 2
 [node name="BackButton" type="TextureButton" parent="Map/InfoPageDetails"]
 z_index = 52
 layout_mode = 0
-offset_left = 1371.0
-offset_top = 816.0
-offset_right = 1399.0
-offset_bottom = 833.0
+offset_left = 1305.51
+offset_top = 930.488
+offset_right = 1333.51
+offset_bottom = 947.488
+rotation = 1.5708
 scale = Vector2(6, 6)
 texture_normal = ExtResource("31_bue1a")
 texture_hover = ExtResource("32_vq3e2")
@@ -5872,10 +5864,11 @@ texture_hover = ExtResource("32_vq3e2")
 [node name="BackLabel" type="Label" parent="Map/InfoPageDetails"]
 z_index = 52
 layout_mode = 0
-offset_left = 1386.0
-offset_top = 846.0
-offset_right = 1468.0
-offset_bottom = 876.0
+offset_left = 1275.83
+offset_top = 943.756
+offset_right = 1357.83
+offset_bottom = 973.756
+rotation = 1.5708
 scale = Vector2(1.4, 1.4)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32

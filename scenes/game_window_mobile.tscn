@@ -835,6 +835,7 @@ position = Vector2(306.709, 488.818)
 
 [node name="Resolution" type="Panel" parent="Desktop"]
 unique_name_in_owner = true
+visible = false
 z_index = 21
 offset_left = -876.0
 offset_top = -105.0
@@ -891,6 +892,7 @@ text = "Continue"
 
 [node name="Result" type="Panel" parent="Desktop/Resolution"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 1013.38
 offset_top = 601.0
@@ -1260,24 +1262,6 @@ offset_bottom = 1016.0
 theme_override_fonts/font = ExtResource("9_7j0xe")
 theme_override_font_sizes/font_size = 64
 text = "Continue"
-
-[node name="PlayerDied" parent="Desktop" instance=ExtResource("44_qjju0")]
-visible = false
-z_index = 100
-offset_left = 285.0
-offset_top = 514.0
-offset_right = 285.0
-offset_bottom = 514.0
-scale = Vector2(1.2, 1.2)
-
-[node name="Player_win" parent="Desktop" instance=ExtResource("45_07rrk")]
-visible = false
-z_index = 100
-offset_left = 285.0
-offset_top = 514.0
-offset_right = 285.0
-offset_bottom = 514.0
-scale = Vector2(1.2, 1.2)
 
 [node name="Material" type="Control" parent="Desktop"]
 z_index = 31
@@ -1675,44 +1659,52 @@ position = Vector2(45, -40)
 unique_name_in_owner = true
 visible = false
 z_index = 20
-position = Vector2(663, 750)
-scale = Vector2(15, 15)
+position = Vector2(319, 172)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_w0ccd")
 animation = &"Sword"
+frame = 5
+frame_progress = 1.0
 
 [node name="BowAnimation" type="AnimatedSprite2D" parent="Grid/VFX"]
 unique_name_in_owner = true
 visible = false
 z_index = 20
-position = Vector2(698, 742)
-scale = Vector2(8, 8)
+position = Vector2(326, 173)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_inwop")
 animation = &"BowPoison"
+frame = 7
+frame_progress = 1.0
 
 [node name="AxeAnimation" type="AnimatedSprite2D" parent="Grid/VFX"]
 unique_name_in_owner = true
 visible = false
 z_index = 10
-position = Vector2(703, 706)
-scale = Vector2(15, 15)
+position = Vector2(337, 162)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_mlx6d")
 animation = &"Axe"
+frame = 4
+frame_progress = 1.0
 
 [node name="MaceAnimation" type="AnimatedSprite2D" parent="Grid/VFX"]
 unique_name_in_owner = true
 visible = false
 z_index = 10
-position = Vector2(665, 713)
-scale = Vector2(15, 15)
+position = Vector2(326, 163)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_806ac")
 animation = &"Mace"
+frame = 4
+frame_progress = 1.0
 
 [node name="EnemyClawAnimation" type="AnimatedSprite2D" parent="Grid/VFX"]
 unique_name_in_owner = true
 visible = false
 z_index = 10
-position = Vector2(-147, 666)
-scale = Vector2(15, 15)
+position = Vector2(152, 158)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_lokdw")
 animation = &"Claw"
 frame = 5
@@ -1723,18 +1715,20 @@ flip_h = true
 unique_name_in_owner = true
 visible = false
 z_index = 20
-position = Vector2(-155, 680)
-scale = Vector2(15, 15)
+position = Vector2(157, 158)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_vwpvx")
 animation = &"Sword_blue"
+frame = 4
+frame_progress = 1.0
 flip_h = true
 
 [node name="MagicAnimatedSprite2D" type="AnimatedSprite2D" parent="Grid/VFX"]
 unique_name_in_owner = true
 visible = false
 z_index = 20
-position = Vector2(621, 791)
-scale = Vector2(8, 8)
+position = Vector2(311, 169)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_yara6")
 animation = &"Magic"
 frame = 6
@@ -1899,6 +1893,24 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Continue"
 
+[node name="PlayerDied" parent="." instance=ExtResource("44_qjju0")]
+visible = false
+z_index = 100
+offset_left = 289.0
+offset_top = 488.0
+offset_right = 289.0
+offset_bottom = 488.0
+scale = Vector2(0.82, 0.82)
+
+[node name="Player_win" parent="." instance=ExtResource("45_07rrk")]
+visible = false
+z_index = 100
+offset_left = 289.0
+offset_top = 488.0
+offset_right = 289.0
+offset_bottom = 488.0
+scale = Vector2(0.82, 0.82)
+
 [connection signal="timeout" from="Desktop/TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="timeout" from="Desktop/DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="Desktop/CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
@@ -1908,8 +1920,6 @@ text = "Continue"
 [connection signal="pressed" from="Desktop/Resolution/Continue" to="." method="_on_continue_pressed"]
 [connection signal="timeout" from="Desktop/WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
 [connection signal="pressed" from="Desktop/Continue" to="." method="_on_continue_pressed"]
-[connection signal="update_total_bar" from="Desktop/PlayerDied" to="." method="_on_player_died_update_total_bar"]
-[connection signal="update_total_bar" from="Desktop/Player_win" to="." method="_on_player_win_update_total_bar"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Wood/WoodArea2D" to="." method="_on_wood_area_2d_area_entered"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Stone/StoneArea2D" to="." method="_on_stone_area_2d_area_entered"]
@@ -1935,3 +1945,5 @@ text = "Continue"
 [connection signal="mouse_entered" from="ContinueMobile" to="." method="_on_continue_mobile_mouse_entered"]
 [connection signal="mouse_exited" from="ContinueMobile" to="." method="_on_continue_mobile_mouse_exited"]
 [connection signal="pressed" from="ContinueMobile" to="." method="_on_continue_mobile_pressed"]
+[connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
+[connection signal="update_total_bar" from="Player_win" to="." method="_on_player_win_update_total_bar"]

@@ -32,8 +32,8 @@ func _ready():
 	$Desktop/EnemyTypeLabel/Timer.timer_start()
 	$Desktop/Hud.visible = false
 	$SlotMachine.visible = false
-	$Desktop/PlayerDied.visible = false
-	$Desktop/Player_win.visible = false
+	$PlayerDied.visible = false
+	$Player_win.visible = false
 	$Desktop/MaterialTotal.visible = false
 	$Desktop/GemsTotal.visible = false
 	wait_time()
@@ -191,8 +191,8 @@ func resolution_screen():
 			$Desktop/Gems.visible = false
 			relic_handler.visible = false
 			var tween = create_tween()
-			$Desktop/PlayerDied.visible = true
-			tween.tween_property($Desktop/PlayerDied, "position", Vector2(285,514), 0.1)
+			$PlayerDied.visible = true
+			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
 			Music.play_music_game_over()
 
 		
@@ -200,7 +200,7 @@ func handle_win():
 	if LevelManager.handle_winning == true:
 		%Resolution.visible = false
 		$SlotMachine.visible = false
-		$Desktop/Player_win.visible = true
+		$Player_win.visible = true
 
 func check_enemy_debuff():
 	if PlayerManager.player.bleed_active == true:

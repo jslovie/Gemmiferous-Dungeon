@@ -26,7 +26,15 @@ func check_for_continued():
 		$Continue.visible = false
 	elif LevelManager.spinning == false:
 		$Continue.visible = true
-		
+
+func check_effects():
+	if LevelManager.effects == "Off":
+		$Confetti.visible = false
+		$Confetti2.visible = false
+	else:
+		$Confetti.visible = true
+		$Confetti2.visible = true
+
 func pull():
 	LevelManager.spinning = true
 	$Key.play("open")

@@ -21,6 +21,7 @@ var level_active = true
 
 var resolution
 var windows_mode
+var effects
 
 var timer_stop = false
 

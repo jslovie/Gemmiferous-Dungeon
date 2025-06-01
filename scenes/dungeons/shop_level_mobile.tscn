@@ -444,9 +444,9 @@ unique_name_in_owner = true
 [node name="RemoveTiles" type="TextureButton" parent="."]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
 offset_left = 966.0
-offset_top = 294.0
+offset_top = 290.0
 offset_right = 1034.0
-offset_bottom = 318.0
+offset_bottom = 314.0
 scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("7_ktip3")
 texture_hover = ExtResource("8_0d85o")
@@ -454,9 +454,9 @@ texture_focused = ExtResource("8_0d85o")
 
 [node name="RemoveTilesLabel" type="Label" parent="."]
 offset_left = 1024.0
-offset_top = 327.0
+offset_top = 323.0
 offset_right = 1216.0
-offset_bottom = 357.0
+offset_bottom = 353.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Remove Tiles"
@@ -874,18 +874,18 @@ shape = SubResource("CircleShape2D_c1kk2")
 
 [node name="Tiles" type="Label" parent="."]
 offset_left = 665.0
-offset_top = 371.0
+offset_top = 352.0
 offset_right = 743.0
-offset_bottom = 401.0
+offset_bottom = 382.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Tiles:"
 
 [node name="Relics" type="Label" parent="."]
 offset_left = 665.0
-offset_top = 605.0
+offset_top = 586.0
 offset_right = 759.0
-offset_bottom = 635.0
+offset_bottom = 616.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Relics:"
@@ -900,49 +900,49 @@ offset_bottom = -632.0
 
 [node name="RelicUIShop" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 685.0
-offset_top = 645.0
+offset_top = 626.0
 offset_right = 685.0
-offset_bottom = 677.0
+offset_bottom = 658.0
 scale = Vector2(4, 4)
 relic = ExtResource("29_kackm")
 
 [node name="RelicUIShop2" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 877.0
-offset_top = 645.0
+offset_top = 626.0
 offset_right = 877.0
-offset_bottom = 677.0
+offset_bottom = 658.0
 scale = Vector2(4, 4)
 relic = ExtResource("30_3lsy7")
 
 [node name="RelicUIShop3" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 1069.0
-offset_top = 645.0
+offset_top = 626.0
 offset_right = 1069.0
-offset_bottom = 677.0
+offset_bottom = 658.0
 scale = Vector2(4, 4)
 relic = ExtResource("31_6wfvo")
 
 [node name="RelicUIShop4" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 685.0
-offset_top = 411.0
+offset_top = 392.0
 offset_right = 685.0
-offset_bottom = 443.0
+offset_bottom = 424.0
 scale = Vector2(4, 4)
 relic = ExtResource("32_cm3l0")
 
 [node name="RelicUIShop5" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 877.0
-offset_top = 411.0
+offset_top = 392.0
 offset_right = 877.0
-offset_bottom = 443.0
+offset_bottom = 424.0
 scale = Vector2(4, 4)
 relic = ExtResource("33_vwkdh")
 
 [node name="RelicUIShop6" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 1069.0
-offset_top = 411.0
+offset_top = 392.0
 offset_right = 1069.0
-offset_bottom = 443.0
+offset_bottom = 424.0
 scale = Vector2(4, 4)
 relic = ExtResource("34_8bfpe")
 

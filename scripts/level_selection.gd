@@ -240,7 +240,10 @@ func select_type():
 		LevelManager.switch_to_game_window()
 		
 	elif type == "Rest":
-		get_tree().change_scene_to_file("res://scenes/dungeons/rest.tscn")
+		if LevelManager.is_mobile:
+			get_tree().change_scene_to_file("res://scenes/dungeons/rest_mobile.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/dungeons/rest.tscn")
 		
 	elif type == "Shop":
 		if LevelManager.is_mobile:

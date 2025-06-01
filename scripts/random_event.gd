@@ -182,7 +182,6 @@ func handle_button():
 				
 			elif random_resolution == 2:
 				resolution_screen()
-				$Continue.visible = false
 				%ResolutionText.text = "You don't feel well and lost 25 HP"
 				lost_health_amount(25)
 				if PlayerManager.player.health <= 0:
@@ -207,14 +206,13 @@ func handle_button():
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
-				$Continue.visible = false
 				%ResolutionText.text = "As you were trying to open the chest you triggered a hidden mechanism which drove sharp spikes into your hand
 										Your hand got hurt badly and you lost 15HP"
 				lost_health_amount(15)
 				if PlayerManager.player.health <= 0:
 					handle_game_over()
-				else :
-					LevelManager.switch_to_dungeon_map()
+					$Continue.visible = false
+
 			elif random_resolution == 2:
 				resolution_screen()
 				%ResolutionText.text = "You successfully opened the chest"

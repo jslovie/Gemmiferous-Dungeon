@@ -18,6 +18,9 @@ func check_mobile_version():
 		%ResOptionButton.visible = false
 		$AudioOptions/MarginContainer/VBoxContainer/Mode.visible = false
 		%ModeOptionButton.visible = false
+	else:
+		$AudioOptions/MarginContainer/VBoxContainer/Effects.visible = false
+		%EffectsOptionButton2.visible = false
 
 func check_resolution():
 	if LevelManager.resolution == 0:
@@ -78,3 +81,11 @@ func _on_mode_option_button_item_selected(index):
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			LevelManager.windows_mode = 2
+
+
+func _on_effects_option_button_2_item_selected(index):
+	match index:
+		0:
+			LevelManager.effects = "On"
+		1:
+			LevelManager.effects = "Off"

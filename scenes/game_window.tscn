@@ -1209,24 +1209,6 @@ theme_override_fonts/font = ExtResource("5_pg7vj")
 theme_override_font_sizes/font_size = 64
 text = "Continue"
 
-[node name="PlayerDied" parent="Desktop" instance=ExtResource("13_wcutr")]
-visible = false
-z_index = 100
-offset_left = 285.0
-offset_top = 514.0
-offset_right = 285.0
-offset_bottom = 514.0
-scale = Vector2(1.2, 1.2)
-
-[node name="Player_win" parent="Desktop" instance=ExtResource("14_w782t")]
-visible = false
-z_index = 100
-offset_left = 285.0
-offset_top = 514.0
-offset_right = 285.0
-offset_bottom = 514.0
-scale = Vector2(1.2, 1.2)
-
 [node name="Material" type="Control" parent="Desktop"]
 z_index = 31
 layout_mode = 3
@@ -1823,6 +1805,24 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 15.0
 
+[node name="PlayerDied" parent="." instance=ExtResource("13_wcutr")]
+visible = false
+z_index = 100
+offset_left = 285.0
+offset_top = 514.0
+offset_right = 285.0
+offset_bottom = 514.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Player_win" parent="." instance=ExtResource("14_w782t")]
+visible = false
+z_index = 100
+offset_left = 285.0
+offset_top = 514.0
+offset_right = 285.0
+offset_bottom = 514.0
+scale = Vector2(1.2, 1.2)
+
 [connection signal="timeout" from="Desktop/TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="timeout" from="Desktop/DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="Desktop/CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
@@ -1831,8 +1831,6 @@ offset_bottom = 15.0
 [connection signal="mouse_exited" from="Desktop/Resolution/Continue" to="." method="_on_continue_mouse_exited"]
 [connection signal="pressed" from="Desktop/Resolution/Continue" to="." method="_on_continue_pressed"]
 [connection signal="timeout" from="Desktop/WaitTime/WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
-[connection signal="update_total_bar" from="Desktop/PlayerDied" to="." method="_on_player_died_update_total_bar"]
-[connection signal="update_total_bar" from="Desktop/Player_win" to="." method="_on_player_win_update_total_bar"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Coin/CoinArea2D" to="." method="_on_coin_area_2d_area_entered"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Wood/WoodArea2D" to="." method="_on_wood_area_2d_area_entered"]
 [connection signal="area_entered" from="Desktop/Material/HBoxContainer/Stone/StoneArea2D" to="." method="_on_stone_area_2d_area_entered"]
@@ -1858,3 +1856,5 @@ offset_bottom = 15.0
 [connection signal="mouse_entered" from="ContinueMobile" to="." method="_on_continue_mobile_mouse_entered"]
 [connection signal="mouse_exited" from="ContinueMobile" to="." method="_on_continue_mobile_mouse_exited"]
 [connection signal="pressed" from="ContinueMobile" to="." method="_on_continue_mobile_pressed"]
+[connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
+[connection signal="update_total_bar" from="Player_win" to="." method="_on_player_win_update_total_bar"]

@@ -304,6 +304,18 @@ You have to decide whether  you want to rest, take half of loot to the manor and
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="TutorialText" type="Label" parent="."]
+visible = false
+offset_left = 634.0
+offset_top = 745.0
+offset_right = 1333.0
+offset_bottom = 820.0
+theme_override_fonts/font = ExtResource("3_wbqg4")
+theme_override_font_sizes/font_size = 32
+text = "As this is a tutorial, let's just take a rest."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Player_win" parent="." instance=ExtResource("4_y8nb2")]
 visible = false
 offset_left = 981.0
