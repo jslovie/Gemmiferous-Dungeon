@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://bsvpxgbqwbp4f"]
+[gd_scene load_steps=108 format=4 uid="uid://bsvpxgbqwbp4f"]
 
 [ext_resource type="Script" path="res://scripts/village.gd" id="1_4s24t"]
 [ext_resource type="Texture2D" uid="uid://fae55vxhvmnc" path="res://assets/village/DarkLit Maps v1-1.png" id="1_qulya"]
@@ -86,6 +86,8 @@
 [ext_resource type="PackedScene" uid="uid://bih5sa1u2e6k3" path="res://scenes/GUI/transition.tscn" id="83_m6mbu"]
 [ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="84_appnm"]
 [ext_resource type="PackedScene" uid="uid://dte5nmep4gg4w" path="res://scenes/manor.tscn" id="84_m554g"]
+[ext_resource type="Texture2D" uid="uid://bxtx6hh2k7wxo" path="res://assets/paper UI/Paper/arrow.png" id="87_o2k2x"]
+[ext_resource type="Texture2D" uid="uid://cvayej67t40i" path="res://assets/paper UI/Paper/arrow_highlighted.png" id="88_fq1t4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0prv"]
 texture = ExtResource("1_qulya")
@@ -1323,7 +1325,7 @@ texture = ExtResource("44_vn4qc")
 position = Vector2(173, 623)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(812, 411)
+position = Vector2(811, 411)
 zoom = Vector2(7.2, 7.2)
 limit_left = 674
 limit_top = 324
@@ -1889,6 +1891,27 @@ position = Vector2(-16, 6.5)
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_vam8g")
 
+[node name="ArrowRight" type="TextureButton" parent="."]
+z_index = 100
+offset_left = 763.0
+offset_top = 469.0
+offset_right = 795.0
+offset_bottom = 501.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("87_o2k2x")
+texture_hover = ExtResource("88_fq1t4")
+
+[node name="ArrowLeft" type="TextureButton" parent="."]
+z_index = 100
+offset_left = 841.0
+offset_top = 469.0
+offset_right = 873.0
+offset_bottom = 501.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("87_o2k2x")
+texture_hover = ExtResource("88_fq1t4")
+flip_h = true
+
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Church" to="." method="_on_church_pressed"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]
@@ -1898,3 +1921,5 @@ shape = SubResource("CircleShape2D_vam8g")
 [connection signal="pressed" from="Stone/StoneButton" to="." method="_on_stone_button_pressed"]
 [connection signal="pressed" from="Iron/IronButton" to="." method="_on_iron_button_pressed"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="ArrowRight" to="." method="_on_arrow_right_pressed"]
+[connection signal="pressed" from="ArrowLeft" to="." method="_on_arrow_left_pressed"]

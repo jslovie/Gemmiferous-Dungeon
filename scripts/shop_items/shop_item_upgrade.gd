@@ -71,7 +71,8 @@ func process_gem(gem_texture, price_gem_lvl):
 		PlayerManager.player.total_green_gem -= price_gem_lvl
 	elif gem_texture == "Yellow":
 		PlayerManager.player.total_yellow_gem -= price_gem_lvl
-
+	VillageHudMobile.update_village_hud_mobile()
+	
 func check_enough(gem_color, gem_price, coin_price):
 	if PlayerManager.player.total_coins < coin_price:
 		return false

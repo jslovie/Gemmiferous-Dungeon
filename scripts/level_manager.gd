@@ -26,6 +26,7 @@ var effects
 var timer_stop = false
 
 var in_game = true
+var in_village = false
 var in_tutorial_level = false
 var tutorial_completed = false
 
@@ -87,21 +88,31 @@ func main_menu():
 	LevelManager.reset_tutorial()
 	LevelManager.show_map = false
 	LevelManager.show_map_mobile = false
+	LevelManager.in_village = false
 	Loading.loading_1s()
-	StartGame.visible = true
+	if is_mobile:
+		StartGameMobile.visible = true
+	else:
+		StartGame.visible = true
 	Music.play_music_menu()
-	get_tree().change_scene_to_file("res://scenes/GUI/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/GUI/main_menu_.tscn")
+
+
+
 
 func back_to_village():
 	get_tree().paused = false
+	VillageHudMobile.update_village_hud_mobile()
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
 	LevelManager.reset_tutorial()
-	Loading.loading_1s()
 	LevelManager.show_map = false
 	LevelManager.show_map_mobile = false
+	Loading.loading_1s()
+	await get_tree().create_timer(0.8).timeout
+	LevelManager.in_village = true
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 

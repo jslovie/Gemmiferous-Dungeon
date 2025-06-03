@@ -31,6 +31,7 @@ DungeonMap="*res://scenes/dungeons/dungeon_map.tscn"
 DungeonMapMobile="*res://scenes/dungeons/dungeon_map_mobile.tscn"
 QuitGame="*res://scenes/GUI/quit_game.tscn"
 Loading="*res://scenes/GUI/loading.tscn"
+VillageHudMobile="*res://scenes/GUI/village_hud_mobile.tscn"
 DamageNumbers="*res://scripts/damage_numbers.gd"
 EffectLoad="*res://scripts/effect_load.gd"
 Transition="*res://scenes/GUI/transition.tscn"
@@ -43,7 +44,6 @@ SignalBus="*res://scripts/signal_bus.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=1024
-window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 mouse_cursor/custom_image="res://cursor.png"

@@ -1,0 +1,169 @@
+[gd_scene load_steps=14 format=3 uid="uid://dgm38bqumcswe"]
+
+[ext_resource type="Script" path="res://scripts/village_hud_mobile.gd" id="1_u4e4p"]
+[ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_w71oj"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="2_ucp51"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="3_8yin6"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="4_j4w2j"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="5_s5u31"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="6_qmh36"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="7_s67nt"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="8_2axqd"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="9_yk2v3"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="10_ie5wf"]
+[ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="11_ct6ql"]
+[ext_resource type="Texture2D" uid="uid://dwnp3opnljr31" path="res://assets/32rogues/Icons/Home_highlighted.png" id="12_lvhvw"]
+
+[node name="VillageHudMobile" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_u4e4p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_top = -224.0
+offset_right = -73.0
+offset_bottom = -184.0
+grow_horizontal = 2
+scale = Vector2(7.2, 7.2)
+
+[node name="Material" type="Control" parent="Control"]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.52588e-05
+offset_top = 37.0
+offset_right = 40.0
+offset_bottom = 77.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Panel" type="Panel" parent="Control/Material"]
+layout_mode = 0
+offset_left = -132.0
+offset_top = -32.0
+offset_right = 477.0
+offset_bottom = 37.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Material"]
+layout_mode = 0
+offset_left = -81.0
+offset_right = 202.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Coin" type="Label" parent="Control/Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("2_ucp51")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_8yin6")
+
+[node name="Wood" type="Label" parent="Control/Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Material/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("4_j4w2j")
+
+[node name="Stone" type="Label" parent="Control/Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Material/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("5_s5u31")
+
+[node name="Iron" type="Label" parent="Control/Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Material/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("6_qmh36")
+
+[node name="Gems" type="Control" parent="Control"]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = 31.0
+offset_right = 24.0
+offset_bottom = 71.0
+scale = Vector2(0.2, 0.2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Control/Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("7_s67nt")
+
+[node name="BlueGem" type="Label" parent="Control/Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("8_2axqd")
+
+[node name="GreenGem" type="Label" parent="Control/Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("9_yk2v3")
+
+[node name="YellowGem" type="Label" parent="Control/Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w71oj")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("10_ie5wf")
+
+[node name="Home" type="TextureButton" parent="Control"]
+z_index = 100
+layout_mode = 0
+offset_left = 43.9999
+offset_top = 33.0
+offset_right = 75.9999
+offset_bottom = 65.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("11_ct6ql")
+texture_hover = ExtResource("12_lvhvw")
+
+[connection signal="pressed" from="Control/Home" to="." method="_on_home_pressed"]

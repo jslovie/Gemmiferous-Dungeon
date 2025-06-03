@@ -164,7 +164,7 @@ sources/0 = SubResource("TileSetAtlasSource_knjw7")
 script = ExtResource("1_wrgrt")
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2(-596, -120)
+position = Vector2(-628, -120)
 
 [node name="DungeonTiles" type="TileMapLayer" parent="Background"]
 position = Vector2(12, -28)
@@ -188,7 +188,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("4_7xfb1")
 
 [node name="Player" parent="." instance=ExtResource("5_7c1on")]
-position = Vector2(-510, 503)
+position = Vector2(-1236, 1443)
 
 [node name="Material" type="Control" parent="."]
 visible = false
@@ -374,6 +374,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_ba3ls")
 
 [node name="DescriptionRogue" type="ColorRect" parent="."]
+visible = false
 offset_left = 55.0
 offset_top = 617.0
 offset_right = 528.0
@@ -623,90 +624,13 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("22_i3bav")
 
 [node name="Home" type="TextureButton" parent="."]
-offset_left = 1840.0
-offset_top = 80.0
-offset_right = 1872.0
-offset_bottom = 112.0
+offset_left = 508.0
+offset_top = 4.0
+offset_right = 540.0
+offset_bottom = 36.0
 scale = Vector2(2, 1.93)
 texture_normal = ExtResource("27_2fn1h")
 texture_hover = ExtResource("28_486dd")
-
-[node name="TutorialType" parent="." instance=ExtResource("29_0wbdn")]
-offset_left = 111.0
-offset_top = 224.0
-offset_right = 143.0
-offset_bottom = 256.0
-scale = Vector2(12, 12)
-is_tutorial = true
-
-[node name="RogueType" parent="." instance=ExtResource("30_5jb5v")]
-offset_left = 3081.0
-offset_top = 1196.0
-offset_right = 3113.0
-offset_bottom = 1228.0
-scale = Vector2(12, 12)
-
-[node name="BarbarianType" parent="." instance=ExtResource("31_5pi1j")]
-offset_left = 3319.0
-offset_top = 948.0
-offset_right = 3351.0
-offset_bottom = 980.0
-scale = Vector2(12, 12)
-
-[node name="HolyType" parent="." instance=ExtResource("32_qfeuo")]
-modulate = Color(0.370364, 0.370364, 0.370364, 1)
-offset_left = 3711.0
-offset_top = 834.0
-offset_right = 3743.0
-offset_bottom = 866.0
-scale = Vector2(12, 12)
-disabled = true
-
-[node name="SpellbladeType" parent="." instance=ExtResource("33_wr84w")]
-modulate = Color(0.368627, 0.368627, 0.368627, 1)
-offset_left = 4066.0
-offset_top = 924.0
-offset_right = 4098.0
-offset_bottom = 956.0
-scale = Vector2(12, 12)
-disabled = true
-
-[node name="KnightType" parent="." instance=ExtResource("34_3g83q")]
-modulate = Color(0.368627, 0.368627, 0.368627, 1)
-offset_left = 4388.0
-offset_top = 1189.0
-offset_right = 4420.0
-offset_bottom = 1221.0
-scale = Vector2(12, 12)
-disabled = true
-flip_h = false
-
-[node name="LockHoly" type="Sprite2D" parent="."]
-position = Vector2(3856, 1047)
-scale = Vector2(5, 5)
-texture = ExtResource("35_0rpyu")
-
-[node name="LockBarbarian" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(615, 538)
-scale = Vector2(5, 5)
-texture = ExtResource("35_0rpyu")
-
-[node name="LockRogue" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(393, 817)
-scale = Vector2(5, 5)
-texture = ExtResource("35_0rpyu")
-
-[node name="LockSpellblade" type="Sprite2D" parent="."]
-position = Vector2(4236, 1125)
-scale = Vector2(5, 5)
-texture = ExtResource("35_0rpyu")
-
-[node name="LockKinght" type="Sprite2D" parent="."]
-position = Vector2(4519, 1380)
-scale = Vector2(5, 5)
-texture = ExtResource("35_0rpyu")
 
 [node name="Pause" type="Control" parent="."]
 visible = false
@@ -807,59 +731,51 @@ text = "Beat first boss to unlock!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TutotialBanner" type="Sprite2D" parent="."]
-position = Vector2(306, 217)
-scale = Vector2(5, 5)
-texture = ExtResource("37_rcaa1")
-
-[node name="TutorialLabel" type="Label" parent="."]
-offset_left = 229.0
-offset_top = 169.0
-offset_right = 349.0
-offset_bottom = 232.0
-scale = Vector2(1.3, 1.3)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Tutorial 
-Level"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="RightArrow" type="TextureButton" parent="."]
-offset_left = 441.0
+offset_left = 480.0
 offset_top = 930.0
-offset_right = 473.0
+offset_right = 512.0
 offset_bottom = 962.0
 scale = Vector2(5, 5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("38_cnow2")
 texture_hover = ExtResource("39_iptyi")
+texture_focused = ExtResource("38_cnow2")
 
 [node name="LeftArrow" type="TextureButton" parent="."]
-offset_left = 117.0
+offset_left = 64.0
 offset_top = 930.0
-offset_right = 149.0
+offset_right = 96.0
 offset_bottom = 962.0
 scale = Vector2(5, 5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("38_cnow2")
 texture_hover = ExtResource("39_iptyi")
+texture_focused = ExtResource("38_cnow2")
 flip_h = true
 
 [node name="Play" type="TextureButton" parent="."]
-offset_left = 280.0
-offset_top = 932.0
-offset_right = 312.0
-offset_bottom = 964.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 274.0
+offset_top = 931.0
+offset_right = 306.0
+offset_bottom = 963.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(6, 6)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("40_wkejq")
 texture_hover = ExtResource("41_0d57m")
+texture_focused = ExtResource("40_wkejq")
 
 [node name="PlayLabel" type="Label" parent="."]
-offset_left = 222.0
+offset_left = 215.0
 offset_top = 912.0
-offset_right = 322.0
+offset_right = 315.0
 offset_bottom = 962.0
 scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -868,20 +784,131 @@ text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Selection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -7.0
+offset_right = 24.0
+offset_bottom = 33.0
+
+[node name="TutorialType" parent="Selection" instance=ExtResource("29_0wbdn")]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 224.0
+offset_right = 164.0
+offset_bottom = 256.0
+scale = Vector2(12, 12)
+is_tutorial = true
+
+[node name="RogueType" parent="Selection" instance=ExtResource("30_5jb5v")]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 237.0
+offset_right = 734.0
+offset_bottom = 269.0
+scale = Vector2(12, 12)
+
+[node name="BarbarianType" parent="Selection" instance=ExtResource("31_5pi1j")]
+layout_mode = 0
+offset_left = 1313.0
+offset_top = 234.0
+offset_right = 1345.0
+offset_bottom = 266.0
+scale = Vector2(12, 12)
+
+[node name="HolyType" parent="Selection" instance=ExtResource("32_qfeuo")]
+modulate = Color(0.370364, 0.370364, 0.370364, 1)
+layout_mode = 0
+offset_left = 1914.0
+offset_top = 243.0
+offset_right = 1946.0
+offset_bottom = 275.0
+scale = Vector2(12, 12)
+disabled = true
+
+[node name="SpellbladeType" parent="Selection" instance=ExtResource("33_wr84w")]
+modulate = Color(0.368627, 0.368627, 0.368627, 1)
+layout_mode = 0
+offset_left = 2451.0
+offset_top = 241.0
+offset_right = 2483.0
+offset_bottom = 273.0
+scale = Vector2(12, 12)
+disabled = true
+
+[node name="KnightType" parent="Selection" instance=ExtResource("34_3g83q")]
+modulate = Color(0.368627, 0.368627, 0.368627, 1)
+layout_mode = 0
+offset_left = 3038.0
+offset_top = 242.0
+offset_right = 3070.0
+offset_bottom = 274.0
+scale = Vector2(12, 12)
+disabled = true
+flip_h = false
+
+[node name="TutotialBanner" type="Sprite2D" parent="Selection"]
+position = Vector2(320, 224)
+scale = Vector2(5, 5)
+texture = ExtResource("37_rcaa1")
+
+[node name="TutorialLabel" type="Label" parent="Selection"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 176.0
+offset_right = 363.0
+offset_bottom = 239.0
+scale = Vector2(1.3, 1.3)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tutorial 
+Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockHoly" type="Sprite2D" parent="Selection"]
+position = Vector2(2053, 446)
+scale = Vector2(5, 5)
+texture = ExtResource("35_0rpyu")
+
+[node name="LockBarbarian" type="Sprite2D" parent="Selection"]
+position = Vector2(1496, 419)
+scale = Vector2(5, 5)
+texture = ExtResource("35_0rpyu")
+
+[node name="LockRogue" type="Sprite2D" parent="Selection"]
+position = Vector2(898, 444)
+scale = Vector2(5, 5)
+texture = ExtResource("35_0rpyu")
+
+[node name="LockSpellblade" type="Sprite2D" parent="Selection"]
+position = Vector2(2621, 447)
+scale = Vector2(5, 5)
+texture = ExtResource("35_0rpyu")
+
+[node name="LockKinght" type="Sprite2D" parent="Selection"]
+position = Vector2(3175, 435)
+scale = Vector2(5, 5)
+texture = ExtResource("35_0rpyu")
+
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
-[connection signal="mouse_entered" from="TutorialType" to="." method="_on_tutorial_type_mouse_entered"]
-[connection signal="mouse_exited" from="TutorialType" to="." method="_on_tutorial_type_mouse_exited"]
-[connection signal="mouse_entered" from="RogueType" to="." method="_on_rogue_type_mouse_entered"]
-[connection signal="mouse_exited" from="RogueType" to="." method="_on_rogue_type_mouse_exited"]
-[connection signal="mouse_entered" from="BarbarianType" to="." method="_on_barbarian_type_mouse_entered"]
-[connection signal="mouse_exited" from="BarbarianType" to="." method="_on_barbarian_type_mouse_exited"]
-[connection signal="mouse_entered" from="HolyType" to="." method="_on_holy_type_mouse_entered"]
-[connection signal="mouse_exited" from="HolyType" to="." method="_on_holy_type_mouse_exited"]
-[connection signal="mouse_entered" from="SpellbladeType" to="." method="_on_spellblade_type_mouse_entered"]
-[connection signal="mouse_exited" from="SpellbladeType" to="." method="_on_spellblade_type_mouse_exited"]
-[connection signal="mouse_entered" from="KnightType" to="." method="_on_knight_type_mouse_entered"]
-[connection signal="mouse_exited" from="KnightType" to="." method="_on_knight_type_mouse_exited"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]
 [connection signal="pressed" from="Pause/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Selection/TutorialType" to="." method="_on_tutorial_type_mouse_entered"]
+[connection signal="mouse_exited" from="Selection/TutorialType" to="." method="_on_tutorial_type_mouse_exited"]
+[connection signal="mouse_entered" from="Selection/RogueType" to="." method="_on_rogue_type_mouse_entered"]
+[connection signal="mouse_exited" from="Selection/RogueType" to="." method="_on_rogue_type_mouse_exited"]
+[connection signal="mouse_entered" from="Selection/BarbarianType" to="." method="_on_barbarian_type_mouse_entered"]
+[connection signal="mouse_exited" from="Selection/BarbarianType" to="." method="_on_barbarian_type_mouse_exited"]
+[connection signal="mouse_entered" from="Selection/HolyType" to="." method="_on_holy_type_mouse_entered"]
+[connection signal="mouse_exited" from="Selection/HolyType" to="." method="_on_holy_type_mouse_exited"]
+[connection signal="mouse_entered" from="Selection/SpellbladeType" to="." method="_on_spellblade_type_mouse_entered"]
+[connection signal="mouse_exited" from="Selection/SpellbladeType" to="." method="_on_spellblade_type_mouse_exited"]
+[connection signal="mouse_entered" from="Selection/KnightType" to="." method="_on_knight_type_mouse_entered"]
+[connection signal="mouse_exited" from="Selection/KnightType" to="." method="_on_knight_type_mouse_exited"]

@@ -4,8 +4,8 @@ func _ready():
 	set_resolution()
 	SaveManager.autosave()
 	if LevelManager.is_mobile == true:
-		#get_window().set_size(Vector2(288,512))
-		get_viewport().size = DisplayServer.screen_get_size()
+		get_window().set_size(Vector2(288,512))
+		#get_viewport().size = DisplayServer.screen_get_size()
 	else:
 		get_viewport().size = DisplayServer.screen_get_size()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

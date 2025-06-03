@@ -894,6 +894,7 @@ theme_override_font_sizes/font_size = 32
 text = "Cost:"
 
 [node name="Description" type="Label" parent="Cost"]
+visible = false
 layout_mode = 1
 offset_left = 611.0
 offset_top = 731.0

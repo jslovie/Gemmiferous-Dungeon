@@ -2,6 +2,14 @@ extends Node2D
 
 var is_demo = false
 
+var tutorial_position = Vector2(-16,-7)
+var rogue_position = Vector2(-602,-7)
+var barbarian_position = Vector2(-1193,-7)
+var holy_position = Vector2(-1759,-7)
+var spellblade_position = Vector2(-2338,-7)
+var knight_position = Vector2(-2875,-7)
+
+
 func _ready():
 	if OS.has_feature("Demo"):
 		is_demo = true
@@ -17,20 +25,21 @@ func _process(_delta):
 	total_gems_check()
 	total_material_check()
 	check_unlocked()
+	description_check_mobile()
 	if LevelManager.is_mobile:
-		$TutotialBanner.visible = true
-		$TutorialLabel.visible = true
+		$Selection/TutotialBanner.visible = true
+		$Selection/TutorialLabel.visible = true
 	
 	
 func check_unlocked():
 	if PlayerManager.player.rogue_unlocked == false:
-		$RogueType.disabled = true
-		$LockRogue.visible = true
-		$RogueType.modulate = Color(0.369, 0.369, 0.369)
+		$Selection/RogueType.disabled = true
+		$Selection/LockRogue.visible = true
+		$Selection/RogueType.modulate = Color(0.369, 0.369, 0.369)
 	if PlayerManager.player.barbarian_unlocked == false:
-		$BarbarianType.disabled = true
-		$LockBarbarian.visible = true
-		$BarbarianType.modulate = Color(0.369, 0.369, 0.369)
+		$Selection/BarbarianType.disabled = true
+		$Selection/LockBarbarian.visible = true
+		$Selection/BarbarianType.modulate = Color(0.369, 0.369, 0.369)
 	
 
 func update_treasures():
@@ -139,8 +148,8 @@ func _on_knight_type_mouse_exited():
 
 
 func _on_tutorial_type_mouse_entered():
-	$TutotialBanner.visible = true
-	$TutorialLabel.visible = true
+	$Selection/TutotialBanner.visible = true
+	$Selection/TutorialLabel.visible = true
 	if LevelManager.tutorial_completed:
 		$Unlock.text = "Tutorial completed: Halved rewards for playing"
 		$Unlock.visible = true
@@ -148,6 +157,71 @@ func _on_tutorial_type_mouse_exited():
 	if LevelManager.is_mobile:
 		pass
 	else:	
-		$TutotialBanner.visible = false
-		$TutorialLabel.visible = false
+		$Selection/TutotialBanner.visible = false
+		$Selection/TutorialLabel.visible = false
 	$Unlock.visible = false
+
+func description_check_mobile():
+	if LevelManager.is_mobile:
+		if $Selection.position == tutorial_position or $Selection.position == rogue_position:
+			$DescriptionRogue.visible = true
+		else:
+			$DescriptionRogue.visible = false
+		if $Selection.position == barbarian_position:
+			$DescriptionBarbarian.visible = true
+		else:
+			$DescriptionBarbarian.visible = false
+
+func move_tween(pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Selection,"position",pos,time)
+
+
+func _on_play_pressed():
+	if $Selection.position == tutorial_position:
+		$Selection/TutorialType._on_pressed()
+	if $Selection.position == rogue_position:
+		if PlayerManager.player.rogue_unlocked == true:
+			$Selection/RogueType._on_pressed()
+	if $Selection.position == barbarian_position:
+		if PlayerManager.player.barbarian_unlocked == true:
+			$Selection/BarbarianType._on_pressed()
+	if $Selection.position == holy_position:
+		if PlayerManager.player.holy_unlocked == true:
+			$Selection/HolyType._on_pressed()
+	if $Selection.position == spellblade_position:
+		if PlayerManager.player.spellblade_unlocked == true:
+			$Selection/SpellbladeType._on_pressed()
+	if $Selection.position == knight_position:
+		if PlayerManager.player.knight_unlocked == true:
+			$Selection/KnightType._on_pressed()
+
+
+func _on_right_arrow_pressed():
+	if $Selection.position == tutorial_position:
+		move_tween(rogue_position,0.5)
+	if $Selection.position == rogue_position:
+		move_tween(barbarian_position,0.5)
+	if $Selection.position == barbarian_position:
+		move_tween(holy_position,0.5)
+	if $Selection.position == holy_position:
+		move_tween(spellblade_position,0.5)
+	if $Selection.position == spellblade_position:
+		move_tween(knight_position,0.5)
+	if $Selection.position == knight_position:
+		move_tween(tutorial_position,0.5)
+
+func _on_left_arrow_pressed():
+	if $Selection.position == tutorial_position:
+		move_tween(knight_position,0.5)
+	if $Selection.position == rogue_position:
+		move_tween(tutorial_position,0.5)
+	if $Selection.position == barbarian_position:
+		move_tween(rogue_position,0.5)
+	if $Selection.position == holy_position:
+		move_tween(barbarian_position,0.5)
+	if $Selection.position == spellblade_position:
+		move_tween(holy_position,0.5)
+	if $Selection.position == knight_position:
+		move_tween(spellblade_position,0.5)

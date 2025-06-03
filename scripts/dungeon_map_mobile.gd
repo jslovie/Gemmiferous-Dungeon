@@ -186,11 +186,13 @@ func _on_back_button_pressed():
 	hide_tutorial()
 
 
-func _on_arrow_left_pressed():
+func move_tween(object,pos,time):
 	var tween = create_tween()
-	tween.tween_property($Map,"position",Vector2(-777,78),0.5)
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)
 
+func _on_arrow_left_pressed():
+	move_tween($Map,Vector2(-777,78),0.5)
 
 func _on_arrow_right_pressed():
-	var tween = create_tween()
-	tween.tween_property($Map,"position",Vector2(-201,78),0.5)
+	move_tween($Map,Vector2(-201,78),0.5)

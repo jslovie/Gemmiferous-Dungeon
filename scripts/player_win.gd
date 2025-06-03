@@ -52,4 +52,4 @@ func _on_exit_pressed():
 	SaveManager.remove_autosave()
 	SaveManager.savefilesave()
 	LevelManager.reset_win()
-	get_tree().change_scene_to_file("res://scenes/village.tscn")
+	LevelManager.back_to_village()

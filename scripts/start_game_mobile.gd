@@ -52,16 +52,19 @@ func create_test_game():
 	SaveManager.savefilesave()
 	
 func handle_new_game():
+	Loading.loading_2s()
 	SaveManager.save_file = true
 	SaveManager.save_file_2 = true
 	SaveManager.savefilesave()
 	visible = false
-	Loading.loading_1s()
+	await get_tree().create_timer(1.8).timeout
+	LevelManager.in_village = true
+	VillageHudMobile.update_village_hud_mobile()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 	
 func handle_continue_game():
 	visible = false
-	Loading.loading_1s()
+	Loading.loading_2s()
 	SaveManager.load_savefile()
 	if SaveManager.save_file_2 == false:
 		SaveManager.save_file_2 = true
@@ -72,7 +75,9 @@ func handle_continue_game():
 	SaveManager.load_savefile()
 	SaveManager.load_savefile_2()
 	VillageManager.start_timers()
-
+	await get_tree().create_timer(1.3).timeout
+	LevelManager.in_village = true
+	VillageHudMobile.update_village_hud_mobile()
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 func enter_credits():

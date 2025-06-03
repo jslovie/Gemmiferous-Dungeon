@@ -174,4 +174,4 @@ func _on_exit_pressed():
 	RelicManager.reset_pieces_relics()
 	emit_signal("update_total_bar")
 	await get_tree().create_timer(2.5).timeout
-	get_tree().change_scene_to_file("res://scenes/village.tscn")
+	LevelManager.back_to_village()

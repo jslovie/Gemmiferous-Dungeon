@@ -39,6 +39,10 @@ var spins_left = 0
 #Characted unlocks
 var rogue_unlocked = false
 var barbarian_unlocked = false
+var holy_unlocked = false
+var spellblade_unlocked = false
+var knight_unlocked = false
+
 
 #Shield upgrades
 var upgraded_shield_max = 0

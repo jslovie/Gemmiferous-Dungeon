@@ -73,6 +73,7 @@ func item_data_save():
 		VillageManager.bow_item_lvl = item_lvl
 		
 	SaveManager.savefilesave()
+	VillageHudMobile.update_village_hud_mobile()
 	#SaveManager.load_savefile()
 
 func process_gem(gem_texture, price_gem_lvl):
@@ -84,6 +85,7 @@ func process_gem(gem_texture, price_gem_lvl):
 		PlayerManager.player.total_green_gem -= price_gem_lvl
 	elif gem_texture == "Yellow":
 		PlayerManager.player.total_yellow_gem -= price_gem_lvl
+	VillageHudMobile.update_village_hud_mobile()
 
 func check_enough(gem_color, gem_price, coin_price):
 	if PlayerManager.player.total_coins < coin_price:

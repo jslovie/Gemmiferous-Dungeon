@@ -211,6 +211,7 @@ func process_cost(wood,stone,iron):
 	PlayerManager.player.total_stone -= stone
 	PlayerManager.player.total_iron -= iron
 	SaveManager.savefilesave()
+	VillageHudMobile.update_village_hud_mobile()
 	$Cost.visible = false
 
 
@@ -243,6 +244,7 @@ func village_management_book():
 	
 func enter_dungeon_door():
 	VillageManager.in_shop = false
+	LevelManager.in_village = false
 	enter_dungeon.texture_normal = load("res://assets/32rogues/doors/cell-opened.png")
 	enter_dungeon.texture_hover = load("res://assets/32rogues/doors/cell-opened.png")
 	var tween = create_tween()

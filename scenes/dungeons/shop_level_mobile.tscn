@@ -695,18 +695,18 @@ text = "Merchant"
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1514.0
-offset_top = -673.0
-offset_right = 1554.0
-offset_bottom = -633.0
-scale = Vector2(2, 2)
+offset_left = 743.0
+offset_top = -76.0
+offset_right = 783.0
+offset_bottom = -36.0
+scale = Vector2(1.2, 1.2)
 
 [node name="Panel" type="Panel" parent="Material"]
 layout_mode = 0
-offset_left = -761.0
-offset_top = 3.0
-offset_right = 208.0
-offset_bottom = 36.0
+offset_left = -132.0
+offset_top = -32.0
+offset_right = 477.0
+offset_bottom = 37.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Material"]
 layout_mode = 0
@@ -792,11 +792,11 @@ shape = SubResource("CircleShape2D_c1kk2")
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 75.0
-offset_top = -673.0
-offset_right = 115.0
-offset_bottom = -633.0
-scale = Vector2(2, 2)
+offset_left = 646.0
+offset_top = -111.0
+offset_right = 686.0
+offset_bottom = -71.0
+scale = Vector2(1.2, 1.2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
 layout_mode = 0
@@ -893,10 +893,11 @@ text = "Relics:"
 [node name="RelicHandler" parent="." instance=ExtResource("27_7f0ae")]
 unique_name_in_owner = true
 z_index = 32
-offset_left = 642.0
-offset_top = -664.0
-offset_right = 802.0
-offset_bottom = -632.0
+offset_left = 985.0
+offset_top = -89.0
+offset_right = 1145.0
+offset_bottom = -57.0
+scale = Vector2(1, 1)
 
 [node name="RelicUIShop" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 685.0

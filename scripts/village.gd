@@ -5,7 +5,8 @@ extends Node2D
 func _ready():
 	Music.play_music_village()
 	SaveManager.load_savefile()
-
+	$ArrowRight.visible = false
+	$ArrowLeft.visible = false
 	#repair_estate()
 
 	
@@ -23,6 +24,7 @@ func _process(_delta):
 	check_buildings_state()
 	check_villagers()
 	check_in_shop()
+	
 	if LevelManager.is_mobile:
 		$Material.visible = false
 		$Gems.visible = false
@@ -30,8 +32,17 @@ func _process(_delta):
 func check_in_shop():
 	if VillageManager.in_shop == true:
 		$Home.disabled = true
+		if LevelManager.is_mobile:
+			$ArrowRight.visible = true
+			$ArrowLeft.visible = true
 	else:
 		$Home.disabled = false
+		$ArrowRight.visible = false
+		$ArrowLeft.visible = false
+		$Camera2D.can_pan = true
+		$Camera2D.can_zoom = true
+
+
 
 func total_material_check():
 	if PlayerManager.player.total_wood >= 999:
@@ -282,13 +293,25 @@ func update_materials():
 	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.total_stone)
 	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
 
+func enter_shop_mobile():
+	if LevelManager.is_mobile:
+		$Camera2D.zoom = Vector2(7.2,7.2)
+		$Camera2D.can_pan = false
+		$Camera2D.can_zoom = false
+		$Camera2D.global_position = Vector2(772,411)
+		$ArrowRight.visible = true
+		$ArrowLeft.visible = true
+		
+
 func _on_manor_pressed():
+	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.manor_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	$Manor.visible = true
 
 func _on_taverm_pressed():
+	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
@@ -296,6 +319,7 @@ func _on_taverm_pressed():
 
 
 func _on_weaponsmith_pressed():
+	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
@@ -303,6 +327,7 @@ func _on_weaponsmith_pressed():
 
 
 func _on_armourer_pressed():
+	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
@@ -326,3 +351,15 @@ func _on_church_pressed():
 	$VillageTiles/Shops/Church/Label.visible = true
 	await get_tree().create_timer(1).timeout
 	$VillageTiles/Shops/Church/Label.visible = false
+
+
+func move_tween(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)
+
+func _on_arrow_left_pressed():
+	move_tween($Camera2D,Vector2(772,411),0.5)
+	
+func _on_arrow_right_pressed():
+	move_tween($Camera2D,Vector2(849,411),0.5)
