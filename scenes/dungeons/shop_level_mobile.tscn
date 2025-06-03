@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dq6ssa7rytvwo"]
+[gd_scene load_steps=45 format=4 uid="uid://dq6ssa7rytvwo"]
 
 [ext_resource type="Script" path="res://scripts/shop_level.gd" id="1_1vupm"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nkoc2"]
@@ -34,8 +34,9 @@
 [ext_resource type="Resource" uid="uid://by4x5trjed6ca" path="res://scripts/level_shop/pieces/crossbow.tres" id="32_cm3l0"]
 [ext_resource type="Resource" uid="uid://cos5sib17l8t3" path="res://scripts/level_shop/pieces/flail.tres" id="33_vwkdh"]
 [ext_resource type="Resource" uid="uid://3rmd3iqiq6dl" path="res://scripts/level_shop/pieces/sickle.tres" id="34_8bfpe"]
+[ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="35_ovaax"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t78xh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytb7u"]
 texture = ExtResource("2_nkoc2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -149,7 +150,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_qvl8e"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_t78xh")
+sources/0 = SubResource("TileSetAtlasSource_ytb7u")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1kk2"]
 
@@ -332,6 +333,15 @@ corner_radius_bottom_left = 8
 [node name="ShopLevel" type="Node2D"]
 script = ExtResource("1_1vupm")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.674815, 0.674815, 0.674814, 1)
+z_index = 100
+offset_left = 604.0
+offset_top = -109.0
+offset_right = 1308.0
+offset_bottom = 1141.0
+texture = ExtResource("35_ovaax")
+
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(857, -97)
 scale = Vector2(0.4, 0.4)
@@ -346,6 +356,11 @@ tile_set = SubResource("TileSet_qvl8e")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/F1/Dungeon1"]
 tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAEABEAAAAGAAYAAAACABEAAAADAAYAAAADABEAAAADAAMAAAAFABEAAAAGAAIAAAACABEAAAACAAIAAAAEABEAAAAGAAMAAAADABEAAAA=")
+tile_set = SubResource("TileSet_qvl8e")
+
+[node name="DungeonTilesDetails2" type="TileMapLayer" parent="Background/F1/Dungeon1"]
+position = Vector2(-21.4, 8.1)
+tile_map_data = PackedByteArray("AAAHAP//AAAAAAYAAAD8////AAAAAAYAAAA=")
 tile_set = SubResource("TileSet_qvl8e")
 
 [node name="F2" type="Node2D" parent="Background"]
@@ -695,17 +710,17 @@ text = "Merchant"
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 743.0
-offset_top = -76.0
-offset_right = 783.0
-offset_bottom = -36.0
-scale = Vector2(1.2, 1.2)
+offset_left = 750.0
+offset_top = -64.0
+offset_right = 790.0
+offset_bottom = -24.0
+scale = Vector2(1.1, 1.1)
 
 [node name="Panel" type="Panel" parent="Material"]
 layout_mode = 0
 offset_left = -132.0
 offset_top = -32.0
-offset_right = 477.0
+offset_right = 525.0
 offset_bottom = 37.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Material"]
@@ -792,11 +807,11 @@ shape = SubResource("CircleShape2D_c1kk2")
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 646.0
-offset_top = -111.0
-offset_right = 686.0
-offset_bottom = -71.0
-scale = Vector2(1.2, 1.2)
+offset_left = 661.0
+offset_top = -95.0
+offset_right = 701.0
+offset_bottom = -55.0
+scale = Vector2(1.1, 1.1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
 layout_mode = 0
@@ -893,11 +908,11 @@ text = "Relics:"
 [node name="RelicHandler" parent="." instance=ExtResource("27_7f0ae")]
 unique_name_in_owner = true
 z_index = 32
-offset_left = 985.0
-offset_top = -89.0
-offset_right = 1145.0
-offset_bottom = -57.0
-scale = Vector2(1, 1)
+offset_left = 969.0
+offset_top = -87.0
+offset_right = 1129.0
+offset_bottom = -55.0
+scale = Vector2(0.987, 0.987)
 
 [node name="RelicUIShop" parent="." instance=ExtResource("28_glhcc")]
 offset_left = 685.0

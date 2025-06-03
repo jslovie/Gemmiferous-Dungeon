@@ -26,6 +26,7 @@ func _process(_delta):
 	total_material_check()
 	check_unlocked()
 	description_check_mobile()
+	unlock_check_mobile()
 	if LevelManager.is_mobile:
 		$Selection/TutotialBanner.visible = true
 		$Selection/TutorialLabel.visible = true
@@ -171,6 +172,36 @@ func description_check_mobile():
 			$DescriptionBarbarian.visible = true
 		else:
 			$DescriptionBarbarian.visible = false
+
+func unlock_check_mobile():
+	if LevelManager.is_mobile:
+		if $Selection.position == rogue_position:
+			if PlayerManager.player.rogue_unlocked == false:
+				$Unlock.text = "Complete tutorial level to unlock!"
+				$Unlock.visible = true
+				$Banner.visible = true
+	
+		elif $Selection.position == barbarian_position:
+			if PlayerManager.player.barbarian_unlocked == false:
+				$Unlock.text = "Beat first boss to unlock!"
+				$Unlock.visible = true
+				$Banner.visible = true
+		else:
+			$Unlock.visible = false
+			$Banner.visible = false
+			
+		if $Selection.position == holy_position:
+			$NotAvailable.visible = true
+			$Banner2.visible = true
+		elif $Selection.position == spellblade_position:
+			$NotAvailable.visible = true
+			$Banner2.visible = true
+		elif $Selection.position == knight_position:
+			$NotAvailable.visible = true
+			$Banner2.visible = true
+		else:
+			$NotAvailable.visible = false
+			$Banner2.visible = false
 
 func move_tween(pos,time):
 	var tween = create_tween()

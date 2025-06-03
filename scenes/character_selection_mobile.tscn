@@ -711,21 +711,41 @@ offset_bottom = 976.0
 theme_override_font_sizes/font_size = 32
 text = "Please note all loot and progress will be lost"
 
+[node name="Banner" type="Panel" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = 82.0
+offset_right = 597.0
+offset_bottom = 128.0
+
+[node name="Banner2" type="Panel" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = 82.0
+offset_right = 597.0
+offset_bottom = 128.0
+
 [node name="NotAvailable" type="Label" parent="."]
 visible = false
-offset_left = 642.0
-offset_top = 192.0
-offset_right = 1294.0
-offset_bottom = 252.0
+offset_top = 85.0
+offset_right = 823.0
+offset_bottom = 145.0
+scale = Vector2(0.7, 0.7)
 theme_override_font_sizes/font_size = 64
 text = "Not available in demo!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Unlock" type="Label" parent="."]
 visible = false
-offset_top = 982.0
-offset_right = 2400.0
-offset_bottom = 1042.0
-scale = Vector2(0.8, 0.8)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 85.0
+offset_right = 823.0
+offset_bottom = 145.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
 theme_override_font_sizes/font_size = 64
 text = "Beat first boss to unlock!"
 horizontal_alignment = 1
@@ -873,11 +893,13 @@ scale = Vector2(5, 5)
 texture = ExtResource("35_0rpyu")
 
 [node name="LockBarbarian" type="Sprite2D" parent="Selection"]
+visible = false
 position = Vector2(1496, 419)
 scale = Vector2(5, 5)
 texture = ExtResource("35_0rpyu")
 
 [node name="LockRogue" type="Sprite2D" parent="Selection"]
+visible = false
 position = Vector2(898, 444)
 scale = Vector2(5, 5)
 texture = ExtResource("35_0rpyu")
