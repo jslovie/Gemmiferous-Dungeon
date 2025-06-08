@@ -20,7 +20,6 @@ func _ready():
 	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
 	
 func _process(_delta):
-	print($Selection.position)
 	update_treasures()
 	update_materials()
 	total_gems_check()
@@ -209,7 +208,7 @@ func move_tween(pos,time):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property($Selection,"position",pos,time)
-	await tween.finished
+	await get_tree().create_timer(1).timeout
 	$Selection.position = pos
 
 

@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 var menu_music = preload("res://audio/music/music/Dark Fog.wav")
-var village_music_1 = preload("res://audio/music/music/The Wizard's Hut.wav")
+var village_music_1 = preload("res://audio/music/music/The Wizard_s Hut.wav")
 var village_music_2 = preload("res://audio/music/music/Wintertime Venture.wav")
 var village_music_3 = preload("res://audio/music/music/Hallowed Place.wav")
 var tavern_music = preload("res://audio/music/music/A Hidden Tavern.wav")
