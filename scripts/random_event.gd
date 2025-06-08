@@ -215,6 +215,7 @@ func handle_button():
 
 			elif random_resolution == 2:
 				resolution_screen()
+				$Continue.visible = false
 				%ResolutionText.text = "You successfully opened the chest"
 				await get_tree().create_timer(3).timeout
 				LevelManager.type = "Treasure"

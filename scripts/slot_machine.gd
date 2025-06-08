@@ -6,14 +6,32 @@ var green_gem = load("res://assets/32rogues/gems/green.png")
 var red_gem = load("res://assets/32rogues/gems/red.png")
 var jackpot = false
 
-var result1 = Vector2(139,583)
-var result2 = Vector2(287,583)
-var result3 = Vector2(435,583)
+var result1
+var result2
+var result3
+
+var result1_desktop = Vector2(139,583)
+var result2_desktop = Vector2(287,583)
+var result3_desktop = Vector2(435,583)
+
+var result1_mobile = Vector2(177,400)
+var result2_mobile = Vector2(288,400)
+var result3_mobile = Vector2(399,400)
 
 var red_gem_effect = load("res://scenes/GUI/red_gem.tscn")
 var blue_gem_effect = load("res://scenes/GUI/blue_gem.tscn")
 var green_gem_effect = load("res://scenes/GUI/green_gem.tscn")
 var yellow_gem_effect = load("res://scenes/GUI/yellow_gem.tscn")
+
+func _ready():
+	if LevelManager.is_mobile:
+		result1 = result1_mobile
+		result2 = result2_mobile
+		result3 = result3_mobile
+	else:
+		result1 = result1_desktop
+		result2 = result2_desktop
+		result3 = result3_desktop
 
 func _process(_delta):
 	update_spins()

@@ -261,6 +261,7 @@ position = Vector2(974, 483)
 position = Vector2(789, 30)
 
 [node name="F1" type="Node2D" parent="Background"]
+visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F1"]
 position = Vector2(12, -28)
@@ -288,6 +289,11 @@ tile_set = SubResource("TileSet_k6v4e")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/F2/Dungeon1"]
 tile_map_data = PackedByteArray("AAD+/wEAAAAFABAAAAD8/wIAAAAHABAAAAAEAAIAAAACABEAAAAHAAIAAAAEABMAAAADAAYAAAABABMAAAD//wIAAAAAABMAAAD8/wMAAAADABMAAAAHAAQAAAABABUAAAD//wQAAAABABQAAAAAAAYAAAACABMAAAA=")
+tile_set = SubResource("TileSet_k6v4e")
+
+[node name="DungeonTilesDetails2" type="TileMapLayer" parent="Background/F2/Dungeon1"]
+position = Vector2(0, 2.4)
+tile_map_data = PackedByteArray("AAD7////AAAAAA8AAAD6////AAAAAA8AAAD+////AAAAAA8AAAD/////AAAAAA8AAAA=")
 tile_set = SubResource("TileSet_k6v4e")
 
 [node name="F3" type="Node2D" parent="Background"]
@@ -353,9 +359,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -288.0
+offset_left = -270.0
 offset_top = -229.0
-offset_right = 288.0
+offset_right = 270.0
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -372,9 +378,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -288.0
+offset_left = -270.0
 offset_top = -44.0
-offset_right = 288.0
+offset_right = 270.0
 offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -429,9 +435,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -288.0
+offset_left = -270.0
 offset_top = -229.0
-offset_right = 288.0
+offset_right = 270.0
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2

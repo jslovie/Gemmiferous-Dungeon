@@ -6181,7 +6181,7 @@ flip_h = true
 
 [node name="Pause" type="Control" parent="."]
 visible = false
-z_index = 50
+z_index = 53
 layout_mode = 3
 anchors_preset = 0
 offset_left = -10.0

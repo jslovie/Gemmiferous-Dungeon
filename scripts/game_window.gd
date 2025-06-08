@@ -4,7 +4,7 @@ extends Node2D
 
 const RESOURCE_PATH = "user://resources/"
 
-var treasure_timeout_min = 10
+var treasure_timeout_min = 15
 var treasure_timeout_max = 20
 
 func _ready():

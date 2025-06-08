@@ -569,7 +569,10 @@ func get_killed():
 	tween_scale.tween_property($Character,"scale", Vector2(16,16), 0.1)
 	tween_scale.tween_property($Character,"scale", Vector2(15,15), 0.1)
 	var tween_move = create_tween()
-	tween_move.tween_property($Character, "position", Vector2(-800,0), 0.5)
+	if LevelManager.is_mobile:
+		tween_move.tween_property($Character, "position", Vector2(-400,0), 0.5)
+	else:
+		tween_move.tween_property($Character, "position", Vector2(-800,0), 0.5)
 	var tween_rotate = create_tween()
 	tween_rotate.tween_property($Character, "rotation", deg_to_rad(-90), 0.5)
 	

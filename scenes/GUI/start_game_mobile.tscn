@@ -277,7 +277,7 @@ offset_bottom = 31.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("5_ivw4d")
 theme_override_font_sizes/font_size = 32
-text = "v0.5.2.2.m.0.2.0"
+text = "v0.5.2.2.m.0.2.2.a"
 
 [node name="DemoVersion" type="Label" parent="."]
 visible = false
@@ -421,25 +421,35 @@ text = "Back	"
 
 [node name="Removesavefile" type="ColorRect" parent="."]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 426.0
-offset_top = 606.0
-offset_right = -679.0
-offset_bottom = -197.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 29.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Removesavefile"]
+layout_mode = 0
+offset_left = -288.0
+offset_top = -279.0
+offset_right = 288.0
+offset_bottom = 27.0
+color = Color(0, 0, 0, 0.482353)
 
 [node name="RemovesavefileLabel" type="Label" parent="Removesavefile"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -29.0
-offset_right = -272.0
-offset_bottom = -122.0
+offset_left = -287.0
+offset_top = -275.0
+offset_right = 96.0
+offset_bottom = -113.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -453,10 +463,10 @@ autowrap_mode = 2
 
 [node name="Yes" type="TextureButton" parent="Removesavefile"]
 layout_mode = 0
-offset_left = 268.0
-offset_top = 203.0
-offset_right = 295.0
-offset_bottom = 218.0
+offset_left = -142.0
+offset_top = -20.0
+offset_right = -115.0
+offset_bottom = -5.0
 scale = Vector2(3, 3)
 
 [node name="YesLabel" type="Label" parent="Removesavefile/Yes"]
@@ -467,10 +477,10 @@ text = "Yes"
 
 [node name="No" type="TextureButton" parent="Removesavefile"]
 layout_mode = 0
-offset_left = 462.0
-offset_top = 203.0
-offset_right = 489.0
-offset_bottom = 218.0
+offset_left = 52.0
+offset_top = -20.0
+offset_right = 79.0
+offset_bottom = -5.0
 scale = Vector2(3, 3)
 
 [node name="NoLabel" type="Label" parent="Removesavefile/No"]
@@ -495,9 +505,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
+offset_left = -226.0
 offset_top = -85.9999
-offset_right = 20.0
+offset_right = -186.0
 offset_bottom = -70.9999
 grow_horizontal = 2
 grow_vertical = 0
@@ -511,10 +521,10 @@ text = "Back"
 
 [node name="LeadDevLabel" type="Label" parent="Credits"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 694.0
-offset_right = 262.0
-offset_bottom = 724.0
+offset_left = 212.0
+offset_top = 525.0
+offset_right = 442.0
+offset_bottom = 555.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 32
 text = "Lead Developer:"
@@ -531,10 +541,10 @@ text = "jslovieDev"
 
 [node name="MusicLabel" type="Label" parent="Credits"]
 layout_mode = 0
-offset_left = 169.0
-offset_top = 818.0
-offset_right = 399.0
-offset_bottom = 848.0
+offset_left = 19.0
+offset_top = 612.0
+offset_right = 249.0
+offset_bottom = 642.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 32
 text = "Music:"
@@ -561,10 +571,10 @@ text = "Cyberleaf Studio"
 
 [node name="SFXLabel" type="Label" parent="Credits"]
 layout_mode = 0
-offset_left = 545.0
-offset_top = 748.0
-offset_right = 775.0
-offset_bottom = 778.0
+offset_left = 253.0
+offset_top = 404.0
+offset_right = 483.0
+offset_bottom = 434.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 32
 text = "SFX:"
@@ -581,20 +591,19 @@ text = "Leohpaz"
 
 [node name="GameByLabel" type="Label" parent="Credits"]
 layout_mode = 0
-offset_left = 570.0
-offset_top = 193.0
-offset_right = 846.0
-offset_bottom = 223.0
-scale = Vector2(1.5, 1.5)
+offset_left = 291.0
+offset_top = 212.0
+offset_right = 575.0
+offset_bottom = 242.0
 theme_override_font_sizes/font_size = 32
 text = "Game by: jslovieDev"
 
 [node name="PlatestersLabel" type="Label" parent="Credits"]
 layout_mode = 0
-offset_left = 1384.0
-offset_top = 769.0
-offset_right = 1614.0
-offset_bottom = 799.0
+offset_left = 199.0
+offset_top = 799.0
+offset_right = 429.0
+offset_bottom = 829.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 32
 text = "Playtesters:"
@@ -627,7 +636,7 @@ offset_right = 104.667
 offset_bottom = 101.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 16
-text = "CMvonRBTV"
+text = "Samalama"
 
 [node name="Label3" type="Label" parent="Credits/PlatestersLabel"]
 layout_mode = 0
@@ -641,10 +650,10 @@ text = "beebooba"
 
 [node name="ArtistsLabel" type="Label" parent="Credits"]
 layout_mode = 0
-offset_left = 1100.0
-offset_top = 672.0
-offset_right = 1330.0
-offset_bottom = 702.0
+offset_left = 335.0
+offset_top = 623.0
+offset_right = 565.0
+offset_bottom = 653.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 32
 text = "Artists:"

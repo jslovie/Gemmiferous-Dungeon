@@ -20,6 +20,7 @@ func _ready():
 	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
 	
 func _process(_delta):
+	print($Selection.position)
 	update_treasures()
 	update_materials()
 	total_gems_check()
@@ -179,7 +180,7 @@ func unlock_check_mobile():
 			if PlayerManager.player.rogue_unlocked == false:
 				$Unlock.text = "Complete tutorial level to unlock!"
 				$Unlock.visible = true
-				$Banner.visible = true
+				$Banner3.visible = true
 	
 		elif $Selection.position == barbarian_position:
 			if PlayerManager.player.barbarian_unlocked == false:
@@ -189,6 +190,7 @@ func unlock_check_mobile():
 		else:
 			$Unlock.visible = false
 			$Banner.visible = false
+			$Banner3.visible = false
 			
 		if $Selection.position == holy_position:
 			$NotAvailable.visible = true
@@ -207,6 +209,8 @@ func move_tween(pos,time):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property($Selection,"position",pos,time)
+	await tween.finished
+	$Selection.position = pos
 
 
 func _on_play_pressed():

@@ -113,11 +113,13 @@ func back_to_village():
 	Loading.loading_1s()
 	await get_tree().create_timer(0.8).timeout
 	LevelManager.in_village = true
+	LevelManager.in_tutorial_level = false
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
 
 func reset():
 	DungeonMap.hide_all_dungeons()
+	DungeonMapMobile.hide_all_dungeons()
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()

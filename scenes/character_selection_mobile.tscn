@@ -725,6 +725,13 @@ offset_top = 82.0
 offset_right = 597.0
 offset_bottom = 128.0
 
+[node name="Banner3" type="Panel" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = 82.0
+offset_right = 597.0
+offset_bottom = 167.0
+
 [node name="NotAvailable" type="Label" parent="."]
 visible = false
 offset_top = 85.0
@@ -732,9 +739,10 @@ offset_right = 823.0
 offset_bottom = 145.0
 scale = Vector2(0.7, 0.7)
 theme_override_font_sizes/font_size = 64
-text = "Not available in demo!"
+text = "Not Available in Demo!"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Unlock" type="Label" parent="."]
 visible = false

@@ -302,7 +302,9 @@ func enter_shop_mobile():
 		$ArrowRight.visible = true
 		$ArrowLeft.visible = true
 		
-
+func village_management_entered():
+	move_tween($Camera2D,Vector2(772,411),0.5)
+	
 func _on_manor_pressed():
 	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.manor_open)

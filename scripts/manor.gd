@@ -222,6 +222,9 @@ func _on_exit_shop_pressed():
 func _on_village_management_pressed():
 	Sfx.play_SFX(Sfx.open_book)
 	village_management_book()
+	await get_tree().create_timer(0.5).timeout
+	if LevelManager.is_mobile:
+		get_parent().village_management_entered()
 
 func _on_enter_dungeon_pressed():
 	Sfx.play_SFX(Sfx.enter_dungeon)
@@ -245,6 +248,7 @@ func village_management_book():
 func enter_dungeon_door():
 	VillageManager.in_shop = false
 	LevelManager.in_village = false
+	LevelManager.in_tutorial_level = false
 	enter_dungeon.texture_normal = load("res://assets/32rogues/doors/cell-opened.png")
 	enter_dungeon.texture_hover = load("res://assets/32rogues/doors/cell-opened.png")
 	var tween = create_tween()

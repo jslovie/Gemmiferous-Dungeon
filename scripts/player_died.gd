@@ -172,6 +172,7 @@ func _on_exit_pressed():
 	SaveManager.savefilesave()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	LevelManager.in_tutorial_level = false
 	emit_signal("update_total_bar")
 	await get_tree().create_timer(2.5).timeout
 	LevelManager.back_to_village()

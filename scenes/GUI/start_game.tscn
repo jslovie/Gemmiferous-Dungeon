@@ -607,7 +607,6 @@ offset_bottom = 15.0
 text = "No"
 
 [node name="Credits" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -754,7 +753,7 @@ offset_right = 104.667
 offset_bottom = 101.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 16
-text = "CMvonRBTV"
+text = "Samalama"
 
 [node name="Label3" type="Label" parent="Credits/PlatestersLabel"]
 layout_mode = 0
