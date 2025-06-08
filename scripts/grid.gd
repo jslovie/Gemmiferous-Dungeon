@@ -168,23 +168,37 @@ func is_in_grid(grid_position):
 	return false
 	
 func touch_input():
-	var mouse = get_global_mouse_position()
-	mouse = pixel_to_grid(mouse.x, mouse.y)
-	
 	if Input.is_action_just_pressed("ui_touch"):
-		if is_in_grid(mouse):
-			first_touch = mouse
+		if is_in_grid(pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)):
+			first_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
 			controlling = true
-			if hint:
-				destroy_hint()
-		else:
-			controlling = false
-			
 	if Input.is_action_just_released("ui_touch"):
-		if is_in_grid(mouse) && controlling:
-			controlling = false
-			final_touch = mouse
+		if is_in_grid(pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)) && controlling:
+			controlling = false;
+			final_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
 			touch_difference(first_touch, final_touch)
+
+	
+	
+	
+#func touch_input():
+	#var mouse = get_global_mouse_position()
+	#mouse = pixel_to_grid(mouse.x, mouse.y)
+	#
+	#if Input.is_action_just_pressed("ui_touch"):
+		#if is_in_grid(mouse):
+			#first_touch = mouse
+			#controlling = true
+			#if hint:
+				#destroy_hint()
+		#else:
+			#controlling = false
+			#
+	#if Input.is_action_just_released("ui_touch"):
+		#if is_in_grid(mouse) && controlling:
+			#controlling = false
+			#final_touch = mouse
+			#touch_difference(first_touch, final_touch)
 
 func swap_pieces(column, row, direction):
 	var firts_piece = all_pieces[column][row]

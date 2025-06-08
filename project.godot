@@ -44,6 +44,7 @@ SignalBus="*res://scripts/signal_bus.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=1024
+window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 mouse_cursor/custom_image="res://cursor.png"

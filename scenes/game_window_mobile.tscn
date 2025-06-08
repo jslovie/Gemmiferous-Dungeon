@@ -1662,6 +1662,9 @@ texture = ExtResource("23_8012o")
 position = Vector2(16, 16)
 texture = ExtResource("55_ucbyr")
 
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(64, 800)
+
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("11_uxyrw")
 width = 8
