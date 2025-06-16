@@ -5443,7 +5443,6 @@ path = "ABC"
 [node name="Tutorial" type="Node2D" parent="Map/Dungeons"]
 
 [node name="DungeonF_T" type="Node2D" parent="Map/Dungeons/Tutorial"]
-visible = false
 position = Vector2(450, 103)
 scale = Vector2(0.8, 0.8)
 
@@ -5535,6 +5534,16 @@ offset_top = 917.5
 offset_right = 1079.5
 offset_bottom = 949.5
 type = "Enemy"
+floor_set = 1
+level = 1
+path = "ABC"
+
+[node name="LevelSelection32" parent="Map/Dungeons/Tutorial/DungeonF_T/Levels" instance=ExtResource("17_8ubgh")]
+offset_left = 1189.02
+offset_top = 917.5
+offset_right = 1221.02
+offset_bottom = 949.5
+type = "Shop"
 floor_set = 1
 level = 1
 path = "ABC"

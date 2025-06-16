@@ -1,5 +1,14 @@
 extends Control
 
+var amount_bet = 0
+var amount_win = 0
+
+var coin_pos = Vector2(0,-128)
+var yellow_gem_pos = Vector2(0,-96)
+var green_gem_pos = Vector2(0,-64)
+var red_gem_pos = Vector2(0,-32)
+var blue_gem_pos = Vector2(0,0)
+
 var score = 0
 var enemy_score = 0
 var card_wait_time = 1
@@ -63,16 +72,33 @@ var cards_pack = {
 }
 
 func _ready():
+	SaveManager.load_savefile()
+	reset_cards()
 	Music.play_music_tavern()
-	%Card1.visible = false
-	%Card2.visible = false
-	%Card3.visible = false
-	%Card4.visible = false
-	%Card5.visible = false
-	%Card6.visible = false
+	$Hit.visible = false
+	$EndTurn.visible = false
 	$Score.visible = false
 	$EnemyScore.visible = false
+	$Result.visible = false
+	$NotEnough.visible = false
 	
+func _process(delta):
+	update_materials()
+	update_treasures()
+	set_bet_win_amounts()
+
+func update_treasures():
+	$Gems/HBoxContainer/RedGem.text = ": " + str(PlayerManager.player.total_red_gem)
+	$Gems/HBoxContainer/BlueGem.text = ": " + str(PlayerManager.player.total_blue_gem)
+	$Gems/HBoxContainer/GreenGem.text = ": " + str(PlayerManager.player.total_green_gem)
+	$Gems/HBoxContainer/YellowGem.text = ": " + str(PlayerManager.player.total_yellow_gem)
+	$Material/HBoxContainer/Coin.text = ": " + str(PlayerManager.player.total_coins)
+	
+func update_materials():
+	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.total_wood)
+	$Material/HBoxContainer/Stone.text = ": " + str(PlayerManager.player.total_stone)
+	$Material/HBoxContainer/Iron.text = ": " + str(PlayerManager.player.total_iron)
+
 	
 func shufle_pack():
 	cards_pack = {
@@ -136,8 +162,6 @@ func get_card():
 		var random_card = cards_pack_keys[randi() % cards_pack.size()]
 		var selected_card = cards_pack[random_card]
 		cards_pack.erase(random_card)
-		print(selected_card)
-		print(cards_pack)
 		return selected_card
 
 func update_score():
@@ -150,18 +174,30 @@ func reset_score():
 	enemy_score = 0
 	card_6_score = 0
 	$Score.visible = false
-	$EnemyScore.visible = false	
+	$EnemyScore.visible = false
 
 func reset_cards():
-	$Card1.texture = null
-	$Card2.texture = null
+	%Card1.texture = null
+	%Card2.texture = null
 	%Card3.texture = null
 	%Card4.texture = null
 	%Card5.texture = null
 	%Card6.texture = null
+	%Card7.texture = null
+	%Card8.texture = null
+	%Card1.visible = false
+	%Card2.visible = false
+	%Card3.visible = false
+	%Card4.visible = false
+	%Card5.visible = false
+	%Card6.visible = false
+	%Card7.visible = false
+	%Card8.visible = false
+	
 	card_6 = null
 	
 func check_result():
+	await get_tree().create_timer(1).timeout
 	if score > 21:
 		$Result.visible = true
 		$Result.text = "You Lost!"
@@ -175,27 +211,80 @@ func check_result():
 		$Result.visible = true
 		$Result.text = "You Won!"
 
+
+func process_gem(gem_texture, price_gem_lvl):
+	if gem_texture == "Red":
+		PlayerManager.player.total_red_gem -= price_gem_lvl
+	elif gem_texture == "Blue":
+		PlayerManager.player.total_blue_gem -= price_gem_lvl
+	elif gem_texture == "Green":
+		PlayerManager.player.total_green_gem -= price_gem_lvl
+	elif gem_texture == "Yellow":
+		PlayerManager.player.total_yellow_gem -= price_gem_lvl
+	VillageHudMobile.update_village_hud_mobile()
+
+func check_enough(amount):
+	if $Bet/BetT/Row.position == red_gem_pos:
+		if PlayerManager.player.total_red_gem < amount:
+			return false
+		else:
+			return true
+	elif $Bet/BetT/Row.position == blue_gem_pos:
+		if PlayerManager.player.total_blue_gem < amount:
+			return false
+		else:
+			return true
+	elif $Bet/BetT/Row.position == green_gem_pos:
+		if PlayerManager.player.total_green_gem < amount:
+			return false
+		else:
+			return true
+	elif $Bet/BetT/Row.position == yellow_gem_pos:
+		if PlayerManager.player.total_yellow_gem < amount:
+			return false
+		else:
+			return true
+	elif $Bet/BetT/Row.position == coin_pos:
+		if PlayerManager.player.total_coins < amount:
+			return false
+		else:
+			return true
+
+func not_enough():
+	Sfx.play_SFX(Sfx.upgrade_deny)
+	$NotEnough.visible = true
+	await get_tree().create_timer(1).timeout
+	$NotEnough.visible = false
 	
 func _on_pick_card_pressed():
-	pick_card($Card1)
-	$Card1.visible = true
-	update_score()
-	await get_tree().create_timer(card_wait_time).timeout
-	pick_card($Card2)
-	$Card2.visible = true
-	update_score()
-	await get_tree().create_timer(card_wait_time).timeout
-	pick_card($Card5)
-	$Score.visible = true
-	$Card5.visible = true
-	update_score()
-	await get_tree().create_timer(card_wait_time).timeout
-	pick_card($Card6)
-	$Card6.visible = true
-	update_score()
-	$EnemyScore.visible = true
-	
-	pass
+	if check_enough(amount_bet):
+		$PickCard.visible = false
+		
+		pick_card(%Card1)
+		%Card1.visible = true
+		update_score()
+		await get_tree().create_timer(card_wait_time).timeout
+		pick_card(%Card2)
+		%Card2.visible = true
+		update_score()
+		await get_tree().create_timer(card_wait_time).timeout
+		pick_card(%Card5)
+		$Score.visible = true
+		%Card5.visible = true
+		update_score()
+		await get_tree().create_timer(card_wait_time).timeout
+		pick_card(%Card6)
+		%Card6.visible = true
+		update_score()
+		$EnemyScore.visible = true
+		if score < 21:
+			$Hit.visible = true
+			$EndTurn.visible = true
+		else:
+			_on_end_turn_pressed()
+			
+	else:
+		not_enough()
 
 func pick_card(card):
 	var card_to_change = card
@@ -206,7 +295,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 11
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 11
 		else:
 			score += 11
@@ -216,7 +305,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 2
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 2
 		else:
 			score += 2
@@ -226,7 +315,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 3
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 3
 		else:
 			score += 3
@@ -236,7 +325,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 4
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 4
 		else:
 			score += 4
@@ -246,7 +335,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 5
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 5
 		else:
 			score += 5
@@ -256,7 +345,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 6
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 6
 		else:
 			score += 6
@@ -266,7 +355,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 7
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 7
 		else:
 			score += 7
@@ -276,7 +365,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 8
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 8
 		else:
 			score += 8
@@ -286,7 +375,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 9
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 9
 		else:
 			score += 9
@@ -296,7 +385,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -306,7 +395,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -316,7 +405,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -326,7 +415,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -336,7 +425,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 11
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 11
 		else:
 			score += 11
@@ -346,7 +435,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 2
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 2
 		else:
 			score += 2
@@ -356,7 +445,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 3
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 3
 		else:
 			score += 3
@@ -366,7 +455,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 4
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 4
 		else:
 			score += 4
@@ -376,7 +465,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 5
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 5
 		else:
 			score += 5
@@ -386,7 +475,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 6
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 6
 		else:
 			score += 6
@@ -396,7 +485,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 7
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 7
 		else:
 			score += 7
@@ -406,7 +495,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 8
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 8
 		else:
 			score += 8
@@ -416,7 +505,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 9
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 9
 		else:
 			score += 9
@@ -426,7 +515,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -436,7 +525,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -446,7 +535,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -456,7 +545,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -466,7 +555,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 11
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 11
 		else:
 			score += 11
@@ -476,7 +565,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 2
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 2
 		else:
 			score += 2
@@ -486,7 +575,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 3
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 3
 		else:
 			score += 3
@@ -496,7 +585,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 4
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 4
 		else:
 			score += 4
@@ -506,7 +595,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 5
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 5
 		else:
 			score += 5
@@ -516,7 +605,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 6
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 6
 		else:
 			score += 6
@@ -526,7 +615,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 7
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 7
 		else:
 			score += 7
@@ -536,7 +625,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 8
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 8
 		else:
 			score += 8
@@ -546,7 +635,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 9
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 9
 		else:
 			score += 9
@@ -556,7 +645,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -566,7 +655,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -576,7 +665,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -586,7 +675,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -596,7 +685,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 11
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 11
 		else:
 			score += 11
@@ -606,7 +695,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 2
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 2
 		else:
 			score += 2
@@ -616,7 +705,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 3
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 3
 		else:
 			score += 3
@@ -626,7 +715,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 4
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 4
 		else:
 			score += 4
@@ -636,7 +725,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 5
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 5
 		else:
 			score += 5
@@ -646,7 +735,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 6
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 6
 		else:
 			score += 6
@@ -656,7 +745,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 7
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 7
 		else:
 			score += 7
@@ -666,7 +755,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 8
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 8
 		else:
 			score += 8
@@ -676,7 +765,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 9
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 9
 		else:
 			score += 9
@@ -686,7 +775,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -696,7 +785,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -706,7 +795,7 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
@@ -716,16 +805,48 @@ func pick_card(card):
 			card_6 = selected_card
 			card_6_score += 10
 			card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_65.png")
-		if card == %Card5:
+		elif card == %Card5 or card == %Card7 or card == %Card8:
 			enemy_score += 10
 		else:
 			score += 10
-	print(score)
 
+func enemy_play():
+	if enemy_score > score:
+		check_result()
+		endgame()
+	elif enemy_score == score: 
+		check_result()
+		endgame()
+	else:
+		await get_tree().create_timer(card_wait_time).timeout
+		pick_card(%Card7)
+		%Card7.visible = true
+		update_score()
+		if enemy_score >= 21:
+			check_result()
+			endgame()
+		elif enemy_score < 21 and enemy_score < score:
+			await get_tree().create_timer(card_wait_time).timeout
+			pick_card(%Card8)
+			%Card8.visible = true
+			update_score()
+			check_result()
+			endgame()
+		else:
+			check_result()
+			endgame()
+
+func endgame():
+	await get_tree().create_timer(2).timeout
+	$Result.visible = false
+	reset_score()
+	reset_cards()
+	shufle_pack()
+	
+	$PickCard.visible = true
 
 func _on_shuffle_pressed():
 	shufle_pack()
-	print(cards_pack)
 
 
 func _on_back_to_village_pressed():
@@ -733,18 +854,24 @@ func _on_back_to_village_pressed():
 
 
 func _on_end_turn_pressed():
+	$Hit.visible = false
+	$EndTurn.visible = false
 	change_card_6(%Card6)
 	enemy_score += card_6_score
 	update_score()
-	
-	check_result()
-	
-	await get_tree().create_timer(2).timeout
-	$Result.visible = false
-	reset_score()
-	reset_cards()
-	shufle_pack()
-
+	if score == 21 and enemy_score >= 21:
+		check_result()
+		endgame()
+	elif score == 21 and enemy_score < 21:
+		enemy_play()
+	elif score > 21:
+		check_result()
+		endgame()
+	elif score < 21 and enemy_score < 21:
+		enemy_play()
+	elif enemy_score > score:
+		check_result()
+		endgame()
 
 func change_card_6(card):
 	var card_to_change = card
@@ -853,3 +980,108 @@ func change_card_6(card):
 		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_43.png")
 	elif selected_card == "King of Diamonds":
 		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_44.png")
+
+
+func _on_hit_pressed():
+	if %Card3.visible == false:
+		pick_card(%Card3)
+		%Card3.visible = true
+		update_score()
+		if score >= 21:
+			_on_end_turn_pressed()
+	else:
+		pick_card(%Card4)
+		%Card4.visible = true
+		update_score()
+		if score >= 21:
+			_on_end_turn_pressed()
+	if %Card3.visible == true and %Card4.visible == true:
+		$Hit.visible = false
+
+func scale_tween(object,siz,siz_f,time):
+	var tween = create_tween()
+	tween.tween_property(object,"scale",siz,time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(object,"scale",siz_f,time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	
+func _on_home_pressed():
+	LevelManager.back_to_village()
+
+
+func set_bet_win_amounts():
+	$Bet/AmountBet.text = str(amount_bet)
+	amount_win = amount_bet * 2
+	$Win/AmountWin.text = str(amount_win)
+
+func _on_amount_down_pressed():
+	scale_tween($Bet/AmountDown,Vector2(2,2),Vector2(1.5,1.5),0.1)
+	if amount_bet <= 5:
+		amount_bet -= 1
+		if amount_bet <= 0:
+			amount_bet = 0
+	elif amount_bet > 5:
+		amount_bet -= 5
+		if amount_bet <= 0:
+			amount_bet = 0
+
+func _on_amount_up_pressed():
+	scale_tween($Bet/AmountUp,Vector2(2,2),Vector2(1.5,1.5),0.1)
+	if amount_bet < 5:
+		amount_bet += 1
+		if amount_bet >= 95:
+			amount_bet = 95
+	elif amount_bet >= 5:
+		amount_bet += 5
+		if amount_bet >= 95:
+			amount_bet = 95
+
+func _on_bet_t_down_pressed():
+	scale_tween($Bet/BetTDown,Vector2(2,2),Vector2(1.5,1.5),0.1)
+	if $Bet/BetT/Row.position == coin_pos:
+		$Bet/BetT/Row.position = blue_gem_pos
+	elif $Bet/BetT/Row.position == blue_gem_pos:
+		$Bet/BetT/Row.position = red_gem_pos
+	elif $Bet/BetT/Row.position == red_gem_pos:
+		$Bet/BetT/Row.position = green_gem_pos
+	elif $Bet/BetT/Row.position == green_gem_pos:
+		$Bet/BetT/Row.position = yellow_gem_pos
+	elif $Bet/BetT/Row.position == yellow_gem_pos:
+		$Bet/BetT/Row.position = coin_pos
+
+func _on_bet_t_up_pressed():
+	scale_tween($Bet/BetTUp,Vector2(2,2),Vector2(1.5,1.5),0.1)
+	if $Bet/BetT/Row.position == coin_pos:
+		$Bet/BetT/Row.position = yellow_gem_pos
+	elif $Bet/BetT/Row.position == yellow_gem_pos:
+		$Bet/BetT/Row.position = green_gem_pos
+	elif $Bet/BetT/Row.position == green_gem_pos:
+		$Bet/BetT/Row.position = red_gem_pos
+	elif $Bet/BetT/Row.position == red_gem_pos:
+		$Bet/BetT/Row.position = blue_gem_pos
+	elif $Bet/BetT/Row.position == blue_gem_pos:
+		$Bet/BetT/Row.position = coin_pos
+
+func _on_win_t_down_pressed():
+	scale_tween($Win/WinTDown,Vector2(2,2),Vector2(1.5,1.5),0.1)
+	if $Win/WinT/Row.position == coin_pos:
+		$Win/WinT/Row.position = blue_gem_pos
+	elif $Win/WinT/Row.position == blue_gem_pos:
+		$Win/WinT/Row.position = red_gem_pos
+	elif $Win/WinT/Row.position == red_gem_pos:
+		$Win/WinT/Row.position = green_gem_pos
+	elif $Win/WinT/Row.position == green_gem_pos:
+		$Win/WinT/Row.position = yellow_gem_pos
+	elif $Win/WinT/Row.position == yellow_gem_pos:
+		$Win/WinT/Row.position = coin_pos
+
+func _on_win_t_up_pressed():
+	scale_tween($Win/WinTUp,Vector2(2,2),Vector2(1.5,1.5),0.1)
+	if $Win/WinT/Row.position == coin_pos:
+		$Win/WinT/Row.position = yellow_gem_pos
+	elif $Win/WinT/Row.position == yellow_gem_pos:
+		$Win/WinT/Row.position = green_gem_pos
+	elif $Win/WinT/Row.position == green_gem_pos:
+		$Win/WinT/Row.position = red_gem_pos
+	elif $Win/WinT/Row.position == red_gem_pos:
+		$Win/WinT/Row.position = blue_gem_pos
+	elif $Win/WinT/Row.position == blue_gem_pos:
+		$Win/WinT/Row.position = coin_pos

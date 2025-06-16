@@ -67,8 +67,10 @@ func _on_pressed():
 func _on_mouse_entered():
 	RelicManager.relic_name = relic.relic_name
 	RelicManager.relic_description = relic.description
+	RelicManager.hide_stats = true
 
 
 func _on_mouse_exited():
 	RelicManager.relic_name = ""
 	RelicManager.relic_description = ""
+	RelicManager.hide_stats = false

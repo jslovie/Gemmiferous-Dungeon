@@ -4,6 +4,7 @@ const RESOURCE_PATH = "user://resources/"
 
 var relic_description = ""
 var relic_name = ""
+var hide_stats = false
 
 var current_relics = []
 var current_pieces = []

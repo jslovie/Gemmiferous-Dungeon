@@ -228,6 +228,13 @@ func make_effect(effect, color, pos):
 func update_relic_description():
 	$RelicName.text = RelicManager.relic_name
 	$RelicDescription.text = RelicManager.relic_description
+	if RelicManager.hide_stats:
+		if LevelManager.is_mobile:
+			$Material.visible = false
+			$Gems.visible = false
+	else:
+		$Material.visible = true
+		$Gems.visible = true
 
 func update_treasures_bar():
 	$Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)

@@ -14,9 +14,11 @@ var start_zoom
 
 func _input(event):
 	if event is InputEventScreenTouch:
-		handle_touch(event)
+		if LevelManager.is_mobile:
+			handle_touch(event)
 	if event is InputEventScreenDrag:
-		handle_drag(event)
+		if LevelManager.is_mobile:
+			handle_drag(event)
 		pass
 		
 func handle_touch(event: InputEventScreenTouch):

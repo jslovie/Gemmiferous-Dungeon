@@ -114,10 +114,11 @@ func _on_mouse_entered():
 	$TextureRect.modulate = Color(0.439, 0.439, 0.439)
 	RelicManager.relic_name = relic.relic_name
 	RelicManager.relic_description = relic.description
-
+	RelicManager.hide_stats = true
+	
 	
 func _on_mouse_exited():
 	$TextureRect.modulate = Color(0.235, 0.235, 0.235)
 	RelicManager.relic_name = ""
 	RelicManager.relic_description = ""
-	
+	RelicManager.hide_stats = false

@@ -1,10 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3rdm3t28dylk"]
+[gd_scene load_steps=25 format=3 uid="uid://b3rdm3t28dylk"]
 
 [ext_resource type="Script" path="res://scripts/card_game.gd" id="1_m8tym"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_vmm01"]
+[ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="2_lfppa"]
 [ext_resource type="Texture2D" uid="uid://d067xevn41isn" path="res://assets/cards/Cards Collection 1-2_tile_2.png" id="2_ynapj"]
+[ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_ypwmo"]
 [ext_resource type="Texture2D" uid="uid://db4r1cxnyv822" path="res://assets/cards/Cards Collection 1-2_tile_56.png" id="3_qj1ny"]
 [ext_resource type="Texture2D" uid="uid://bc2hsc1xswu7x" path="res://assets/cards/Cards Collection 1-2_tile_65.png" id="4_32uvn"]
+[ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="6_6ijud"]
+[ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="7_1888n"]
+[ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="8_b4t07"]
+[ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="9_5vkev"]
+[ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="10_pwt2y"]
+[ext_resource type="Texture2D" uid="uid://dpt1i8pwisqfp" path="res://assets/32rogues/gems/red_outline.png" id="11_lmo4p"]
+[ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="12_163if"]
+[ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="13_hrohp"]
+[ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="14_220v1"]
+[ext_resource type="Texture2D" uid="uid://mvy2ovge06fi" path="res://assets/32rogues/Icons/Home.png" id="15_jfswp"]
+[ext_resource type="Texture2D" uid="uid://dwnp3opnljr31" path="res://assets/32rogues/Icons/Home_highlighted.png" id="16_qgpb8"]
+[ext_resource type="Texture2D" uid="uid://c2kps56oqjbax" path="res://assets/paper UI/Paper/down.png" id="19_yy642"]
+[ext_resource type="Texture2D" uid="uid://dls4tk30qcosl" path="res://assets/paper UI/Paper/up.png" id="20_ep4ey"]
+[ext_resource type="Texture2D" uid="uid://dxnj7pe7j3fui" path="res://assets/slot/BJ.png" id="21_dpibw"]
+[ext_resource type="Texture2D" uid="uid://t564tte0sfm7" path="res://assets/slot/white.png" id="22_wvsqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndmtg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rmi62"]
+light_mode = 2
 
 [node name="CardGame" type="Control"]
 layout_mode = 3
@@ -15,6 +37,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m8tym")
 
+[node name="Player" parent="." instance=ExtResource("2_ypwmo")]
+position = Vector2(-1311, 916)
+
 [node name="Panel" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -24,6 +49,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1.92523e-07, 0.223513, 0.141187, 1)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.674815, 0.674815, 0.674814, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -475.0
+offset_right = 306.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lfppa")
+
 [node name="PickCard" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -31,32 +72,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -191.0
-offset_top = 244.5
-offset_right = -43.0
-offset_bottom = 282.5
+offset_left = -81.0
+offset_top = 277.0
+offset_right = 81.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
-text = "pick card"
+text = "Play"
 
-[node name="Shuffle" type="Button" parent="."]
+[node name="Hit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = 244.5
-offset_right = 96.0
-offset_bottom = 282.5
+offset_left = -145.0
+offset_top = 277.0
+offset_right = -5.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
-text = "shuffle"
+text = "Hit"
 
 [node name="EndTurn" type="Button" parent="."]
 layout_mode = 1
@@ -65,112 +106,563 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 118.0
-offset_top = 244.5
-offset_right = 258.0
-offset_bottom = 282.5
+offset_left = 4.0
+offset_top = 277.0
+offset_right = 144.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
-text = "end turn"
+text = "Stand"
 
-[node name="Card1" type="TextureRect" parent="."]
+[node name="Shuffle" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -895.0
+offset_top = 260.0
+offset_right = -775.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+theme_override_font_sizes/font_size = 32
+text = "shuffle"
+
+[node name="PlayerCards" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 9.0
+offset_right = 20.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card1" type="TextureRect" parent="PlayerCards"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 860.0
-offset_top = 540.0
-offset_right = 974.0
-offset_bottom = 706.0
+offset_left = -68.0
+offset_top = 40.0
+offset_right = 46.0
+offset_bottom = 206.0
 texture = ExtResource("3_qj1ny")
 
-[node name="Card2" type="TextureRect" parent="."]
+[node name="Card2" type="TextureRect" parent="PlayerCards"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 920.0
-offset_top = 540.0
-offset_right = 1034.0
-offset_bottom = 706.0
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 106.0
+offset_bottom = 206.0
 texture = ExtResource("2_ynapj")
 
-[node name="Card3" type="TextureRect" parent="."]
+[node name="Card3" type="TextureRect" parent="PlayerCards"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 981.0
-offset_top = 540.0
-offset_right = 1095.0
-offset_bottom = 706.0
+offset_left = 53.0
+offset_top = 40.0
+offset_right = 167.0
+offset_bottom = 206.0
 texture = ExtResource("2_ynapj")
 
-[node name="Card4" type="TextureRect" parent="."]
+[node name="Card4" type="TextureRect" parent="PlayerCards"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1041.0
-offset_top = 540.0
-offset_right = 1155.0
-offset_bottom = 706.0
+offset_left = 113.0
+offset_top = 40.0
+offset_right = 227.0
+offset_bottom = 206.0
 texture = ExtResource("2_ynapj")
 
-[node name="Card5" type="TextureRect" parent="."]
+[node name="EnemyCards" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card5" type="TextureRect" parent="EnemyCards"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 921.0
-offset_top = 78.0
-offset_right = 1035.0
-offset_bottom = 244.0
+offset_left = -68.0
+offset_top = -263.0
+offset_right = 46.0
+offset_bottom = -97.0
 texture = ExtResource("2_ynapj")
 
-[node name="Card6" type="TextureRect" parent="."]
+[node name="Card6" type="TextureRect" parent="EnemyCards"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 981.0
-offset_top = 78.0
-offset_right = 1095.0
-offset_bottom = 244.0
+offset_left = -8.0
+offset_top = -263.0
+offset_right = 106.0
+offset_bottom = -97.0
 texture = ExtResource("4_32uvn")
 
-[node name="BackToVillage" type="Button" parent="."]
+[node name="Card7" type="TextureRect" parent="EnemyCards"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 34.0
-offset_top = 982.0
-offset_right = 474.0
-offset_bottom = 1050.0
-theme_override_fonts/font = ExtResource("1_vmm01")
-theme_override_font_sizes/font_size = 64
-text = "Back to village"
+offset_left = 53.0
+offset_top = -263.0
+offset_right = 167.0
+offset_bottom = -97.0
+texture = ExtResource("2_ynapj")
+
+[node name="Card8" type="TextureRect" parent="EnemyCards"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 114.0
+offset_top = -263.0
+offset_right = 228.0
+offset_bottom = -97.0
+texture = ExtResource("2_ynapj")
 
 [node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_left = 929.0
-offset_top = 722.0
-offset_right = 1079.0
-offset_bottom = 752.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 220.0
+offset_right = 75.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
 text = "Score is: 0"
 
 [node name="EnemyScore" type="Label" parent="."]
-layout_mode = 0
-offset_left = 929.0
-offset_top = 257.0
-offset_right = 1079.0
-offset_bottom = 287.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -111.0
+offset_right = 75.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 32
 text = "Score is: 0"
 
 [node name="Result" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 803.0
-offset_top = 439.0
-offset_right = 1103.0
-offset_bottom = 499.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -30.0
+offset_right = 150.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
 theme_override_font_sizes/font_size = 64
 text = "You Won!"
 
+[node name="Material" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1504.0
+offset_top = -7.0
+offset_right = 1544.0
+offset_bottom = 33.0
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="Material"]
+layout_mode = 0
+offset_left = -785.0
+offset_top = 3.0
+offset_right = 208.0
+offset_bottom = 36.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Material"]
+layout_mode = 0
+offset_left = -81.0
+offset_right = 202.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="Coin" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("6_6ijud")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Material/HBoxContainer/Coin"]
+position = Vector2(-17, 7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_1888n")
+
+[node name="CoinArea2D" type="Area2D" parent="Material/HBoxContainer/Coin" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Coin/CoinArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="Wood" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Wood"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("8_b4t07")
+
+[node name="WoodArea2D" type="Area2D" parent="Material/HBoxContainer/Wood" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Wood/WoodArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="Stone" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Stone"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("9_5vkev")
+
+[node name="StoneArea2D" type="Area2D" parent="Material/HBoxContainer/Stone" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Stone/StoneArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="Iron" type="Label" parent="Material/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Material/HBoxContainer/Iron"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("10_pwt2y")
+
+[node name="IronArea2D" type="Area2D" parent="Material/HBoxContainer/Iron" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Material/HBoxContainer/Iron/IronArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="Gems" type="Control" parent="."]
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_left = 68.0
+offset_top = -7.0
+offset_right = 108.0
+offset_bottom = 33.0
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 41
+
+[node name="RedGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/RedGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("11_lmo4p")
+
+[node name="RedGemArea2D" type="Area2D" parent="Gems/HBoxContainer/RedGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/RedGem/RedGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="BlueGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/BlueGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("12_163if")
+
+[node name="BlueGemArea2D" type="Area2D" parent="Gems/HBoxContainer/BlueGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/BlueGem/BlueGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="GreenGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/GreenGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("13_hrohp")
+
+[node name="GreemGemArea2D" type="Area2D" parent="Gems/HBoxContainer/GreenGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/GreenGem/GreemGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="YellowGem" type="Label" parent="Gems/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vmm01")
+text = ": 999"
+
+[node name="Sprite2D" type="Sprite2D" parent="Gems/HBoxContainer/YellowGem"]
+position = Vector2(-17, 7.5)
+texture = ExtResource("14_220v1")
+
+[node name="YellowGemArea2D" type="Area2D" parent="Gems/HBoxContainer/YellowGem" groups=["Effect"]]
+position = Vector2(-16, 6.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_ndmtg")
+
+[node name="Home" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1855.0
+offset_top = 65.0
+offset_right = 1887.0
+offset_bottom = 97.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("15_jfswp")
+texture_hover = ExtResource("16_qgpb8")
+
+[node name="Bet" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 745.0
+offset_top = 991.0
+offset_right = 810.0
+offset_bottom = 1031.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Bet" type="Label" parent="Bet"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -73.0
+offset_right = 40.0
+offset_bottom = -43.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Bet"
+
+[node name="AmountBet" type="Label" parent="Bet"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 21.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmountDown" type="TextureButton" parent="Bet"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 20.0
+offset_right = 23.0
+offset_bottom = 52.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("19_yy642")
+
+[node name="AmountUp" type="TextureButton" parent="Bet"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -29.0
+offset_right = 23.0
+offset_bottom = 3.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("20_ep4ey")
+
+[node name="BetT" type="TextureRect" parent="Bet"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -14.0
+offset_right = 58.0
+offset_bottom = 18.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Row" type="TextureRect" parent="Bet/BetT"]
+material = SubResource("CanvasItemMaterial_rmi62")
+layout_mode = 0
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("21_dpibw")
+
+[node name="PointLight2D" type="PointLight2D" parent="Bet/BetT"]
+position = Vector2(16, 16)
+scale = Vector2(0.999999, 1)
+blend_mode = 2
+texture = ExtResource("22_wvsqp")
+
+[node name="BetTDown" type="TextureButton" parent="Bet"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 66.0
+offset_bottom = 52.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("19_yy642")
+
+[node name="BetTUp" type="TextureButton" parent="Bet"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = -29.0
+offset_right = 66.0
+offset_bottom = 3.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("20_ep4ey")
+
+[node name="Win" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1079.0
+offset_top = 992.0
+offset_right = 1166.0
+offset_bottom = 1041.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Win" type="Label" parent="Win"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -73.0
+offset_right = 48.0
+offset_bottom = -43.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Win "
+
+[node name="WinT" type="TextureRect" parent="Win"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -14.0
+offset_right = 58.0
+offset_bottom = 18.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Row" type="TextureRect" parent="Win/WinT"]
+material = SubResource("CanvasItemMaterial_rmi62")
+layout_mode = 0
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("21_dpibw")
+
+[node name="PointLight2D" type="PointLight2D" parent="Win/WinT"]
+position = Vector2(16, 16)
+scale = Vector2(0.999999, 1)
+blend_mode = 2
+texture = ExtResource("22_wvsqp")
+
+[node name="WinTDown" type="TextureButton" parent="Win"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 66.0
+offset_bottom = 52.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("19_yy642")
+
+[node name="WinTUp" type="TextureButton" parent="Win"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = -29.0
+offset_right = 66.0
+offset_bottom = 3.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("20_ep4ey")
+
+[node name="AmountWin" type="Label" parent="Win"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 21.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NotEnough" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -389.0
+offset_right = 78.0
+offset_bottom = -359.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 32
+text = "Not enough for bet!"
+
 [connection signal="pressed" from="PickCard" to="." method="_on_pick_card_pressed"]
-[connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="pressed" from="Hit" to="." method="_on_hit_pressed"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
-[connection signal="pressed" from="BackToVillage" to="." method="_on_back_to_village_pressed"]
+[connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Bet/AmountDown" to="." method="_on_amount_down_pressed"]
+[connection signal="pressed" from="Bet/AmountUp" to="." method="_on_amount_up_pressed"]
+[connection signal="pressed" from="Bet/BetTDown" to="." method="_on_bet_t_down_pressed"]
+[connection signal="pressed" from="Bet/BetTUp" to="." method="_on_bet_t_up_pressed"]
+[connection signal="pressed" from="Win/WinTDown" to="." method="_on_win_t_down_pressed"]
+[connection signal="pressed" from="Win/WinTUp" to="." method="_on_win_t_up_pressed"]

@@ -61,6 +61,16 @@ func update_relic_description():
 	if LevelManager.level_active == false:
 		$Desktop/RelicName.visible = false
 		$Desktop/RelicDescription.visible = false
+	if RelicManager.hide_stats:
+		if LevelManager.is_mobile:
+			$Desktop/Gems.visible = false
+			$Desktop/Material.visible = false
+			%PlayerHealth.visible = false
+	else:
+		$Desktop/Gems.visible = true
+		$Desktop/Material.visible = true
+		%PlayerHealth.visible = true
+		
 		
 func _unhandled_input(event):
 	if  event.is_action_pressed("Esc"):

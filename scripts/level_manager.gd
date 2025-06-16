@@ -38,7 +38,7 @@ func check_version():
 		LevelManager.is_demo = true
 	if OS.has_feature("Mobile"):
 		LevelManager.is_mobile = true
-	LevelManager.is_mobile = true
+	#LevelManager.is_mobile = true
 
 func reset_map():
 	level_done = 0
