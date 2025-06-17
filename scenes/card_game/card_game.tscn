@@ -1,12 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3rdm3t28dylk"]
+[gd_scene load_steps=27 format=3 uid="uid://b3rdm3t28dylk"]
 
 [ext_resource type="Script" path="res://scripts/card_game.gd" id="1_m8tym"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_vmm01"]
 [ext_resource type="Texture2D" uid="uid://mvb14focjy1s" path="res://assets/32rogues/borders/border6new3.png" id="2_lfppa"]
 [ext_resource type="Texture2D" uid="uid://d067xevn41isn" path="res://assets/cards/Cards Collection 1-2_tile_2.png" id="2_ynapj"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_ypwmo"]
+[ext_resource type="Texture2D" uid="uid://cmmpfvjbugi4t" path="res://assets/slot/Table.png" id="3_nlyn5"]
 [ext_resource type="Texture2D" uid="uid://db4r1cxnyv822" path="res://assets/cards/Cards Collection 1-2_tile_56.png" id="3_qj1ny"]
 [ext_resource type="Texture2D" uid="uid://bc2hsc1xswu7x" path="res://assets/cards/Cards Collection 1-2_tile_65.png" id="4_32uvn"]
+[ext_resource type="Texture2D" uid="uid://ycgbtw8pttat" path="res://assets/slot/box_V3.png" id="4_k4j5k"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="6_6ijud"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="7_1888n"]
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="8_b4t07"]
@@ -49,7 +51,35 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1.92523e-07, 0.223513, 0.141187, 1)
 
+[node name="Table" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -61.0
+offset_top = -13.0
+offset_right = 278.0
+offset_bottom = 170.0
+scale = Vector2(6, 6)
+texture = ExtResource("3_nlyn5")
+
+[node name="Box" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 533.0
+offset_right = 949.0
+offset_bottom = 636.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_k4j5k")
+
+[node name="Box2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 198.0
+offset_right = 949.0
+offset_bottom = 301.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_k4j5k")
+
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.674815, 0.674815, 0.674814, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -65,56 +95,85 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lfppa")
 
-[node name="PickCard" type="Button" parent="."]
+[node name="PickCard" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = 277.0
-offset_right = 81.0
-offset_bottom = 315.0
+offset_left = -99.0
+offset_top = 253.0
+offset_right = 63.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_vmm01")
-theme_override_font_sizes/font_size = 32
+
+[node name="Label" type="Label" parent="PickCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
 text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Hit" type="Button" parent="."]
+[node name="Hit" type="TextureButton" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = 277.0
-offset_right = -5.0
-offset_bottom = 315.0
+offset_left = -203.0
+offset_top = 260.0
+offset_right = -63.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_vmm01")
-theme_override_font_sizes/font_size = 32
+
+[node name="Label" type="Label" parent="Hit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
 text = "Hit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="EndTurn" type="Button" parent="."]
+[node name="EndTurn" type="TextureButton" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 4.0
-offset_top = 277.0
-offset_right = 144.0
-offset_bottom = 315.0
+offset_left = 34.0
+offset_top = 257.0
+offset_right = 211.0
+offset_bottom = 321.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_vmm01")
-theme_override_font_sizes/font_size = 32
+
+[node name="Label" type="Label" parent="EndTurn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
 text = "Stand"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Shuffle" type="Button" parent="."]
 visible = false
@@ -141,10 +200,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 9.0
-offset_right = 20.0
-offset_bottom = 49.0
+offset_left = -90.0
+offset_top = -27.0
+offset_right = -50.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -191,10 +250,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -90.0
+offset_top = -59.0
+offset_right = -50.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -241,10 +300,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = 220.0
-offset_right = 75.0
-offset_bottom = 250.0
+offset_left = -91.0
+offset_top = 205.0
+offset_right = 59.0
+offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
@@ -258,10 +317,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -111.0
-offset_right = 75.0
-offset_bottom = -81.0
+offset_left = -91.0
+offset_top = -131.0
+offset_right = 59.0
+offset_bottom = -101.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
@@ -269,6 +328,7 @@ theme_override_font_sizes/font_size = 32
 text = "Score is: 0"
 
 [node name="Result" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -276,9 +336,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -30.0
+offset_top = -78.0
 offset_right = 150.0
-offset_bottom = 30.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
@@ -289,13 +349,14 @@ text = "You Won!"
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1504.0
-offset_top = -7.0
-offset_right = 1544.0
-offset_bottom = 33.0
+offset_left = 933.0
+offset_top = 81.0
+offset_right = 973.0
+offset_bottom = 121.0
 scale = Vector2(2, 2)
 
 [node name="Panel" type="Panel" parent="Material"]
+visible = false
 layout_mode = 0
 offset_left = -785.0
 offset_top = 3.0
@@ -332,6 +393,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_ndmtg")
 
 [node name="Wood" type="Label" parent="Material/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
@@ -349,6 +411,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_ndmtg")
 
 [node name="Stone" type="Label" parent="Material/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
@@ -366,6 +429,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_ndmtg")
 
 [node name="Iron" type="Label" parent="Material/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_vmm01")
@@ -386,10 +450,10 @@ shape = SubResource("CircleShape2D_ndmtg")
 z_index = 31
 layout_mode = 3
 anchors_preset = 0
-offset_left = 68.0
-offset_top = -7.0
-offset_right = 108.0
-offset_bottom = 33.0
+offset_left = 131.0
+offset_top = 81.0
+offset_right = 171.0
+offset_bottom = 121.0
 scale = Vector2(2, 2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gems"]
@@ -468,20 +532,20 @@ shape = SubResource("CircleShape2D_ndmtg")
 
 [node name="Home" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1855.0
-offset_top = 65.0
-offset_right = 1887.0
-offset_bottom = 97.0
+offset_left = 1789.0
+offset_top = 90.0
+offset_right = 1821.0
+offset_bottom = 122.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("15_jfswp")
 texture_hover = ExtResource("16_qgpb8")
 
 [node name="Bet" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 745.0
-offset_top = 991.0
-offset_right = 810.0
-offset_bottom = 1031.0
+offset_left = 500.0
+offset_top = 942.0
+offset_right = 565.0
+offset_bottom = 982.0
 scale = Vector2(1.5, 1.5)
 
 [node name="Bet" type="Label" parent="Bet"]
@@ -569,10 +633,10 @@ texture_normal = ExtResource("20_ep4ey")
 
 [node name="Win" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1079.0
-offset_top = 992.0
-offset_right = 1166.0
-offset_bottom = 1041.0
+offset_left = 1313.0
+offset_top = 943.0
+offset_right = 1400.0
+offset_bottom = 992.0
 scale = Vector2(1.5, 1.5)
 
 [node name="Win" type="Label" parent="Win"]
@@ -645,18 +709,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -216.0
-offset_top = -389.0
-offset_right = 78.0
-offset_bottom = -359.0
+offset_left = -220.0
+offset_top = 368.0
+offset_right = 74.0
+offset_bottom = 398.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 32
 text = "Not enough for bet!"
 
+[connection signal="mouse_entered" from="PickCard" to="." method="_on_pick_card_mouse_entered"]
+[connection signal="mouse_exited" from="PickCard" to="." method="_on_pick_card_mouse_exited"]
 [connection signal="pressed" from="PickCard" to="." method="_on_pick_card_pressed"]
+[connection signal="mouse_entered" from="Hit" to="." method="_on_hit_mouse_entered"]
+[connection signal="mouse_exited" from="Hit" to="." method="_on_hit_mouse_exited"]
 [connection signal="pressed" from="Hit" to="." method="_on_hit_pressed"]
+[connection signal="mouse_entered" from="EndTurn" to="." method="_on_end_turn_mouse_entered"]
+[connection signal="mouse_exited" from="EndTurn" to="." method="_on_end_turn_mouse_exited"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]

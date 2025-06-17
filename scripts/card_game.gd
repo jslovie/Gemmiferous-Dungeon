@@ -198,30 +198,47 @@ func reset_cards():
 	
 func check_result():
 	await get_tree().create_timer(1).timeout
+	$Result.visible = true
 	if score > 21:
-		$Result.visible = true
 		$Result.text = "You Lost!"
 	elif score <= 21 and enemy_score <= 21 and enemy_score > score:
-		$Result.visible = true
 		$Result.text = "You Lost!"
 	elif score <= 21 and enemy_score <= 21 and enemy_score < score:
-		$Result.visible = true
 		$Result.text = "You Won!"
+		process_win(amount_win)
 	elif score <= 21 and enemy_score > 21:
-		$Result.visible = true
 		$Result.text = "You Won!"
+		process_win(amount_win)
+	elif score == enemy_score:
+		$Result.text = "Draw!"
+		process_win(amount_bet)
+	SaveManager.savefilesave()
 
+func process_bet(amount):
+	if $Bet/BetT/Row.position == red_gem_pos:
+		PlayerManager.player.total_red_gem -= amount
+	elif $Bet/BetT/Row.position == blue_gem_pos:
+		PlayerManager.player.total_blue_gem -= amount
+	elif $Bet/BetT/Row.position == green_gem_pos:
+		PlayerManager.player.total_green_gem -= amount
+	elif $Bet/BetT/Row.position == yellow_gem_pos:
+		PlayerManager.player.total_yellow_gem -= amount
+	elif $Bet/BetT/Row.position == coin_pos:
+		PlayerManager.player.total_coins -= amount
+		SaveManager.savefilesave()
 
-func process_gem(gem_texture, price_gem_lvl):
-	if gem_texture == "Red":
-		PlayerManager.player.total_red_gem -= price_gem_lvl
-	elif gem_texture == "Blue":
-		PlayerManager.player.total_blue_gem -= price_gem_lvl
-	elif gem_texture == "Green":
-		PlayerManager.player.total_green_gem -= price_gem_lvl
-	elif gem_texture == "Yellow":
-		PlayerManager.player.total_yellow_gem -= price_gem_lvl
-	VillageHudMobile.update_village_hud_mobile()
+func process_win(amount):
+	if $Win/WinT/Row.position == red_gem_pos:
+		PlayerManager.player.total_red_gem += amount
+	elif $Win/WinT/Row.position == blue_gem_pos:
+		PlayerManager.player.total_blue_gem += amount
+	elif $Win/WinT/Row.position == green_gem_pos:
+		PlayerManager.player.total_green_gem += amount
+	elif $Win/WinT/Row.position == yellow_gem_pos:
+		PlayerManager.player.total_yellow_gem += amount
+	elif $Win/WinT/Row.position == coin_pos:
+		PlayerManager.player.total_coins += amount
+		SaveManager.savefilesave()
 
 func check_enough(amount):
 	if $Bet/BetT/Row.position == red_gem_pos:
@@ -255,10 +272,17 @@ func not_enough():
 	$NotEnough.visible = true
 	await get_tree().create_timer(1).timeout
 	$NotEnough.visible = false
+
+func pregame_info(action):
+		$Bet.visible = action
+		$Win.visible = action
+		$PickCard.visible = action
+		
 	
 func _on_pick_card_pressed():
 	if check_enough(amount_bet):
-		$PickCard.visible = false
+		pregame_info(false)
+		process_bet(amount_bet)
 		
 		pick_card(%Card1)
 		%Card1.visible = true
@@ -837,13 +861,13 @@ func enemy_play():
 			endgame()
 
 func endgame():
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	$Result.visible = false
 	reset_score()
 	reset_cards()
 	shufle_pack()
+	pregame_info(true)
 	
-	$PickCard.visible = true
 
 func _on_shuffle_pressed():
 	shufle_pack()
@@ -1085,3 +1109,17 @@ func _on_win_t_up_pressed():
 		$Win/WinT/Row.position = blue_gem_pos
 	elif $Win/WinT/Row.position == blue_gem_pos:
 		$Win/WinT/Row.position = coin_pos
+
+
+func _on_pick_card_mouse_entered():
+	$PickCard/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_pick_card_mouse_exited():
+	$PickCard/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_hit_mouse_entered():
+	$Hit/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_hit_mouse_exited():
+	$Hit/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_end_turn_mouse_entered():
+	$EndTurn/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_end_turn_mouse_exited():
+	$EndTurn/Label.add_theme_color_override("font_color", Color.WHITE)

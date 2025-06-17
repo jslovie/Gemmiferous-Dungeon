@@ -400,13 +400,13 @@ theme_override_font_sizes/font_size = 64
 text = "Quit Game"
 
 [node name="Version" type="Label" parent="."]
-offset_left = 1815.0
+offset_left = 1794.0
 offset_top = 1038.0
-offset_right = 1909.0
+offset_right = 1900.0
 offset_bottom = 1068.0
 theme_override_fonts/font = ExtResource("3_uksad")
 theme_override_font_sizes/font_size = 32
-text = "v0.5.2.2"
+text = "v0.5.3.0"
 
 [node name="DemoVersion" type="Label" parent="."]
 visible = false
