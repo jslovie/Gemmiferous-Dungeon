@@ -19,8 +19,12 @@ func _on_exit_shop_pressed():
 func _on_card_game_pressed():
 	Transition.transition()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/card_game/card_game.tscn")
+	if LevelManager.is_mobile:
+		get_tree().change_scene_to_file("res://scenes/card_game/card_game_mobile.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/card_game/card_game.tscn")
 	VillageManager.in_shop = false
+	LevelManager.in_card_game = true
 
 func exit_door():
 	Sfx.play_SFX(Sfx.door_close)

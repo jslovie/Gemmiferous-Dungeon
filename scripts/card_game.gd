@@ -212,6 +212,7 @@ func check_result():
 	elif score == enemy_score:
 		$Result.text = "Draw!"
 		process_win(amount_bet)
+	VillageHudMobile.update_village_hud_mobile()
 	SaveManager.savefilesave()
 
 func process_bet(amount):
@@ -281,8 +282,11 @@ func pregame_info(action):
 	
 func _on_pick_card_pressed():
 	if check_enough(amount_bet):
+		
 		pregame_info(false)
 		process_bet(amount_bet)
+		
+		VillageHudMobile.update_village_hud_mobile()
 		
 		pick_card(%Card1)
 		%Card1.visible = true
@@ -314,7 +318,7 @@ func pick_card(card):
 	var card_to_change = card
 	var selected_card = get_card()
 	if selected_card == "Ace of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_17.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_17.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 11
@@ -324,7 +328,7 @@ func pick_card(card):
 		else:
 			score += 11
 	elif selected_card == "2 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_18.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_18.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 2
@@ -334,7 +338,7 @@ func pick_card(card):
 		else:
 			score += 2
 	elif selected_card == "3 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_19.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_19.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 3
@@ -344,7 +348,7 @@ func pick_card(card):
 		else:
 			score += 3
 	elif selected_card == "4 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_20.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_20.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 4
@@ -354,7 +358,7 @@ func pick_card(card):
 		else:
 			score += 4
 	elif selected_card == "5 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_21.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_21.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 5
@@ -364,7 +368,7 @@ func pick_card(card):
 		else:
 			score += 5
 	elif selected_card == "6 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_22.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_22.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 6
@@ -374,7 +378,7 @@ func pick_card(card):
 		else:
 			score += 6
 	elif selected_card == "7 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_23.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_23.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 7
@@ -384,7 +388,7 @@ func pick_card(card):
 		else:
 			score += 7
 	elif selected_card == "8 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_24.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_24.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 8
@@ -394,7 +398,7 @@ func pick_card(card):
 		else:
 			score += 8
 	elif selected_card == "9 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_25.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_25.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 9
@@ -404,7 +408,7 @@ func pick_card(card):
 		else:
 			score += 9
 	elif selected_card == "10 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_26.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_26.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -414,7 +418,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Jack of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_27.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_27.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -424,7 +428,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Queen of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_28.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_28.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -434,7 +438,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "King of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_29.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_29.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -444,7 +448,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Ace of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_2.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_2.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 11
@@ -454,7 +458,7 @@ func pick_card(card):
 		else:
 			score += 11
 	elif selected_card == "2 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_3.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_3.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 2
@@ -464,7 +468,7 @@ func pick_card(card):
 		else:
 			score += 2
 	elif selected_card == "3 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_4.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_4.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 3
@@ -474,7 +478,7 @@ func pick_card(card):
 		else:
 			score += 3
 	elif selected_card == "4 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_5.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_5.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 4
@@ -484,7 +488,7 @@ func pick_card(card):
 		else:
 			score += 4
 	elif selected_card == "5 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_6.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_6.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 5
@@ -494,7 +498,7 @@ func pick_card(card):
 		else:
 			score += 5
 	elif selected_card == "6 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_7.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_7.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 6
@@ -504,7 +508,7 @@ func pick_card(card):
 		else:
 			score += 6
 	elif selected_card == "7 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_8.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_8.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 7
@@ -514,7 +518,7 @@ func pick_card(card):
 		else:
 			score += 7
 	elif selected_card == "8 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_9.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_9.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 8
@@ -524,7 +528,7 @@ func pick_card(card):
 		else:
 			score += 8
 	elif selected_card == "9 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_10.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_10.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 9
@@ -534,7 +538,7 @@ func pick_card(card):
 		else:
 			score += 9
 	elif selected_card == "10 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_11.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_11.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -544,7 +548,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Jack of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_12.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_12.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -554,7 +558,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Queen of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_13.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_13.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -564,7 +568,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "King of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_14.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_14.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -574,7 +578,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Ace of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_47.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_47.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 11
@@ -584,7 +588,7 @@ func pick_card(card):
 		else:
 			score += 11
 	elif selected_card == "2 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_48.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_48.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 2
@@ -594,7 +598,7 @@ func pick_card(card):
 		else:
 			score += 2
 	elif selected_card == "3 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_49.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_49.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 3
@@ -604,7 +608,7 @@ func pick_card(card):
 		else:
 			score += 3
 	elif selected_card == "4 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_50.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_50.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 4
@@ -614,7 +618,7 @@ func pick_card(card):
 		else:
 			score += 4
 	elif selected_card == "5 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_51.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_51.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 5
@@ -624,7 +628,7 @@ func pick_card(card):
 		else:
 			score += 5
 	elif selected_card == "6 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_52.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_52.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 6
@@ -634,7 +638,7 @@ func pick_card(card):
 		else:
 			score += 6
 	elif selected_card == "7 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_53.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_53.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 7
@@ -644,7 +648,7 @@ func pick_card(card):
 		else:
 			score += 7
 	elif selected_card == "8 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_54.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_54.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 8
@@ -654,7 +658,7 @@ func pick_card(card):
 		else:
 			score += 8
 	elif selected_card == "9 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_55.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_55.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 9
@@ -664,7 +668,7 @@ func pick_card(card):
 		else:
 			score += 9
 	elif selected_card == "10 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_56.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_56.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -674,7 +678,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Jack of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_57.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_57.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -684,7 +688,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Queen of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_58.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_58.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -694,7 +698,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "King of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_59.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_59.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -704,7 +708,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Ace of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_32.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_32.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 11
@@ -714,7 +718,7 @@ func pick_card(card):
 		else:
 			score += 11
 	elif selected_card == "2 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_33.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_33.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 2
@@ -724,7 +728,7 @@ func pick_card(card):
 		else:
 			score += 2
 	elif selected_card == "3 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_34.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_34.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 3
@@ -734,7 +738,7 @@ func pick_card(card):
 		else:
 			score += 3
 	elif selected_card == "4 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_35.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_35.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 4
@@ -744,7 +748,7 @@ func pick_card(card):
 		else:
 			score += 4
 	elif selected_card == "5 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_36.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_36.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 5
@@ -754,7 +758,7 @@ func pick_card(card):
 		else:
 			score += 5
 	elif selected_card == "6 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_37.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_37.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 6
@@ -764,7 +768,7 @@ func pick_card(card):
 		else:
 			score += 6
 	elif selected_card == "7 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_38.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_38.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 7
@@ -774,7 +778,7 @@ func pick_card(card):
 		else:
 			score += 7
 	elif selected_card == "8 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_39.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_39.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 8
@@ -784,7 +788,7 @@ func pick_card(card):
 		else:
 			score += 8
 	elif selected_card == "9 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_40.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_40.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 9
@@ -794,7 +798,7 @@ func pick_card(card):
 		else:
 			score += 9
 	elif selected_card == "10 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_41.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_41.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -804,7 +808,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Jack of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_42.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_42.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -814,7 +818,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "Queen of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_43.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_43.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -824,7 +828,7 @@ func pick_card(card):
 		else:
 			score += 10
 	elif selected_card == "King of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_44.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_44.png")
 		if card == %Card6:
 			card_6 = selected_card
 			card_6_score += 10
@@ -874,7 +878,7 @@ func _on_shuffle_pressed():
 
 
 func _on_back_to_village_pressed():
-	get_tree().change_scene_to_file("res://scenes/village.tscn")
+	LevelManager.back_to_village()
 
 
 func _on_end_turn_pressed():
@@ -901,109 +905,109 @@ func change_card_6(card):
 	var card_to_change = card
 	var selected_card = card_6
 	if selected_card == "Ace of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_17.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_17.png")
 	elif selected_card == "2 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_18.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_18.png")
 	elif selected_card == "3 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_19.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_19.png")
 	elif selected_card == "4 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_20.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_20.png")
 	elif selected_card == "5 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_21.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_21.png")
 	elif selected_card == "6 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_22.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_22.png")
 	elif selected_card == "7 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_23.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_23.png")
 	elif selected_card == "8 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_24.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_24.png")
 	elif selected_card == "9 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_25.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_25.png")
 	elif selected_card == "10 of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_26.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_26.png")
 	elif selected_card == "Jack of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_27.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_27.png")
 	elif selected_card == "Queen of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_28.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_28.png")
 	elif selected_card == "King of Spades":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_29.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_29.png")
 	elif selected_card == "Ace of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_2.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_2.png")
 	elif selected_card == "2 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_3.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_3.png")
 	elif selected_card == "3 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_4.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_4.png")
 	elif selected_card == "4 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_5.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_5.png")
 	elif selected_card == "5 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_6.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_6.png")
 	elif selected_card == "6 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_7.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_7.png")
 	elif selected_card == "7 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_8.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_8.png")
 	elif selected_card == "8 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_9.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_9.png")
 	elif selected_card == "9 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_10.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_10.png")
 	elif selected_card == "10 of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_11.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_11.png")
 	elif selected_card == "Jack of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_12.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_12.png")
 	elif selected_card == "Queen of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_13.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_13.png")
 	elif selected_card == "King of Hearts":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_14.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_14.png")
 	elif selected_card == "Ace of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_47.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_47.png")
 	elif selected_card == "2 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_48.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_48.png")
 	elif selected_card == "3 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_49.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_49.png")
 	elif selected_card == "4 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_50.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_50.png")
 	elif selected_card == "5 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_51.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_51.png")
 	elif selected_card == "6 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_52.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_52.png")
 	elif selected_card == "7 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_53.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_53.png")
 	elif selected_card == "8 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_54.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_54.png")
 	elif selected_card == "9 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_55.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_55.png")
 	elif selected_card == "10 of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_56.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_56.png")
 	elif selected_card == "Jack of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_57.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_57.png")
 	elif selected_card == "Queen of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_58.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_58.png")
 	elif selected_card == "King of Clubs":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_59.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_59.png")
 	elif selected_card == "Ace of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_32.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_32.png")
 	elif selected_card == "2 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_33.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_33.png")
 	elif selected_card == "3 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_34.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_34.png")
 	elif selected_card == "4 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_35.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_35.png")
 	elif selected_card == "5 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_36.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_36.png")
 	elif selected_card == "6 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_37.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_37.png")
 	elif selected_card == "7 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_38.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_38.png")
 	elif selected_card == "8 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_39.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_39.png")
 	elif selected_card == "9 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_40.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_40.png")
 	elif selected_card == "10 of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_41.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_41.png")
 	elif selected_card == "Jack of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_42.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_42.png")
 	elif selected_card == "Queen of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_43.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_43.png")
 	elif selected_card == "King of Diamonds":
-		card_to_change.texture = load("res://assets/Cards/Cards Collection 1-2_tile_44.png")
+		card_to_change.texture = load("res://assets/cards/Cards Collection 1-2_tile_44.png")
 
 
 func _on_hit_pressed():

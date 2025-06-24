@@ -3,6 +3,8 @@ extends Node
 var is_demo = false
 var is_mobile = false
 
+var in_card_game = false
+
 var show_map = false
 var show_map_mobile = false
 
@@ -106,6 +108,7 @@ func back_to_village():
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
+	LevelManager.in_card_game = false
 	RelicManager.reset_pieces_relics()
 	LevelManager.reset_tutorial()
 	LevelManager.show_map = false

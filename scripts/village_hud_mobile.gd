@@ -75,4 +75,7 @@ func update_materials():
 
 
 func _on_home_pressed():
-	LevelManager.main_menu()
+	if LevelManager.in_card_game:
+		LevelManager.back_to_village()
+	else:
+		LevelManager.main_menu()

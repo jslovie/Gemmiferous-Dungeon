@@ -13,9 +13,9 @@ text = "Tavern"
 
 [node name="CardGame" type="TextureButton" parent="." index="6"]
 modulate = Color(0.980392, 0.92549, 0.878431, 1)
-offset_left = 993.0
+offset_left = 621.0
 offset_top = 458.0
-offset_right = 1066.0
+offset_right = 694.0
 offset_bottom = 475.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("2_15arv")
@@ -23,9 +23,9 @@ texture_hover = ExtResource("3_mseus")
 
 [node name="CardGameLabel" type="Label" parent="." index="7"]
 layout_direction = 1
-offset_left = 1035.0
+offset_left = 663.0
 offset_top = 476.0
-offset_right = 1235.0
+offset_right = 863.0
 offset_bottom = 506.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_i4bt6")
@@ -35,6 +35,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." index="8"]
+visible = false
 offset_left = 1034.0
 offset_top = 428.0
 offset_right = 1254.0
