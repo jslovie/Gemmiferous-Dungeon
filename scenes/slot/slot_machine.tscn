@@ -102,7 +102,7 @@ rotation = 0.610865
 scale = Vector2(2, 2)
 
 [node name="Green" type="CPUParticles2D" parent="Confetti"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -118,7 +118,7 @@ scale_amount_max = 2.0
 color = Color(0.142445, 0.575978, 0.00511803, 1)
 
 [node name="Red" type="CPUParticles2D" parent="Confetti"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -134,7 +134,7 @@ scale_amount_max = 2.0
 color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="Blue" type="CPUParticles2D" parent="Confetti"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -150,7 +150,7 @@ scale_amount_max = 2.0
 color = Color(0.195051, 0.338344, 1, 1)
 
 [node name="Yellow" type="CPUParticles2D" parent="Confetti"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -172,7 +172,7 @@ rotation = -0.610865
 scale = Vector2(2, 2)
 
 [node name="Green" type="CPUParticles2D" parent="Confetti2"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -188,7 +188,7 @@ scale_amount_max = 2.0
 color = Color(0.142445, 0.575978, 0.00511803, 1)
 
 [node name="Red" type="CPUParticles2D" parent="Confetti2"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -204,7 +204,7 @@ scale_amount_max = 2.0
 color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="Blue" type="CPUParticles2D" parent="Confetti2"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -220,7 +220,7 @@ scale_amount_max = 2.0
 color = Color(0.195051, 0.338344, 1, 1)
 
 [node name="Yellow" type="CPUParticles2D" parent="Confetti2"]
-amount = 2
+amount = 4
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
