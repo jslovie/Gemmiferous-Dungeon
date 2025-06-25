@@ -10,7 +10,6 @@ color = "Random"
 modulate = Color(0.368627, 0.380392, 0.67451, 1)
 
 [node name="Sprite2D" parent="." index="2"]
-z_index = 0
 position = Vector2(-1, -1)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("2_08tr3")

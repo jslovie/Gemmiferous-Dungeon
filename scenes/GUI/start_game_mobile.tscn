@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkbgiiq2ltfal"]
+[gd_scene load_steps=38 format=3 uid="uid://dkbgiiq2ltfal"]
 
 [ext_resource type="Script" path="res://scripts/start_game_mobile.gd" id="1_50dj5"]
 [ext_resource type="Texture2D" uid="uid://jnfb3g2sxub7" path="res://assets/background/finish 1-for jslovie-7D5C2-V5.png" id="3_scuxx"]
@@ -7,7 +7,33 @@
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="6_utxx4"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="7_nt0fi"]
 [ext_resource type="Texture2D" uid="uid://dhs3vuxrp12ua" path="res://assets/paper UI/cross.png" id="8_4y63w"]
+[ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="9_eh6il"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="9_fe7ud"]
+[ext_resource type="PackedScene" uid="uid://b1ka35p6f2npn" path="res://scenes/pieces/gems/blue_gem_piece.tscn" id="9_ojutj"]
+[ext_resource type="PackedScene" uid="uid://cimytguusum2p" path="res://scenes/pieces/gems/gold_piece.tscn" id="10_d82lx"]
+[ext_resource type="PackedScene" uid="uid://bifbrygn0hueh" path="res://scenes/pieces/gems/green_gem_piece.tscn" id="11_xs7rf"]
+[ext_resource type="PackedScene" uid="uid://b6ma0x7jmtjrq" path="res://scenes/pieces/gems/red_gem_piece.tscn" id="12_ucb3k"]
+[ext_resource type="PackedScene" uid="uid://dpmm7xbvxvh6v" path="res://scenes/pieces/gems/yellow_gem_piece.tscn" id="13_jtjb3"]
+[ext_resource type="PackedScene" uid="uid://v7xutm1d7nmt" path="res://scenes/pieces/axe_piece.tscn" id="14_peyx2"]
+[ext_resource type="PackedScene" uid="uid://dsebm1kd48wof" path="res://scenes/pieces/barb_shield_piece.tscn" id="15_4oyw3"]
+[ext_resource type="PackedScene" uid="uid://nt3m0cdtl68u" path="res://scenes/pieces/bolt_staff_piece.tscn" id="16_ecfvi"]
+[ext_resource type="PackedScene" uid="uid://bv0ldcglpasbk" path="res://scenes/pieces/bow_piece.tscn" id="17_6dhiy"]
+[ext_resource type="PackedScene" uid="uid://boj3m5pofrj5" path="res://scenes/pieces/crossbow_piece.tscn" id="18_xda4r"]
+[ext_resource type="PackedScene" uid="uid://bo3eap0fny0jc" path="res://scenes/pieces/dagger_piece.tscn" id="19_r5l0u"]
+[ext_resource type="PackedScene" uid="uid://cfgcl2m5l2qjd" path="res://scenes/pieces/flail_piece.tscn" id="20_xikwu"]
+[ext_resource type="PackedScene" uid="uid://clwqkm8vxwml7" path="res://scenes/pieces/heal_piece.tscn" id="21_xvgwl"]
+[ext_resource type="PackedScene" uid="uid://liqq86f5ihs3" path="res://scenes/pieces/ice_staff_piece.tscn" id="22_obuk2"]
+[ext_resource type="PackedScene" uid="uid://qoryo24dni6g" path="res://scenes/pieces/invisibility_ring_piece.tscn" id="23_rg2vf"]
+[ext_resource type="PackedScene" uid="uid://dialgagrvk5wx" path="res://scenes/pieces/longsword_piece.tscn" id="24_2qvii"]
+[ext_resource type="PackedScene" uid="uid://bfyb02eqj3ipv" path="res://scenes/pieces/mace_piece.tscn" id="25_d1pe4"]
+[ext_resource type="PackedScene" uid="uid://csnwfbdroxwg0" path="res://scenes/pieces/material_piece.tscn" id="26_nhfk0"]
+[ext_resource type="PackedScene" uid="uid://bcnvxbl67adg2" path="res://scenes/pieces/maul_piece.tscn" id="27_bjfll"]
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="28_8d8me"]
+[ext_resource type="PackedScene" uid="uid://cmw4eeyvxun18" path="res://scenes/pieces/rage_piece.tscn" id="29_glh1n"]
+[ext_resource type="PackedScene" uid="uid://bql308123inii" path="res://scenes/pieces/random_piece.tscn" id="30_spnma"]
+[ext_resource type="PackedScene" uid="uid://caa8r8tto8tvc" path="res://scenes/pieces/rogue_shield_piece.tscn" id="31_qi7jl"]
+[ext_resource type="PackedScene" uid="uid://b570oxexdcdm3" path="res://scenes/pieces/shield_piece.tscn" id="32_mtb5c"]
+[ext_resource type="PackedScene" uid="uid://dsldr4paobbfe" path="res://scenes/pieces/sickle_piece.tscn" id="33_j0rvi"]
 
 [sub_resource type="Animation" id="Animation_57v0p"]
 resource_name = "Demo"
@@ -687,6 +713,86 @@ offset_bottom = 102.333
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 16
 text = "jslovieDev"
+
+[node name="Test" type="Node2D" parent="."]
+
+[node name="BlueGemPiece" parent="Test" instance=ExtResource("9_ojutj")]
+position = Vector2(68, 279)
+
+[node name="GoldPiece" parent="Test" instance=ExtResource("10_d82lx")]
+position = Vector2(144, 277)
+
+[node name="GreenGemPiece" parent="Test" instance=ExtResource("11_xs7rf")]
+position = Vector2(213, 273)
+
+[node name="RedGemPiece" parent="Test" instance=ExtResource("12_ucb3k")]
+position = Vector2(283, 270)
+
+[node name="YellowGemPiece" parent="Test" instance=ExtResource("13_jtjb3")]
+position = Vector2(352, 272)
+
+[node name="AxePiece" parent="Test" instance=ExtResource("14_peyx2")]
+position = Vector2(425, 275)
+
+[node name="BarbShieldPiece" parent="Test" instance=ExtResource("15_4oyw3")]
+position = Vector2(501, 281)
+
+[node name="BoltStaffPiece" parent="Test" instance=ExtResource("16_ecfvi")]
+position = Vector2(69, 356)
+
+[node name="BowPiece" parent="Test" instance=ExtResource("17_6dhiy")]
+position = Vector2(145, 359)
+
+[node name="CrossbowPiece" parent="Test" instance=ExtResource("18_xda4r")]
+position = Vector2(214, 363)
+
+[node name="DaggerPiece" parent="Test" instance=ExtResource("19_r5l0u")]
+position = Vector2(286, 362)
+
+[node name="FlailPiece" parent="Test" instance=ExtResource("20_xikwu")]
+position = Vector2(359, 356)
+
+[node name="HealPiece" parent="Test" instance=ExtResource("21_xvgwl")]
+position = Vector2(432, 358)
+
+[node name="IceStaffPiece" parent="Test" instance=ExtResource("22_obuk2")]
+position = Vector2(501, 361)
+
+[node name="InvisibilityRingPiece" parent="Test" instance=ExtResource("23_rg2vf")]
+position = Vector2(70, 431)
+
+[node name="LongswordPiece" parent="Test" instance=ExtResource("24_2qvii")]
+position = Vector2(150, 429)
+
+[node name="MacePiece" parent="Test" instance=ExtResource("25_d1pe4")]
+position = Vector2(218, 429)
+
+[node name="MaterialPiece" parent="Test" instance=ExtResource("26_nhfk0")]
+position = Vector2(291, 433)
+
+[node name="MaulPiece" parent="Test" instance=ExtResource("27_bjfll")]
+position = Vector2(361, 438)
+
+[node name="Piece" parent="Test" instance=ExtResource("28_8d8me")]
+position = Vector2(439, 441)
+
+[node name="RagePiece" parent="Test" instance=ExtResource("29_glh1n")]
+position = Vector2(506, 444)
+
+[node name="RandomPiece" parent="Test" instance=ExtResource("30_spnma")]
+position = Vector2(72, 507)
+
+[node name="RogueShieldPiece" parent="Test" instance=ExtResource("31_qi7jl")]
+position = Vector2(152, 501)
+
+[node name="ShieldPiece" parent="Test" instance=ExtResource("32_mtb5c")]
+position = Vector2(231, 504)
+
+[node name="SicklePiece" parent="Test" instance=ExtResource("33_j0rvi")]
+position = Vector2(306, 514)
+
+[node name="SwordPiece" parent="Test" instance=ExtResource("9_eh6il")]
+position = Vector2(393, 518)
 
 [connection signal="pressed" from="Testing" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Remove" to="." method="_on_remove_pressed"]

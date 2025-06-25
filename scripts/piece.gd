@@ -11,6 +11,7 @@ var particle_effect = preload("res://scenes/pieces/particle.tscn")
 var matched = false
 
 func _ready():
+	texture_rect.texture = load("res://assets/32rogues/pieces/bordernew2.png")
 	texture_rect.connect("gui_input", on_piece_clicked)
 
 func _process(_delta):

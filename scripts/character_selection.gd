@@ -246,7 +246,7 @@ func _on_right_arrow_pressed():
 	elif $Selection.position == knight_position:
 		move_tween(tutorial_position,0.5)
 	else:
-		$Selection.position = tutorial_position
+		print($Selection.position)
 
 func _on_left_arrow_pressed():
 	if $Selection.position == tutorial_position:
@@ -262,4 +262,4 @@ func _on_left_arrow_pressed():
 	elif $Selection.position == knight_position:
 		move_tween(spellblade_position,0.5)
 	else:
-		$Selection.position = tutorial_position
+		print($Selection.position)

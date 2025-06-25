@@ -13,7 +13,7 @@ naming = "SwordPiece"
 background_color = Vector3(0.431, 0.031, 0.031)
 
 [node name="TextureRect" parent="." index="1"]
-self_modulate = Color(0.431373, 0.0313726, 0.0313726, 1)
+modulate = Color(0.431373, 0.0313726, 0.0313726, 1)
 
 [node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -1)

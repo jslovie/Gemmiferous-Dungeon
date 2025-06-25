@@ -15,11 +15,7 @@ background_color = Vector3(0.188, 0.475, 0.231)
 [node name="TextureRect" parent="." index="1"]
 modulate = Color(0.188235, 0.47451, 0.231373, 1)
 
-[node name="TextureRect2" type="TextureRect" parent="." index="2"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(-1, 0)
 scale = Vector2(2.8, 2.8)
 texture = SubResource("AtlasTexture_dshp8")
