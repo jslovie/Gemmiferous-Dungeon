@@ -215,19 +215,19 @@ func move_tween(pos,time):
 func _on_play_pressed():
 	if $Selection.position == tutorial_position:
 		$Selection/TutorialType._on_pressed()
-	if $Selection.position == rogue_position:
+	elif $Selection.position == rogue_position:
 		if PlayerManager.player.rogue_unlocked == true:
 			$Selection/RogueType._on_pressed()
-	if $Selection.position == barbarian_position:
+	elif $Selection.position == barbarian_position:
 		if PlayerManager.player.barbarian_unlocked == true:
 			$Selection/BarbarianType._on_pressed()
-	if $Selection.position == holy_position:
+	elif $Selection.position == holy_position:
 		if PlayerManager.player.holy_unlocked == true:
 			$Selection/HolyType._on_pressed()
-	if $Selection.position == spellblade_position:
+	elif $Selection.position == spellblade_position:
 		if PlayerManager.player.spellblade_unlocked == true:
 			$Selection/SpellbladeType._on_pressed()
-	if $Selection.position == knight_position:
+	elif $Selection.position == knight_position:
 		if PlayerManager.player.knight_unlocked == true:
 			$Selection/KnightType._on_pressed()
 
@@ -235,27 +235,31 @@ func _on_play_pressed():
 func _on_right_arrow_pressed():
 	if $Selection.position == tutorial_position:
 		move_tween(rogue_position,0.5)
-	if $Selection.position == rogue_position:
+	elif $Selection.position == rogue_position:
 		move_tween(barbarian_position,0.5)
-	if $Selection.position == barbarian_position:
+	elif $Selection.position == barbarian_position:
 		move_tween(holy_position,0.5)
-	if $Selection.position == holy_position:
+	elif $Selection.position == holy_position:
 		move_tween(spellblade_position,0.5)
-	if $Selection.position == spellblade_position:
+	elif $Selection.position == spellblade_position:
 		move_tween(knight_position,0.5)
-	if $Selection.position == knight_position:
+	elif $Selection.position == knight_position:
 		move_tween(tutorial_position,0.5)
+	else:
+		$Selection.position = tutorial_position
 
 func _on_left_arrow_pressed():
 	if $Selection.position == tutorial_position:
 		move_tween(knight_position,0.5)
-	if $Selection.position == rogue_position:
+	elif $Selection.position == rogue_position:
 		move_tween(tutorial_position,0.5)
-	if $Selection.position == barbarian_position:
+	elif $Selection.position == barbarian_position:
 		move_tween(rogue_position,0.5)
-	if $Selection.position == holy_position:
+	elif $Selection.position == holy_position:
 		move_tween(barbarian_position,0.5)
-	if $Selection.position == spellblade_position:
+	elif $Selection.position == spellblade_position:
 		move_tween(holy_position,0.5)
-	if $Selection.position == knight_position:
+	elif $Selection.position == knight_position:
 		move_tween(spellblade_position,0.5)
+	else:
+		$Selection.position = tutorial_position

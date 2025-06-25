@@ -17,6 +17,7 @@ offset_bottom = 33.0
 texture = ExtResource("2_24gud")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
 offset_left = -31.0
 offset_top = -31.0
 offset_right = 31.0
@@ -24,7 +25,7 @@ offset_bottom = 31.0
 texture = ExtResource("2_24gud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_emqqt")
 
