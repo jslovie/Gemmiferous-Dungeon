@@ -5538,16 +5538,6 @@ floor_set = 1
 level = 1
 path = "ABC"
 
-[node name="LevelSelection32" parent="Map/Dungeons/Tutorial/DungeonF_T/Levels" instance=ExtResource("17_8ubgh")]
-offset_left = 1189.02
-offset_top = 917.5
-offset_right = 1221.02
-offset_bottom = 949.5
-type = "Shop"
-floor_set = 1
-level = 1
-path = "ABC"
-
 [node name="LevelSelection26" parent="Map/Dungeons/Tutorial/DungeonF_T/Levels" instance=ExtResource("17_8ubgh")]
 offset_left = 1047.5
 offset_top = 785.0
