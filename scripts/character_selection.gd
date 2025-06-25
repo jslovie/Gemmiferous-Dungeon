@@ -25,12 +25,23 @@ func _process(_delta):
 	total_gems_check()
 	total_material_check()
 	check_unlocked()
+	check_pause()
 	description_check_mobile()
 	unlock_check_mobile()
 	if LevelManager.is_mobile:
 		$Selection/TutotialBanner.visible = true
 		$Selection/TutorialLabel.visible = true
 	
+func check_pause():
+	if LevelManager.is_mobile:
+		if LevelManager.in_pause:
+			$RightArrow.visible = false
+			$LeftArrow.visible = false
+			$Play.visible = false
+		else:
+			$RightArrow.visible = true
+			$LeftArrow.visible = true
+			$Play.visible = true
 	
 func check_unlocked():
 	if PlayerManager.player.rogue_unlocked == false:
@@ -114,11 +125,14 @@ func _on_barbarian_type_mouse_exited():
 
 func _on_home_pressed():
 	$Pause.visible = true
+	LevelManager.in_pause = true
 
 func _on_back_pressed():
 	$Pause.visible = false
+	LevelManager.in_pause = false
 
 func _on_menu_pressed():
+	LevelManager.in_pause = false
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
@@ -208,8 +222,10 @@ func move_tween(pos,time):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property($Selection,"position",pos,time)
-	await get_tree().create_timer(1).timeout
+	await tween.finished
 	$Selection.position = pos
+	await get_tree().create_timer(0.2).timeout
+	$Selection.position = round($Selection.position)
 
 
 func _on_play_pressed():

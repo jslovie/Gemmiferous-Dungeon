@@ -303,7 +303,7 @@ offset_bottom = 31.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("5_ivw4d")
 theme_override_font_sizes/font_size = 32
-text = "v0.5.3.0.m.0.3.0.i"
+text = "v0.5.3.0.m.0.3.1.i"
 
 [node name="DemoVersion" type="Label" parent="."]
 visible = false
@@ -715,6 +715,7 @@ theme_override_font_sizes/font_size = 16
 text = "jslovieDev"
 
 [node name="Test" type="Node2D" parent="."]
+visible = false
 
 [node name="BlueGemPiece" parent="Test" instance=ExtResource("9_ojutj")]
 position = Vector2(68, 279)

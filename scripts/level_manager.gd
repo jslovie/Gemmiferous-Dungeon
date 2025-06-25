@@ -3,8 +3,6 @@ extends Node
 var is_demo = false
 var is_mobile = false
 
-var in_card_game = false
-
 var show_map = false
 var show_map_mobile = false
 
@@ -27,6 +25,8 @@ var effects
 
 var timer_stop = false
 
+var in_card_game = false
+var in_pause = false
 var in_game = true
 var in_village = false
 var in_tutorial_level = false

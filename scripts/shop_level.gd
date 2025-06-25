@@ -39,6 +39,7 @@ var possible_pieces = [
 
 
 func _ready():
+	change_background()
 	RelicManager.reset_pieces_relics()
 	$RemoveTile.visible = false
 	%LessTiles.visible = false
@@ -60,7 +61,17 @@ func _process(_delta):
 	update_relic_description()
 	check_in_tile_remove()
 	update_healthbars()
-	
+
+func change_background():
+	if LevelManager.floor == 1:
+		$Desktop/Background/F1.visible = true
+	elif LevelManager.floor == 2:
+		$Desktop/Background/F2.visible = true
+	elif LevelManager.floor == 3:
+		$Desktop/Background/F3.visible = true
+	elif LevelManager.floor == 4:
+		$Desktop/Background/F4.visible = true
+
 func update_healthbars():
 	#Player healthbar
 	%PlayerHealth.value = PlayerManager.player.health

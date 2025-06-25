@@ -364,6 +364,7 @@ tile_map_data = PackedByteArray("AAAHAP//AAAAAAYAAAD8////AAAAAAYAAAA=")
 tile_set = SubResource("TileSet_qvl8e")
 
 [node name="F2" type="Node2D" parent="Background"]
+visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F2"]
 position = Vector2(12, -28)

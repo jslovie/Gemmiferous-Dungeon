@@ -11,6 +11,7 @@ func _process(delta):
 	
 func _on_back_pressed():
 	visible = false
+	LevelManager.in_pause = false
 
 func check_mobile_version():
 	if LevelManager.is_mobile:
