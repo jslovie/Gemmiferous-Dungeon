@@ -72,7 +72,7 @@ func update_relic_description():
 		%PlayerHealth.visible = true
 		
 		
-func _unhandled_input(event):
+func _unhandled_input(event): 
 	if  event.is_action_pressed("Esc"):
 		pause()
 
@@ -363,6 +363,7 @@ func unpause():
 	get_tree().paused = false
 
 func _on_player_died_update_total_bar():
+	RelicManager.hide_stats = true
 	$Desktop/MaterialTotal.visible = true
 	$Desktop/GemsTotal.visible = true
 	$Desktop/Material.visible = false
@@ -420,6 +421,7 @@ func _on_shuffle_mouse_exited():
 
 
 func _on_player_win_update_total_bar():
+	RelicManager.hide_stats = true
 	$Desktop/MaterialTotal.visible = true
 	$Desktop/GemsTotal.visible = true
 	$Desktop/Material.visible = false

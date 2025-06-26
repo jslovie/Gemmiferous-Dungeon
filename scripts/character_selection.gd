@@ -222,11 +222,16 @@ func move_tween(pos,time):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property($Selection,"position",pos,time)
-	await tween.finished
-	$Selection.position = pos
-	await get_tree().create_timer(0.2).timeout
-	$Selection.position = round($Selection.position)
 
+func process_move(pos):
+	$LeftArrow.disabled = true
+	$RightArrow.disabled = true
+	$Play.disabled = true
+	await get_tree().create_timer(0.6).timeout
+	$Selection.position = pos
+	$LeftArrow.disabled = false
+	$RightArrow.disabled = false
+	$Play.disabled = false
 
 func _on_play_pressed():
 	if $Selection.position == tutorial_position:
@@ -251,31 +256,43 @@ func _on_play_pressed():
 func _on_right_arrow_pressed():
 	if $Selection.position == tutorial_position:
 		move_tween(rogue_position,0.5)
+		process_move(rogue_position)
 	elif $Selection.position == rogue_position:
 		move_tween(barbarian_position,0.5)
+		process_move(barbarian_position)
 	elif $Selection.position == barbarian_position:
 		move_tween(holy_position,0.5)
+		process_move(holy_position)
 	elif $Selection.position == holy_position:
 		move_tween(spellblade_position,0.5)
+		process_move(spellblade_position)
 	elif $Selection.position == spellblade_position:
 		move_tween(knight_position,0.5)
+		process_move(knight_position)
 	elif $Selection.position == knight_position:
 		move_tween(tutorial_position,0.5)
+		process_move(tutorial_position)
 	else:
 		print($Selection.position)
 
 func _on_left_arrow_pressed():
 	if $Selection.position == tutorial_position:
 		move_tween(knight_position,0.5)
+		process_move(knight_position)
 	elif $Selection.position == rogue_position:
 		move_tween(tutorial_position,0.5)
+		process_move(tutorial_position)
 	elif $Selection.position == barbarian_position:
 		move_tween(rogue_position,0.5)
+		process_move(rogue_position)
 	elif $Selection.position == holy_position:
 		move_tween(barbarian_position,0.5)
+		process_move(barbarian_position)
 	elif $Selection.position == spellblade_position:
 		move_tween(holy_position,0.5)
+		process_move(holy_position)
 	elif $Selection.position == knight_position:
 		move_tween(spellblade_position,0.5)
+		process_move(spellblade_position)
 	else:
 		print($Selection.position)

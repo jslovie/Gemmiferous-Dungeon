@@ -52,4 +52,5 @@ func _on_exit_pressed():
 	SaveManager.remove_autosave()
 	SaveManager.savefilesave()
 	LevelManager.reset_win()
+	RelicManager.hide_stats = false
 	LevelManager.back_to_village()

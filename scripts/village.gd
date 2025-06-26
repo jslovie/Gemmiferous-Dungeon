@@ -28,6 +28,7 @@ func _process(_delta):
 	if LevelManager.is_mobile:
 		$Material.visible = false
 		$Gems.visible = false
+		$Home.visible = false
 
 func check_in_shop():
 	if VillageManager.in_shop == true:

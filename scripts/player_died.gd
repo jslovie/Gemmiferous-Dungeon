@@ -175,4 +175,5 @@ func _on_exit_pressed():
 	LevelManager.in_tutorial_level = false
 	emit_signal("update_total_bar")
 	await get_tree().create_timer(2.5).timeout
+	RelicManager.hide_stats = false
 	LevelManager.back_to_village()
