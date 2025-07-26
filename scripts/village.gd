@@ -346,7 +346,11 @@ func _on_stone_button_pressed():
 func _on_iron_button_pressed():
 	collect_iron()
 
+func _on_home_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
+
 func _on_home_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.main_menu()
 
 
@@ -366,3 +370,31 @@ func _on_arrow_left_pressed():
 	
 func _on_arrow_right_pressed():
 	move_tween($Camera2D,Vector2(849,411),0.5)
+
+
+func _on_manor_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)
+func _on_church_mouse_entered():
+	if VillageManager.church_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_taverm_mouse_entered():
+	if VillageManager.tavern_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_weaponsmith_mouse_entered():
+	if VillageManager.weaponsmith_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_armourer_mouse_entered():
+	if VillageManager.armourer_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_sorcerer_mouse_entered():
+	if VillageManager.sorcerer_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_wood_button_mouse_entered():
+	if VillageManager.woodcutters_camp_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_stone_button_mouse_entered():
+	if VillageManager.stone_mine_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)
+func _on_iron_button_mouse_entered():
+	if VillageManager.iron_mine_repaired == true:
+		Sfx.play_SFX(Sfx.hover_village)

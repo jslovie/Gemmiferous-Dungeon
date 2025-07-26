@@ -179,6 +179,7 @@ func item_level_UP():
 	SaveManager.savefilesave()
 
 func _on_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Price.visible = true
 	if item_lvl == 1:
 		$ItemDescription.text = str(description) + str(prices.damage_0.x + prices.damage_1.x + upgraded_item_damage.x) + "-" + str(prices.damage_0.y + prices.damage_1.y + upgraded_item_damage.y)

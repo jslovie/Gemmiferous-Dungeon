@@ -21,12 +21,18 @@ var relic = preload("res://audio/SFX/SFX/11_Buff_03.wav")
 var damage = preload("res://audio/SFX/SFX/04_Fighter_Damage_2.wav")
 var death = preload("res://audio/SFX/SFX/Barbarian_Death.wav")
 var victory = preload("res://audio/SFX/SFX/Battle_Victory_Fanfare.wav")
-#
+
+#Slot machine
 var slot_win = preload("res://audio/SFX/SFX/mixkit-magical-coin-win-1936.wav")
 var slot_spin = preload("res://audio/SFX/SFX/mixkit-arcade-slot-machine-wheel-1933.wav")
 var key = preload("res://audio/SFX/SFX/double-door-lock-101210.mp3")
 #Menu
 var menu_confirm = preload("res://audio/SFX/Menu/MainMenu.wav")
+var button_confirm = preload("res://audio/SFX/Menu/Wood Block2.wav")
+var menu_hover = preload("res://audio/SFX/Menu/African1.wav")
+var in_game_hover = preload("res://audio/SFX/Menu/Minimalist8.wav")
+var book_hover = preload("res://audio/SFX/Menu/05_hover.wav")
+var hover_village = preload("res://audio/SFX/Menu/Minimalist7.wav")
 var enter_dungeon = preload("res://audio/SFX/Menu/Dungeon.wav")
 var level_selection = preload("res://audio/SFX/Menu/LevelSelection.wav")
 var open_book = preload("res://audio/SFX/Menu/OpenBook.wav")
@@ -39,6 +45,8 @@ var upgrade = preload("res://audio/SFX/Menu/Upgrade.wav")
 var upgrade_deny = preload("res://audio/SFX/Menu/UpgradeDeny.wav")
 var buy = preload("res://audio/SFX/SFX/081_Buy_sell_03.wav")
 var deny = preload("res://audio/SFX/SFX/033_Denied_03.wav")
+
+
 
 func play_SFX(stream: AudioStream):
 	var sfx_player = AudioStreamPlayer.new()

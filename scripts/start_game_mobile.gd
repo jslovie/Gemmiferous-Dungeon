@@ -198,8 +198,9 @@ func _on_exit_credits_mouse_entered():
 func _on_exit_credits_mouse_exited():
 	$Credits/ExitCredits/ExitCreditsLabel.add_theme_color_override("font_color", Color.WHITE)
 
+
 func _on_back_pressed():
-	Sfx.play_SFX(Sfx.menu_confirm)
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Settings.visible = false
 	$MarginContainer.visible = false
 	if LevelManager.is_mobile == true:
@@ -207,7 +208,7 @@ func _on_back_pressed():
 
 
 func _on_close_pressed():
-	Sfx.play_SFX(Sfx.menu_confirm)
+	Sfx.play_SFX(Sfx.button_confirm)
 	$DemoMessage.visible = false
 
 func _on_close_mouse_entered():

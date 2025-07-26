@@ -69,4 +69,5 @@ theme_override_fonts/font = ExtResource("3_xr2d8")
 theme_override_font_sizes/font_size = 32
 text = "Level: 1"
 
+[connection signal="mouse_entered" from="ExitShop" to="." method="_on_exit_shop_mouse_entered"]
 [connection signal="pressed" from="ExitShop" to="." method="_on_exit_shop_pressed"]

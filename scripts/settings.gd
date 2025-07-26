@@ -47,7 +47,10 @@ func check_CRT_button():
 	else:
 		$AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed = false
 
+
+
 func _on_check_box_toggled(_toggled_on):
+	Sfx.play_SFX(Sfx.button_confirm)
 	if $AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed == true:
 		Crt.crt_on = true
 	elif $AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed == false:

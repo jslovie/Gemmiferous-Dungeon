@@ -44,4 +44,5 @@ theme_override_colors/font_color = Color(0.720186, 0.292234, 0.0210431, 1)
 theme_override_font_sizes/font_size = 32
 text = "Coming soon!"
 
+[connection signal="mouse_entered" from="CardGame" to="." method="_on_card_game_mouse_entered"]
 [connection signal="pressed" from="CardGame" to="." method="_on_card_game_pressed"]

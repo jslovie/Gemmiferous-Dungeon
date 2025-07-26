@@ -785,7 +785,7 @@ sources/0 = SubResource("TileSetAtlasSource_l0prv")
 
 [sub_resource type="Curve2D" id="Curve2D_wsxe6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 793, 394, 0, 0, 0, 0, 791, 398, 0, 0, 0, 0, 783, 403, 0, 0, 0, 0, 788, 410, 0, 0, 0, 0, 778, 413, 0, 0, 0, 0, 782, 420, 0, 0, 0, 0, 785, 425, 0, 0, 0, 0, 782, 440, 0, 0, 0, 0, 798, 443, 0, 0, 0, 0, 799, 465, 0, 0, 0, 0, 800, 477, 0, 0, 0, 0, 788, 475, 0, 0, 0, 0, 825, 465)
+"points": PackedVector2Array(0, 0, 0, 0, 798, 387, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 793, 394, 0, 0, 0, 0, 791, 398, 0, 0, 0, 0, 783, 403, 0, 0, 0, 0, 788, 410, 0, 0, 0, 0, 778, 413, 0, 0, 0, 0, 782, 420, 0, 0, 0, 0, 785, 425, 0, 0, 0, 0, 782, 440, 0, 0, 0, 0, 798, 443, 0, 0, 0, 0, 799, 465, 0, 0, 0, 0, 800, 477, 0, 0, 0, 0, 788, 475, 0, 0, 0, 0, 825, 465)
 }
 point_count = 15
 
@@ -803,13 +803,13 @@ point_count = 44
 
 [sub_resource type="Curve2D" id="Curve2D_u0r3g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 796, 386, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 782, 401, 0, 0, 0, 0, 789, 409, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 783, 435, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 770, 440, 0, 0, 0, 0, 765, 439, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 789, 408, 0, 0, 0, 0, 782, 400, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 796, 386)
+"points": PackedVector2Array(0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 782, 401, 0, 0, 0, 0, 789, 409, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 783, 435, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 770, 440, 0, 0, 0, 0, 765, 439, 0, 0, 0, 0, 781, 439, 0, 0, 0, 0, 786, 425, 0, 0, 0, 0, 781, 420, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 778, 412, 0, 0, 0, 0, 789, 408, 0, 0, 0, 0, 782, 400, 0, 0, 0, 0, 793, 397, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 787, 390, 0, 0, 0, 0, 796, 386)
 }
 point_count = 27
 
 [sub_resource type="Curve2D" id="Curve2D_hmnc5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 826, 455, 0, 0, 0, 0, 821, 456, 0, 0, 0, 0, 816, 457, 0, 0, 0, 0, 812, 460, 0, 0, 0, 0, 808, 462, 0, 0, 0, 0, 805, 462, 0, 0, 0, 0, 800, 460, 0, 0, 0, 0, 799, 456, 0, 0, 0, 0, 796, 447, 0, 0, 0, 0, 797, 443, 0, 0, 0, 0, 790, 441, 0, 0, 0, 0, 784, 440, 0, 0, 0, 0, 783, 438, 0, 0, 0, 0, 783, 431, 0, 0, 0, 0, 785, 424, 0, 0, 0, 0, 783, 418, 0, 0, 0, 0, 779, 413, 0, 0, 0, 0, 788, 408, 0, 0, 0, 0, 787, 404, 0, 0, 0, 0, 785, 402, 0, 0, 0, 0, 790, 398, 0, 0, 0, 0, 793, 395, 0, 0, 0, 0, 789, 391, 0, 0, 0, 0, 795, 387)
+"points": PackedVector2Array(0, 0, 0, 0, 826, 455, 0, 0, 0, 0, 821, 456, 0, 0, 0, 0, 816, 457, 0, 0, 0, 0, 812, 460, 0, 0, 0, 0, 808, 462, 0, 0, 0, 0, 805, 462, 0, 0, 0, 0, 800, 460, 0, 0, 0, 0, 799, 456, 0, 0, 0, 0, 796, 447, 0, 0, 0, 0, 797, 443, 0, 0, 0, 0, 790, 441, 0, 0, 0, 0, 784, 440, 0, 0, 0, 0, 783, 438, 0, 0, 0, 0, 783, 431, 0, 0, 0, 0, 785, 424, 0, 0, 0, 0, 783, 418, 0, 0, 0, 0, 779, 413, 0, 0, 0, 0, 788, 408, 0, 0, 0, 0, 787, 404, 0, 0, 0, 0, 785, 402, 0, 0, 0, 0, 790, 398, 0, 0, 0, 0, 793, 395, 0, 0, 0, 0, 789, 391, 0, 0, 0, 0, 794, 386)
 }
 point_count = 24
 
@@ -1352,7 +1352,7 @@ visible = false
 curve = SubResource("Curve2D_wsxe6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToHouse"]
-position = Vector2(796, 387)
+position = Vector2(798, 387)
 rotation = 0.674741
 rotates = false
 script = ExtResource("79_ngvu0")
@@ -1400,7 +1400,7 @@ visible = false
 curve = SubResource("Curve2D_u0r3g")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToCross"]
-position = Vector2(765.669, 438.964)
+position = Vector2(766.112, 438.973)
 rotation = 0.674741
 progress = 111.09
 rotates = false
@@ -1912,14 +1912,27 @@ texture_normal = ExtResource("87_o2k2x")
 texture_hover = ExtResource("88_fq1t4")
 flip_h = true
 
+[connection signal="mouse_entered" from="VillageTiles/Manor" to="." method="_on_manor_mouse_entered"]
 [connection signal="pressed" from="VillageTiles/Manor" to="." method="_on_manor_pressed"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/Church" to="." method="_on_church_mouse_entered"]
 [connection signal="pressed" from="VillageTiles/Shops/Church" to="." method="_on_church_pressed"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_mouse_entered"]
 [connection signal="pressed" from="VillageTiles/Shops/Taverm" to="." method="_on_taverm_pressed"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/Weaponsmith" to="." method="_on_weaponsmith_mouse_entered"]
 [connection signal="pressed" from="VillageTiles/Shops/Weaponsmith" to="." method="_on_weaponsmith_pressed"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/Armourer" to="." method="_on_armourer_mouse_entered"]
 [connection signal="pressed" from="VillageTiles/Shops/Armourer" to="." method="_on_armourer_pressed"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/Sorcerer" to="." method="_on_sorcerer_mouse_entered"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/IronMine" to="." method="_on_iron_mine_mouse_entered"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/Woodcutters" to="." method="_on_woodcutters_mouse_entered"]
+[connection signal="mouse_entered" from="VillageTiles/Shops/StoneMine" to="." method="_on_stone_mine_mouse_entered"]
+[connection signal="mouse_entered" from="Wood/WoodButton" to="." method="_on_wood_button_mouse_entered"]
 [connection signal="pressed" from="Wood/WoodButton" to="." method="_on_wood_button_pressed"]
+[connection signal="mouse_entered" from="Stone/StoneButton" to="." method="_on_stone_button_mouse_entered"]
 [connection signal="pressed" from="Stone/StoneButton" to="." method="_on_stone_button_pressed"]
+[connection signal="mouse_entered" from="Iron/IronButton" to="." method="_on_iron_button_mouse_entered"]
 [connection signal="pressed" from="Iron/IronButton" to="." method="_on_iron_button_pressed"]
+[connection signal="mouse_entered" from="Home" to="." method="_on_home_mouse_entered"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="ArrowRight" to="." method="_on_arrow_right_pressed"]
 [connection signal="pressed" from="ArrowLeft" to="." method="_on_arrow_left_pressed"]

@@ -15,8 +15,11 @@ func _on_exit_shop_pressed():
 	SaveManager.savefilesave()
 	exit_door()
 
+func _on_card_game_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 
 func _on_card_game_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	Transition.transition()
 	await get_tree().create_timer(0.5).timeout
 	if LevelManager.is_mobile:
@@ -42,3 +45,6 @@ func exit_door():
 func update_level():
 	if shop_name == "Weaponsmith":
 		$Level.text = "Level: " + str(VillageManager.weaponsmith_lvl)
+
+func _on_exit_shop_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

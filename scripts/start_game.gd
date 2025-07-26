@@ -167,34 +167,44 @@ func _on_quit_game_new_pressed():
 
 
 func _on_start_game_new_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_start_game_new_mouse_exited():
 	$Buttons/StartGameNew/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_continue_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	if SaveManager.save_file:
 		$Buttons/Continue/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_continue_mouse_exited():
 	if SaveManager.save_file:
 		$Buttons/Continue/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_options_new_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_options_new_mouse_exited():
 	$Buttons/OptionsNew/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_credits_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	$Buttons/Credits/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_credits_mouse_exited():
 	$Buttons/Credits/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_quit_game_new_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_quit_game_new_mouse_exited():
 	$Buttons/QuitGameNew/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_exit_credits_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	$Credits/ExitCredits/ExitCreditsLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_exit_credits_mouse_exited():
 	$Credits/ExitCredits/ExitCreditsLabel.add_theme_color_override("font_color", Color.WHITE)
 
+func _on_back_mouse_entered():
+	if $MarginContainer.visible == true:
+		Sfx.play_SFX(Sfx.menu_hover)
+
 func _on_back_pressed():
-	Sfx.play_SFX(Sfx.menu_confirm)
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Settings.visible = false
 	$MarginContainer.visible = false
 	if LevelManager.is_mobile == true:
@@ -202,10 +212,11 @@ func _on_back_pressed():
 
 
 func _on_close_pressed():
-	Sfx.play_SFX(Sfx.menu_confirm)
+	Sfx.play_SFX(Sfx.button_confirm)
 	$DemoMessage.visible = false
 
 func _on_close_mouse_entered():
+	Sfx.play_SFX(Sfx.menu_hover)
 	$DemoMessage/Close.modulate = Color.ORANGE_RED
 
 func _on_close_mouse_exited():
@@ -225,18 +236,22 @@ func _on_wishlist_mouse_exited():
 
 
 func _on_yes_pressed():
-	Sfx.play_SFX(Sfx.menu_confirm)
+	Sfx.play_SFX(Sfx.button_confirm)
 	remove_savefile()
 	handle_new_game()
 	$Removesavefile.visible = false
 func _on_yes_mouse_entered():
+	if $Removesavefile.visible == true:
+		Sfx.play_SFX(Sfx.menu_hover)
 	$Removesavefile/Yes/YesLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_yes_mouse_exited():
 	$Removesavefile/Yes/YesLabel.add_theme_color_override("font_color", Color.WHITE)
 func _on_no_pressed():
-	Sfx.play_SFX(Sfx.menu_confirm)
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Removesavefile.visible = false
 func _on_no_mouse_entered():
+	if $Removesavefile.visible == true:
+		Sfx.play_SFX(Sfx.menu_hover)
 	$Removesavefile/No/NoLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_no_mouse_exited():
 	$Removesavefile/No/NoLabel.add_theme_color_override("font_color", Color.WHITE)

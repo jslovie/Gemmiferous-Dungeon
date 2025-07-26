@@ -64,13 +64,13 @@ func _process(_delta):
 
 func change_background():
 	if LevelManager.floor == 1:
-		$Desktop/Background/F1.visible = true
+		$Background/F1.visible = true
 	elif LevelManager.floor == 2:
-		$Desktop/Background/F2.visible = true
+		$Background/F2.visible = true
 	elif LevelManager.floor == 3:
-		$Desktop/Background/F3.visible = true
+		$Background/F3.visible = true
 	elif LevelManager.floor == 4:
-		$Desktop/Background/F4.visible = true
+		$Background/F4.visible = true
 
 func update_healthbars():
 	#Player healthbar

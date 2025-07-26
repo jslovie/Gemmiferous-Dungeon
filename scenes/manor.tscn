@@ -894,7 +894,6 @@ theme_override_font_sizes/font_size = 32
 text = "Cost:"
 
 [node name="Description" type="Label" parent="Cost"]
-visible = false
 layout_mode = 1
 offset_left = 611.0
 offset_top = 731.0
@@ -960,6 +959,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_e5fm4")
 
 [node name="BookFrontPage" type="Node2D" parent="."]
+visible = false
 
 [node name="Book" type="Sprite2D" parent="BookFrontPage"]
 position = Vector2(937, 492)
@@ -1155,6 +1155,9 @@ texture_hover = ExtResource("7_uctvj")
 [connection signal="mouse_entered" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_mouse_entered"]
 [connection signal="mouse_exited" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_mouse_exited"]
 [connection signal="pressed" from="TownUpgrades/VBoxContainer/HousesUpgrade" to="." method="_on_houses_upgrade_pressed"]
+[connection signal="mouse_entered" from="BookFrontPage/EnterDungeon" to="." method="_on_enter_dungeon_mouse_entered"]
 [connection signal="pressed" from="BookFrontPage/EnterDungeon" to="." method="_on_enter_dungeon_pressed"]
+[connection signal="mouse_entered" from="BookFrontPage/VillageManagement" to="." method="_on_village_management_mouse_entered"]
 [connection signal="pressed" from="BookFrontPage/VillageManagement" to="." method="_on_village_management_pressed"]
+[connection signal="mouse_entered" from="BookFrontPage/ExitShopFrontPage" to="." method="_on_exit_shop_front_page_mouse_entered"]
 [connection signal="pressed" from="BookFrontPage/ExitShopFrontPage" to="." method="_on_exit_shop_front_page_pressed"]
