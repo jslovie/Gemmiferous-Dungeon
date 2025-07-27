@@ -625,9 +625,13 @@ func _on_left_watchtower_pressed():
 	if check_enough_material(left_watchtower_repair_price.x,left_watchtower_repair_price.y,left_watchtower_repair_price.z):
 		process_cost(left_watchtower_repair_price.x,left_watchtower_repair_price.y,left_watchtower_repair_price.z)
 		VillageManager.left_watchtower_repaired = true
+		$TownRepair/VBoxContainer/LeftWatchtower/Label.add_theme_color_override("font_color", Color.BLACK)
 	else:
 		not_enough()
 func _on_left_watchtower_mouse_entered():
+	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/LeftWatchtower/Checked.visible == false:
+		$TownRepair/VBoxContainer/LeftWatchtower/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.left_watchtower_repaired == true:
 		$Cost.visible = false
 	else:
@@ -637,6 +641,7 @@ func _on_left_watchtower_mouse_entered():
 		%Iron.text = str(left_watchtower_repair_price.z)
 		$Cost/Description.text = left_watchtower_repair_description
 func _on_left_watchtower_mouse_exited():
+	$TownRepair/VBoxContainer/LeftWatchtower/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Right Watchtower
@@ -645,9 +650,13 @@ func _on_right_watchtower_pressed():
 	if check_enough_material(right_watchtower_repair_price.x,right_watchtower_repair_price.y,right_watchtower_repair_price.z):
 		process_cost(right_watchtower_repair_price.x,right_watchtower_repair_price.y,right_watchtower_repair_price.z)
 		VillageManager.right_watchtower_repaired = true
+		$TownRepair/VBoxContainer/RightWatchtower/Label.add_theme_color_override("font_color", Color.BLACK)
 	else:
 		not_enough()
 func _on_right_watchtower_mouse_entered():
+	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/RightWatchtower/Checked.visible == false:
+		$TownRepair/VBoxContainer/RightWatchtower/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.right_watchtower_repaired == true:
 		$Cost.visible = false
 	else:
@@ -657,6 +666,7 @@ func _on_right_watchtower_mouse_entered():
 		%Iron.text = str(right_watchtower_repair_price.z)
 		$Cost/Description.text = right_watchtower_repair_description
 func _on_right_watchtower_mouse_exited():
+	$TownRepair/VBoxContainer/RightWatchtower/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Woodcutters camp build
@@ -665,10 +675,14 @@ func _on_woodcutters_camp_pressed():
 	if check_enough_material(woodcutters_camp_repair_price.x,woodcutters_camp_repair_price.y,woodcutters_camp_repair_price.z):
 		process_cost(woodcutters_camp_repair_price.x,woodcutters_camp_repair_price.y,woodcutters_camp_repair_price.z)
 		VillageManager.woodcutters_camp_repaired = true
+		$TownRepair/VBoxContainer/WoodcuttersCamp/Label.add_theme_color_override("font_color", Color.BLACK)
 		VillageManager.wood_timer()
 	else:
 		not_enough()
 func _on_woodcutters_camp_mouse_entered():
+	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/WoodcuttersCamp/Checked.visible == false:
+		$TownRepair/VBoxContainer/WoodcuttersCamp/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.woodcutters_camp_repaired == true:
 		$Cost.visible = false
 	else:
@@ -677,7 +691,9 @@ func _on_woodcutters_camp_mouse_entered():
 		%Stone.text = str(woodcutters_camp_repair_price.y)
 		%Iron.text = str(woodcutters_camp_repair_price.z)
 		$Cost/Description.text = woodcutters_camp_repair_description
-func _on_woodcutters_camp_focus_exited():
+		
+func _on_woodcutters_camp_mouse_exited():
+	$TownRepair/VBoxContainer/WoodcuttersCamp/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Stone mine build
@@ -686,10 +702,14 @@ func _on_stone_mine_pressed():
 	if check_enough_material(stone_mine_repair_price.x,stone_mine_repair_price.y,stone_mine_repair_price.z):
 		process_cost(stone_mine_repair_price.x,stone_mine_repair_price.y,stone_mine_repair_price.z)
 		VillageManager.stone_mine_repaired = true
+		$TownRepair/VBoxContainer/StoneMine/Label.add_theme_color_override("font_color", Color.BLACK)
 		VillageManager.stone_timer()
 	else:
 		not_enough()
 func _on_stone_mine_mouse_entered():
+	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/StoneMine/Checked.visible == false:
+		$TownRepair/VBoxContainer/StoneMine/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.stone_mine_repaired == true:
 		$Cost.visible = false
 	else:
@@ -699,6 +719,7 @@ func _on_stone_mine_mouse_entered():
 		%Iron.text = str(stone_mine_repair_price.z)
 		$Cost/Description.text = stone_mine_repair_description
 func _on_stone_mine_mouse_exited():
+	$TownRepair/VBoxContainer/StoneMine/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Iron mine build
@@ -707,10 +728,14 @@ func _on_iron_mine_pressed():
 	if check_enough_material(iron_mine_repair_price.x,iron_mine_repair_price.y,iron_mine_repair_price.z):
 		process_cost(iron_mine_repair_price.x,iron_mine_repair_price.y,iron_mine_repair_price.z)
 		VillageManager.iron_mine_repaired = true
+		$TownRepair/VBoxContainer/IronMine/Label.add_theme_color_override("font_color", Color.BLACK)
 		VillageManager.iron_timer()
 	else:
 		not_enough()
 func _on_iron_mine_mouse_entered():
+	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/IronMine/Checked.visible == false:
+		$TownRepair/VBoxContainer/IronMine/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.iron_mine_repaired == true:
 		$Cost.visible = false
 	else:
@@ -720,6 +745,7 @@ func _on_iron_mine_mouse_entered():
 		%Iron.text = str(iron_mine_repair_price.z)
 		$Cost/Description.text = iron_mine_repair_description
 func _on_iron_mine_mouse_exited():
+	$TownRepair/VBoxContainer/IronMine/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 
@@ -783,10 +809,14 @@ func _on_tavern_upgrade_pressed():
 			process_cost(tavern2_upgrade_price.x,tavern2_upgrade_price.y,tavern2_upgrade_price.z)
 			VillageManager.tavern_lvl = 3
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/TavernUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_tavern_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/TavernUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/TavernUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.tavern_lvl == 3:
 		$Cost.visible = false
 	elif VillageManager.tavern_lvl == 1:
@@ -802,6 +832,7 @@ func _on_tavern_upgrade_mouse_entered():
 		%Iron.text = str(tavern2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade tavern to level 3 and access new upgrades"
 func _on_tavern_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/TavernUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Weaponsmith upgrade
@@ -820,10 +851,14 @@ func _on_weaponsmith_upgrade_pressed():
 			process_cost(weaponsmith2_upgrade_price.x,weaponsmith2_upgrade_price.y,weaponsmith2_upgrade_price.z)
 			VillageManager.weaponsmith_lvl = 3
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_weaponsmith_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.weaponsmith_lvl == 3:
 		$Cost.visible = false
 	elif VillageManager.weaponsmith_lvl == 1:
@@ -839,6 +874,7 @@ func _on_weaponsmith_upgrade_mouse_entered():
 		%Iron.text = str(weaponsmith2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade weaponsmith shop to level 3 and access new upgrades"
 func _on_weaponsmith_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Armourer upgrade
@@ -857,10 +893,14 @@ func _on_armourer_upgrade_pressed():
 			process_cost(armourer2_upgrade_price.x,armourer2_upgrade_price.y,armourer2_upgrade_price.z)
 			VillageManager.armourer_lvl = 3
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/ArmourerUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_armourer_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/ArmourerUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/ArmourerUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.armourer_lvl == 3:
 		$Cost.visible = false
 	elif VillageManager.armourer_lvl == 1:
@@ -876,6 +916,7 @@ func _on_armourer_upgrade_mouse_entered():
 		%Iron.text = str(armourer2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade armourer shop to level 3 and access new upgrades"
 func _on_armourer_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/ArmourerUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Sorcere upgrade
@@ -894,10 +935,14 @@ func _on_sorcerer_upgrade_pressed():
 			process_cost(sorcerer2_upgrade_price.x,sorcerer2_upgrade_price.y,sorcerer2_upgrade_price.z)
 			VillageManager.sorcerer_lvl = 3
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/SorcererUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_sorcerer_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/SorcererUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/SorcererUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.sorcerer_lvl == 3:
 		$Cost.visible = false
 	elif VillageManager.sorcerer_lvl == 1:
@@ -913,6 +958,7 @@ func _on_sorcerer_upgrade_mouse_entered():
 		%Iron.text = str(sorcerer2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade sorcerer shop to level 3 and access new upgrades"
 func _on_sorcerer_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/SorcererUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Woodcutters upgrade
@@ -947,10 +993,14 @@ func _on_woodcutters_upgrade_pressed():
 			process_cost(woodcutters_camp4_upgrade_price.x,woodcutters_camp4_upgrade_price.y,woodcutters_camp4_upgrade_price.z)
 			VillageManager.woodcutters_lvl = 5
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/WoodcuttersUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_woodcutters_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/WoodcuttersUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/WoodcuttersUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.woodcutters_lvl == 5:
 		$Cost.visible = false
 	elif VillageManager.woodcutters_lvl == 1:
@@ -978,6 +1028,7 @@ func _on_woodcutters_upgrade_mouse_entered():
 		%Iron.text = str(woodcutters_camp4_upgrade_price.z)
 		$Cost/Description.text = "Upgrade woodcutters camp to level 5 to increase production"	
 func _on_woodcutters_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/WoodcuttersUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Stone mine upgrade
@@ -1012,10 +1063,14 @@ func _on_stone_mine_upgrade_pressed():
 			process_cost(stone_mine4_upgrade_price.x,stone_mine4_upgrade_price.y,stone_mine4_upgrade_price.z)
 			VillageManager.stone_mine_lvl = 5
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/StoneMineUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_stone_mine_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/StoneMineUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/StoneMineUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.stone_mine_lvl == 5:
 		$Cost.visible = false
 	elif VillageManager.stone_mine_lvl == 1:
@@ -1043,6 +1098,7 @@ func _on_stone_mine_upgrade_mouse_entered():
 		%Iron.text = str(stone_mine4_upgrade_price.z)
 		$Cost/Description.text = "Upgrade stone mine to level 5 to increase production"	
 func _on_stone_mine_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/StoneMineUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Iron upgrade
@@ -1077,10 +1133,14 @@ func _on_iron_mine_upgrade_pressed():
 			process_cost(iron_mine4_upgrade_price.x,iron_mine4_upgrade_price.y,iron_mine4_upgrade_price.z)
 			VillageManager.iron_mine_lvl = 5
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/IronMineUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_iron_mine_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/IronMineUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/IronMineUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.iron_mine_lvl == 5:
 		$Cost.visible = false
 	elif VillageManager.iron_mine_lvl == 1:
@@ -1108,6 +1168,7 @@ func _on_iron_mine_upgrade_mouse_entered():
 		%Iron.text = str(iron_mine4_upgrade_price.z)
 		$Cost/Description.text = "Upgrade iron mine to level 5 to increase production"	
 func _on_iron_mine_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/IronMineUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Rathaus upgrade
@@ -1126,10 +1187,14 @@ func _on_rathaus_upgrade_pressed():
 			process_cost(rathaus2_upgrade_price.x,rathaus2_upgrade_price.y,rathaus2_upgrade_price.z)
 			VillageManager.rathaus_lvl = 3
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/RathausUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_rathaus_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/RathausUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/RathausUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.rathaus_lvl == 3:
 		$Cost.visible = false
 	elif VillageManager.rathaus_lvl == 1:
@@ -1145,6 +1210,7 @@ func _on_rathaus_upgrade_mouse_entered():
 		%Iron.text = str(rathaus2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade rathaus to level 3 increase taxes"
 func _on_rathaus_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/RathausUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Farm upgrade
@@ -1163,10 +1229,14 @@ func _on_farm_upgrade_pressed():
 			process_cost(farm2_upgrade_price.x,farm2_upgrade_price.y,farm2_upgrade_price.z)
 			VillageManager.farm_lvl = 3
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/FarmUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_farm_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/FarmUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/FarmUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.farm_lvl == 3:
 		$Cost.visible = false
 	elif VillageManager.farm_lvl == 1:
@@ -1182,6 +1252,7 @@ func _on_farm_upgrade_mouse_entered():
 		%Iron.text = str(farm2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade farm to level 3 increase production"
 func _on_farm_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/FarmUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Lamp upgrade
@@ -1190,9 +1261,13 @@ func _on_lamps_upgrade_pressed():
 	if check_enough_material(lamp_upgrade_price.x,lamp_upgrade_price.y,lamp_upgrade_price.z):
 		process_cost(lamp_upgrade_price.x,lamp_upgrade_price.y,lamp_upgrade_price.z)
 		VillageManager.lamps_built = true
+		$TownUpgrades/VBoxContainer/LampsUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	else:
 		not_enough()
 func _on_lamps_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/LampsUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/LampsUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.lamps_built == true:
 		$Cost.visible = false
 	else:
@@ -1202,6 +1277,7 @@ func _on_lamps_upgrade_mouse_entered():
 		%Iron.text = str(lamp_upgrade_price.z)
 		$Cost/Description.text = "Bring more light and happiness to your village"
 func _on_lamps_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/LampsUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 #Campfire upgrade
@@ -1210,9 +1286,13 @@ func _on_campfire_upgrade_pressed():
 	if check_enough_material(campfire_upgrade_price.x,campfire_upgrade_price.y,campfire_upgrade_price.z):
 		process_cost(campfire_upgrade_price.x,campfire_upgrade_price.y,campfire_upgrade_price.z)
 		VillageManager.campfire_built = true
+		$TownUpgrades/VBoxContainer/CampfireUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	else:
 		not_enough()
 func _on_campfire_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/CampfireUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/CampfireUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.campfire_built == true:
 		$Cost.visible = false
 	else:
@@ -1222,6 +1302,7 @@ func _on_campfire_upgrade_mouse_entered():
 		%Iron.text = str(campfire_upgrade_price.z)
 		$Cost/Description.text = "Build campfire for your villagers to gather around"
 func _on_campfire_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/CampfireUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 	
 #Houses upgrade
@@ -1256,10 +1337,14 @@ func _on_houses_upgrade_pressed():
 			process_cost(houses4_upgrade_price.x,houses4_upgrade_price.y,houses4_upgrade_price.z)
 			VillageManager.build_houses = 4
 			SaveManager.savefilesave()
+			$TownUpgrades/VBoxContainer/HousesUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
 			not_enough()
 func _on_houses_upgrade_mouse_entered():
+	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/HousesUpgrade/Checked.visible == false:
+		$TownUpgrades/VBoxContainer/HousesUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		Sfx.play_SFX(Sfx.book_hover)
 	if VillageManager.build_houses == 4:
 		$Cost.visible = false
 	elif VillageManager.build_houses == 0:
@@ -1287,6 +1372,7 @@ func _on_houses_upgrade_mouse_entered():
 		%Iron.text = str(houses4_upgrade_price.z)
 		$Cost/Description.text = "Build new houses for your villagers"	
 func _on_houses_upgrade_mouse_exited():
+	$TownUpgrades/VBoxContainer/HousesUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
 
