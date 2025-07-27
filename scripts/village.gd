@@ -338,12 +338,15 @@ func _on_armourer_pressed():
 
 
 func _on_wood_button_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	collect_wood()
 
 func _on_stone_button_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	collect_stone()
 
 func _on_iron_button_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	collect_iron()
 
 func _on_home_mouse_entered():

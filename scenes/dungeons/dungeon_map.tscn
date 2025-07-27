@@ -5656,7 +5656,7 @@ texture_hover = ExtResource("19_bqa15")
 
 [node name="Pause" type="Control" parent="."]
 visible = false
-z_index = 50
+z_index = 53
 layout_mode = 3
 anchors_preset = 0
 offset_left = 663.0
@@ -5693,6 +5693,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
 
 [node name="Settings" parent="Pause" instance=ExtResource("20_nhsug")]
+z_index = 53
 layout_mode = 1
 offset_left = 280.0
 offset_top = 456.0
@@ -5700,6 +5701,8 @@ offset_right = 280.0
 offset_bottom = 456.0
 
 [node name="Back" type="Button" parent="Pause"]
+process_mode = 3
+z_index = 53
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 0
 offset_left = 17.0
@@ -5712,6 +5715,8 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="Menu" type="Button" parent="Pause"]
+process_mode = 3
+z_index = 53
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 0
 offset_left = 299.0
@@ -5725,6 +5730,7 @@ text = "Exit"
 
 [node name="Progress" type="Label" parent="Pause"]
 visible = false
+z_index = 53
 layout_mode = 0
 offset_left = -29.0
 offset_top = 946.0
@@ -5754,7 +5760,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("22_3d01s")
 
 [node name="InfoPage" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -5791,7 +5796,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoPageDetails" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 266.0
@@ -5928,7 +5932,7 @@ text = "Rage tile, match to increase the rage meter, higher rage leads to higher
 autowrap_mode = 2
 
 [node name="BackButton" type="TextureButton" parent="InfoPageDetails"]
-z_index = 52
+z_index = 49
 layout_mode = 0
 offset_left = 1371.0
 offset_top = 816.0
@@ -5939,7 +5943,7 @@ texture_normal = ExtResource("28_u6dfy")
 texture_hover = ExtResource("29_biiia")
 
 [node name="BackLabel" type="Label" parent="InfoPageDetails"]
-z_index = 52
+z_index = 49
 layout_mode = 0
 offset_left = 1386.0
 offset_top = 846.0
@@ -6234,7 +6238,9 @@ position = Vector2(923, 707)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("9_x6sp5")
 
+[connection signal="mouse_entered" from="Home" to="." method="_on_home_mouse_entered"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="mouse_entered" from="Pause/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]
@@ -6242,4 +6248,5 @@ texture = ExtResource("9_x6sp5")
 [connection signal="mouse_entered" from="Info" to="." method="_on_info_mouse_entered"]
 [connection signal="mouse_exited" from="Info" to="." method="_on_info_mouse_exited"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
+[connection signal="mouse_entered" from="InfoPageDetails/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="InfoPageDetails/BackButton" to="." method="_on_back_button_pressed"]

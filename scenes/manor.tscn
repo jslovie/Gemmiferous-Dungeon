@@ -959,7 +959,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_e5fm4")
 
 [node name="BookFrontPage" type="Node2D" parent="."]
-visible = false
 
 [node name="Book" type="Sprite2D" parent="BookFrontPage"]
 position = Vector2(937, 492)

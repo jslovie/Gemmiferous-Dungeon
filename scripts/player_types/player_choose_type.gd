@@ -17,6 +17,7 @@ func assign_stats():
 	
 	
 func _on_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	assign_stats()
 	SaveManager.autosave()
 	Transition.transition()
@@ -26,3 +27,7 @@ func _on_pressed():
 		DungeonMapMobile.show_tutorial()
 	await get_tree().create_timer(0.5).timeout
 	LevelManager.switch_to_dungeon_map_timeless()
+
+
+func _on_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

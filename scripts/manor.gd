@@ -200,6 +200,7 @@ func check_enough_material(wood,stone,iron):
 		return false
 
 func not_enough():
+	Sfx.play_SFX(Sfx.decline_book)
 	$Cost/Description.visible = false
 	$Cost/NotEnough.visible = true
 	await get_tree().create_timer(1).timeout
@@ -207,6 +208,7 @@ func not_enough():
 	$Cost/NotEnough.visible = false
 
 func process_cost(wood,stone,iron):
+	Sfx.play_SFX(Sfx.confirm_book)
 	PlayerManager.player.total_wood -= wood
 	PlayerManager.player.total_stone -= stone
 	PlayerManager.player.total_iron -= iron
@@ -368,11 +370,11 @@ func check_manor_level():
 
 #Manor repair
 func _on_manor_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.manor_lvl == 0:
 		if check_enough_material(manor1_repair_price.x,manor1_repair_price.y,manor1_repair_price.z):
 			process_cost(manor1_repair_price.x,manor1_repair_price.y,manor1_repair_price.z)
 			VillageManager.manor_lvl = 1
+			_on_manor_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -380,6 +382,7 @@ func _on_manor_pressed():
 		if check_enough_material(manor2_repair_price.x,manor2_repair_price.y,manor2_repair_price.z):
 			process_cost(manor2_repair_price.x,manor2_repair_price.y,manor2_repair_price.z)
 			VillageManager.manor_lvl = 2
+			_on_manor_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -387,6 +390,7 @@ func _on_manor_pressed():
 		if check_enough_material(manor3_repair_price.x,manor3_repair_price.y,manor3_repair_price.z):
 			process_cost(manor3_repair_price.x,manor3_repair_price.y,manor3_repair_price.z)
 			VillageManager.manor_lvl = 3
+			_on_manor_mouse_entered()
 			$TownRepair/VBoxContainer/Manor/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -421,7 +425,6 @@ func _on_manor_mouse_exited():
 
 #Church repair
 func _on_church_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(church_repair_price.x,church_repair_price.y,church_repair_price.z):
 		process_cost(church_repair_price.x,church_repair_price.y,church_repair_price.z)
 		VillageManager.church_repaired = true
@@ -446,7 +449,6 @@ func _on_church_mouse_exited():
 	
 #Tavern repair
 func _on_tavern_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(tavern_repair_price.x,tavern_repair_price.y,tavern_repair_price.z):
 		process_cost(tavern_repair_price.x,tavern_repair_price.y,tavern_repair_price.z)
 		VillageManager.tavern_repaired = true
@@ -471,7 +473,6 @@ func _on_tavern_mouse_exited():
 
 #Weaponsmith repair
 func _on_weaponsmith_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(weaponsmith_repair_price.x,weaponsmith_repair_price.y,weaponsmith_repair_price.z):
 		process_cost(weaponsmith_repair_price.x,weaponsmith_repair_price.y,weaponsmith_repair_price.z)
 		VillageManager.weaponsmith_repaired = true
@@ -496,7 +497,6 @@ func _on_weaponsmith_mouse_exited():
 
 #Armourer repair
 func _on_armourer_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(armourer_repair_price.x,armourer_repair_price.y,armourer_repair_price.z):
 		process_cost(armourer_repair_price.x,armourer_repair_price.y,armourer_repair_price.z)
 		VillageManager.armourer_repaired = true
@@ -521,7 +521,6 @@ func _on_armourer_mouse_exited():
 
 #Sorcerer repair
 func _on_sorcerer_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(sorcerer_repair_price.x,sorcerer_repair_price.y,sorcerer_repair_price.z):
 		process_cost(sorcerer_repair_price.x,sorcerer_repair_price.y,sorcerer_repair_price.z)
 		VillageManager.sorcerer_repaired = true
@@ -546,7 +545,6 @@ func _on_sorcerer_mouse_exited():
 
 #Town square repair
 func _on_town_square_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(town_square_repair_price.x,town_square_repair_price.y,town_square_repair_price.z):
 		process_cost(town_square_repair_price.x,town_square_repair_price.y,town_square_repair_price.z)
 		VillageManager.town_square_repaired = true
@@ -571,7 +569,6 @@ func _on_town_square_mouse_exited():
 
 #Farm repair
 func _on_farm_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(farm_repair_price.x,farm_repair_price.y,farm_repair_price.z):
 		process_cost(farm_repair_price.x,farm_repair_price.y,farm_repair_price.z)
 		VillageManager.farm_repaired = true
@@ -596,7 +593,6 @@ func _on_farm_mouse_exited():
 
 #Houses repair
 func _on_houses_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(houses_repair_price.x,houses_repair_price.y,houses_repair_price.z):
 		process_cost(houses_repair_price.x,houses_repair_price.y,houses_repair_price.z)
 		VillageManager.houses_repaired = true
@@ -621,7 +617,6 @@ func _on_houses_mouse_exited():
 
 #Left watchtower repair
 func _on_left_watchtower_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(left_watchtower_repair_price.x,left_watchtower_repair_price.y,left_watchtower_repair_price.z):
 		process_cost(left_watchtower_repair_price.x,left_watchtower_repair_price.y,left_watchtower_repair_price.z)
 		VillageManager.left_watchtower_repaired = true
@@ -646,7 +641,6 @@ func _on_left_watchtower_mouse_exited():
 
 #Right Watchtower
 func _on_right_watchtower_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(right_watchtower_repair_price.x,right_watchtower_repair_price.y,right_watchtower_repair_price.z):
 		process_cost(right_watchtower_repair_price.x,right_watchtower_repair_price.y,right_watchtower_repair_price.z)
 		VillageManager.right_watchtower_repaired = true
@@ -671,7 +665,6 @@ func _on_right_watchtower_mouse_exited():
 
 #Woodcutters camp build
 func _on_woodcutters_camp_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(woodcutters_camp_repair_price.x,woodcutters_camp_repair_price.y,woodcutters_camp_repair_price.z):
 		process_cost(woodcutters_camp_repair_price.x,woodcutters_camp_repair_price.y,woodcutters_camp_repair_price.z)
 		VillageManager.woodcutters_camp_repaired = true
@@ -698,7 +691,6 @@ func _on_woodcutters_camp_mouse_exited():
 
 #Stone mine build
 func _on_stone_mine_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(stone_mine_repair_price.x,stone_mine_repair_price.y,stone_mine_repair_price.z):
 		process_cost(stone_mine_repair_price.x,stone_mine_repair_price.y,stone_mine_repair_price.z)
 		VillageManager.stone_mine_repaired = true
@@ -724,7 +716,6 @@ func _on_stone_mine_mouse_exited():
 
 #Iron mine build
 func _on_iron_mine_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(iron_mine_repair_price.x,iron_mine_repair_price.y,iron_mine_repair_price.z):
 		process_cost(iron_mine_repair_price.x,iron_mine_repair_price.y,iron_mine_repair_price.z)
 		VillageManager.iron_mine_repaired = true
@@ -795,12 +786,12 @@ func update_upgrade_text():
 
 #Tavern upgrade
 func _on_tavern_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.tavern_lvl == 1:
 		if check_enough_material(tavern1_upgrade_price.x,tavern1_upgrade_price.y,tavern1_upgrade_price.z):
 			process_cost(tavern1_upgrade_price.x,tavern1_upgrade_price.y,tavern1_upgrade_price.z)
 			VillageManager.tavern_lvl = 2
 			SaveManager.savefilesave()
+			_on_tavern_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -809,6 +800,7 @@ func _on_tavern_upgrade_pressed():
 			process_cost(tavern2_upgrade_price.x,tavern2_upgrade_price.y,tavern2_upgrade_price.z)
 			VillageManager.tavern_lvl = 3
 			SaveManager.savefilesave()
+			_on_tavern_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/TavernUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -837,12 +829,12 @@ func _on_tavern_upgrade_mouse_exited():
 
 #Weaponsmith upgrade
 func _on_weaponsmith_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.weaponsmith_lvl == 1:
 		if check_enough_material(weaponsmith1_upgrade_price.x,weaponsmith1_upgrade_price.y,weaponsmith1_upgrade_price.z):
 			process_cost(weaponsmith1_upgrade_price.x,weaponsmith1_upgrade_price.y,weaponsmith1_upgrade_price.z)
 			VillageManager.weaponsmith_lvl = 2
 			SaveManager.savefilesave()
+			_on_weaponsmith_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -851,6 +843,7 @@ func _on_weaponsmith_upgrade_pressed():
 			process_cost(weaponsmith2_upgrade_price.x,weaponsmith2_upgrade_price.y,weaponsmith2_upgrade_price.z)
 			VillageManager.weaponsmith_lvl = 3
 			SaveManager.savefilesave()
+			_on_weaponsmith_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -879,12 +872,12 @@ func _on_weaponsmith_upgrade_mouse_exited():
 
 #Armourer upgrade
 func _on_armourer_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.armourer_lvl == 1:
 		if check_enough_material(armourer1_upgrade_price.x,armourer1_upgrade_price.y,armourer1_upgrade_price.z):
 			process_cost(armourer1_upgrade_price.x,armourer1_upgrade_price.y,armourer1_upgrade_price.z)
 			VillageManager.armourer_lvl = 2
 			SaveManager.savefilesave()
+			_on_armourer_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -893,6 +886,7 @@ func _on_armourer_upgrade_pressed():
 			process_cost(armourer2_upgrade_price.x,armourer2_upgrade_price.y,armourer2_upgrade_price.z)
 			VillageManager.armourer_lvl = 3
 			SaveManager.savefilesave()
+			_on_armourer_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/ArmourerUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -921,12 +915,12 @@ func _on_armourer_upgrade_mouse_exited():
 
 #Sorcere upgrade
 func _on_sorcerer_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.sorcerer_lvl == 1:
 		if check_enough_material(sorcerer1_upgrade_price.x,sorcerer1_upgrade_price.y,sorcerer1_upgrade_price.z):
 			process_cost(sorcerer1_upgrade_price.x,sorcerer1_upgrade_price.y,sorcerer1_upgrade_price.z)
 			VillageManager.sorcerer_lvl = 2
 			SaveManager.savefilesave()
+			_on_sorcerer_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -935,6 +929,7 @@ func _on_sorcerer_upgrade_pressed():
 			process_cost(sorcerer2_upgrade_price.x,sorcerer2_upgrade_price.y,sorcerer2_upgrade_price.z)
 			VillageManager.sorcerer_lvl = 3
 			SaveManager.savefilesave()
+			_on_sorcerer_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/SorcererUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -963,12 +958,12 @@ func _on_sorcerer_upgrade_mouse_exited():
 
 #Woodcutters upgrade
 func _on_woodcutters_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.woodcutters_lvl == 1:
 		if check_enough_material(woodcutters_camp1_upgrade_price.x,woodcutters_camp1_upgrade_price.y,woodcutters_camp1_upgrade_price.z):
 			process_cost(woodcutters_camp1_upgrade_price.x,woodcutters_camp1_upgrade_price.y,woodcutters_camp1_upgrade_price.z)
 			VillageManager.woodcutters_lvl = 2
 			SaveManager.savefilesave()
+			_on_woodcutters_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -977,6 +972,7 @@ func _on_woodcutters_upgrade_pressed():
 			process_cost(woodcutters_camp2_upgrade_price.x,woodcutters_camp2_upgrade_price.y,woodcutters_camp2_upgrade_price.z)
 			VillageManager.woodcutters_lvl = 3
 			SaveManager.savefilesave()
+			_on_woodcutters_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -985,6 +981,7 @@ func _on_woodcutters_upgrade_pressed():
 			process_cost(woodcutters_camp3_upgrade_price.x,woodcutters_camp3_upgrade_price.y,woodcutters_camp3_upgrade_price.z)
 			VillageManager.woodcutters_lvl = 4
 			SaveManager.savefilesave()
+			_on_woodcutters_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -993,6 +990,7 @@ func _on_woodcutters_upgrade_pressed():
 			process_cost(woodcutters_camp4_upgrade_price.x,woodcutters_camp4_upgrade_price.y,woodcutters_camp4_upgrade_price.z)
 			VillageManager.woodcutters_lvl = 5
 			SaveManager.savefilesave()
+			_on_woodcutters_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/WoodcuttersUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -1033,12 +1031,12 @@ func _on_woodcutters_upgrade_mouse_exited():
 
 #Stone mine upgrade
 func _on_stone_mine_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.stone_mine_lvl == 1:
 		if check_enough_material(stone_mine1_upgrade_price.x,stone_mine1_upgrade_price.y,stone_mine1_upgrade_price.z):
 			process_cost(stone_mine1_upgrade_price.x,stone_mine1_upgrade_price.y,stone_mine1_upgrade_price.z)
 			VillageManager.stone_mine_lvl = 2
 			SaveManager.savefilesave()
+			_on_stone_mine_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1047,6 +1045,7 @@ func _on_stone_mine_upgrade_pressed():
 			process_cost(stone_mine2_upgrade_price.x,stone_mine2_upgrade_price.y,stone_mine2_upgrade_price.z)
 			VillageManager.stone_mine_lvl = 3
 			SaveManager.savefilesave()
+			_on_stone_mine_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1055,6 +1054,7 @@ func _on_stone_mine_upgrade_pressed():
 			process_cost(stone_mine3_upgrade_price.x,stone_mine3_upgrade_price.y,stone_mine3_upgrade_price.z)
 			VillageManager.stone_mine_lvl = 4
 			SaveManager.savefilesave()
+			_on_stone_mine_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1063,6 +1063,7 @@ func _on_stone_mine_upgrade_pressed():
 			process_cost(stone_mine4_upgrade_price.x,stone_mine4_upgrade_price.y,stone_mine4_upgrade_price.z)
 			VillageManager.stone_mine_lvl = 5
 			SaveManager.savefilesave()
+			_on_stone_mine_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/StoneMineUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -1103,12 +1104,12 @@ func _on_stone_mine_upgrade_mouse_exited():
 
 #Iron upgrade
 func _on_iron_mine_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.iron_mine_lvl == 1:
 		if check_enough_material(iron_mine1_upgrade_price.x,iron_mine1_upgrade_price.y,iron_mine1_upgrade_price.z):
 			process_cost(iron_mine1_upgrade_price.x,iron_mine1_upgrade_price.y,iron_mine1_upgrade_price.z)
 			VillageManager.iron_mine_lvl = 2
 			SaveManager.savefilesave()
+			_on_iron_mine_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1117,6 +1118,7 @@ func _on_iron_mine_upgrade_pressed():
 			process_cost(iron_mine2_upgrade_price.x,iron_mine2_upgrade_price.y,iron_mine2_upgrade_price.z)
 			VillageManager.iron_mine_lvl = 3
 			SaveManager.savefilesave()
+			_on_iron_mine_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1125,6 +1127,7 @@ func _on_iron_mine_upgrade_pressed():
 			process_cost(iron_mine3_upgrade_price.x,iron_mine3_upgrade_price.y,iron_mine3_upgrade_price.z)
 			VillageManager.iron_mine_lvl = 4
 			SaveManager.savefilesave()
+			_on_iron_mine_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1133,6 +1136,7 @@ func _on_iron_mine_upgrade_pressed():
 			process_cost(iron_mine4_upgrade_price.x,iron_mine4_upgrade_price.y,iron_mine4_upgrade_price.z)
 			VillageManager.iron_mine_lvl = 5
 			SaveManager.savefilesave()
+			_on_iron_mine_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/IronMineUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -1173,12 +1177,12 @@ func _on_iron_mine_upgrade_mouse_exited():
 
 #Rathaus upgrade
 func _on_rathaus_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.rathaus_lvl == 1:
 		if check_enough_material(rathaus1_upgrade_price.x,rathaus1_upgrade_price.y,rathaus1_upgrade_price.z):
 			process_cost(rathaus1_upgrade_price.x,rathaus1_upgrade_price.y,rathaus1_upgrade_price.z)
 			VillageManager.rathaus_lvl = 2
 			SaveManager.savefilesave()
+			_on_rathaus_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1187,6 +1191,7 @@ func _on_rathaus_upgrade_pressed():
 			process_cost(rathaus2_upgrade_price.x,rathaus2_upgrade_price.y,rathaus2_upgrade_price.z)
 			VillageManager.rathaus_lvl = 3
 			SaveManager.savefilesave()
+			_on_rathaus_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/RathausUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -1215,12 +1220,12 @@ func _on_rathaus_upgrade_mouse_exited():
 
 #Farm upgrade
 func _on_farm_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.farm_lvl == 1:
 		if check_enough_material(farm1_upgrade_price.x,farm1_upgrade_price.y,farm1_upgrade_price.z):
 			process_cost(farm1_upgrade_price.x,farm1_upgrade_price.y,farm1_upgrade_price.z)
 			VillageManager.farm_lvl = 2
 			SaveManager.savefilesave()
+			_on_farm_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1229,6 +1234,7 @@ func _on_farm_upgrade_pressed():
 			process_cost(farm2_upgrade_price.x,farm2_upgrade_price.y,farm2_upgrade_price.z)
 			VillageManager.farm_lvl = 3
 			SaveManager.savefilesave()
+			_on_farm_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/FarmUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:
@@ -1257,7 +1263,6 @@ func _on_farm_upgrade_mouse_exited():
 
 #Lamp upgrade
 func _on_lamps_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(lamp_upgrade_price.x,lamp_upgrade_price.y,lamp_upgrade_price.z):
 		process_cost(lamp_upgrade_price.x,lamp_upgrade_price.y,lamp_upgrade_price.z)
 		VillageManager.lamps_built = true
@@ -1282,7 +1287,6 @@ func _on_lamps_upgrade_mouse_exited():
 
 #Campfire upgrade
 func _on_campfire_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if check_enough_material(campfire_upgrade_price.x,campfire_upgrade_price.y,campfire_upgrade_price.z):
 		process_cost(campfire_upgrade_price.x,campfire_upgrade_price.y,campfire_upgrade_price.z)
 		VillageManager.campfire_built = true
@@ -1307,12 +1311,12 @@ func _on_campfire_upgrade_mouse_exited():
 	
 #Houses upgrade
 func _on_houses_upgrade_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
 	if VillageManager.build_houses == 0:
 		if check_enough_material(houses1_upgrade_price.x,houses1_upgrade_price.y,houses1_upgrade_price.z):
 			process_cost(houses1_upgrade_price.x,houses1_upgrade_price.y,houses1_upgrade_price.z)
 			VillageManager.build_houses = 1
 			SaveManager.savefilesave()
+			_on_houses_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1321,6 +1325,7 @@ func _on_houses_upgrade_pressed():
 			process_cost(houses2_upgrade_price.x,houses2_upgrade_price.y,houses2_upgrade_price.z)
 			VillageManager.build_houses = 2
 			SaveManager.savefilesave()
+			_on_houses_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1329,6 +1334,7 @@ func _on_houses_upgrade_pressed():
 			process_cost(houses3_upgrade_price.x,houses3_upgrade_price.y,houses3_upgrade_price.z)
 			VillageManager.build_houses = 3
 			SaveManager.savefilesave()
+			_on_houses_upgrade_mouse_entered()
 			return
 		else:
 			not_enough()
@@ -1337,6 +1343,7 @@ func _on_houses_upgrade_pressed():
 			process_cost(houses4_upgrade_price.x,houses4_upgrade_price.y,houses4_upgrade_price.z)
 			VillageManager.build_houses = 4
 			SaveManager.savefilesave()
+			_on_houses_upgrade_mouse_entered()
 			$TownUpgrades/VBoxContainer/HousesUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 			return
 		else:

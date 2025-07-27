@@ -8,4 +8,5 @@ offset_bottom = 40.0
 flip_h = true
 script = ExtResource("2_a1pvv")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

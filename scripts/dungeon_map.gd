@@ -145,19 +145,30 @@ func visual_update_stats():
 		$Stats/StatsNumbers/BaseAction3Number. visible = false
 		
 
+func _on_home_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 
 func _on_home_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = true
+	hide_tutorial()
+
+
+func _on_back_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 
 func _on_back_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 
 func _on_menu_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 	choose_random_f()
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Pause/Progress.visible = true
 	
 func _on_menu_mouse_exited():
@@ -176,12 +187,15 @@ func hide_tutorial():
 	$InfoPageDetails.visible = false
 
 func _on_info_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
+	Sfx.play_SFX(Sfx.button_confirm)
 	show_tutorial()
 func _on_info_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Info/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 func _on_info_mouse_exited():
 	$Info/TextureRect.modulate = Color(0.369, 0.38, 0.675)
 func _on_back_button_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
+	Sfx.play_SFX(Sfx.button_confirm)
 	hide_tutorial()
+func _on_back_button_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

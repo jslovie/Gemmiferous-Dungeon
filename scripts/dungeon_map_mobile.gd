@@ -146,12 +146,15 @@ func visual_update_stats():
 
 
 func _on_home_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = true
 
 func _on_back_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 
 func _on_menu_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 	choose_random_f()
 	LevelManager.back_to_village()
@@ -175,14 +178,14 @@ func hide_tutorial():
 	$Map/InfoPageDetails.visible = false
 
 func _on_info_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
+	Sfx.play_SFX(Sfx.button_confirm)
 	show_tutorial()
 func _on_info_mouse_entered():
 	$Map/Info/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 func _on_info_mouse_exited():
 	$Map/Info/TextureRect.modulate = Color(0.369, 0.38, 0.675)
 func _on_back_button_pressed():
-	Sfx.play_SFX(Sfx.confirm_book)
+	Sfx.play_SFX(Sfx.button_confirm)
 	hide_tutorial()
 
 

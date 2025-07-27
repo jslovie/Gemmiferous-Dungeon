@@ -201,16 +201,21 @@ func check_result():
 	$Result.visible = true
 	if score > 21:
 		$Result.text = "You Lost!"
+		Sfx.play_SFX(Sfx.lost)
 	elif score <= 21 and enemy_score <= 21 and enemy_score > score:
 		$Result.text = "You Lost!"
+		Sfx.play_SFX(Sfx.lost)
 	elif score <= 21 and enemy_score <= 21 and enemy_score < score:
 		$Result.text = "You Won!"
+		Sfx.play_SFX(Sfx.win)
 		process_win(amount_win)
 	elif score <= 21 and enemy_score > 21:
 		$Result.text = "You Won!"
+		Sfx.play_SFX(Sfx.win)
 		process_win(amount_win)
 	elif score == enemy_score:
 		$Result.text = "Draw!"
+		Sfx.play_SFX(Sfx.draw)
 		process_win(amount_bet)
 	VillageHudMobile.update_village_hud_mobile()
 	SaveManager.savefilesave()
@@ -281,6 +286,7 @@ func pregame_info(action):
 		
 	
 func _on_pick_card_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	if check_enough(amount_bet):
 		
 		pregame_info(false)
@@ -315,6 +321,7 @@ func _on_pick_card_pressed():
 		not_enough()
 
 func pick_card(card):
+	Sfx.play_SFX(Sfx.pick_card)
 	var card_to_change = card
 	var selected_card = get_card()
 	if selected_card == "Ace of Spades":
@@ -866,6 +873,7 @@ func enemy_play():
 
 func endgame():
 	await get_tree().create_timer(3).timeout
+	Sfx.play_SFX(Sfx.shuffle_card)
 	$Result.visible = false
 	reset_score()
 	reset_cards()
@@ -882,6 +890,7 @@ func _on_back_to_village_pressed():
 
 
 func _on_end_turn_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Hit.visible = false
 	$EndTurn.visible = false
 	change_card_6(%Card6)
@@ -902,6 +911,7 @@ func _on_end_turn_pressed():
 		endgame()
 
 func change_card_6(card):
+	Sfx.play_SFX(Sfx.pick_card)
 	var card_to_change = card
 	var selected_card = card_6
 	if selected_card == "Ace of Spades":
@@ -1011,6 +1021,7 @@ func change_card_6(card):
 
 
 func _on_hit_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	if %Card3.visible == false:
 		pick_card(%Card3)
 		%Card3.visible = true
@@ -1032,6 +1043,7 @@ func scale_tween(object,siz,siz_f,time):
 	tween.tween_property(object,"scale",siz_f,time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	
 func _on_home_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.back_to_village()
 
 
@@ -1041,6 +1053,7 @@ func set_bet_win_amounts():
 	$Win/AmountWin.text = str(amount_win)
 
 func _on_amount_down_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween($Bet/AmountDown,Vector2(2,2),Vector2(1.5,1.5),0.1)
 	if amount_bet <= 5:
 		amount_bet -= 1
@@ -1052,6 +1065,7 @@ func _on_amount_down_pressed():
 			amount_bet = 0
 
 func _on_amount_up_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween($Bet/AmountUp,Vector2(2,2),Vector2(1.5,1.5),0.1)
 	if amount_bet < 5:
 		amount_bet += 1
@@ -1063,6 +1077,7 @@ func _on_amount_up_pressed():
 			amount_bet = 95
 
 func _on_bet_t_down_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween($Bet/BetTDown,Vector2(2,2),Vector2(1.5,1.5),0.1)
 	if $Bet/BetT/Row.position == coin_pos:
 		$Bet/BetT/Row.position = blue_gem_pos
@@ -1076,6 +1091,7 @@ func _on_bet_t_down_pressed():
 		$Bet/BetT/Row.position = coin_pos
 
 func _on_bet_t_up_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween($Bet/BetTUp,Vector2(2,2),Vector2(1.5,1.5),0.1)
 	if $Bet/BetT/Row.position == coin_pos:
 		$Bet/BetT/Row.position = yellow_gem_pos
@@ -1089,6 +1105,7 @@ func _on_bet_t_up_pressed():
 		$Bet/BetT/Row.position = coin_pos
 
 func _on_win_t_down_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween($Win/WinTDown,Vector2(2,2),Vector2(1.5,1.5),0.1)
 	if $Win/WinT/Row.position == coin_pos:
 		$Win/WinT/Row.position = blue_gem_pos
@@ -1102,6 +1119,7 @@ func _on_win_t_down_pressed():
 		$Win/WinT/Row.position = coin_pos
 
 func _on_win_t_up_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween($Win/WinTUp,Vector2(2,2),Vector2(1.5,1.5),0.1)
 	if $Win/WinT/Row.position == coin_pos:
 		$Win/WinT/Row.position = yellow_gem_pos
@@ -1116,14 +1134,35 @@ func _on_win_t_up_pressed():
 
 
 func _on_pick_card_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$PickCard/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_pick_card_mouse_exited():
 	$PickCard/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_hit_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Hit/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_hit_mouse_exited():
 	$Hit/Label.add_theme_color_override("font_color", Color.WHITE)
 func _on_end_turn_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$EndTurn/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_end_turn_mouse_exited():
 	$EndTurn/Label.add_theme_color_override("font_color", Color.WHITE)
+
+
+func _on_home_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+
+
+func _on_amount_down_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)
+func _on_amount_up_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)
+func _on_bet_t_down_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)
+func _on_bet_t_up_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)
+func _on_win_t_down_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)
+func _on_win_t_up_mouse_entered():
+	Sfx.play_SFX(Sfx.hover_village)

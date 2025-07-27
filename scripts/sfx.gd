@@ -22,6 +22,13 @@ var damage = preload("res://audio/SFX/SFX/04_Fighter_Damage_2.wav")
 var death = preload("res://audio/SFX/SFX/Barbarian_Death.wav")
 var victory = preload("res://audio/SFX/SFX/Battle_Victory_Fanfare.wav")
 
+#Cars
+var pick_card = preload("res://audio/SFX/SFX/45816__themfish__place_cards2.wav")
+var shuffle_card = preload("res://audio/SFX/SFX/1151_shuffling-cards-03.wav")
+var win = preload("res://audio/SFX/SFX/Round_Start.wav")
+var lost = preload("res://audio/SFX/SFX/Failure.wav")
+var draw = preload("res://audio/SFX/SFX/Save_Point.wav")
+
 #Slot machine
 var slot_win = preload("res://audio/SFX/SFX/mixkit-magical-coin-win-1936.wav")
 var slot_spin = preload("res://audio/SFX/SFX/mixkit-arcade-slot-machine-wheel-1933.wav")
@@ -37,6 +44,7 @@ var enter_dungeon = preload("res://audio/SFX/Menu/Dungeon.wav")
 var level_selection = preload("res://audio/SFX/Menu/LevelSelection.wav")
 var open_book = preload("res://audio/SFX/Menu/OpenBook.wav")
 var confirm_book = preload("res://audio/SFX/Menu/BookConfirm.wav")
+var decline_book = preload("res://audio/SFX/Menu/12_rollback.wav")
 var door_open = preload("res://audio/SFX/Menu/DoorOpen.mp3")
 var door_close = preload("res://audio/SFX/Menu/DoorClose.mp3")
 var manor_open = preload("res://audio/SFX/Menu/ManorOpen.wav")

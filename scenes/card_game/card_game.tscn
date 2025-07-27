@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b3rdm3t28dylk"]
+[gd_scene load_steps=29 format=3 uid="uid://b3rdm3t28dylk"]
 
 [ext_resource type="Script" path="res://scripts/card_game.gd" id="1_m8tym"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="1_vmm01"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dls4tk30qcosl" path="res://assets/paper UI/Paper/up.png" id="20_ep4ey"]
 [ext_resource type="Texture2D" uid="uid://dxnj7pe7j3fui" path="res://assets/slot/BJ.png" id="21_dpibw"]
 [ext_resource type="Texture2D" uid="uid://t564tte0sfm7" path="res://assets/slot/white.png" id="22_wvsqp"]
+[ext_resource type="Texture2D" uid="uid://ckhyjri5iofcc" path="res://assets/paper UI/Paper/down_highlighted.png" id="22_ycyx1"]
+[ext_resource type="Texture2D" uid="uid://dilf2owhparbi" path="res://assets/paper UI/Paper/up_highlighted.png" id="24_rtgjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ndmtg"]
 
@@ -579,6 +581,7 @@ offset_bottom = 52.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("19_yy642")
+texture_hover = ExtResource("22_ycyx1")
 
 [node name="AmountUp" type="TextureButton" parent="Bet"]
 layout_mode = 0
@@ -589,6 +592,7 @@ offset_bottom = 3.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("20_ep4ey")
+texture_hover = ExtResource("24_rtgjo")
 
 [node name="BetT" type="TextureRect" parent="Bet"]
 layout_mode = 0
@@ -621,6 +625,7 @@ offset_bottom = 52.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("19_yy642")
+texture_hover = ExtResource("22_ycyx1")
 
 [node name="BetTUp" type="TextureButton" parent="Bet"]
 layout_mode = 0
@@ -631,6 +636,7 @@ offset_bottom = 3.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("20_ep4ey")
+texture_hover = ExtResource("24_rtgjo")
 
 [node name="Win" type="Control" parent="."]
 anchors_preset = 0
@@ -681,6 +687,7 @@ offset_bottom = 52.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("19_yy642")
+texture_hover = ExtResource("22_ycyx1")
 
 [node name="WinTUp" type="TextureButton" parent="Win"]
 layout_mode = 0
@@ -691,6 +698,7 @@ offset_bottom = 3.0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("20_ep4ey")
+texture_hover = ExtResource("24_rtgjo")
 
 [node name="AmountWin" type="Label" parent="Win"]
 layout_mode = 0
@@ -730,10 +738,17 @@ text = "Not enough for bet!"
 [connection signal="mouse_exited" from="EndTurn" to="." method="_on_end_turn_mouse_exited"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="mouse_entered" from="Home" to="." method="_on_home_mouse_entered"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="mouse_entered" from="Bet/AmountDown" to="." method="_on_amount_down_mouse_entered"]
 [connection signal="pressed" from="Bet/AmountDown" to="." method="_on_amount_down_pressed"]
+[connection signal="mouse_entered" from="Bet/AmountUp" to="." method="_on_amount_up_mouse_entered"]
 [connection signal="pressed" from="Bet/AmountUp" to="." method="_on_amount_up_pressed"]
+[connection signal="mouse_entered" from="Bet/BetTDown" to="." method="_on_bet_t_down_mouse_entered"]
 [connection signal="pressed" from="Bet/BetTDown" to="." method="_on_bet_t_down_pressed"]
+[connection signal="mouse_entered" from="Bet/BetTUp" to="." method="_on_bet_t_up_mouse_entered"]
 [connection signal="pressed" from="Bet/BetTUp" to="." method="_on_bet_t_up_pressed"]
+[connection signal="mouse_entered" from="Win/WinTDown" to="." method="_on_win_t_down_mouse_entered"]
 [connection signal="pressed" from="Win/WinTDown" to="." method="_on_win_t_down_pressed"]
+[connection signal="mouse_entered" from="Win/WinTUp" to="." method="_on_win_t_up_mouse_entered"]
 [connection signal="pressed" from="Win/WinTUp" to="." method="_on_win_t_up_pressed"]
