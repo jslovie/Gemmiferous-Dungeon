@@ -395,25 +395,33 @@ func _on_home_pressed():
 	tween_size()
 	pause()
 
+func _on_back_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+
 func _on_back_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	unpause()
 
 func _on_menu_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Pause/Progress.visible = true
 
 func _on_menu_mouse_exited():
 	$Pause/Progress.visible = false
 
 func _on_home_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Desktop/Home/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 
 func _on_home_mouse_exited():
 	$Desktop/Home/TextureRect.modulate = Color(0.369, 0.38, 0.675)
 
 func _on_shuffle_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Grid/Shuffle/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 
 func _on_shuffle_mouse_exited():

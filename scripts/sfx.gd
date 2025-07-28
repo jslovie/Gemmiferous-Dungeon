@@ -53,13 +53,15 @@ var upgrade = preload("res://audio/SFX/Menu/Upgrade.wav")
 var upgrade_deny = preload("res://audio/SFX/Menu/UpgradeDeny.wav")
 var buy = preload("res://audio/SFX/SFX/081_Buy_sell_03.wav")
 var deny = preload("res://audio/SFX/SFX/033_Denied_03.wav")
-
+var shuffle = preload("res://audio/SFX/SFX/Retro6.wav")
 
 
 func play_SFX(stream: AudioStream):
 	var sfx_player = AudioStreamPlayer.new()
+	var bus_to_use = AudioServer.get_bus_name(2)
 	sfx_player.stream = stream
-	sfx_player.name = "SFX_PLAYER"
+	#sfx_player.name = "SFX_PLAYER"
+	sfx_player.bus = bus_to_use
 	add_child(sfx_player)
 	sfx_player.play()
 	

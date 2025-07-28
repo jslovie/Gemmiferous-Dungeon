@@ -1,6 +1,5 @@
 extends Node2D
 
-var is_demo = false
 
 var tutorial_position = Vector2(-16,-7)
 var rogue_position = Vector2(-602,-7)
@@ -11,10 +10,6 @@ var knight_position = Vector2(-2875,-7)
 
 
 func _ready():
-	if OS.has_feature("Demo"):
-		is_demo = true
-	else:
-		is_demo = false
 	Music.play_music_selection()
 	SaveManager.load_savefile()
 	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
@@ -124,18 +119,22 @@ func _on_barbarian_type_mouse_exited():
 	$Unlock.visible = false
 
 func _on_home_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = true
 	LevelManager.in_pause = true
 
 func _on_back_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 	LevelManager.in_pause = false
 
 func _on_menu_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.in_pause = false
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Pause/Progress.visible = true
 	
 func _on_menu_mouse_exited():
@@ -143,22 +142,22 @@ func _on_menu_mouse_exited():
 
 
 func _on_holy_type_mouse_entered():
-	if is_demo:
+	if LevelManager.is_demo:
 		$NotAvailable.visible = true
 func _on_holy_type_mouse_exited():
-	if is_demo:
+	if LevelManager.is_demo:
 		$NotAvailable.visible = false
 func _on_spellblade_type_mouse_entered():
-	if is_demo:
+	if LevelManager.is_demo:
 		$NotAvailable.visible = true
 func _on_spellblade_type_mouse_exited():
-	if is_demo:
+	if LevelManager.is_demo:
 		$NotAvailable.visible = false
 func _on_knight_type_mouse_entered():
-	if is_demo:
+	if LevelManager.is_demo:
 		$NotAvailable.visible = true
 func _on_knight_type_mouse_exited():
-	if is_demo:
+	if LevelManager.is_demo:
 		$NotAvailable.visible = false
 
 
@@ -296,3 +295,9 @@ func _on_left_arrow_pressed():
 		process_move(spellblade_position)
 	else:
 		print($Selection.position)
+
+
+func _on_home_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+func _on_back_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

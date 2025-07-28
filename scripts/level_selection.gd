@@ -304,10 +304,15 @@ func update_available_level():
 	LevelManager.available_level = level + 1
 
 func _on_pressed():
-	Sfx.play_SFX(Sfx.level_selection)
+	Sfx.play_SFX(Sfx.button_confirm)
 	select_enemy_new()
 	chose_path()
 	level_complete = true
 	check_level_done()
 	update_available_level()
 	select_type()
+
+
+func _on_mouse_entered():
+	if LevelManager.available_level == level:
+		Sfx.play_SFX(Sfx.menu_hover)

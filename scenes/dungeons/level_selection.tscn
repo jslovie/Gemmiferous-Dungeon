@@ -23,4 +23,5 @@ visible = false
 position = Vector2(16, 16)
 texture = ExtResource("3_43ngc")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

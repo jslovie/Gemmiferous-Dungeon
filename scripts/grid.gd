@@ -919,6 +919,7 @@ func tween_size():
 	tween.tween_property($Shuffle,"size", Vector2(2,2),0.5)
 
 func _on_shuffle_pressed():
+	Sfx.play_SFX(Sfx.shuffle)
 	tween_size()
 	emit_signal("camera_effect", 10)
 	shuffle_board()
