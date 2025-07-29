@@ -45,6 +45,7 @@ func on_piece_clicked(event):
 	if event is InputEventMouseButton:
 		if RelicManager.in_tile_remove == true:
 			if event.pressed:
+				Sfx.play_SFX(Sfx.confirm_book)
 				if PlayerManager.player.type == "Rogue":
 					if len(RelicManager.rogue_pieces) > 5:
 						for i in RelicManager.remove_dict:
@@ -54,7 +55,7 @@ func on_piece_clicked(event):
 								$TextureRect.visible = false
 								$Sprite2D.visible = false
 								make_effect(particle_effect, background_color)
-								await get_tree().create_timer(1.5).timeout
+								await get_tree().create_timer(1).timeout
 								RelicManager.rogue_pieces.remove_at(index)
 								SignalBus.remove_tile.emit()
 								queue_free()
@@ -70,7 +71,7 @@ func on_piece_clicked(event):
 								$TextureRect.visible = false
 								$Sprite2D.visible = false
 								make_effect(particle_effect, background_color)
-								get_tree().create_timer(1.5).timeout
+								get_tree().create_timer(1).timeout
 								queue_free()
 					else:
 						SignalBus.minimum_tiles.emit()
@@ -78,8 +79,6 @@ func on_piece_clicked(event):
 			if event.pressed:
 				$Outline.visible = true
 
-
-						
-						
-						
-						
+func _on_texture_rect_mouse_entered():
+	if RelicManager.in_tile_remove:
+		Sfx.play_SFX(Sfx.in_game_hover)

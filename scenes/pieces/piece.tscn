@@ -34,3 +34,5 @@ stream = ExtResource("4_5w37o")
 bus = &"SFX_BREAK"
 
 [node name="ParticleOrigin" type="Node2D" parent="."]
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]

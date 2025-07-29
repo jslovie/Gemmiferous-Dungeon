@@ -978,8 +978,13 @@ theme_override_fonts/font = ExtResource("6_gdsat")
 text = "100"
 horizontal_alignment = 1
 
+[connection signal="mouse_entered" from="RemoveTiles" to="." method="_on_remove_tiles_mouse_entered"]
 [connection signal="pressed" from="RemoveTiles" to="." method="_on_remove_tiles_pressed"]
+[connection signal="mouse_entered" from="LeaveButton" to="." method="_on_leave_button_mouse_entered"]
 [connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]
+[connection signal="mouse_entered" from="Reroll" to="." method="_on_reroll_mouse_entered"]
 [connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="mouse_entered" from="Heal10/Heal10Button" to="." method="_on_heal_10_button_mouse_entered"]
 [connection signal="pressed" from="Heal10/Heal10Button" to="." method="_on_heal_10_pressed"]
+[connection signal="mouse_entered" from="Heal25/Heal25Button" to="." method="_on_heal_25_button_mouse_entered"]
 [connection signal="pressed" from="Heal25/Heal25Button" to="." method="_on_heal_25_pressed"]

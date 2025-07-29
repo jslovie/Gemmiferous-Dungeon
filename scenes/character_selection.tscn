@@ -654,9 +654,9 @@ offset_bottom = 40.0
 
 [node name="TutorialType" parent="Selection" instance=ExtResource("29_dx01t")]
 layout_mode = 0
-offset_left = 148.0
+offset_left = 121.0
 offset_top = 643.0
-offset_right = 180.0
+offset_right = 153.0
 offset_bottom = 675.0
 scale = Vector2(12, 12)
 is_tutorial = true
@@ -737,16 +737,16 @@ texture = ExtResource("35_e052o")
 
 [node name="TutotialBanner" type="Sprite2D" parent="Selection"]
 visible = false
-position = Vector2(348, 643)
+position = Vector2(321, 643)
 scale = Vector2(5, 5)
 texture = ExtResource("36_u5j4t")
 
 [node name="TutorialLabel" type="Label" parent="Selection"]
 visible = false
 layout_mode = 0
-offset_left = 271.0
+offset_left = 244.0
 offset_top = 595.0
-offset_right = 391.0
+offset_right = 364.0
 offset_bottom = 658.0
 scale = Vector2(1.3, 1.3)
 theme_override_colors/font_color = Color(0, 0, 0, 1)

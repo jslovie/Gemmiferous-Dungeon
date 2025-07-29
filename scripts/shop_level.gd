@@ -279,7 +279,11 @@ func show_shop():
 	if $RelicUIShop6.is_purchased == false:
 		$RelicUIShop6.visible = true
 
+func _on_leave_button_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+
 func _on_leave_button_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	spawn_remove_tiles()
 	if RelicManager.in_tile_remove == true:
 		show_shop()
@@ -288,8 +292,11 @@ func _on_leave_button_pressed():
 	else:
 		LevelManager.switch_to_dungeon_map_timeless()
 
+func _on_remove_tiles_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 
 func _on_remove_tiles_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	spawn_remove_tiles()
 	hide_shop()
 	$RemoveTile.visible = true
@@ -314,18 +321,24 @@ func check_enough_coins(coins):
 		return false
 
 func process_cost(coins):
+	Sfx.play_SFX(Sfx.confirm_book)
 	PlayerManager.player.coins -= coins
 	SaveManager.savefilesave()
 
 func not_enough():
+	Sfx.play_SFX(Sfx.decline_book)
 	$RerollNotEnough.visible = true
 	await get_tree().create_timer(1).timeout
 	$RerollNotEnough.visible = false
 
 func not_enough_heal():
+	Sfx.play_SFX(Sfx.decline_book)
 	$HealNotEnought.visible = true
 	await get_tree().create_timer(1).timeout
 	$HealNotEnought.visible = false
+
+func _on_reroll_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 
 func _on_reroll_pressed():
 	if check_enough_coins(reroll_price):
@@ -338,6 +351,8 @@ func _on_reroll_pressed():
 	else:
 		not_enough()
 
+func _on_heal_10_button_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 
 func _on_heal_10_pressed():
 	if check_enough_coins(heal10_price):
@@ -357,3 +372,6 @@ func _on_heal_25_pressed():
 		%Heal25Button.disabled = true
 	else:
 		not_enough_heal()
+
+func _on_heal_25_button_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

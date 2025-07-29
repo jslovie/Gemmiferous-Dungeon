@@ -284,4 +284,5 @@ text = "Pray for their soul"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

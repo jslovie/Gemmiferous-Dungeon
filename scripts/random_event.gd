@@ -299,18 +299,31 @@ func handle_button3():
 
 
 func _on_button_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	handle_button()
 
 func _on_button_2_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	handle_button2()
 
 func _on_button_3_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	handle_button3()
 
 
 func _on_continue_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.switch_to_dungeon_map_timeless()
 func _on_continue_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Continue/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_continue_mouse_exited():
 	$Continue/Label.add_theme_color_override("font_color", Color.WHITE)
+
+
+func _on_button_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+func _on_button_2_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+func _on_button_3_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

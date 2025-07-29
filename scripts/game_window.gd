@@ -440,15 +440,18 @@ func _on_player_win_update_total_bar():
 
 
 func _on_continue_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	Music.music_to_normal()
 	LevelManager.switch_to_dungeon_map_timeless()
 func _on_continue_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Desktop/Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_continue_mouse_exited():
 	$Desktop/Resolution/Continue/ContinueLabel.add_theme_color_override("font_color", Color.WHITE)
 
 
 func _on_continue_mobile_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	Music.music_to_normal()
 	LevelManager.switch_to_dungeon_map_timeless()
 func _on_continue_mobile_mouse_entered():

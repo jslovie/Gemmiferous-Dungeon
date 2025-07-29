@@ -114,9 +114,17 @@ func handle_end():
 	
 func _on_button_pressed():
 	handle_heal()
-
+	Sfx.play_SFX(Sfx.button_confirm)
 func _on_button_2_pressed():
 	handle_loot_to_manor()
-
+	Sfx.play_SFX(Sfx.button_confirm)
 func _on_button_3_pressed():
 	handle_end()
+	Sfx.play_SFX(Sfx.button_confirm)
+
+func _on_button_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+func _on_button_2_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+func _on_button_3_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)

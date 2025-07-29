@@ -41,7 +41,11 @@ func update_materials():
 	$Material/StoneLabel.text = ": " + str(PlayerManager.player.stone)
 	$Material/IronLabel.text = ": " + str(PlayerManager.player.iron)
 
+func _on_exit_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+
 func _on_exit_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	$Exit.visible = false
 	$Label.visible = false
 	SaveManager.savefilesave()

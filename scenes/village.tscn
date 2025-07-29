@@ -797,9 +797,9 @@ point_count = 46
 
 [sub_resource type="Curve2D" id="Curve2D_7vsrh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 796, 386, 0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 792, 389, 0, 0, 0, 0, 789, 389, 0, 0, 0, 0, 787, 391, 0, 0, 0, 0, 792, 391, 0, 0, 0, 0, 794, 393, 0, 0, 0, 0, 792, 395, 0, 0, 0, 0, 789, 395, 0, 0, 0, 0, 792, 397, 0, 0, 0, 0, 793, 398, 0, 0, 0, 0, 790, 398, 0, 0, 0, 0, 787, 399, 0, 0, 0, 0, 784, 401, 0, 0, 0, 0, 786, 406, 0, 0, 0, 0, 788, 410, 0, 0, 0, 0, 782, 412, 0, 0, 0, 0, 779, 414, 0, 0, 0, 0, 783, 416, 0, 0, 0, 0, 782, 420, 0, 0, 0, 0, 785, 423, 0, 0, 0, 0, 786, 427, 0, 0, 0, 0, 783, 432, 0, 0, 0, 0, 782, 436, 0, 0, 0, 0, 782, 440, 0, 0, 0, 0, 786, 441, 0, 0, 0, 0, 793, 441, 0, 0, 0, 0, 798, 441, 0, 0, 0, 0, 798, 445, 0, 0, 0, 0, 799, 450, 0, 0, 0, 0, 799, 459, 0, 0, 0, 0, 799, 465, 0, 0, 0, 0, 799, 472, 0, 0, 0, 0, 800, 477, 0, 0, 0, 0, 803, 481, 0, 0, 0, 0, 809, 482, 0, 0, 0, 0, 821, 482, 0, 0, 0, 0, 829, 482, 0, 0, 0, 0, 839, 482, 0, 0, 0, 0, 844, 482, 0, 0, 0, 0, 849, 483, 0, 0, 0, 0, 852, 483, 0, 0, 0, 0, 857, 483, 0, 0, 0, 0, 858, 482)
+"points": PackedVector2Array(0, 0, 0, 0, 856, 482, 0, 0, 0, 0, 848, 482, 0, 0, 0, 0, 842, 477, 0, 0, 0, 0, 852, 472, 0, 0, 0, 0, 846, 464, 0, 0, 0, 0, 844, 454, 0, 0, 0, 0, 845, 447, 0, 0, 0, 0, 846, 442, 0, 0, 0, 0, 834, 442, 0, 0, 0, 0, 824, 441, 0, 0, 0, 0, 818, 443, 0, 0, 0, 0, 808, 443, 0, 0, 0, 0, 803, 441, 0, 0, 0, 0, 794, 441, 0, 0, 0, 0, 785, 441, 0, 0, 0, 0, 781, 436, 0, 0, 0, 0, 784, 427, 0, 0, 0, 0, 785, 421, 0, 0, 0, 0, 781, 418, 0, 0, 0, 0, 781, 415, 0, 0, 0, 0, 777, 413, 0, 0, 0, 0, 788, 407, 0, 0, 0, 0, 783, 402, 0, 0, 0, 0, 789, 399, 0, 0, 0, 0, 792, 397, 0, 0, 0, 0, 790, 395, 0, 0, 0, 0, 793, 393, 0, 0, 0, 0, 791, 391, 0, 0, 0, 0, 786, 391, 0, 0, 0, 0, 789, 388, 0, 0, 0, 0, 793, 388, 0, 0, 0, 0, 796, 387, 0, 0, 0, 0, 796, 386)
 }
-point_count = 44
+point_count = 33
 
 [sub_resource type="Curve2D" id="Curve2D_u0r3g"]
 _data = {
@@ -1352,8 +1352,9 @@ visible = false
 curve = SubResource("Curve2D_wsxe6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToHouse"]
-position = Vector2(798, 387)
+position = Vector2(798.322, 450.077)
 rotation = 0.674741
+progress = 104.122
 rotates = false
 script = ExtResource("79_ngvu0")
 type = "none"
@@ -1384,8 +1385,9 @@ visible = false
 curve = SubResource("Curve2D_7vsrh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/ArmourerToManor"]
-position = Vector2(796, 386)
+position = Vector2(831.92, 441.792)
 rotation = 0.674741
+progress = 73.5647
 rotates = false
 script = ExtResource("79_ngvu0")
 type = "none"
@@ -1417,7 +1419,6 @@ visible = false
 curve = SubResource("Curve2D_hmnc5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/ManorToSquare"]
-visible = false
 position = Vector2(826, 455)
 rotation = 0.674741
 rotates = false
@@ -1442,7 +1443,7 @@ script = ExtResource("79_ngvu0")
 [node name="Peasant1" type="Sprite2D" parent="Paths/WoodcuttersToTavern/PathFollow2D"]
 rotation = -0.674741
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("73_pn60b")
+texture = ExtResource("74_1lufa")
 
 [node name="WoodcuttersToHouse5" type="Path2D" parent="Paths"]
 visible = false

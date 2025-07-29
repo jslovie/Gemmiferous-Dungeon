@@ -27,10 +27,12 @@ func check_enough_coins(coins):
 		return false
 
 func process_cost(coins):
+	Sfx.play_SFX(Sfx.confirm_book)
 	PlayerManager.player.coins -= coins
 	SaveManager.savefilesave()
 
 func not_enough():
+	Sfx.play_SFX(Sfx.decline_book)
 	$NotEnough.visible = true
 	await get_tree().create_timer(1).timeout
 	$NotEnough.visible = false
@@ -65,6 +67,7 @@ func _on_pressed():
 
 
 func _on_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	RelicManager.relic_name = relic.relic_name
 	RelicManager.relic_description = relic.description
 	RelicManager.hide_stats = true

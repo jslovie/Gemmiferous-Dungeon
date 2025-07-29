@@ -343,8 +343,11 @@ text = "Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="mouse_entered" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Control/Event/HBoxContainer/Button3" to="." method="_on_button_3_mouse_entered"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="mouse_entered" from="Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="mouse_exited" from="Continue" to="." method="_on_continue_mouse_exited"]
