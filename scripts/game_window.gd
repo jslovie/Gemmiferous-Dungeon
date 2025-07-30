@@ -168,6 +168,7 @@ func update_result():
 	
 
 func resolution_screen():
+	$Desktop/Hud.visible = false
 	if LevelManager.type == "Treasure":
 		if LevelManager.treasure_timesup == true:
 			%Resolution.visible = true

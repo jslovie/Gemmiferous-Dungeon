@@ -40,7 +40,7 @@ var possible_pieces = [
 
 func _ready():
 	change_background()
-	RelicManager.reset_pieces_relics()
+	#RelicManager.reset_pieces_relics()
 	$RemoveTile.visible = false
 	%LessTiles.visible = false
 	SignalBus.remove_tile.connect(_on_remove_tile_signal)

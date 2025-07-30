@@ -412,6 +412,12 @@ func reset_player_stats():
 	total_wood = 0
 	total_stone = 0
 	total_iron = 0
+#Character unlocks
+	rogue_unlocked = false
+	barbarian_unlocked = false
+	holy_unlocked = false
+	spellblade_unlocked = false
+	knight_unlocked = false
 
 func red_gem_up(amount):
 	red_gem += amount

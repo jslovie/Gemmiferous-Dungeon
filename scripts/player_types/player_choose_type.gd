@@ -25,7 +25,11 @@ func _on_pressed():
 		LevelManager.in_tutorial_level = true
 		DungeonMap.show_tutorial()
 		DungeonMapMobile.show_tutorial()
+	else:
+		DungeonMap.choose_random_f()
+		DungeonMapMobile.choose_random_f()
 	await get_tree().create_timer(0.5).timeout
+	RelicManager.reset_pieces_relics()
 	LevelManager.switch_to_dungeon_map_timeless()
 
 

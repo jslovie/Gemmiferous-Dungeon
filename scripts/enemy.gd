@@ -402,6 +402,7 @@ func take_action_damage(damage, action):
 			get_killed()
 
 func get_killed():
+	$VFX.visible = false
 	LevelManager.timer_stop = true
 	Music.dim_music()
 	Sfx.play_SFX(Sfx.victory)
