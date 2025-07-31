@@ -510,7 +510,7 @@ offset_bottom = 457.0
 scale = Vector2(0.9, 0.9)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "25"
+text = "10"
 
 [node name="RerollCostLabelSprite" type="Sprite2D" parent="."]
 z_index = 52

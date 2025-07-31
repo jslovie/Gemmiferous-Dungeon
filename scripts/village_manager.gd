@@ -5,13 +5,13 @@ var in_shop = false
 #Facility timers
 var wood_m
 var wood_s
-var wood_time_left = 30
+var wood_time_left = 40
 var stone_m
 var stone_s
-var stone_time_left = 30
+var stone_time_left = 45
 var iron_m
 var iron_s
-var iron_time_left = 30
+var iron_time_left = 50
 
 
 #Village workers
@@ -87,7 +87,7 @@ func start_timers():
 func wood_timer():
 	if woodcutters_camp_repaired == true:
 		add_child(woodcutter_timer)
-		woodcutter_timer.start(22)
+		woodcutter_timer.start(wood_time_left)
 		woodcutter_timer.autostart = true
 		woodcutter_timer.one_shot = false
 		woodcutter_timer.connect("timeout", _on_woodcutters_timeout)
@@ -95,7 +95,7 @@ func wood_timer():
 func stone_timer():
 	if woodcutters_camp_repaired == true:
 		add_child(stone_mine_timer)
-		stone_mine_timer.start(40)
+		stone_mine_timer.start(stone_time_left)
 		stone_mine_timer.autostart = true
 		stone_mine_timer.one_shot = false
 		stone_mine_timer.connect("timeout", _on_stone_miner_timeout)
@@ -103,7 +103,7 @@ func stone_timer():
 func iron_timer():
 	if woodcutters_camp_repaired == true:
 		add_child(iron_mine_timer)
-		iron_mine_timer.start(55)
+		iron_mine_timer.start(iron_time_left)
 		iron_mine_timer.autostart = true
 		iron_mine_timer.one_shot = false
 		iron_mine_timer.connect("timeout", _on_iron_miner_timeout)

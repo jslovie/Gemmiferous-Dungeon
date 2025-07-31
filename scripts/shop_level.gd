@@ -61,6 +61,7 @@ func _process(_delta):
 	update_relic_description()
 	check_in_tile_remove()
 	update_healthbars()
+	update_reroll_price()
 
 func change_background():
 	if LevelManager.floor == 1:
@@ -337,6 +338,9 @@ func not_enough_heal():
 	await get_tree().create_timer(1).timeout
 	$HealNotEnought.visible = false
 
+func update_reroll_price():
+	$RerollLabel.text = reroll_price
+
 func _on_reroll_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
 
@@ -348,6 +352,7 @@ func _on_reroll_pressed():
 		choose_relic()
 		choose_piece()
 		spawn_remove_tiles()
+		reroll_price += 15
 	else:
 		not_enough()
 

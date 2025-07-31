@@ -155,7 +155,6 @@ func update_shields():
 
 func update_rage():
 	%PlayerRage.value = PlayerManager.player.rage
-	$Desktop/Hud.visible = true
 	if PlayerManager.player.type != "Barbarian":
 		%PlayerRage.visible = false
 
@@ -168,7 +167,6 @@ func update_result():
 	
 
 func resolution_screen():
-	$Desktop/Hud.visible = false
 	if LevelManager.type == "Treasure":
 		if LevelManager.treasure_timesup == true:
 			%Resolution.visible = true
@@ -185,6 +183,7 @@ func resolution_screen():
 			
 	else:
 		if EnemyManager.enemy.status == "dead":
+			$Desktop/Hud.visible = false
 			%Resolution.visible = true
 			%ResolutionText.text = "foe vanquished!"
 			%EnemyHealth.visible = false
@@ -195,6 +194,7 @@ func resolution_screen():
 			else:
 				tween.tween_property($SlotMachine, "position", Vector2(287,664), 0.1)
 		elif PlayerManager.player.status == "dead":
+			$Desktop/Hud.visible = false
 			%Resolution.visible = true
 			%ResolutionText.text = ""
 			%PlayerHealth.visible = false
@@ -205,6 +205,8 @@ func resolution_screen():
 			$PlayerDied.visible = true
 			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
 			Music.play_music_game_over()
+		else:
+			$Desktop/Hud.visible = true
 
 		
 func handle_win():
