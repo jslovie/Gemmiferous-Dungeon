@@ -143,6 +143,9 @@ func _on_continue_pressed():
 
 
 func _on_options_new_pressed():
+	move_tween($Buttons,Vector2(-600,665),0.8)
+	move_tween($Settings,Vector2(960,540),0.8)
+	move_tween($MarginContainer,Vector2(649,875),0.8)
 	Sfx.play_SFX(Sfx.menu_confirm)
 	$Settings.visible = true
 	$MarginContainer.visible = true
@@ -200,16 +203,23 @@ func _on_exit_credits_mouse_exited():
 	$Credits/ExitCredits/ExitCreditsLabel.add_theme_color_override("font_color", Color.WHITE)
 
 func _on_back_mouse_entered():
+	$MarginContainer/HBoxContainer/Back/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 	if $MarginContainer.visible == true:
 		Sfx.play_SFX(Sfx.menu_hover)
 
+func _on_back_mouse_exited():
+	$MarginContainer/HBoxContainer/Back/Label.add_theme_color_override("font_color", Color.WHITE)
+
 func _on_back_pressed():
+	move_tween($Buttons,Vector2(31,665),0.8)
+	move_tween($Settings,Vector2(960,1780),0.8)
+	move_tween($MarginContainer,Vector2(649,2115),0.8)
 	Sfx.play_SFX(Sfx.button_confirm)
-	$Settings.visible = false
-	$MarginContainer.visible = false
 	if LevelManager.is_mobile == true:
 		$Buttons.visible = true
-
+	await get_tree().create_timer(0.8).timeout
+	$Settings.visible = false
+	$MarginContainer.visible = false
 
 func _on_close_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
@@ -260,3 +270,19 @@ func _on_no_mouse_exited():
 func _on_exit_credits_pressed():
 	Sfx.play_SFX(Sfx.menu_confirm)
 	exit_credits()
+
+#Tweens
+func move_tween(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)
+	
+func tween_out_menu_buttons():
+	var tween_menu_buttons = create_tween()
+	tween_menu_buttons.set_parallel(true)
+	tween_menu_buttons.tween_property($Buttons, "position:x",-550 , 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func tween_in_menu_buttons():
+	var tween_menu_buttons = create_tween()
+	tween_menu_buttons.set_parallel(true)
+	tween_menu_buttons.tween_property($Buttons, "position:x",31 , 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
