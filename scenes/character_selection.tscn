@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://mfmhytite3rx"]
+[gd_scene load_steps=42 format=4 uid="uid://mfmhytite3rx"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_1j2bm"]
 [ext_resource type="PackedScene" uid="uid://ck1auwqa8cl0c" path="res://scenes/player_type/rogue_type.tscn" id="1_3au3l"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d3uucv4ysx6xl" path="res://assets/32rogues/gems/blue_outline.png" id="14_jnuic"]
 [ext_resource type="Texture2D" uid="uid://xotl3sadblqa" path="res://assets/32rogues/gems/green_outline.png" id="15_lbcfx"]
 [ext_resource type="Texture2D" uid="uid://bnnujej6udq4i" path="res://assets/32rogues/gems/yellow_outline.png" id="16_4tk35"]
+[ext_resource type="Texture2D" uid="uid://c5g8xa52gu8f2" path="res://assets/UI/UI3.png" id="16_foai7"]
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="17_6juec"]
 [ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="21_ymtgp"]
 [ext_resource type="PackedScene" uid="uid://bv0ldcglpasbk" path="res://scenes/pieces/bow_piece.tscn" id="22_8a3fs"]
@@ -169,7 +170,7 @@ tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAE
 tile_set = SubResource("TileSet_gehps")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Background/DungeonTiles"]
-tile_map_data = PackedByteArray("AAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
+tile_map_data = PackedByteArray("AAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAAEAAQAAAABABUAAAA=")
 tile_set = SubResource("TileSet_gehps")
 
 [node name="DoorOpen" type="Sprite2D" parent="Background"]
@@ -369,11 +370,26 @@ shape = SubResource("CircleShape2D_ba3ls")
 
 [node name="DescriptionRogue" type="ColorRect" parent="."]
 visible = false
-offset_left = 794.0
-offset_top = 726.0
-offset_right = 1267.0
-offset_bottom = 981.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 733.0
+offset_top = 712.0
+offset_right = 1214.0
+offset_bottom = 967.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.439216)
+
+[node name="Border" type="TextureRect" parent="DescriptionRogue"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+offset_right = 240.5
+offset_bottom = 127.5
+scale = Vector2(2, 2)
+texture = ExtResource("16_foai7")
 
 [node name="Name" type="Label" parent="DescriptionRogue"]
 layout_mode = 1
@@ -381,36 +397,37 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -45.0
+offset_top = 6.0
 offset_right = 45.0
-offset_bottom = 30.0
+offset_bottom = 36.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Rogue"
 
 [node name="Pieces" type="Label" parent="DescriptionRogue"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 118.0
-offset_right = 108.0
-offset_bottom = 148.0
+offset_left = 23.0
+offset_top = 124.0
+offset_right = 121.0
+offset_bottom = 154.0
 theme_override_font_sizes/font_size = 32
 text = "Pieces:"
 
 [node name="Relics" type="Label" parent="DescriptionRogue"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 194.0
-offset_right = 108.0
-offset_bottom = 224.0
+offset_left = 23.0
+offset_top = 200.0
+offset_right = 121.0
+offset_bottom = 230.0
 theme_override_font_sizes/font_size = 32
 text = "Relic:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DescriptionRogue"]
 layout_mode = 0
-offset_left = 147.0
-offset_top = 134.0
-offset_right = 291.0
-offset_bottom = 174.0
+offset_left = 160.0
+offset_top = 140.0
+offset_right = 304.0
+offset_bottom = 180.0
 theme_override_constants/separation = 72
 
 [node name="Control" type="Control" parent="DescriptionRogue/HBoxContainer"]
@@ -431,24 +448,24 @@ layout_mode = 2
 [node name="Relic" type="TextureRect" parent="DescriptionRogue"]
 modulate = Color(0.235294, 0.235294, 0.235294, 1)
 layout_mode = 0
-offset_left = 116.0
-offset_top = 181.0
-offset_right = 156.0
-offset_bottom = 221.0
+offset_left = 129.0
+offset_top = 187.0
+offset_right = 169.0
+offset_bottom = 227.0
 scale = Vector2(1.55, 1.55)
 texture = ExtResource("24_fmutw")
 
 [node name="Sprite2D" type="Sprite2D" parent="DescriptionRogue"]
-position = Vector2(148, 210)
+position = Vector2(161, 216)
 scale = Vector2(2, 2)
 texture = ExtResource("25_f5046")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="DescriptionRogue"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 37.0
-offset_right = 432.0
-offset_bottom = 77.0
+offset_left = 23.0
+offset_top = 43.0
+offset_right = 445.0
+offset_bottom = 83.0
 theme_override_constants/separation = 25
 
 [node name="Coin" type="Label" parent="DescriptionRogue/HBoxContainer2"]
@@ -494,48 +511,64 @@ texture = ExtResource("27_xchyu")
 
 [node name="DescriptionBarbarian" type="ColorRect" parent="."]
 visible = false
-offset_left = 794.0
-offset_top = 726.0
-offset_right = 1276.0
-offset_bottom = 981.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 733.0
+offset_top = 712.0
+offset_right = 1214.0
+offset_bottom = 967.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.439216)
+
+[node name="Border" type="TextureRect" parent="DescriptionBarbarian"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 0
+offset_right = 240.5
+offset_bottom = 127.5
+scale = Vector2(2, 2)
+texture = ExtResource("16_foai7")
 
 [node name="Name" type="Label" parent="DescriptionBarbarian"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -45.0
-offset_right = 45.0
-offset_bottom = 30.0
+offset_left = -73.0
+offset_top = 6.0
+offset_right = 73.0
+offset_bottom = 36.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Barbarian"
 
 [node name="Pieces" type="Label" parent="DescriptionBarbarian"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 118.0
-offset_right = 108.0
-offset_bottom = 148.0
+offset_left = 23.0
+offset_top = 124.0
+offset_right = 121.0
+offset_bottom = 154.0
 theme_override_font_sizes/font_size = 32
 text = "Pieces:"
 
 [node name="Relics" type="Label" parent="DescriptionBarbarian"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 194.0
-offset_right = 108.0
-offset_bottom = 224.0
+offset_left = 23.0
+offset_top = 200.0
+offset_right = 121.0
+offset_bottom = 230.0
 theme_override_font_sizes/font_size = 32
 text = "Relic:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DescriptionBarbarian"]
 layout_mode = 0
-offset_left = 147.0
-offset_top = 134.0
-offset_right = 291.0
-offset_bottom = 174.0
+offset_left = 160.0
+offset_top = 140.0
+offset_right = 304.0
+offset_bottom = 180.0
 theme_override_constants/separation = 72
 
 [node name="Control" type="Control" parent="DescriptionBarbarian/HBoxContainer"]
@@ -556,24 +589,24 @@ layout_mode = 2
 [node name="Relic" type="TextureRect" parent="DescriptionBarbarian"]
 modulate = Color(0.235294, 0.235294, 0.235294, 1)
 layout_mode = 0
-offset_left = 116.0
-offset_top = 181.0
-offset_right = 156.0
-offset_bottom = 221.0
+offset_left = 129.0
+offset_top = 187.0
+offset_right = 169.0
+offset_bottom = 227.0
 scale = Vector2(1.55, 1.55)
 texture = ExtResource("24_fmutw")
 
 [node name="Sprite2D" type="Sprite2D" parent="DescriptionBarbarian"]
-position = Vector2(146, 213)
+position = Vector2(159, 219)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("31_phvei")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="DescriptionBarbarian"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 37.0
-offset_right = 432.0
-offset_bottom = 77.0
+offset_left = 23.0
+offset_top = 43.0
+offset_right = 445.0
+offset_bottom = 83.0
 theme_override_constants/separation = 25
 
 [node name="Coin" type="Label" parent="DescriptionBarbarian/HBoxContainer2"]
@@ -760,29 +793,30 @@ vertical_alignment = 1
 process_mode = 3
 process_priority = 1
 process_physics_priority = 1
-visible = false
 z_index = 50
 layout_mode = 3
 anchors_preset = 0
 offset_left = 663.0
-offset_top = 18.0
+offset_top = -1781.0
 offset_right = 703.0
-offset_bottom = 58.0
+offset_bottom = -1741.0
 
 [node name="ColorRect2" type="ColorRect" parent="Pause"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -844.0
-offset_top = -70.0
+offset_top = -242.0
 offset_right = 1399.0
-offset_bottom = 1096.0
+offset_bottom = 1655.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.807843)
 
 [node name="ColorRect" type="ColorRect" parent="Pause"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -790,9 +824,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = 894.0
+offset_top = 943.0
 offset_right = 619.0
-offset_bottom = 988.0
+offset_bottom = 1037.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
@@ -800,43 +834,63 @@ color = Color(0, 0, 0, 0.517647)
 [node name="Settings" parent="Pause" instance=ExtResource("34_u0h7w")]
 layout_mode = 1
 offset_left = 280.0
-offset_top = 456.0
+offset_top = 505.0
 offset_right = 280.0
-offset_bottom = 456.0
+offset_bottom = 505.0
 
-[node name="Back" type="Button" parent="Pause"]
+[node name="Back" type="TextureButton" parent="Pause"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 0
 offset_left = 17.0
-offset_top = 811.0
+offset_top = 860.0
 offset_right = 147.0
-offset_bottom = 851.0
+offset_bottom = 900.0
 scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("11_4xv2l")
+
+[node name="Label" type="Label" parent="Pause/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Menu" type="Button" parent="Pause"]
+[node name="Menu" type="TextureButton" parent="Pause"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 0
 offset_left = 299.0
-offset_top = 811.0
+offset_top = 860.0
 offset_right = 429.0
-offset_bottom = 851.0
+offset_bottom = 900.0
 scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("11_4xv2l")
+
+[node name="Label" type="Label" parent="Pause/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Progress" type="Label" parent="Pause"]
 visible = false
 layout_mode = 0
-offset_left = -29.0
-offset_top = 946.0
-offset_right = 617.0
-offset_bottom = 976.0
+offset_left = -24.0
+offset_top = 1007.0
+offset_right = 622.0
+offset_bottom = 1037.0
 theme_override_font_sizes/font_size = 32
 text = "Please note all loot and progress will be lost"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Home" to="." method="_on_home_mouse_entered"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
@@ -853,6 +907,7 @@ text = "Please note all loot and progress will be lost"
 [connection signal="mouse_entered" from="Selection/KnightType" to="." method="_on_knight_type_mouse_entered"]
 [connection signal="mouse_exited" from="Selection/KnightType" to="." method="_on_knight_type_mouse_exited"]
 [connection signal="mouse_entered" from="Pause/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Pause/Back" to="." method="_on_back_mouse_exited"]
 [connection signal="pressed" from="Pause/Back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="Pause/Menu" to="." method="_on_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Pause/Menu" to="." method="_on_menu_mouse_exited"]

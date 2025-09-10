@@ -21,6 +21,9 @@ func _ready():
 	hide_tutorial()
 	
 func _process(_delta):
+	if LevelManager.show_map:
+		if Input.is_action_just_pressed("Esc"):
+			_on_home_pressed()
 	dungeon_map()
 	choose_map()
 	if LevelManager.in_tutorial_level:
@@ -156,6 +159,12 @@ func _on_home_pressed():
 
 func _on_back_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Pause/Progress.visible = true
+	$Pause/Progress.text = "Press Back to return to the game"
+func _on_back_mouse_exited():
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.WHITE)
+	$Pause/Progress.visible = false
 
 func _on_back_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
@@ -168,10 +177,13 @@ func _on_menu_pressed():
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 	Sfx.play_SFX(Sfx.in_game_hover)
 	$Pause/Progress.visible = true
-	
+	$Pause/Progress.text = "Press Exit to return to the village 
+	Please note all loot and progress will be lost"
 func _on_menu_mouse_exited():
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.WHITE)
 	$Pause/Progress.visible = false
 
 func show_tutorial():

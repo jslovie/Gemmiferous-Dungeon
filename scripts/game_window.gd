@@ -32,8 +32,6 @@ func _ready():
 	$Desktop/EnemyTypeLabel/Timer.timer_start()
 	$Desktop/Hud.visible = false
 	$SlotMachine.visible = false
-	$PlayerDied.visible = false
-	$Player_win.visible = false
 	$Desktop/MaterialTotal.visible = false
 	$Desktop/GemsTotal.visible = false
 	wait_time()
@@ -179,7 +177,8 @@ func resolution_screen():
 				%Continue.visible = true
 				$ContinueMobile.visible = false
 			update_result()
-			%Result.visible = true
+			move_tween(%Result,Vector2(993,601),0.8)
+			move_tween(%Continue,Vector2(1097,950),0.8)
 			
 	else:
 		if EnemyManager.enemy.status == "dead":
@@ -202,8 +201,7 @@ func resolution_screen():
 			$Desktop/Gems.visible = false
 			relic_handler.visible = false
 			var tween = create_tween()
-			$PlayerDied.visible = true
-			tween.tween_property($PlayerDied, "position", Vector2(285,514), 0.1)
+			move_tween($PlayerDied,Vector2(285,514),0.8)
 			Music.play_music_game_over()
 		else:
 			$Desktop/Hud.visible = true
@@ -213,7 +211,7 @@ func handle_win():
 	if LevelManager.handle_winning == true:
 		%Resolution.visible = false
 		$SlotMachine.visible = false
-		$Player_win.visible = true
+		move_tween($Player_win,Vector2(285,514),0.8)
 
 func check_enemy_debuff():
 	if PlayerManager.player.bleed_active == true:
@@ -400,7 +398,13 @@ func _on_home_pressed():
 
 func _on_back_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
-
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Pause/Progress.visible = true
+	$Pause/Progress.text = "Press Back to return to the game"
+func _on_back_mouse_exited():
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.WHITE)
+	$Pause/Progress.visible = false
+	
 func _on_back_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
 	unpause()
@@ -410,10 +414,13 @@ func _on_menu_pressed():
 	LevelManager.back_to_village()
 
 func _on_menu_mouse_entered():
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 	Sfx.play_SFX(Sfx.in_game_hover)
 	$Pause/Progress.visible = true
-
+	$Pause/Progress.text = "Press Exit to return to the village 
+	Please note all loot and progress will be lost"
 func _on_menu_mouse_exited():
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.WHITE)
 	$Pause/Progress.visible = false
 
 func _on_home_mouse_entered():
@@ -461,3 +468,8 @@ func _on_continue_mobile_mouse_entered():
 	$ContinueMobile/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_continue_mobile_mouse_exited():
 	$ContinueMobile/Label.add_theme_color_override("font_color", Color.WHITE)
+
+func move_tween(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)

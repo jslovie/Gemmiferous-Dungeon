@@ -13,6 +13,7 @@ z_index = 10
 script = ExtResource("1_fpweg")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_right = 1918.0
 offset_bottom = 1082.0
 

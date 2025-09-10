@@ -231,3 +231,9 @@ func handle_tutorial_completed():
 
 func _on_no_pressed():
 	$SpinsLeft.visible = false
+
+
+func _on_continue_mouse_entered():
+	$Continue/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_continue_mouse_exited():
+	$Continue/Label.add_theme_color_override("font_color", Color.WHITE)

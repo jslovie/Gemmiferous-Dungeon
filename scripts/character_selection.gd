@@ -15,6 +15,8 @@ func _ready():
 	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
 	
 func _process(_delta):
+	if Input.is_action_just_pressed("Esc"):
+		_on_home_pressed()
 	update_treasures()
 	update_materials()
 	total_gems_check()
@@ -120,26 +122,18 @@ func _on_barbarian_type_mouse_exited():
 
 func _on_home_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
-	$Pause.visible = true
+	move_tween_settings($Pause,Vector2(663,18),0.8)
 	LevelManager.in_pause = true
 
 func _on_back_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
-	$Pause.visible = false
+	move_tween_settings($Pause,Vector2(663,-1781),0.8)
 	LevelManager.in_pause = false
 
 func _on_menu_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.in_pause = false
 	LevelManager.back_to_village()
-
-func _on_menu_mouse_entered():
-	Sfx.play_SFX(Sfx.in_game_hover)
-	$Pause/Progress.visible = true
-	
-func _on_menu_mouse_exited():
-	$Pause/Progress.visible = false
-
 
 func _on_holy_type_mouse_entered():
 	if LevelManager.is_demo:
@@ -216,11 +210,6 @@ func unlock_check_mobile():
 		else:
 			$NotAvailable.visible = false
 			$Banner2.visible = false
-
-func move_tween(pos,time):
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
-	tween.tween_property($Selection,"position",pos,time)
 
 func process_move(pos):
 	$LeftArrow.disabled = true
@@ -299,5 +288,30 @@ func _on_left_arrow_pressed():
 
 func _on_home_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	
 func _on_back_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Pause/Progress.visible = true
+	$Pause/Progress.text = "Press Back to return to the game"
+func _on_back_mouse_exited():
+	$Pause/Progress.visible = false
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_menu_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Pause/Progress.visible = true
+	$Pause/Progress.text = "Press Exit to return to the village"
+func _on_menu_mouse_exited():
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.WHITE)
+	$Pause/Progress.visible = false
+
+func move_tween(pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Selection,"position",pos,time)
+	
+func move_tween_settings(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)

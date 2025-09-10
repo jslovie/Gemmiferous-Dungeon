@@ -10,9 +10,6 @@
 [node name="WeaponsmithShop" instance=ExtResource("1_h7383")]
 shop_name = "Weaponsmith"
 
-[node name="Panel" parent="." index="0"]
-visible = false
-
 [node name="ExitShop" parent="." index="4"]
 offset_left = 1219.0
 offset_right = 1251.0

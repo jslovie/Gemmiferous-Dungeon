@@ -46,6 +46,9 @@ func exit_door():
 func update_level():
 	if shop_name == "Weaponsmith":
 		$Level.text = "Level: " + str(VillageManager.weaponsmith_lvl)
+	if shop_name == "Armourer":
+		$Level.text = "Level: " + str(VillageManager.armourer_lvl)
+
 
 func _on_exit_shop_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)

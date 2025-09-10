@@ -109,7 +109,7 @@ func halve_loot():
 
 func handle_end():
 	PlayerManager.player.set_treasure()
-	$Player_win.visible = true
+	move_tween($Player_win,Vector2(981,533),0.8)
 	$Control.visible = false
 	
 func _on_button_pressed():
@@ -124,7 +124,21 @@ func _on_button_3_pressed():
 
 func _on_button_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	$Control/Panel/VBoxContainer/Button/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_button_2_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	$Control/Panel/VBoxContainer/Button2/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_button_3_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	$Control/Panel/VBoxContainer/Button3/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_button_mouse_exited():
+	$Control/Panel/VBoxContainer/Button/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_button_2_mouse_exited():
+	$Control/Panel/VBoxContainer/Button2/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_button_3_mouse_exited():
+	$Control/Panel/VBoxContainer/Button3/Label.add_theme_color_override("font_color", Color.WHITE)
+
+func move_tween(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)

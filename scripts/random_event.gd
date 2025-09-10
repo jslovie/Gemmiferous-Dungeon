@@ -8,7 +8,6 @@ var red_gems_lost
 var blue_gems_lost
 var green_gems_lost
 var yellow_gems_lost
-#var materials_lost
 var health_lost
 var health_gained
 
@@ -17,7 +16,6 @@ var health_gained
 
 func _ready():
 	$Continue.visible = false
-	$PlayerDied.visible = false
 	Music.play_music_random_event()
 	LevelManager.level_done += 1
 	EnemyManager.enemy.type = "Trap"
@@ -51,13 +49,11 @@ func lost_items(amount):
 	blue_gems_lost = round(PlayerManager.player.blue_gem * amount)
 	green_gems_lost = round(PlayerManager.player.green_gem * amount)
 	yellow_gems_lost = round(PlayerManager.player.yellow_gem * amount)
-	#materials_lost = round(PlayerManager.player.materials * amount)
 	PlayerManager.player.coins -= coins_lost
 	PlayerManager.player.red_gem -= red_gems_lost
 	PlayerManager.player.blue_gem -= blue_gems_lost
 	PlayerManager.player.green_gem -= green_gems_lost
 	PlayerManager.player.yellow_gem -= yellow_gems_lost
-	#PlayerManager.player.materials -= materials_lost
 
 func lost_coins(percentage):
 	coins_lost = round(PlayerManager.player.coins * percentage)
@@ -97,7 +93,7 @@ func handle_game_over():
 	await get_tree().create_timer(3).timeout
 	PlayerManager.player.status = "dead"
 	$Control/Resolution.visible = false
-	$PlayerDied.visible = true
+	move_tween($PlayerDied,Vector2(985,469),0.8)
 	EnemyManager.enemy.type = "Trap"
 	PlayerManager.player.set_treasure()
 	SaveManager.savefilesave()
@@ -110,41 +106,41 @@ func template_to_copy(): #just a template, should be removed later
 	elif random_resolution == 2:
 		pass
 	%EventText.text = ""
-	%Button.text = ""
-	%Button2.text = ""
-	%Button3.visible = false
+	%ButtonLabel.text = ""
+	%ButtonLabel2.text = ""
+	%ButtonLabel3.visible = false
 
 
 func update_text():
 	if room == 1:
 		%EventText.text = "You entered a room, but you were caught off guard by a group of monsters"
-		%Button.text = "Attempt to flee"
-		%Button2.text = "Fight them"
+		%ButtonLabel.text = "Attempt to flee"
+		%ButtonLabel2.text = "Fight them"
 		%Button3.visible = false
 	elif room == 2:
 		%EventText.text = "You entered a room and found a basin full of red liquid"
-		%Button.text = "Drink the liquid"
-		%Button2.text = "Leave the room"
+		%ButtonLabel.text = "Drink the liquid"
+		%ButtonLabel2.text = "Leave the room"
 		%Button3.visible = false
 	elif room == 3:
 		%EventText.text = "You entered a room and see book on the pedestal"
-		%Button.text = "Open book on random page and read it"
-		%Button2.text = "Leave the book alone"
+		%ButtonLabel.text = "Open book on random page and read it"
+		%ButtonLabel2.text = "Leave the book alone"
 		%Button3.visible = false
 	elif room == 4:
 		%EventText.text = "You entered a room and see treasure chest on the floor"
-		%Button.text = "Open the chest"
-		%Button2.text = "Leave the chest alone"
+		%ButtonLabel.text = "Open the chest"
+		%ButtonLabel2.text = "Leave the chest alone"
 		%Button3.visible = false
 	elif room == 5:
 		%EventText.text = "You entered a room, but there seems to be nothing inside"
-		%Button.text = "Quite disappointed, you decided to head towards the door on the other side to leave"
+		%ButtonLabel.text = "Quite disappointed, you decided to head towards the door on the other side to leave"
 		%Button2.visible = false
 		%Button3.visible = false
 	elif room == 6:
 		%EventText.text = "You entered a room and see old man sitting on the ground, he seems to have some healing skills"
-		%Button.text = "Heal some HP for some spare coins"
-		%Button2.text = "Leave the old man alone"
+		%ButtonLabel.text = "Heal some HP for some spare coins"
+		%ButtonLabel2.text = "Leave the old man alone"
 		%Button3.visible = false
 		
 func resolution_screen():
@@ -157,7 +153,7 @@ func update_text_next():
 
 func handle_button():
 	if room == 1:
-		if %Button.text == "Attempt to flee":
+		if %ButtonLabel.text == "Attempt to flee":
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
@@ -173,7 +169,7 @@ func handle_button():
 				lost_items(0.1)
 				
 	elif room == 2:
-		if %Button.text == "Drink the liquid":
+		if %ButtonLabel.text == "Drink the liquid":
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
@@ -189,7 +185,7 @@ func handle_button():
 				else :
 					LevelManager.switch_to_dungeon_map()
 	elif room == 3:
-		if %Button.text == "Open book on random page and read it":
+		if %ButtonLabel.text == "Open book on random page and read it":
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
@@ -202,7 +198,7 @@ func handle_button():
 										You decided it would be better to leave."
 				
 	elif room == 4:
-		if %Button.text == "Open the chest":
+		if %ButtonLabel.text == "Open the chest":
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
@@ -222,7 +218,7 @@ func handle_button():
 				get_tree().change_scene_to_file("res://scenes/game_window.tscn")
 				
 	elif room == 5:
-		if %Button.text == "Quite disappointed, you decided to head towards the door on the other side to leave":
+		if %ButtonLabel.text == "Quite disappointed, you decided to head towards the door on the other side to leave":
 			var random_resolution = randi_range(1,3)
 			if random_resolution == 1:
 				resolution_screen()
@@ -246,7 +242,7 @@ func handle_button():
 				gained_coins(50)
 				
 	elif room == 6:
-		if %Button.text == "Heal some HP for some spare coins":
+		if %ButtonLabel.text == "Heal some HP for some spare coins":
 			resolution_screen()
 			var random_heal = randi_range(1,10)
 			gained_health(random_heal)
@@ -257,7 +253,7 @@ func handle_button():
 			
 func handle_button2():
 	if room == 1:
-		if %Button2.text == "Fight them":
+		if %ButtonLabel2.text == "Fight them":
 			var random_resolution = randi_range(1,2)
 			if random_resolution == 1:
 				resolution_screen()
@@ -323,7 +319,21 @@ func _on_continue_mouse_exited():
 
 func _on_button_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	%ButtonLabel.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_button_2_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	%ButtonLabel2.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_button_3_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	%ButtonLabel3.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_button_mouse_exited():
+	%ButtonLabel.add_theme_color_override("font_color", Color.WHITE)
+func _on_button_2_mouse_exited():
+	%ButtonLabel2.add_theme_color_override("font_color", Color.WHITE)
+func _on_button_3_mouse_exited():
+	%ButtonLabel.add_theme_color_override("font_color", Color.WHITE)
+
+func move_tween(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)

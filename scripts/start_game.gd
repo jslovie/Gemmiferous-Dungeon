@@ -275,12 +275,3 @@ func move_tween(object,pos,time):
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object,"position",pos,time)
 	
-func tween_out_menu_buttons():
-	var tween_menu_buttons = create_tween()
-	tween_menu_buttons.set_parallel(true)
-	tween_menu_buttons.tween_property($Buttons, "position:x",-550 , 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-
-func tween_in_menu_buttons():
-	var tween_menu_buttons = create_tween()
-	tween_menu_buttons.set_parallel(true)
-	tween_menu_buttons.tween_property($Buttons, "position:x",31 , 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)

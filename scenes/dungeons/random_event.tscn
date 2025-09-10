@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://coy5ww7r67sk2"]
+[gd_scene load_steps=10 format=4 uid="uid://coy5ww7r67sk2"]
 
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="1_lms4r"]
 [ext_resource type="Script" path="res://scripts/random_event.gd" id="1_ss7xc"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_3dkm2"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_trmf0"]
 [ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="4_ahxs1"]
+[ext_resource type="Texture2D" uid="uid://bnkp7i6jvltmo" path="res://assets/UI/UI4.png" id="5_mvwnp"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_nvkye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nebwm"]
@@ -209,11 +210,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -675.0
-offset_top = -413.0
+offset_top = -415.5
 offset_right = 675.0
-offset_bottom = 413.0
+offset_bottom = 415.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Border" type="TextureRect" parent="Control/Event"]
+layout_mode = 0
+offset_right = 169.0
+offset_bottom = 104.0
+scale = Vector2(8, 8)
+texture = ExtResource("5_mvwnp")
 
 [node name="EventText" type="Label" parent="Control/Event"]
 unique_name_in_owner = true
@@ -250,34 +258,65 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/Event/HBoxContainer"]
+[node name="Button" type="TextureButton" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_nvkye")
+
+[node name="ButtonLabel" type="Label" parent="Control/Event/HBoxContainer/Button"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Option 1"
+text = " Test Test"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button2" type="Button" parent="Control/Event/HBoxContainer"]
+[node name="Button2" type="TextureButton" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_nvkye")
+
+[node name="ButtonLabel2" type="Label" parent="Control/Event/HBoxContainer/Button2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Option 2"
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button3" type="Button" parent="Control/Event/HBoxContainer"]
+[node name="Button3" type="TextureButton" parent="Control/Event/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_nvkye")
+
+[node name="ButtonLabel3" type="Label" parent="Control/Event/HBoxContainer/Button3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Option 3"
+text = " Test Test"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Resolution" type="Panel" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -290,6 +329,14 @@ offset_right = 675.0
 offset_bottom = 413.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Border" type="TextureRect" parent="Control/Resolution"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 169.0
+offset_bottom = 102.0
+scale = Vector2(8, 8)
+texture = ExtResource("5_mvwnp")
 
 [node name="ResolutionText" type="Label" parent="Control/Resolution"]
 unique_name_in_owner = true
@@ -312,16 +359,15 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="PlayerDied" parent="." instance=ExtResource("4_ahxs1")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 985.0
-offset_top = 469.0
+offset_top = 1690.0
 offset_right = 985.0
-offset_bottom = 469.0
+offset_bottom = 1690.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -344,10 +390,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="mouse_entered" from="Control/Event/HBoxContainer/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Event/HBoxContainer/Button3" to="." method="_on_button_3_mouse_exited"]
 [connection signal="pressed" from="Control/Event/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="mouse_entered" from="Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="mouse_exited" from="Continue" to="." method="_on_continue_mouse_exited"]

@@ -17,6 +17,8 @@ func _ready():
 
 	
 func _process(_delta):
+	if Input.is_action_just_pressed("Esc"):
+		_on_home_pressed()
 	total_material_check()
 	total_gems_check()
 	update_treasures()
@@ -330,7 +332,7 @@ func _on_taverm_pressed():
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
-	move_tween(armourer_shop,Vector2(620,315),0.8)
+	move_tween(tavern_shop,Vector2(620,315),0.8)
 
 
 func _on_weaponsmith_pressed():
@@ -366,7 +368,9 @@ func _on_home_mouse_entered():
 
 func _on_home_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
-	LevelManager.main_menu()
+	LevelManager.in_pause = true
+	move_tween($Pause,Vector2(772,340),0.8)
+	
 
 
 func _on_church_pressed():
@@ -423,3 +427,32 @@ func _on_move_tween(name: String):
 		move_tween(tavern_shop,Vector2(620,500),0.8)
 	if name == "Manor":
 		move_tween(manor,Vector2(620,500),0.8)
+
+
+func _on_back_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
+	move_tween($Pause,Vector2(772,141),0.8)
+	LevelManager.in_pause = false
+	
+func _on_menu_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
+	LevelManager.in_pause = false
+	LevelManager.main_menu()
+
+
+func _on_back_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Pause/Progress.visible = true
+	$Pause/Progress.text = "Press Back to return to the game"
+func _on_back_mouse_exited():
+	$Pause/Back/Label.add_theme_color_override("font_color", Color.WHITE)
+	$Pause/Progress.visible = false
+func _on_menu_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+	$Pause/Progress.visible = true
+	$Pause/Progress.text = "Press Exit to return to the main menu"
+func _on_menu_mouse_exited():
+	$Pause/Menu/Label.add_theme_color_override("font_color", Color.WHITE)
+	$Pause/Progress.visible = false

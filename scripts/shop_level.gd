@@ -339,7 +339,7 @@ func not_enough_heal():
 	$HealNotEnought.visible = false
 
 func update_reroll_price():
-	$RerollLabel.text = reroll_price
+	$RerollCostLabel.text = str(reroll_price)
 
 func _on_reroll_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
