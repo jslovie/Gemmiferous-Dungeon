@@ -1,5 +1,7 @@
 extends Node2D
 
+signal move_tween(name: String)
+
 #Repairs
 @export var manor1_repair_price : Vector3
 @export var manor2_repair_price : Vector3
@@ -291,7 +293,7 @@ func exit_door_front_page():
 	tween.tween_property(exit_shop_front_page,"scale",Vector2(4,4),0.1)
 	tween.tween_property(exit_shop_front_page,"scale",Vector2(3,3),0.1)
 	await get_tree().create_timer(0.5).timeout
-	visible = false
+	emit_signal("move_tween","Manor")
 	exit_shop_front_page.texture_normal = load("res://assets/32rogues/doors/exitdoor.png")
 	exit_shop_front_page.texture_hover = load("res://assets/32rogues/doors/exitdoor-highlighted.png")
 

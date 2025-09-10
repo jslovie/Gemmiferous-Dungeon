@@ -64,6 +64,7 @@ lamp_upgrade_price = Vector3(25, 15, 45)
 campfire_upgrade_price = Vector3(65, 50, 10)
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_right = 1918.0
 offset_bottom = 1082.0
 

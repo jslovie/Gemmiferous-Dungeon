@@ -1606,26 +1606,22 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("74_1lufa")
 
 [node name="WeaponsmithShop" parent="." instance=ExtResource("67_hl5fj")]
-visible = false
 z_index = 2
-position = Vector2(620, 315)
+position = Vector2(620, 500)
 scale = Vector2(0.2, 0.2)
 
 [node name="ArmourerShop" parent="." instance=ExtResource("68_rr3hs")]
-visible = false
 z_index = 2
-position = Vector2(620, 315)
+position = Vector2(620, 500)
 scale = Vector2(0.2, 0.2)
 
 [node name="TavernShop" parent="." instance=ExtResource("69_j85mg")]
-visible = false
 z_index = 2
-position = Vector2(620, 315)
+position = Vector2(620, 500)
 scale = Vector2(0.2, 0.2)
 
 [node name="Manor" parent="." instance=ExtResource("84_m554g")]
-visible = false
-position = Vector2(620, 315)
+position = Vector2(620, 500)
 scale = Vector2(0.2, 0.2)
 
 [node name="Wood" type="Node2D" parent="."]
@@ -1893,6 +1889,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_vam8g")
 
 [node name="ArrowRight" type="TextureButton" parent="."]
+visible = false
 z_index = 100
 offset_left = 763.0
 offset_top = 469.0
@@ -1903,6 +1900,7 @@ texture_normal = ExtResource("87_o2k2x")
 texture_hover = ExtResource("88_fq1t4")
 
 [node name="ArrowLeft" type="TextureButton" parent="."]
+visible = false
 z_index = 100
 offset_left = 841.0
 offset_top = 469.0

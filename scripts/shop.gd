@@ -1,5 +1,6 @@
 extends Node2D
 
+signal move_tween(name: String)
 
 @export var shop_name : String
 @onready var exit_shop = $ExitShop
@@ -38,7 +39,7 @@ func exit_door():
 	tween.tween_property(exit_shop,"scale",Vector2(4,4),0.1)
 	tween.tween_property(exit_shop,"scale",Vector2(3,3),0.1)
 	await get_tree().create_timer(0.5).timeout
-	visible = false
+	emit_signal("move_tween",shop_name)
 	exit_shop.texture_normal = load("res://assets/32rogues/doors/exitdoor.png")
 	exit_shop.texture_hover = load("res://assets/32rogues/doors/exitdoor-highlighted.png")
 	

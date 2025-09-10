@@ -1,8 +1,14 @@
 extends Node2D
 
+@onready var weaponsmith_shop = $WeaponsmithShop
+@onready var armourer_shop = $ArmourerShop
+@onready var tavern_shop = $TavernShop
+@onready var manor = $Manor
+
 
 
 func _ready():
+	setup_tweens()
 	Music.play_music_village()
 	SaveManager.load_savefile()
 	$ArrowRight.visible = false
@@ -29,6 +35,12 @@ func _process(_delta):
 		$Material.visible = false
 		$Gems.visible = false
 		$Home.visible = false
+
+func setup_tweens():
+	weaponsmith_shop.move_tween.connect(_on_move_tween)
+	armourer_shop.move_tween.connect(_on_move_tween)
+	tavern_shop.move_tween.connect(_on_move_tween)
+	manor.move_tween.connect(_on_move_tween)
 
 func check_in_shop():
 	if VillageManager.in_shop == true:
@@ -311,14 +323,14 @@ func _on_manor_pressed():
 	Sfx.play_SFX(Sfx.manor_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
-	$Manor.visible = true
+	move_tween(manor,Vector2(620,315),0.8)
 
 func _on_taverm_pressed():
 	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
-	$TavernShop.visible = true
+	move_tween(armourer_shop,Vector2(620,315),0.8)
 
 
 func _on_weaponsmith_pressed():
@@ -326,7 +338,7 @@ func _on_weaponsmith_pressed():
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
-	$WeaponsmithShop.visible = true
+	move_tween(weaponsmith_shop,Vector2(620,315),0.8)
 
 
 func _on_armourer_pressed():
@@ -334,7 +346,7 @@ func _on_armourer_pressed():
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
-	$ArmourerShop.visible = true
+	move_tween(armourer_shop,Vector2(620,315),0.8)
 
 
 func _on_wood_button_pressed():
@@ -401,3 +413,13 @@ func _on_stone_button_mouse_entered():
 func _on_iron_button_mouse_entered():
 	if VillageManager.iron_mine_repaired == true:
 		Sfx.play_SFX(Sfx.hover_village)
+
+func _on_move_tween(name: String):
+	if name == "Weaponsmith":
+		move_tween(weaponsmith_shop,Vector2(620,500),0.8)
+	if name == "Armourer":
+		move_tween(armourer_shop,Vector2(620,500),0.8)
+	if name == "Tavern":
+		move_tween(tavern_shop,Vector2(620,500),0.8)
+	if name == "Manor":
+		move_tween(manor,Vector2(620,500),0.8)

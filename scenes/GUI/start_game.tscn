@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c5tm7oalxxdv0"]
+[gd_scene load_steps=17 format=4 uid="uid://c5tm7oalxxdv0"]
 
 [ext_resource type="Script" path="res://scripts/start_game.gd" id="1_wk5s1"]
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="2_nvocq"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bv00fhk45wgqd" path="res://assets/background/Full-1-export.png" id="4_wjd5j"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="5_oe4jf"]
 [ext_resource type="Texture2D" uid="uid://sdfbape0kcqu" path="res://assets/paper UI/Sprite-0001.png" id="6_caqhg"]
+[ext_resource type="Texture2D" uid="uid://bdkxd1ipjh5ec" path="res://assets/UI/UI.png" id="8_1veke"]
 [ext_resource type="Texture2D" uid="uid://dhs3vuxrp12ua" path="res://assets/paper UI/cross.png" id="9_4kujo"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="9_a42n4"]
+[ext_resource type="Texture2D" uid="uid://bnftip2nlh4d4" path="res://assets/UI/UI2.png" id="11_uc3je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l2mt"]
 texture = ExtResource("2_nvocq")
@@ -409,7 +411,6 @@ theme_override_font_sizes/font_size = 32
 text = "v0.6.0.1"
 
 [node name="DemoVersion" type="Label" parent="."]
-visible = false
 offset_left = 626.0
 offset_top = 142.0
 offset_right = 1256.0
@@ -428,19 +429,28 @@ libraries = {
 }
 
 [node name="DemoMessage" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 339.0
+offset_left = 309.0
 offset_top = -438.0
-offset_right = 959.0
+offset_right = 929.0
 offset_bottom = 438.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
+
+[node name="TextureRect" type="TextureRect" parent="DemoMessage"]
+z_index = 1
+layout_mode = 0
+offset_left = -31.0
+offset_top = -35.0
+offset_right = 106.0
+offset_bottom = 155.0
+scale = Vector2(5, 5)
+texture = ExtResource("8_1veke")
 
 [node name="DemoLabelTitle" type="Label" parent="DemoMessage"]
 layout_mode = 1
@@ -482,26 +492,31 @@ If you enjoy the gameplay loop, I’d be honored if you considered wishlisting t
 
 
 Thank you again, and stay safe!"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Close" type="TextureButton" parent="DemoMessage"]
 layout_mode = 0
-offset_left = 588.0
-offset_right = 604.0
-offset_bottom = 16.0
+offset_left = 559.0
+offset_top = 29.0
+offset_right = 575.0
+offset_bottom = 45.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("9_4kujo")
 
 [node name="Wishlist" type="TextureButton" parent="DemoMessage"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -257.0
-offset_top = 673.0
-offset_right = 65.0
-offset_bottom = 736.0
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = 232.0
+offset_right = 84.0
+offset_bottom = 295.0
 grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
 [node name="Label" type="Label" parent="DemoMessage/Wishlist"]
@@ -562,17 +577,25 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Removesavefile" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 426.0
-offset_top = 606.0
-offset_right = -679.0
-offset_bottom = -197.0
+offset_left = 385.0
+offset_top = 1385.0
+offset_right = -720.0
+offset_bottom = 582.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
+
+[node name="TextureRect" type="TextureRect" parent="Removesavefile"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 326.0
+offset_bottom = 110.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("11_uc3je")
 
 [node name="RemovesavefileLabel" type="Label" parent="Removesavefile"]
 layout_mode = 1
@@ -622,11 +645,12 @@ offset_bottom = 15.0
 text = "No"
 
 [node name="Credits" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1238.0
+offset_bottom = 1238.0
 grow_horizontal = 2
 grow_vertical = 2
 

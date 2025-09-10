@@ -5,6 +5,7 @@ var is_demo = false
 
 
 func _ready():
+	$AnimationPlayer.play("Demo") #This is just for test
 	if LevelManager.is_mobile == true:
 		visible = false
 		print("classic view was hidden")
@@ -75,20 +76,6 @@ func handle_continue_game():
 
 	get_tree().change_scene_to_file("res://scenes/village.tscn")
 
-func enter_credits():
-	if is_demo:
-		$DemoMessage.visible = false
-		$DemoVersion.visible = false
-	$Buttons.visible = false
-	$Credits.visible = true
-	
-func exit_credits():
-	if is_demo:
-		$DemoMessage.visible = true
-		$DemoVersion.visible = true
-	$Buttons.visible = true
-	$Credits.visible = false
-
 
 func remove_savefile():
 	SaveManager.save_file = false
@@ -115,7 +102,7 @@ func _on_quit_game_pressed():
 func _on_start_game_pressed():
 	Sfx.play_SFX(Sfx.menu_confirm)
 	if SaveManager.save_file:
-		$Removesavefile.visible = true
+		move_tween($Removesavefile,Vector2(385,541),0.8)
 	else:
 		handle_new_game()
 	
@@ -133,7 +120,7 @@ func _on_remove_pressed():
 func _on_start_game_new_pressed():
 	Sfx.play_SFX(Sfx.menu_confirm)
 	if SaveManager.save_file:
-		$Removesavefile.visible = true
+		move_tween($Removesavefile,Vector2(385,541),0.8)
 	else:
 		handle_new_game()
 
@@ -146,6 +133,8 @@ func _on_options_new_pressed():
 	move_tween($Buttons,Vector2(-600,665),0.8)
 	move_tween($Settings,Vector2(960,540),0.8)
 	move_tween($MarginContainer,Vector2(649,875),0.8)
+	move_tween($DemoMessage,Vector2(2417,102),0.8)
+	move_tween($DemoVersion,Vector2(626,-447),0.8)
 	Sfx.play_SFX(Sfx.menu_confirm)
 	$Settings.visible = true
 	$MarginContainer.visible = true
@@ -154,8 +143,12 @@ func _on_options_new_pressed():
 	
 	
 func _on_credits_pressed():
+	move_tween($Buttons,Vector2(-600,665),0.8)
+	move_tween($DemoMessage,Vector2(2417,102),0.8)
+	move_tween($DemoVersion,Vector2(626,-447),0.8)
+	move_tween($Credits,Vector2(0,0),0.8)
 	Sfx.play_SFX(Sfx.menu_confirm)
-	enter_credits()
+	
 
 
 
@@ -214,6 +207,8 @@ func _on_back_pressed():
 	move_tween($Buttons,Vector2(31,665),0.8)
 	move_tween($Settings,Vector2(960,1780),0.8)
 	move_tween($MarginContainer,Vector2(649,2115),0.8)
+	move_tween($DemoMessage,Vector2(1269,102),0.8)
+	move_tween($DemoVersion,Vector2(626,142),0.8)
 	Sfx.play_SFX(Sfx.button_confirm)
 	if LevelManager.is_mobile == true:
 		$Buttons.visible = true
@@ -249,7 +244,7 @@ func _on_yes_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
 	remove_savefile()
 	handle_new_game()
-	$Removesavefile.visible = false
+
 func _on_yes_mouse_entered():
 	if $Removesavefile.visible == true:
 		Sfx.play_SFX(Sfx.menu_hover)
@@ -258,7 +253,7 @@ func _on_yes_mouse_exited():
 	$Removesavefile/Yes/YesLabel.add_theme_color_override("font_color", Color.WHITE)
 func _on_no_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
-	$Removesavefile.visible = false
+	move_tween($Removesavefile,Vector2(385,1385),0.8)
 func _on_no_mouse_entered():
 	if $Removesavefile.visible == true:
 		Sfx.play_SFX(Sfx.menu_hover)
@@ -269,7 +264,10 @@ func _on_no_mouse_exited():
 
 func _on_exit_credits_pressed():
 	Sfx.play_SFX(Sfx.menu_confirm)
-	exit_credits()
+	move_tween($Buttons,Vector2(31,665),0.8)
+	move_tween($DemoMessage,Vector2(1269,102),0.8)
+	move_tween($DemoVersion,Vector2(626,142),0.8)
+	move_tween($Credits,Vector2(0,1238),0.8)
 
 #Tweens
 func move_tween(object,pos,time):
