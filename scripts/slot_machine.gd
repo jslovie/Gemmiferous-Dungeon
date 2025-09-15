@@ -188,14 +188,17 @@ func handle_result():
 	jackpot = false
 	
 func _on_continue_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	if PlayerManager.player.spins_left > 0:
-		$SpinsLeft.visible = true
+		move_tween($SpinsLeft,Vector2(-98,-58),0.8)
+		move_tween($Continue,Vector2(791,-12),0.8)
 	else:
 		visible = false
 		if PlayerManager.player.player_won == true:
 			if LevelManager.tutorial_completed:
 				handle_tutorial_completed()
 			else:
+				Music.music_to_normal()
 				PlayerManager.player.set_treasure()
 				LevelManager.tutorial_completed = true
 				LevelManager.handle_winning = true
@@ -205,6 +208,7 @@ func _on_continue_pressed():
 		
 
 func _on_yes_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
 	if PlayerManager.player.player_won == true:
 		if LevelManager.tutorial_completed:
 			handle_tutorial_completed()
@@ -217,6 +221,7 @@ func _on_yes_pressed():
 		LevelManager.switch_to_dungeon_map_timeless()
 
 func handle_tutorial_completed():
+	Music.music_to_normal()
 	PlayerManager.player.coins = round(PlayerManager.player.coins / 2)
 	PlayerManager.player.red_gem = round(PlayerManager.player.red_gem / 2)
 	PlayerManager.player.yellow_gem = round(PlayerManager.player.yellow_gem / 2)
@@ -230,10 +235,30 @@ func handle_tutorial_completed():
 	LevelManager.handle_winning = true
 
 func _on_no_pressed():
-	$SpinsLeft.visible = false
-
-
+	Sfx.play_SFX(Sfx.button_confirm)
+	move_tween($SpinsLeft,Vector2(-861,-58),0.8)
+	move_tween($Continue,Vector2(84,-12),0.8)
+	
 func _on_continue_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
 	$Continue/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 func _on_continue_mouse_exited():
 	$Continue/Label.add_theme_color_override("font_color", Color.WHITE)
+
+
+func _on_yes_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+	$SpinsLeft/Yes/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_yes_mouse_exited():
+	$SpinsLeft/Yes/Label.add_theme_color_override("font_color", Color.WHITE)
+func _on_no_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+	$SpinsLeft/No/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+func _on_no_mouse_exited():
+	$SpinsLeft/No/Label.add_theme_color_override("font_color", Color.WHITE)
+
+#Tweens
+func move_tween(object,pos,time):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"position",pos,time)

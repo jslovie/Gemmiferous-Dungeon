@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://covxy0k6qglqu"]
+[gd_scene load_steps=19 format=3 uid="uid://covxy0k6qglqu"]
 
 [ext_resource type="Script" path="res://scripts/slot_machine.gd" id="1_1w153"]
 [ext_resource type="Texture2D" uid="uid://dx6f516r153ep" path="res://assets/slot/chestnew2.png" id="1_23pap"]
 [ext_resource type="PackedScene" uid="uid://do7jlr31r2f3d" path="res://scenes/slot/slot.tscn" id="2_v6ymm"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="3_i21mj"]
 [ext_resource type="Texture2D" uid="uid://bgaac3f15fy2e" path="res://assets/slot/key.png" id="4_grcp6"]
+[ext_resource type="Texture2D" uid="uid://bnkp7i6jvltmo" path="res://assets/UI/UI4.png" id="6_7itnq"]
 [ext_resource type="AudioStream" uid="uid://uwo8ppalm2lk" path="res://audio/SFX/SFX/mixkit-arcade-slot-machine-wheel-1933.wav" id="6_tsewq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1srs"]
@@ -102,7 +103,7 @@ rotation = 0.610865
 scale = Vector2(2, 2)
 
 [node name="Green" type="CPUParticles2D" parent="Confetti"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -118,7 +119,7 @@ scale_amount_max = 2.0
 color = Color(0.142445, 0.575978, 0.00511803, 1)
 
 [node name="Red" type="CPUParticles2D" parent="Confetti"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -134,7 +135,7 @@ scale_amount_max = 2.0
 color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="Blue" type="CPUParticles2D" parent="Confetti"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -150,7 +151,7 @@ scale_amount_max = 2.0
 color = Color(0.195051, 0.338344, 1, 1)
 
 [node name="Yellow" type="CPUParticles2D" parent="Confetti"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -172,7 +173,7 @@ rotation = -0.610865
 scale = Vector2(2, 2)
 
 [node name="Green" type="CPUParticles2D" parent="Confetti2"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -188,7 +189,7 @@ scale_amount_max = 2.0
 color = Color(0.142445, 0.575978, 0.00511803, 1)
 
 [node name="Red" type="CPUParticles2D" parent="Confetti2"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -204,7 +205,7 @@ scale_amount_max = 2.0
 color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="Blue" type="CPUParticles2D" parent="Confetti2"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -220,7 +221,7 @@ scale_amount_max = 2.0
 color = Color(0.195051, 0.338344, 1, 1)
 
 [node name="Yellow" type="CPUParticles2D" parent="Confetti2"]
-amount = 4
+amount = 3
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -248,8 +249,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -105.833
-offset_right = 89.1667
-offset_bottom = 23.0
+offset_top = 6.66666
+offset_right = 89.1664
+offset_bottom = 29.6667
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -341,14 +343,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SpinsLeft" type="ColorRect" parent="."]
-visible = false
 z_index = 21
 layout_mode = 0
-offset_left = -98.0
+offset_left = -861.0
 offset_top = -58.0
-offset_right = 101.0
+offset_right = -662.0
 offset_bottom = 69.0
-color = Color(0.160784, 0.160784, 0.160784, 0.901961)
+color = Color(0, 0, 0, 0.698039)
+
+[node name="Border" type="TextureRect" parent="SpinsLeft"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_7itnq")
 
 [node name="Label" type="Label" parent="SpinsLeft"]
 layout_mode = 0
@@ -362,25 +372,35 @@ Are you sure you want to continue ?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Yes" type="Button" parent="SpinsLeft"]
+[node name="Yes" type="TextureButton" parent="SpinsLeft"]
 layout_mode = 0
 offset_left = 52.0
 offset_top = 82.0
-offset_right = 60.0
-offset_bottom = 90.0
-theme_override_fonts/font = ExtResource("3_i21mj")
-theme_override_font_sizes/font_size = 16
-text = "Yes"
+offset_right = 85.0
+offset_bottom = 105.0
 
-[node name="No" type="Button" parent="SpinsLeft"]
+[node name="Label" type="Label" parent="SpinsLeft/Yes"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 15.0
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="No" type="TextureButton" parent="SpinsLeft"]
 layout_mode = 0
 offset_left = 111.0
 offset_top = 82.0
 offset_right = 144.0
 offset_bottom = 105.0
-theme_override_fonts/font = ExtResource("3_i21mj")
-theme_override_font_sizes/font_size = 16
+
+[node name="Label" type="Label" parent="SpinsLeft/No"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 15.0
 text = "No"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_tsewq")
@@ -391,5 +411,9 @@ bus = &"SFX_BREAK"
 [connection signal="mouse_entered" from="Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="mouse_exited" from="Continue" to="." method="_on_continue_mouse_exited"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="SpinsLeft/Yes" to="." method="_on_yes_mouse_entered"]
+[connection signal="mouse_exited" from="SpinsLeft/Yes" to="." method="_on_yes_mouse_exited"]
 [connection signal="pressed" from="SpinsLeft/Yes" to="." method="_on_yes_pressed"]
+[connection signal="mouse_entered" from="SpinsLeft/No" to="." method="_on_no_mouse_entered"]
+[connection signal="mouse_exited" from="SpinsLeft/No" to="." method="_on_no_mouse_exited"]
 [connection signal="pressed" from="SpinsLeft/No" to="." method="_on_no_pressed"]

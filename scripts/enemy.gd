@@ -26,8 +26,8 @@ var rng = RandomNumberGenerator.new()
 
 var crit = false
 var crit_rarities = {
-	"nothing" : 85,
-	"crit" : 15,
+	"nothing" : 80,
+	"crit" : 20,
 }
 
 var coin_effect_position = Vector2(921,737)
@@ -252,7 +252,7 @@ func inflict_damage():
 	var crit_chance = get_crit_rng()
 	if crit_chance == "crit":
 		crit = true
-		crit_amount = 0.15
+		crit_amount = 0.20
 	else:
 		crit = false
 		crit_amount = 0

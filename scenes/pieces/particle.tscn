@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/particle.gd" id="2_ty1y1"]
 
 [node name="Particle" type="CPUParticles2D"]
+z_index = 1
 emitting = false
 amount = 2
 one_shot = true
