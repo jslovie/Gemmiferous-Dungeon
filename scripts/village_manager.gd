@@ -93,7 +93,7 @@ func wood_timer():
 		woodcutter_timer.connect("timeout", _on_woodcutters_timeout)
 
 func stone_timer():
-	if woodcutters_camp_repaired == true:
+	if stone_mine_repaired == true:
 		add_child(stone_mine_timer)
 		stone_mine_timer.start(stone_time_left)
 		stone_mine_timer.autostart = true
@@ -101,7 +101,7 @@ func stone_timer():
 		stone_mine_timer.connect("timeout", _on_stone_miner_timeout)
 
 func iron_timer():
-	if woodcutters_camp_repaired == true:
+	if iron_mine_repaired == true:
 		add_child(iron_mine_timer)
 		iron_mine_timer.start(iron_time_left)
 		iron_mine_timer.autostart = true
@@ -110,17 +110,17 @@ func iron_timer():
 
 func timers():
 	add_child(woodcutter_timer)
-	woodcutter_timer.start(22)
+	woodcutter_timer.start(wood_time_left)
 	woodcutter_timer.autostart = true
 	woodcutter_timer.one_shot = false
 	woodcutter_timer.connect("timeout", _on_woodcutters_timeout)
 	add_child(stone_mine_timer)
-	stone_mine_timer.start(40)
+	stone_mine_timer.start(stone_time_left)
 	stone_mine_timer.autostart = true
 	stone_mine_timer.one_shot = false
 	stone_mine_timer.connect("timeout", _on_stone_miner_timeout)
 	add_child(iron_mine_timer)
-	iron_mine_timer.start(55)
+	iron_mine_timer.start(iron_time_left)
 	iron_mine_timer.autostart = true
 	iron_mine_timer.one_shot = false
 	iron_mine_timer.connect("timeout", _on_iron_miner_timeout)

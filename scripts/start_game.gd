@@ -84,6 +84,7 @@ func remove_savefile():
 	SaveManager.reset_savefile()
 	VillageManager.reset_village_stats()
 	PlayerManager.player.reset_player_stats()
+	LevelManager.reset()
 	
 func _on_button_pressed():
 	visible = false
@@ -242,6 +243,7 @@ func _on_wishlist_mouse_exited():
 
 func _on_yes_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
+	move_tween($Removesavefile,Vector2(385,1385),0.8)
 	remove_savefile()
 	handle_new_game()
 

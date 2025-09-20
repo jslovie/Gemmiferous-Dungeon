@@ -69,7 +69,7 @@ func _on_res_option_button_item_selected(index):
 			get_window().set_size(Vector2(1920,1080))
 			LevelManager.resolution = 2
 		3:
-			get_window().set_size(Vector2(2500,1440))
+			get_window().set_size(Vector2(2560,1440))
 			LevelManager.resolution = 3
 
 

@@ -503,18 +503,20 @@ text = "Reroll"
 
 [node name="RerollCostLabel" type="Label" parent="."]
 z_index = 52
-offset_left = 1318.0
+offset_left = 1319.0
 offset_top = 427.0
-offset_right = 1348.0
+offset_right = 1355.0
 offset_bottom = 457.0
 scale = Vector2(0.9, 0.9)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RerollCostLabelSprite" type="Sprite2D" parent="."]
 z_index = 52
-position = Vector2(1356, 438)
+position = Vector2(1362, 438)
 texture = ExtResource("15_0jc5i")
 
 [node name="RerollNotEnough" type="Label" parent="."]
@@ -574,7 +576,7 @@ text = "30"
 
 [node name="Heal10CostLabelSprite" type="Sprite2D" parent="Heal10"]
 z_index = 52
-position = Vector2(28.9999, 20)
+position = Vector2(31, 20)
 texture = ExtResource("15_0jc5i")
 
 [node name="Heal25" type="Control" parent="."]
@@ -623,7 +625,7 @@ text = "50"
 
 [node name="Heal25CostLabelSprite" type="Sprite2D" parent="Heal25"]
 z_index = 52
-position = Vector2(28.9999, 20)
+position = Vector2(31, 20)
 texture = ExtResource("15_0jc5i")
 
 [node name="HealNotEnought" type="Label" parent="."]

@@ -168,16 +168,35 @@ func is_in_grid(grid_position):
 	return false
 	
 func touch_input():
+	#if Input.is_action_just_pressed("ui_touch"):
+		#if is_in_grid(pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)):
+			#first_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
+			#controlling = true
+	#if Input.is_action_just_released("ui_touch"):
+		#if is_in_grid(pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)) && controlling:
+			#controlling = false;
+			#final_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
+			#touch_difference(first_touch, final_touch)
 	if Input.is_action_just_pressed("ui_touch"):
-		if is_in_grid(pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)):
-			first_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
+		var mouse_grid = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
+		if is_in_grid(mouse_grid):
+			first_touch = mouse_grid
 			controlling = true
-	if Input.is_action_just_released("ui_touch"):
-		if is_in_grid(pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)) && controlling:
-			controlling = false;
-			final_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
-			touch_difference(first_touch, final_touch)
+			if hint:
+				destroy_hint()
+		else:
+			controlling = false
 
+	if Input.is_action_just_released("ui_touch") and controlling:
+		controlling = false
+		var mouse_grid = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
+
+		# Clamp the final touch to the nearest valid grid within bounds
+		var final_grid = mouse_grid
+		final_grid.x = clamp(final_grid.x, 0, width - 1)
+		final_grid.y = clamp(final_grid.y, 0, height - 1)
+
+		touch_difference(first_touch, final_grid)
 	
 	
 	
@@ -227,18 +246,39 @@ func swap_back():
 	$HintTimer.start()
 
 func touch_difference(grid_1, grid_2):
+	#var difference = grid_2 - grid_1
+	#if abs(difference.x) > abs(difference.y):
+		#if difference.x > 0:
+			#swap_pieces(grid_1.x, grid_1.y, Vector2(1, 0))
+		#elif difference.x < 0:
+			#swap_pieces(grid_1.x, grid_1.y, Vector2(-1, 0))
+	#elif abs(difference.y) > abs(difference.x):
+		#if difference.y > 0:
+			#swap_pieces(grid_1.x, grid_1.y, Vector2(0, 1))
+		#elif difference.y < 0:
+			#swap_pieces(grid_1.x, grid_1.y, Vector2(0, -1))
 	var difference = grid_2 - grid_1
+	var move_vector = Vector2.ZERO
+
+	# Determine primary direction of movement
 	if abs(difference.x) > abs(difference.y):
-		if difference.x > 0:
-			swap_pieces(grid_1.x, grid_1.y, Vector2(1, 0))
-		elif difference.x < 0:
-			swap_pieces(grid_1.x, grid_1.y, Vector2(-1, 0))
+		move_vector.x = sign(difference.x)
 	elif abs(difference.y) > abs(difference.x):
-		if difference.y > 0:
-			swap_pieces(grid_1.x, grid_1.y, Vector2(0, 1))
-		elif difference.y < 0:
-			swap_pieces(grid_1.x, grid_1.y, Vector2(0, -1))
-			
+		move_vector.y = sign(difference.y)
+	else:
+		# If no movement or diagonal (equal), ignore
+		return
+
+	# Only attempt swap if adjacent and inside grid
+	var target_pos = grid_1 + move_vector
+	if is_in_grid(target_pos) and !restricted_movement(grid_1) and !restricted_movement(target_pos):
+		swap_pieces(grid_1.x, grid_1.y, move_vector)
+
+
+
+
+
+
 func find_matches(query = false, array = all_pieces):
 	for i in width:
 		for j in height:
@@ -770,14 +810,31 @@ func switch_pieces(place, direction, array):
 			array[place.x][place.y] = holder
 
 func is_deadlocked():
+	#clone_array = copy_array(all_pieces)
+	#for i in width:
+		#for j in height:
+			#if switch_and_check(Vector2(i,j), Vector2(1,0), clone_array):
+				#return false
+			#if switch_and_check(Vector2(i,j), Vector2(0,1), clone_array):
+				#return false
+	#return true
 	clone_array = copy_array(all_pieces)
+
 	for i in width:
 		for j in height:
-			if switch_and_check(Vector2(i,j), Vector2(1,0), clone_array):
-				return false
-			if switch_and_check(Vector2(i,j), Vector2(0,1), clone_array):
-				return false
+			if clone_array[i][j] != null:
+				var place = Vector2(i, j)
+
+				for dir in [Vector2(1,0), Vector2(-1,0), Vector2(0,1), Vector2(0,-1)]:
+					var new_pos = place + dir
+					if is_in_grid(new_pos) and clone_array[new_pos.x][new_pos.y] != null:
+						switch_pieces(place, dir, clone_array)
+						if find_matches(true, clone_array):
+							return false
+						switch_pieces(place, dir, clone_array) # swap back
+
 	return true
+	
 
 func switch_and_check(place, direction, array):
 	switch_pieces(place, direction, array)

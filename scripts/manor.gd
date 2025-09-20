@@ -73,6 +73,8 @@ signal move_tween(name: String)
 @onready var village_management = $BookFrontPage/VillageManagement
 @onready var exit_shop_front_page = $BookFrontPage/ExitShopFrontPage
 
+func _ready():
+	$Cost.visible = false
 
 func _process(_delta):
 	update_upgrade_text()

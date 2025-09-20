@@ -51,6 +51,7 @@ func _ready():
 	LevelManager.level_done += 1
 	PlayerManager.player.update_player_texture()
 	load_relics()
+	print(RelicManager.current_relics)
 	check_duplicates()
 	choose_relic()
 	choose_piece()

@@ -17,6 +17,7 @@ func assign_stats():
 	
 	
 func _on_pressed():
+	RelicManager.reset_pieces_relics()
 	Sfx.play_SFX(Sfx.button_confirm)
 	assign_stats()
 	SaveManager.autosave()
@@ -29,7 +30,6 @@ func _on_pressed():
 		DungeonMap.choose_random_f()
 		DungeonMapMobile.choose_random_f()
 	await get_tree().create_timer(0.5).timeout
-	RelicManager.reset_pieces_relics()
 	LevelManager.switch_to_dungeon_map_timeless()
 
 

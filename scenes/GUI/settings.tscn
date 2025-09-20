@@ -129,7 +129,7 @@ popup/item_1/text = "1280x720"
 popup/item_1/id = 1
 popup/item_2/text = "1920x1080"
 popup/item_2/id = 2
-popup/item_3/text = "2500x1440"
+popup/item_3/text = "2560x1440"
 popup/item_3/id = 3
 
 [node name="Mode" type="Label" parent="AudioOptions/MarginContainer/VBoxContainer"]

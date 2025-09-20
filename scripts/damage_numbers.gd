@@ -26,7 +26,7 @@ func display_number(value, position: Vector2, is_top: bool = false, is_critical:
 
 	
 	number.label_settings.font_color = color
-	number.label_settings.font_size = 64
+	number.label_settings.font_size = 96
 	number.label_settings.font = load("res://assets/alagard.ttf")
 	
 	call_deferred("add_child", number)

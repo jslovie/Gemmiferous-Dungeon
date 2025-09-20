@@ -12,7 +12,7 @@ var knight_position = Vector2(-2875,-7)
 func _ready():
 	Music.play_music_selection()
 	SaveManager.load_savefile()
-	$NotAvailable.add_theme_color_override("font_color",Color.DARK_ORANGE)
+	
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("Esc"):
