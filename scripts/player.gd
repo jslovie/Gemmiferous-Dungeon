@@ -69,7 +69,7 @@ var mace_stunt_rarities = {
 var has_invisibility = false
 var is_invisible = false
 var invisibility_chance = 20
-var invisibility_timer = 4
+var invisibility_timer = 6
 var invisibility_rarities = {
 	"nothing" : 80,
 	"invisibility" : invisibility_chance,

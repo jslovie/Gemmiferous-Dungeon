@@ -198,11 +198,23 @@ func update_checked():
 		$TownUpgrades/VBoxContainer/HousesUpgrade.disabled = true
 
 func check_enough_material(wood,stone,iron):
+	if PlayerManager.player.total_wood < wood:
+		%Wood.add_theme_color_override("font_color", Color.DARK_RED)
+	if PlayerManager.player.total_stone < stone:
+		%Stone.add_theme_color_override("font_color", Color.DARK_RED)
+	if PlayerManager.player.total_iron < iron:
+		%Iron.add_theme_color_override("font_color", Color.DARK_RED)
+	
 	if PlayerManager.player.total_wood >= wood and PlayerManager.player.total_stone >= stone and PlayerManager.player.total_iron >= iron:
 		return true
 	else:
 		return false
 
+func return_cost_to_normal():
+	%Wood.add_theme_color_override("font_color", Color.BLACK)
+	%Stone.add_theme_color_override("font_color", Color.BLACK)
+	%Iron.add_theme_color_override("font_color", Color.BLACK)
+	
 func not_enough():
 	Sfx.play_SFX(Sfx.decline_book)
 	$Cost/Description.visible = false
@@ -400,6 +412,12 @@ func _on_manor_pressed():
 		else:
 			not_enough()
 func _on_manor_mouse_entered():
+	if VillageManager.manor_lvl == 0:
+		check_enough_material(manor1_repair_price.x,manor1_repair_price.y,manor1_repair_price.z)
+	elif VillageManager.manor_lvl == 1:
+		check_enough_material(manor2_repair_price.x,manor2_repair_price.y,manor2_repair_price.z)
+	elif VillageManager.manor_lvl == 2:
+		check_enough_material(manor3_repair_price.x,manor3_repair_price.y,manor3_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Manor/Checked.visible == false:
 		$TownRepair/VBoxContainer/Manor/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -424,6 +442,7 @@ func _on_manor_mouse_entered():
 		%Iron.text = str(manor3_repair_price.z)
 		$Cost/Description.text = manor_repair_description
 func _on_manor_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Manor/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 

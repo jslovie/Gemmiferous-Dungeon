@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=128 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="39_igw6i"]
 [ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="43_xaq8w"]
 [ext_resource type="Texture2D" uid="uid://cto6o7oms0ywt" path="res://assets/32rogues/pieces/home.png" id="54_1lpto"]
+[ext_resource type="Texture2D" uid="uid://cpml5sjt27qwj" path="res://assets/32rogues/pieces/pause.png" id="54_m5ssy"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="55_vg62u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
@@ -673,7 +674,7 @@ tile_map_data = PackedByteArray("AAD7/wYAAAAAAAYAAAD6////AAAAAAEAAAD6/wAAAAAAAAE
 tile_set = SubResource("TileSet_5mgtx")
 
 [node name="DungeonTilesDetails" type="TileMapLayer" parent="Desktop/Background/F1/Dungeon1"]
-tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAABAAYAAAAKABMAAAA=")
+tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABEAAAD//wUAAAABABYAAAACAAMAAAAAABQAAAADAAQAAAABABUAAAD8/wMAAAAAABUAAAA=")
 tile_set = SubResource("TileSet_5mgtx")
 
 [node name="F2" type="Node2D" parent="Desktop/Background"]
@@ -798,6 +799,7 @@ one_shot = true
 
 [node name="Resolution" type="Panel" parent="Desktop"]
 unique_name_in_owner = true
+visible = false
 z_index = 21
 offset_left = -876.0
 offset_top = -105.0
@@ -1575,10 +1577,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Home" type="TextureButton" parent="Desktop"]
-offset_left = 519.0
-offset_top = 78.0
-offset_right = 551.0
-offset_bottom = 110.0
+offset_left = 1188.0
+offset_top = 62.0
+offset_right = 1220.0
+offset_bottom = 94.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(16, 16)
 
@@ -1717,6 +1719,35 @@ theme_override_font_sizes/font_size = 16
 text = "x1"
 horizontal_alignment = 1
 
+[node name="PauseGame" type="TextureButton" parent="Grid"]
+offset_left = 519.0
+offset_top = 78.0
+offset_right = 551.0
+offset_bottom = 110.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(16, 16)
+
+[node name="TextureRect" type="TextureRect" parent="Grid/PauseGame"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("22_7rbg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Grid/PauseGame"]
+position = Vector2(16, 16)
+texture = ExtResource("54_m5ssy")
+
+[node name="ShuffleLabel" type="Label" parent="Grid/PauseGame"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 31.6667
+offset_right = 35.0
+offset_bottom = 46.6667
+theme_override_font_sizes/font_size = 16
+text = "x1"
+horizontal_alignment = 1
+
 [node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
 visible = false
 z_index = 22
@@ -1826,8 +1857,9 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ContinueMobile" type="TextureButton" parent="."]
+offset_top = -321.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -281.0
 
 [node name="Label" type="Label" parent="ContinueMobile"]
 layout_mode = 0

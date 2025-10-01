@@ -48,7 +48,7 @@ func _ready():
 	%ActionTimer.start()
 	
 func _process(_delta):
-	%Label.text = str(time.time_left)
+	%Label.text = str(round(time.time_left))
 	if status == "dead":
 		%ActionTimer.stop()
 	if LevelManager.type == "Random Event":

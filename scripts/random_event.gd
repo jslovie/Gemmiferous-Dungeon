@@ -225,7 +225,6 @@ func handle_button():
 				lost_health_percentage(0.15)
 				%ResolutionText.text = "You stepped on hidden spikes and lost " + str(health_lost) + " HP"
 				
-				LevelManager.switch_to_dungeon_map()
 			elif random_resolution == 2:
 				resolution_screen()
 				%ResolutionText.text = "Nothing happened on the way"
