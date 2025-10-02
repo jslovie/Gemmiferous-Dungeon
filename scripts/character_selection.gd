@@ -17,11 +17,11 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Esc"):
 		_on_home_pressed()
+	check_unlocked()
 	update_treasures()
 	update_materials()
 	total_gems_check()
 	total_material_check()
-	check_unlocked()
 	check_pause()
 	description_check_mobile()
 	unlock_check_mobile()

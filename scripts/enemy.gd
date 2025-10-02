@@ -17,6 +17,9 @@ var coin_worth = 5
 var action_delay : Vector2
 var blood_type
 
+var matches_to_action = 5
+var matches_to_action_range = Vector2(3,6)
+
 #Statuses
 var is_vulnerable = false
 var is_weak = false
@@ -41,6 +44,7 @@ var coin_effect_position = Vector2(921,737)
 
 
 func _ready():
+	reset_matches_to_action()
 	stat_check()
 	state = alive
 	EnemyManager.enemy = self
@@ -48,12 +52,19 @@ func _ready():
 	%ActionTimer.start()
 	
 func _process(_delta):
+	update_action_timer()
 	%Label.text = str(round(time.time_left))
 	if status == "dead":
 		%ActionTimer.stop()
 	if LevelManager.type == "Random Event":
 		%ActionTimer.stop()
 
+func take_action():
+	random_action()
+	reset_matches_to_action()
+
+func reset_matches_to_action():
+	matches_to_action = randi_range(matches_to_action_range.x,matches_to_action_range.y)
 	
 func stat_check():
 	type = EnemyManager.type
@@ -203,7 +214,28 @@ func Type_check():
 func change_delay():
 	var random_delay = randi_range(action_delay.x, action_delay.y)
 	%ActionTimer.wait_time = random_delay
+
+func update_action_timer():
+	$Actions/ActionTimer.text = int_to_roman(matches_to_action)
+
+func int_to_roman(value: int) -> String:
+
+	var roman_map = [
+		[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
+		[100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
+		[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]
+	]
+
+	var result := ""
+	for pair in roman_map:
+		var val: int = pair[0]
+		var sym: String = pair[1]
+		while value >= val:
+			value -= val
+			result += sym
+	return result
 	
+
 func random_action():
 	var random = Random.get_rng()
 		
@@ -502,7 +534,8 @@ func player_died():
 	%Stunned.visible = false
 	
 func _on_action_timer_timeout():
-	random_action()
+	#random_action()
+	pass
 
 
 #Animation

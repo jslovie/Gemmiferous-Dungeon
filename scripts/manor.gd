@@ -455,6 +455,7 @@ func _on_church_pressed():
 	else:
 		not_enough()
 func _on_church_mouse_entered():
+	check_enough_material(church_repair_price.x,church_repair_price.y,church_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Church/Checked.visible == false:
 		$TownRepair/VBoxContainer/Church/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -467,6 +468,7 @@ func _on_church_mouse_entered():
 		%Iron.text = str(church_repair_price.z)
 		$Cost/Description.text = church_repair_description
 func _on_church_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Church/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 	
@@ -479,6 +481,7 @@ func _on_tavern_pressed():
 	else:
 		not_enough()
 func _on_tavern_mouse_entered():
+	check_enough_material(tavern_repair_price.x,tavern_repair_price.y,tavern_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Tavern/Checked.visible == false:
 		$TownRepair/VBoxContainer/Tavern/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -491,6 +494,7 @@ func _on_tavern_mouse_entered():
 		%Iron.text = str(tavern_repair_price.z)
 		$Cost/Description.text = tavern_repair_description
 func _on_tavern_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Tavern/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -503,6 +507,7 @@ func _on_weaponsmith_pressed():
 	else:
 		not_enough()
 func _on_weaponsmith_mouse_entered():
+	check_enough_material(weaponsmith_repair_price.x,weaponsmith_repair_price.y,weaponsmith_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Weaponsmith/Checked.visible == false:
 		$TownRepair/VBoxContainer/Weaponsmith/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -515,6 +520,7 @@ func _on_weaponsmith_mouse_entered():
 		%Iron.text = str(weaponsmith_repair_price.z)
 		$Cost/Description.text = weaponsmith_repair_description
 func _on_weaponsmith_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Weaponsmith/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -527,6 +533,7 @@ func _on_armourer_pressed():
 	else:
 		not_enough()
 func _on_armourer_mouse_entered():
+	check_enough_material(armourer_repair_price.x,armourer_repair_price.y,armourer_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Armourer/Checked.visible == false:
 		$TownRepair/VBoxContainer/Armourer/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -539,6 +546,7 @@ func _on_armourer_mouse_entered():
 		%Iron.text = str(armourer_repair_price.z)
 		$Cost/Description.text = armourer_repair_description
 func _on_armourer_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Armourer/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -551,6 +559,7 @@ func _on_sorcerer_pressed():
 	else:
 		not_enough()
 func _on_sorcerer_mouse_entered():
+	check_enough_material(sorcerer_repair_price.x,sorcerer_repair_price.y,sorcerer_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Sorcerer/Checked.visible == false:
 		$TownRepair/VBoxContainer/Sorcerer/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -563,6 +572,7 @@ func _on_sorcerer_mouse_entered():
 		%Iron.text = str(sorcerer_repair_price.z)
 		$Cost/Description.text = sorcererh_repair_description
 func _on_sorcerer_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Sorcerer/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -575,6 +585,7 @@ func _on_town_square_pressed():
 	else:
 		not_enough()
 func _on_town_square_mouse_entered():
+	check_enough_material(town_square_repair_price.x,town_square_repair_price.y,town_square_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/TownSquare/Checked.visible == false:
 		$TownRepair/VBoxContainer/TownSquare/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -587,6 +598,7 @@ func _on_town_square_mouse_entered():
 		%Iron.text = str(town_square_repair_price.z)
 		$Cost/Description.text = town_square_repair_description
 func _on_town_square_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/TownSquare/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -599,6 +611,7 @@ func _on_farm_pressed():
 	else:
 		not_enough()
 func _on_farm_mouse_entered():
+	check_enough_material(farm_repair_price.x,farm_repair_price.y,farm_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Farm/Checked.visible == false:
 		$TownRepair/VBoxContainer/Farm/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -611,6 +624,7 @@ func _on_farm_mouse_entered():
 		%Iron.text = str(farm_repair_price.z)
 		$Cost/Description.text = farm_repair_description
 func _on_farm_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Farm/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -623,6 +637,7 @@ func _on_houses_pressed():
 	else:
 		not_enough()
 func _on_houses_mouse_entered():
+	check_enough_material(houses_repair_price.x,houses_repair_price.y,houses_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/Houses/Checked.visible == false:
 		$TownRepair/VBoxContainer/Houses/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -635,6 +650,7 @@ func _on_houses_mouse_entered():
 		%Iron.text = str(houses_repair_price.z)
 		$Cost/Description.text = houses_repair_description
 func _on_houses_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/Houses/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -647,6 +663,7 @@ func _on_left_watchtower_pressed():
 	else:
 		not_enough()
 func _on_left_watchtower_mouse_entered():
+	check_enough_material(left_watchtower_repair_price.x,left_watchtower_repair_price.y,left_watchtower_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/LeftWatchtower/Checked.visible == false:
 		$TownRepair/VBoxContainer/LeftWatchtower/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -659,6 +676,7 @@ func _on_left_watchtower_mouse_entered():
 		%Iron.text = str(left_watchtower_repair_price.z)
 		$Cost/Description.text = left_watchtower_repair_description
 func _on_left_watchtower_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/LeftWatchtower/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -671,6 +689,7 @@ func _on_right_watchtower_pressed():
 	else:
 		not_enough()
 func _on_right_watchtower_mouse_entered():
+	check_enough_material(right_watchtower_repair_price.x,right_watchtower_repair_price.y,right_watchtower_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/RightWatchtower/Checked.visible == false:
 		$TownRepair/VBoxContainer/RightWatchtower/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -683,6 +702,7 @@ func _on_right_watchtower_mouse_entered():
 		%Iron.text = str(right_watchtower_repair_price.z)
 		$Cost/Description.text = right_watchtower_repair_description
 func _on_right_watchtower_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/RightWatchtower/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -696,6 +716,7 @@ func _on_woodcutters_camp_pressed():
 	else:
 		not_enough()
 func _on_woodcutters_camp_mouse_entered():
+	check_enough_material(woodcutters_camp_repair_price.x,woodcutters_camp_repair_price.y,woodcutters_camp_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/WoodcuttersCamp/Checked.visible == false:
 		$TownRepair/VBoxContainer/WoodcuttersCamp/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -709,6 +730,7 @@ func _on_woodcutters_camp_mouse_entered():
 		$Cost/Description.text = woodcutters_camp_repair_description
 		
 func _on_woodcutters_camp_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/WoodcuttersCamp/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -722,6 +744,7 @@ func _on_stone_mine_pressed():
 	else:
 		not_enough()
 func _on_stone_mine_mouse_entered():
+	check_enough_material(stone_mine_repair_price.x,stone_mine_repair_price.y,stone_mine_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/StoneMine/Checked.visible == false:
 		$TownRepair/VBoxContainer/StoneMine/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -734,6 +757,7 @@ func _on_stone_mine_mouse_entered():
 		%Iron.text = str(stone_mine_repair_price.z)
 		$Cost/Description.text = stone_mine_repair_description
 func _on_stone_mine_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/StoneMine/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -747,6 +771,7 @@ func _on_iron_mine_pressed():
 	else:
 		not_enough()
 func _on_iron_mine_mouse_entered():
+	check_enough_material(iron_mine_repair_price.x,iron_mine_repair_price.y,iron_mine_repair_price.z)
 	if $BookFrontPage.visible == false and $TownRepair/VBoxContainer/IronMine/Checked.visible == false:
 		$TownRepair/VBoxContainer/IronMine/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -759,6 +784,7 @@ func _on_iron_mine_mouse_entered():
 		%Iron.text = str(iron_mine_repair_price.z)
 		$Cost/Description.text = iron_mine_repair_description
 func _on_iron_mine_mouse_exited():
+	return_cost_to_normal()
 	$TownRepair/VBoxContainer/IronMine/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -829,6 +855,10 @@ func _on_tavern_upgrade_pressed():
 		else:
 			not_enough()
 func _on_tavern_upgrade_mouse_entered():
+	if VillageManager.tavern_lvl == 1:
+		check_enough_material(tavern1_upgrade_price.x,tavern1_upgrade_price.y,tavern1_upgrade_price.z)
+	elif VillageManager.tavern_lvl == 2:
+		check_enough_material(tavern2_upgrade_price.x,tavern2_upgrade_price.y,tavern2_upgrade_price.z)
 	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/TavernUpgrade/Checked.visible == false:
 		$TownUpgrades/VBoxContainer/TavernUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -847,6 +877,7 @@ func _on_tavern_upgrade_mouse_entered():
 		%Iron.text = str(tavern2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade tavern to level 3 and access new upgrades"
 func _on_tavern_upgrade_mouse_exited():
+	return_cost_to_normal()
 	$TownUpgrades/VBoxContainer/TavernUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -872,6 +903,10 @@ func _on_weaponsmith_upgrade_pressed():
 		else:
 			not_enough()
 func _on_weaponsmith_upgrade_mouse_entered():
+	if VillageManager.weaponsmith_lvl == 1:
+		check_enough_material(weaponsmith1_upgrade_price.x,weaponsmith1_upgrade_price.y,weaponsmith1_upgrade_price.z)
+	elif VillageManager.weaponsmith_lvl == 2:
+		check_enough_material(weaponsmith2_upgrade_price.x,weaponsmith2_upgrade_price.y,weaponsmith2_upgrade_price.z)
 	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Checked.visible == false:
 		$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -890,6 +925,7 @@ func _on_weaponsmith_upgrade_mouse_entered():
 		%Iron.text = str(weaponsmith2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade weaponsmith shop to level 3 and access new upgrades"
 func _on_weaponsmith_upgrade_mouse_exited():
+	return_cost_to_normal()
 	$TownUpgrades/VBoxContainer/WeaponsmithUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -915,6 +951,10 @@ func _on_armourer_upgrade_pressed():
 		else:
 			not_enough()
 func _on_armourer_upgrade_mouse_entered():
+	if VillageManager.armourer_lvl == 1:
+		check_enough_material(armourer1_upgrade_price.x,armourer1_upgrade_price.y,armourer1_upgrade_price.z)
+	elif VillageManager.armourer_lvl == 2:
+		check_enough_material(armourer2_upgrade_price.x,armourer2_upgrade_price.y,armourer2_upgrade_price.z)
 	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/ArmourerUpgrade/Checked.visible == false:
 		$TownUpgrades/VBoxContainer/ArmourerUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -933,6 +973,7 @@ func _on_armourer_upgrade_mouse_entered():
 		%Iron.text = str(armourer2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade armourer shop to level 3 and access new upgrades"
 func _on_armourer_upgrade_mouse_exited():
+	return_cost_to_normal()
 	$TownUpgrades/VBoxContainer/ArmourerUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 
@@ -958,6 +999,10 @@ func _on_sorcerer_upgrade_pressed():
 		else:
 			not_enough()
 func _on_sorcerer_upgrade_mouse_entered():
+	if VillageManager.sorcerer_lvl == 1:
+		check_enough_material(sorcerer1_upgrade_price.x,sorcerer1_upgrade_price.y,sorcerer1_upgrade_price.z)
+	elif VillageManager.sorcerer_lvl == 2:
+		check_enough_material(sorcerer2_upgrade_price.x,sorcerer2_upgrade_price.y,sorcerer2_upgrade_price.z)
 	if $BookFrontPage.visible == false and $TownUpgrades/VBoxContainer/SorcererUpgrade/Checked.visible == false:
 		$TownUpgrades/VBoxContainer/SorcererUpgrade/Label.add_theme_color_override("font_color", Color.ORANGE_RED)
 		Sfx.play_SFX(Sfx.book_hover)
@@ -976,6 +1021,7 @@ func _on_sorcerer_upgrade_mouse_entered():
 		%Iron.text = str(sorcerer2_upgrade_price.z)
 		$Cost/Description.text = "Upgrade sorcerer shop to level 3 and access new upgrades"
 func _on_sorcerer_upgrade_mouse_exited():
+	return_cost_to_normal()
 	$TownUpgrades/VBoxContainer/SorcererUpgrade/Label.add_theme_color_override("font_color", Color.BLACK)
 	$Cost.visible = false
 

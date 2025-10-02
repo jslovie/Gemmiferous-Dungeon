@@ -1,16 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://n43ef13rao3h"]
+[gd_scene load_steps=27 format=3 uid="uid://n43ef13rao3h"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1qn5t"]
 [ext_resource type="Texture2D" uid="uid://1wf53nbdox6o" path="res://assets/32rogues/enem/skeleton.png" id="2_qo2l7"]
 [ext_resource type="PackedScene" uid="uid://bql308123inii" path="res://scenes/pieces/random_piece.tscn" id="3_055m7"]
 [ext_resource type="PackedScene" uid="uid://b570oxexdcdm3" path="res://scenes/pieces/shield_piece.tscn" id="4_yre0p"]
 [ext_resource type="PackedScene" uid="uid://clwqkm8vxwml7" path="res://scenes/pieces/heal_piece.tscn" id="5_0gyra"]
-[ext_resource type="PackedScene" uid="uid://dunu1cp1jano7" path="res://scenes/pieces/sword_piece.tscn" id="6_xh011"]
+[ext_resource type="PackedScene" uid="uid://dun1l3jawq434" path="res://scenes/pieces/enemy_sword_piece.tscn" id="6_g2tlx"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="7_yoeou"]
 [ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="8_5mr14"]
+[ext_resource type="FontFile" uid="uid://bygjah7p2t4mh" path="res://GallaeciaForte.ttf" id="8_ifk5w"]
 [ext_resource type="Texture2D" uid="uid://x1b6fvtydon6" path="res://assets/32rogues/pieces/bleed.png" id="9_deou7"]
 [ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="10_3ltjs"]
 [ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="11_cnjwx"]
+[ext_resource type="Texture2D" uid="uid://beawiix1axv5i" path="res://assets/32rogues/pieces/bordernew2.png" id="13_li7po"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3vca"]
 radius = 140.036
@@ -325,7 +327,7 @@ unique_name_in_owner = true
 visible = false
 scale = Vector2(1.5, 1.5)
 
-[node name="SwordPiece" parent="Actions" instance=ExtResource("6_xh011")]
+[node name="SwordPiece" parent="Actions" instance=ExtResource("6_g2tlx")]
 unique_name_in_owner = true
 visible = false
 scale = Vector2(1.5, 1.5)
@@ -351,6 +353,23 @@ theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
+
+[node name="ActionTimer" type="Label" parent="Actions"]
+offset_left = -108.0
+offset_top = -122.0
+offset_right = 116.0
+offset_bottom = -49.0
+theme_override_colors/font_color = Color(0.647059, 0.709804, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.870588, 0.976471, 0.988235, 1)
+theme_override_colors/font_outline_color = Color(0.803922, 0.819608, 0.92549, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("8_ifk5w")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -446,5 +465,15 @@ texture = ExtResource("11_cnjwx")
 [node name="Sprite2D3" type="Sprite2D" parent="VFX/Fire"]
 position = Vector2(27.5, -16)
 texture = ExtResource("11_cnjwx")
+
+[node name="TextureRect" type="TextureRect" parent="VFX"]
+visible = false
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+offset_left = 227.0
+offset_top = 247.0
+offset_right = 259.0
+offset_bottom = 279.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_li7po")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=129 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -653,6 +653,9 @@ animations = [{
 "name": &"Magic",
 "speed": 10.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf8lh"]
+size = Vector2(92, 45)
 
 [node name="GameWindow" type="Node2D"]
 script = ExtResource("1_0rfml")
@@ -1577,10 +1580,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Home" type="TextureButton" parent="Desktop"]
-offset_left = 1188.0
-offset_top = 62.0
-offset_right = 1220.0
-offset_bottom = 94.0
+offset_left = 519.0
+offset_top = 78.0
+offset_right = 551.0
+offset_bottom = 110.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(16, 16)
 
@@ -1720,10 +1723,11 @@ text = "x1"
 horizontal_alignment = 1
 
 [node name="PauseGame" type="TextureButton" parent="Grid"]
-offset_left = 519.0
-offset_top = 78.0
-offset_right = 551.0
-offset_bottom = 110.0
+visible = false
+offset_left = 1809.0
+offset_top = -388.0
+offset_right = 1841.0
+offset_bottom = -356.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(16, 16)
 
@@ -1882,6 +1886,12 @@ offset_right = 285.0
 offset_bottom = 1733.0
 scale = Vector2(1.2, 1.2)
 
+[node name="TurnsDescription" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurnsDescription"]
+position = Vector2(926, 326.5)
+shape = SubResource("RectangleShape2D_qf8lh")
+
 [connection signal="timeout" from="Desktop/TreasureTimer" to="." method="_on_treasure_timer_timeout"]
 [connection signal="timeout" from="Desktop/DestroyTimer" to="Grid" method="_on_destroy_timer_timeout"]
 [connection signal="timeout" from="Desktop/CollapseTimer" to="Grid" method="_on_collapse_timer_timeout"]
@@ -1919,3 +1929,5 @@ scale = Vector2(1.2, 1.2)
 [connection signal="pressed" from="ContinueMobile" to="." method="_on_continue_mobile_pressed"]
 [connection signal="update_total_bar" from="PlayerDied" to="." method="_on_player_died_update_total_bar"]
 [connection signal="update_total_bar" from="Player_win" to="." method="_on_player_win_update_total_bar"]
+[connection signal="mouse_entered" from="TurnsDescription" to="." method="_on_turns_description_mouse_entered"]
+[connection signal="mouse_exited" from="TurnsDescription" to="." method="_on_turns_description_mouse_exited"]

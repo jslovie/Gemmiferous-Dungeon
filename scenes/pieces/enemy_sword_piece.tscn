@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dun1l3jawq434"]
+
+[ext_resource type="PackedScene" uid="uid://iyqiu0ynkg46" path="res://scenes/pieces/piece.tscn" id="1_05vds"]
+[ext_resource type="Texture2D" uid="uid://xjgbi3gueipw" path="res://assets/32rogues/items.png" id="2_kblnh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rp7v"]
+atlas = ExtResource("2_kblnh")
+region = Rect2(39.4982, 67.0205, 16.2441, 22.8433)
+
+[node name="SwordPiece" instance=ExtResource("1_05vds")]
+color = "sword"
+naming = "EnemySwordPiece"
+background_color = Vector3(0.431, 0.031, 0.031)
+
+[node name="TextureRect" parent="." index="1"]
+modulate = Color(0.0775995, 0.262608, 0.169206, 1)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, -1)
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_5rp7v")

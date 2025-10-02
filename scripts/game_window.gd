@@ -473,3 +473,9 @@ func move_tween(object,pos,time):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object,"position",pos,time)
+
+
+func _on_turns_description_mouse_entered():
+	RelicManager.relic_name = "Matches until enemy action"
+func _on_turns_description_mouse_exited():
+	RelicManager.relic_name = ""

@@ -17,6 +17,8 @@ var reset_complete_level = false
 var place : String
 var spinning = false
 
+
+
 var level_active = true
 
 var resolution
@@ -42,7 +44,9 @@ func check_version():
 		LevelManager.is_mobile = true
 	#LevelManager.is_mobile = true
 	LevelManager.is_demo = true
-	
+
+
+
 func reset_map():
 	level_done = 0
 	available_level = 1

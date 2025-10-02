@@ -316,6 +316,12 @@ func find_matches(query = false, array = all_pieces):
 							#array[i][j + 1].play_sound()
 	if query:
 		return false
+	
+	if EnemyManager.enemy.matches_to_action == 1:
+		EnemyManager.enemy.take_action()
+	else:
+		EnemyManager.enemy.matches_to_action -= 1
+	
 	var timer = %DestroyTimer
 	timer.start()
 
