@@ -326,13 +326,15 @@ func _on_manor_pressed():
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	move_tween(manor,Vector2(620,315),0.8)
-
+	move_tween($Home,Vector2(945,345),0.8)
+	
 func _on_taverm_pressed():
 	enter_shop_mobile()
 	Sfx.play_SFX(Sfx.door_open)
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	move_tween(tavern_shop,Vector2(620,315),0.8)
+	move_tween($Home,Vector2(945,345),0.8)
 
 
 func _on_weaponsmith_pressed():
@@ -341,7 +343,7 @@ func _on_weaponsmith_pressed():
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	move_tween(weaponsmith_shop,Vector2(620,315),0.8)
-
+	move_tween($Home,Vector2(945,345),0.8)
 
 func _on_armourer_pressed():
 	enter_shop_mobile()
@@ -349,7 +351,7 @@ func _on_armourer_pressed():
 	VillageManager.in_shop = true
 	SaveManager.load_savefile()
 	move_tween(armourer_shop,Vector2(620,315),0.8)
-
+	move_tween($Home,Vector2(945,345),0.8)
 
 func _on_wood_button_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
@@ -419,6 +421,7 @@ func _on_iron_button_mouse_entered():
 		Sfx.play_SFX(Sfx.hover_village)
 
 func _on_move_tween(name: String):
+	move_tween($Home,Vector2(935,345),0.8)
 	if name == "Weaponsmith":
 		move_tween(weaponsmith_shop,Vector2(620,500),0.8)
 	if name == "Armourer":

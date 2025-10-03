@@ -186,6 +186,8 @@ func handle_result():
 			Sfx.play_SFX(Sfx.slot_win)
 	
 	jackpot = false
+	$Confetti.visible = true
+	$Confetti2.visible = true
 	
 func _on_continue_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)

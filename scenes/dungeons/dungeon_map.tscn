@@ -2438,7 +2438,7 @@ offset_left = 957.5
 offset_top = 570.0
 offset_right = 989.5
 offset_bottom = 602.0
-type = "Treasure"
+type = "Random Event"
 floor_set = 1
 level = 4
 path = "ABCA"
@@ -6084,7 +6084,7 @@ offset_right = 832.0
 offset_bottom = 591.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Be fast to survive"
+text = "Think to survive"
 
 [node name="X20" type="Label" parent="InfoPageDetails"]
 layout_mode = 0

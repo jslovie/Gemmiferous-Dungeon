@@ -15,10 +15,10 @@ var shield_increase = 3
 var damage : Vector2
 var coin_worth = 5
 var action_delay : Vector2
+var match_to_action : Vector2
 var blood_type
 
-var matches_to_action = 5
-var matches_to_action_range = Vector2(3,6)
+var matches_to_action : int
 
 #Statuses
 var is_vulnerable = false
@@ -44,8 +44,8 @@ var coin_effect_position = Vector2(921,737)
 
 
 func _ready():
-	reset_matches_to_action()
 	stat_check()
+	reset_matches_to_action()
 	state = alive
 	EnemyManager.enemy = self
 	change_delay()
@@ -60,12 +60,19 @@ func _process(_delta):
 		%ActionTimer.stop()
 
 func take_action():
+	await get_tree().create_timer(0.8).timeout
 	random_action()
 	reset_matches_to_action()
 
 func reset_matches_to_action():
-	matches_to_action = randi_range(matches_to_action_range.x,matches_to_action_range.y)
-	
+	scale_tween()
+	matches_to_action = randi_range(match_to_action.x,match_to_action.y)
+
+func scale_tween():
+	var tween = create_tween()
+	tween.tween_property($Actions/ActionTimer,"scale",Vector2(1.5,1.5),0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($Actions/ActionTimer,"scale",Vector2(1,1),0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
 func stat_check():
 	type = EnemyManager.type
 	health = EnemyManager.health
@@ -76,6 +83,7 @@ func stat_check():
 	damage = EnemyManager.damage
 	coin_worth = EnemyManager.coin_worth
 	action_delay = EnemyManager.action_delay
+	match_to_action = EnemyManager.match_to_action
 	blood_type = EnemyManager.blood_type
 	Type_check()
 	
@@ -237,6 +245,8 @@ func int_to_roman(value: int) -> String:
 	
 
 func random_action():
+	if status == "dead":
+		return
 	var random = Random.get_rng()
 		
 	if random == "attack":
@@ -270,6 +280,7 @@ func random_action():
 			%HealPiece.visible = false
 	
 	change_delay()
+	PlayerManager.player.became_visible()
 
 func inflict_zero_damage():
 	if RelicManager.has_shuriken == true:

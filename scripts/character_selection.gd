@@ -12,6 +12,7 @@ var knight_position = Vector2(-2875,-7)
 func _ready():
 	Music.play_music_selection()
 	SaveManager.load_savefile()
+	check_unlocked()
 	
 	
 func _process(_delta):

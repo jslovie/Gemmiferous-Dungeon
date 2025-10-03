@@ -385,10 +385,15 @@ func handle_invisibility():
 			var tween_invisibility = create_tween()
 			tween_invisibility.tween_property($Character, "modulate:a", 0.10, 0.5)
 			is_invisible = true
-			await get_tree().create_timer(invisibility_timer).timeout
-			var tween_invisibility_back = create_tween()
-			tween_invisibility_back.tween_property($Character, "modulate:a", 1.0, 0.5)
-			is_invisible = false
+			#await get_tree().create_timer(invisibility_timer).timeout
+			#var tween_invisibility_back = create_tween()
+			#tween_invisibility_back.tween_property($Character, "modulate:a", 1.0, 0.5)
+			#is_invisible = false
+
+func became_visible():
+	var tween_invisibility_back = create_tween()
+	tween_invisibility_back.tween_property($Character, "modulate:a", 1.0, 0.5)
+	is_invisible = false
 
 func handle_rage(amount):
 	rage += amount

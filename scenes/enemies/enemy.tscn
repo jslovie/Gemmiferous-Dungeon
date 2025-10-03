@@ -359,6 +359,7 @@ offset_left = -108.0
 offset_top = -122.0
 offset_right = 116.0
 offset_bottom = -49.0
+pivot_offset = Vector2(112, 36)
 theme_override_colors/font_color = Color(0.647059, 0.709804, 0.831373, 1)
 theme_override_colors/font_shadow_color = Color(0.870588, 0.976471, 0.988235, 1)
 theme_override_colors/font_outline_color = Color(0.803922, 0.819608, 0.92549, 1)

@@ -45,6 +45,7 @@ func _process(_delta):
 	update_rage()
 	handle_win()
 	check_enemy_debuff()
+	check_player_debuff()
 	update_treasures_bar()
 	update_relic_description()
 	
@@ -64,10 +65,10 @@ func update_relic_description():
 			$Desktop/Gems.visible = false
 			$Desktop/Material.visible = false
 			%PlayerHealth.visible = false
-	else:
-		$Desktop/Gems.visible = true
-		$Desktop/Material.visible = true
-		%PlayerHealth.visible = true
+		else:
+			$Desktop/Gems.visible = true
+			$Desktop/Material.visible = true
+			%PlayerHealth.visible = true
 		
 		
 func _unhandled_input(event): 
@@ -197,8 +198,10 @@ func resolution_screen():
 			%Resolution.visible = true
 			%ResolutionText.text = ""
 			%PlayerHealth.visible = false
-			$Desktop/Material.visible = false
-			$Desktop/Gems.visible = false
+			move_tween($Desktop/Material,Vector2(843,-123),0.8)
+			move_tween($Desktop/Gems,Vector2(843,-123),0.8)
+			#$Desktop/Material.visible = false
+			#$Desktop/Gems.visible = false
 			relic_handler.visible = false
 			var tween = create_tween()
 			move_tween($PlayerDied,Vector2(285,514),0.8)
@@ -252,6 +255,12 @@ func check_enemy_debuff():
 		$Desktop/Hud/EnemyHealth/HBoxContainer/Frail.visible = true
 	else:
 		$Desktop/Hud/EnemyHealth/HBoxContainer/Frail.visible = false
+
+func check_player_debuff():
+	if PlayerManager.player.is_invisible == true:
+		$Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Invisibility.visible = true
+	else:
+		$Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Invisibility.visible = false
 
 func _on_wait_time_timer_timeout():
 	get_tree().paused = false
@@ -367,9 +376,9 @@ func _on_player_died_update_total_bar():
 	RelicManager.hide_stats = true
 	$Desktop/MaterialTotal.visible = true
 	$Desktop/GemsTotal.visible = true
-	$Desktop/Material.visible = false
-	$Desktop/Gems.visible = false
-	await get_tree().create_timer(1).timeout
+	move_tween($Desktop/MaterialTotal,Vector2(843,-34),0.8)
+	move_tween($Desktop/GemsTotal,Vector2(-596,-34),0.8)
+	await get_tree().create_timer(1.4).timeout
 	update_total_treasures_bar()
 	color_change()
 

@@ -39,6 +39,7 @@ func get_body_data(body):
 	EnemyManager.damage = body.get("damage")
 	EnemyManager.coin_worth = body.get("coin_worth")
 	EnemyManager.action_delay = body.get("action_delay")
+	EnemyManager.match_to_action = body.get("match_to_action")
 	EnemyManager.blood_type = body.get("blood_type")
 	EnemyManager.print_test()
 

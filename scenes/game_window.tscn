@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=130 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://b50eipwor5oed" path="res://assets/32rogues/gems/outline.png" id="29_4qh4o"]
 [ext_resource type="Texture2D" uid="uid://bs1dp3g861s56" path="res://assets/32rogues/gems/yellow.png" id="29_5m2lj"]
 [ext_resource type="Texture2D" uid="uid://dja47v3hj8gr1" path="res://assets/32rogues/pieces/coin_1.png" id="29_ktb7s"]
+[ext_resource type="PackedScene" uid="uid://qoryo24dni6g" path="res://scenes/pieces/invisibility_ring_piece.tscn" id="30_5sbmf"]
 [ext_resource type="Texture2D" uid="uid://cnx8ih6cjba1h" path="res://assets/VFX/Smear 09 Horizontal 1.png" id="31_6hgcu"]
 [ext_resource type="Texture2D" uid="uid://gtls1fjcjf4p" path="res://assets/32rogues/pieces/icev3.png" id="31_a4scn"]
 [ext_resource type="Texture2D" uid="uid://dcu47ntg8pdqn" path="res://assets/32rogues/pieces/fire.png" id="32_ijjaj"]
@@ -735,7 +736,6 @@ scale = Vector2(12, 12)
 texture = ExtResource("6_12re3")
 
 [node name="ChestClosed" type="Sprite2D" parent="Desktop/Chest"]
-visible = false
 texture = ExtResource("7_hg3ss")
 
 [node name="TreasureTimer" type="Timer" parent="Desktop"]
@@ -1065,9 +1065,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -544.0
-offset_top = 954.0
+offset_top = 900.0
 offset_right = -377.0
-offset_bottom = 971.0
+offset_bottom = 917.0
 rotation = -1.5708
 scale = Vector2(2, 2)
 theme_override_styles/background = SubResource("StyleBoxFlat_ljvo6")
@@ -1148,7 +1148,6 @@ theme_override_constants/separation = 20
 alignment = 2
 
 [node name="Bleed" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Bleed"]
@@ -1211,6 +1210,88 @@ layout_mode = 2
 [node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainer/Frail"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("38_od5u3")
+
+[node name="HBoxContainerPlayer" type="HBoxContainer" parent="Desktop/Hud/EnemyHealth"]
+layout_mode = 0
+offset_left = -857.5
+offset_top = 7.0
+offset_right = -697.5
+offset_bottom = 47.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Bleed" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Bleed"]
+texture = ExtResource("16_tkke6")
+
+[node name="Poison" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Poison"]
+texture = ExtResource("17_dst1s")
+
+[node name="Ice" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Ice"]
+texture = ExtResource("31_a4scn")
+
+[node name="Fire" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Fire"]
+texture = ExtResource("32_ijjaj")
+
+[node name="Electric" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Electric"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("39_igw6i")
+
+[node name="Stun" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Stun"]
+texture = ExtResource("35_4mjqk")
+
+[node name="Weak" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Weak"]
+texture = ExtResource("36_1cyfe")
+
+[node name="Vulnerable" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Vulnerable"]
+texture = ExtResource("37_lkdhj")
+
+[node name="Frail" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Frail"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("38_od5u3")
+
+[node name="Invisibility" type="Control" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer"]
+visible = false
+layout_mode = 2
+
+[node name="InvisibilityRingPiece" parent="Desktop/Hud/EnemyHealth/HBoxContainerPlayer/Invisibility" instance=ExtResource("30_5sbmf")]
+scale = Vector2(0.24, 0.24)
 
 [node name="Continue" type="Button" parent="Desktop"]
 visible = false
@@ -1408,17 +1489,17 @@ z_index = 31
 layout_mode = 3
 anchors_preset = 0
 offset_left = 843.0
-offset_top = -34.0
+offset_top = -123.0
 offset_right = 883.0
-offset_bottom = 6.0
+offset_bottom = -83.0
 scale = Vector2(2, 2)
 
 [node name="Panel" type="Panel" parent="Desktop/MaterialTotal"]
 layout_mode = 0
 offset_left = -761.0
-offset_top = 3.0
+offset_top = -13.0
 offset_right = 208.0
-offset_bottom = 36.0
+offset_bottom = 37.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Desktop/MaterialTotal"]
 layout_mode = 0
@@ -1477,9 +1558,9 @@ z_index = 31
 layout_mode = 3
 anchors_preset = 0
 offset_left = -596.0
-offset_top = -34.0
+offset_top = -123.0
 offset_right = -556.0
-offset_bottom = 6.0
+offset_bottom = -83.0
 scale = Vector2(2, 2)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Desktop/GemsTotal"]

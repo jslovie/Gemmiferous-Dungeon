@@ -316,11 +316,14 @@ func find_matches(query = false, array = all_pieces):
 							#array[i][j + 1].play_sound()
 	if query:
 		return false
-	
-	if EnemyManager.enemy.matches_to_action == 1:
-		EnemyManager.enemy.take_action()
+	if LevelManager.type == "Treasure":
+		pass
 	else:
-		EnemyManager.enemy.matches_to_action -= 1
+		if EnemyManager.enemy.matches_to_action == 1:
+			EnemyManager.enemy.take_action()
+		else:
+			EnemyManager.enemy.scale_tween()
+			EnemyManager.enemy.matches_to_action -= 1
 	
 	var timer = %DestroyTimer
 	timer.start()
@@ -662,6 +665,7 @@ func destroy_matched():
 			emit_signal("camera_effect", 20)
 		#Bow update
 		if bow_load == 3:
+			PlayerManager.player.poison_chance = 20
 			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
 			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
 			PlayerManager.player.has_bow_poison = true
@@ -670,8 +674,9 @@ func destroy_matched():
 			bow_animation()
 			PlayerManager.player.check_for_poison_arrow = false
 		elif bow_load == 4:
-			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance + 25
-			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance - 25
+			PlayerManager.player.poison_chance = 35
+			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
+			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
 			PlayerManager.player.has_bow_poison = true
 			PlayerManager.player.piece_multiplier = 1.5
 			PlayerManager.player.damage2_attack()
@@ -679,8 +684,9 @@ func destroy_matched():
 			PlayerManager.player.check_for_poison_arrow = false
 			emit_signal("camera_effect", 10)
 		elif bow_load >= 5:
-			PlayerManager.player.poison_rarities["poison"] = 100
-			PlayerManager.player.poison_rarities["nothing"] = 0
+			PlayerManager.player.poison_chance = 50
+			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
+			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
 			PlayerManager.player.has_bow_poison = true
 			PlayerManager.player.piece_multiplier = 2
 			PlayerManager.player.damage2_attack()
@@ -689,19 +695,22 @@ func destroy_matched():
 			emit_signal("camera_effect", 20)
 		#Invisibility update
 		if invisibility_load == 3:
+			PlayerManager.player.invisibility_chance = 20
 			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
 			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
 			PlayerManager.player.has_invisibility = true
 			PlayerManager.player.handle_invisibility()
 		elif invisibility_load == 4:
-			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance + 25
-			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance - 25
+			PlayerManager.player.invisibility_chance = 35
+			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
+			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
 			PlayerManager.player.has_invisibility = true
 			PlayerManager.player.handle_invisibility()
 			emit_signal("camera_effect", 10)
 		elif invisibility_load >= 5:
-			PlayerManager.player.invisibility_rarities["invisibility"] = 100
-			PlayerManager.player.invisibility_rarities["nothing"] = 0
+			PlayerManager.player.invisibility_chance = 50
+			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
+			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
 			PlayerManager.player.has_invisibility = true
 			PlayerManager.player.handle_invisibility()
 			emit_signal("camera_effect", 20)
@@ -725,6 +734,7 @@ func destroy_matched():
 			emit_signal("camera_effect", 20)
 		#Mace update
 		if mace_load == 3:
+			PlayerManager.player.mace_stunt_chance = 10
 			PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
 			PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance
 			PlayerManager.player.has_mace = true
@@ -732,16 +742,18 @@ func destroy_matched():
 			mace_animation()
 			PlayerManager.player.damage2_attack()
 		elif mace_load == 4:
-			PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance + 25
-			PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance - 25
+			PlayerManager.player.mace_stunt_chance = 25
+			PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
+			PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance
 			PlayerManager.player.has_mace = true
 			PlayerManager.player.piece_multiplier = 1.5
 			mace_animation()
 			PlayerManager.player.damage2_attack()
 			emit_signal("camera_effect", 10)
 		elif mace_load >= 5:
-			PlayerManager.player.mace_stunt_rarities["stunt"] = 100
-			PlayerManager.player.mace_stunt_rarities["nothing"] = 0
+			PlayerManager.player.mace_stunt_chance = 50
+			PlayerManager.player.mace_stunt_rarities["stunt"] = PlayerManager.player.mace_stunt_chance
+			PlayerManager.player.mace_stunt_rarities["nothing"] = 100 - PlayerManager.player.mace_stunt_chance
 			PlayerManager.player.has_mace = true
 			PlayerManager.player.piece_multiplier = 2
 			mace_animation()

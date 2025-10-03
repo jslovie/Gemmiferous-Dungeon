@@ -9,4 +9,5 @@ extends CharacterBody2D
 @export var damage : Vector2
 @export var coin_worth : int
 @export var action_delay : Vector2
+@export var match_to_action : Vector2
 @export var blood_type : String

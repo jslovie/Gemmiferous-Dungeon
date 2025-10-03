@@ -14,6 +14,7 @@ var shield_increase : int
 var damage : Vector2
 var coin_worth : int
 var action_delay : Vector2
+var match_to_action : Vector2
 var blood_type : String
 
 #var enemy_type : String
