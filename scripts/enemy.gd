@@ -33,6 +33,8 @@ var crit_rarities = {
 	"crit" : 20,
 }
 
+var last_whole: int = -1
+
 var coin_effect_position = Vector2(921,737)
 @onready var coin_effect = load("res://scenes/GUI/coin_effect.tscn")
 @onready var damage_numbers_origin = $DamageNumbersOrigin
@@ -45,28 +47,38 @@ var coin_effect_position = Vector2(921,737)
 
 func _ready():
 	stat_check()
-	reset_matches_to_action()
+	change_delay()
 	state = alive
 	EnemyManager.enemy = self
-	change_delay()
-	%ActionTimer.start()
+	start_action()
 	
 func _process(_delta):
+	#if matches_to_action <= 0:
+		#$Actions/ActionTimer.visible = false
+	#else:
+		#$Actions/ActionTimer.visible = true
 	update_action_timer()
+	trigger_scale()
 	%Label.text = str(round(time.time_left))
 	if status == "dead":
-		%ActionTimer.stop()
+		stop_action()
 	if LevelManager.type == "Random Event":
-		%ActionTimer.stop()
-
+		stop_action()
+		
 func take_action():
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(0.2).timeout
 	random_action()
 	reset_matches_to_action()
 
 func reset_matches_to_action():
 	scale_tween()
 	matches_to_action = randi_range(match_to_action.x,match_to_action.y)
+
+func trigger_scale():
+	var t = int(ceil(%ActionTimer.time_left - 0.5))
+	if t != last_whole:
+		last_whole = t
+		scale_tween()
 
 func scale_tween():
 	var tween = create_tween()
@@ -221,10 +233,17 @@ func Type_check():
 		
 func change_delay():
 	var random_delay = randi_range(action_delay.x, action_delay.y)
-	%ActionTimer.wait_time = random_delay
+	%ActionTimer.wait_time = round(random_delay) + 0.4
 
 func update_action_timer():
-	$Actions/ActionTimer.text = int_to_roman(matches_to_action)
+	if %ActionTimer.wait_time == 999:
+		return
+	elif %ActionTimer.time_left < 0.5:
+		$Actions/ActionTimer.text = "O"
+	#elif %ActionTimer.wait_time == round(%ActionTimer.time_left):
+		#$Actions/ActionTimer.text = ""
+	else:
+		$Actions/ActionTimer.text = int_to_roman(round(%ActionTimer.time_left))
 
 func int_to_roman(value: int) -> String:
 
@@ -241,6 +260,7 @@ func int_to_roman(value: int) -> String:
 		while value >= val:
 			value -= val
 			result += sym
+	
 	return result
 	
 
@@ -535,17 +555,17 @@ func stunt(amount):
 	
 func stop_action():
 	%ActionTimer.stop()
-
+	
 func start_action():
 	%ActionTimer.start()
-
+	
 func player_died():
 	stop_action()
 	%Actions.visible = false
 	%Stunned.visible = false
 	
 func _on_action_timer_timeout():
-	#random_action()
+	random_action()
 	pass
 
 

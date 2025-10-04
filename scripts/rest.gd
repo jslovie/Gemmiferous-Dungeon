@@ -114,12 +114,15 @@ func handle_end():
 	
 func _on_button_pressed():
 	handle_heal()
+	$Control/Panel/VBoxContainer.visible = false
 	Sfx.play_SFX(Sfx.button_confirm)
 func _on_button_2_pressed():
 	handle_loot_to_manor()
+	$Control/Panel/VBoxContainer.visible = false
 	Sfx.play_SFX(Sfx.button_confirm)
 func _on_button_3_pressed():
 	handle_end()
+	$Control/Panel/VBoxContainer.visible = false
 	Sfx.play_SFX(Sfx.button_confirm)
 
 func _on_button_mouse_entered():

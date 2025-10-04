@@ -82,7 +82,7 @@ func tween_material_mobile():
 	elif type == "Iron":
 		create_tween_to_move(Vector2(553,-220),0.8)
 	elif type == "Shield":
-		create_tween_to_move(Vector2(469,1158),0.8)
+		create_tween_to_move(Vector2(469,1158),0.2)
 	elif type == "Red Gem":
 		create_tween_to_move(Vector2(-266,221),0.8)
 	elif type == "Blue Gem":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=131 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ceov6qhg5e7pc" path="res://assets/32rogues/gems/chest_opened.png" id="6_12re3"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="7_2hndj"]
 [ext_resource type="Texture2D" uid="uid://beh4dker3ieaj" path="res://assets/32rogues/gems/chest_closed.png" id="7_hg3ss"]
+[ext_resource type="FontFile" uid="uid://bygjah7p2t4mh" path="res://GallaeciaForte.ttf" id="8_64dtd"]
 [ext_resource type="PackedScene" uid="uid://cbcqd1f6tddcc" path="res://scenes/camera_2d.tscn" id="9_gkok3"]
 [ext_resource type="Texture2D" uid="uid://biju2ndfvcy86" path="res://assets/32rogues/pieces/rage_ver1.png" id="9_k5q0v"]
 [ext_resource type="PackedScene" uid="uid://de8pjjey6lewp" path="res://scenes/GUI/hint_effect.tscn" id="10_pi5o8"]
@@ -736,7 +737,27 @@ scale = Vector2(12, 12)
 texture = ExtResource("6_12re3")
 
 [node name="ChestClosed" type="Sprite2D" parent="Desktop/Chest"]
+visible = false
 texture = ExtResource("7_hg3ss")
+
+[node name="ActionTimer" type="Label" parent="Desktop/Chest"]
+offset_left = -116.417
+offset_top = -52.0
+offset_right = 115.583
+offset_bottom = 21.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(116, 36)
+theme_override_colors/font_color = Color(0.647059, 0.709804, 0.831373, 1)
+theme_override_colors/font_shadow_color = Color(0.870588, 0.976471, 0.988235, 1)
+theme_override_colors/font_outline_color = Color(0.803922, 0.819608, 0.92549, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("8_64dtd")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TreasureTimer" type="Timer" parent="Desktop"]
 

@@ -316,14 +316,17 @@ func find_matches(query = false, array = all_pieces):
 							#array[i][j + 1].play_sound()
 	if query:
 		return false
-	if LevelManager.type == "Treasure":
-		pass
-	else:
-		if EnemyManager.enemy.matches_to_action == 1:
-			EnemyManager.enemy.take_action()
-		else:
-			EnemyManager.enemy.scale_tween()
-			EnemyManager.enemy.matches_to_action -= 1
+	#if LevelManager.type == "Treasure":
+		#pass
+	#else:
+		#if EnemyManager.enemy.matches_to_action == 1:
+			#EnemyManager.enemy.matches_to_action -= 1
+			#EnemyManager.enemy.take_action()
+		#elif EnemyManager.enemy.matches_to_action < 1:
+			#pass
+		#else:
+			#EnemyManager.enemy.scale_tween()
+			#EnemyManager.enemy.matches_to_action -= 1
 	
 	var timer = %DestroyTimer
 	timer.start()
@@ -674,7 +677,7 @@ func destroy_matched():
 			bow_animation()
 			PlayerManager.player.check_for_poison_arrow = false
 		elif bow_load == 4:
-			PlayerManager.player.poison_chance = 35
+			PlayerManager.player.poison_chance = 50
 			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
 			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
 			PlayerManager.player.has_bow_poison = true
@@ -684,7 +687,7 @@ func destroy_matched():
 			PlayerManager.player.check_for_poison_arrow = false
 			emit_signal("camera_effect", 10)
 		elif bow_load >= 5:
-			PlayerManager.player.poison_chance = 50
+			PlayerManager.player.poison_chance = 100
 			PlayerManager.player.poison_rarities["poison"] = PlayerManager.player.poison_chance
 			PlayerManager.player.poison_rarities["nothing"] = 100 - PlayerManager.player.poison_chance
 			PlayerManager.player.has_bow_poison = true
@@ -701,14 +704,14 @@ func destroy_matched():
 			PlayerManager.player.has_invisibility = true
 			PlayerManager.player.handle_invisibility()
 		elif invisibility_load == 4:
-			PlayerManager.player.invisibility_chance = 35
+			PlayerManager.player.invisibility_chance = 50
 			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
 			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
 			PlayerManager.player.has_invisibility = true
 			PlayerManager.player.handle_invisibility()
 			emit_signal("camera_effect", 10)
 		elif invisibility_load >= 5:
-			PlayerManager.player.invisibility_chance = 50
+			PlayerManager.player.invisibility_chance = 100
 			PlayerManager.player.invisibility_rarities["invisibility"] = PlayerManager.player.invisibility_chance
 			PlayerManager.player.invisibility_rarities["nothing"] = 100 - PlayerManager.player.invisibility_chance
 			PlayerManager.player.has_invisibility = true

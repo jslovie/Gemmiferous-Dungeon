@@ -7,6 +7,8 @@ const RESOURCE_PATH = "user://resources/"
 var treasure_timeout_min = 15
 var treasure_timeout_max = 20
 
+var last_whole: int = -1
+
 func _ready():
 	LevelManager.level_active = true
 	SaveManager.load_autosave()
@@ -17,15 +19,7 @@ func _ready():
 	update_total_treasures_bar()
 	%Resolution.visible = false
 	$Desktop/Chest.visible = false
-	if LevelManager.type == "Treasure":
-		$Desktop/EnemyTypeLabel.text = "Treasure"
-		$Desktop/Enemy.queue_free()
-		%EnemyHealth.visible = false
-		$Desktop/Chest.visible = true
-		LevelManager.treasure_timesup = false
-		$Desktop/TreasureTimer.start(randi_range(treasure_timeout_min, treasure_timeout_max))
-	else:
-		$Desktop/EnemyTypeLabel.text = EnemyManager.enemy.type
+	setup_treasure()
 	update_healthbars()
 	update_shields()
 	update_rage()
@@ -48,11 +42,56 @@ func _process(_delta):
 	check_player_debuff()
 	update_treasures_bar()
 	update_relic_description()
+	update_action_timer()
+	trigger_scale()
 	
 func load_relics():
 	var dir = DirAccess.open(RESOURCE_PATH)
 	for file in dir.get_files():
 		relic_handler.add_relic(SaveManager.load_resource(file))
+
+func setup_treasure():
+	if LevelManager.type == "Treasure":
+		$TurnsDescription/CollisionShape2D.disabled = true
+		$Desktop/EnemyTypeLabel.text = "Treasure"
+		$Desktop/Enemy.queue_free()
+		%EnemyHealth.visible = false
+		$Desktop/Chest.visible = true
+		LevelManager.treasure_timesup = false
+		var time_left = randi_range(treasure_timeout_min, treasure_timeout_max)
+		$Desktop/TreasureTimer.start(time_left + 0.4)
+		
+	else:
+		$Desktop/EnemyTypeLabel.text = EnemyManager.enemy.type
+
+func trigger_scale():
+	var t = int(ceil($Desktop/TreasureTimer.time_left - 0.5))
+	if t != last_whole:
+		last_whole = t
+		scale_tween()
+
+func scale_tween():
+	var tween = create_tween()
+	tween.tween_property($Desktop/Chest/ActionTimer,"scale",Vector2(0.15,0.15),0.05).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($Desktop/Chest/ActionTimer,"scale",Vector2(0.10,0.10),0.05).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+func update_action_timer():
+	$Desktop/Chest/ActionTimer.text = int_to_roman(round($Desktop/TreasureTimer.time_left))
+
+func int_to_roman(value: int) -> String:
+	var roman_map = [
+		[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
+		[100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
+		[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]
+	]
+	var result := ""
+	for pair in roman_map:
+		var val: int = pair[0]
+		var sym: String = pair[1]
+		while value >= val:
+			value -= val
+			result += sym
+	return result
 
 func update_relic_description():
 	$Desktop/RelicName.text = RelicManager.relic_name
@@ -60,8 +99,8 @@ func update_relic_description():
 	if LevelManager.level_active == false:
 		$Desktop/RelicName.visible = false
 		$Desktop/RelicDescription.visible = false
-	if RelicManager.hide_stats:
-		if LevelManager.is_mobile:
+	if LevelManager.is_mobile:
+		if RelicManager.hide_stats:
 			$Desktop/Gems.visible = false
 			$Desktop/Material.visible = false
 			%PlayerHealth.visible = false
@@ -170,6 +209,7 @@ func resolution_screen():
 		if LevelManager.treasure_timesup == true:
 			%Resolution.visible = true
 			%ResolutionText.text = "time's up!"
+			$Desktop/Chest/ActionTimer.visible = false
 			await get_tree().create_timer(1).timeout
 			if LevelManager.is_mobile:
 				%Continue.visible = false
@@ -215,6 +255,10 @@ func handle_win():
 		%Resolution.visible = false
 		$SlotMachine.visible = false
 		move_tween($Player_win,Vector2(285,514),0.8)
+		move_tween($Desktop/Material,Vector2(843,-123),0.8)
+		move_tween($Desktop/Gems,Vector2(843,-123),0.8)
+		move_tween($Desktop/MaterialTotal,Vector2(843,-34),0.8)
+		move_tween($Desktop/GemsTotal,Vector2(-596,-34),0.8)
 
 func check_enemy_debuff():
 	if PlayerManager.player.bleed_active == true:
@@ -485,6 +529,6 @@ func move_tween(object,pos,time):
 
 
 func _on_turns_description_mouse_entered():
-	RelicManager.relic_name = "Matches until enemy action"
+	RelicManager.relic_name = "Seconds until enemy action"
 func _on_turns_description_mouse_exited():
 	RelicManager.relic_name = ""

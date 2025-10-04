@@ -10,10 +10,10 @@ health_increase = 5
 max_health = 120.0
 shield = 20.0
 shield_increase = 10
-damage = Vector2(20, 30)
+damage = Vector2(15, 25)
 coin_worth = 50
 action_delay = Vector2(5, 15)
-match_to_action = Vector2(8, 12)
+match_to_action = Vector2(10, 15)
 blood_type = "Ghost"
 
 [node name="Sprite2D" parent="." index="0"]

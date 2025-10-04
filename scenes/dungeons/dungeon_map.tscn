@@ -5780,7 +5780,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("22_3d01s")
 
 [node name="InfoPage" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -5817,7 +5816,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoPageDetails" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 266.0
@@ -6084,7 +6082,7 @@ offset_right = 832.0
 offset_bottom = 591.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Think to survive"
+text = "Match fast to survive"
 
 [node name="X20" type="Label" parent="InfoPageDetails"]
 layout_mode = 0
