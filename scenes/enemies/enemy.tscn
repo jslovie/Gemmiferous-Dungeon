@@ -307,6 +307,7 @@ shape = SubResource("CircleShape2D_v3vca")
 [node name="ActionTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 999.0
+one_shot = true
 
 [node name="Actions" type="Node2D" parent="."]
 unique_name_in_owner = true

@@ -989,16 +989,16 @@ func _on_hint_timer_timeout():
 	#generate_hint()
 	pass
 
-func tween_size():
+func scale_tween_object(object,scale_to,scale_back,time):
 	var tween = create_tween()
-	tween.tween_property($Shuffle,"size", Vector2(2.2,2.2),0.5)
-	await get_tree().create_timer(0.5).timeout
-	tween.stop()
-	tween.tween_property($Shuffle,"size", Vector2(2,2),0.5)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"scale",scale_to,time)
+	tween.tween_property(object,"scale",scale_back,time)
 
 func _on_shuffle_pressed():
 	Sfx.play_SFX(Sfx.shuffle)
-	tween_size()
+	scale_tween_object($Shuffle,Vector2(2.4,2.4),Vector2(2,2),0.2)
 	emit_signal("camera_effect", 10)
 	shuffle_board()
 	shuffles_left -= 1

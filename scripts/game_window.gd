@@ -9,6 +9,8 @@ var treasure_timeout_max = 20
 
 var last_whole: int = -1
 
+var pause_game
+
 func _ready():
 	LevelManager.level_active = true
 	SaveManager.load_autosave()
@@ -31,6 +33,7 @@ func _ready():
 	wait_time()
 	PlayerManager.player.shield += PlayerManager.player.upgraded_shield_init
 	load_relics()
+	RelicManager.set_ui($Desktop/RelicName,$Desktop/RelicDescription)
 	
 func _process(_delta):
 	update_healthbars()
@@ -52,6 +55,7 @@ func load_relics():
 
 func setup_treasure():
 	if LevelManager.type == "Treasure":
+		$Desktop/Chest/ChestCloseDetection/CollisionShape2D.disabled = false
 		$TurnsDescription/CollisionShape2D.disabled = true
 		$Desktop/EnemyTypeLabel.text = "Treasure"
 		$Desktop/Enemy.queue_free()
@@ -413,8 +417,11 @@ func pause():
 	get_tree().paused = true
 
 func unpause():
-	$Pause.visible = false
-	get_tree().paused = false
+	if pause_game:
+		$Pause.visible = false
+	else:
+		$Pause.visible = false
+		get_tree().paused = false
 
 func _on_player_died_update_total_bar():
 	RelicManager.hide_stats = true
@@ -436,17 +443,17 @@ func _on_treasure_timer_timeout():
 	#LevelManager.switch_to_dungeon_map()
 	#await get_tree().create_timer(3).timeout
 	#Music.music_to_normal()
-	
 
-func tween_size():
+func scale_tween_object(object,scale_to,scale_back,time):
 	var tween = create_tween()
-	tween.tween_property($Desktop/Home,"size", Vector2(2.2,2.2),0.5)
-	await get_tree().create_timer(0.5).timeout
-	tween.stop()
-	tween.tween_property($Desktop/Home,"size", Vector2(2,2),0.5)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	tween.tween_property(object,"scale",scale_to,time)
+	tween.tween_property(object,"scale",scale_back,time)
 
 func _on_home_pressed():
-	tween_size()
+	Sfx.play_SFX(Sfx.button_confirm)
+	scale_tween_object($Desktop/Home,Vector2(2.4,2.4),Vector2(2,2),0.2)
 	pause()
 
 func _on_back_mouse_entered():
@@ -531,4 +538,30 @@ func move_tween(object,pos,time):
 func _on_turns_description_mouse_entered():
 	RelicManager.relic_name = "Seconds until enemy action"
 func _on_turns_description_mouse_exited():
+	RelicManager.relic_name = ""
+
+func _on_pause_game_pressed():
+	Sfx.play_SFX(Sfx.button_confirm)
+	scale_tween_object($Desktop/PauseGame,Vector2(2.4,2.4),Vector2(2,2),0.2)
+	if pause_game:
+		pause_game = false
+		$Desktop/PauseGame/Sprite2D.texture = load("res://assets/32rogues/pieces/pause.png")
+		await get_tree().process_frame
+		get_tree().paused = false
+	else:
+		pause_game = true
+		$Desktop/PauseGame/Sprite2D.texture = load("res://assets/32rogues/pieces/play.png")
+		await get_tree().process_frame
+		get_tree().paused = true
+	
+func _on_pause_game_mouse_entered():
+	Sfx.play_SFX(Sfx.in_game_hover)
+	$Desktop/PauseGame/TextureRect.modulate = Color(0.537, 0.558, 0.828)
+func _on_pause_game_mouse_exited():
+	$Desktop/PauseGame/TextureRect.modulate = Color(0.369, 0.38, 0.675)
+
+
+func _on_chest_close_detection_mouse_entered():
+	RelicManager.relic_name = "Seconds until chest closes"
+func _on_chest_close_detection_mouse_exited():
 	RelicManager.relic_name = ""

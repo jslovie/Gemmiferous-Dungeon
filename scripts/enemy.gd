@@ -233,7 +233,7 @@ func Type_check():
 		
 func change_delay():
 	var random_delay = randi_range(action_delay.x, action_delay.y)
-	%ActionTimer.wait_time = round(random_delay) + 0.4
+	%ActionTimer.start(round(random_delay) + 0.4)
 
 func update_action_timer():
 	if %ActionTimer.wait_time == 999:
@@ -275,11 +275,13 @@ func random_action():
 			%SwordPiece.visible = true
 			await get_tree().create_timer(1.5).timeout
 			%SwordPiece.visible = false
+			change_delay()
 		else:
 			inflict_damage()
 			%SwordPiece.visible = true
 			await get_tree().create_timer(1.5).timeout
 			%SwordPiece.visible = false
+			change_delay()
 			
 	if random == "shield":
 		if shield > 15:
@@ -289,6 +291,7 @@ func random_action():
 			%ShieldPiece.visible = true
 			await get_tree().create_timer(1.5).timeout
 			%ShieldPiece.visible = false
+			change_delay()
 			
 	if random == "heal":
 		if health == max_health:
@@ -298,8 +301,8 @@ func random_action():
 			%HealPiece.visible = true
 			await get_tree().create_timer(1.5).timeout
 			%HealPiece.visible = false
+			change_delay()
 	
-	change_delay()
 	PlayerManager.player.became_visible()
 
 func inflict_zero_damage():

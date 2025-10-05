@@ -6,6 +6,9 @@ var relic_description = ""
 var relic_name = ""
 var hide_stats = false
 
+var name_label: Label
+var description_label: Label
+
 var current_relics = []
 var current_pieces = []
 var curret_pieces_for_check = []
@@ -52,10 +55,28 @@ var gems_pieces = [
 	load("res://scenes/pieces/gems/yellow_gem_piece.tscn"),
 	load("res://scenes/pieces/gems/gold_piece.tscn"),]
 
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(delta):
 	check_resource()
-	
+	update_ui()
+
+func set_ui(name_node: Label, desc_node: Label):
+	name_label = name_node
+	description_label = desc_node
+	update_ui()
+
+func unset_ui():
+	name_label = null
+	description_label = null
+
+func update_ui():
+	if name_label:
+		name_label.text = relic_name
+	if description_label:
+		description_label.text = relic_description
+
 func check_resource():
 	var dir = DirAccess.open("user://")
 	var gem_necklace = "user://resources/GemNecklace.tres"

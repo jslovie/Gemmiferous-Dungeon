@@ -66,6 +66,7 @@ func reset_tutorial():
 
 func switch_to_dungeon_map():
 	SaveManager.autosave()
+	RelicManager.unset_ui()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	if is_mobile:
@@ -75,6 +76,7 @@ func switch_to_dungeon_map():
 	
 func switch_to_dungeon_map_timeless():
 	SaveManager.autosave()
+	RelicManager.unset_ui()
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	if is_mobile:
 		show_map_mobile = true
@@ -92,6 +94,7 @@ func main_menu():
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	RelicManager.unset_ui()
 	LevelManager.reset_tutorial()
 	LevelManager.show_map = false
 	LevelManager.show_map_mobile = false
@@ -109,6 +112,7 @@ func main_menu():
 
 func back_to_village():
 	get_tree().paused = false
+	RelicManager.unset_ui()
 	VillageHudMobile.update_village_hud_mobile()
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
@@ -132,4 +136,5 @@ func reset():
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
 	RelicManager.reset_pieces_relics()
+	RelicManager.unset_ui()
 	LevelManager.reset_tutorial()
