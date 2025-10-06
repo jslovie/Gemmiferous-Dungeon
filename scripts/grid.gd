@@ -63,6 +63,7 @@ var yellow_gem_gained = 0
 var coins_gained = 0
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	change_empty_spaces()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
 	state = move
@@ -177,6 +178,8 @@ func touch_input():
 			#controlling = false;
 			#final_touch = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
 			#touch_difference(first_touch, final_touch)
+	if get_tree().paused == true:
+		return
 	if Input.is_action_just_pressed("ui_touch"):
 		var mouse_grid = pixel_to_grid(get_global_mouse_position().x, get_global_mouse_position().y)
 		if is_in_grid(mouse_grid):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=133 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://vrop2vlgx2dt" path="res://assets/32rogues/pieces/vulnerable.png" id="37_lkdhj"]
 [ext_resource type="Texture2D" uid="uid://dm8mt7x7w0fav" path="res://assets/32rogues/pieces/frail.png" id="38_od5u3"]
 [ext_resource type="Texture2D" uid="uid://c45vg2ofbusxq" path="res://assets/32rogues/pieces/electric.png" id="39_igw6i"]
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="43_025vr"]
 [ext_resource type="PackedScene" uid="uid://coqoxmml5lbfa" path="res://scenes/relic/relic_handler.tscn" id="43_xaq8w"]
 [ext_resource type="Texture2D" uid="uid://cto6o7oms0ywt" path="res://assets/32rogues/pieces/home.png" id="54_1lpto"]
 [ext_resource type="Texture2D" uid="uid://cpml5sjt27qwj" path="res://assets/32rogues/pieces/pause.png" id="54_m5ssy"]
@@ -664,6 +665,14 @@ size = Vector2(92, 45)
 
 [node name="GameWindow" type="Node2D"]
 script = ExtResource("1_0rfml")
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("43_025vr")
 
 [node name="Desktop" type="Node2D" parent="."]
 
@@ -1734,14 +1743,14 @@ texture = ExtResource("22_7rbg4")
 position = Vector2(16, 16)
 texture = ExtResource("54_m5ssy")
 
-[node name="ShuffleLabel" type="Label" parent="Desktop/PauseGame"]
+[node name="PauseLabel" type="Label" parent="Desktop/PauseGame"]
 layout_mode = 0
 offset_left = -5.0
 offset_top = 31.6667
 offset_right = 35.0
 offset_bottom = 46.6667
 theme_override_font_sizes/font_size = 16
-text = "x1"
+text = "x3"
 horizontal_alignment = 1
 
 [node name="Grid" type="Node2D" parent="."]

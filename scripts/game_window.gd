@@ -4,11 +4,14 @@ extends Node2D
 
 const RESOURCE_PATH = "user://resources/"
 
+var particle_effect = preload("res://scenes/pieces/particle.tscn")
+
 var treasure_timeout_min = 15
 var treasure_timeout_max = 20
 
 var last_whole: int = -1
 
+var pauses = 3
 var pause_game
 
 func _ready():
@@ -47,6 +50,7 @@ func _process(_delta):
 	update_relic_description()
 	update_action_timer()
 	trigger_scale()
+	update_pauses()
 	
 func load_relics():
 	var dir = DirAccess.open(RESOURCE_PATH)
@@ -113,10 +117,6 @@ func update_relic_description():
 			$Desktop/Material.visible = true
 			%PlayerHealth.visible = true
 		
-		
-func _unhandled_input(event): 
-	if  event.is_action_pressed("Esc"):
-		pause()
 
 func change_background():
 	if LevelManager.floor == 1:
@@ -416,6 +416,7 @@ func pause():
 	$Pause.visible = true
 	get_tree().paused = true
 
+
 func unpause():
 	if pause_game:
 		$Pause.visible = false
@@ -444,12 +445,21 @@ func _on_treasure_timer_timeout():
 	#await get_tree().create_timer(3).timeout
 	#Music.music_to_normal()
 
+func update_pauses():
+	$Desktop/PauseGame/PauseLabel.text = "x" + str(pauses)
+
 func scale_tween_object(object,scale_to,scale_back,time):
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	tween.tween_property(object,"scale",scale_to,time)
 	tween.tween_property(object,"scale",scale_back,time)
+
+func make_effect(effect, pos, color):
+	var current = effect.instantiate()
+	current.position = pos
+	add_child(current)
+	current.color = color
 
 func _on_home_pressed():
 	Sfx.play_SFX(Sfx.button_confirm)
@@ -541,6 +551,8 @@ func _on_turns_description_mouse_exited():
 	RelicManager.relic_name = ""
 
 func _on_pause_game_pressed():
+	if pauses <= 0:
+		return
 	Sfx.play_SFX(Sfx.button_confirm)
 	scale_tween_object($Desktop/PauseGame,Vector2(2.4,2.4),Vector2(2,2),0.2)
 	if pause_game:
@@ -548,6 +560,12 @@ func _on_pause_game_pressed():
 		$Desktop/PauseGame/Sprite2D.texture = load("res://assets/32rogues/pieces/pause.png")
 		await get_tree().process_frame
 		get_tree().paused = false
+		pauses -= 1
+		if pauses == 0:
+			$Desktop/PauseGame.visible = false
+			make_effect(particle_effect,$Desktop/PauseGame.position,$Desktop/PauseGame/TextureRect.modulate)
+			make_effect(particle_effect,$Desktop/PauseGame.position,$Desktop/PauseGame/TextureRect.modulate)
+			make_effect(particle_effect,$Desktop/PauseGame.position,$Desktop/PauseGame/TextureRect.modulate)
 	else:
 		pause_game = true
 		$Desktop/PauseGame/Sprite2D.texture = load("res://assets/32rogues/pieces/play.png")
