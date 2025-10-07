@@ -495,16 +495,20 @@ func _on_menu_mouse_exited():
 
 func _on_home_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	RelicManager.relic_name = "Press to open Menu"
 	$Desktop/Home/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 
 func _on_home_mouse_exited():
+	RelicManager.relic_name = ""
 	$Desktop/Home/TextureRect.modulate = Color(0.369, 0.38, 0.675)
 
 func _on_shuffle_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
+	RelicManager.relic_name = "Press to Shuffle the board"
 	$Grid/Shuffle/TextureRect.modulate = Color(0.537, 0.558, 0.828)
 
 func _on_shuffle_mouse_exited():
+	RelicManager.relic_name = ""
 	$Grid/Shuffle/TextureRect.modulate = Color(0.369, 0.38, 0.675)
 
 
@@ -575,8 +579,13 @@ func _on_pause_game_pressed():
 func _on_pause_game_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
 	$Desktop/PauseGame/TextureRect.modulate = Color(0.537, 0.558, 0.828)
+	if pause_game:
+		RelicManager.relic_name = "Press to Resume the game"
+	else:
+		RelicManager.relic_name = "Press to Pause and think"
 func _on_pause_game_mouse_exited():
 	$Desktop/PauseGame/TextureRect.modulate = Color(0.369, 0.38, 0.675)
+	RelicManager.relic_name = ""
 
 
 func _on_chest_close_detection_mouse_entered():

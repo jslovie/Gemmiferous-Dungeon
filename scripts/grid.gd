@@ -949,6 +949,10 @@ func _on_collapse_timer_timeout():
 func _on_refill_timer_timeout():
 	refill_columns()
 
+func _unhandled_input(event): 
+	if  event.is_action_pressed("Refresh"):
+		_on_shuffle_pressed()
+
 #Animations
 func sword_animation():
 	%SwordAnimation.visible = true

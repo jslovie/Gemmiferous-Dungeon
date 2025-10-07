@@ -273,12 +273,14 @@ func random_action():
 		if PlayerManager.player.is_invisible == true:
 			inflict_zero_damage()
 			%SwordPiece.visible = true
+			PlayerManager.player.became_visible()
 			await get_tree().create_timer(1.5).timeout
 			%SwordPiece.visible = false
 			change_delay()
 		else:
 			inflict_damage()
 			%SwordPiece.visible = true
+			PlayerManager.player.became_visible()
 			await get_tree().create_timer(1.5).timeout
 			%SwordPiece.visible = false
 			change_delay()
@@ -289,6 +291,7 @@ func random_action():
 		else:
 			shield_up()
 			%ShieldPiece.visible = true
+			PlayerManager.player.became_visible()
 			await get_tree().create_timer(1.5).timeout
 			%ShieldPiece.visible = false
 			change_delay()
@@ -299,11 +302,11 @@ func random_action():
 		else:
 			heal()
 			%HealPiece.visible = true
+			PlayerManager.player.became_visible()
 			await get_tree().create_timer(1.5).timeout
 			%HealPiece.visible = false
 			change_delay()
-	
-	PlayerManager.player.became_visible()
+
 
 func inflict_zero_damage():
 	if RelicManager.has_shuriken == true:
