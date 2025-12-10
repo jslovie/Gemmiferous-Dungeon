@@ -205,6 +205,7 @@ func _on_back_mouse_exited():
 	$MarginContainer/HBoxContainer/Back/Label.add_theme_color_override("font_color", Color.WHITE)
 
 func _on_back_pressed():
+	$Settings.save_settings()
 	move_tween($Buttons,Vector2(31,665),0.8)
 	move_tween($Settings,Vector2(960,1780),0.8)
 	move_tween($MarginContainer,Vector2(649,2115),0.8)

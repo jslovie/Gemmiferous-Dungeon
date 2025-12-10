@@ -433,11 +433,13 @@ func _on_move_tween(name: String):
 
 
 func _on_back_pressed():
+	$Pause/Settings.save_settings()
 	Sfx.play_SFX(Sfx.button_confirm)
 	move_tween($Pause,Vector2(772,141),0.8)
 	LevelManager.in_pause = false
 	
 func _on_menu_pressed():
+	$Pause/Settings.save_settings()
 	Sfx.play_SFX(Sfx.button_confirm)
 	LevelManager.in_pause = false
 	LevelManager.main_menu()

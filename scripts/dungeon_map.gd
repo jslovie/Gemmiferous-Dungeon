@@ -167,10 +167,12 @@ func _on_back_mouse_exited():
 	$Pause/Progress.visible = false
 
 func _on_back_pressed():
+	$Pause/Settings.save_settings()
 	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 
 func _on_menu_pressed():
+	$Pause/Settings.save_settings()
 	Sfx.play_SFX(Sfx.button_confirm)
 	$Pause.visible = false
 	choose_random_f()
