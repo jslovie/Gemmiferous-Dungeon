@@ -1,23 +1,27 @@
 extends Control
 
-var resolution: int = 2
-var windows_mode: int = 0
-var crt_on: bool = false
-var	master = db_to_linear(AudioServer.get_bus_volume_db(0))
-var	music = db_to_linear(AudioServer.get_bus_volume_db(1))
-var	sfx = db_to_linear(AudioServer.get_bus_volume_db(2))
+var resolution: int
+var windows_mode: int
+var crt_on: bool
+var crt_parameter: float
+var master: float
+var music: float
+var sfx: float
 
 func _ready():
 	load_settings()
 	await get_tree().process_frame
 	await get_tree().process_frame
 	apply_settings()
-
-func _process(_delta):
-	check_CRT_button()
 	check_mode()
 	check_resolution()
-	check_mobile_version()
+	check_CRT_button()
+
+#func _process(_delta):
+	##check_CRT_button()
+	##check_mode()
+	##check_resolution()
+	##check_mobile_version()
 
 func save_settings():
 	var config := ConfigFile.new()
@@ -28,19 +32,33 @@ func save_settings():
 	config.set_value("video", "resolution", resolution)
 	config.set_value("video", "windows_mode", windows_mode)
 	config.set_value("video", "crt_on", crt_on)
+	config.set_value("video", "crt_parameter", crt_parameter)
 	config.set_value("audio", "master", master)
 	config.set_value("audio", "music", music)
 	config.set_value("audio", "sfx", sfx)
-	config.save("user://settings.cfg")
+	config.save("user://options settings.cfg")
 
 func load_settings():
 	var config := ConfigFile.new()
-	if config.load("user://settings.cfg") != OK:
+	var err := config.load("user://options settings.cfg")
+	print("Config load result:", err)
+	
+	if err != OK:
+		print("FAILED TO LOAD SETTINGS FILE")
+		print("LOADING DEFAULT SETTINGS")
+		resolution = 2
+		windows_mode = 0
+		crt_on = false
+		crt_parameter = 0
+		master = db_to_linear(AudioServer.get_bus_volume_db(0))
+		music = db_to_linear(AudioServer.get_bus_volume_db(1))
+		sfx = db_to_linear(AudioServer.get_bus_volume_db(2))
 		return
 	
 	resolution = config.get_value("video", "resolution", resolution)
 	windows_mode = config.get_value("video", "windows_mode", windows_mode)
 	crt_on = config.get_value("video", "crt_on", crt_on)
+	crt_parameter = config.get_value("video", "crt_parameter", crt_parameter)
 	master = config.get_value("audio", "master", master)
 	music = config.get_value("audio", "music", music)
 	sfx = config.get_value("audio", "sfx", sfx)
@@ -63,7 +81,7 @@ func apply_settings():
 	$AudioOptions/MarginContainer/VBoxContainer/CheckBox.button_pressed = crt_on
 	
 	var audio = $AudioOptions
-	audio.apply_audio_settings(master, music, sfx)
+	audio.apply_audio_settings(master, music, sfx, crt_parameter)
 
 func _on_back_pressed():
 	save_settings()
@@ -113,7 +131,10 @@ func _on_check_box_toggled(_toggled_on):
 		Crt.crt_on = false
 		crt_on = false
 	save_settings()
-
+	apply_settings()
+	check_mode()
+	check_resolution()
+	check_CRT_button()
 
 func _on_res_option_button_item_selected(index):
 	match index:
@@ -129,8 +150,11 @@ func _on_res_option_button_item_selected(index):
 		3:
 			get_window().set_size(Vector2(2560,1440))
 			resolution = 3
-	apply_settings()
 	save_settings()
+	apply_settings()
+	check_mode()
+	check_resolution()
+	check_CRT_button()
 
 
 
@@ -145,5 +169,8 @@ func _on_mode_option_button_item_selected(index):
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			windows_mode = 2
-	apply_settings()
 	save_settings()
+	apply_settings()
+	check_mode()
+	check_resolution()
+	check_CRT_button()

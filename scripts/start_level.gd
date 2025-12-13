@@ -8,10 +8,13 @@ var music: float = 0.55
 var sfx: float  = 0.8
 
 func _ready():
-	load_settings()
-	await get_tree().process_frame
-	await get_tree().process_frame
-	apply_settings()
+	#print(str(resolution) + " Resolution before load")
+	#load_settings()
+	#print(str(resolution) + " Resolution after load")
+	#await get_tree().process_frame
+	#await get_tree().process_frame
+	#apply_settings()
+	#print(str(resolution) + " Resolution after apply")
 	rendering_check()
 	SaveManager.autosave()
 	if LevelManager.is_mobile == true:
@@ -28,8 +31,15 @@ func rendering_check():
 
 func load_settings():
 	var config := ConfigFile.new()
-	if config.load("user://settings.cfg") != OK:
+	var err := config.load("user://settings.cfg")
+	print("Config load result:", err)
+	
+	if err != OK:
+		print("FAILED TO LOAD SETTINGS FILE")
 		return
+	
+	print("Resolution key exists:",
+		config.has_section_key("video", "resolution"))
 	
 	resolution = config.get_value("video", "resolution", resolution)
 	windows_mode = config.get_value("video", "windows_mode", windows_mode)
