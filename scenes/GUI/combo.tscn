@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1xuta2ytes8j"]
+
+[ext_resource type="Script" path="res://scripts/combo.gd" id="1_umcbo"]
+[ext_resource type="Shader" path="res://shaders/combo.gdshader" id="1_xfdfg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_citt0"]
+shader = ExtResource("1_xfdfg")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 30.0
+shader_parameter/smear = 0.4
+shader_parameter/blur_samples = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h23rm"]
+shader = ExtResource("1_xfdfg")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 30.0
+shader_parameter/smear = 0.4
+shader_parameter/blur_samples = 3
+
+[node name="Combo" type="CanvasLayer"]
+script = ExtResource("1_umcbo")
+combo_shader = SubResource("ShaderMaterial_citt0")
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_h23rm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

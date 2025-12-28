@@ -4,7 +4,7 @@ extends CanvasLayer
 func _ready():
 	visible = false
 
-func _process(delta):
+func _process(_delta):
 	check_visibility()
 
 func check_visibility():

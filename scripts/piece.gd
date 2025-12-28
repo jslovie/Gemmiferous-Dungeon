@@ -71,7 +71,7 @@ func on_piece_clicked(event):
 								$TextureRect.visible = false
 								$Sprite2D.visible = false
 								make_effect(particle_effect, background_color)
-								get_tree().create_timer(1).timeout
+								await get_tree().create_timer(1).timeout
 								queue_free()
 					else:
 						SignalBus.minimum_tiles.emit()

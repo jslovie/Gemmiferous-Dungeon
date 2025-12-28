@@ -58,7 +58,7 @@ var gems_pieces = [
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(delta):
+func _process(_delta):
 	check_resource()
 	update_ui()
 

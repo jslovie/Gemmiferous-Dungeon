@@ -39,6 +39,7 @@ Transition="*res://scenes/GUI/transition.tscn"
 Music="*res://scenes/music.tscn"
 Sfx="*res://scenes/sfx.tscn"
 Crt="*res://scenes/GUI/crt.tscn"
+Combo="*res://scenes/GUI/combo.tscn"
 SignalBus="*res://scripts/signal_bus.gd"
 
 [display]
@@ -48,6 +49,7 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=1
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://cursor.png"
 window/emulate_touch_from_mouse=true
 
