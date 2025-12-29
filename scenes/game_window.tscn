@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=136 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://cpml5sjt27qwj" path="res://assets/32rogues/pieces/pause.png" id="54_m5ssy"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="55_vg62u"]
 [ext_resource type="FontFile" uid="uid://b61y245342e58" path="res://GothicPixels.ttf" id="58_evqaw"]
+[ext_resource type="Shader" path="res://shaders/rainbow_font.gdshader" id="58_p8a4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
@@ -213,6 +214,14 @@ corner_radius_bottom_left = 8
 [sub_resource type="CircleShape2D" id="CircleShape2D_gg1ri"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cf6hg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81ct7"]
+shader = ExtResource("58_p8a4f")
+shader_parameter/wave_strength = 0.002
+shader_parameter/wave_speed = 3.0
+shader_parameter/outline_size = 0.0
+shader_parameter/shimmer_width = 0.15
+shader_parameter/glow_base = 0.35
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3twqd"]
 atlas = ExtResource("31_6hgcu")
@@ -1763,6 +1772,7 @@ y_start = 800
 offset = 64
 y_offset = 5
 empty_spaces = PackedVector2Array(0, 0, 7, 0, 0, 9, 7, 9)
+shader = SubResource("ShaderMaterial_81ct7")
 hint_effect = ExtResource("10_pi5o8")
 
 [node name="VFX" type="Node2D" parent="Grid"]

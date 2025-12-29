@@ -20,14 +20,14 @@ func reset_timer(time):
 
 func check_combo_level():
 	if combo_level == 5:
-		change_combo_shader_parameter(0.1)
+		change_combo_shader_parameter(0.08)
 		show_combo()
-	elif combo_level == 15:
-		change_combo_shader_parameter(0.2)
+	elif combo_level == 10:
+		change_combo_shader_parameter(0.15)
 	elif combo_level == 20:
-		change_combo_shader_parameter(0.3)
+		change_combo_shader_parameter(0.25)
 	elif combo_level == 25:
-		change_combo_shader_parameter(0.4)
+		change_combo_shader_parameter(0.35)
 		
 func change_combo_shader_parameter(value: float):
 	combo_shader.set_shader_parameter("smear", value)

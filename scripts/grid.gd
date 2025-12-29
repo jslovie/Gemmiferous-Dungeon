@@ -15,6 +15,9 @@ var state
 @export var y_offset: int
 
 @export var empty_spaces: PackedVector2Array
+
+@export var shader: ShaderMaterial
+
 @onready var combo_level = $ComboLevel
 @onready var combo_level_description = $ComboLevelDescription
 @onready var combo_timer = $ComboTimer
@@ -344,12 +347,14 @@ func effect_match(effect_chance: int, effect_chance_change: int, effect_rarity: 
 func process_combo():
 	Combo.combo_level += 1
 	combo_level.text = str(Combo.combo_level)
-	Combo.reset_timer(2)
+	Combo.reset_timer(5)
+	
 	if Combo.combo_level == 1:
 		combo_active = true
 		combo_level.visible = true
 		combo_level_description.visible = true
 		combo_timer.visible = true
+		
 	elif Combo.combo_level == 5:
 		emit_signal("camera_effect", 20)
 		explosion_l.restart()
@@ -362,12 +367,16 @@ func process_combo():
 		start_constant_jitter(combo_level, base_position_combo_level)
 		start_constant_jitter(combo_level_description, base_position_combo_level_description)
 		start_constant_jitter(combo_timer, base_position_combo_timer)
-		
-	if Combo.combo_level < 5:
-		stop_constant_jitter(combo_level, base_position_combo_level)
-		stop_constant_jitter(combo_level_description, base_position_combo_level_description)
-		stop_constant_jitter(combo_timer, base_position_combo_timer)
-		
+	
+	elif Combo.combo_level == 10:
+		emit_signal("camera_effect", 30)
+		explosion_l.material = shader
+		explosion_r.material = shader
+		explosion_l.restart()
+		explosion_r.restart()
+		combo_level.material = shader
+		combo_level_description.material = shader
+
 	play_tweens(combo_level)
 	play_tweens(combo_level_description)
 	play_tweens(combo_timer)
@@ -391,15 +400,16 @@ func zero_out_combo():
 		stop_constant_jitter(combo_level, base_position_combo_level)
 		stop_constant_jitter(combo_level_description, base_position_combo_level_description)
 		stop_constant_jitter(combo_timer, base_position_combo_timer)
+		combo_level.material = null
+		combo_level_description.material = null
+		explosion_l.material = null
+		explosion_r.material = null
 		combo_level.text = "0"
 		combo_level.visible = false
 		combo_level_description.visible = false
 		combo_timer.visible = false
 		combo_level.add_theme_color_override("font_color", Color.WHITE)
 		combo_level_description.add_theme_color_override("font_color", Color.WHITE)
-		var fill_style = StyleBoxFlat.new()
-		fill_style.bg_color = Color.WHITE
-		combo_timer.add_theme_stylebox_override("fill", fill_style)
 		combo_active = false
 
 ##Tweens##
