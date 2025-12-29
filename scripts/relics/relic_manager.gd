@@ -26,7 +26,7 @@ var has_shuriken = false
 var has_wealth_necklace = false
 var has_gem_necklace = false
 
-#pieces
+#shop pieces
 var bolt_staff = load("res://scenes/pieces/bolt_staff_piece.tscn")
 var crossbow = load("res://scenes/pieces/crossbow_piece.tscn")
 var flail = load("res://scenes/pieces/flail_piece.tscn")
@@ -34,6 +34,14 @@ var ice_staff = load("res://scenes/pieces/ice_staff_piece.tscn")
 var maul = load("res://scenes/pieces/maul_piece.tscn")
 var sickle = load("res://scenes/pieces/sickle_piece.tscn")
 
+var bolt_staff_damage = Vector2(5,7)
+var crossbow_damage = Vector2(2,10)
+var flail_damage = Vector2(6,8)
+var ice_staff_damage = Vector2(5,9)
+var maul_damage = Vector2(7,8)
+var sickle_damage = Vector2(1,10)
+
+#character pieces
 var rogue_pieces = [
 	load("res://scenes/pieces/sword_piece.tscn"),
 	load("res://scenes/pieces/bow_piece.tscn"),

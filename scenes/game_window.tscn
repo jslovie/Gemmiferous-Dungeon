@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=134 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://cto6o7oms0ywt" path="res://assets/32rogues/pieces/home.png" id="54_1lpto"]
 [ext_resource type="Texture2D" uid="uid://cpml5sjt27qwj" path="res://assets/32rogues/pieces/pause.png" id="54_m5ssy"]
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="55_vg62u"]
+[ext_resource type="FontFile" uid="uid://b61y245342e58" path="res://GothicPixels.ttf" id="58_evqaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
@@ -182,14 +183,14 @@ sources/0 = SubResource("TileSetAtlasSource_jqs4y")
 size = Vector2(21.5, 4.91667)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk2h3"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka8sp"]
-bg_color = Color(0.679688, 0.0398254, 0.0398254, 1)
+bg_color = Color(0.661792, 0.109025, 0.0367602, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -1876,6 +1877,100 @@ offset_bottom = 46.6667
 theme_override_font_sizes/font_size = 16
 text = "x1"
 horizontal_alignment = 1
+
+[node name="ComboLevel" type="Label" parent="Grid"]
+offset_left = -313.0
+offset_top = 51.0
+offset_right = -185.0
+offset_bottom = 179.0
+rotation = -0.174533
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("58_evqaw")
+theme_override_font_sizes/font_size = 128
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboLevelDescription" type="Label" parent="Grid"]
+offset_left = -337.0
+offset_top = 135.0
+offset_right = -113.0
+offset_bottom = 279.0
+rotation = -0.174533
+pivot_offset = Vector2(72, 72)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("58_evqaw")
+theme_override_font_sizes/font_size = 64
+text = "Combo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExplosionL" type="CPUParticles2D" parent="Grid"]
+position = Vector2(-279, 121)
+rotation = -1.80653
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+color = Color(0.61522, 0, 0.109952, 1)
+
+[node name="ExplosionR" type="CPUParticles2D" parent="Grid"]
+position = Vector2(-231, 109)
+rotation = 7.46658
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 65.0
+initial_velocity_max = 130.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+linear_accel_min = 11.0
+linear_accel_max = 11.0
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+color = Color(0.61522, 0, 0.109952, 1)
+
+[node name="ComboTimer" type="ProgressBar" parent="Grid"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = 252.0
+offset_right = -136.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.174533
+theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
+value = 100.0
+show_percentage = false
 
 [node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
 visible = false
