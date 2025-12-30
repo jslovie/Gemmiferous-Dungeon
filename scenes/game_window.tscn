@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=138 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -63,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://b74srkyidy144" path="res://scenes/GUI/settings.tscn" id="55_vg62u"]
 [ext_resource type="FontFile" uid="uid://b61y245342e58" path="res://GothicPixels.ttf" id="58_evqaw"]
 [ext_resource type="Shader" path="res://shaders/rainbow_font.gdshader" id="58_p8a4f"]
+[ext_resource type="Texture2D" uid="uid://j4573jxwvill" path="res://assets/particles and effects/progress bar most rounded progress red4-export.png" id="60_3wjri"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqs4y"]
 texture = ExtResource("2_kiygc")
@@ -669,6 +670,8 @@ animations = [{
 "name": &"Magic",
 "speed": 10.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1o6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf8lh"]
 size = Vector2(92, 45)
@@ -1889,10 +1892,10 @@ text = "x1"
 horizontal_alignment = 1
 
 [node name="ComboLevel" type="Label" parent="Grid"]
-offset_left = -313.0
-offset_top = 51.0
-offset_right = -185.0
-offset_bottom = 179.0
+offset_left = -618.591
+offset_top = 41.1412
+offset_right = -490.591
+offset_bottom = 169.141
 rotation = -0.174533
 pivot_offset = Vector2(64, 64)
 size_flags_horizontal = 4
@@ -1903,10 +1906,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ComboLevelDescription" type="Label" parent="Grid"]
-offset_left = -337.0
-offset_top = 135.0
-offset_right = -113.0
-offset_bottom = 279.0
+offset_left = -642.591
+offset_top = 125.141
+offset_right = -418.591
+offset_bottom = 269.141
 rotation = -0.174533
 pivot_offset = Vector2(72, 72)
 size_flags_horizontal = 4
@@ -1917,13 +1920,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExplosionL" type="CPUParticles2D" parent="Grid"]
-position = Vector2(-279, 121)
+position = Vector2(-584.591, 111.141)
 rotation = -1.80653
 emitting = false
-amount = 10
-lifetime = 2.0
+amount = 20
+lifetime = 4.0
 one_shot = true
-speed_scale = 4.0
+speed_scale = 5.0
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -1941,13 +1944,13 @@ scale_amount_max = 20.0
 color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="ExplosionR" type="CPUParticles2D" parent="Grid"]
-position = Vector2(-231, 109)
+position = Vector2(-536.591, 99.1412)
 rotation = 7.46658
 emitting = false
-amount = 10
-lifetime = 2.0
+amount = 20
+lifetime = 4.0
 one_shot = true
-speed_scale = 4.0
+speed_scale = 5.0
 explosiveness = 0.6
 randomness = 0.2
 local_coords = true
@@ -1964,23 +1967,16 @@ scale_amount_min = 5.0
 scale_amount_max = 20.0
 color = Color(0.61522, 0, 0.109952, 1)
 
-[node name="ComboTimer" type="ProgressBar" parent="Grid"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -303.0
-offset_top = 252.0
-offset_right = -136.0
-offset_bottom = 262.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureComboTimer" type="TextureProgressBar" parent="Grid"]
+material = SubResource("ShaderMaterial_a1o6r")
+offset_left = -608.591
+offset_top = 242.141
+offset_right = -441.591
+offset_bottom = 252.141
 rotation = -0.174533
-theme_override_styles/background = SubResource("StyleBoxFlat_lk2h3")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ka8sp")
+step = 0.01
 value = 100.0
-show_percentage = false
+texture_progress = ExtResource("60_3wjri")
 
 [node name="SlotMachine" parent="." instance=ExtResource("12_8bcan")]
 visible = false

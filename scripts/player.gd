@@ -11,75 +11,76 @@ var player_won = false
 
 
 #Stats
-@export var type_action1 : Vector2
-@export var type_action2 : Vector2
-@export var type_action3 : Vector2
-@export var upgraded_action1 : Vector2
-@export var upgraded_action2 : Vector2
-@export var upgraded_action3 : Vector2
-var base_action1 : Vector2
-var base_action2 : Vector2
-var base_action3 : Vector2
-var base_action4 : Vector2
+@export var type_action1: Vector2
+@export var type_action2: Vector2
+@export var type_action3: Vector2
+@export var upgraded_action1: Vector2
+@export var upgraded_action2: Vector2
+@export var upgraded_action3: Vector2
+var base_action1: Vector2
+var base_action2: Vector2
+var base_action3: Vector2
+var base_action4: Vector2
 var action1 = 0
 var action2 = 0
 var action3 = 0
 var action4 = 0
 
-@export var health : float
-@export var max_health : float
-@export var shield : int
-var shield_max = 10
-var shield_load = 3
-var shield_to_be_loaded = 0
-var piece_multiplier = 1
-var spawned = false
-var spins_left = 0
+@export var health: float
+@export var max_health: float
+@export var shield: int
+var shield_max: int = 10
+var shield_load: int = 3
+var shield_to_be_loaded: int = 0
+var piece_multiplier: float = 1.0
+var combo_multiplier: float = 1.0
+var spawned: bool = false
+var spins_left: int = 0
 
 #Characted unlocks
-var rogue_unlocked = false
-var barbarian_unlocked = false
-var holy_unlocked = false
-var spellblade_unlocked = false
-var knight_unlocked = false
+var rogue_unlocked: bool = false
+var barbarian_unlocked: bool = false
+var holy_unlocked: bool = false
+var spellblade_unlocked: bool = false
+var knight_unlocked: bool = false
 
 
 #Shield upgrades
-var upgraded_shield_max = 0
-var upgraded_shield_load = 0
-var upgraded_shield_init = 0
+var upgraded_shield_max: int = 0
+var upgraded_shield_load: int = 0
+var upgraded_shield_init: int = 0
 
 #Weapon upgrades
-var upgraded_axe_damage  = Vector2(0,0)
-var upgraded_mace_damage = Vector2(0,0)
-var upgraded_sword_damage = Vector2(0,0)
-var upgraded_bow_damage = Vector2(0,0)
+var upgraded_axe_damage  := Vector2(0,0)
+var upgraded_mace_damage := Vector2(0,0)
+var upgraded_sword_damage := Vector2(0,0)
+var upgraded_bow_damage := Vector2(0,0)
 
 #Weapon Statuses
 var rage = 0
 
-var has_mace = false
-var mace_stunt_chance = 10
+var has_mace: bool = false
+var mace_stunt_chance: int = 10
 var stun_time = 3
 var mace_stunt_rarities = {
 	"nothing" : 90,
 	"stunt" : mace_stunt_chance,
 }
 
-var has_invisibility = false
-var is_invisible = false
-var invisibility_chance = 20
+var has_invisibility: bool = false
+var is_invisible: bool = false
+var invisibility_chance: int = 20
 var invisibility_timer = 6
 var invisibility_rarities = {
 	"nothing" : 80,
 	"invisibility" : invisibility_chance,
 }
 
-var has_bow_poison = false
-var poison_active = false
-var poison_chance = 20
+var has_bow_poison: bool = false
+var poison_active: bool = false
+var poison_chance: int = 20
 
-var check_for_poison_arrow = false
+var check_for_poison_arrow: bool = false
 var poison_rarities = {
 	"nothing" : 80,
 	"poison" : poison_chance,
@@ -89,14 +90,14 @@ var action_rarities = {
 	"nothing" : 80,
 	"action" : 20,
 }
-var bleed_active = false
-var ice_active = false
-var fire_active = false
-var electric_active = false
-var stun_active = false
-var weak_active = false
-var vulnerable_active = false
-var frail_active = false
+var bleed_active: bool = false
+var ice_active: bool = false
+var fire_active: bool = false
+var electric_active: bool = false
+var stun_active: bool = false
+var weak_active: bool = false
+var vulnerable_active: bool = false
+var frail_active: bool = false
 
 var bleed_damage = 2
 var poison_damage = 1
@@ -124,45 +125,45 @@ var frail_duration = 6
 var has_antivenom = false
 
 #Gems and Coins
-var coins = 0
-var red_gem = 0
-var yellow_gem = 0
-var green_gem = 0
-var blue_gem = 0
+var coins: int = 0
+var red_gem: int = 0
+var yellow_gem: int = 0
+var green_gem: int = 0
+var blue_gem: int = 0
 
 #Gems and Coins Stored
-var total_coins = 0
-var total_red_gem = 0
-var total_yellow_gem = 0
-var total_green_gem = 0
-var total_blue_gem = 0
+var total_coins: int = 0
+var total_red_gem: int = 0
+var total_yellow_gem: int = 0
+var total_green_gem: int = 0
+var total_blue_gem: int = 0
 
 #Gems and Coins Stored if died
-var coins_died = 0
-var red_gem_died = 0
-var yellow_gem_died = 0
-var green_gem_died = 0
-var blue_gem_died = 0
+var coins_died: int = 0
+var red_gem_died: int = 0
+var yellow_gem_died: int = 0
+var green_gem_died: int = 0
+var blue_gem_died: int = 0
 
 #Material
-var wood = 0
-var stone = 0
-var iron = 0
+var wood: int = 0
+var stone: int = 0
+var iron: int = 0
 
 #Material Stored
-var total_wood = 0
-var total_stone = 0
-var total_iron = 0
+var total_wood: int = 0
+var total_stone: int = 0
+var total_iron: int = 0
 
 #Material died
-var wood_died = 0
-var stone_died = 0
-var iron_died = 0
+var wood_died: int = 0
+var stone_died: int = 0
+var iron_died: int = 0
 
 var rng = RandomNumberGenerator.new()
 
 
-var text = ""
+var text: String = ""
 
 func print_test():
 	if text == "":
@@ -224,28 +225,28 @@ func check_max_health():
 		health = max_health
 
 func damage1_attack():
-	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
-		pass
+		return
 	else:
+		RelicManager.thorned_necklade += 1
 		if rage > 0:
 			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
-			action1 = (random_base_action1 + (random_base_action1 * rage)) * piece_multiplier
+			action1 = (random_base_action1 + (random_base_action1 * rage)) * piece_multiplier * combo_multiplier
 			EnemyManager.enemy.take_damage(action1, random_base_action1)
 			print("damage is: " + str(action1))
 		else:
 			var random_base_action1 = randi_range(base_action1.x, base_action1.y)
-			action1 = (random_base_action1 * piece_multiplier)
+			action1 = (random_base_action1 * piece_multiplier * combo_multiplier)
 			EnemyManager.enemy.take_damage(action1, random_base_action1)
 			print("damage is: " + str(action1))
 		
 func damage2_attack():
-	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
-		pass
+		return
 	else:
+		RelicManager.thorned_necklade += 1
 		var random_base_action2 = randi_range(base_action2.x, base_action2.y)
-		action2 = (random_base_action2 * piece_multiplier)
+		action2 = (random_base_action2 * piece_multiplier * combo_multiplier)
 		EnemyManager.enemy.take_damage(action2, random_base_action2)
 		if has_mace == true:
 			var mace_action = get_mace_stunt_rng()
@@ -262,22 +263,22 @@ func damage2_attack():
 				%PoisonDebuffTimer.start(poison_repetition)
 	
 func damage3_attack():
-	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
-		pass
+		return
 	else:
+		RelicManager.thorned_necklade += 1
 		var random_base_action3 = randi_range(base_action3.x, base_action3.y)
-		action3 = (random_base_action3 * piece_multiplier)
+		action3 = (random_base_action3 * piece_multiplier * combo_multiplier)
 		EnemyManager.enemy.take_damage(action3, random_base_action3)
 		print("damage is: " + str(action3))
 
 func damage4_attack(action):
-	RelicManager.thorned_necklade += 1
 	if EnemyManager.enemy.status == "dead":
-		pass
+		return
 	else:
+		RelicManager.thorned_necklade += 1
 		var random_base_action4 = randi_range(base_action4.x, base_action4.y)
-		action4 = (random_base_action4 * piece_multiplier)
+		action4 = (random_base_action4 * piece_multiplier * combo_multiplier)
 		EnemyManager.enemy.take_damage(action4, random_base_action4)
 		print("damage is: " + str(action4))
 		
