@@ -102,6 +102,7 @@ func _ready():
 func _process(_delta):
 	zero_out_combo()
 	check_combo_timer()
+	check_buffs()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
 	if LevelManager.type == "Treasure":
 		if LevelManager.treasure_timesup == true:
@@ -356,9 +357,9 @@ func process_combo():
 	Combo.check_combo_level()
 	combo_level.text = str(Combo.combo_level)
 	if Combo.combo_level >= 20:
-		Combo.reset_timer(1)
+		Combo.reset_timer(1.25)
 	elif Combo.combo_level >= 15:
-		Combo.reset_timer(2)
+		Combo.reset_timer(2.25)
 	elif Combo.combo_level > 0:
 		Combo.reset_timer(3)
 	
@@ -392,6 +393,7 @@ func process_combo():
 		combo_level.add_theme_color_override("font_color", Color.DARK_RED)
 		combo_level_description.add_theme_color_override("font_color", Color.DARK_RED)
 		combo_timer.tint_progress = Color.DARK_RED
+		buffs.modulate = Color.DARK_RED
 		
 	elif Combo.combo_level == 15:
 		emit_signal("camera_effect", 35)
@@ -402,6 +404,8 @@ func process_combo():
 		combo_level.material = shader
 		combo_level_description.material = shader
 		combo_timer.material = shader
+		for child in buffs.get_children():
+			child.material = shader
 
 	elif Combo.combo_level == 20:
 		emit_signal("camera_effect", 40)
@@ -423,6 +427,16 @@ func play_tweens(object):
 	tween_rotation_shake(object)
 	tween_random_jitter(object)
 
+func check_buffs():
+	$Buffs/Damage.visible = Combo.damage_buff_active
+	$Buffs/Damage.text = "Damage x" + str(PlayerManager.player.combo_multiplier)
+	$Buffs/DoubleItems.visible = Combo.double_items_buff_active
+	if Combo.double_items_level == 1:
+		$Buffs/DoubleItems.text = "Double drops chance"
+	else:
+		$Buffs/DoubleItems.text = "Double drops"
+	$Buffs/StatusResistance.visible = Combo.status_resistance_buff_active
+		
 func check_combo_timer():
 	var timer = Combo.timer
 	if timer.is_stopped():
@@ -442,12 +456,14 @@ func zero_out_combo():
 		explosion_l.material = null
 		explosion_r.material = null
 		combo_level.text = "0"
-		combo_level.visible = true
+		combo_level.visible = false
 		combo_level_description.visible = false
 		combo_timer.visible = false
 		combo_level.add_theme_color_override("font_color", Color.WHITE)
 		combo_level_description.add_theme_color_override("font_color", Color.WHITE)
 		combo_timer.tint_progress = Color.WHITE
+		for child in buffs.get_children():
+			child.material = null
 
 		combo_active = false
 

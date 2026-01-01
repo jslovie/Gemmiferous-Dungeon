@@ -1891,26 +1891,17 @@ theme_override_font_sizes/font_size = 16
 text = "x1"
 horizontal_alignment = 1
 
-[node name="ComboLevel3" type="Label" parent="Grid"]
-offset_left = -618.591
-offset_top = 41.1412
-offset_right = -490.591
-offset_bottom = 169.141
+[node name="ComboLevel" type="Label" parent="Grid"]
+offset_left = -631.0
+offset_top = 54.0
+offset_right = -503.0
+offset_bottom = 182.0
 rotation = -0.174533
-pivot_offset = Vector2(64, 64)
-size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("58_evqaw")
 theme_override_font_sizes/font_size = 128
-text = "0"
+text = "0	"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ComboLevel" type="Label" parent="Grid"]
-offset_left = -581.0
-offset_top = 140.0
-offset_right = -541.0
-offset_bottom = 155.0
-text = "0	"
 
 [node name="ComboLevelDescription" type="Label" parent="Grid"]
 offset_left = -642.591
@@ -1986,11 +1977,13 @@ value = 100.0
 texture_progress = ExtResource("60_3wjri")
 
 [node name="Buffs" type="VBoxContainer" parent="Grid"]
-offset_left = -378.0
-offset_top = 93.0
-offset_right = -34.0001
-offset_bottom = 207.0
+offset_left = -615.0
+offset_top = 316.0
+offset_right = -271.0
+offset_bottom = 430.0
 rotation = -0.174533
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(172, 57)
 theme_override_constants/separation = 9
 
 [node name="Damage" type="Label" parent="Grid/Buffs"]

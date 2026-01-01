@@ -32,17 +32,25 @@ func reset_timer(time):
 	timer.start(time)
 
 func check_combo_level():
+	#var combo_levels := {
+		#5: 0.08,
+		#10: 0.12,
+		#15: 0.15,
+		#20: 0.25,
+		#25: 0.30
+	#}
 	var combo_levels := {
-		5: 0.08,
-		10: 0.12,
+		10: 0.08,
 		15: 0.15,
-		20: 0.25,
-		25: 0.30
+		20: 0.20,
+		25: 0.25
 	}
 	if combo_level in combo_levels:
 		apply_random_buff()
 		show_combo()
 		change_combo_shader_parameter(combo_levels[combo_level])
+	elif combo_level == 5:
+		apply_random_buff()
 		
 func change_combo_shader_parameter(value: float):
 	var tw = create_tween()
@@ -108,6 +116,7 @@ func _on_timer_timeout():
 	double_items_buff_active = false
 	status_resistance_buff_active = false
 	PlayerManager.player.combo_multiplier = 1.0
+	available_buffs = all_combo_buffs.duplicate(true)
 	var current_smear = combo_shader.get_shader_parameter("smear")
 	var tw = create_tween()
 	tw.tween_property(combo_shader, "shader_parameter/smear", 0.0, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

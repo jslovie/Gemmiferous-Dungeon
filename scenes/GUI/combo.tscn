@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_citt0"]
 shader = ExtResource("1_xfdfg")
 shader_parameter/wiggle = 0.03
-shader_parameter/wiggle_speed = 30.0
+shader_parameter/wiggle_speed = 50.0
 shader_parameter/smear = 0.4
 shader_parameter/blur_samples = 3
 

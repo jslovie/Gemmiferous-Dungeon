@@ -478,6 +478,7 @@ func get_killed():
 	handle_tutorial()
 	LevelManager.level_done += 1
 	handle_progress()
+	Combo._on_timer_timeout()
 	#Shield Cap
 	if PlayerManager.player.shield > PlayerManager.player.shield_max:
 		PlayerManager.player.shield = PlayerManager.player.shield_max + PlayerManager.player.upgraded_shield_max
