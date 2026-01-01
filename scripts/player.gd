@@ -34,6 +34,7 @@ var shield_load: int = 3
 var shield_to_be_loaded: int = 0
 var piece_multiplier: float = 1.0
 var combo_multiplier: float = 1.0
+
 var spawned: bool = false
 var spins_left: int = 0
 

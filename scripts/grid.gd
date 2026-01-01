@@ -23,6 +23,8 @@ var state
 @onready var combo_timer = $TextureComboTimer
 @onready var explosion_l = $ExplosionL
 @onready var explosion_r = $ExplosionR
+@onready var buffs = $Buffs
+
 
 
 
@@ -78,6 +80,7 @@ var jitter_tweens := {}
 var base_position_combo_level := Vector2.ZERO
 var base_position_combo_level_description := Vector2.ZERO
 var base_position_combo_timer:= Vector2.ZERO
+var base_position_buffs := Vector2.ZERO
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -92,6 +95,7 @@ func _ready():
 	base_position_combo_level = combo_level.position
 	base_position_combo_level_description = combo_level_description.position
 	base_position_combo_timer = combo_timer.position
+	base_position_buffs = buffs.position
 	await get_tree().process_frame
 	zero_out_combo()
 	
@@ -349,6 +353,7 @@ func effect_match(effect_chance: int, effect_chance_change: int, effect_rarity: 
 
 func process_combo():
 	Combo.combo_level += 1
+	Combo.check_combo_level()
 	combo_level.text = str(Combo.combo_level)
 	if Combo.combo_level >= 20:
 		Combo.reset_timer(1)
@@ -372,9 +377,11 @@ func process_combo():
 		combo_level.add_theme_color_override("font_color", Color.DARK_ORANGE)
 		combo_level_description.add_theme_color_override("font_color", Color.DARK_ORANGE)
 		combo_timer.tint_progress = Color.DARK_ORANGE
+		buffs.modulate = Color.DARK_ORANGE
 		start_constant_jitter(combo_level, base_position_combo_level)
 		start_constant_jitter(combo_level_description, base_position_combo_level_description)
 		start_constant_jitter(combo_timer, base_position_combo_timer)
+		start_constant_jitter(buffs, base_position_buffs )
 	
 	elif Combo.combo_level == 10:
 		emit_signal("camera_effect", 30)
@@ -435,7 +442,7 @@ func zero_out_combo():
 		explosion_l.material = null
 		explosion_r.material = null
 		combo_level.text = "0"
-		combo_level.visible = false
+		combo_level.visible = true
 		combo_level_description.visible = false
 		combo_timer.visible = false
 		combo_level.add_theme_color_override("font_color", Color.WHITE)

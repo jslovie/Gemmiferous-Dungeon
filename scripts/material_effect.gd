@@ -106,42 +106,44 @@ func tween_material_mobile():
 
 
 func _on_area_2d_area_entered(area):
+	var item_multiplier: int = 1
+	if Combo.double_items_level == 1:
+		item_multiplier = randi_range(1,2)
+	elif Combo.double_items_level == 2:
+		item_multiplier = 2
+	
 	if area.is_in_group("Effect"):
 		if type == "Wood":
-			PlayerManager.player.wood += 1
+			PlayerManager.player.wood += 1 * item_multiplier
 		elif type == "Stone":
-			PlayerManager.player.stone += 1
+			PlayerManager.player.stone += 1 * item_multiplier
 		elif type == "Iron":
-			PlayerManager.player.iron += 1
+			PlayerManager.player.iron += 1 * item_multiplier
 		elif type == "Red Gem":
-			PlayerManager.player.red_gem += reward
+			PlayerManager.player.red_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Blue Gem":
-			PlayerManager.player.blue_gem += reward
+			PlayerManager.player.blue_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Green Gem":
-			PlayerManager.player.green_gem += reward
+			PlayerManager.player.green_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Yellow Gem":
-			PlayerManager.player.yellow_gem += reward
+			PlayerManager.player.yellow_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Red Gem T":
-			PlayerManager.player.red_gem += reward
+			PlayerManager.player.red_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Blue Gem T":
-			PlayerManager.player.blue_gem += reward
+			PlayerManager.player.blue_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Green Gem T":
-			PlayerManager.player.green_gem += reward
+			PlayerManager.player.green_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Yellow Gem T":
-			PlayerManager.player.yellow_gem += reward
+			PlayerManager.player.yellow_gem += reward * item_multiplier
 			LevelManager.spinning = false
 		elif type == "Coin T":
-			PlayerManager.player.coins += 1
-		
-			
-			
-			
-			
+			PlayerManager.player.coins += 1 * item_multiplier
+
 		queue_free()
