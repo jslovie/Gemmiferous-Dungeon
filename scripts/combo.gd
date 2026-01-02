@@ -40,21 +40,20 @@ func check_combo_level():
 		#25: 0.30
 	#}
 	var combo_levels := {
-		10: 0.08,
-		15: 0.15,
-		20: 0.20,
-		25: 0.25
+		15: 0.10,
+		20: 0.15,
+		25: 0.20
 	}
 	if combo_level in combo_levels:
 		apply_random_buff()
 		show_combo()
 		change_combo_shader_parameter(combo_levels[combo_level])
-	elif combo_level == 5:
+	elif combo_level == 5 or combo_level == 10:
 		apply_random_buff()
 		
 func change_combo_shader_parameter(value: float):
 	var tw = create_tween()
-	tw.tween_property(combo_shader, "shader_parameter/smear", value, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tw.tween_property(combo_shader, "shader_parameter/smear", value, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func apply_random_buff():
 	if available_buffs.size() == 0:
@@ -93,20 +92,15 @@ func apply_random_buff():
 			available_buffs.erase(buff)
 			apply_random_buff()
 
-
 	elif buff["name"] == "Status Resistance":
 		status_resistance_buff_active = true
 		available_buffs.erase(buff)
 
-		
-		
-		
 func hide_combo():
 	shader.visible = false
 	
 func show_combo():
 	shader.visible = true
-
 
 func _on_timer_timeout():
 	combo_level = 0
@@ -119,7 +113,8 @@ func _on_timer_timeout():
 	available_buffs = all_combo_buffs.duplicate(true)
 	var current_smear = combo_shader.get_shader_parameter("smear")
 	var tw = create_tween()
-	tw.tween_property(combo_shader, "shader_parameter/smear", 0.0, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tw.tween_property(combo_shader, "shader_parameter/smear", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tw.tween_callback(func():
 		hide_combo()
 	)
+	SignalBus.emit_signal("zero_out_combo")

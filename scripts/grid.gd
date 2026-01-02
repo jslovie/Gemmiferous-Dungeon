@@ -96,11 +96,12 @@ func _ready():
 	base_position_combo_level_description = combo_level_description.position
 	base_position_combo_timer = combo_timer.position
 	base_position_buffs = buffs.position
+	SignalBus.zero_out_combo.connect(_on_zero_out_combo)
 	await get_tree().process_frame
 	zero_out_combo()
 	
 func _process(_delta):
-	zero_out_combo()
+	#zero_out_combo()
 	check_combo_timer()
 	check_buffs()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
@@ -357,11 +358,11 @@ func process_combo():
 	Combo.check_combo_level()
 	combo_level.text = str(Combo.combo_level)
 	if Combo.combo_level >= 20:
-		Combo.reset_timer(1.25)
+		Combo.reset_timer(1.50)
 	elif Combo.combo_level >= 15:
-		Combo.reset_timer(2.25)
+		Combo.reset_timer(2.15)
 	elif Combo.combo_level > 0:
-		Combo.reset_timer(3)
+		Combo.reset_timer(2.75)
 	
 	if Combo.combo_level == 1:
 		combo_active = true
@@ -1083,4 +1084,6 @@ func _on_shuffle_pressed():
 		make_effect_shuffle(particle_effect, $Shuffle/Sprite2D.position, $Shuffle/TextureRect.modulate)
 		make_effect_shuffle(particle_effect, $Shuffle/Sprite2D.position, $Shuffle/TextureRect.modulate)
 		make_effect_shuffle(particle_effect, $Shuffle/Sprite2D.position, $Shuffle/TextureRect.modulate)
-	
+
+func _on_zero_out_combo():
+	zero_out_combo()

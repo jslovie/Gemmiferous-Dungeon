@@ -1892,10 +1892,10 @@ text = "x1"
 horizontal_alignment = 1
 
 [node name="ComboLevel" type="Label" parent="Grid"]
-offset_left = -631.0
-offset_top = 54.0
-offset_right = -503.0
-offset_bottom = 182.0
+offset_left = -549.0
+offset_top = 79.227
+offset_right = -421.0
+offset_bottom = 207.227
 rotation = -0.174533
 theme_override_fonts/font = ExtResource("58_evqaw")
 theme_override_font_sizes/font_size = 128
@@ -1904,10 +1904,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ComboLevelDescription" type="Label" parent="Grid"]
-offset_left = -642.591
-offset_top = 125.141
-offset_right = -418.591
-offset_bottom = 269.141
+offset_left = -560.591
+offset_top = 150.368
+offset_right = -336.591
+offset_bottom = 294.368
 rotation = -0.174533
 pivot_offset = Vector2(72, 72)
 size_flags_horizontal = 4
@@ -1918,7 +1918,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExplosionL" type="CPUParticles2D" parent="Grid"]
-position = Vector2(-584.591, 111.141)
+position = Vector2(-502.591, 136.368)
 rotation = -1.80653
 emitting = false
 amount = 20
@@ -1942,7 +1942,7 @@ scale_amount_max = 20.0
 color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="ExplosionR" type="CPUParticles2D" parent="Grid"]
-position = Vector2(-536.591, 99.1412)
+position = Vector2(-454.591, 124.368)
 rotation = 7.46658
 emitting = false
 amount = 20
@@ -1967,10 +1967,10 @@ color = Color(0.61522, 0, 0.109952, 1)
 
 [node name="TextureComboTimer" type="TextureProgressBar" parent="Grid"]
 material = SubResource("ShaderMaterial_a1o6r")
-offset_left = -608.591
-offset_top = 242.141
-offset_right = -441.591
-offset_bottom = 252.141
+offset_left = -526.591
+offset_top = 267.368
+offset_right = -359.591
+offset_bottom = 277.368
 rotation = -0.174533
 step = 0.01
 value = 100.0
