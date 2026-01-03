@@ -119,14 +119,38 @@ func update_relic_description():
 		
 
 func change_background():
-	if LevelManager.floor == 1:
-		$Desktop/Background/F1.visible = true
-	elif LevelManager.floor == 2:
-		$Desktop/Background/F2.visible = true
-	elif LevelManager.floor == 3:
-		$Desktop/Background/F3.visible = true
-	elif LevelManager.floor == 4:
-		$Desktop/Background/F4.visible = true
+	var floors = {
+		1: $Desktop/Background/F1,
+		2: $Desktop/Background/F2,
+		3: $Desktop/Background/F3,
+		4: $Desktop/Background/F4
+	}
+	for floor in floors.values():
+		floor.visible = false
+	
+	if LevelManager.floor in floors:
+		var active = floors[LevelManager.floor]
+		active.visible = true
+		
+		for room in active.get_children():
+			room.visible = false
+		var random_number = randi_range(0,active.get_child_count() -1)
+		active.get_child(random_number).visible = true
+	
+
+	#if LevelManager.floor == 1:
+		#$Desktop/Background/F1.visible = true
+		#var random_number = randi_range(1,3)
+		#if random_number == 1:
+			#$Desktop/Background/F1/Dungeon1.visible = true
+		#elif random_number == 2:
+			#$Desktop/Background/F1/Dungeon2.visible = true
+	#elif LevelManager.floor == 2:
+		#$Desktop/Background/F2.visible = true
+	#elif LevelManager.floor == 3:
+		#$Desktop/Background/F3.visible = true
+	#elif LevelManager.floor == 4:
+		#$Desktop/Background/F4.visible = true
 
 func update_treasures_bar():
 	$Desktop/Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
