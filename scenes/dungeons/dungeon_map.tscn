@@ -6105,6 +6105,17 @@ x Used for village repairs"
 autowrap_mode = 2
 text_overrun_behavior = 2
 
+[node name="RunTime" type="Label" parent="."]
+offset_left = 1650.0
+offset_top = 1.0
+offset_right = 1875.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 32
+text = "Run Time:
+00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="mouse_entered" from="Home" to="." method="_on_home_mouse_entered"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
 [connection signal="mouse_entered" from="Pause/Back" to="." method="_on_back_mouse_entered"]

@@ -97,6 +97,7 @@ func switch_to_game_window():
 		get_tree().change_scene_to_file("res://scenes/game_window.tscn")
 
 func main_menu():
+	RunStats.end_run()
 	SaveManager.remove_autosave()
 	SaveManager.remove_resources()
 	LevelManager.reset_map()
@@ -119,6 +120,7 @@ func main_menu():
 
 func back_to_village():
 	get_tree().paused = false
+	RunStats.end_run()
 	RelicManager.unset_ui()
 	VillageHudMobile.update_village_hud_mobile()
 	SaveManager.remove_autosave()
@@ -137,6 +139,7 @@ func back_to_village():
 
 
 func reset():
+	RunStats.end_run()
 	DungeonMap.hide_all_dungeons()
 	DungeonMapMobile.hide_all_dungeons()
 	SaveManager.remove_autosave()

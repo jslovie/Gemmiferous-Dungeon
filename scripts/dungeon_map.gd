@@ -14,6 +14,7 @@ var random_f3
 var random_f4
 
 @export var test_active : bool
+@onready var run_time = $RunTime
 
 func _ready():
 	LevelManager.show_map = false
@@ -28,6 +29,7 @@ func _process(_delta):
 	choose_map()
 	if LevelManager.in_tutorial_level:
 		$InfoPageDetails/BackLabel.text = "Play"
+	check_run_time()
 
 func choose_random_f():
 	random_f1 = randi_range(1,6)
@@ -147,6 +149,8 @@ func visual_update_stats():
 		$Stats/StatsNames/BaseAction3.visible = false
 		$Stats/StatsNumbers/BaseAction3Number. visible = false
 		
+func check_run_time():
+	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
 
 func _on_home_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)

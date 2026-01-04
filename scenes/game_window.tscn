@@ -2339,23 +2339,23 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Shield on match chance"
 
-[node name="RunTime" type="Label" parent="Grid"]
-offset_left = 883.0
-offset_top = 51.0
-offset_right = 1108.0
-offset_bottom = 144.0
-theme_override_font_sizes/font_size = 48
-text = "Run Score:
-000010"
+[node name="Score" type="Label" parent="Grid"]
+offset_left = -308.0
+offset_top = 43.0
+offset_right = -32.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("58_evqaw")
+theme_override_font_sizes/font_size = 64
+text = "00000010"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="Grid"]
-offset_left = 614.0
-offset_top = 49.0
-offset_right = 839.0
-offset_bottom = 142.0
-theme_override_font_sizes/font_size = 48
+[node name="RunTime" type="Label" parent="Grid"]
+offset_left = 980.0
+offset_top = 31.0
+offset_right = 1205.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 32
 text = "Run Time:
 00:00"
 horizontal_alignment = 1

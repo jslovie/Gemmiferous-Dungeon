@@ -24,6 +24,9 @@ var state
 @onready var explosion_l = $ExplosionL
 @onready var explosion_r = $ExplosionR
 @onready var buffs = $Buffs
+@onready var score = $Score
+@onready var run_time = $RunTime
+
 
 
 
@@ -97,6 +100,7 @@ func _ready():
 func _process(_delta):
 	#zero_out_combo()
 	check_combo_timer()
+	check_run_time()
 	check_buffs()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
 	if LevelManager.type == "Treasure":
@@ -461,7 +465,10 @@ func check_combo_timer():
 		return
 	combo_timer.max_value = timer.wait_time
 	combo_timer.value = timer.time_left
-		
+	
+func check_run_time():
+	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
+	
 func zero_out_combo():
 	if Combo.combo_level == 0 and combo_active:
 		stop_constant_jitter(combo_level, base_position_combo_level)
