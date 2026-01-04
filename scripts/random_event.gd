@@ -16,6 +16,7 @@ var health_gained
 
 func _ready():
 	$Continue.visible = false
+	change_background()
 	Music.play_music_random_event()
 	LevelManager.level_done += 1
 	EnemyManager.enemy.type = "Trap"
@@ -24,18 +25,24 @@ func _ready():
 	update_text()
 	$Control/Resolution.visible = false
 
-func _process(_delta):
-	change_background()
-
 func change_background():
-	if LevelManager.floor == 1:
-		$Background/F1.visible = true
-	elif LevelManager.floor == 2:
-		$Background/F2.visible = true
-	elif LevelManager.floor == 3:
-		$Background/F3.visible = true
-	elif LevelManager.floor == 4:
-		$Background/F4.visible = true
+	var floors = {
+		1: $Background/F1,
+		2: $Background/F2,
+		3: $Background/F3,
+		4: $Background/F4
+	}
+	for floor in floors.values():
+		floor.visible = false
+	
+	if LevelManager.floor in floors:
+		var active = floors[LevelManager.floor]
+		active.visible = true
+		
+		for room in active.get_children():
+			room.visible = false
+		var random_number = randi_range(0,active.get_child_count() -1)
+		active.get_child(random_number).visible = true
 
 func choose_random_room():
 	room = randi_range(1, 6)

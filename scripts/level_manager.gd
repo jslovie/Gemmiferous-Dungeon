@@ -6,30 +6,33 @@ var is_mobile = false
 var show_map = false
 var show_map_mobile = false
 
-var available_level = 1
-var level_done = 0
-var floor = 1
-var type : String
-var chosen_path = "ABC"
-var treasure_timesup = true
-var handle_winning = false
-var reset_complete_level = false
-var place : String
-var spinning = false
+var available_level: int = 1
+var level_done: int = 0
+var floor: int = 1
+var type: String
+var chosen_path: String = "ABC"
+var treasure_timesup: bool = true
+var handle_winning: bool = false
+var reset_complete_level: bool = false
+var place: String
+var spinning: bool = false
 
+var level_active: bool = true
 
+var timer_stop: bool = false
 
-var level_active = true
+var in_card_game: bool = false
+var in_pause: bool = false
+var in_game: bool = true
+var in_village: bool = false
+var in_tutorial_level: bool = false
+var tutorial_completed: bool = false
 
-
-var timer_stop = false
-
-var in_card_game = false
-var in_pause = false
-var in_game = true
-var in_village = false
-var in_tutorial_level = false
-var tutorial_completed = false
+var red_gem_gained: int = 0
+var blue_gem_gained: int = 0
+var green_gem_gained: int = 0
+var yellow_gem_gained: int = 0
+var coins_gained: int = 0
 
 func _ready():
 	check_version()
@@ -41,8 +44,6 @@ func check_version():
 		LevelManager.is_mobile = true
 	#LevelManager.is_mobile = true
 	LevelManager.is_demo = true
-
-
 
 func reset_map():
 	level_done = 0
@@ -61,9 +62,17 @@ func reset_tutorial():
 	in_tutorial_level = false
 	tutorial_completed = false
 
+func reset_treasure_gained():
+	red_gem_gained = 0
+	blue_gem_gained = 0
+	green_gem_gained = 0
+	yellow_gem_gained = 0
+	coins_gained = 0
+
 func switch_to_dungeon_map():
 	SaveManager.autosave()
 	RelicManager.unset_ui()
+	reset_treasure_gained()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	if is_mobile:
@@ -74,6 +83,7 @@ func switch_to_dungeon_map():
 func switch_to_dungeon_map_timeless():
 	SaveManager.autosave()
 	RelicManager.unset_ui()
+	reset_treasure_gained()
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	if is_mobile:
 		show_map_mobile = true

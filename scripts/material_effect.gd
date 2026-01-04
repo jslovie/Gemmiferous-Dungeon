@@ -104,13 +104,16 @@ func tween_material_mobile():
 	elif type == "Coin T":
 		create_tween_to_move(Vector2(89,1160),0.8)
 
-
 func _on_area_2d_area_entered(area):
 	var item_multiplier: int = 1
 	if Combo.double_items_level == 1:
 		item_multiplier = randi_range(1,2)
 	elif Combo.double_items_level == 2:
 		item_multiplier = 2
+	elif Combo.double_items_level == 3:
+		item_multiplier = randi_range(2,3)
+	elif Combo.double_items_level == 4:
+		item_multiplier = 3
 	
 	if area.is_in_group("Effect"):
 		if type == "Wood":
@@ -120,30 +123,48 @@ func _on_area_2d_area_entered(area):
 		elif type == "Iron":
 			PlayerManager.player.iron += 1 * item_multiplier
 		elif type == "Red Gem":
-			PlayerManager.player.red_gem += reward * item_multiplier
+			var red_gem_gained = reward * item_multiplier
+			PlayerManager.player.red_gem += red_gem_gained
+			LevelManager.red_gem_gained += red_gem_gained
 			LevelManager.spinning = false
 		elif type == "Blue Gem":
-			PlayerManager.player.blue_gem += reward * item_multiplier
+			var blue_gem_gained = reward * item_multiplier
+			PlayerManager.player.blue_gem += blue_gem_gained
+			LevelManager.blue_gem_gained += blue_gem_gained
 			LevelManager.spinning = false
 		elif type == "Green Gem":
-			PlayerManager.player.green_gem += reward * item_multiplier
+			var green_gem_gained = reward * item_multiplier
+			PlayerManager.player.green_gem += green_gem_gained
+			LevelManager.green_gem_gained += green_gem_gained
 			LevelManager.spinning = false
 		elif type == "Yellow Gem":
-			PlayerManager.player.yellow_gem += reward * item_multiplier
+			var yellow_gem_gained = reward * item_multiplier
+			PlayerManager.player.yellow_gem += yellow_gem_gained
+			LevelManager.yellow_gem_gained += yellow_gem_gained
 			LevelManager.spinning = false
 		elif type == "Red Gem T":
-			PlayerManager.player.red_gem += reward * item_multiplier
+			var red_gem_gained = reward * item_multiplier
+			PlayerManager.player.red_gem += red_gem_gained
+			LevelManager.red_gem_gained += red_gem_gained
 			LevelManager.spinning = false
 		elif type == "Blue Gem T":
-			PlayerManager.player.blue_gem += reward * item_multiplier
+			var blue_gem_gained = reward * item_multiplier
+			PlayerManager.player.blue_gem += blue_gem_gained
+			LevelManager.blue_gem_gained += blue_gem_gained
 			LevelManager.spinning = false
 		elif type == "Green Gem T":
-			PlayerManager.player.green_gem += reward * item_multiplier
+			var green_gem_gained = reward * item_multiplier
+			PlayerManager.player.green_gem += green_gem_gained
+			LevelManager.green_gem_gained += green_gem_gained
 			LevelManager.spinning = false
 		elif type == "Yellow Gem T":
-			PlayerManager.player.yellow_gem += reward * item_multiplier
+			var yellow_gem_gained = reward * item_multiplier
+			PlayerManager.player.yellow_gem += yellow_gem_gained
+			LevelManager.yellow_gem_gained += yellow_gem_gained
 			LevelManager.spinning = false
 		elif type == "Coin T":
-			PlayerManager.player.coins += 1 * item_multiplier
+			var coins_gained = 1 * item_multiplier
+			PlayerManager.player.coins += coins_gained
+			LevelManager.coins_gained += coins_gained
 
 		queue_free()

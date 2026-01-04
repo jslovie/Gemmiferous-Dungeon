@@ -7,12 +7,21 @@ extends CanvasLayer
 var all_combo_buffs := [
 	{"name": "Damage"},
 	{"name": "Double Items"},
-	{"name": "Status Resistance"}
+	{"name": "Status Resistance"},
+	{"name": "HP on match chance"},
+	{"name": "Shield on match chance"}
 ]
 
+
+var treasure_combo_buffs := [
+	{"name": "Double Items"},
+	{"name": "HP on match chance"},
+]
 var damage_buff_active: bool = false
 var double_items_buff_active: bool = false
 var status_resistance_buff_active: bool = false
+var hp_buff_active: bool = false
+var shield_buff_active: bool = false
 
 var available_buffs := []
 
@@ -25,8 +34,15 @@ var double_items_level: int = 0
 func _ready():
 	shader.material = combo_shader
 	change_combo_shader_parameter(0.0)
-	available_buffs = all_combo_buffs.duplicate(true)
+	setup_buffs()
 	hide_combo()
+
+func setup_buffs():
+	available_buffs = []
+	if LevelManager.type == "Treasure":
+		available_buffs = treasure_combo_buffs.duplicate(true)
+	else:
+		available_buffs = all_combo_buffs.duplicate(true)
 
 func reset_timer(time):
 	timer.start(time)
@@ -72,6 +88,8 @@ func apply_random_buff():
 	var double_items_buff_levels = {
 	1: 1.5,
 	2: 2.0,
+	3: 2.5,
+	4: 3.0
 	}
 	
 	if buff["name"] == "Damage":
@@ -87,15 +105,23 @@ func apply_random_buff():
 	elif buff["name"] == "Double Items":
 		double_items_buff_active = true
 		double_items_level += 1
-		if double_items_level == 3:
-			double_items_level = 2
+		if double_items_level == 5:
+			double_items_level = 4
 			available_buffs.erase(buff)
 			apply_random_buff()
 
 	elif buff["name"] == "Status Resistance":
 		status_resistance_buff_active = true
 		available_buffs.erase(buff)
-
+		
+	elif buff["name"] == "HP on match chance":
+		hp_buff_active = true
+		available_buffs.erase(buff)
+		
+	elif buff["name"] == "Shield on match chance":
+		shield_buff_active = true
+		available_buffs.erase(buff)
+		
 func hide_combo():
 	shader.visible = false
 	
@@ -109,6 +135,8 @@ func _on_timer_timeout():
 	damage_buff_active = false
 	double_items_buff_active = false
 	status_resistance_buff_active = false
+	hp_buff_active = false
+	shield_buff_active = false
 	PlayerManager.player.combo_multiplier = 1.0
 	available_buffs = all_combo_buffs.duplicate(true)
 	var current_smear = combo_shader.get_shader_parameter("smear")

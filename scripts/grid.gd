@@ -67,13 +67,6 @@ var controlling: bool = false
 #Shuffle
 var shuffles_left: int = 2
 
-#Treasure
-var red_gem_gained: int = 0
-var blue_gem_gained: int = 0
-var green_gem_gained: int = 0
-var yellow_gem_gained: int = 0
-var coins_gained: int = 0
-
 var combo_active: bool = true
 var jitter_tweens := {}
 
@@ -99,6 +92,7 @@ func _ready():
 	SignalBus.zero_out_combo.connect(_on_zero_out_combo)
 	await get_tree().process_frame
 	zero_out_combo()
+	Combo.setup_buffs()
 	
 func _process(_delta):
 	#zero_out_combo()
@@ -352,11 +346,26 @@ func effect_match(effect_chance: int, effect_chance_change: int, effect_rarity: 
 		emit_signal("camera_effect", camera_shake)
 
 
+func handle_match_buffs():
+	if Combo.hp_buff_active:
+		var chance = randi_range(1,3)
+		if chance == 1:
+			PlayerManager.player.heal(1)
+			SaveManager.autosave()
+	
+	if Combo.shield_buff_active:
+		var chance = randi_range(1,3)
+		if chance == 1:
+			PlayerManager.player.shield_up(1)
+			SaveManager.autosave()
 
 func process_combo():
 	Combo.combo_level += 1
 	Combo.check_combo_level()
 	combo_level.text = str(Combo.combo_level)
+	
+	handle_match_buffs()
+	
 	if Combo.combo_level >= 20:
 		Combo.reset_timer(1.50)
 	elif Combo.combo_level >= 15:
@@ -434,9 +443,16 @@ func check_buffs():
 	$Buffs/DoubleItems.visible = Combo.double_items_buff_active
 	if Combo.double_items_level == 1:
 		$Buffs/DoubleItems.text = "Double drops chance"
-	else:
+	elif Combo.double_items_level == 2:
 		$Buffs/DoubleItems.text = "Double drops"
+	elif Combo.double_items_level == 3:
+		$Buffs/DoubleItems.text = "Triple drops chance"
+	elif Combo.double_items_level == 4:
+		$Buffs/DoubleItems.text = "Triple drops"
+		
 	$Buffs/StatusResistance.visible = Combo.status_resistance_buff_active
+	$Buffs/HPHeal.visible = Combo.hp_buff_active
+	$Buffs/ShieldChance.visible = Combo.shield_buff_active
 		
 func check_combo_timer():
 	var timer = Combo.timer
@@ -572,23 +588,18 @@ func destroy_matched():
 						##Gems##
 						if all_pieces[i][j].color == "red":
 							red_gem_load += 1
-							red_gem_gained += 1
 							gem_match_sound(red_gem_effect,i,j)
 						elif all_pieces[i][j].color == "green":
 							green_gem_load += 1
-							green_gem_gained += 1
 							gem_match_sound(green_gem_effect,i,j)
 						elif all_pieces[i][j].color == "blue":
 							blue_gem_load += 1
-							blue_gem_gained += 1
 							gem_match_sound(blue_gem_effect,i,j)
 						elif all_pieces[i][j].color == "yellow":
 							yellow_gem_load += 1
-							yellow_gem_gained += 1
 							gem_match_sound(yellow_gem_effect,i,j)
 						elif all_pieces[i][j].color == "gold":
 							gold_load += 1
-							coins_gained += 1
 							gem_match_sound(coin_effect,i,j)
 
 						##Attacks##

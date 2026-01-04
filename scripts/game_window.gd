@@ -138,19 +138,6 @@ func change_background():
 		active.get_child(random_number).visible = true
 	
 
-	#if LevelManager.floor == 1:
-		#$Desktop/Background/F1.visible = true
-		#var random_number = randi_range(1,3)
-		#if random_number == 1:
-			#$Desktop/Background/F1/Dungeon1.visible = true
-		#elif random_number == 2:
-			#$Desktop/Background/F1/Dungeon2.visible = true
-	#elif LevelManager.floor == 2:
-		#$Desktop/Background/F2.visible = true
-	#elif LevelManager.floor == 3:
-		#$Desktop/Background/F3.visible = true
-	#elif LevelManager.floor == 4:
-		#$Desktop/Background/F4.visible = true
 
 func update_treasures_bar():
 	$Desktop/Material/HBoxContainer/Wood.text = ": " + str(PlayerManager.player.wood)
@@ -225,11 +212,11 @@ func update_rage():
 		%PlayerRage.visible = false
 
 func update_result():
-	$Desktop/Resolution/Result/Labels/RedGem.text = ": " + str($Grid.red_gem_gained)
-	$Desktop/Resolution/Result/Labels/BlueGem.text = ": " + str($Grid.blue_gem_gained)
-	$Desktop/Resolution/Result/Labels/GreenGem.text = ": " + str($Grid.green_gem_gained)
-	$Desktop/Resolution/Result/Labels/YellowGem.text = ": " + str($Grid.yellow_gem_gained)
-	$Desktop/Resolution/Result/Labels/Coins.text = ": " + str($Grid.coins_gained)
+	$Desktop/Resolution/Result/Labels/RedGem.text = ": " + str(LevelManager.red_gem_gained)
+	$Desktop/Resolution/Result/Labels/BlueGem.text = ": " + str(LevelManager.blue_gem_gained)
+	$Desktop/Resolution/Result/Labels/GreenGem.text = ": " + str(LevelManager.green_gem_gained)
+	$Desktop/Resolution/Result/Labels/YellowGem.text = ": " + str(LevelManager.yellow_gem_gained)
+	$Desktop/Resolution/Result/Labels/Coins.text = ": " + str(LevelManager.coins_gained)
 	
 
 func resolution_screen():
