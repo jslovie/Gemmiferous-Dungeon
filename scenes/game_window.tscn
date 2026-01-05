@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=4 uid="uid://dmxfdjf4ton2o"]
+[gd_scene load_steps=143 format=4 uid="uid://dmxfdjf4ton2o"]
 
 [ext_resource type="Script" path="res://scripts/game_window.gd" id="1_0rfml"]
 [ext_resource type="PackedScene" uid="uid://n43ef13rao3h" path="res://scenes/enemies/enemy.tscn" id="2_04xhg"]
@@ -64,6 +64,7 @@
 [ext_resource type="FontFile" uid="uid://b61y245342e58" path="res://GothicPixels.ttf" id="58_evqaw"]
 [ext_resource type="Shader" path="res://shaders/rainbow_font.gdshader" id="58_p8a4f"]
 [ext_resource type="Texture2D" uid="uid://j4573jxwvill" path="res://assets/particles and effects/progress bar most rounded progress red4-export.png" id="60_3wjri"]
+[ext_resource type="Texture2D" uid="uid://bqwh6cljr0ad5" path="res://assets/32rogues/pieces/bordernew2_long.png" id="61_7k4ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihir4"]
 texture = ExtResource("2_kiygc")
@@ -2350,11 +2351,30 @@ text = "00000010"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RunTime" type="Label" parent="Grid"]
-offset_left = 980.0
-offset_top = 31.0
-offset_right = 1205.0
-offset_bottom = 124.0
+[node name="RunTime" type="Control" parent="Grid"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RunTimeBorder" type="TextureRect" parent="Grid/RunTime"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 48.0
+offset_right = 1089.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+texture = ExtResource("61_7k4ee")
+
+[node name="RunTimeLabel" type="Label" parent="Grid/RunTime"]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 53.0
+offset_right = 1172.0
+offset_bottom = 117.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0.870588, 0.976471, 0.988235, 1)
 theme_override_font_sizes/font_size = 32
 text = "Run Time:
 00:00"

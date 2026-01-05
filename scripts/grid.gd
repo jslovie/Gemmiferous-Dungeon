@@ -25,10 +25,7 @@ var state
 @onready var explosion_r = $ExplosionR
 @onready var buffs = $Buffs
 @onready var score = $Score
-@onready var run_time = $RunTime
-
-
-
+@onready var run_time = $RunTime/RunTimeLabel
 
 
 #Effects

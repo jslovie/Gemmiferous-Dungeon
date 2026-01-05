@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://coy5ww7r67sk2"]
+[gd_scene load_steps=15 format=4 uid="uid://coy5ww7r67sk2"]
 
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="1_lms4r"]
 [ext_resource type="Script" path="res://scripts/random_event.gd" id="1_ss7xc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cpqr57jvspow8" path="res://scenes/GUI/player_died.tscn" id="4_ahxs1"]
 [ext_resource type="Texture2D" uid="uid://bnkp7i6jvltmo" path="res://assets/UI/UI4.png" id="5_mvwnp"]
 [ext_resource type="FontFile" uid="uid://bfq4w63uob47b" path="res://assets/alagard.ttf" id="5_nvkye"]
+[ext_resource type="Texture2D" uid="uid://bqwh6cljr0ad5" path="res://assets/32rogues/pieces/bordernew2_long.png" id="8_kecyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cj8de"]
 texture = ExtResource("2_trmf0")
@@ -708,6 +709,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RunTime" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 743.0
+offset_top = 27.0
+offset_right = 783.0
+offset_bottom = 67.0
+
+[node name="RunTimeBorder" type="TextureRect" parent="RunTime"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+offset_left = 1017.0
+offset_top = 49.0
+offset_right = 1092.0
+offset_bottom = 81.0
+scale = Vector2(2, 2)
+texture = ExtResource("8_kecyn")
+
+[node name="RunTimeLabel" type="Label" parent="RunTime"]
+offset_left = 1022.0
+offset_top = 53.0
+offset_right = 1172.0
+offset_bottom = 117.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0.870588, 0.976471, 0.988235, 1)
+theme_override_font_sizes/font_size = 32
+text = "Run Time:
+00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 

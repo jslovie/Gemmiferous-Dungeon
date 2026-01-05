@@ -14,7 +14,7 @@ var random_f3
 var random_f4
 
 @export var test_active : bool
-@onready var run_time = $RunTime
+@onready var run_time = $RunTime/RunTimeLabel
 
 func _ready():
 	LevelManager.show_map = false

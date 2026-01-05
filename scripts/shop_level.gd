@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var relic_handler = %RelicHandler
+@onready var run_time = $RunTime/RunTimeLabel
 
 const RESOURCE_PATH = "user://resources/"
 
@@ -63,6 +64,10 @@ func _process(_delta):
 	check_in_tile_remove()
 	update_healthbars()
 	update_reroll_price()
+	check_run_time()
+
+func check_run_time():
+	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
 
 func change_background():
 	var floors = {

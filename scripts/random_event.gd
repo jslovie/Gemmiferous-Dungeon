@@ -13,6 +13,8 @@ var health_gained
 
 @export var test : bool
 @export var test_level : int
+@onready var run_time = $RunTime/RunTimeLabel
+
 
 func _ready():
 	$Continue.visible = false
@@ -24,6 +26,12 @@ func _ready():
 	choose_random_room()
 	update_text()
 	$Control/Resolution.visible = false
+
+func _process(delta):
+	check_run_time()
+
+func check_run_time():
+	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
 
 func change_background():
 	var floors = {

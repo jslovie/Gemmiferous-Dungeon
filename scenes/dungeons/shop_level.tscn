@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bskgvhuabvsbl"]
+[gd_scene load_steps=45 format=4 uid="uid://bskgvhuabvsbl"]
 
 [ext_resource type="Texture2D" uid="uid://cbd7sikanj1cn" path="res://assets/32rogues/tiles.png" id="1_00vle"]
 [ext_resource type="Script" path="res://scripts/shop_level.gd" id="1_rku67"]
@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://by4x5trjed6ca" path="res://scripts/level_shop/pieces/crossbow.tres" id="24_j8q61"]
 [ext_resource type="Resource" uid="uid://cos5sib17l8t3" path="res://scripts/level_shop/pieces/flail.tres" id="25_lfrdf"]
 [ext_resource type="Resource" uid="uid://3rmd3iqiq6dl" path="res://scripts/level_shop/pieces/sickle.tres" id="26_8ouap"]
+[ext_resource type="Texture2D" uid="uid://bqwh6cljr0ad5" path="res://assets/32rogues/pieces/bordernew2_long.png" id="35_praet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t78xh"]
 texture = ExtResource("1_00vle")
@@ -983,6 +984,36 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_gdsat")
 text = "100"
 horizontal_alignment = 1
+
+[node name="RunTime" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 743.0
+offset_top = 27.0
+offset_right = 783.0
+offset_bottom = 67.0
+
+[node name="RunTimeBorder" type="TextureRect" parent="RunTime"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+offset_left = 1017.0
+offset_top = 49.0
+offset_right = 1092.0
+offset_bottom = 81.0
+scale = Vector2(2, 2)
+texture = ExtResource("35_praet")
+
+[node name="RunTimeLabel" type="Label" parent="RunTime"]
+offset_left = 1022.0
+offset_top = 53.0
+offset_right = 1172.0
+offset_bottom = 117.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0.870588, 0.976471, 0.988235, 1)
+theme_override_font_sizes/font_size = 32
+text = "Run Time:
+00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="RemoveTiles" to="." method="_on_remove_tiles_mouse_entered"]
 [connection signal="pressed" from="RemoveTiles" to="." method="_on_remove_tiles_pressed"]

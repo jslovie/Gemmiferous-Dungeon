@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bmk20yax6xshm"]
+[gd_scene load_steps=40 format=4 uid="uid://bmk20yax6xshm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_map.gd" id="1_7n5ek"]
 [ext_resource type="PackedScene" uid="uid://ck1wk0h13dqbh" path="res://scenes/dungeons/level_selection.tscn" id="1_fovlk"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://s1oh0c0s6a5b" path="res://assets/32rogues/pieces/repeat_v3.png" id="34_fr2sp"]
 [ext_resource type="Texture2D" uid="uid://cpml5sjt27qwj" path="res://assets/32rogues/pieces/pause.png" id="35_hsdee"]
 [ext_resource type="Texture2D" uid="uid://cto6o7oms0ywt" path="res://assets/32rogues/pieces/home.png" id="36_r5iby"]
+[ext_resource type="Texture2D" uid="uid://d3tx1vd78wdiy" path="res://assets/32rogues/Icons/Timer.png" id="37_sa6uc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i43qi"]
 texture = ExtResource("5_bqnj5")
@@ -6105,11 +6106,29 @@ x Used for village repairs"
 autowrap_mode = 2
 text_overrun_behavior = 2
 
-[node name="RunTime" type="Label" parent="."]
-offset_left = 1650.0
-offset_top = 1.0
-offset_right = 1875.0
-offset_bottom = 94.0
+[node name="RunTime" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 667.0
+offset_top = -32.0
+offset_right = 707.0
+offset_bottom = 8.0
+
+[node name="RunTimeBorder" type="TextureRect" parent="RunTime"]
+offset_left = 1014.0
+offset_top = 48.0
+offset_right = 1089.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+texture = ExtResource("37_sa6uc")
+
+[node name="RunTimeLabel" type="Label" parent="RunTime"]
+offset_left = 1031.0
+offset_top = 57.0
+offset_right = 1181.0
+offset_bottom = 121.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.729412, 0.639216, 0.407843, 1)
 theme_override_font_sizes/font_size = 32
 text = "Run Time:
 00:00"

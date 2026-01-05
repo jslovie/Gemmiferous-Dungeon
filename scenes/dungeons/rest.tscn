@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://d0cv2g3t5lba5"]
+[gd_scene load_steps=29 format=4 uid="uid://d0cv2g3t5lba5"]
 
 [ext_resource type="Script" path="res://scripts/rest.gd" id="1_7uvpb"]
 [ext_resource type="PackedScene" uid="uid://coxtxpj8ay5h5" path="res://scenes/player.tscn" id="2_2gcf1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://i3eeeht3uke4" path="res://assets/32rogues/material/wood.png" id="11_kf30m"]
 [ext_resource type="Texture2D" uid="uid://lqlk1lbr7h6e" path="res://assets/32rogues/material/stone.png" id="12_r2hs0"]
 [ext_resource type="Texture2D" uid="uid://b7k04kdav7ru6" path="res://assets/32rogues/material/iron2.png" id="13_v3laq"]
+[ext_resource type="Texture2D" uid="uid://bqwh6cljr0ad5" path="res://assets/32rogues/pieces/bordernew2_long.png" id="23_vx583"]
 [ext_resource type="Texture2D" uid="uid://cvrsgi3uh7itl" path="res://assets/32rogues/material/wood outline.png" id="25_ekhmd"]
 [ext_resource type="Texture2D" uid="uid://bplxrseksa6qk" path="res://assets/32rogues/material/stone outline.png" id="26_npsls"]
 [ext_resource type="Texture2D" uid="uid://pumbtix4u7n" path="res://assets/32rogues/material/iron2 outline.png" id="27_1ko82"]
@@ -175,6 +176,7 @@ tile_map_data = PackedByteArray("AAD9/wEAAAAGABAAAAAEAAIAAAAHABAAAAD//wIAAAAEABE
 tile_set = SubResource("TileSet_j13jj")
 
 [node name="F2" type="Node2D" parent="Background"]
+visible = false
 
 [node name="Dungeon1" type="TileMapLayer" parent="Background/F2"]
 position = Vector2(12, -28)
@@ -732,6 +734,36 @@ position = Vector2(-16, 6.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gems/HBoxContainer/YellowGem/YellowGemArea2D"]
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_uyjxq")
+
+[node name="RunTime" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 743.0
+offset_top = 27.0
+offset_right = 783.0
+offset_bottom = 67.0
+
+[node name="RunTimeBorder" type="TextureRect" parent="RunTime"]
+modulate = Color(0.368627, 0.380392, 0.67451, 1)
+offset_left = 1017.0
+offset_top = 49.0
+offset_right = 1092.0
+offset_bottom = 81.0
+scale = Vector2(2, 2)
+texture = ExtResource("23_vx583")
+
+[node name="RunTimeLabel" type="Label" parent="RunTime"]
+offset_left = 1022.0
+offset_top = 53.0
+offset_right = 1172.0
+offset_bottom = 117.0
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0.870588, 0.976471, 0.988235, 1)
+theme_override_font_sizes/font_size = 32
+text = "Run Time:
+00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Control/Panel/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Panel/VBoxContainer/Button" to="." method="_on_button_mouse_exited"]

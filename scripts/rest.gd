@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var run_time = $RunTime/RunTimeLabel
 
 func _ready():
 	change_background()
@@ -14,6 +15,10 @@ func _ready():
 func _process(_delta):
 	update_healthbars()
 	check_in_tutorial()
+	check_run_time()
+	
+func check_run_time():
+	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
 	
 func update_healthbars():
 	#Player healthbar
