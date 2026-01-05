@@ -28,6 +28,7 @@ var state
 @onready var run_time = $RunTime/RunTimeLabel
 
 
+
 #Effects
 var particle_effect: PackedScene = preload("res://scenes/pieces/particle.tscn")
 var wood_effect: PackedScene = preload("res://scenes/GUI/wood_effect.tscn")
@@ -72,8 +73,9 @@ var jitter_tweens := {}
 
 var base_position_combo_level := Vector2.ZERO
 var base_position_combo_level_description := Vector2.ZERO
-var base_position_combo_timer:= Vector2.ZERO
+var base_position_combo_timer := Vector2.ZERO
 var base_position_buffs := Vector2.ZERO
+var base_position_score := Vector2.ZERO
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -85,10 +87,7 @@ func _ready():
 	all_pieces = make_2d_array()
 	clone_array = make_2d_array()
 	spawn_pieces()
-	base_position_combo_level = combo_level.position
-	base_position_combo_level_description = combo_level_description.position
-	base_position_combo_timer = combo_timer.position
-	base_position_buffs = buffs.position
+	set_base_positions()
 	SignalBus.zero_out_combo.connect(_on_zero_out_combo)
 	await get_tree().process_frame
 	zero_out_combo()
@@ -98,6 +97,7 @@ func _process(_delta):
 	#zero_out_combo()
 	check_combo_timer()
 	check_run_time()
+	check_score()
 	check_buffs()
 	%ShuffleLabel.text = "x" + str(shuffles_left)
 	if LevelManager.type == "Treasure":
@@ -369,10 +369,19 @@ func process_combo():
 	
 	if Combo.combo_level >= 20:
 		Combo.reset_timer(1.50)
+		RunStats.add_score(50)
 	elif Combo.combo_level >= 15:
 		Combo.reset_timer(2.15)
+		RunStats.add_score(25)
+	elif Combo.combo_level >= 10:
+		Combo.reset_timer(2.75)
+		RunStats.add_score(20)
+	elif Combo.combo_level >= 5:
+		Combo.reset_timer(2.75)
+		RunStats.add_score(15)
 	elif Combo.combo_level > 0:
 		Combo.reset_timer(2.75)
+		RunStats.add_score(10)
 	
 	if Combo.combo_level == 1:
 		combo_active = true
@@ -390,10 +399,12 @@ func process_combo():
 		combo_level_description.add_theme_color_override("font_color", Color.DARK_ORANGE)
 		combo_timer.tint_progress = Color.DARK_ORANGE
 		buffs.modulate = Color.DARK_ORANGE
+		score.add_theme_color_override("font_color", Color.DARK_ORANGE)
 		start_constant_jitter(combo_level, base_position_combo_level)
 		start_constant_jitter(combo_level_description, base_position_combo_level_description)
 		start_constant_jitter(combo_timer, base_position_combo_timer)
 		start_constant_jitter(buffs, base_position_buffs )
+		start_constant_jitter(score, base_position_score)
 	
 	elif Combo.combo_level == 10:
 		emit_signal("camera_effect", 30)
@@ -405,6 +416,7 @@ func process_combo():
 		combo_level_description.add_theme_color_override("font_color", Color.DARK_RED)
 		combo_timer.tint_progress = Color.DARK_RED
 		buffs.modulate = Color.DARK_RED
+		score.add_theme_color_override("font_color", Color.DARK_RED)
 		
 	elif Combo.combo_level == 15:
 		emit_signal("camera_effect", 35)
@@ -417,7 +429,8 @@ func process_combo():
 		combo_timer.material = shader
 		for child in buffs.get_children():
 			child.material = shader
-
+		score.material = shader
+		
 	elif Combo.combo_level == 20:
 		emit_signal("camera_effect", 40)
 		explosion_l.restart()
@@ -431,6 +444,7 @@ func process_combo():
 	play_tweens(combo_level)
 	play_tweens(combo_level_description)
 	play_tweens(combo_timer)
+	play_tweens(score)
 	
 func play_tweens(object):
 	combo_flash(object)
@@ -465,15 +479,27 @@ func check_combo_timer():
 	
 func check_run_time():
 	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
-	
+
+func check_score():
+	score.text = RunStats.score_text
+
+func set_base_positions():
+	base_position_combo_level = combo_level.position
+	base_position_combo_level_description = combo_level_description.position
+	base_position_combo_timer = combo_timer.position
+	base_position_buffs = buffs.position
+	base_position_score = score.position
+
 func zero_out_combo():
 	if Combo.combo_level == 0 and combo_active:
 		stop_constant_jitter(combo_level, base_position_combo_level)
 		stop_constant_jitter(combo_level_description, base_position_combo_level_description)
 		stop_constant_jitter(combo_timer, base_position_combo_timer)
+		stop_constant_jitter(score, base_position_score)
 		combo_level.material = null
 		combo_level_description.material = null
 		combo_timer.material = null
+		score.material = null
 		explosion_l.material = null
 		explosion_r.material = null
 		combo_level.text = "0"
@@ -482,6 +508,7 @@ func zero_out_combo():
 		combo_timer.visible = false
 		combo_level.add_theme_color_override("font_color", Color.WHITE)
 		combo_level_description.add_theme_color_override("font_color", Color.WHITE)
+		score.add_theme_color_override("font_color", Color.WHITE)
 		combo_timer.tint_progress = Color.WHITE
 		for child in buffs.get_children():
 			child.material = null

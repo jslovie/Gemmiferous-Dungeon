@@ -6,6 +6,12 @@ var run_timer: String = "00:00"
 var time_in_secs: int = 0
 var total_time_in_secs: int = 0
 
+var score: int = 0
+var score_text: String = "00000000"
+const SCORE_DIGITS: int = 8
+
+
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	timer_setup()
@@ -13,11 +19,13 @@ func _ready():
 ## Start tracking run stats
 func start_run():
 	timer_start()
+	update_score()
 	
 ## End tracking run stats
 func end_run():
 	timer_stop()
 	timer_reset()
+	score_reset()
 
 func timer_setup():
 	add_child(timer)
@@ -44,3 +52,14 @@ func _on_timer_timeout():
 	var s = total_time_in_secs - m * 60
 	
 	run_timer = '%02d:%02d' % [m, s]
+
+func add_score(value: int):
+	score += value
+	update_score()
+
+func update_score():
+	score_text = str(score).pad_zeros(SCORE_DIGITS)
+
+func score_reset():
+	score = 0
+	score_text = "00000000"

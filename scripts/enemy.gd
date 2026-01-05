@@ -548,6 +548,8 @@ func handle_progress():
 	if OS.has_feature("Demo"):
 		if LevelManager.available_level == 24:
 			PlayerManager.player.player_won = true
+	if LevelManager.available_level == 24: ###################TEST##################
+			PlayerManager.player.player_won = true
 	if LevelManager.available_level == 51:
 		PlayerManager.player.player_won = true
 

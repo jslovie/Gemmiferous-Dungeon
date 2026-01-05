@@ -22,20 +22,20 @@ func _ready():
 	change_background()
 	update_treasures_bar()
 	update_total_treasures_bar()
-	%Resolution.visible = false
-	$Desktop/Chest.visible = false
 	setup_treasure()
 	update_healthbars()
 	update_shields()
 	update_rage()
+	%Resolution.visible = false
+	$Desktop/Chest.visible = false
 	$Desktop/EnemyTypeLabel/Timer.timer_start()
 	$Desktop/Hud.visible = false
 	$SlotMachine.visible = false
 	$Desktop/MaterialTotal.visible = false
 	$Desktop/GemsTotal.visible = false
 	wait_time()
-	PlayerManager.player.shield += PlayerManager.player.upgraded_shield_init
 	load_relics()
+	PlayerManager.player.shield += PlayerManager.player.upgraded_shield_init
 	RelicManager.set_ui($Desktop/RelicName,$Desktop/RelicDescription)
 	
 func _process(_delta):

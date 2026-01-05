@@ -2968,6 +2968,7 @@ level = 3
 path = "D"
 
 [node name="F2" type="Node2D" parent="Dungeons"]
+visible = false
 
 [node name="DungeonF2_1" type="Node2D" parent="Dungeons/F2"]
 unique_name_in_owner = true
@@ -6115,6 +6116,7 @@ offset_right = 707.0
 offset_bottom = 8.0
 
 [node name="RunTimeBorder" type="TextureRect" parent="RunTime"]
+layout_mode = 0
 offset_left = 1014.0
 offset_top = 48.0
 offset_right = 1089.0
@@ -6123,6 +6125,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("37_sa6uc")
 
 [node name="RunTimeLabel" type="Label" parent="RunTime"]
+layout_mode = 0
 offset_left = 1031.0
 offset_top = 57.0
 offset_right = 1181.0

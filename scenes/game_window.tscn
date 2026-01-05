@@ -2341,10 +2341,12 @@ theme_override_font_sizes/font_size = 32
 text = "Shield on match chance"
 
 [node name="Score" type="Label" parent="Grid"]
-offset_left = -308.0
-offset_top = 43.0
-offset_right = -32.0
-offset_bottom = 136.0
+offset_left = -310.0
+offset_top = 75.0
+offset_right = -34.0
+offset_bottom = 168.0
+rotation = -0.174533
+pivot_offset = Vector2(138, 46)
 theme_override_fonts/font = ExtResource("58_evqaw")
 theme_override_font_sizes/font_size = 64
 text = "00000010"
