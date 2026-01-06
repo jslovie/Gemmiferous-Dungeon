@@ -722,6 +722,7 @@ offset_bottom = 67.0
 
 [node name="RunTimeBorder" type="TextureRect" parent="RunTime"]
 modulate = Color(0.368627, 0.380392, 0.67451, 1)
+layout_mode = 0
 offset_left = 1017.0
 offset_top = 49.0
 offset_right = 1092.0
@@ -730,6 +731,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("8_kecyn")
 
 [node name="RunTimeLabel" type="Label" parent="RunTime"]
+layout_mode = 0
 offset_left = 1022.0
 offset_top = 53.0
 offset_right = 1172.0

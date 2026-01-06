@@ -35,6 +35,7 @@ func _ready():
 	$Desktop/GemsTotal.visible = false
 	wait_time()
 	load_relics()
+	Combo.setup_buffs()
 	PlayerManager.player.shield += PlayerManager.player.upgraded_shield_init
 	RelicManager.set_ui($Desktop/RelicName,$Desktop/RelicDescription)
 	

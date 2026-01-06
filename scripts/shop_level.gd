@@ -7,9 +7,9 @@ const RESOURCE_PATH = "user://resources/"
 
 var remove_dict = {}
 
-var reroll_price = 25
-var heal10_price = 30
-var heal25_price = 50
+var reroll_price = 10
+var heal10_price = 15
+var heal25_price = 30
 
 #Effects
 var particle_effect = preload("res://scenes/pieces/particle.tscn")
@@ -57,6 +57,7 @@ func _ready():
 	choose_relic()
 	choose_piece()
 	spawn_remove_tiles()
+	update_heal_price()
 
 func _process(_delta):
 	update_treasures_bar()
@@ -356,6 +357,10 @@ func not_enough_heal():
 func update_reroll_price():
 	$RerollCostLabel.text = str(reroll_price)
 
+func update_heal_price():
+	$Heal10/Heal10CostLabel.text = str(heal10_price)
+	$Heal25/Heal25CostLabel.text = str(heal25_price)
+
 func _on_reroll_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
 
@@ -367,7 +372,7 @@ func _on_reroll_pressed():
 		choose_relic()
 		choose_piece()
 		spawn_remove_tiles()
-		reroll_price += 15
+		reroll_price += 10
 	else:
 		not_enough()
 

@@ -23,7 +23,8 @@ var combat_music_elite_4 = preload("res://audio/music/music/Level3(loop)(100).wa
 var boss_music = preload("res://audio/music/music/BossFight(loop).wav")
 var game_over_music = preload("res://audio/music/music/GameOverCountdown(loop)(120).wav")
 
-
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func dim_music():
 	var current_db = AudioServer.get_bus_volume_db(1)

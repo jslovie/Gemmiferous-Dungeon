@@ -335,30 +335,36 @@ func damage_4_match(multiplier: float, attack_magic_color: Color, attack_damage:
 	if camera_shake != 0:
 		emit_signal("camera_effect", camera_shake)
 
-func effect_match(effect_chance: int, effect_chance_change: int, effect_rarity: int, effect_rarity_nothing: int, has_effect: bool, multiplier: float, is_damage: bool, camera_shake: int):
-	effect_chance = effect_chance_change
-	effect_rarity = effect_chance
-	effect_rarity_nothing = 100 - effect_chance
-	PlayerManager.player.has_bow_poison = true
+func effect_match(effect: Dictionary, chance_change: int, multiplier: float, is_damage: bool, camera_shake: int):
+	effect["chance"] = chance_change
+	effect["rarities"]["nothing"] = 100 - effect["chance"]
+	var keys = effect["rarities"].keys()
+	for key in keys:
+		if key != "nothing":
+			effect["rarities"][key] = effect["chance"]
+			
 	PlayerManager.player.piece_multiplier = multiplier
+	
 	if is_damage:
 		PlayerManager.player.damage2_attack()
+		
 	if camera_shake != 0:
 		emit_signal("camera_effect", camera_shake)
 
-
 func handle_match_buffs():
 	if Combo.hp_buff_active:
-		var chance = randi_range(1,3)
-		if chance == 1:
-			PlayerManager.player.heal(1)
-			SaveManager.autosave()
-	
+		if Combo.hp_level > 0:
+			var chance: int = randi_range(1,5 - Combo.hp_level)
+			if chance == 1:
+				PlayerManager.player.heal(1)
+				SaveManager.autosave()
+			
 	if Combo.shield_buff_active:
-		var chance = randi_range(1,3)
-		if chance == 1:
-			PlayerManager.player.shield_up(1)
-			SaveManager.autosave()
+		if Combo.shield_level > 0:
+			var chance: int = randi_range(1,5 - Combo.shield_level)
+			if chance == 1:
+				PlayerManager.player.shield_up(1)
+				SaveManager.autosave()
 
 func process_combo():
 	Combo.combo_level += 1
@@ -390,7 +396,7 @@ func process_combo():
 		combo_timer.visible = true
 		
 	elif Combo.combo_level == 5:
-		emit_signal("camera_effect", 20)
+		emit_signal("camera_effect", 10)
 		explosion_l.color = Color.DARK_ORANGE
 		explosion_r.color = Color.DARK_ORANGE
 		explosion_l.restart()
@@ -407,7 +413,7 @@ func process_combo():
 		start_constant_jitter(score, base_position_score)
 	
 	elif Combo.combo_level == 10:
-		emit_signal("camera_effect", 30)
+		emit_signal("camera_effect", 20)
 		explosion_l.color = Color.DARK_RED
 		explosion_r.color = Color.DARK_RED
 		explosion_l.restart()
@@ -419,7 +425,7 @@ func process_combo():
 		score.add_theme_color_override("font_color", Color.DARK_RED)
 		
 	elif Combo.combo_level == 15:
-		emit_signal("camera_effect", 35)
+		emit_signal("camera_effect", 25)
 		explosion_l.material = shader
 		explosion_r.material = shader
 		explosion_l.restart()
@@ -432,14 +438,20 @@ func process_combo():
 		score.material = shader
 		
 	elif Combo.combo_level == 20:
-		emit_signal("camera_effect", 40)
+		emit_signal("camera_effect", 30)
 		explosion_l.restart()
 		explosion_r.restart()
 		
 	elif Combo.combo_level == 25:
-		emit_signal("camera_effect", 45)
+		emit_signal("camera_effect", 35)
 		explosion_l.restart()
 		explosion_r.restart()
+		
+	elif Combo.combo_level == 30:
+		emit_signal("camera_effect", 40)
+		explosion_l.restart()
+		explosion_r.restart()
+		
 		
 	play_tweens(combo_level)
 	play_tweens(combo_level_description)
@@ -459,15 +471,30 @@ func check_buffs():
 	if Combo.double_items_level == 1:
 		$Buffs/DoubleItems.text = "Double drops chance"
 	elif Combo.double_items_level == 2:
-		$Buffs/DoubleItems.text = "Double drops"
+		$Buffs/DoubleItems.text = "Double drops chance+"
 	elif Combo.double_items_level == 3:
-		$Buffs/DoubleItems.text = "Triple drops chance"
+		$Buffs/DoubleItems.text = "Double drops chance++"
 	elif Combo.double_items_level == 4:
-		$Buffs/DoubleItems.text = "Triple drops"
+		$Buffs/DoubleItems.text = "Double drops"
+		
+	$Buffs/HPHeal.visible = Combo.hp_buff_active
+	if Combo.hp_level == 1:
+		$Buffs/HPHeal.text = "HP on match chance"
+	elif Combo.hp_level == 2:
+		$Buffs/HPHeal.text = "HP on match chance+"
+	elif Combo.hp_level == 3:
+		$Buffs/HPHeal.text = "HP on match chance++"
+
+	$Buffs/ShieldChance.visible = Combo.shield_buff_active
+	if Combo.shield_level == 1:
+		$Buffs/ShieldChance.text = "Shield on match chance"
+	elif Combo.shield_level == 2:
+		$Buffs/ShieldChance.text = "Shield on match chance+"
+	elif Combo.shield_level == 3:
+		$Buffs/ShieldChance.text = "Shield on match chance++"
 		
 	$Buffs/StatusResistance.visible = Combo.status_resistance_buff_active
-	$Buffs/HPHeal.visible = Combo.hp_buff_active
-	$Buffs/ShieldChance.visible = Combo.shield_buff_active
+
 		
 func check_combo_timer():
 	var timer = Combo.timer
@@ -815,31 +842,37 @@ func destroy_matched():
 		##Bow update##
 		if bow_load == 3:
 			process_combo()
-			effect_match(PlayerManager.player.poison_chance,20,PlayerManager.player.poison_rarities["poison"],PlayerManager.player.poison_rarities["nothing"],PlayerManager.player.has_bow_poison,1,true,0)
+			PlayerManager.player.has_bow_poison = true
+			effect_match(PlayerManager.player.poison_rarities,20,1.0,true,0)
 			bow_animation()
 			PlayerManager.player.check_for_poison_arrow = false
 		elif bow_load == 4:
 			process_combo()
-			effect_match(PlayerManager.player.poison_chance,50,PlayerManager.player.poison_rarities["poison"],PlayerManager.player.poison_rarities["nothing"],PlayerManager.player.has_bow_poison,1.5,true,10)
+			PlayerManager.player.has_bow_poison = true
+			effect_match(PlayerManager.player.poison_rarities,50,1.5,true,10)
 			bow_animation()
 			PlayerManager.player.check_for_poison_arrow = false
 		elif bow_load >= 5:
 			process_combo()
-			effect_match(PlayerManager.player.poison_chance,100,PlayerManager.player.poison_rarities["poison"],PlayerManager.player.poison_rarities["nothing"],PlayerManager.player.has_bow_poison,2,true,20)
+			PlayerManager.player.has_bow_poison = true
+			effect_match(PlayerManager.player.poison_rarities,100,2.0,true,20)
 			bow_animation()
 			PlayerManager.player.check_for_poison_arrow = false
 		##Invisibility update##
 		if invisibility_load == 3:
 			process_combo()
-			effect_match(PlayerManager.player.invisibility_chance,20,PlayerManager.player.invisibility_rarities["invisibility"],PlayerManager.player.invisibility_rarities["nothing"],PlayerManager.player.has_invisibility,1,false,0)
+			PlayerManager.player.has_invisibility = true
+			effect_match(PlayerManager.player.invisibility_rarities,20,1.0,false,0)
 			PlayerManager.player.handle_invisibility()
 		elif invisibility_load == 4:
 			process_combo()
-			effect_match(PlayerManager.player.invisibility_chance,50,PlayerManager.player.invisibility_rarities["invisibility"],PlayerManager.player.invisibility_rarities["nothing"],PlayerManager.player.has_invisibility,1.5,false,10)
+			PlayerManager.player.has_invisibility = true
+			effect_match(PlayerManager.player.invisibility_rarities,50,1.5,false,10)
 			PlayerManager.player.handle_invisibility()
 		elif invisibility_load >= 5:
 			process_combo()
-			effect_match(PlayerManager.player.invisibility_chance,100,PlayerManager.player.invisibility_rarities["invisibility"],PlayerManager.player.invisibility_rarities["nothing"],PlayerManager.player.has_invisibility,2,false,20)
+			PlayerManager.player.has_invisibility = true
+			effect_match(PlayerManager.player.invisibility_rarities,100,2.0,false,20)
 			PlayerManager.player.handle_invisibility()
 		######################################################################
 		##Barbarian##
@@ -864,15 +897,18 @@ func destroy_matched():
 		##Mace update##
 		if mace_load == 3:
 			process_combo()
-			effect_match(PlayerManager.player.mace_stunt_chance,10,PlayerManager.player.mace_stunt_rarities["stunt"],PlayerManager.player.mace_stunt_rarities["nothing"],PlayerManager.player.has_mace,1,true,0)
+			PlayerManager.player.has_mace = true
+			effect_match(PlayerManager.player.mace_stunt_rarities,10,1.0,true,0)
 			mace_animation()
 		elif mace_load == 4:
 			process_combo()
-			effect_match(PlayerManager.player.mace_stunt_chance,25,PlayerManager.player.mace_stunt_rarities["stunt"],PlayerManager.player.mace_stunt_rarities["nothing"],PlayerManager.player.has_mace,1.5,true,10)
+			PlayerManager.player.has_mace = true
+			effect_match(PlayerManager.player.mace_stunt_rarities,25,1.5,true,10)
 			mace_animation()
 		elif mace_load >= 5:
 			process_combo()
-			effect_match(PlayerManager.player.mace_stunt_chance,50,PlayerManager.player.mace_stunt_rarities["stunt"],PlayerManager.player.mace_stunt_rarities["nothing"],PlayerManager.player.has_mace,2,true,20)
+			PlayerManager.player.has_mace = true
+			effect_match(PlayerManager.player.mace_stunt_rarities,100,2.0,true,20)
 			mace_animation()
 		#Rage update
 		if rage_load == 3:

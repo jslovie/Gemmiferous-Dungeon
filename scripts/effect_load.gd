@@ -1,7 +1,7 @@
 extends Node2D
 
 
-func material_effect(effect, position):
+func material_effect(effect, pos):
 	var current = effect.instantiate()
-	current.position = position
+	current.position = pos
 	add_child(current)

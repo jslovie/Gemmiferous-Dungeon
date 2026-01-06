@@ -30,6 +30,8 @@ var combo_time_left: float = 2.5
 
 var combo_damage_level: int = 0
 var double_items_level: int = 0
+var hp_level: int = 0
+var shield_level: int = 0
 
 func _ready():
 	shader.material = combo_shader
@@ -40,9 +42,9 @@ func _ready():
 func setup_buffs():
 	available_buffs = []
 	if LevelManager.type == "Treasure":
-		available_buffs = treasure_combo_buffs.duplicate(true)
+		available_buffs = treasure_combo_buffs
 	else:
-		available_buffs = all_combo_buffs.duplicate(true)
+		available_buffs = all_combo_buffs
 
 func reset_timer(time):
 	timer.start(time)
@@ -56,15 +58,15 @@ func check_combo_level():
 		#25: 0.30
 	#}
 	var combo_levels := {
-		15: 0.10,
-		20: 0.15,
-		25: 0.20
+		20: 0.10,
+		25: 0.15,
+		30: 0.20
 	}
 	if combo_level in combo_levels:
 		apply_random_buff()
 		show_combo()
 		change_combo_shader_parameter(combo_levels[combo_level])
-	elif combo_level == 5 or combo_level == 10:
+	elif combo_level == 5 or combo_level == 10 or combo_level == 15:
 		apply_random_buff()
 		
 func change_combo_shader_parameter(value: float):
@@ -85,12 +87,7 @@ func apply_random_buff():
 	4: 1.75,
 	5: 2.0
 	}
-	var double_items_buff_levels = {
-	1: 1.5,
-	2: 2.0,
-	3: 2.5,
-	4: 3.0
-	}
+
 	
 	if buff["name"] == "Damage":
 		damage_buff_active = true
@@ -116,11 +113,19 @@ func apply_random_buff():
 		
 	elif buff["name"] == "HP on match chance":
 		hp_buff_active = true
-		available_buffs.erase(buff)
-		
+		hp_level += 1
+		if hp_level == 4:
+			hp_level = 3
+			available_buffs.erase(buff)
+			apply_random_buff()
+			
 	elif buff["name"] == "Shield on match chance":
 		shield_buff_active = true
-		available_buffs.erase(buff)
+		shield_level += 1
+		if shield_level == 4:
+			shield_level = 3
+			available_buffs.erase(buff)
+			apply_random_buff()
 		
 func hide_combo():
 	shader.visible = false
@@ -132,6 +137,8 @@ func _on_timer_timeout():
 	combo_level = 0
 	combo_damage_level = 0
 	double_items_level = 0
+	hp_level = 0
+	shield_level = 0
 	damage_buff_active = false
 	double_items_buff_active = false
 	status_resistance_buff_active = false
@@ -139,7 +146,6 @@ func _on_timer_timeout():
 	shield_buff_active = false
 	PlayerManager.player.combo_multiplier = 1.0
 	available_buffs = all_combo_buffs.duplicate(true)
-	var current_smear = combo_shader.get_shader_parameter("smear")
 	var tw = create_tween()
 	tw.tween_property(combo_shader, "shader_parameter/smear", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tw.tween_callback(func():

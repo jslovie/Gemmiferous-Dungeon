@@ -106,15 +106,11 @@ func tween_material_mobile():
 
 func _on_area_2d_area_entered(area):
 	var item_multiplier: int = 1
-	if Combo.double_items_level == 1:
-		item_multiplier = randi_range(1,2)
-	elif Combo.double_items_level == 2:
-		item_multiplier = 2
-	elif Combo.double_items_level == 3:
-		item_multiplier = randi_range(2,3)
-	elif Combo.double_items_level == 4:
-		item_multiplier = 3
-	
+	if Combo.double_items_level > 0:
+		var chance: int = randi_range(1,5 - Combo.double_items_level)
+		if chance == 1:
+			item_multiplier = 2
+
 	if area.is_in_group("Effect"):
 		if type == "Wood":
 			PlayerManager.player.wood += 1 * item_multiplier

@@ -72,6 +72,7 @@ func reset_treasure_gained():
 func switch_to_dungeon_map():
 	SaveManager.autosave()
 	RelicManager.unset_ui()
+	DungeonMap.update_settings()
 	reset_treasure_gained()
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
@@ -83,6 +84,7 @@ func switch_to_dungeon_map():
 func switch_to_dungeon_map_timeless():
 	SaveManager.autosave()
 	RelicManager.unset_ui()
+	DungeonMap.update_settings()
 	reset_treasure_gained()
 	get_tree().change_scene_to_file("res://scenes/dungeons/between_level.tscn")
 	if is_mobile:

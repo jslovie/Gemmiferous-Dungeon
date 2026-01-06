@@ -9,6 +9,15 @@ var music: float
 var sfx: float
 
 func _ready():
+	initial_setup()
+
+#func _process(_delta):
+	##check_CRT_button()
+	##check_mode()
+	##check_resolution()
+	##check_mobile_version()
+
+func initial_setup():
 	load_settings()
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -16,12 +25,6 @@ func _ready():
 	check_mode()
 	check_resolution()
 	check_CRT_button()
-
-#func _process(_delta):
-	##check_CRT_button()
-	##check_mode()
-	##check_resolution()
-	##check_mobile_version()
 
 func save_settings():
 	var config := ConfigFile.new()

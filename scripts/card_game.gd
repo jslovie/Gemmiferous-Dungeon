@@ -82,7 +82,7 @@ func _ready():
 	$Result.visible = false
 	$NotEnough.visible = false
 	
-func _process(delta):
+func _process(_delta):
 	update_materials()
 	update_treasures()
 	set_bet_win_amounts()

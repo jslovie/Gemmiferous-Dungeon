@@ -60,7 +60,7 @@ func _process(_delta):
 	update_action_timer()
 	trigger_scale()
 	%Label.text = str(round(time.time_left))
-	if status == "dead":
+	if status == "dead" or PlayerManager.player.status == "dead":
 		stop_action()
 	if LevelManager.type == "Random Event":
 		stop_action()
@@ -72,7 +72,7 @@ func take_action():
 
 func reset_matches_to_action():
 	scale_tween()
-	matches_to_action = randi_range(match_to_action.x,match_to_action.y)
+	matches_to_action = randi_range(int(match_to_action.x),int(match_to_action.y))
 
 func trigger_scale():
 	var t = int(ceil(%ActionTimer.time_left - 0.5))
@@ -232,7 +232,7 @@ func Type_check():
 		
 		
 func change_delay():
-	var random_delay = randi_range(action_delay.x, action_delay.y)
+	var random_delay = randi_range(int(action_delay.x), int(action_delay.y))
 	%ActionTimer.start(round(random_delay) + 0.4)
 
 func update_action_timer():
@@ -326,7 +326,7 @@ func inflict_damage():
 		crit = false
 		crit_amount = 0
 		
-	var random_damage = randi_range(damage.x,damage.y)
+	var random_damage = randi_range(int(damage.x), int(damage.y))
 	if is_weak == true:
 		random_damage = random_damage - (random_damage * 0.3)
 	var random_damage_crit = random_damage + (random_damage * crit_amount)
@@ -363,7 +363,7 @@ func heal():
 	if health >= max_health:
 		health = max_health
 
-func take_damage(damage, random_base_action):
+func take_damage(damage_taken, random_base_action):
 	if state == alive:
 		#Visual knockback
 		var tween_scale = create_tween()
@@ -383,7 +383,7 @@ func take_damage(damage, random_base_action):
 			%AnimationPlayer.play("hit_red")
 		
 		#Apply statuses
-		var total_damage = damage
+		var total_damage = damage_taken
 		if is_vulnerable:
 			total_damage = total_damage * 1.3
 		if RelicManager.has_gem_necklace:
@@ -412,7 +412,7 @@ func take_damage(damage, random_base_action):
 			health = 0
 			get_killed()
 
-func take_action_damage(damage, action):
+func take_action_damage(damage_taken, action):
 	if state == alive:
 		#Visual knockback
 		var tween_scale = create_tween()
@@ -448,7 +448,7 @@ func take_action_damage(damage, action):
 			is_electric = true
 		
 		#Apply statuses
-		var total_damage = damage
+		var total_damage = damage_taken
 		if is_vulnerable:
 			total_damage = total_damage * 1.3
 		if RelicManager.has_gem_necklace:
@@ -458,7 +458,7 @@ func take_action_damage(damage, action):
 
 		#Logic behind getting hit
 		var health_attack = 0
-		for d in range(0, damage):
+		for d in range(0, damage_taken):
 			if shield > 0:
 				shield -= 1
 			else:

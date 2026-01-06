@@ -64,8 +64,8 @@ var has_mace: bool = false
 var mace_stunt_chance: int = 10
 var stun_time = 3
 var mace_stunt_rarities = {
-	"nothing" : 90,
-	"stunt" : mace_stunt_chance,
+	"chance": 0,
+	"rarities": {"nothing": 100, "stun": 0}
 }
 
 var has_invisibility: bool = false
@@ -73,8 +73,8 @@ var is_invisible: bool = false
 var invisibility_chance: int = 20
 var invisibility_timer = 6
 var invisibility_rarities = {
-	"nothing" : 80,
-	"invisibility" : invisibility_chance,
+	"chance": 0,
+	"rarities": {"nothing": 100, "invisibility": 0}
 }
 
 var has_bow_poison: bool = false
@@ -83,8 +83,8 @@ var poison_chance: int = 20
 
 var check_for_poison_arrow: bool = false
 var poison_rarities = {
-	"nothing" : 80,
-	"poison" : poison_chance,
+	"chance": 0,
+	"rarities": {"nothing": 100, "poison": 0}
 }
 
 var action_rarities = {
@@ -174,6 +174,7 @@ func print_test():
 		
 	
 func _ready():
+	rng.randomize()
 	state = alive
 	PlayerManager.player = self
 	update_player_texture()
@@ -251,12 +252,10 @@ func damage2_attack():
 		EnemyManager.enemy.take_damage(action2, random_base_action2)
 		if has_mace == true:
 			var mace_action = get_mace_stunt_rng()
-			print(mace_action)
 			if mace_action == "stunt":
 				EnemyManager.enemy.stunt(stun_time)
 		if has_bow_poison == true:
 			var bow_action = get_poison_rng()
-			print(bow_action)
 			if bow_action == "poison":
 				check_for_poison_arrow = true
 				poison_active = true
@@ -336,41 +335,33 @@ func damage_thorned_necklace():
 	EnemyManager.enemy.take_damage(15,15)
 	receive_damage(5)
 
+func weighted_pick(rarities: Dictionary):
+	var total := 0
+	for key in rarities.keys():
+		total += rarities[key]
+
+	var roll := rng.randi_range(1, total)
+
+	var sorted_keys := rarities.keys()
+	sorted_keys.sort()
+
+	for key in sorted_keys:
+		roll -= rarities[key]
+		if roll <= 0:
+			return key
+
+	return sorted_keys[-1]
+
 func get_mace_stunt_rng():
-	rng.randomize()
-	var weigted_sum = 0
-	for n in mace_stunt_rarities:
-		weigted_sum += mace_stunt_rarities[n]
-	var chance = rng.randi_range(0, weigted_sum)
-	for n in mace_stunt_rarities:
-		if chance <= mace_stunt_rarities[n]:
-			return n
-		chance -= mace_stunt_rarities[n]
+	return weighted_pick(mace_stunt_rarities.rarities)
 
 func get_invisibility_rng():
-	rng.randomize()
-	var weigted_sum = 0
-	for n in invisibility_rarities:
-		weigted_sum += invisibility_rarities[n]
-	var chance = rng.randi_range(0, weigted_sum)
-	for n in invisibility_rarities:
-		if chance <= invisibility_rarities[n]:
-			return n
-		chance -= invisibility_rarities[n]
-
+	return weighted_pick(invisibility_rarities.rarities)
+	
 func get_poison_rng():
-	rng.randomize()
-	var weigted_sum = 0
-	for n in poison_rarities:
-		weigted_sum += poison_rarities[n]
-	var chance = rng.randi_range(0, weigted_sum)
-	for n in poison_rarities:
-		if chance <= poison_rarities[n]:
-			return n
-		chance -= poison_rarities[n]
+	return weighted_pick(poison_rarities.rarities)
 
 func action_rng():
-	rng.randomize()
 	var weigted_sum = 0
 	for n in action_rarities:
 		weigted_sum += action_rarities[n]
@@ -387,10 +378,7 @@ func handle_invisibility():
 			var tween_invisibility = create_tween()
 			tween_invisibility.tween_property($Character, "modulate:a", 0.10, 0.5)
 			is_invisible = true
-			#await get_tree().create_timer(invisibility_timer).timeout
-			#var tween_invisibility_back = create_tween()
-			#tween_invisibility_back.tween_property($Character, "modulate:a", 1.0, 0.5)
-			#is_invisible = false
+
 
 func became_visible():
 	var tween_invisibility_back = create_tween()
@@ -570,6 +558,7 @@ func receive_damage(damage):
 
 func get_killed():
 	Sfx.play_SFX(Sfx.death)
+	RunStats.timer_stop()
 	set_treasure_died()
 	LevelManager.reset_map()
 	EnemyManager.enemy.player_died()

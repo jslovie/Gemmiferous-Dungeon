@@ -15,6 +15,8 @@ var random_f4
 
 @export var test_active : bool
 @onready var run_time = $RunTime/RunTimeLabel
+@onready var settings = $Pause/Settings
+
 
 func _ready():
 	LevelManager.show_map = false
@@ -151,6 +153,9 @@ func visual_update_stats():
 		
 func check_run_time():
 	run_time.text = "Run Time:" + "\n" + str(RunStats.run_timer)
+
+func update_settings():
+	settings.initial_setup()
 
 func _on_home_mouse_entered():
 	Sfx.play_SFX(Sfx.in_game_hover)
