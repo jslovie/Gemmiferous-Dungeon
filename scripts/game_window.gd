@@ -22,7 +22,6 @@ func _ready():
 	change_background()
 	update_treasures_bar()
 	update_total_treasures_bar()
-	setup_treasure()
 	update_healthbars()
 	update_shields()
 	update_rage()
@@ -33,6 +32,7 @@ func _ready():
 	$SlotMachine.visible = false
 	$Desktop/MaterialTotal.visible = false
 	$Desktop/GemsTotal.visible = false
+	setup_treasure()
 	wait_time()
 	load_relics()
 	Combo.setup_buffs()
@@ -50,8 +50,10 @@ func _process(_delta):
 	update_treasures_bar()
 	update_relic_description()
 	update_action_timer()
-	trigger_scale()
 	update_pauses()
+	if LevelManager.type == "Treasure":
+		trigger_scale()
+
 	
 func load_relics():
 	var dir = DirAccess.open(RESOURCE_PATH)
@@ -80,6 +82,10 @@ func trigger_scale():
 		scale_tween()
 
 func scale_tween():
+	var node = $Desktop/Chest/ActionTimer
+	if node == null:
+		return
+	
 	var tween = create_tween()
 	tween.tween_property($Desktop/Chest/ActionTimer,"scale",Vector2(0.15,0.15),0.05).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property($Desktop/Chest/ActionTimer,"scale",Vector2(0.10,0.10),0.05).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
